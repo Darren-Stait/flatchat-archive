@@ -234,6 +234,43 @@
       }
     }
 
+    /* Charity logo between players */
+    .charity-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      max-width: 220px;
+      margin: 0 10px;
+    }
+
+    .charity-logo {
+      width: 180px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: contain;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      background: #ffffff;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .charity-logo:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+
+    @media (max-width: 768px) {
+      .charity-container {
+        order: 0;
+        margin: 12px 0;
+      }
+
+      .charity-logo {
+        width: 140px;
+      }
+    }
+
     /* FOOTER */
     footer {
       background-color: #25b6c4;
@@ -342,11 +379,17 @@
   <main>
     <div class="players-header">
       <div class="player-info">
-        <img src="icons/player1.jpg" alt="Player 1" class="player-photo" />
+        <img src="icons/aaron-darts.png" alt="Aaron" class="player-photo" />
         <h2 class="player-name">Aaron 'The Goat' Turnbull</h2>
       </div>
+      <div class="charity-container">
+        <a href="https://dartsmarathon.macmillan.org.uk/teams/the-flat-chat" target="_blank" title="Support the Charity">
+          <img src="icons/macmillan.webp" alt="Charity Logo" class="charity-logo" />
+        </a>
+      </div>
+
       <div class="player-info">
-        <img src="icons/player2.jpg" alt="Player 2" class="player-photo" />
+        <img src="icons/heggie-darts.png" alt="Heggie" class="player-photo" />
         <h2 class="player-name">Heggie 'The Heg Hog' Heggerson</h2>
       </div>
     </div>
