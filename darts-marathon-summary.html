@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flatchat Darts Marathon</title>
+  <link rel="icon" type="image/x-icon" href="icons/flatchat-small.webp">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #25b6c4;
+      color: #fff;
+      padding: 8px 25px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header-logo {
+      max-width: 520px;
+      height: auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header-logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #f2b632;
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .header-logo {
+        max-width: 90%;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px;
+        font-size: 1rem;
+      }
+    }
+
+    main {
+      flex: 1;
+      width: 90%;
+      max-width: 1400px;
+      margin: 20px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .players-header {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 40px;
+      gap: 20px;
+    }
+
+    .player-info {
+      text-align: center;
+      flex: 1;
+    }
+
+    .player-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #25b6c4;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .player-name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #25b6c4;
+      margin: 0;
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .stats-table th {
+      background-color: #25b6c4;
+      color: #fff;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .stats-table td {
+      padding: 12px;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 0.95rem;
+    }
+
+    .stats-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .stats-table tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .stat-label {
+      font-weight: 600;
+      color: #555;
+    }
+
+    .stat-value {
+      text-align: right;
+      font-weight: 700;
+      color: #25b6c4;
+    }
+
+    .points-legend {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px;
+      background: #f3f7f8;
+      border-radius: 8px;
+      min-width: 180px;
+    }
+
+    .legend-item {
+      text-align: center;
+      padding: 10px;
+      background: #25b6c4;
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .legend-item:hover {
+      background: #1e9aa6;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .legend-item.active {
+      background: #f2b632;
+      box-shadow: 0 4px 10px rgba(242, 182, 50, 0.4);
+    }
+
+    @media (max-width: 1000px) {
+      .stats-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .points-legend {
+        order: -1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        min-width: auto;
+      }
+
+      .legend-item {
+        flex: 1;
+        min-width: 120px;
+      }
+
+      .players-header {
+        flex-direction: column;
+      }
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #25b6c4;
+      color: #fff;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer p {
+      margin: 0 0 8px;
+      line-height: 1.4;
+    }
+
+    .social-links {
+      margin-top: 6px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 8px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.1);
+    }
+
+    .social-links img {
+      width: 36px;
+      height: 36px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-random {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    #randomMomentBtn {
+      background: #f5f5f5;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #randomMomentBtn:hover {
+      transform: rotate(15deg) scale(1.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #randomMomentBtn img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .footer-random {
+        position: static;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+      }
+
+      #randomMomentBtn img {
+        width: 42px;
+        height: 42px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="index.html">
+        <img src="icons/flatchat_banner.jpg" alt="Flatchat Archive Logo" class="header-logo" />
+      </a>
+      <nav>
+        <a href="aaron.html">Aaron 'The Goat' Turnbull</a>
+        <a href="heggie.html">Heggie 'The Hog' Heggerson</a>
+        <a href="calum.html">Calum 'The Lobster' Porter</a>
+        <a href="jacob.html">Jacob 'Speccy' Murray</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="players-header">
+      <div class="player-info">
+        <img src="icons/player1.jpg" alt="Player 1" class="player-photo" />
+        <h2 class="player-name">Aaron 'The Goat' Turnbull</h2>
+      </div>
+      <div class="player-info">
+        <img src="icons/player2.jpg" alt="Player 2" class="player-photo" />
+        <h2 class="player-name">Heggie 'The Heg Hog' Heggerson</h2>
+      </div>
+    </div>
+
+    <div class="stats-container">
+      <table class="stats-table">
+        <thead>
+          <tr>
+            <th colspan="2">Aaron Statistics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="stat-label">Total Points</td>
+            <td class="stat-value">33,284</td>
+          </tr>
+          <tr>
+            <td class="stat-label">Visits</td>
+            <td class="stat-value">860</td>
+          </tr>
+          <tr>
+            <td class="stat-label">Total Thrown Darts</td>
+            <td class="stat-value">2580</td>
+          </tr>
+          <tr>
+            <td class="stat-label">Average Score</td>
+            <td class="stat-value">38.70</td>
+          </tr>
+          <tr>
+            <td class="stat-label">Highest Score</td>
+            <td class="stat-value">160</td>
+          </tr>
+          <tr>
+            <td class="stat-label">Lowest Score</td>
+            <td class="stat-value">0 (Left Handed)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">100+ Scores</td>
+            <td class="stat-value">17</td>
+          </tr>
+          <tr>
+            <td class="stat-label">140+ Scores</td>
+            <td class="stat-value">4</td>
+          </tr>
+          <tr>
+            <td class="stat-label">180s</td>
+            <td class="stat-value">0</td>
+          </tr>
+          <tr>
+            <td class="stat-label" colspan="2" style="background-color: #e8f4f5; font-weight: 700; text-align: center; padding: 10px;">Most Common Individual Darts</td>
+          </tr>
+          <tr>
+            <td class="stat-label">1st Most Common </td>
+            <td class="stat-value">20 (715)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">2nd Most Common </td>
+            <td class="stat-value">1 (473)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">3rd Most Common </td>
+            <td class="stat-value">5 (425)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">4th Most Common </td>
+            <td class="stat-value">18 (216)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">5th Most Common </td>
+            <td class="stat-value">0 (126)</td>
+          </tr>
+          <tr>
+            <td class="stat-label" colspan="2" style="background-color: #e8f4f5; font-weight: 700; text-align: center; padding: 10px;">Most Common 3-Dart Scores</td>
+          </tr>
+          <tr>
+            <td class="stat-label">1st Most Common </td>
+            <td class="stat-value">26 (50)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">2nd Most Common </td>
+            <td class="stat-value">41 (40)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">3rd Most Common </td>
+            <td class="stat-value">45 (38)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">4th Most Common </td>
+            <td class="stat-value">22 (33)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">5th Most Common </td>
+            <td class="stat-value">24 (28)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="points-legend">
+        <div class="legend-item active" data-range="total">Total</div>
+        <div class="legend-item" data-range="0-10k">0-10k Points</div>
+        <div class="legend-item" data-range="10k-20k">10k-20k Points</div>
+        <div class="legend-item" data-range="20k-30k">20k-30k Points</div>
+        <div class="legend-item" data-range="30k-40k">30k-40k Points</div>
+        <div class="legend-item" data-range="40k-50k">40k-50k Points</div>
+        <div class="legend-item" data-range="50k-60k">50k-60k Points</div>
+        <div class="legend-item" data-range="60k-70k">60k-70k Points</div>
+        <div class="legend-item" data-range="70k-80k">70k-80k Points</div>
+        <div class="legend-item" data-range="80k-90k">80k-90k Points</div>
+        <div class="legend-item" data-range="90k-100k">90k-100k Points</div>
+      </div>
+
+      <table class="stats-table">
+        <thead>
+          <tr>
+            <th colspan="2">Heggie Statistics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="stat-label">Total Points</td>
+            <td class="stat-value">65,786</td>
+          </tr>
+          <tr>
+            <td class="stat-label">Visits</td>
+            <td class="stat-value">871</td>
+          </tr>
+          <tr>
+            <td class="stat-label">Total Thrown Darts</td>
+            <td class="stat-value">2613</td>
+          </tr>
+          <tr>
+            <td class="stat-label">Average Score</td>
+            <td class="stat-value">75.52</td>
+          </tr>
+          <tr>
+            <td class="stat-label">Highest Score</td>
+            <td class="stat-value">180</td>
+          </tr>
+          <tr>
+            <td class="stat-label">Lowest Score</td>
+            <td class="stat-value">0 (Missed Double Start)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">100+ Scores</td>
+            <td class="stat-value">264</td>
+          </tr>
+          <tr>
+            <td class="stat-label">140+ Scores</td>
+            <td class="stat-value">57</td>
+          </tr>
+          <tr>
+            <td class="stat-label">180s</td>
+            <td class="stat-value">11</td>
+          </tr>
+          <tr>
+            <td class="stat-label" colspan="2" style="background-color: #e8f4f5; font-weight: 700; text-align: center; padding: 10px;">Most Common Individual Darts</td>
+          </tr>
+          <tr>
+            <td class="stat-label">1st Most Common </td>
+            <td class="stat-value">20 (1203)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">2nd Most Common </td>
+            <td class="stat-value">60 (505)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">3rd Most Common </td>
+            <td class="stat-value">5 (172)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">4th Most Common </td>
+            <td class="stat-value">19 (131)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">5th Most Common </td>
+            <td class="stat-value">1 (121)</td>
+          </tr>
+          <tr>
+            <td class="stat-label" colspan="2" style="background-color: #e8f4f5; font-weight: 700; text-align: center; padding: 10px;">Most Common 3-Dart Scores</td>
+          </tr>
+          <tr>
+            <td class="stat-label">1st Most Common </td>
+            <td class="stat-value">100 (149)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">2nd Most Common </td>
+            <td class="stat-value">60 (102)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">3rd Most Common </td>
+            <td class="stat-value">140 (57)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">4th Most Common </td>
+            <td class="stat-value">45 (48)</td>
+          </tr>
+          <tr>
+            <td class="stat-label">5th Most Common </td>
+            <td class="stat-value">41 (36)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <p>Please support the boys at all the links below.</p>
+    <div class="social-links">
+      <a href="https://www.tiktok.com/@theflatchat" target="_blank"><img src="icons/tiktok.png" alt="TikTok"></a>
+      <a href="https://www.instagram.com/theflatchatofficial/" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
+      <a href="https://www.youtube.com/@theflatchat" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
+      <a href="https://www.youtube.com/@FlatChatDarts" target="_blank"><img src="icons/darts.png" alt="Darts YouTube"></a>
+      <a href="https://www.thesoccershopdirect.co.uk/product-category/the-flat-chat/" target="_blank"><img src="icons/merch.png" alt="Merch"></a>
+      <a href="https://www.cameo.com/theflatchat" target="_blank"><img src="icons/cameo.png" alt="Cameo"></a>
+      <a href="https://x.com/theflatchatx" target="_blank"><img src="icons/x.png" alt="X"></a>
+      <a href="https://www.threads.com/@theflatchatofficial" target="_blank"><img src="icons/threads.png" alt="Threads"></a>
+    </div>
+    <p>Site made by Darren 'Unico'</p>
+    <p>Thanks to the following members from the Members-Only Discord for top-tier flatchat moment contributions: Maule13, FinnAllen</p>
+    <div class="footer-random">
+      <button id="randomMomentBtn">
+        <img src="icons/randomiser.png" alt="Random Moment" />
+      </button>
+    </div>
+  </footer>
+
+  <script>
+    // Sample data structure - replace with your actual data
+    const aaronStats = {
+      'total': {
+        totalPoints: '33,284',
+        visits: '860',
+        thrownDarts: '2580',
+        average: '38.70',
+        highest: '160',
+        lowest: '0 (Left Handed)',
+        scores100: '17',
+        scores140: '4',
+        scores180: '0',
+        commonDart1: '20 (715)',
+        commonDart2: '1 (473)',
+        commonDart3: '5 (425)',
+        commonDart4: '18 (216)',
+        commonDart5: '0 (126)',
+        commonScore1: '26 (50)',
+        commonScore2: '41 (40)',
+        commonScore3: '45 (38)',
+        commonScore4: '22 (33)',
+        commonScore5: '24 (28)'
+      },
+      '0-10k': {
+        totalPoints: '3,227',
+        visits: '88',
+        thrownDarts: '264',
+        average: '37.23',
+        highest: '132',
+        lowest: '3',
+        scores100: '1',
+        scores140: '0',
+        scores180: '0',
+        commonDart1: '20 (68)',
+        commonDart2: '5 (49)',
+        commonDart3: '1 (37)',
+        commonDart4: '18 (27)',
+        commonDart5: '15 (14)',
+        commonScore1: '45 (7)',
+        commonScore2: '40 (5)',
+        commonScore3: '43 (5)',
+        commonScore4: '7 (4)',
+        commonScore5: '38 (4)'
+      },
+      '10k-20k': {
+        totalPoints: '3,258',
+        visits: '82',
+        thrownDarts: '246',
+        average: '39.73',
+        highest: '100',
+        lowest: '3',
+        scores100: '2',
+        scores140: '0',
+        scores180: '0',
+        commonDart1: '20 (61)',
+        commonDart2: '1 (58)',
+        commonDart3: '5 (49)',
+        commonDart4: '18 (22)',
+        commonDart5: '60 (11)',
+        commonScore1: '41 (10)',
+        commonScore2: '26 (5)',
+        commonScore3: '24 (4)',
+        commonScore4: '7 (3)',
+        commonScore5: '20 (3)'
+      },
+      '20k-30k': {
+        totalPoints: '3,814',
+        visits: '93',
+        thrownDarts: '279',
+        average: '41.01',
+        highest: '100',
+        lowest: '2',
+        scores100: '4',
+        scores140: '0',
+        scores180: '0',
+        commonDart1: '20 (79)',
+        commonDart2: '5 (48)',
+        commonDart3: '1 (45)',
+        commonDart4: '18 (19)',
+        commonDart5: '4 (13)',
+        commonScore1: '26 (8)',
+        commonScore2: '60 (6)',
+        commonScore3: '11 (4)',
+        commonScore4: '45 (4)',
+        commonScore5: '52 (4)'
+      },
+      '30k-40k': {
+        totalPoints: '4,123',
+        visits: '97',
+        thrownDarts: '291',
+        average: '42.50',
+        highest: '154',
+        lowest: '0 (Missed Checkout)',
+        scores100: '3',
+        scores140: '2',
+        scores180: '0',
+        commonDart1: '20 (77)',
+        commonDart2: '1 (52)',
+        commonDart3: '5 (36)',
+        commonDart4: '18 (24)',
+        commonDart5: '0 (22)',
+        commonScore1: '22 (8)',
+        commonScore2: '40 (4)',
+        commonScore3: '31 (3)',
+        commonScore4: '33 (3)',
+        commonScore5: '38 (3)'
+      },
+      '40k-50k': {
+        totalPoints: '3,264',
+        visits: '82',
+        thrownDarts: '246',
+        average: '39.80',
+        highest: '140',
+        lowest: '3',
+        scores100: '2',
+        scores140: '1',
+        scores180: '0',
+        commonDart1: '20 (69)',
+        commonDart2: '1 (51)',
+        commonDart3: '5 (34)',
+        commonDart4: '18 (21)',
+        commonDart5: '12 (14)',
+        commonScore1: '21 (5)',
+        commonScore2: '24 (5)',
+        commonScore3: '45 (5)',
+        commonScore4: '22 (4)',
+        commonScore5: '26 (3)'
+      },
+      '50k-60k': {
+        totalPoints: '3,176',
+        visits: '88',
+        thrownDarts: '264',
+        average: '36.09',
+        highest: '100',
+        lowest: '3',
+        scores100: '1',
+        scores140: '0',
+        scores180: '0',
+        commonDart1: '20 (73)',
+        commonDart2: '1 (46)',
+        commonDart3: '5 (43)',
+        commonDart4: '18 (19)',
+        commonDart5: '3 (15)',
+        commonScore1: '26 (6)',
+        commonScore2: '41 (5)',
+        commonScore3: '45 (5)',
+        commonScore4: '6 (4)',
+        commonScore5: '24 (4)'
+      },
+      '60k-70k': {
+        totalPoints: '3,122',
+        visits: '82',
+        thrownDarts: '246',
+        average: '38.07',
+        highest: '85',
+        lowest: '3',
+        scores100: '0',
+        scores140: '0',
+        scores180: '0',
+        commonDart1: '20 (84)',
+        commonDart2: '1 (47)',
+        commonDart3: '5 (43)',
+        commonDart4: '18 (22)',
+        commonDart5: '0 (9)',
+        commonScore1: '26 (7)',
+        commonScore2: '25 (6)',
+        commonScore3: '60 (6)',
+        commonScore4: '41 (5)',
+        commonScore5: '37 (4)'
+      },
+      '70k-80k': {
+        totalPoints: '2,993',
+        visits: '81',
+        thrownDarts: '243',
+        average: '36.95',
+        highest: '103',
+        lowest: '2',
+        scores100: '3',
+        scores140: '0',
+        scores180: '0',
+        commonDart1: '20 (64)',
+        commonDart2: '1 (55)',
+        commonDart3: '5 (37)',
+        commonDart4: '18 (19)',
+        commonDart5: '0 (11)',
+        commonScore1: '22 (6)',
+        commonScore2: '26 (5)',
+        commonScore3: '30 (4)',
+        commonScore4: '41 (4)',
+        commonScore5: '2 (3)'
+      },
+      '80k-90k': {
+        totalPoints: '3,353',
+        visits: '84',
+        thrownDarts: '252',
+        average: '39.91',
+        highest: '160',
+        lowest: '1',
+        scores100: '1',
+        scores140: '1',
+        scores180: '0',
+        commonDart1: '20 (72)',
+        commonDart2: '1 (49)',
+        commonDart3: '5 (40)',
+        commonDart4: '18 (24)',
+        commonDart5: '0 (10)',
+        commonScore1: '26 (7)',
+        commonScore2: '41 (5)',
+        commonScore3: '22 (4)',
+        commonScore4: '60 (4)',
+        commonScore5: '23 (3)'
+      },
+      '90k-100k': {
+        totalPoints: '2,904',
+        visits: '83',
+        thrownDarts: '249',
+        average: '34.98',
+        highest: '98',
+        lowest: '0',
+        scores100: '0',
+        scores140: '0',
+        scores180: '0',
+        commonDart1: '20 (68)',
+        commonDart2: '5 (46)',
+        commonDart3: '1 (33)',
+        commonDart4: '0 (22)',
+        commonDart5: '18 (19)',
+        commonScore1: '28 (8)',
+        commonScore2: '45 (5)',
+        commonScore3: '26 (4)',
+        commonScore4: '30 (4)',
+        commonScore5: '39 (4)'
+      }
+    };
+
+    const heggieStats = {
+      'total': {
+        totalPoints: '65,786',
+        visits: '871',
+        thrownDarts: '2613',
+        average: '75.52',
+        highest: '180',
+        lowest: '0 (Missed Double Start)',
+        scores100: '264',
+        scores140: '57',
+        scores180: '11',
+        commonDart1: '20 (1203)',
+        commonDart2: '60 (505)',
+        commonDart3: '5 (172)',
+        commonDart4: '19 (131)',
+        commonDart5: '1 (121)',
+        commonScore1: '100 (149)',
+        commonScore2: '60 (102)',
+        commonScore3: '140 (57)',
+        commonScore4: '45 (48)',
+        commonScore5: '41 (36)'
+      },
+      '0-10k': {
+        totalPoints: '6,769',
+        visits: '86',
+        thrownDarts: '258',
+        average: '78.70',
+        highest: '180',
+        lowest: '36',
+        scores100: '25',
+        scores140: '6',
+        scores180: '3',
+        commonDart1: '20 (126)',
+        commonDart2: '60 (54)',
+        commonDart3: '5 (22)',
+        commonDart4: '19 (22)',
+        commonDart5: '15 (12)',
+        commonScore1: '100 (17)',
+        commonScore2: '45 (8)',
+        commonScore3: '60 (8)',
+        commonScore4: '85 (6)',
+        commonScore5: '41 (3)'
+      },
+      '10k-20k': {
+        totalPoints: '6,760',
+        visits: '82',
+        thrownDarts: '246',
+        average: '82.43',
+        highest: '150',
+        lowest: '7',
+        scores100: '27',
+        scores140: '4',
+        scores180: '0',
+        commonDart1: '20 (114)',
+        commonDart2: '60 (59)',
+        commonDart3: '5 (24)',
+        commonDart4: '1 (14)',
+        commonDart5: '19 (13)',
+        commonScore1: '100 (16)',
+        commonScore2: '60 (7)',
+        commonScore3: '85 (6)',
+        commonScore4: '125 (5)',
+        commonScore5: '150 (4)'
+      },
+      '20k-30k': {
+        totalPoints: '6,216',
+        visits: '93',
+        thrownDarts: '279',
+        average: '66.83',
+        highest: '140',
+        lowest: '0 (Double Start Miss)',
+        scores100: '14',
+        scores140: '1',
+        scores180: '0',
+        commonDart1: '20 (93)',
+        commonDart2: '0 (40 - Double Start/Checkout Misses)',
+        commonDart3: '60 (35)',
+        commonDart4: '19 (25)',
+        commonDart5: '5 (18)',
+        commonScore1: '60 (12)',
+        commonScore2: '100 (6)',
+        commonScore3: '32 (4)',
+        commonScore4: '40 (4)',
+        commonScore5: '41 (4)'
+      },
+      '30k-40k': {
+        totalPoints: '5,796',
+        visits: '96',
+        thrownDarts: '288',
+        average: '60.37',
+        highest: '140',
+        lowest: '0 (Missed Checkout)',
+        scores100: '20',
+        scores140: '6',
+        scores180: '0',
+        commonDart1: '20 (84)',
+        commonDart2: '0 (46 - Double Start/Checkout Misses)',
+        commonDart3: '60 (37)',
+        commonDart4: '1 (12)',
+        commonDart5: '19 (12)',
+        commonScore1: '0 (10 - Double Start/Checkout Misses)',
+        commonScore2: '100 (10)',
+        commonScore3: '60 (7)',
+        commonScore4: '140 (6)',
+        commonScore5: '41 (4)'
+      },
+      '40k-50k': {
+        totalPoints: '6,818',
+        visits: '93',
+        thrownDarts: '279',
+        average: '73.31',
+        highest: '140',
+        lowest: '0 (Missed Double Start)',
+        scores100: '31',
+        scores140: '9',
+        scores180: '0',
+        commonDart1: '20 (122)',
+        commonDart2: '60 (53)',
+        commonDart3: '0 (23 - Double Start/Checkout Misses)',
+        commonDart4: '5 (19)',
+        commonDart5: '19 (12)',
+        commonScore1: '100 (20)',
+        commonScore2: '140 (9)',
+        commonScore3: '60 (8)',
+        commonScore4: '41 (4)',
+        commonScore5: '44 (4)'
+      },
+      '50k-60k': {
+        totalPoints: '6,806',
+        visits: '90',
+        thrownDarts: '270',
+        average: '75.62',
+        highest: '140',
+        lowest: '2',
+        scores100: '25',
+        scores140: '6',
+        scores180: '0',
+        commonDart1: '20 (134)',
+        commonDart2: '60 (52)',
+        commonDart3: '5 (28)',
+        commonDart4: '1 (18)',
+        commonDart5: '19 (13)',
+        commonScore1: '100 (11)',
+        commonScore2: '60 (10)',
+        commonScore3: '45 (9)',
+        commonScore4: '85 (7)',
+        commonScore5: '140 (6)'
+      },
+      '60k-70k': {
+        totalPoints: '6,893',
+        visits: '83',
+        thrownDarts: '249',
+        average: '83.04',
+        highest: '180',
+        lowest: '25',
+        scores100: '31',
+        scores140: '6',
+        scores180: '3',
+        commonDart1: '20 (141)',
+        commonDart2: '60 (56)',
+        commonDart3: '1 (10)',
+        commonDart4: '5 (10)',
+        commonDart5: '19 (9)',
+        commonScore1: '100 (20)',
+        commonScore2: '60 (15)',
+        commonScore3: '140 (6)',
+        commonScore4: '45 (4)',
+        commonScore5: '59 (4)'
+      },
+      '70k-80k': {
+        totalPoints: '6,957',
+        visits: '81',
+        thrownDarts: '243',
+        average: '85.88',
+        highest: '180',
+        lowest: '25',
+        scores100: '37',
+        scores140: '7',
+        scores180: '2',
+        commonDart1: '20 (130)',
+        commonDart2: '60 (58)',
+        commonDart3: '5 (16)',
+        commonDart4: '1 (11)',
+        commonDart5: '57 (6)',
+        commonScore1: '100 (20)',
+        commonScore2: '60 (11)',
+        commonScore3: '140 (7)',
+        commonScore4: '45 (6)',
+        commonScore5: '81 (5)'
+      },
+      '80k-90k': {
+        totalPoints: '6,628',
+        visits: '84',
+        thrownDarts: '252',
+        average: '78.90',
+        highest: '180',
+        lowest: '21',
+        scores100: '31',
+        scores140: '7',
+        scores180: '2',
+        commonDart1: '20 (147)',
+        commonDart2: '60 (52)',
+        commonDart3: '1 (15)',
+        commonDart4: '5 (12)',
+        commonDart5: '15 (8)',
+        commonScore1: '100 (19)',
+        commonScore2: '60 (16)',
+        commonScore3: '140 (7)',
+        commonScore4: '41 (6)',
+        commonScore5: '45 (5)'
+      },
+      '90k-100k': {
+        totalPoints: '6,143',
+        visits: '83',
+        thrownDarts: '249',
+        average: '74.01',
+        highest: '180',
+        lowest: '5',
+        scores100: '23',
+        scores140: '8',
+        scores180: '1',
+        commonDart1: '20 (112)',
+        commonDart2: '60 (49)',
+        commonDart3: '1 (18)',
+        commonDart4: '5 (14)',
+        commonDart5: '19 (12)',
+        commonScore1: '100 (10)',
+        commonScore2: '60 (8)',
+        commonScore3: '140 (8)',
+        commonScore4: '41 (6)',
+        commonScore5: '45 (4)'
+      }
+    };
+
+    function updateStats(range) {
+      // Update Player 1 stats
+      document.querySelectorAll('.stats-table')[0].querySelectorAll('.stat-value').forEach((cell, index) => {
+        const values = Object.values(aaronStats[range]);
+        cell.textContent = values[index];
+      });
+
+      // Update Player 2 stats
+      document.querySelectorAll('.stats-table')[1].querySelectorAll('.stat-value').forEach((cell, index) => {
+        const values = Object.values(heggieStats[range]);
+        cell.textContent = values[index];
+      });
+
+      // Update active state
+      document.querySelectorAll('.legend-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      document.querySelector(`[data-range="${range}"]`).classList.add('active');
+    }
+
+    // Add click handlers to legend items
+    document.querySelectorAll('.legend-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const range = this.getAttribute('data-range');
+        updateStats(range);
+      });
+    });
+  </script>
+
+</body>
+</html>
