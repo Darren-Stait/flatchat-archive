@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Flatchat Passport Quiz – Fullscreen + Pointer Drag</title>
+<link rel="icon" href="icons/flatchat-small.webp">
+
+<style>
+:root{--primary:#25b6c4;--accent:#f2b632}
+*{box-sizing:border-box}
+body{
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin:0;background:#f4f6f9;color:#222;min-height:100vh;
+  display:flex;flex-direction:column;
+}
+    header {
+      background-color: #25b6c4;
+      color: #fff;
+      padding: 8px 25px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header-logo {
+      max-width: 520px;
+      height: auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header-logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #f2b632;
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .header-logo {
+        max-width: 90%;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px;
+        font-size: 1rem;
+      }
+    }
+
+    footer {
+      background-color: #25b6c4;
+      color: #fff;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer p {
+      margin: 0 0 8px;
+      line-height: 1.4;
+    }
+
+    .social-links {
+      margin-top: 6px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 8px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.1);
+    }
+
+    .social-links img {
+      width: 36px;
+      height: 36px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Default: desktop view */
+    .footer-random {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    #randomMomentBtn {
+      background: #f5f5f5;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #randomMomentBtn:hover {
+      transform: rotate(15deg) scale(1.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #randomMomentBtn img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    /* ✅ Mobile view: place button below text, centered */
+    @media (max-width: 768px) {
+      .footer-random {
+        position: static; /* no absolute positioning */
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+      }
+
+      #randomMomentBtn img {
+        width: 42px; /* slightly smaller on mobile */
+        height: 42px;
+      }
+    }
+
+main{
+  flex:1;width:92%;max-width:1400px;margin:28px auto;padding:22px;background:#fff;border-radius:12px;
+  box-shadow:0 6px 25px rgba(0,0,0,.08);
+  display:flex;flex-direction:column;gap:12px;
+}
+h2{margin:0;text-align:center}
+#round-stats{text-align:center;font-weight:700;color:#0a7785;margin-top:-4px}
+
+#players-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:8px}
+.player-card{perspective:1000px;height:auto;min-height:420px;position:relative}
+.card-inner{width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.25,.9,.35,1.3)}
+.player-card.hidden .card-inner{transform:rotateY(180deg)}
+.player-card:not(.hidden):hover .card-inner{transform:scale(1.03)}
+.card-front,.card-back{
+  position:absolute;left:0;top:0;width:100%;min-height:100%;height:auto;backface-visibility:hidden;border-radius:12px;
+  overflow:hidden;display:flex;flex-direction:column;align-items:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.12)
+}
+.card-front{background:#e4f9ff;padding-top:10px;padding-bottom:10px}
+.card-front img{
+  width:250px;height:250px;object-fit:cover;border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,.16)
+}
+.card-back{
+  background:var(--primary);color:#fff;transform:rotateY(180deg);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem
+}
+
+.drop-zone{
+  width:92%;min-height:110px;margin-top:12px;padding:10px;
+  border:2px dashed #20a5b8;border-radius:10px;background:#fff;
+  display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start;
+}
+.drop-zone:hover{background:#fff7d1;border-color:var(--accent)}
+
+#stats-pool{
+  display:flex;flex-wrap:wrap;gap:12px;
+  padding:10px 4px 30px;border-top:3px solid #e6e6e6
+}
+.stat{
+  padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;
+  box-shadow:0 3px 10px rgba(0,0,0,.12);user-select:none;-webkit-user-drag:none;
+  transition:transform .12s,opacity .12s;display:inline-block;
+  word-break:break-word;max-width:100%;
+}
+.stat:hover{transform:scale(1.06)}
+.stat.dragging{opacity:.6;transform:scale(.96)}
+.stat.placed{animation:popIn .45s ease-out}
+
+@keyframes popIn{
+  0%{opacity:0;transform:scale(.55) rotate(-8deg)}
+  60%{opacity:1;transform:scale(1.12) rotate(4deg)}
+  100%{transform:scale(1) rotate(0)}
+}
+
+.stat.correct{outline:3px solid #32d74b}
+.stat.wrong{outline:3px solid #ff4f4f}
+
+.controls{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:-8px}
+.btn{padding:10px 18px;border-radius:8px;border:none;font-weight:700;cursor:pointer}
+.btn-reset{background:var(--accent)}
+.btn-submit{background:var(--primary);color:#fff}
+
+.legend-chip{
+  display:inline-block;padding:6px 10px;margin:4px;border-radius:8px;
+  font-weight:700;color:#111;box-shadow:0 2px 6px rgba(0,0,0,.08)
+}
+
+#score-output{text-align:center;font-weight:700;margin-top:6px}
+
+/* floating tile */
+.floating-tile{
+  position:fixed;pointer-events:none;z-index:2147483647;
+  transform:translate(-50%,-50%);border-radius:10px;padding:10px 14px;
+  font-weight:700;box-shadow:0 10px 35px rgba(0,0,0,.25)
+}
+
+/* FULLSCREEN MODE */
+main:fullscreen {
+  width:100vw !important;
+  max-width:none !important;
+  height:100vh !important;
+  margin:0 !important;
+  padding:20px !important;
+  border-radius:0 !important;
+  overflow-y:auto !important;
+}
+
+main:-webkit-full-screen {
+  width:100vw !important;
+  max-width:none !important;
+  height:100vh !important;
+  margin:0 !important;
+  padding:20px !important;
+  border-radius:0 !important;
+  overflow-y:auto !important;
+}
+
+#fullscreenBtn{
+  z-index:9999;
+  padding:10px 14px;
+  border-radius:8px;
+}
+
+@media(max-width:700px){
+  .card-front img{width:220px;height:220px}
+  .player-card{height:auto}
+}
+</style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="index.html">
+        <img src="icons/flatchat_banner.jpg" alt="Flatchat Archive Logo" class="header-logo" />
+      </a>
+      <nav>
+        <a href="aaron.html">Aaron 'The Goat' Turnbull</a>
+        <a href="heggie.html">Heggie 'The Hog' Heggerson</a>
+        <a href="calum.html">Calum 'The Lobster' Porter</a>
+        <a href="jacob.html">Jacob 'Speccy' Murray</a>
+        <a href="darts-marathon-summary.html">Macmillan Darts Marathon 2025</a>
+      </nav>
+    </div>
+  </header>
+
+  <header style="text-align: center;">
+    This is a fan site made with the purpose of collating funny and iconic moments for the benefit of other flatchat fans. Click through the lads profiles to find their best moments.
+  </header>
+
+<main>
+
+<button id="fullscreenBtn" class="btn" style="background:#222;color:#fff;align-self:flex-end;">
+  ⛶ Fullscreen
+</button>
+
+<h2>Flatchat Passport Quiz</h2>
+<h3 style="text-align: center;">Drag and drop the stats to the correct player cards!<br><br>Stats accurate as of the beginning of the 25/26 season.</h3>
+<div id="round-stats">Loading...</div>
+
+<div id="players-grid"></div>
+
+<h3 style="text-align: center;">Stats to place:</h3>
+<div id="stats-pool"></div>
+
+<div class="controls">
+  <label style="display:flex;align-items:center;gap:8px;font-weight:700">
+    Difficulty:
+    <select id="difficultySelect" style="padding:8px;border-radius:6px">
+      <option value="easy">Easy</option>
+      <option value="hard">Hard</option>
+    </select>
+  </label>
+
+  <button id="resetGame" class="btn btn-reset">🔄 Reset Game</button>
+  <button id="submitAnswers" class="btn btn-submit">Lock-In</button>
+</div>
+<h3 style="text-align: center;">Press Reset Game if changing difficulty.</p>
+
+<div id="score-output"></div>
+
+</main>
+
+  <footer>
+    <p>Please support the boys at all the links below.</p>
+    <div class="social-links">
+      <a href="https://www.tiktok.com/@theflatchat" target="_blank"><img src="icons/tiktok.png" alt="TikTok"></a>
+      <a href="https://www.instagram.com/theflatchatofficial/" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
+      <a href="https://www.youtube.com/@theflatchat" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
+      <a href="https://www.youtube.com/@FlatChatDarts" target="_blank"><img src="icons/darts.png" alt="Darts YouTube"></a>
+      <a href="https://www.thesoccershopdirect.co.uk/product-category/the-flat-chat/" target="_blank"><img src="icons/merch.png" alt="Merch"></a>
+      <a href="https://www.cameo.com/theflatchat" target="_blank"><img src="icons/cameo.png" alt="Cameo"></a>
+      <a href="https://x.com/theflatchatx" target="_blank"><img src="icons/x.png" alt="X"></a>
+      <a href="https://www.threads.com/@theflatchatofficial" target="_blank"><img src="icons/threads.png" alt="Threads"></a>
+    </div>
+    <p>Site made by Darren 'Unico'</p>
+    <p>Thanks to the following members from the Members-Only Discord for top-tier flatchat moment contributions: Maule13, FinnAllen</p>
+  <div class="footer-random">
+      <button id="randomMomentBtn">
+        <img src="icons/randomiser.png" alt="Random Moment" />
+      </button>
+  </div>
+  </footer>
+
+<script src="scripts/modal-auto-stop-video.js"></script>
+<script src="scripts/randomMoment.js"></script>
+
+<script>
+/* =====================================================
+   COLOURS FOR EACH STAT TYPE
+   ===================================================== */
+const STAT_COLORS = {
+  PlaceOfBirth:"#FFDDE0",
+  DateOfBirth:"#FFF3C4",
+  FirstSeniorClub:"#E7FFE8",
+  CurrentClub:"#E5F1FF",
+  NationalTeam:"#F8E3FF",
+  HonourWon:"#FFEACD"
+};
+
+/* =====================================================
+   PLAYER DATABASES
+   ===================================================== */
+const EASY_PLAYERS = [
+  {name:"Messi", image:"player-images/messi.jpg", stats:{PlaceOfBirth:"Rosario", DateOfBirth:"24 June 1987", FirstSeniorClub:"Barcelona", CurrentClub:"Inter Miami", NationalTeam:"Argentina", HonourWon:"8x Balon D'or Winner"}},
+  {name:"Ronaldo", image:"player-images/ronaldo.jpg", stats:{PlaceOfBirth:"Funchal", DateOfBirth:"5 February 1985", FirstSeniorClub:"Sporting CP", CurrentClub:"Al Nassr", NationalTeam:"Portugal", HonourWon:"5x Balon D'or Winner"}},
+  {name:"Haaland", image:"player-images/haaland.jpg", stats:{PlaceOfBirth:"Leeds", DateOfBirth:"21 July 2000", FirstSeniorClub:"Bryne FK", CurrentClub:"Manchester City", NationalTeam:"Norway", HonourWon:"European Golden Shoe: 2022–23"}},
+  {name:"Mbappe", image:"player-images/mbappe.jpg", stats:{PlaceOfBirth:"Paris", DateOfBirth:"20 December 1998", FirstSeniorClub:"AS Monaco", CurrentClub:"Real Madrid", NationalTeam:"France", HonourWon:"Golden Boy: 2017"}},
+  {name:"De Bruyne", image:"player-images/debruyne.jpg", stats:{PlaceOfBirth:"Drongen", DateOfBirth:"28 June 1991", FirstSeniorClub:"Genk", CurrentClub:"Napoli", NationalTeam:"Belgium", HonourWon:"EPL Player of the Season: 2019–20,2021–22"}},
+  {name:"Neymar", image:"player-images/neymar.jpg", stats:{PlaceOfBirth:"Mogi das Cruzes", DateOfBirth:"5 February 1992", FirstSeniorClub:"Santos", CurrentClub:"Santos", NationalTeam:"Brazil", HonourWon:"Saudi Pro League: 2023–24"}}
+];
+
+const HARD_PLAYERS = [
+  {name:"Jamal Blackman", image:"player-images/blackman.jpg", stats:{PlaceOfBirth:"Croydon, London", DateOfBirth:"23 October 1993", FirstSeniorClub:"Chelsea", CurrentClub:"Morecambe", NationalTeam:"England", HonourWon:"Wycombe Wanderers Young Player of the Year Award: 2016–17"}},
+  {name:"Izzy Brown", image:"player-images/izzy.jpg", stats:{PlaceOfBirth:"Luton", DateOfBirth:"7 January 1997", FirstSeniorClub:"West Bromwich Albion", CurrentClub:"Retired", NationalTeam:"England", HonourWon:"EFL Championship play-offs winner: 2017"}},
+  {name:"Islam Feruz", image:"player-images/feruz.jpg", stats:{PlaceOfBirth:"Kismaayo", DateOfBirth:"10 September 1995", FirstSeniorClub:"Chelsea", CurrentClub:"Free Agent", NationalTeam:"Scotland", HonourWon:"FA Youth Cup: 2011–12"}},
+  {name:"Jordan Beyer", image:"player-images/beyer.jpg", stats:{PlaceOfBirth:"Kempen", DateOfBirth:"19 May 2000", FirstSeniorClub:"Gladbach", CurrentClub:"Burnley", NationalTeam:"Germany", HonourWon:"EFL Championship: 2022–23"}},
+  {name:"Connor Wickham", image:"player-images/wickham.jpg", stats:{PlaceOfBirth:"Hereford", DateOfBirth:"31 March 1993", FirstSeniorClub:"Ipswich Town", CurrentClub:"Dubai City", NationalTeam:"England", HonourWon:"FA Cup runner-up: 2015–16"}},
+  {name:"Kyle Lafferty", image:"player-images/lafferty.jpg", stats:{PlaceOfBirth:"Enniskillen", DateOfBirth:"16 September 1987", FirstSeniorClub:"Burnley", CurrentClub:"Johnstone Burgh", NationalTeam:"Northern Ireland", HonourWon:"Serie B: 2013–14"}}
+];
+
+/* =====================================================
+   STATE + DOM SHORTCUTS
+   ===================================================== */
+const grid = document.getElementById("players-grid");
+const pool = document.getElementById("stats-pool");
+const diffSel = document.getElementById("difficultySelect");
+const roundStats = document.getElementById("round-stats");
+const scoreOut = document.getElementById("score-output");
+
+let chosenPlayers = [];
+let activeKeys = [];
+let statBank = [];
+
+function shuffle(arr){return arr.slice().sort(()=>Math.random()-0.5)}
+
+/* =====================================================
+   BUILD A ROUND
+   ===================================================== */
+function setupGame(){
+  grid.innerHTML = "";
+  pool.innerHTML = "";
+  scoreOut.textContent = "";
+  roundStats.textContent = "Loading…";
+
+  const base = diffSel.value === "hard" ? HARD_PLAYERS : EASY_PLAYERS;
+  chosenPlayers = shuffle(base).slice(0,4);
+  activeKeys = shuffle(Object.keys(chosenPlayers[0].stats)).slice(0,4);
+
+  statBank = [];
+  chosenPlayers.forEach(p=>{
+    activeKeys.forEach(k=>{
+      statBank.push({player:p.name, key:k, value:p.stats[k]});
+    });
+  });
+
+  // Cards
+  chosenPlayers.forEach(p=>{
+    const card = document.createElement("div");
+    card.className="player-card hidden";
+    card.dataset.player=p.name;
+    card.innerHTML = `
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="${p.image}">
+          <div class="drop-zone" data-owner="${p.name}"></div>
+        </div>
+        <div class="card-back"></div>
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  // Stat pool
+  pool.innerHTML = shuffle(statBank).map(s=>{
+    const bg = STAT_COLORS[s.key] || "#25b6c4";
+    const color = bg==="#25b6c4"?"#fff":"#111";
+    return `<div class="stat" data-player="${s.player}" data-key="${s.key}" style="background:${bg};color:${color}">${s.value}</div>`;
+  }).join("");
+
+  // Legend
+  roundStats.innerHTML = activeKeys.map(k=>{
+    const bg = STAT_COLORS[k]; const c=bg==="#25b6c4"?"#fff":"#111";
+    return `<span class="legend-chip" style="background:${bg};color:${c}">${k}</span>`;
+  }).join(" ");
+
+  revealCards();
+}
+
+function revealCards(){
+  const cards = [...document.querySelectorAll(".player-card")];
+  cards.forEach(c=>c.classList.add("hidden"));
+  setTimeout(()=>{
+    cards.forEach((c,i)=>setTimeout(()=>c.classList.remove("hidden"), i*220));
+    setTimeout(()=> attachPointerDrag(), 1200);
+  },200);
+}
+
+/* =====================================================
+   POINTER DRAG IMPLEMENTATION
+   ===================================================== */
+let draggingPointer=null;
+let floatingTile=null;
+let originTile=null;
+let originPlayer="", originKey="", originText="";
+
+function attachPointerDrag(){
+  const tiles=[...document.querySelectorAll("#stats-pool .stat")];
+  tiles.forEach(tile=>{
+    tile.style.touchAction="none";
+    tile.addEventListener("pointerdown", pointerDown);
+  });
+}
+
+function pointerDown(e){
+  if(e.button!==0) return;
+  e.preventDefault();
+
+  originTile=e.currentTarget;
+  originPlayer=originTile.dataset.player;
+  originKey=originTile.dataset.key;
+  originText=originTile.textContent.trim();
+
+  draggingPointer=e.pointerId;
+
+  floatingTile=originTile.cloneNode(true);
+  floatingTile.classList.add("floating-tile");
+  document.body.appendChild(floatingTile);
+
+  updateFloating(e.clientX,e.clientY);
+  originTile.classList.add("dragging");
+  originTile.setPointerCapture(draggingPointer);
+
+  originTile.onpointermove=pointerMove;
+  originTile.onpointerup=pointerUp;
+  originTile.onpointercancel=pointerCancel;
+}
+
+function pointerMove(e){
+  if(e.pointerId!==draggingPointer) return;
+  updateFloating(e.clientX,e.clientY);
+}
+
+function pointerUp(e){
+  if(e.pointerId!==draggingPointer) return;
+
+  const x=e.clientX, y=e.clientY;
+  const elem=document.elementFromPoint(x,y);
+  const zone=elem?elem.closest(".drop-zone"):null;
+
+  if(zone){
+    placeTile(zone,originPlayer,originKey,originText);
+    // Remove from pool OR from previous drop zone
+    if(originTile.parentElement.id==="stats-pool"){
+      removePoolTile(originPlayer,originKey,originText);
+    } else {
+      originTile.remove();
+    }
+  }
+  cleanupDrag();
+}
+
+function pointerCancel(){
+  cleanupDrag();
+}
+
+function updateFloating(x,y){
+  if(!floatingTile) return;
+  floatingTile.style.left=x+"px";
+  floatingTile.style.top=y+"px";
+}
+
+function cleanupDrag(){
+  if(originTile){
+    try{originTile.releasePointerCapture(draggingPointer);}catch(e){}
+    originTile.classList.remove("dragging");
+    originTile.onpointermove=null;
+    originTile.onpointerup=null;
+    originTile.onpointercancel=null;
+  }
+  if(floatingTile && floatingTile.parentNode) floatingTile.remove();
+  floatingTile=null;
+  originTile=null;
+  draggingPointer=null;
+}
+
+function removePoolTile(p,k,t){
+  const tiles=[...document.querySelectorAll("#stats-pool .stat")];
+  const match=tiles.find(el=>el.dataset.player===p && el.dataset.key===k && el.textContent.trim()===t);
+  if(match) match.remove();
+}
+
+function placeTile(zone, p, k, t){
+  const d=document.createElement("div");
+  d.className="stat placed";
+  d.dataset.player=p;
+  d.dataset.key=k;
+  d.textContent=t;
+  const bg=STAT_COLORS[k]; const c=bg==="#25b6c4"?"#fff":"#111";
+  d.style.background=bg; d.style.color=c;
+  d.style.touchAction="none";
+  d.addEventListener("pointerdown", pointerDown);
+  zone.appendChild(d);
+}
+
+/* =====================================================
+   LOCK-IN + COUNTDOWN + AUTOCORRECT
+   ===================================================== */
+document.getElementById("submitAnswers").addEventListener("click",()=>{
+  const placed=[...document.querySelectorAll(".drop-zone .stat")];
+  let score=0;
+  const total=statBank.length;
+
+  placed.forEach(tile=>{
+    const correct=tile.dataset.player;
+    const owner=tile.parentElement.dataset.owner;
+    if(correct===owner){ tile.classList.add("correct"); score++; }
+    else tile.classList.add("wrong");
+  });
+
+  scoreOut.innerHTML=`Score: <b>${score}/${total}</b> – correcting in <span id="cd">3</span>`;
+  let t=3;
+  const timer=setInterval(()=>{
+    t--;
+    const cd=document.getElementById("cd");
+    if(cd) cd.textContent=t;
+    if(t<=0){
+      clearInterval(timer);
+      const wrong=[...document.querySelectorAll(".stat.wrong")];
+      wrong.forEach(tile=>{
+        const p=tile.dataset.player;
+        const zone=document.querySelector(`.drop-zone[data-owner="${p}"]`);
+        tile.style.transition="transform .35s";
+        tile.style.transform="scale(1.20)";
+        setTimeout(()=>{
+          zone.appendChild(tile);
+          tile.classList.remove("wrong");
+          tile.classList.add("correct");
+          tile.style.transform="scale(1)";
+        },300);
+      });
+      scoreOut.innerHTML=`Final Score: <b>${score}/${total}</b> – corrected.`;
+    }
+  },1000);
+});
+
+/* =====================================================
+   RESET
+   ===================================================== */
+document.getElementById("resetGame").addEventListener("click",setupGame);
+
+/* =====================================================
+   FULLSCREEN MODE
+   ===================================================== */
+const fsBtn=document.getElementById("fullscreenBtn");
+const main=document.querySelector("main");
+
+fsBtn.addEventListener("click",()=>{
+  if(!document.fullscreenElement){
+    if(main.requestFullscreen) main.requestFullscreen();
+    else if(main.webkitRequestFullscreen) main.webkitRequestFullscreen();
+    fsBtn.textContent="⛶ Exit Fullscreen";
+    fsBtn.style.background="#444";
+  } else {
+    if(document.exitFullscreen) document.exitFullscreen();
+    else if(document.webkitExitFullscreen) document.webkitExitFullscreen();
+    fsBtn.textContent="⛶ Fullscreen";
+    fsBtn.style.background="#222";
+  }
+});
+
+document.addEventListener("fullscreenchange",()=>{
+  if(!document.fullscreenElement){
+    fsBtn.textContent="⛶ Fullscreen";
+    fsBtn.style.background="#222";
+  }
+});
+
+/* =====================================================
+   START FIRST ROUND
+   ===================================================== */
+setupGame();
+</script>
+</body>
+</html>
