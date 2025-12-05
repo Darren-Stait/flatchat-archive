@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Flatchat Passport Quiz – Fullscreen + Pointer Drag</title>
+<title>Flatchat Passport Quiz</title>
 <link rel="icon" href="icons/flatchat-small.webp">
 
 <style>
@@ -383,7 +383,37 @@ const EASY_PLAYERS = [
   {name:"Haaland", image:"player-images/haaland.png", stats:{PlaceOfBirth:"Leeds", DateOfBirth:"21 July 2000", FirstSeniorClub:"Bryne FK", CurrentClub:"Manchester City", NationalTeam:"Norway", HonourWon:"European Golden Shoe: 2022–23"}},
   {name:"Mbappe", image:"player-images/mbappe.png", stats:{PlaceOfBirth:"Paris", DateOfBirth:"20 December 1998", FirstSeniorClub:"AS Monaco", CurrentClub:"Real Madrid", NationalTeam:"France", HonourWon:"Golden Boy: 2017"}},
   {name:"De Bruyne", image:"player-images/debruyne.png", stats:{PlaceOfBirth:"Drongen", DateOfBirth:"28 June 1991", FirstSeniorClub:"Genk", CurrentClub:"Napoli", NationalTeam:"Belgium", HonourWon:"EPL Player of the Season: 2019–20,2021–22"}},
-  {name:"Neymar", image:"player-images/neymar.png", stats:{PlaceOfBirth:"Mogi das Cruzes", DateOfBirth:"5 February 1992", FirstSeniorClub:"Santos", CurrentClub:"Santos", NationalTeam:"Brazil", HonourWon:"Saudi Pro League: 2023–24"}}
+  {name:"Neymar", image:"player-images/neymar.png", stats:{PlaceOfBirth:"Mogi das Cruzes", DateOfBirth:"5 February 1992", FirstSeniorClub:"Santos", CurrentClub:"Santos", NationalTeam:"Brazil", HonourWon:"Saudi Pro League: 2023–24"}},
+  {name:"Modric", image:"player-images/modric.png", stats:{PlaceOfBirth:"Zadar", DateOfBirth:"9 September 1985", FirstSeniorClub:"Dinamo Zagreb", CurrentClub:"AC Milan", NationalTeam:"Croatia", HonourWon:"FIFA World Cup Golden Ball: 2018"}},
+  {name:"Xavi", image:"player-images/xavi.png", stats:{PlaceOfBirth:"Terrassa", DateOfBirth:"25 January 1980", FirstSeniorClub:"Barcelona", CurrentClub:"Retired", NationalTeam:"Spain", HonourWon:"3x Balon D'or 3rd Place"}},
+  {name:"Iniesta", image:"player-images/iniesta.png", stats:{PlaceOfBirth:"Fuentealbilla", DateOfBirth:"11 May 1984", FirstSeniorClub:"Barcelona", CurrentClub:"Retired", NationalTeam:"Spain", HonourWon:"UEFA Euro Player of the Tournament: 2012"}},
+  {name:"Salah", image:"player-images/salah.png", stats:{PlaceOfBirth:"Nagrig", DateOfBirth:"15 June 1992", FirstSeniorClub:"El Mokawloon", CurrentClub:"Liverpool", NationalTeam:"Egypt", HonourWon:"African Footballer of the Year: 2017, 2018"}},
+  {name:"Kane", image:"player-images/kane.png", stats:{PlaceOfBirth:"Leytonstone", DateOfBirth:"28 July 1993", FirstSeniorClub:"Tottenham Hotspur", CurrentClub:"Bayern Munich", NationalTeam:"England", HonourWon:"3x Premier League Golden Boot"}},
+  {name:"Lewandowski", image:"player-images/lewandowski.png", stats:{PlaceOfBirth:"Warsaw", DateOfBirth:"21 August 1988", FirstSeniorClub:"Znicz Pruszkow", CurrentClub:"Barcelona", NationalTeam:"Poland", HonourWon:"European Golden Shoe: 2020–21"}},
+  {name:"De Gea", image:"player-images/degea.png", stats:{PlaceOfBirth:"Madrid", DateOfBirth:"7 November 1990", FirstSeniorClub:"Atletico Madrid", CurrentClub:"Fiorentina", NationalTeam:"Spain", HonourWon:"Serie A Team of the Season: 2024–25"}},
+  {name:"Griezmann", image:"player-images/griezmann.png", stats:{PlaceOfBirth:"Mãcon", DateOfBirth:"21 March 1991", FirstSeniorClub:"Real Sociedad", CurrentClub:"Atletico Madrid", NationalTeam:"France", HonourWon:"FIFA World Cup most assists: 2018,2022"}},
+  {name:"Figo", image:"player-images/figo.png", stats:{PlaceOfBirth:"Almada", DateOfBirth:"4 November 1972", FirstSeniorClub:"Sporting CP", CurrentClub:"Retired", NationalTeam:"Portugal", HonourWon:"Ballon d'Or: 2000"}},
+  {name:"Totti", image:"player-images/totti.png", stats:{PlaceOfBirth:"Rome", DateOfBirth:"27 September 1976", FirstSeniorClub:"AS Roma", CurrentClub:"Retired", NationalTeam:"Italy", HonourWon:"European Golden Shoe: 2006–07"}},
+  {name:"Pirlo", image:"player-images/pirlo.png", stats:{PlaceOfBirth:"Flero", DateOfBirth:"19 May 1979", FirstSeniorClub:"Brescia", CurrentClub:"Retired", NationalTeam:"Italy", HonourWon:"AC Milan Hall of Fame"}},
+  {name:"Giggs", image:"player-images/giggs.png", stats:{PlaceOfBirth:"Cardiff", DateOfBirth:"29 November 1973", FirstSeniorClub:"Manchester United", CurrentClub:"Retired", NationalTeam:"Wales", HonourWon:"13x Premier League Winner"}},
+  {name:"Cech", image:"player-images/cech.png", stats:{PlaceOfBirth:"Plzeñ", DateOfBirth:"20 May 1982", FirstSeniorClub:"Chmel Blsany", CurrentClub:"Retired", NationalTeam:"Czech Republic", HonourWon:"Chelsea Player of the Year: 2011"}},
+  {name:"Busquets", image:"player-images/busquets.png", stats:{PlaceOfBirth:"Sabadell", DateOfBirth:"16 July 1988", FirstSeniorClub:"Barcelona", CurrentClub:"Inter Miami", NationalTeam:"Spain", HonourWon:"MLS All-Star: 2024"}},
+  {name:"Bellingham", image:"player-images/bellingham.png", stats:{PlaceOfBirth:"Stourbridge", DateOfBirth:"29 June 2003", FirstSeniorClub:"Birmingham City", CurrentClub:"Real Madrid", NationalTeam:"England", HonourWon:"Bundesliga Player of the Season: 2022–23"}},
+  {name:"Benzema", image:"player-images/benzema.png", stats:{PlaceOfBirth:"Lyon", DateOfBirth:"19 December 1987", FirstSeniorClub:"Lyon", CurrentClub:"Al-Ittihad", NationalTeam:"France", HonourWon:"Ballon d'Or: 2022"}},
+  {name:"Gattuso", image:"player-images/gattuso.png", stats:{PlaceOfBirth:"Cosenza", DateOfBirth:"9 January 1978", FirstSeniorClub:"Perugia", CurrentClub:"Retired", NationalTeam:"Italy", HonourWon:"AC Milan Hall of Fame"}},
+  {name:"Mahrez", image:"player-images/mahrez.png", stats:{PlaceOfBirth:"Sarcelles", DateOfBirth:"21 February 1991", FirstSeniorClub:"Quimper", CurrentClub:"Al-Ahli", NationalTeam:"Algeria", HonourWon:"Africa Cup of Nations: 2019"}},
+  {name:"Vardy", image:"player-images/vardy.png", stats:{PlaceOfBirth:"Sheffield", DateOfBirth:"11 January 1987", FirstSeniorClub:"Stocksbridge Park Steels", CurrentClub:"Cremonese", NationalTeam:"England", HonourWon:"Premier League Player of the Season: 2015–16"}},
+  {name:"Zlatan", image:"player-images/zlatan.png", stats:{PlaceOfBirth:"Malmö", DateOfBirth:"3 October 1981", FirstSeniorClub:"Malmö FF", CurrentClub:"Retired", NationalTeam:"Sweden", HonourWon:"EFL Cup top scorer: 2016–17"}},
+  {name:"Aubameyang", image:"player-images/aubameyang.png", stats:{PlaceOfBirth:"Laval", DateOfBirth:"18 June 1989", FirstSeniorClub:"AC Milan", CurrentClub:"Marseille", NationalTeam:"Gabon", HonourWon:"Bundesliga Player of the Year: 2015–16"}},
+  {name:"Robertson", image:"player-images/robertson.png", stats:{PlaceOfBirth:"Glasgow", DateOfBirth:"11 March 1994", FirstSeniorClub:"Queen's Park", CurrentClub:"Liverpool", NationalTeam:"Scotland", HonourWon:"UEFA Team of the Year: 2019"}},
+  {name:"Sane", image:"player-images/sane.png", stats:{PlaceOfBirth:"Essen", DateOfBirth:"11 January 1996", FirstSeniorClub:"Schalke 04", CurrentClub:"Galatasaray", NationalTeam:"Germany", HonourWon:"PFA Young Player of the Year: 2017–18"}},
+  {name:"Kante", image:"player-images/kante.png", stats:{PlaceOfBirth:"Paris", DateOfBirth:"29 March 1991", FirstSeniorClub:"Boulogne", CurrentClub:"Al-Ittihad", NationalTeam:"France", HonourWon:"Saudi Pro League: 2024–25"}},
+  {name:"Drogba", image:"player-images/drogba.png", stats:{PlaceOfBirth:"Abidjan", DateOfBirth:"11 March 1978", FirstSeniorClub:"Le Mans", CurrentClub:"Retired", NationalTeam:"Ivory Coast", HonourWon:"Premier League Golden Boot: 2006–07,2009–10"}},
+  {name:"Vini Jr", image:"player-images/vinijr.png", stats:{PlaceOfBirth:"São Gonçalo", DateOfBirth:"12 July 2000", FirstSeniorClub:"Flamengo", CurrentClub:"Real Madrid", NationalTeam:"Brazil", HonourWon:"Ballon d'Or runner-up: 2024"}},
+  {name:"Pedri", image:"player-images/pedri.png", stats:{PlaceOfBirth:"Bajamar", DateOfBirth:"25 November 2002", FirstSeniorClub:"Las Palmas", CurrentClub:"Barcelona", NationalTeam:"Spain", HonourWon:"Golden Boy: 2021"}},
+  {name:"Rodri", image:"player-images/rodri.png", stats:{PlaceOfBirth:"Madrid", DateOfBirth:"22 June 1996", FirstSeniorClub:"Villarreal", CurrentClub:"Manchester City", NationalTeam:"Spain", HonourWon:"Ballon d'Or: 2024"}},
+  {name:"Foden", image:"player-images/foden.png", stats:{PlaceOfBirth:"Stockport", DateOfBirth:"28 May 2000", FirstSeniorClub:"Manchester City", CurrentClub:"Manchester City", NationalTeam:"England", HonourWon:"Premier League Player of the Season: 2023–24"}},
+  {name:"Thiago Silva", image:"player-images/thiagosilva.png", stats:{PlaceOfBirth:"Rio de Janeiro", DateOfBirth:"22 September 1984", FirstSeniorClub:"RS Futebol", CurrentClub:"Fluminense", NationalTeam:"Brazil", HonourWon:"Chelsea Player of the Season: 2022–23"}}
 ];
 
 const HARD_PLAYERS = [
