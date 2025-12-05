@@ -271,6 +271,24 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, .16)
       }
 
+      .player-name {
+        display: none;
+        margin-top: 10px;
+        font-weight: 800;
+        color: #0a7785;
+        text-align: center;
+        font-size: 1.05rem;
+        transition: opacity .28s ease, transform .28s ease;
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      .player-name.revealed {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
       .card-back {
         background: var(--primary);
         color: #fff;
@@ -531,7 +549,7 @@
         </a>
       </div>
       <p>Site made by Darren 'Unico'</p>
-      <p>Thanks to the following members from the Members-Only Discord for contributions in play testing this game: ADM101010 and Archie</p>
+      <p>Thanks to the following members from the Members-Only Discord for contributions in play testing this game: ADM101010, Kyle Mathewson and Archie</p>
       <div class="footer-random">
         <button id="randomMomentBtn">
           <img src="icons/randomiser.png" alt="Random Moment" />
@@ -556,7 +574,7 @@
          PLAYER DATABASES
          ===================================================== */
       const EASY_PLAYERS = [{
-        name: "Messi",
+        name: "Lionel Messi",
         image: "player-images/messi.png",
         stats: {
           PlaceOfBirth: "Rosario",
@@ -567,7 +585,7 @@
           HonourWon: "8x Balon D'or Winner"
         }
       }, {
-        name: "Ronaldo",
+        name: "Cristiano Ronaldo",
         image: "player-images/ronaldo.png",
         stats: {
           PlaceOfBirth: "Funchal",
@@ -578,7 +596,7 @@
           HonourWon: "5x Balon D'or Winner"
         }
       }, {
-        name: "Haaland",
+        name: "Erling Haaland",
         image: "player-images/haaland.png",
         stats: {
           PlaceOfBirth: "Leeds",
@@ -589,7 +607,7 @@
           HonourWon: "European Golden Shoe: 2022–23"
         }
       }, {
-        name: "Mbappe",
+        name: "Kylian Mbappe",
         image: "player-images/mbappe.png",
         stats: {
           PlaceOfBirth: "Paris",
@@ -600,7 +618,7 @@
           HonourWon: "Golden Boy: 2017"
         }
       }, {
-        name: "De Bruyne",
+        name: "Kevin De Bruyne",
         image: "player-images/debruyne.png",
         stats: {
           PlaceOfBirth: "Drongen",
@@ -611,7 +629,7 @@
           HonourWon: "EPL Player of the Season: 2019–20,2021–22"
         }
       }, {
-        name: "Neymar",
+        name: "Neymar Jr",
         image: "player-images/neymar.png",
         stats: {
           PlaceOfBirth: "Mogi das Cruzes",
@@ -622,7 +640,7 @@
           HonourWon: "Saudi Pro League: 2023–24"
         }
       }, {
-        name: "Modric",
+        name: "Luka Modric",
         image: "player-images/modric.png",
         stats: {
           PlaceOfBirth: "Zadar",
@@ -633,7 +651,7 @@
           HonourWon: "FIFA World Cup Golden Ball: 2018"
         }
       }, {
-        name: "Xavi",
+        name: "Xavi Hernandez",
         image: "player-images/xavi.png",
         stats: {
           PlaceOfBirth: "Terrassa",
@@ -644,7 +662,7 @@
           HonourWon: "3x Balon D'or 3rd Place"
         }
       }, {
-        name: "Iniesta",
+        name: "Andres Iniesta",
         image: "player-images/iniesta.png",
         stats: {
           PlaceOfBirth: "Fuentealbilla",
@@ -655,7 +673,7 @@
           HonourWon: "UEFA Euro Player of the Tournament: 2012"
         }
       }, {
-        name: "Salah",
+        name: "Mohamed Salah",
         image: "player-images/salah.png",
         stats: {
           PlaceOfBirth: "Nagrig",
@@ -666,7 +684,7 @@
           HonourWon: "African Footballer of the Year: 2017, 2018"
         }
       }, {
-        name: "Kane",
+        name: "Harry Kane",
         image: "player-images/kane.png",
         stats: {
           PlaceOfBirth: "Leytonstone",
@@ -677,7 +695,7 @@
           HonourWon: "3x Premier League Golden Boot"
         }
       }, {
-        name: "Lewandowski",
+        name: "Robert Lewandowski",
         image: "player-images/lewandowski.png",
         stats: {
           PlaceOfBirth: "Warsaw",
@@ -688,7 +706,7 @@
           HonourWon: "European Golden Shoe: 2020–21"
         }
       }, {
-        name: "De Gea",
+        name: "David De Gea",
         image: "player-images/degea.png",
         stats: {
           PlaceOfBirth: "Madrid",
@@ -699,7 +717,7 @@
           HonourWon: "Serie A Team of the Season: 2024–25"
         }
       }, {
-        name: "Griezmann",
+        name: "Antoine Griezmann",
         image: "player-images/griezmann.png",
         stats: {
           PlaceOfBirth: "Mãcon",
@@ -710,7 +728,7 @@
           HonourWon: "FIFA World Cup most assists: 2018,2022"
         }
       }, {
-        name: "Figo",
+        name: "Luis Figo",
         image: "player-images/figo.png",
         stats: {
           PlaceOfBirth: "Almada",
@@ -721,7 +739,7 @@
           HonourWon: "Ballon d'Or: 2000"
         }
       }, {
-        name: "Totti",
+        name: "Francesco Totti",
         image: "player-images/totti.png",
         stats: {
           PlaceOfBirth: "Rome",
@@ -732,7 +750,7 @@
           HonourWon: "European Golden Shoe: 2006–07"
         }
       }, {
-        name: "Pirlo",
+        name: "Andrea Pirlo",
         image: "player-images/pirlo.png",
         stats: {
           PlaceOfBirth: "Flero",
@@ -743,7 +761,7 @@
           HonourWon: "AC Milan Hall of Fame"
         }
       }, {
-        name: "Giggs",
+        name: "Ryan Giggs",
         image: "player-images/giggs.png",
         stats: {
           PlaceOfBirth: "Cardiff",
@@ -754,7 +772,7 @@
           HonourWon: "13x Premier League Winner"
         }
       }, {
-        name: "Cech",
+        name: "Petr Cech",
         image: "player-images/cech.png",
         stats: {
           PlaceOfBirth: "Plzeñ",
@@ -765,7 +783,7 @@
           HonourWon: "Chelsea Player of the Year: 2011"
         }
       }, {
-        name: "Busquets",
+        name: "Sergio Busquets",
         image: "player-images/busquets.png",
         stats: {
           PlaceOfBirth: "Sabadell",
@@ -776,7 +794,7 @@
           HonourWon: "MLS All-Star: 2024"
         }
       }, {
-        name: "Bellingham",
+        name: "Jude Bellingham",
         image: "player-images/bellingham.png",
         stats: {
           PlaceOfBirth: "Stourbridge",
@@ -787,7 +805,7 @@
           HonourWon: "Bundesliga Player of the Season: 2022–23"
         }
       }, {
-        name: "Benzema",
+        name: "Karim Benzema",
         image: "player-images/benzema.png",
         stats: {
           PlaceOfBirth: "Lyon",
@@ -798,7 +816,7 @@
           HonourWon: "Ballon d'Or: 2022"
         }
       }, {
-        name: "Gattuso",
+        name: "Gennaro Gattuso",
         image: "player-images/gattuso.png",
         stats: {
           PlaceOfBirth: "Cosenza",
@@ -809,7 +827,7 @@
           HonourWon: "AC Milan Hall of Fame"
         }
       }, {
-        name: "Mahrez",
+        name: "Riyad Mahrez",
         image: "player-images/mahrez.png",
         stats: {
           PlaceOfBirth: "Sarcelles",
@@ -820,7 +838,7 @@
           HonourWon: "Africa Cup of Nations: 2019"
         }
       }, {
-        name: "Vardy",
+        name: "Jamie Vardy",
         image: "player-images/vardy.png",
         stats: {
           PlaceOfBirth: "Sheffield",
@@ -831,7 +849,7 @@
           HonourWon: "Premier League Player of the Season: 2015–16"
         }
       }, {
-        name: "Zlatan",
+        name: "Zlatan Ibrahimovic",
         image: "player-images/ibrahimovic.png",
         stats: {
           PlaceOfBirth: "Malmö",
@@ -842,7 +860,7 @@
           HonourWon: "EFL Cup top scorer: 2016–17"
         }
       }, {
-        name: "Aubameyang",
+        name: "Pierre-Emerick Aubameyang",
         image: "player-images/aubameyang.png",
         stats: {
           PlaceOfBirth: "Laval",
@@ -853,7 +871,7 @@
           HonourWon: "Bundesliga Player of the Year: 2015–16"
         }
       }, {
-        name: "Robertson",
+        name: "Andy Robertson",
         image: "player-images/robertson.png",
         stats: {
           PlaceOfBirth: "Glasgow",
@@ -864,7 +882,7 @@
           HonourWon: "UEFA Team of the Year: 2019"
         }
       }, {
-        name: "Sane",
+        name: "Leroy Sane",
         image: "player-images/sane.png",
         stats: {
           PlaceOfBirth: "Essen",
@@ -875,7 +893,7 @@
           HonourWon: "PFA Young Player of the Year: 2017–18"
         }
       }, {
-        name: "Kante",
+        name: "Ngolo Kante",
         image: "player-images/kante.png",
         stats: {
           PlaceOfBirth: "Paris",
@@ -886,7 +904,7 @@
           HonourWon: "Saudi Pro League: 2024–25"
         }
       }, {
-        name: "Drogba",
+        name: "Didier Drogba",
         image: "player-images/drogba.png",
         stats: {
           PlaceOfBirth: "Abidjan",
@@ -897,7 +915,7 @@
           HonourWon: "Premier League Golden Boot: 2006–07,2009–10"
         }
       }, {
-        name: "Vini Jr",
+        name: "Vinicius Jr",
         image: "player-images/vinijr.png",
         stats: {
           PlaceOfBirth: "São Gonçalo",
@@ -930,7 +948,7 @@
           HonourWon: "Ballon d'Or: 2024"
         }
       }, {
-        name: "Foden",
+        name: "Phil Foden",
         image: "player-images/foden.png",
         stats: {
           PlaceOfBirth: "Stockport",
@@ -1266,14 +1284,14 @@
           card.className = "player-card hidden";
           card.dataset.player = p.name;
           card.innerHTML = `
-      
-														<div class="card-inner">
-															<div class="card-front">
-																<img src="${p.image}">
-																	<div class="drop-zone" data-owner="${p.name}"></div>
-																</div>
-																<div class="card-back"></div>
-															</div>`;
+                <div class="card-inner">
+                  <div class="card-front">
+                    <h3 class="player-name" aria-hidden="true"></h3>
+                    <img src="${p.image}">
+                    <div class="drop-zone" data-owner="${p.name}"></div>
+                  </div>
+                  <div class="card-back"></div>
+                  </div>`;
           grid.appendChild(card);
         });
         // Stat pool
@@ -1415,6 +1433,7 @@
             tile.classList.add("wrong");
           }
         });
+        // Names will be revealed after the 3s correction countdown (see timer below)
         // ⛔ Do not autocorrect if all are correct
         if (score === total) {
           scoreOut.innerHTML = `Perfect! 
@@ -1459,6 +1478,17 @@
                 tile.style.transform = "scale(1)";
               }, 300);
             });
+            // Reveal player names above each card after correction completes
+            setTimeout(() => {
+              document.querySelectorAll('.player-card').forEach(card => {
+                const nameEl = card.querySelector('.player-name');
+                if (nameEl) {
+                  nameEl.textContent = card.dataset.player;
+                  nameEl.classList.add('revealed');
+                  nameEl.setAttribute('aria-hidden', 'false');
+                }
+              });
+            }, 360);
             scoreOut.innerHTML = `Final Score: 
 															<b>${score}/${total}</b> – corrected.`;
           }
