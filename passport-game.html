@@ -326,9 +326,31 @@
         transform: scale(1.06)
       }
 
-      .stat.dragging {
-        opacity: .6;
-        transform: scale(.96)
+      .stat.selected {
+        outline: 3px solid #0a7785;
+        transform: scale(1.03);
+      }
+      .stat.placing {
+        animation: placePop .35s cubic-bezier(.2,.9,.2,1);
+      }
+
+      .drop-zone.shake {
+        animation: shakeIt .38s ease-in-out;
+      }
+
+      @keyframes placePop {
+        0% { transform: scale(.85); opacity: .7 }
+        60% { transform: scale(1.08) }
+        100% { transform: scale(1); opacity: 1 }
+      }
+
+      @keyframes shakeIt {
+        0% { transform: translateX(0) }
+        20% { transform: translateX(-8px) }
+        40% { transform: translateX(8px) }
+        60% { transform: translateX(-6px) }
+        80% { transform: translateX(6px) }
+        100% { transform: translateX(0) }
       }
 
       .stat.placed {
@@ -401,17 +423,7 @@
         margin-top: 6px
       }
 
-      /* floating tile */
-      .floating-tile {
-        position: fixed;
-        pointer-events: none;
-        z-index: 2147483647;
-        transform: translate(-50%, -50%);
-        border-radius: 10px;
-        padding: 10px 14px;
-        font-weight: 700;
-        box-shadow: 0 10px 35px rgba(0, 0, 0, .25)
-      }
+      /* floating-tile and pointer-based dragging removed; game uses click-to-select/place */
 
       /* FULLSCREEN MODE */
       main:fullscreen {
@@ -471,7 +483,7 @@
     <main>
       <button id="fullscreenBtn" class="btn" style="background:#222;color:#fff;align-self:flex-end;"> ⛶ Fullscreen </button>
       <h2>Flatchat Passport Quiz</h2>
-      <h3 style="text-align: center;">Drag and drop the stats to the correct player cards! <br>
+      <h3 style="text-align: center;">Click a stat and then click on the box under the player cards to make your guesses! <br>
         <br>Stats accurate as of the beginning of the 25/26 season.
       </h3>
       <div id="round-stats">Loading...</div>
@@ -1268,8 +1280,7 @@
         pool.innerHTML = shuffle(statBank).map(s => {
           const bg = STAT_COLORS[s.key] || "#25b6c4";
           const color = bg === "#25b6c4" ? "#fff" : "#111";
-          return `
-															<div class="stat" data-player="${s.player}" data-key="${s.key}" style="background:${bg};color:${color}">${s.value}</div>`;
+          return '<div class="stat" data-player="' + s.player + '" data-key="' + s.key + '" style="background:' + bg + ';color:' + color + '">' + s.value + '</div>';
         }).join("");
         // Legend
         roundStats.innerHTML = activeKeys.map(k => {
@@ -1279,6 +1290,8 @@
 															<span class="legend-chip" style="background:${bg};color:${c}">${k}</span>`;
         }).join(" ");
         revealCards();
+        // after pool is rendered, wire click handlers
+        setTimeout(() => attachPointerDrag(), 250);
       }
 
       function revealCards() {
@@ -1290,109 +1303,96 @@
         }, 200);
       }
       /* =====================================================
-         POINTER DRAG IMPLEMENTATION
+         CLICK-TO-SELECT / CLICK-TO-PLACE IMPLEMENTATION
          ===================================================== */
-      let draggingPointer = null;
-      let floatingTile = null;
-      let originTile = null;
-      let originPlayer = "",
-        originKey = "",
-        originText = "";
+      let selectedTile = null;
 
       function attachPointerDrag() {
+        // Prepare pool tiles to be clickable
         const tiles = [...document.querySelectorAll("#stats-pool .stat")];
         tiles.forEach(tile => {
-          tile.style.touchAction = "none";
-          tile.addEventListener("pointerdown", pointerDown);
+          tile.style.touchAction = "manipulation";
+          tile.addEventListener("click", tileClick);
+        });
+
+        // Make each drop zone clickable: click a zone to place selected tile
+        const zones = [...document.querySelectorAll('.drop-zone')];
+        zones.forEach(z => {
+          z.addEventListener('click', zoneClick);
         });
       }
 
-      function pointerDown(e) {
-        if (e.button !== 0) return;
-        e.preventDefault();
-        originTile = e.currentTarget;
-        originPlayer = originTile.dataset.player;
-        originKey = originTile.dataset.key;
-        originText = originTile.textContent.trim();
-        draggingPointer = e.pointerId;
-        floatingTile = originTile.cloneNode(true);
-        floatingTile.classList.add("floating-tile");
-        document.body.appendChild(floatingTile);
-        updateFloating(e.clientX, e.clientY);
-        originTile.classList.add("dragging");
-        originTile.setPointerCapture(draggingPointer);
-        originTile.onpointermove = pointerMove;
-        originTile.onpointerup = pointerUp;
-        originTile.onpointercancel = pointerCancel;
-      }
-
-      function pointerMove(e) {
-        if (e.pointerId !== draggingPointer) return;
-        updateFloating(e.clientX, e.clientY);
-      }
-
-      function pointerUp(e) {
-        if (e.pointerId !== draggingPointer) return;
-        const x = e.clientX,
-          y = e.clientY;
-        const elem = document.elementFromPoint(x, y);
-        const zone = elem ? elem.closest(".drop-zone") : null;
-        if (zone) {
-          placeTile(zone, originPlayer, originKey, originText);
-          // Remove from pool OR from previous drop zone
-          if (originTile.parentElement.id === "stats-pool") {
-            removePoolTile(originPlayer, originKey, originText);
-          } else {
-            originTile.remove();
-          }
+      function tileClick(e) {
+        e.stopPropagation();
+        const tile = e.currentTarget;
+        // If tile is already placed inside a zone, clicking it returns it to the pool
+        const parent = tile.parentElement;
+        if (parent && parent.classList && parent.classList.contains('drop-zone')) {
+          // move back to pool
+          document.getElementById('stats-pool').appendChild(tile);
+          tile.classList.remove('placed');
+          tile.classList.remove('selected');
+          return;
         }
-        cleanupDrag();
-      }
 
-      function pointerCancel() {
-        cleanupDrag();
-      }
-
-      function updateFloating(x, y) {
-        if (!floatingTile) return;
-        floatingTile.style.left = x + "px";
-        floatingTile.style.top = y + "px";
-      }
-
-      function cleanupDrag() {
-        if (originTile) {
-          try {
-            originTile.releasePointerCapture(draggingPointer);
-          } catch (e) {}
-          originTile.classList.remove("dragging");
-          originTile.onpointermove = null;
-          originTile.onpointerup = null;
-          originTile.onpointercancel = null;
+        // Select / deselect behavior for pool tiles
+        if (selectedTile) selectedTile.classList.remove('selected');
+        if (selectedTile === tile) {
+          selectedTile = null;
+        } else {
+          selectedTile = tile;
+          selectedTile.classList.add('selected');
         }
-        if (floatingTile && floatingTile.parentNode) floatingTile.remove();
-        floatingTile = null;
-        originTile = null;
-        draggingPointer = null;
       }
 
-      function removePoolTile(p, k, t) {
-        const tiles = [...document.querySelectorAll("#stats-pool .stat")];
-        const match = tiles.find(el => el.dataset.player === p && el.dataset.key === k && el.textContent.trim() === t);
-        if (match) match.remove();
+      function zoneClick(e) {
+        const zone = e.currentTarget;
+        if (!selectedTile) return;
+        // Prevent placing a stat that duplicates an existing value in this zone
+        const val = selectedTile.textContent.trim();
+        const existing = Array.from(zone.querySelectorAll('.stat')).some(s => s.textContent.trim() === val);
+        if (existing) {
+          // flash/shake the zone to indicate invalid place
+          zone.classList.add('shake');
+          setTimeout(() => zone.classList.remove('shake'), 420);
+          selectedTile.classList.remove('selected');
+          selectedTile = null;
+          return;
+        }
+
+        // Place the selected tile into the zone (move it)
+        placeTile(zone, selectedTile.dataset.player, selectedTile.dataset.key, selectedTile.textContent.trim(), selectedTile);
+        // small place animation
+        selectedTile.classList.remove('selected');
+        selectedTile.classList.add('placed', 'placing');
+        setTimeout(() => selectedTile.classList.remove('placing'), 380);
+        selectedTile = null;
       }
 
-      function placeTile(zone, p, k, t) {
-        const d = document.createElement("div");
-        d.className = "stat placed";
+      function placeTile(zone, p, k, t, originEl) {
+        if (originEl) {
+          // move existing element
+          zone.appendChild(originEl);
+          originEl.classList.add('placed');
+          originEl.style.touchAction = 'manipulation';
+          // ensure click handler remains for returning to pool and animate place
+          originEl.addEventListener('click', tileClick);
+          originEl.classList.add('placing');
+          setTimeout(() => originEl.classList.remove('placing'), 380);
+          return;
+        }
+
+        const d = document.createElement('div');
+        d.className = 'stat placed';
         d.dataset.player = p;
         d.dataset.key = k;
         d.textContent = t;
         const bg = STAT_COLORS[k];
-        const c = bg === "#25b6c4" ? "#fff" : "#111";
+        const c = bg === '#25b6c4' ? '#fff' : '#111';
         d.style.background = bg;
         d.style.color = c;
-        d.style.touchAction = "none";
-        d.addEventListener("pointerdown", pointerDown);
+        d.style.touchAction = 'manipulation';
+        d.addEventListener('click', tileClick);
         zone.appendChild(d);
       }
       /* =====================================================
