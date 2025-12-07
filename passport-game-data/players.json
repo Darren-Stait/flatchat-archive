@@ -427,12 +427,191 @@
 
 
 
-      "HARD_PLAYERS": [
+    "HARD_PLAYERS": [
+      {
+        "name": "Leander Dendoncker",
+        "image": "player-images/dendoncker.png",
+        "stats": {
+          "PlaceOfBirth": "Passendale",
+          "DateOfBirth": "15 April 1995",
+          "FirstSeniorClub": "Anderlecht",
+          "Position": "DM/CB",
+          "NationalTeam": "Belgium",
+          "HonourWon": "FIFA World Cup third place: 2018"
+        }
+      }, {
+        "name": "Daniel Podence",
+        "image": "player-images/podence.png",
+        "stats": {
+          "PlaceOfBirth": "Oeiras",
+          "DateOfBirth": "21 October 1995",
+          "FirstSeniorClub": "Sporting CP",
+          "Position": "RW/LW",
+          "NationalTeam": "Portugal",
+          "HonourWon": "UEFA Conference League: 2023–24"
+        }
+      }, {
+        "name": "Jonas Olsson",
+        "image": "player-images/jonasolsson.png",
+        "stats": {
+          "PlaceOfBirth": "Landskrona",
+          "DateOfBirth": "10 March 1983",
+          "FirstSeniorClub": "Landskrona BoIS",
+          "Position": "CB",
+          "NationalTeam": "Sweden",
+          "HonourWon": "Svenska Cupen: 2017–18"
+        }
+      }, {
+        "name": "Tim Ream",
+        "image": "player-images/ream.png",
+        "stats": {
+          "PlaceOfBirth": "St. Louis",
+          "DateOfBirth": "5 October 1987",
+          "FirstSeniorClub": "New York Red Bulls",
+          "Position": "CB/LB",
+          "NationalTeam": "USA",
+          "HonourWon": "PFA Team of the Year: 2021–22 Championship"
+        }
+      }, {
+        "name": "Joaquín",
+        "image": "player-images/joaquin.png",
+        "stats": {
+          "PlaceOfBirth": "El Puerto de Santa María",
+          "DateOfBirth": "21 July 1981",
+          "FirstSeniorClub": "New York Red Bulls",
+          "Position": "RW/RM",
+          "NationalTeam": "Spain",
+          "HonourWon": "FIFA World Cup All-Star Team: 2002 (reserve)"
+        }
+      }, {
+        "name": "Davide Zappacosta",
+        "image": "player-images/zappacosta.png",
+        "stats": {
+          "PlaceOfBirth": "Sora",
+          "DateOfBirth": "11 June 1992",
+          "FirstSeniorClub": "Isola Liri",
+          "Position": "RM/RM/LM",
+          "NationalTeam": "Italy",
+          "HonourWon": "FA Cup: 2017–18"
+        }
+      }, {
+        "name": "Djibril Sidibe",
+        "image": "player-images/sidibe.png",
+        "stats": {
+          "PlaceOfBirth": "Troyes",
+          "DateOfBirth": "29 July 1992",
+          "FirstSeniorClub": "Troyes",
+          "Position": "RB/LB",
+          "NationalTeam": "France",
+          "HonourWon": "FIFA World Cup: 2018"
+        }
+      }, {
+        "name": "Kevin Kampl",
+        "image": "player-images/kampl.png",
+        "stats": {
+          "PlaceOfBirth": "Solingen",
+          "DateOfBirth": "9 October 1990",
+          "FirstSeniorClub": "Bayer Leverkusen",
+          "Position": "CM/RM/DM",
+          "NationalTeam": "Slovenia",
+          "HonourWon": "DFB-Pokal: 2021–22,2022–23"
+        }
+      }, {
+        "name": "Vincenzo Grifo",
+        "image": "player-images/grifo.png",
+        "stats": {
+          "PlaceOfBirth": "Pforzheim",
+          "DateOfBirth": "7 April 1993",
+          "FirstSeniorClub": "TSG Hoffenheim",
+          "Position": "LW",
+          "NationalTeam": "Italy",
+          "HonourWon": "DFB-Pokal runner-up: 2021–22"
+        }
+      }, {
+        "name": "Aritz Aduriz",
+        "image": "player-images/aduriz.png",
+        "stats": {
+          "PlaceOfBirth": "San Sebastián",
+          "DateOfBirth": "11 February 1981",
+          "FirstSeniorClub": "Aurrerá",
+          "Position": "ST",
+          "NationalTeam": "Spain",
+          "HonourWon": "UEFA Europa League Top Scorer: 2015–16,2017–18"
+        }
+      }, {
+        "name": "Juan Foyth",
+        "image": "player-images/foyth.png",
+        "stats": {
+          "PlaceOfBirth": "La Plata",
+          "DateOfBirth": "12 January 1998",
+          "FirstSeniorClub": "Estudiantes",
+          "Position": "CB/RB",
+          "NationalTeam": "Argentina",
+          "HonourWon": "UEFA Champions League runner-up: 2018–19"
+        }
+      }, {
+        "name": "Ademola Lookman",
+        "image": "player-images/lookman.png",
+        "stats": {
+          "PlaceOfBirth": "Wandsworth",
+          "DateOfBirth": "20 October 1997",
+          "FirstSeniorClub": "Charlton Athletic",
+          "Position": "LW/SS/RW",
+          "NationalTeam": "Nigeria",
+          "HonourWon": "African Footballer of the Year: 2024"
+        }
+      }, {
+        "name": "Jonás Gutiérrez",
+        "image": "player-images/gutierrez.png",
+        "stats": {
+          "PlaceOfBirth": "Buenos Aires",
+          "DateOfBirth": "5 July 1983",
+          "FirstSeniorClub": "Argentinos Juniors",
+          "Position": "LM/RM",
+          "NationalTeam": "Argentina",
+          "HonourWon": "Copa Sudamericana: 2017"
+        }
+      }, {
+        "name": "Mathias Jensen",
+        "image": "player-images/mathiasjensen.png",
+        "stats": {
+          "PlaceOfBirth": "Zealand",
+          "DateOfBirth": "1 January 1996",
+          "FirstSeniorClub": "Nordsjælland",
+          "Position": "CM",
+          "NationalTeam": "Denmark",
+          "HonourWon": "EFL Championship play-offs: 2021"
+        }
+      }, {
+        "name": "Roberto Soldado",
+        "image": "player-images/soldado.png",
+        "stats": {
+          "PlaceOfBirth": "Valencia",
+          "DateOfBirth": "27 May 1985",
+          "FirstSeniorClub": "Real Madrid",
+          "Position": "ST",
+          "NationalTeam": "Spain",
+          "HonourWon": "Football League Cup runner-up: 2014–15"
+        }
+      }
+    ],
+
+
+
+
+
+
+
+
+
+
+    
+    "VERY_HARD_PLAYERS": [
       {
         "name": "Jamal Blackman",
         "image": "player-images/blackman.png",
         "stats": {
-          "PlaceOfBirth": "Croydon, London",
+          "PlaceOfBirth": "Croydon",
           "DateOfBirth": "23 October 1993",
           "FirstSeniorClub": "Chelsea",
           "Position": "GK",
@@ -449,17 +628,6 @@
           "Position": "LW",
           "NationalTeam": "England",
           "HonourWon": "EFL Championship play-offs winner: 2017"
-        }
-      }, {
-        "name": "Islam Feruz",
-        "image": "player-images/feruz.png",
-        "stats": {
-          "PlaceOfBirth": "Kismaayo",
-          "DateOfBirth": "10 September 1995",
-          "FirstSeniorClub": "Chelsea",
-          "Position": "ST",
-          "NationalTeam": "Scotland",
-          "HonourWon": "FA Youth Cup: 2011–12"
         }
       }, {
         "name": "Jordan Beyer",
@@ -532,7 +700,7 @@
         }
       },
       {
-        "name": "AMeron Devlin",
+        "name": "Cameron Devlin",
         "image": "player-images/devlin.png",
         "stats": {
           "PlaceOfBirth": "Sydney",
@@ -640,30 +808,6 @@
         }
       },
       {
-        "name": "Brandon Barker",
-        "image": "player-images/barker.png",
-        "stats": {
-          "PlaceOfBirth": "Manchester",
-          "DateOfBirth": "4 October 1996",
-          "FirstSeniorClub": "Manchester City",
-          "Position": "LW",
-          "NationalTeam": "England",
-          "HonourWon": "Scottish Premiership: 2020–21"
-        }
-      },
-      {
-        "name": "Serge Atakayi",
-        "image": "player-images/atakayi.png",
-        "stats": {
-          "PlaceOfBirth": "Kinshasa",
-          "DateOfBirth": "30 January 1999",
-          "FirstSeniorClub": "Jaro",
-          "Position": "RW",
-          "NationalTeam": "Finland",
-          "HonourWon": "Ykkösliiga: 2024"
-        }
-      },
-      {
         "name": "Marvin Compper",
         "image": "player-images/compper.png",
         "stats": {
@@ -699,5 +843,239 @@
           "HonourWon": "Chelsea Goal of the Year: 2013–14"
         }
       }
-      ]
-    }
+    ],
+
+
+
+
+
+
+
+
+
+
+
+    "EXTREME_PLAYERS": [
+      {
+        "name": "Serge Atakayi",
+        "image": "player-images/atakayi.png",
+        "stats": {
+          "PlaceOfBirth": "Kinshasa",
+          "DateOfBirth": "30 January 1999",
+          "FirstSeniorClub": "Jaro",
+          "Position": "RW",
+          "NationalTeam": "Finland",
+          "HonourWon": "Ykkösliiga: 2024"
+        }
+      }, {
+        "name": "Islam Feruz",
+        "image": "player-images/feruz.png",
+        "stats": {
+          "PlaceOfBirth": "Kismaayo",
+          "DateOfBirth": "10 September 1995",
+          "FirstSeniorClub": "Chelsea",
+          "Position": "ST",
+          "NationalTeam": "Scotland",
+          "HonourWon": "FA Youth Cup: 2011–12"
+        }
+      }, {
+        "name": "Jonathan Russell",
+        "image": "player-images/jonrussell.png",
+        "stats": {
+          "PlaceOfBirth": "Hounslow",
+          "DateOfBirth": "9 October 2000",
+          "FirstSeniorClub": "Chelsea",
+          "Position": "CM/DM",
+          "NationalTeam": "Jamaica",
+          "HonourWon": "No Honours Yet"
+        }
+      }, {
+        "name": "Jake Hesketh",
+        "image": "player-images/hesketh.png",
+        "stats": {
+          "PlaceOfBirth": "Stockport",
+          "DateOfBirth": "27 March 1996",
+          "FirstSeniorClub": "Southampton",
+          "Position": "AM",
+          "NationalTeam": "England",
+          "HonourWon": "U21 Premier League Cup: 2014–15"
+        }
+      }, {
+        "name": "Juanma Herzog",
+        "image": "player-images/herzog.png",
+        "stats": {
+          "PlaceOfBirth": "Santa Cruz de Tenerife",
+          "DateOfBirth": "13 May 2004",
+          "FirstSeniorClub": "UD Las Palmas",
+          "Position": "CB",
+          "NationalTeam": "Spain",
+          "HonourWon": "No Honours Yet"
+        }
+      }, {
+        "name": "Ale Garcia",
+        "image": "player-images/alegarcia.png",
+        "stats": {
+          "PlaceOfBirth": "Las Palmas",
+          "DateOfBirth": "19 March 2003",
+          "FirstSeniorClub": "UD Las Palmas",
+          "Position": "LW",
+          "NationalTeam": "Spain",
+          "HonourWon": "Laliga Hypermotion POTM Nominee: Sep 2025"
+        }
+      }, {
+        "name": "Yeremay Hernández",
+        "image": "player-images/yeremay.png",
+        "stats": {
+          "PlaceOfBirth": "Las Palmas",
+          "DateOfBirth": "10 December 2002",
+          "FirstSeniorClub": "Deportivo La Coruña",
+          "Position": "LW",
+          "NationalTeam": "Spain",
+          "HonourWon": "Primera Federación: 2023–24"
+        }
+      }, {
+        "name": "Edson Braafheid",
+        "image": "player-images/braafheid.png",
+        "stats": {
+          "PlaceOfBirth": "Paramaribo",
+          "DateOfBirth": "8 April 1983",
+          "FirstSeniorClub": "FC Utrecht",
+          "Position": "LB",
+          "NationalTeam": "Netherlands",
+          "HonourWon": "FIFA World Cup runner-up: 2010"
+        }
+      }, {
+        "name": "Kwon Hyeok-kyu",
+        "image": "player-images/kwonhyekkyu.png",
+        "stats": {
+          "PlaceOfBirth": "Daegu",
+          "DateOfBirth": "13 March 2001",
+          "FirstSeniorClub": "Busan I Park",
+          "Position": "DM",
+          "NationalTeam": "South Korea",
+          "HonourWon": "K League 2: 2021"
+        }
+      }, {
+        "name": "Marco Tilio",
+        "image": "player-images/tilio.png",
+        "stats": {
+          "PlaceOfBirth": "Hurstville",
+          "DateOfBirth": "23 August 2001",
+          "FirstSeniorClub": "Sydney FC",
+          "Position": "RW",
+          "NationalTeam": "Australia",
+          "HonourWon": "Scottish Premiership: 2023–24"
+        }
+      }, {
+        "name": "Remie Streete",
+        "image": "player-images/streete.png",
+        "stats": {
+          "PlaceOfBirth": "Aylesbury",
+          "DateOfBirth": "2 November 1994",
+          "FirstSeniorClub": "Newcastle United",
+          "Position": "CB",
+          "NationalTeam": "England",
+          "HonourWon": "No Honours Yet"
+        }
+      }, {
+        "name": "Brek Shea",
+        "image": "player-images/shea.png",
+        "stats": {
+          "PlaceOfBirth": "College Station, Texas",
+          "DateOfBirth": "February 28 1990",
+          "FirstSeniorClub": "FC Dallas",
+          "Position": "LM/LB",
+          "NationalTeam": "United States",
+          "HonourWon": "CONCACAF Gold Cup: 2013"
+        }
+      }, {
+        "name": "Brek Shea",
+        "image": "player-images/shea.png",
+        "stats": {
+          "PlaceOfBirth": "College Station, Texas",
+          "DateOfBirth": "February 28 1990",
+          "FirstSeniorClub": "FC Dallas",
+          "Position": "LM/LB",
+          "NationalTeam": "United States",
+          "HonourWon": "CONCACAF Gold Cup: 2013"
+        }
+      }, {
+        "name": "Scott Allan",
+        "image": "player-images/scottallan.png",
+        "stats": {
+          "PlaceOfBirth": "Glasgow",
+          "DateOfBirth": "28 November 1991",
+          "FirstSeniorClub": "Dundee United",
+          "Position": "AM/CM",
+          "NationalTeam": "Scotland",
+          "HonourWon": "PFA Scotland Team of the Year: 2014–15 Championship"
+        }
+      },{
+        "name": "Kylian Hazard",
+        "image": "player-images/kylianhazard.png",
+        "stats": {
+          "PlaceOfBirth": "La Louvière",
+          "DateOfBirth": "5 August 1995",
+          "FirstSeniorClub": "White Star Bruxelles",
+          "Position": "LW",
+          "NationalTeam": "Belgium",
+          "HonourWon": "No Honours Yet"
+        }
+      }, {
+        "name": "Alex Kiwomya",
+        "image": "player-images/kiwomya.png",
+        "stats": {
+          "PlaceOfBirth": "Sheffield",
+          "DateOfBirth": "20 May 1996",
+          "FirstSeniorClub": "Chelsea",
+          "Position": "RW",
+          "NationalTeam": "England",
+          "HonourWon": "Victory Shield: 2012"
+        }
+      }, {
+        "name": "Cristian Manea",
+        "image": "player-images/manea.png",
+        "stats": {
+          "PlaceOfBirth": "Agigea",
+          "DateOfBirth": "9 August 1997",
+          "FirstSeniorClub": "Viitorul Constanța",
+          "Position": "RB",
+          "NationalTeam": "Romania",
+          "HonourWon": "Supercupa României: 2018, 2020"
+        }
+      }, {
+        "name": "Wallace",
+        "image": "player-images/wallace.png",
+        "stats": {
+          "PlaceOfBirth": "Rio de Janeiro",
+          "DateOfBirth": "1 May 1994",
+          "FirstSeniorClub": "Flamengo",
+          "Position": "RB",
+          "NationalTeam": "Brazil",
+          "HonourWon": "Copa do Brasil: 2016"
+        }
+      }, {
+        "name": "Jose Angel Crespo",
+        "image": "player-images/josecrespo.png",
+        "stats": {
+          "PlaceOfBirth": "Lora del Río",
+          "DateOfBirth": "9 February 1987",
+          "FirstSeniorClub": "Sevilla",
+          "Position": "CB",
+          "NationalTeam": "Spain",
+          "HonourWon": "UEFA Cup: 2005–06"
+        }
+      }, {
+        "name": "Brandon Barker",
+        "image": "player-images/barker.png",
+        "stats": {
+          "PlaceOfBirth": "Manchester",
+          "DateOfBirth": "4 October 1996",
+          "FirstSeniorClub": "Manchester City",
+          "Position": "LW",
+          "NationalTeam": "England",
+          "HonourWon": "Scottish Premiership: 2020–21"
+        }
+      },
+    ]
+}
