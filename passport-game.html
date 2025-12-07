@@ -544,6 +544,46 @@
           min-height: 360px; /* slightly larger on narrow viewports for safety */
         }
       }
+      /* Difficulty tooltip styles */
+      .diff-tooltip {
+        background: #fff;
+        border: 1px solid rgba(0,0,0,0.08);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        border-radius: 8px;
+        color: #111;
+        font-size: 0.9rem;
+        transform-origin: bottom center;
+      }
+      .diff-tooltip ul li {
+        margin: 6px 0;
+        line-height: 1.25;
+      }
+      #diffInfoBtn {
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        border-radius: 8px;
+        background: #eee;
+        font-weight: 800;
+      }
+      /* ensure the tooltip sits above on narrow screens too */
+      @media (max-width: 520px) {
+        .diff-tooltip { left: auto; right: 0; min-width: 200px; }
+      }
+      .clear-select {
+        background: transparent;
+        border: 1px solid rgba(0,0,0,0.06);
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        font-weight: 800;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+      }
+      .clear-select:hover { background: rgba(0,0,0,0.04); }
     </style>
   </head>
   <body>
@@ -580,11 +620,22 @@
             <option value="very-hard">Very Hard</option>
             <option value="extreme">Extreme</option>
           </select>
-        </label>
-        <button id="resetGame" class="btn btn-reset">🔄 Reset Game</button>
+            <!-- Tooltip trigger for difficulty descriptions -->
+            <div class="diff-tooltip-wrap" style="position:relative;display:inline-block">
+              <button id="diffInfoBtn" aria-expanded="false" aria-controls="diffTooltip" class="btn" style="margin-left:8px;padding:6px 8px;">i</button>
+              <div id="diffTooltip" role="tooltip" aria-hidden="true" class="diff-tooltip" style="display:none;position:absolute;left:0;bottom:38px;z-index:40;min-width:240px;">
+                <ul style="margin:0;padding:10px 12px;list-style:none;">
+                  <li><strong>Easy</strong>: The most well-known footballers, should know every player. (20 points available)</li>
+                  <li><strong>Hard</strong>: Lesser-known top division ballers, should know most of the players. (20 points available)</li>
+                  <li><strong>Very Hard</strong>: Obscure top division ballers or better-known non top 5 league players, should know some of the players. (20 points available)</li>
+                  <li><strong>Extreme</strong>: Forgotten ballers that made no impact on the game, maybe you'll know 1 player. (24 points available)</li>
+                </ul>
+              </div>
+            </div>
+          </label>
+        <button id="resetGame" class="btn btn-reset">🔄 Start New Round</button>
         <button id="submitAnswers" class="btn btn-submit">Lock-In</button>
       </div>
-      <h3 style="text-align: center;">Press Reset Game if changing difficulty. </p>
         <div id="score-output"></div>
       </div>
     </main>
@@ -628,9 +679,11 @@
     <script src="scripts/randomMoment.js"></script>
 
     <script>
-      let STAT_COLORS = {};
-      let EASY_PLAYERS = [];
-      let HARD_PLAYERS = [];
+  let STAT_COLORS = {};
+  let EASY_PLAYERS = [];
+  let HARD_PLAYERS = [];
+  let VERY_HARD_PLAYERS = [];
+  let EXTREME_PLAYERS = [];
 
       async function loadPlayerData() {
         const response = await fetch("passport-game-data/players.json");
@@ -639,6 +692,9 @@
         STAT_COLORS = data.STAT_COLORS;
         EASY_PLAYERS = data.EASY_PLAYERS;
         HARD_PLAYERS = data.HARD_PLAYERS;
+        // optional pools - default to empty arrays if not present
+        VERY_HARD_PLAYERS = data.VERY_HARD_PLAYERS || [];
+        EXTREME_PLAYERS = data.EXTREME_PLAYERS || [];
 
         setupGame();
       }
@@ -680,9 +736,10 @@
         } else if (diff === 'hard') {
           basePool = HARD_PLAYERS; playerCount = 4; keyCount = 4;
         } else if (diff === 'very-hard') {
-          basePool = VERY_HARD_PLAYERS; playerCount = 4; keyCount = 5;
+          basePool = VERY_HARD_PLAYERS && VERY_HARD_PLAYERS.length ? VERY_HARD_PLAYERS : HARD_PLAYERS; playerCount = 4; keyCount = 5;
         } else if (diff === 'extreme') {
-          basePool = EXTREME_PLAYERS; playerCount = 4; keyCount = 5;
+          basePool = EXTREME_PLAYERS && EXTREME_PLAYERS.length ? EXTREME_PLAYERS : (VERY_HARD_PLAYERS && VERY_HARD_PLAYERS.length ? VERY_HARD_PLAYERS : HARD_PLAYERS);
+          playerCount = 4; keyCount = 5;
         }
 
         chosenPlayers = shuffle(basePool).slice(0, playerCount);
@@ -709,9 +766,12 @@
           card.innerHTML = `
                 <div class="card-inner">
                   <div class="card-front">
-                    <select class="player-select" aria-hidden="true">
-                      <option value="">Select player</option>
-                    </select>
+                    <div class="select-wrap" style="display:flex;align-items:center;gap:8px;">
+                      <select class="player-select" aria-hidden="true">
+                        <option value="">Select player</option>
+                      </select>
+                      <button type="button" class="clear-select" aria-label="Clear selection" title="Clear selection" style="display:none;">×</button>
+                    </div>
                     <img src="${p.image}">
                     <div class="drop-zone" data-owner="${p.name}"></div>
                   </div>
@@ -738,14 +798,24 @@
         setTimeout(() => {
           // Populate selects only with the 4 players chosen for this round
           const names = shuffle(chosenPlayers.map(x => x.name));
+          // wire selects so chosen names are removed from others
+          wirePlayerSelects(names);
           document.querySelectorAll('.player-select').forEach(sel => {
-            sel.innerHTML = '<option value="">Select player</option>' + names.map(n => `<option value="${n}">${n}</option>`).join('');
             sel.classList.add('revealed');
             sel.disabled = false;
           });
           attachPointerDrag();
         }, 250);
       }
+
+      // Auto-reset the round when difficulty is changed
+      diffSel.addEventListener('change', () => {
+        // show Lock-In in case it was hidden
+        const submitBtnEl = document.getElementById('submitAnswers');
+        if (submitBtnEl) submitBtnEl.style.display = '';
+        // rebuild the round
+        setupGame();
+      });
 
       function revealCards() {
         const cards = [...document.querySelectorAll(".player-card")];
@@ -754,6 +824,54 @@
           cards.forEach((c, i) => setTimeout(() => c.classList.remove("hidden"), i * 220));
           setTimeout(() => attachPointerDrag(), 1200);
         }, 200);
+      }
+
+      // Helper to keep dropdown options unique across selects
+      let updatePlayerSelects = null;
+      function wirePlayerSelects(names) {
+        const selects = Array.from(document.querySelectorAll('.player-select'));
+        function update() {
+          // gather currently chosen names
+          const chosen = selects.map(s => s.value).filter(v => v);
+          selects.forEach(sel => {
+            const current = sel.value;
+            // rebuild options: always include empty choice
+            const options = ['<option value="">Select player</option>'];
+            names.forEach(n => {
+              // include name if not chosen elsewhere, or if it's the current select's value
+              if (n === current || !chosen.includes(n)) options.push(`<option value="${n}">${n}</option>`);
+            });
+            sel.innerHTML = options.join('');
+            // restore the selection (if still present)
+            sel.value = current || '';
+            // manage clear button next to this select
+            const clearBtn = sel.parentElement.querySelector('.clear-select');
+            if (clearBtn) {
+              if (sel.value) {
+                clearBtn.style.display = 'inline-flex';
+              } else {
+                clearBtn.style.display = 'none';
+              }
+            }
+          });
+        }
+        selects.forEach(s => s.addEventListener('change', update));
+        // wire clear buttons
+        selects.forEach(sel => {
+          const btn = sel.parentElement.querySelector('.clear-select');
+          if (!btn) return;
+          btn.addEventListener('click', (ev) => {
+            ev.stopPropagation();
+            sel.value = '';
+            // trigger update to refresh other selects
+            update();
+            // focus the select so keyboard users remain oriented
+            sel.focus();
+          });
+        });
+        updatePlayerSelects = update;
+        update();
+        return update;
       }
       /* =====================================================
          CLICK-TO-SELECT / CLICK-TO-PLACE IMPLEMENTATION
@@ -1011,6 +1129,11 @@
             sel.disabled = true;
           }
         });
+        // ensure selects' option lists respect locked names
+        if (typeof updatePlayerSelects === 'function') {
+          // small timeout so DOM changes settle visually
+          setTimeout(() => updatePlayerSelects(), 60);
+        }
         // After corrections, update final combined score display using locked name points
         setTimeout(() => {
           const placed = [...document.querySelectorAll('.drop-zone .stat')];
@@ -1090,6 +1213,48 @@
          START FIRST ROUND
          ===================================================== */
       loadPlayerData();
+      /* =====================================================
+         DIFFICULTY TOOLTIP: Accessible show/hide behavior
+         ===================================================== */
+      (function(){
+        const btn = document.getElementById('diffInfoBtn');
+        const tip = document.getElementById('diffTooltip');
+        if (!btn || !tip) return;
+
+        function show() {
+          tip.style.display = 'block';
+          tip.setAttribute('aria-hidden', 'false');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+        function hide() {
+          tip.style.display = 'none';
+          tip.setAttribute('aria-hidden', 'true');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+
+        // click toggles for touch and mouse
+        btn.addEventListener('click', (e)=>{
+          e.stopPropagation();
+          if (tip.style.display === 'none' || tip.style.display === '') show();
+          else hide();
+        });
+
+        // hover/focus to show (non-intrusive)
+        btn.addEventListener('mouseenter', show);
+        btn.addEventListener('mouseleave', hide);
+        btn.addEventListener('focus', show);
+        btn.addEventListener('blur', hide);
+
+        // close on Escape
+        document.addEventListener('keydown', (ev)=>{
+          if (ev.key === 'Escape') hide();
+        });
+
+        // close on outside click
+        document.addEventListener('click', (ev)=>{
+          if (!ev.target.closest || !btn.contains(ev.target)) hide();
+        });
+      })();
     </script>
   </body>
 </html>
