@@ -615,20 +615,20 @@
       <div id="stats-pool"></div>
       <div class="controls">
         <label style="display:flex;align-items:center;gap:8px;font-weight:700"> Difficulty: <select id="difficultySelect" style="padding:8px;border-radius:6px">
-            <option value="easy">Easy</option>
-            <option value="hard">Hard</option>
-            <option value="very-hard">Very Hard</option>
-            <option value="extreme">Extreme</option>
+            <option value="easy">Easy (x1 points)</option>
+            <option value="hard">Hard (x2 points)</option>
+            <option value="very-hard">Very Hard (x4 points)</option>
+            <option value="extreme">Extreme (x8 points)</option>
           </select>
             <!-- Tooltip trigger for difficulty descriptions -->
             <div class="diff-tooltip-wrap" style="position:relative;display:inline-block">
               <button id="diffInfoBtn" aria-expanded="false" aria-controls="diffTooltip" class="btn" style="margin-left:8px;padding:6px 8px;">i</button>
               <div id="diffTooltip" role="tooltip" aria-hidden="true" class="diff-tooltip" style="display:none;position:absolute;left:0;bottom:38px;z-index:40;min-width:240px;">
                 <ul style="margin:0;padding:10px 12px;list-style:none;">
-                  <li><strong>Easy</strong>: The most well-known footballers, should know every player. (20 points available)</li>
-                  <li><strong>Hard</strong>: Lesser-known top division ballers, should know most of the players. (20 points available)</li>
-                  <li><strong>Very Hard</strong>: Obscure top division ballers or better-known non top 5 league players, should know some of the players. (20 points available)</li>
-                  <li><strong>Extreme</strong>: Forgotten ballers that made no impact on the game, maybe you'll know 1 player. (24 points available)</li>
+                  <li><strong>Easy (x1 points)</strong>: The most well-known footballers, should know every player. (20 points available)</li>
+                  <li><strong>Hard (x2 points) </strong>: Lesser-known top division ballers, should know most of the players. (20 points available)</li>
+                  <li><strong>Very Hard (x4 points)</strong>: Obscure top division ballers or better-known non top 5 league players, should know some of the players. (20 points available)</li>
+                  <li><strong>Extreme (x8 points)</strong>: Forgotten ballers that made no impact on the game, maybe you'll know 1 player. (24 points available)</li>
                 </ul>
               </div>
             </div>
@@ -718,6 +718,14 @@
       function shuffle(arr) {
         return arr.slice().sort(() => Math.random() - 0.5)
       }
+      // difficulty scoring multiplier
+      function getDifficultyMultiplier() {
+        const d = diffSel.value;
+        if (d === 'hard') return 2;
+        if (d === 'very-hard') return 4;
+        if (d === 'extreme') return 8;
+        return 1;
+      }
       /* =====================================================
          BUILD A ROUND
          ===================================================== */
@@ -779,12 +787,15 @@
                   </div>`;
           grid.appendChild(card);
         });
-        // Stat pool
-        pool.innerHTML = shuffle(statBank).map(s => {
-          const bg = STAT_COLORS[s.key] || "#25b6c4";
-          const color = bg === "#25b6c4" ? "#fff" : "#111";
-          return '<div class="stat" data-player="' + s.player + '" data-key="' + s.key + '" style="background:' + bg + ';color:' + color + '">' + s.value + '</div>';
-        }).join("");
+        // Stat pool: restore previous ordering — group stats by player (player then activeKeys)
+        pool.innerHTML = chosenPlayers.map(p => {
+          return activeKeys.map(k => {
+            const value = p.stats[k];
+            const bg = STAT_COLORS[k] || "#25b6c4";
+            const color = bg === "#25b6c4" ? "#fff" : "#111";
+            return `<div class="stat" data-player="${p.name}" data-key="${k}" style="background:${bg};color:${color}">${value}</div>`;
+          }).join('');
+        }).join('');
         // Legend
         roundStats.innerHTML = activeKeys.map(k => {
           const bg = STAT_COLORS[k];
@@ -872,6 +883,13 @@
         updatePlayerSelects = update;
         update();
         return update;
+      }
+      // helper to show/hide clear buttons (used on lock-in)
+      function setClearButtonsVisible(visible) {
+        document.querySelectorAll('.clear-select').forEach(b => {
+          b.style.display = visible ? 'inline-flex' : 'none';
+          b.disabled = !visible;
+        });
       }
       /* =====================================================
          CLICK-TO-SELECT / CLICK-TO-PLACE IMPLEMENTATION
@@ -992,6 +1010,8 @@
       submitBtn.addEventListener('click', () => {
         // remove/hide Lock-In button so it can't be pressed again
         submitBtn.style.display = 'none';
+          // hide clear buttons so selections can't be changed post-lock
+          try { setClearButtonsVisible(false); } catch (e) {}
 
         // Stats scoring + correction phase
         const placed = [...document.querySelectorAll('.drop-zone .stat')];
@@ -1032,17 +1052,22 @@
           } else {
             sel.classList.add("wrong");
           }
+          // keep clear buttons hidden after reveal
+          try { setClearButtonsVisible(false); } catch (e) {}
         });
-        // Combined score: each name correct = 1 point
-        const namePoints = nameScore * 1;
-        // Lock these values so corrections won't change awarded name points
-        lockedNameScore = nameScore;
-        lockedNamePoints = namePoints;
-        const combined = score + namePoints;
-        const maxCombined = statBank.length + (document.querySelectorAll('.player-card').length * 1);
+  // Combined score: include name guesses in the correct count, then apply difficulty multiplier
+  const multiplier = getDifficultyMultiplier();
+  // Lock these values so corrections won't change awarded name points
+  lockedNameScore = nameScore;
+  // combined count = correct stats + correct name guesses
+  const combinedCount = score + nameScore;
+  const combinedPoints = combinedCount * multiplier;
+  const playersCount = document.querySelectorAll('.player-card').length;
+  const maxCount = statBank.length + playersCount;
+  const maxCombined = maxCount * multiplier;
 
-        // Show immediate combined score and start correction countdown if needed
-        scoreOut.innerHTML = `Score: <b>${combined}/${maxCombined}</b> <small>(Stats: ${score}/${total}, Names: ${nameScore}/4)</small>`;
+  // Show immediate combined score and start correction countdown if needed
+  scoreOut.innerHTML = `Score: <b>${combinedPoints}/${maxCombined}</b> <small>(Correct: ${combinedCount}/${maxCount} ×${multiplier} — Stats: ${score}/${total}, Names: ${nameScore}/${playersCount})</small>`;
 
         // If there are wrong/unplaced tiles, show a manual "Run Corrections" button
         const wrongOrUnplaced = document.querySelectorAll('.stat.wrong').length +
@@ -1052,14 +1077,15 @@
         if (existingBtn) existingBtn.remove();
 
         if (wrongOrUnplaced > 0) {
-          scoreOut.innerHTML = `Score: <b>${combined}/${maxCombined}</b> – corrections available <small>(Stats: ${score}/${total}, Names: ${nameScore}/4)</small>`;
+          scoreOut.innerHTML = `Score: <b>${combinedPoints}/${maxCombined}</b> – corrections available <small>(Stats: ${score}/${total}, Names: ${nameScore}/${playersCount})</small>`;
           // create a button the user can click to initiate corrections
           const runBtn = document.createElement('button');
           runBtn.id = 'runCorrectionsBtn';
           runBtn.className = 'btn btn-submit';
-          runBtn.textContent = 'Run Corrections';
-          // insert after the score output
-          scoreOut.parentNode.insertBefore(runBtn, scoreOut.nextSibling);
+          runBtn.textContent = 'Reveal Answers';
+          // insert next to the Start New Round / Reset button for prominence
+          const resetBtn = document.getElementById('resetGame');
+          if (resetBtn && resetBtn.parentNode) resetBtn.parentNode.insertBefore(runBtn, resetBtn.nextSibling);
           runBtn.addEventListener('click', () => {
             runBtn.disabled = true;
             runBtn.style.display = 'none';
@@ -1129,11 +1155,7 @@
             sel.disabled = true;
           }
         });
-        // ensure selects' option lists respect locked names
-        if (typeof updatePlayerSelects === 'function') {
-          // small timeout so DOM changes settle visually
-          setTimeout(() => updatePlayerSelects(), 60);
-        }
+        // (Intentionally not updating select option lists here so locked names remain visible.)
         // After corrections, update final combined score display using locked name points
         setTimeout(() => {
           const placed = [...document.querySelectorAll('.drop-zone .stat')];
@@ -1142,10 +1164,14 @@
             // Count only tiles that were placed by the user prior to correction
             if (tile.classList.contains('correct') && tile.dataset.userPlaced === 'true') finalScore++;
           });
-          const namePointsFinal = lockedNamePoints; // do NOT add points after correction
-          const combined = finalScore + namePointsFinal;
-          const maxCombined = statBank.length + (document.querySelectorAll('.player-card').length * 1);
-          scoreOut.innerHTML = `Final Score: <b>${combined}/${maxCombined}</b> <small>(Stats: ${finalScore}/${statBank.length}, Names: ${lockedNameScore}/4)</small>`;
+          const multiplier = getDifficultyMultiplier();
+          // final combined count includes only user-placed correct stats (finalScore) plus locked name score
+          const finalCount = finalScore + lockedNameScore;
+          const finalPoints = finalCount * multiplier;
+          const playersCount = document.querySelectorAll('.player-card').length;
+          const maxCount = statBank.length + playersCount;
+          const maxCombined = maxCount * multiplier;
+          scoreOut.innerHTML = `Final Score: <b>${finalPoints}/${maxCombined}</b> <small>(Correct: ${finalCount}/${maxCount} ×${multiplier} — Stats: ${finalScore}/${statBank.length}, Names: ${lockedNameScore}/${playersCount})</small>`;
         }, 420);
       }
       /* =====================================================
@@ -1155,6 +1181,9 @@
         // Re-show the Lock-In button and reset the round
         const submitBtnEl = document.getElementById('submitAnswers');
         if (submitBtnEl) submitBtnEl.style.display = '';
+        // If a previous 'Reveal Answers' button was left over, remove it so it doesn't appear in the new round
+        const lingering = document.getElementById('runCorrectionsBtn');
+        if (lingering) lingering.remove();
         setupGame();
       });
       /* =====================================================
