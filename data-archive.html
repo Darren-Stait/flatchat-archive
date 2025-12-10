@@ -1,936 +1,1545 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Archive</title>
-  <link rel="icon" type="image/x-icon" href="icons/flatchat-small.webp">
-  <link rel="preconnect" href="https://www.youtube.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    /* HEADER */
-    header {
-      background-color: #25b6c4;
-      color: #fff;
-      padding: 8px 25px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .header-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .header-logo {
-      max-width: 520px;
-      height: auto;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .header-logo:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: #f2b632;
-    }
-
-    @media (max-width: 768px) {
-      .header-container {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Archive</title>
+    <link rel="icon" type="image/x-icon" href="icons/flatchat-small.webp">
+    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        background-color: #f5f5f5;
+        color: #333;
+        display: flex;
         flex-direction: column;
-        text-align: center;
-        gap: 10px;
+        min-height: 100vh;
+      }
+
+      /* HEADER */
+      header {
+        background-color: #25b6c4;
+        color: #fff;
+        padding: 8px 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
       .header-logo {
-        max-width: 90%;
+        max-width: 520px;
+        height: auto;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .header-logo:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
       }
 
       nav {
-        flex-wrap: wrap;
-        justify-content: center;
+        display: flex;
+        align-items: center;
       }
 
       nav a {
-        display: inline-block;
-        margin: 6px;
-        font-size: 1rem;
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
       }
-    }
 
-    /* MAIN CONTENT */
-    main {
-      flex: 1;
-      width: 67.5%;
-      margin: 20px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+      nav a:hover {
+        color: #f2b632;
+      }
 
-    .page-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #25b6c4;
-      text-align: center;
-      margin: 0;
-      padding-bottom: 10px;
-      border-bottom: 3px solid #25b6c4;
-    }
+      @media (max-width: 768px) {
+        .header-container {
+          flex-direction: column;
+          text-align: center;
+          gap: 10px;
+        }
 
-    .content-wrapper {
-      display: flex;
-      gap: 30px;
-      align-items: stretch;
-      flex: 1;
-    }
+        .header-logo {
+          max-width: 90%;
+        }
 
-    /* LEFT SIDE - GALLERY */
-    .picture-section {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      background: #e0e0e0;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      position: relative;
-      height: 520px;
-    }
+        nav {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
 
-    .gallery-container {
-      position: relative;
-      width: 100%;
-      flex: 1;
-      height: 100%;
-      display: block;
-      overflow: hidden;
-    }
+        nav a {
+          display: inline-block;
+          margin: 6px;
+          font-size: 1rem;
+        }
+      }
 
-    /* Hide radio buttons */
-    .gallery-radio {
-      display: none;
-    }
-
-    .gallery-slides {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      display: block;
-    }
-
-    .gallery-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    .gallery-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Show slide when corresponding radio is checked */
-    #slide1:checked ~ .gallery-slides .slide1,
-    #slide2:checked ~ .gallery-slides .slide2,
-    #slide3:checked ~ .gallery-slides .slide3 {
-      opacity: 1;
-      z-index: 1;
-    }
-
-    /* Arrow styling */
-    .gallery-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(37, 182, 196, 0.8);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      user-select: none;
-    }
-
-    .gallery-arrow:hover {
-      background: rgba(37, 182, 196, 1);
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .arrow-next {
-      right: 10px;
-    }
-
-    /* Single Next button: only show the correct target per slide */
-    .arrow-next { display: none; }
-    #slide1:checked ~ .arrow-next.from1 { display: flex; }
-    #slide2:checked ~ .arrow-next.from2 { display: flex; }
-    #slide3:checked ~ .arrow-next.from3 { display: flex; }
-
-    /* Indicators removed */
-
-    /* RIGHT SIDE - CATEGORIES */
-    .categories-section {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      /* center the category boxes vertically within the content area */
-      justify-content: center;
-      /* keep the boxes full-width of the column */
-      align-items: stretch;
-    }
-
-    .category-box {
-      background: #25b6c4;
-      color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-decoration: none;
-      display: block;
-    }
-
-    .category-box:hover {
-      background: #1e9aa6;
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    @media (max-width: 900px) {
+      /* MAIN CONTENT */
       main {
-        width: 95%;
+        flex: 1;
+        width: 67.5%;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #25b6c4;
+        text-align: center;
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #25b6c4;
       }
 
       .content-wrapper {
-        flex-direction: column;
+        display: flex;
+        gap: 30px;
+        align-items: stretch;
+        flex: 1;
       }
 
+      /* LEFT SIDE - GALLERY */
       .picture-section {
-        height: 400px;
-        flex: 0 0 auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        height: 520px;
       }
 
+      .gallery-container {
+        position: relative;
+        width: 100%;
+        flex: 1;
+        height: 100%;
+        display: block;
+        overflow: hidden;
+      }
+
+      /* Hide radio buttons */
+      .gallery-radio {
+        display: none;
+      }
+
+      .gallery-slides {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: block;
+      }
+
+      .gallery-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .gallery-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Show slide when corresponding radio is checked */
+      #slide1:checked~.gallery-slides .slide1,
+      #slide2:checked~.gallery-slides .slide2,
+      #slide3:checked~.gallery-slides .slide3 {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      /* Arrow styling */
       .gallery-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(37, 182, 196, 0.8);
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        user-select: none;
       }
 
-      .arrow-prev {
-        left: 5px;
+      .gallery-arrow:hover {
+        background: rgba(37, 182, 196, 1);
+        transform: translateY(-50%) scale(1.1);
       }
 
       .arrow-next {
-        right: 5px;
+        right: 10px;
       }
-    }
 
-    /* FOOTER */
-    footer {
-      background-color: #25b6c4;
-      color: #fff;
-      text-align: center;
-      padding: 10px 15px;
-      font-size: 0.9rem;
-      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+      /* Single Next button: only show the correct target per slide */
+      .arrow-next {
+        display: none;
+      }
 
-    footer p {
-      margin: 0 0 8px;
-      line-height: 1.4;
-    }
-
-    .social-links {
-      margin-top: 6px;
-    }
-
-    .social-links a {
-      display: inline-block;
-      margin: 0 8px;
-      text-decoration: none;
-      transition: transform 0.3s ease;
-    }
-
-    .social-links a:hover {
-      transform: scale(1.1);
-    }
-
-    .social-links img {
-      width: 36px;
-      height: 36px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .social-links img:hover {
-      transform: scale(1.1);
-    }
-
-    /* Default: desktop view */
-    .footer-random {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      z-index: 10;
-    }
-
-    #randomMomentBtn {
-      background: #f5f5f5;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      padding: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    #randomMomentBtn:hover {
-      transform: rotate(15deg) scale(1.1);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    #randomMomentBtn img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: block;
-    }
-
-    /* ✅ Mobile view: place button below text, centered */
-    @media (max-width: 768px) {
-      .footer-random {
-        position: static; /* no absolute positioning */
-        margin-top: 10px;
+      #slide1:checked~.arrow-next.from1 {
         display: flex;
+      }
+
+      #slide2:checked~.arrow-next.from2 {
+        display: flex;
+      }
+
+      #slide3:checked~.arrow-next.from3 {
+        display: flex;
+      }
+
+      /* Indicators removed */
+      /* RIGHT SIDE - CATEGORIES */
+      .categories-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        /* center the category boxes vertically within the content area */
+        justify-content: center;
+        /* keep the boxes full-width of the column */
+        align-items: stretch;
+      }
+
+      .category-box {
+        background: #25b6c4;
+        color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        display: block;
+      }
+
+      .category-box:hover {
+        background: #1e9aa6;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 900px) {
+        main {
+          width: 95%;
+        }
+
+        .content-wrapper {
+          flex-direction: column;
+        }
+
+        .picture-section {
+          height: 400px;
+          flex: 0 0 auto;
+        }
+
+        .gallery-arrow {
+          width: 40px;
+          height: 40px;
+          font-size: 1.2rem;
+        }
+
+        .arrow-prev {
+          left: 5px;
+        }
+
+        .arrow-next {
+          right: 5px;
+        }
+      }
+
+      /* FOOTER */
+      footer {
+        background-color: #25b6c4;
+        color: #fff;
+        text-align: center;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
       }
 
+      footer p {
+        margin: 0 0 8px;
+        line-height: 1.4;
+      }
+
+      .social-links {
+        margin-top: 6px;
+      }
+
+      .social-links a {
+        display: inline-block;
+        margin: 0 8px;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+      }
+
+      .social-links a:hover {
+        transform: scale(1.1);
+      }
+
+      .social-links img {
+        width: 36px;
+        height: 36px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .social-links img:hover {
+        transform: scale(1.1);
+      }
+
+      /* Default: desktop view */
+      .footer-random {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        z-index: 10;
+      }
+
+      #randomMomentBtn {
+        background: #f5f5f5;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 6px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      #randomMomentBtn:hover {
+        transform: rotate(15deg) scale(1.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
       #randomMomentBtn img {
-        width: 42px; /* slightly smaller on mobile */
-        height: 42px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: block;
       }
-    }
 
-    /* CSS-only modal (uses :target) */
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,0.45);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 180ms ease-in-out;
-      z-index: 1200;
-    }
+      /* ✅ Mobile view: place button below text, centered */
+      @media (max-width: 768px) {
+        .footer-random {
+          position: static;
+          /* no absolute positioning */
+          margin-top: 10px;
+          display: flex;
+          justify-content: center;
+        }
 
-    /* when targeted (via fragment identifier) show it */
-    .modal:target {
-      opacity: 1;
-      pointer-events: auto;
-    }
+        #randomMomentBtn img {
+          width: 42px;
+          /* slightly smaller on mobile */
+          height: 42px;
+        }
+      }
 
-    .modal-inner {
-      background: #fff;
-      border-radius: 10px;
-      /* base width cap (used as reference) */
-      width: min(990px, 96%);
-      /* raised max height to better fit taller video content */
-      max-height: 95vh;
-      overflow: auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      padding: 18px 20px;
-      box-sizing: border-box;
-      position: relative;
-      transform: translateY(12px);
-      transition: transform 220ms ease;
-      /* two-column layout: left = text, right = video */
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-    }
+      /* CSS-only modal (uses :target) */
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease-in-out;
+        z-index: 1200;
+      }
 
-    .modal:target .modal-inner {
-      transform: translateY(0);
-    }
+      /* when targeted (via fragment identifier) show it */
+      .modal:target {
+        opacity: 1;
+        pointer-events: auto;
+      }
 
-    .modal-left {
-      flex: 1 1 52%;
-      min-width: 200px;
-    }
-
-    .modal-right {
-      flex: 0 0 44%;
-      min-width: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-video,
-    .modal-right iframe,
-    .modal-right video {
-      width: 100%;
-      height: 100%;
-      /* doubled the video area height from 220px -> 440px */
-      min-height: 440px;
-      border-radius: 8px;
-      background: #000;
-    }
-
-    /* Optimize iframe loading - prevent loading until modal is visible */
-    /* Iframes with empty src don't load until src is set */
-    .modal:not(:target) .modal-video {
-      display: none;
-    }
-
-    .modal:target .modal-video {
-      display: block;
-    }
-
-    .modal:not(:target) iframe.modal-video {
-      display: none;
-    }
-
-
-    /* Video placeholder - shows before iframe loads */
-    .video-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 440px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.1rem;
-      text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .video-placeholder::before {
-      content: "▶";
-      font-size: 4rem;
-      margin-bottom: 10px;
-      opacity: 0.8;
-    }
-
-    .modal:target .video-placeholder {
-      display: none;
-    }
-
-    .modal:not(:target) .video-placeholder {
-      display: flex;
-    }
-
-    @media (max-width: 780px) {
       .modal-inner {
-        flex-direction: column;
+        background: #fff;
+        border-radius: 10px;
+        /* base width cap (used as reference) */
+        width: min(990px, 96%);
+        /* raised max height to better fit taller video content */
+        max-height: 95vh;
+        overflow: auto;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        padding: 18px 20px;
+        box-sizing: border-box;
+        position: relative;
+        transform: translateY(12px);
+        transition: transform 220ms ease;
+        /* two-column layout: left = text, right = video */
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
       }
+
+      .modal:target .modal-inner {
+        transform: translateY(0);
+      }
+
+      .modal-left {
+        flex: 1 1 52%;
+        min-width: 200px;
+      }
+
       .modal-right {
-        width: 100%;
+        flex: 0 0 44%;
+        min-width: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-    }
 
-    .modal-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      text-decoration: none;
-      font-size: 1.4rem;
-      color: #666;
-      padding: 6px;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 34px;
-      min-height: 34px;
-      z-index: 3;
-    }
+      .modal-video,
+      .modal-right iframe,
+      .modal-right video {
+        width: 100%;
+        height: 100%;
+        /* doubled the video area height from 220px -> 440px */
+        min-height: 440px;
+        border-radius: 8px;
+        background: #000;
+      }
 
-    /* Back link positioned top-left */
-    .modal-back {
-      position: absolute;
-      /* position near top but leave space for header by adding top padding to the modal-inner */
-      top: 12px;
-      left: 12px;
-      text-decoration: none;
-      font-size: 1rem;
-      color: #114047;
-      padding: 6px 10px;
-      border-radius: 6px;
-      background: transparent;
-      font-weight: 700;
-    }
+      /* Optimize iframe loading - prevent loading until modal is visible */
+      /* Iframes with empty src don't load until src is set */
+      .modal:not(:target) .modal-video {
+        display: none;
+      }
 
-    /* Hover/focus styles for modal controls */
-    .modal-close,
-    .modal-back {
-      transition: background 140ms ease, transform 120ms ease, color 120ms ease;
-    }
+      .modal:target .modal-video {
+        display: block;
+      }
 
-    .modal-close:hover,
-    .modal-close:focus {
-      background: rgba(0,0,0,0.06);
-      color: #222;
-      transform: translateY(-2px);
-      outline: none;
-    }
+      .modal:not(:target) iframe.modal-video {
+        display: none;
+      }
 
-    .modal-back:hover,
-    .modal-back:focus {
-      background: rgba(37,182,196,0.08);
-      color: #0b4046;
-      transform: translateY(-2px);
-      outline: none;
-    }
+      /* Video placeholder - shows before iframe loads */
+      .video-placeholder {
+        width: 100%;
+        height: 100%;
+        min-height: 440px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
 
-    /* For sub-modals, push content down without affecting absolutely-positioned controls
+      .video-placeholder::before {
+        content: "▶";
+        font-size: 4rem;
+        margin-bottom: 10px;
+        opacity: 0.8;
+      }
+
+      .modal:target .video-placeholder {
+        display: none;
+      }
+
+      .modal:not(:target) .video-placeholder {
+        display: flex;
+      }
+
+      @media (max-width: 780px) {
+        .modal-inner {
+          flex-direction: column;
+        }
+
+        .modal-right {
+          width: 100%;
+        }
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: #666;
+        padding: 6px;
+        border-radius: 6px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 34px;
+        min-height: 34px;
+        z-index: 3;
+      }
+
+      /* Back link positioned top-left */
+      .modal-back {
+        position: absolute;
+        /* position near top but leave space for header by adding top padding to the modal-inner */
+        top: 12px;
+        left: 12px;
+        text-decoration: none;
+        font-size: 1rem;
+        color: #114047;
+        padding: 6px 10px;
+        border-radius: 6px;
+        background: transparent;
+        font-weight: 700;
+      }
+
+      /* Hover/focus styles for modal controls */
+      .modal-close,
+      .modal-back {
+        transition: background 140ms ease, transform 120ms ease, color 120ms ease;
+      }
+
+      .modal-close:hover,
+      .modal-close:focus {
+        background: rgba(0, 0, 0, 0.06);
+        color: #222;
+        transform: translateY(-2px);
+        outline: none;
+      }
+
+      .modal-back:hover,
+      .modal-back:focus {
+        background: rgba(37, 182, 196, 0.08);
+        color: #0b4046;
+        transform: translateY(-2px);
+        outline: none;
+      }
+
+      /* For sub-modals, push content down without affecting absolutely-positioned controls
        (so Back/Close stay flush to the modal corner). Apply margin to the left content. */
-    .modal-inner:not(.modal-centered) .modal-left {
-      margin-top: 36px;
-    }
+      .modal-inner:not(.modal-centered) .modal-left {
+        margin-top: 36px;
+      }
 
-    .modal-title {
-      margin: 0 0 8px 0;
-      font-size: 1.4rem;
-      color: #25b6c4;
-      font-weight: 700;
-    }
+      .modal-title {
+        margin: 0 0 8px 0;
+        font-size: 1.4rem;
+        color: #25b6c4;
+        font-weight: 700;
+      }
 
-    .modal-list {
-      list-style: none;
-      padding: 0;
-      margin: 8px 0 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+      .modal-list {
+        list-style: none;
+        padding: 0;
+        margin: 8px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
 
-    .modal-list a {
-      display: block;
-      padding: 10px 12px;
-      border-radius: 8px;
-      background: #f3f7f8;
-      color: #114047;
-      text-decoration: none;
-      font-weight: 600;
-    }
+      .modal-list a {
+        display: block;
+        padding: 10px 12px;
+        border-radius: 8px;
+        background: #f3f7f8;
+        color: #114047;
+        text-decoration: none;
+        font-weight: 600;
+      }
 
-    .modal-list a:hover {
-      background: #e8f4f6;
-      transform: translateY(-2px);
-    }
-    /* Centered category modal variant */
-    .modal-centered {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+      .modal-list a:hover {
+        background: #e8f4f6;
+        transform: translateY(-2px);
+      }
 
-    .modal-centered .modal-title {
-      text-align: center;
-      margin-bottom: 12px;
-    }
+      /* Centered category modal variant */
+      .modal-centered {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
 
-    .modal-centered .modal-list {
-      align-items: center;
-      width: 100%;
-      max-width: 520px;
-      margin: 0 auto;
-    }
+      .modal-centered .modal-title {
+        text-align: center;
+        margin-bottom: 12px;
+      }
 
-    .modal-centered .modal-list li a {
-      width: 100%;
-      display: block;
-      box-sizing: border-box;
-    }
+      .modal-centered .modal-list {
+        align-items: center;
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+      }
 
-    /* Top-level (centered) modals: 30% less wide than base (990px * 0.7 = 693px) */
-    .modal-inner.modal-centered {
-      width: min(693px, 67.2%);
-    }
+      .modal-centered .modal-list li a {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+      }
 
-    /* Second-level modals (non-centered): 30% wider than base (990px * 1.3 = 1287px)
+      /* Top-level (centered) modals: 30% less wide than base (990px * 0.7 = 693px) */
+      .modal-inner.modal-centered {
+        width: min(693px, 67.2%);
+      }
+
+      /* Second-level modals (non-centered): 30% wider than base (990px * 1.3 = 1287px)
        Use a slightly larger viewport percentage so small viewports can expand a bit. */
-    .modal-inner:not(.modal-centered) {
-      width: min(1287px, 98%);
-    }
+      .modal-inner:not(.modal-centered) {
+        width: min(1287px, 98%);
+      }
 
-/* accordion month boxes */
+      /* accordion month boxes */
+      .accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
 
-.accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+      details {
+        background: #e8f4f6;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
 
-details {
-  background: #e8f4f6;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
+      summary {
+        background: #25b6c4;
+        color: #fff;
+        cursor: pointer;
+        padding: 16px 20px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        user-select: none;
+        list-style: none;
+      }
 
-summary {
-  background: #25b6c4;
-  color: #fff;
-  cursor: pointer;
-  padding: 16px 20px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  user-select: none;
-  list-style: none;
-}
+      details[open] summary {
+        background: #1e9aa6;
+      }
 
-details[open] summary {
-  background: #1e9aa6;
-}
+      summary::marker {
+        display: none;
+      }
 
-summary::marker {
-  display: none;
-}
+      .entries {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+        background: #fdfdfd;
+      }
 
-.entries {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 15px 20px;
-  background: #fdfdfd;
-}
+      .entry-link {
+        display: block;
+        background: #f3f7f8;
+        color: #114047;
+        text-decoration: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
 
-.entry-link {
-  display: block;
-  background: #f3f7f8;
-  color: #114047;
-  text-decoration: none;
-  padding: 12px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.entry-link:hover {
-  background: #e8f4f6;
-  transform: translateY(-2px);
-}
-
-  </style>
-</head>
-
-<body>
-  <header>
-    <div class="header-container">
-      <a href="index.html">
-        <img src="icons/flatchat_banner.jpg" alt="Flatchat Archive Logo" class="header-logo" />
-      </a>
-      <nav>
-        <a href="aaron.html">Aaron 'The Goat' Turnbull</a>
-        <a href="heggie.html">Heggie 'The Hog' Heggerson</a>
-        <a href="calum.html">Calum 'The Lobster' Porter</a>
-        <a href="jacob.html">Jacob 'Speccy' Murray</a>
-        <a href="darts-marathon-summary.html">Macmillan Darts Marathon 2025</a>
-      </nav>
-    </div>
-  </header>
-
-  <header style="text-align:center;">
-    This is a fan site made with the purpose of collating funny and iconic moments for the benefit of other flatchat fans. Click through the lads profiles to find their best moments.
-  </header>
-
-  <main>
-    <h1 class="page-title">Data Archive</h1>
-
-    <div class="accordion">
-      <details>
-        <summary>November 2025</summary>
-        <div class="entries">
-          <a href="#modal-29-nov-1" class="entry-link">29/11/2025 - Aaron's first televised 140 (Live)</a>
-          <a href="#modal-29-nov-2" class="entry-link">29/11/2025 - Aaron wins a leg v Heggie (Live)</a>
-          <a href="#modal-29-nov-3" class="entry-link">29/11/2025 - Mama Turnbull (Live)</a>
-          <a href="#modal-24-nov" class="entry-link">24/11/2025 - When was 2021?</a>
-          <a href="#modal-20-nov" class="entry-link">20/11/2025 - That's not a national team.</a>
-          <a href="#modal-18-nov" class="entry-link">18/11/2025 - I'll go De Zerbi.</a>
-          <a href="#modal-17-nov" class="entry-link">17/11/2025 - You really can't get this wrong.</a>
-          <a href="#modal-13-nov" class="entry-link">13/11/2025 - Del Piero? Ok bud. (Live)</a>
-          <a href="#modal-13-nov-2" class="entry-link">13/11/2025 - Benzema. Benzema. (Live)</a>
-          <a href="#modal-13-nov-3" class="entry-link">13/11/2025 - Name a Celtic player. (Live)</a>
-          <a href="#modal-13-nov-4" class="entry-link">13/11/2025 - Get your kit off Jacob.</a>
-          <a href="#modal-11-nov" class="entry-link">11/11/2025 - I'm gonna put Swaziland.</a>
-          <a href="#modal-8-nov" class="entry-link">08/11/2025 - Sad violin noises.</a>
-          <a href="#modal-6-nov" class="entry-link">06/11/2025 - He's got himself at Right Back too.</a>
-          <a href="#modal-6-nov2" class="entry-link">06/11/2025 - Imagine if it was me.</a>
-          <a href="#modal-4-nov" class="entry-link">04/11/2025 - Orient Expresston North End</a>
-          <a href="#modal-3-nov" class="entry-link">03/11/2025 - The killer is Percy Wallace.</a>
-          <a href="#modal-2-nov-mem" class="entry-link">02/11/2025 - Liam Fridgewell??? (Members Only Vid)</a>
-          <a href="#modal-2-nov" class="entry-link">02/11/2025 - RKO outta nowhere.</a>
+      .entry-link:hover {
+        background: #e8f4f6;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a href="index.html">
+          <img src="icons/flatchat_banner.jpg" alt="Flatchat Archive Logo" class="header-logo" />
+        </a>
+        <nav>
+          <a href="aaron.html">Aaron 'The Goat' Turnbull</a>
+          <a href="heggie.html">Heggie 'The Hog' Heggerson</a>
+          <a href="calum.html">Calum 'The Lobster' Porter</a>
+          <a href="jacob.html">Jacob 'Speccy' Murray</a>
+          <a href="darts-marathon-summary.html">Macmillan Darts Marathon 2025</a>
+        </nav>
+      </div>
+    </header>
+    <header style="text-align:center;"> This is a fan site made with the purpose of collating funny and iconic moments for the benefit of other flatchat fans. Click through the lads profiles to find their best moments. </header>
+    <main>
+      <h1 class="page-title">Data Archive</h1>
+      <div class="accordion">
+        <details>
+          <summary>November 2025</summary>
+          <div class="entries">
+            <a href="#modal-29-nov-1" class="entry-link">29/11/2025 - Aaron's first televised 140 (Live)</a>
+            <a href="#modal-29-nov-2" class="entry-link">29/11/2025 - Aaron wins a leg v Heggie (Live)</a>
+            <a href="#modal-29-nov-3" class="entry-link">29/11/2025 - Mama Turnbull (Live)</a>
+            <a href="#modal-24-nov" class="entry-link">24/11/2025 - When was 2021?</a>
+            <a href="#modal-20-nov" class="entry-link">20/11/2025 - That's not a national team.</a>
+            <a href="#modal-18-nov" class="entry-link">18/11/2025 - I'll go De Zerbi.</a>
+            <a href="#modal-17-nov" class="entry-link">17/11/2025 - You really can't get this wrong.</a>
+            <a href="#modal-13-nov" class="entry-link">13/11/2025 - Del Piero? Ok bud. (Live)</a>
+            <a href="#modal-13-nov-2" class="entry-link">13/11/2025 - Benzema. Benzema. (Live)</a>
+            <a href="#modal-13-nov-3" class="entry-link">13/11/2025 - Name a Celtic player. (Live)</a>
+            <a href="#modal-13-nov-4" class="entry-link">13/11/2025 - Get your kit off Jacob.</a>
+            <a href="#modal-11-nov" class="entry-link">11/11/2025 - I'm gonna put Swaziland.</a>
+            <a href="#modal-8-nov" class="entry-link">08/11/2025 - Sad violin noises.</a>
+            <a href="#modal-6-nov" class="entry-link">06/11/2025 - He's got himself at Right Back too.</a>
+            <a href="#modal-6-nov2" class="entry-link">06/11/2025 - Imagine if it was me.</a>
+            <a href="#modal-4-nov" class="entry-link">04/11/2025 - Orient Expresston North End</a>
+            <a href="#modal-3-nov" class="entry-link">03/11/2025 - The killer is Percy Wallace.</a>
+            <a href="#modal-2-nov-mem" class="entry-link">02/11/2025 - Liam Fridgewell??? (Members Only Vid)</a>
+            <a href="#modal-2-nov" class="entry-link">02/11/2025 - RKO outta nowhere.</a>
+          </div>
+        </details>
+      </div>
+      <div class="accordion">
+        <details>
+          <summary>October 2025</summary>
+          <div class="entries">
+            <a href="#modal-29-oct" class="entry-link">29/10/2025 - WillNE Haha</a>
+            <a href="#modal-29-oct-2" class="entry-link">29/10/2025 - Calum had that haircut in school.</a>
+            <a href="#modal-29-oct-3" class="entry-link">29/10/2025 - Is that Phil Foden?</a>
+            <a href="#modal-25-oct" class="entry-link">25/10/2025 - Giussepe Meazza Who?!</a>
+            <a href="#modal-21-oct" class="entry-link">21/10/2025 - The 100m Championship Player.</a>
+            <a href="#modal-21-oct-2" class="entry-link">21/10/2025 - If it's Charlton I'm annoyed.</a>
+            <a href="#modal-20-oct" class="entry-link">20/10/2025 - Why are you a boat?</a>
+            <a href="#modal-20-oct-2" class="entry-link">20/10/2025 - Played against?!?!</a>
+            <a href="#modal-14-oct" class="entry-link">14/10/2025 - Where from? Portugal.</a>
+            <a href="#modal-14-oct-2" class="entry-link">14/10/2025 - I was there, supporting Dunbarton.</a>
+            <a href="#modal-13-oct" class="entry-link">13/10/2025 - There's 8 pixels!!!</a>
+            <a href="#modal-13-oct-2" class="entry-link">13/10/2025 - Leap of faith.</a>
+            <a href="#modal-11-oct" class="entry-link">11/10/2025 - Hold on it says you're a virgin here Calum.</a>
+            <a href="#modal-07-oct" class="entry-link">07/10/2025 - Why have you went that?!</a>
+            <a href="#modal-05-oct" class="entry-link">05/10/2025 - He lamped him.</a>
+          </div>
+        </details>
+      </div>
+      <div class="accordion">
+        <details>
+          <summary>September 2025</summary>
+          <div class="entries">
+            <a href="#modal-28-sep" class="entry-link">28/09/2025 - 0-0 Kaka Scored.</a>
+            <a href="#modal-15-sep" class="entry-link">15/09/2025 - Pukki might have more.</a>
+            <a href="#modal-13-sep" class="entry-link">13/09/2025 - He lifted a title!</a>
+            <a href="#modal-13-sep-2" class="entry-link">13/09/2025 - Scunthorpe.</a>
+            <a href="#modal-13-sep-3" class="entry-link">13/09/2025 - Oh so it is.</a>
+            <a href="#modal-13-sep-4" class="entry-link">13/09/2025 - He looks like he'd give great head...ers.</a>
+            <a href="#modal-09-sep" class="entry-link">09/09/2025 - Give me my mmmmmmmmoney $$$</a>
+            <a href="#modal-05-sep" class="entry-link">05/09/2025 - And he was pacy. Very pacy.</a>
+          </div>
+        </details>
+      </div>
+      <div class="accordion">
+        <details>
+          <summary>August 2025</summary>
+          <div class="entries">
+            <a href="#modal-30-aug" class="entry-link">30/08/2025 - Is Brugge different to Brussels? No.</a>
+            <a href="#modal-12-aug" class="entry-link">12/08/2025 - Where's he from Aaron?</a>
+            <a href="#modal-12-aug-2" class="entry-link">12/08/2025 - Who?!?! The right back?!?!</a>
+            <a href="#modal-09-aug" class="entry-link">09/08/2025 - I'll go Germany.</a>
+            <a href="#modal-04-aug" class="entry-link">04/08/2025 - I don't know, I put Tarkowski.</a>
+            <a href="#modal-04-aug-2" class="entry-link">04/08/2025 - FABINHO?!</a>
+            <a href="#modal-04-aug-3" class="entry-link">04/08/2025 - I put Per. Who?!</a>
+            <a href="#modal-04-aug-4" class="entry-link">04/08/2025 - So there's only 110 men?!</a>
+          </div>
+        </details>
+      </div>
+      <div class="accordion">
+        <details>
+          <summary>July 2025</summary>
+          <div class="entries">
+            <a href="#modal-30-jul" class="entry-link">30/07/2025 - He's Georgian by the way.</a>
+            <a href="#modal-30-jul-2" class="entry-link">30/07/2025 - Oh shut up man!</a>
+            <a href="#modal-28-jul" class="entry-link">28/07/2025 - Oh no you don't.</a>
+            <a href="#modal-23-jul" class="entry-link">23/07/2025 - Aaron Attenborough.</a>
+            <a href="#modal-20-jul" class="entry-link">20/07/2025 - That is disgusting from you.</a>
+            <a href="#modal-10-jul" class="entry-link">10/07/2025 - That's gotta be too far back.</a>
+            <a href="#modal-07-jul" class="entry-link">07/07/2025 - Move it back a bit Aaron.</a>
+            <a href="#modal-06-jul" class="entry-link">06/07/2025 - Pardon Jacob?</a>
+          </div>
+        </details>
+      </div>
+      <div class="accordion">
+        <details>
+          <summary>June 2025</summary>
+          <div class="entries">
+            <a href="#modal-26-jun" class="entry-link">26/06/2025 - I've never bet in my life.</a>
+            <a href="#modal-23-jun" class="entry-link">23/06/2025 - Look at that movement.</a>
+            <a href="#modal-21-jun" class="entry-link">21/06/2025 - WHO?!?!?!</a>
+            <a href="#modal-14-jun" class="entry-link">14/06/2025 - Ospina's terrible!</a>
+            <a href="#modal-12-jun" class="entry-link">12/06/2025 - 10 players a team?!</a>
+            <a href="#modal-10-jun" class="entry-link">10/06/2025 - That wasn't a world cup year!</a>
+            <a href="#modal-10-jun-2" class="entry-link">10/06/2025 - Read it out then!</a>
+            <a href="#modal-10-jun-3" class="entry-link">10/06/2025 - You got it the wrong way round man!</a>
+            <a href="#modal-05-jun" class="entry-link">05/06/2025 - It could be Chicago Fire actually.</a>
+            <a href="#modal-02-jun" class="entry-link">02/06/2025 - I just heard something hit the bottom of that table.</a>
+          </div>
+        </details>
+      </div>  
+    </main>
+    
+    <!-- Modals -->
+    <div id="modal-29-nov-1" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">29/11/2025 - Aaron's first televised 140 (Live)</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/VvD68VaGPfE?start=6446</p>
         </div>
-      </details>
+      </div>
     </div>
-  </main>
+    <div id="modal-29-nov-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">29/11/2025 - Aaron wins a leg v Heggie (Live)</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/VvD68VaGPfE?start=6569</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-29-nov-3" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">29/11/2025 - Mama Turnbull (Live)</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/VvD68VaGPfE?start=11510</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-24-nov" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">24/11/2025 - When was 2021?</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/9Ot5cDCn978?start=586</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-20-nov" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">20/11/2025 - That's not a national team.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/QtYvqXz4X1U?start=1167</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-18-nov" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">18/11/2025 - I'll go De Zerbi.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/3BVSsHq5BH0?start=1762</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-17-nov" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">17/11/2025 - You really can't get this wrong.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/eia5UZjX77M?start=1704</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-13-nov" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">13/11/2025 - Del Piero? Ok bud.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/dlepCsiuJvo?start=2670</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-13-nov-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">13/11/2025 - Benzema. Benzema.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/dlepCsiuJvo?start=2960</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-13-nov-3" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">13/11/2025 - Name a Celtic player.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/dlepCsiuJvo?start=3574</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-13-nov-4" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">13/11/2025 - Get your kit off Jacob.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/CQ2ujKUj?start=210</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-11-nov" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">11/11/2025 - I'm gonna put Swaziland.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/pB44IwyDA3c?start=2165</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-8-nov" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">08/11/2025 - Sad violin noises.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/u1QnFSMMVks?start=2703</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-6-nov" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">06/11/2025 - He's got himself at Right Back too.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/jB7ODpX7k6Y?start=2990</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-6-nov2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">06/11/2025 - Imagine if it was me.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/jB7ODpX7k6Y?start=218</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-4-nov" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">04/11/2025 - Orient Expresston North End.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/X9uYoQuZKYY?start=1843</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-3-nov" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">03/11/2025 - The killer is Percy Wallace.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/zn3C89BGsTw?start=1655</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-2-nov" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">02/11/2025 - RKO outta nowhere.</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/OH6SbJ_ddyw?start=1702</p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-2-nov-mem" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">02/11/2025 - Liam Fridgewell???</h3>
+        <div class="modal-left">
+          <p>Video Link: https://www.youtube.com/watch/OH6SbJ_ddyw?start=2241</p>
+        </div>
+      </div>
+    </div>
 
-  <!-- Modals -->
-  <div id="modal-29-nov-1" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">29/11/2025 - Aaron's first televised 140 (Live)</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/VvD68VaGPfE?start=6446</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-29-nov-2" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">29/11/2025 - Aaron wins a leg v Heggie (Live)</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/VvD68VaGPfE?start=6569</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-29-nov-3" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">29/11/2025 - Mama Turnbull (Live)</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/VvD68VaGPfE?start=11510</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-24-nov" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">24/11/2025 - When was 2021?</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/9Ot5cDCn978?start=586</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-20-nov" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">20/11/2025 - That's not a national team.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/QtYvqXz4X1U?start=1167</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-18-nov" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">18/11/2025 - I'll go De Zerbi.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/3BVSsHq5BH0?start=1762</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-17-nov" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">17/11/2025 - You really can't get this wrong.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/eia5UZjX77M?start=1704</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-13-nov" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">13/11/2025 - Del Piero? Ok bud.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/dlepCsiuJvo?start=2670</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-13-nov-2" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">13/11/2025 - Benzema. Benzema.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/dlepCsiuJvo?start=2960</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-13-nov-3" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">13/11/2025 - Name a Celtic player.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/dlepCsiuJvo?start=3574</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-13-nov-4" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">13/11/2025 - Get your kit off Jacob.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/CQ2ujKUj?start=210</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-11-nov" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">11/11/2025 - I'm gonna put Swaziland.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/pB44IwyDA3c?start=2165</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-8-nov" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">08/11/2025 - Sad violin noises.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/u1QnFSMMVks?start=2703</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-6-nov" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">06/11/2025 - He's got himself at Right Back too.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/jB7ODpX7k6Y?start=2990</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-6-nov2" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">06/11/2025 - Imagine if it was me.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/jB7ODpX7k6Y?start=218</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-4-nov" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">04/11/2025 - Orient Expresston North End.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/X9uYoQuZKYY?start=1843</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-3-nov" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">03/11/2025 - The killer is Percy Wallace.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/zn3C89BGsTw?start=1655</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-2-nov" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">02/11/2025 - RKO outta nowhere.</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/OH6SbJ_ddyw?start=1702</p>
-      </div>
-    </div>
-  </div>
-  <div id="modal-2-nov-mem" class="modal">
-    <div class="modal-inner">
-      <a href="#" class="modal-close">×</a>
-      <h3 class="modal-title">02/11/2025 - Liam Fridgewell???</h3>
-      <div class="modal-left">
-        <p>Video Link: https://www.youtube.com/watch/OH6SbJ_ddyw?start=2241</p>
-      </div>
-    </div>
-  </div>
-  <footer>
-    <p>Please support the boys at all the links below.</p>
-    <div class="social-links">
-      <a href="https://www.tiktok.com/@theflatchat" target="_blank"><img src="icons/tiktok.png" alt="TikTok"></a>
-      <a href="https://www.instagram.com/theflatchatofficial/" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
-      <a href="https://www.youtube.com/@theflatchat" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
-      <a href="https://www.youtube.com/@FlatChatDarts" target="_blank"><img src="icons/darts.png" alt="Darts YouTube"></a>
-      <a href="https://www.thesoccershopdirect.co.uk/product-category/the-flat-chat/" target="_blank"><img src="icons/merch.png" alt="Merch"></a>
-      <a href="https://www.cameo.com/theflatchat" target="_blank"><img src="icons/cameo.png" alt="Cameo"></a>
-      <a href="https://x.com/theflatchatx" target="_blank"><img src="icons/x.png" alt="X"></a>
-      <a href="https://www.threads.com/@theflatchatofficial" target="_blank"><img src="icons/threads.png" alt="Threads"></a>
-    </div>
-    <p>Site made by Darren 'Unico'</p>
-    <p>Thanks to the following members from the Members-Only Discord for top-tier flatchat moment contributions: Maule13, FinnAllen</p>
-  <div class="footer-random">
-      <button id="randomMomentBtn">
-        <img src="icons/randomiser.png" alt="Random Moment" />
-      </button>
-  </div>
-  </footer>
 
-<script src="scripts/modal-auto-stop-video.js"></script>
-<script src="scripts/randomMoment.js"></script>
+    <!--- OCTOBER 2025 -->
+    <div id="modal-29-oct" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">29/10/2025 - WillNE Haha</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/tI2utumZMX8?start=1773">https://www.youtube.com/watch/tI2utumZMX8?start=1773</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-29-oct-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">29/10/2025 - Calum had that haircut in school.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/tI2utumZMX8?start=1618">https://www.youtube.com/watch/tI2utumZMX8?start=1618</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-29-oct-3" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">29/10/2025 - Is that Phil Foden?</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/tI2utumZMX8?start=2172">https://www.youtube.com/watch/tI2utumZMX8?start=2172</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-25-oct" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">25/10/2025 - Giussepe Meazza Who?!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/qzswMFUqOig?start=738">https://www.youtube.com/watch/qzswMFUqOig?start=738</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-21-oct" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">21/10/2025 - The 100m Championship Player.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/615Kov2YCKc?start=577">https://www.youtube.com/watch/615Kov2YCKc?start=577</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-21-oct-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">21/10/2025 - If it's Charlton I'm annoyed.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/615Kov2YCKc?start=354">https://www.youtube.com/watch/615Kov2YCKc?start=354</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-20-oct" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">20/10/2025 - Why are you a boat?</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/pBpyZNk_iE8?start=89">https://www.youtube.com/watch/pBpyZNk_iE8?start=89</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-20-oct-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">20/10/2025 - Played against?!?!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/pBpyZNk_iE8?start=1547">https://www.youtube.com/watch/pBpyZNk_iE8?start=1547</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-14-oct" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">14/10/2025 - Where from? Portugal.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/fJzXnUZFZFg?start=3077">https://www.youtube.com/watch/fJzXnUZFZFg?start=3077</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-14-oct-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">14/10/2025 - I was there, supporting Dunbarton.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/fJzXnUZFZFg?start=1172">https://www.youtube.com/watch/fJzXnUZFZFg?start=1172</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-13-oct" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">13/10/2025 - There's 8 pixels!!!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/Ow_nQrxudZs?start=1175">https://www.youtube.com/watch/Ow_nQrxudZs?start=1175</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-13-oct-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">13/10/2025 - Leap of faith.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/Ow_nQrxudZs?start=749">https://www.youtube.com/watch/Ow_nQrxudZs?start=749</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-11-oct" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">11/10/2025 - Hold on it says you're a virgin here Calum.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/RQMY8ywrGQo?start=1700">https://www.youtube.com/watch/RQMY8ywrGQo?start=1700</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-07-oct" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">07/10/2025 - Why have you went that?!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/dECAOz9wK_g?start=403">https://www.youtube.com/watch/dECAOz9wK_g?start=403</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-05-oct" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">05/10/2025 - He lamped him.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/6mqUB_2Ca4o?start=2727">https://www.youtube.com/watch/6mqUB_2Ca4o?start=2727</a>
+          </p>
+        </div>
+      </div>
+    </div>
 
-</body>
+
+    <!--- September 2025 -->
+    <div id="modal-28-sep" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">28/09/2025 - 0-0 Kaka Scored.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/x5_h4iEN2Nc?start=1518">https://www.youtube.com/watch/x5_h4iEN2Nc?start=1518</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-15-sep" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">15/09/2025 - Pukki might have more.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/eTgBzhOU3UM?start=1445">https://www.youtube.com/watch/eTgBzhOU3UM?start=1445</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-13-sep" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">13/09/2025 - He lifted a title!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/NLsIV74gDZU?start=531">https://www.youtube.com/watch/NLsIV74gDZU?start=531</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-13-sep-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">13/09/2025 - Scunthorpe.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/NLsIV74gDZU?start=610">https://www.youtube.com/watch/NLsIV74gDZU?start=610</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-13-sep-3" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">13/09/2025 - Oh so it is.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/NLsIV74gDZU?start=1324">https://www.youtube.com/watch/NLsIV74gDZU?start=1324</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-13-sep-4" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">13/09/2025 - He looks like he'd give great head...ers.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/NLsIV74gDZU?start=1684">https://www.youtube.com/watch/NLsIV74gDZU?start=1684</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-09-sep" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">09/09/2025 - Give me my mmmmmmmmoney $$$</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/WA9-7-oMNko?start=1231">https://www.youtube.com/watch/WA9-7-oMNko?start=1231</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-05-sep" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">05/09/2025 - And he was pacy. Very pacy.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/7McBvovzc60?start=1578">https://www.youtube.com/watch/7McBvovzc60?start=1578</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!--- August 2025 -->
+    <div id="modal-30-aug" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">30/08/2025 - Is Brugge different to Brussels? No.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/8tuoOnzcYwk?start=360">https://www.youtube.com/watch/8tuoOnzcYwk?start=360</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-12-aug" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">12/08/2025 - Where's he from Aaron?</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/ibj1CmnVljs?start=1782">https://www.youtube.com/watch/ibj1CmnVljs?start=1782</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-12-aug-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">12/08/2025 - Who?!?! The right back?!?!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/ibj1CmnVljs?start=148">https://www.youtube.com/watch/ibj1CmnVljs?start=148</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-09-aug" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">09/08/2025 - I'll go Germany.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/oVz1b-ULsJs?start=590">https://www.youtube.com/watch/oVz1b-ULsJs?start=590</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-04-aug" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">04/08/2025 - I don't know, I put Tarkowski.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/XVdAD7mUPUs?start=244">https://www.youtube.com/watch/XVdAD7mUPUs?start=244</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-04-aug-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">04/08/2025 - FABINHO?!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/XVdAD7mUPUs?start=436">https://www.youtube.com/watch/XVdAD7mUPUs?start=436</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-04-aug-3" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">04/08/2025 - I put Per. Who?!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/XVdAD7mUPUs?start=575">https://www.youtube.com/watch/XVdAD7mUPUs?start=575</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-04-aug-4" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">04/08/2025 - So there's only 110 men?!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/XVdAD7mUPUs?start=1008">https://www.youtube.com/watch/XVdAD7mUPUs?start=1008</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!--- July 2025 -->
+    <div id="modal-30-jul" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">30/07/2025 - He's Georgian by the way.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/ljKecGd7Kqk?start=1940">https://www.youtube.com/watch/ljKecGd7Kqk?start=1940</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-30-jul-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">30/07/2025 - Oh shut up man!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/ljKecGd7Kqk?start=760">https://www.youtube.com/watch/ljKecGd7Kqk?start=760</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-28-jul" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">28/07/2025 - Oh no you don't.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/Qoq8dkhSSko?start=1745">https://www.youtube.com/watch/Qoq8dkhSSko?start=1745</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-23-jul" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">23/07/2025 - Aaron Attenborough.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/xYmeefhqU7w?start=108">https://www.youtube.com/watch/xYmeefhqU7w?start=108</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-20-jul" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">20/07/2025 - That is disgusting from you.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/2gRYKpCMLxI?start=2342">https://www.youtube.com/watch/2gRYKpCMLxI?start=2342</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-10-jul" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">10/07/2025 - That's gotta be too far back.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/f_Idb1GuYjM?start=345">https://www.youtube.com/watch/f_Idb1GuYjM?start=345</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-07-jul" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">07/07/2025 - Move it back a bit Aaron.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/DjDYni3lwWQ?start=1012">https://www.youtube.com/watch/DjDYni3lwWQ?start=1012</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-06-jul" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">06/07/2025 - Pardon Jacob?</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/b1HKXC-lfpA?start=1025">https://www.youtube.com/watch/b1HKXC-lfpA?start=1025</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!--- June 2025 -->
+    <div id="modal-26-jun" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">26/06/2025 - I've never bet in my life.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/ZPIc2lr9biI?start=1082">https://www.youtube.com/watch/ZPIc2lr9biI?start=1082</a>
+          </p>
+        </div>
+      </div>
+    </div>  
+    <div id="modal-23-jun" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">23/06/2025 - Look at that movement.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/GJ6Pm4JkLa8?start=650">https://www.youtube.com/watch/GJ6Pm4JkLa8?start=650</a>
+          </p>
+        </div>
+      </div>
+    </div> 
+    <div id="modal-21-jun" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">21/06/2025 - WHO?!?!?!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/YKvFqFrWnZc?start=1807">https://www.youtube.com/watch/YKvFqFrWnZc?start=1807</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-14-jun" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">14/06/2025 - Ospina's terrible!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/ASvCoER9xqc?start=394">https://www.youtube.com/watch/ASvCoER9xqc?start=394</a>
+          </p>
+        </div>
+      </div>
+    </div> 
+    <div id="modal-12-jun" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">12/06/2025 - 10 players a team?!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/mpHO0TFo6Yw?start=2087">https://www.youtube.com/watch/mpHO0TFo6Yw?start=2087</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-10-jun" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">10/06/2025 - That wasn't a world cup year!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/yysUQhoS0UI?start=1404">https://www.youtube.com/watch/yysUQhoS0UI?start=1404</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-10-jun-2" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">10/06/2025 - Read it out then!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/yysUQhoS0UI?start=362">https://www.youtube.com/watch/yysUQhoS0UI?start=362</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-10-jun-3" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">10/06/2025 - You got it the wrong way round man!</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/yysUQhoS0UI?start=2040">https://www.youtube.com/watch/yysUQhoS0UI?start=2040</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="modal-05-jun" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">05/06/2025 - It could be Chicago Fire actually.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/UvSNgLel-Qc?start=1485">https://www.youtube.com/watch/UvSNgLel-Qc?start=1485</a>
+          </p>
+        </div>
+      </div>
+    </div>  
+    <div id="modal-02-jun" class="modal">
+      <div class="modal-inner">
+        <a href="#" class="modal-close">×</a>
+        <h3 class="modal-title">02/06/2025 - I just heard something hit the bottom of that table.</h3>
+        <div class="modal-left">
+          <p>Video Link: <a href="https://www.youtube.com/watch/fowrLx586Io?start=1015">https://www.youtube.com/watch/fowrLx586Io?start=1015</a>
+          </p>
+        </div>
+      </div>
+    </div>  
+
+    <footer>
+      <p>Please support the boys at all the links below.</p>
+      <div class="social-links">
+        <a href="https://www.tiktok.com/@theflatchat" target="_blank">
+          <img src="icons/tiktok.png" alt="TikTok">
+        </a>
+        <a href="https://www.instagram.com/theflatchatofficial/" target="_blank">
+          <img src="icons/instagram.png" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@theflatchat" target="_blank">
+          <img src="icons/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://www.youtube.com/@FlatChatDarts" target="_blank">
+          <img src="icons/darts.png" alt="Darts YouTube">
+        </a>
+        <a href="https://www.thesoccershopdirect.co.uk/product-category/the-flat-chat/" target="_blank">
+          <img src="icons/merch.png" alt="Merch">
+        </a>
+        <a href="https://www.cameo.com/theflatchat" target="_blank">
+          <img src="icons/cameo.png" alt="Cameo">
+        </a>
+        <a href="https://x.com/theflatchatx" target="_blank">
+          <img src="icons/x.png" alt="X">
+        </a>
+        <a href="https://www.threads.com/@theflatchatofficial" target="_blank">
+          <img src="icons/threads.png" alt="Threads">
+        </a>
+      </div>
+      <p>Site made by Darren 'Unico'</p>
+      <p>Thanks to the following members from the Members-Only Discord for top-tier flatchat moment contributions: Maule13, FinnAllen</p>
+      <div class="footer-random">
+        <button id="randomMomentBtn">
+          <img src="icons/randomiser.png" alt="Random Moment" />
+        </button>
+      </div>
+    </footer>
+    <script src="scripts/modal-auto-stop-video.js"></script>
+    <script src="scripts/randomMoment.js"></script>
+  </body>
 </html>
