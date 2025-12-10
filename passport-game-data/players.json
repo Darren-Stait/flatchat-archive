@@ -988,18 +988,7 @@
           "NationalTeam": "United States",
           "HonourWon": "CONCACAF Gold Cup: 2013"
         }
-      }, {
-        "name": "Brek Shea",
-        "image": "player-images/shea.png",
-        "stats": {
-          "PlaceOfBirth": "College Station, Texas",
-          "DateOfBirth": "February 28 1990",
-          "FirstSeniorClub": "FC Dallas",
-          "Position": "LM/LB",
-          "NationalTeam": "United States",
-          "HonourWon": "CONCACAF Gold Cup: 2013"
-        }
-      }, {
+      },{
         "name": "Scott Allan",
         "image": "player-images/scottallan.png",
         "stats": {
