@@ -414,6 +414,347 @@
           "NationalTeam": "Brazil",
           "HonourWon": "Chelsea Player of the Season: 2022–23"
         }
+      }, {
+        "name": "Sadio Mane",
+        "image": "player-images/mane.png",
+        "stats": {
+          "PlaceOfBirth": "Bambali",
+          "DateOfBirth": "10 April 1992",
+          "FirstSeniorClub": "Metz",
+          "Position": "LW/ST/RW",
+          "NationalTeam": "Senegal",
+          "HonourWon": "African Footballer of the Year: 2019, 2022"
+        }
+      }, {
+        "name": "Alisson Becker",
+        "image": "player-images/alisson.png",
+        "stats": {
+          "PlaceOfBirth": "Novo Hamburgo",
+          "DateOfBirth": "2 October 1992",
+          "FirstSeniorClub": "Internacional",
+          "Position": "GK",
+          "NationalTeam": "Brazil",
+          "HonourWon": "Yashin Trophy: 2019"
+        }
+      }, {
+        "name": "Heung-Min Son", 
+        "image": "player-images/son.png",
+        "stats": {
+          "PlaceOfBirth": "Chuncheon",
+          "DateOfBirth": "8 July 1992",
+          "FirstSeniorClub": "Hamburger SV",
+          "Position": "LW/ST/RW",
+          "NationalTeam": "South Korea",
+          "HonourWon": "Premier League Golden Boot: 2021–22"
+        }
+      }, {
+        "name": "Marc-André ter Stegen",
+        "image": "player-images/terstegen.png",
+        "stats": {
+          "PlaceOfBirth": "Mönchengladbach",
+          "DateOfBirth": "30 April 1992",
+          "FirstSeniorClub": "Borussia Mönchengladbach",
+          "Position": "GK",
+          "NationalTeam": "Germany",
+          "HonourWon": "La Liga Player of the Season 22–23"
+        }
+      }, {
+        "name": "Fabinho",
+        "image": "player-images/fabinho.png",
+        "stats": {
+          "PlaceOfBirth": "Campinas",
+          "DateOfBirth": "23 October 1993",
+          "FirstSeniorClub": "Fluminense",
+          "Position": "DM/RB",
+          "NationalTeam": "Brazil",
+          "HonourWon": "Saudi Pro League: 2024–25"
+        }
+      }, {
+        "name": "Casemiro",
+        "image": "player-images/casemiro.png",
+        "stats": {
+          "PlaceOfBirth": "São José dos Campos",
+          "DateOfBirth": "23 February 1992",
+          "FirstSeniorClub": "São Paulo",
+          "Position": "DM",
+          "NationalTeam": "Brazil",
+          "HonourWon": "FA Cup: 2023-24"
+        }
+      }, {
+        "name": "Thibaut Courtois",
+        "image": "player-images/courtois.png",
+        "stats": {
+          "PlaceOfBirth": "Bree",
+          "DateOfBirth": "11 May 1992",
+          "FirstSeniorClub": "Genk",
+          "Position": "GK",
+          "NationalTeam": "Belgium",
+          "HonourWon": "Premier League: 2014-15, 2016-17"
+        }
+      }, {
+        "name": "Bruno Fernandes",
+        "image": "player-images/fernandes.png",
+        "stats": {
+          "PlaceOfBirth": "Maia",
+          "DateOfBirth": "8 September 1994",
+          "FirstSeniorClub": "Novara",
+          "Position": "AM/CM",
+          "NationalTeam": "Portugal",
+          "HonourWon": "Manchester United Players' Player of the Year: 2024-25"
+        }
+      }, {
+        "name": "Joshua Kimmich",
+        "image": "player-images/kimmich.png",
+        "stats": {
+          "PlaceOfBirth": "Rottweil",
+          "DateOfBirth": "8 February 1995",
+          "FirstSeniorClub": "VfB Stuttgart",
+          "Position": "DM/RB/CM",
+          "NationalTeam": "Germany",
+          "HonourWon": "UEFA Champions League: 2019-20"
+        }
+      }, {
+        "name": "Raheem Sterling",
+        "image": "player-images/razsterling.png",
+        "stats": {
+          "PlaceOfBirth": "Kingston",
+          "DateOfBirth": "8 December 1994",
+          "FirstSeniorClub": "Liverpool",
+          "Position": "LW/RW/ST",
+          "NationalTeam": "England",
+          "HonourWon": "Golden Boy: 2014"
+        }
+      }, {
+        "name": "Alphonso Davies",
+        "image": "player-images/davies.png",
+        "stats": {
+          "PlaceOfBirth": "Buduburam",
+          "DateOfBirth": "2 November 2000",
+          "FirstSeniorClub": "Vancouver Whitecaps",
+          "Position": "LB",
+          "NationalTeam": "Canada",
+          "HonourWon": "UEFA Team of the Year: 2020"
+        }
+      }, {
+        "name": "Bastian Schweinsteiger",
+        "image": "player-images/schweinsteiger.png",
+        "stats": {
+          "PlaceOfBirth": "Kolbermoor",
+          "DateOfBirth": "1 August 1984",
+          "FirstSeniorClub": "Bayern Munich",
+          "Position": "CM/RM/LM/AM/DM",
+          "NationalTeam": "Germany",
+          "HonourWon": "FA Cup: 2015-16"
+        }
+      }, {
+        "name": "Cesc Fabregas",
+        "image": "player-images/fabregas.png",
+        "stats": {
+          "PlaceOfBirth": "Arenys de Mar",
+          "DateOfBirth": "4 May 1987",
+          "FirstSeniorClub": "Arsenal",
+          "Position": "CM/AM/DM",
+          "NationalTeam": "Spain",
+          "HonourWon": "Golden Boy: 2006"
+        }
+      }, {
+        "name": "Gianluigi Buffon",
+        "image": "player-images/buffon.png",
+        "stats": {
+          "PlaceOfBirth": "Carrara",
+          "DateOfBirth": "28 January 1978",
+          "FirstSeniorClub": "Parma",
+          "Position": "GK",
+          "NationalTeam": "Italy",
+          "HonourWon": "Serie A Footballer of the Year: 2016-17"
+        }
+      }, {
+        "name": " Sergio Agüero",
+        "image": "player-images/aguero.png",
+        "stats": {
+          "PlaceOfBirth": "Buenos Aires",
+          "DateOfBirth": "2 June 1988",
+          "FirstSeniorClub": "Independiente",
+          "Position": "ST/SS",
+          "NationalTeam": "Argentina",
+          "HonourWon": "Golden Boy: 2007"
+        }
+      }, {
+        "name": "Thomas Müller",
+        "image": "player-images/muller.png",
+        "stats": {
+          "PlaceOfBirth": "Weilheim in Oberbayern",
+          "DateOfBirth": "13 September 1989",
+          "FirstSeniorClub": "Bayern Munich",
+          "Position": "SS/RW/AM/ST",
+          "NationalTeam": "Germany",
+          "HonourWon": "FIFA World Cup Golden Boot: 2010"
+        }
+      }, {
+        "name": "Sergio Ramos",
+        "image": "player-images/ramos.png",
+        "stats": {
+          "PlaceOfBirth": "Camas",
+          "DateOfBirth": "30 March 1986",
+          "FirstSeniorClub": "Sevilla",
+          "Position": "CB/RB",
+          "NationalTeam": "Spain",
+          "HonourWon": "Ligue 1: 2021-22, 2022-23"
+        }
+      }, {
+        "name": "Manuel Neuer",
+        "image": "player-images/neuer.png",
+        "stats": {
+          "PlaceOfBirth": "Gelsenkirchen",
+          "DateOfBirth": "27 March 1986",
+          "FirstSeniorClub": "Schalke 04",
+          "Position": "GK",
+          "NationalTeam": "Germany",
+          "HonourWon": "FIFA World Cup Golden Glove: 2014"
+        }
+      }, {
+        "name": "Virgil van Dijk",
+        "image": "player-images/vandijk.png",
+        "stats": {
+          "PlaceOfBirth": "Breda",
+          "DateOfBirth": "8 July 1991",
+          "FirstSeniorClub": "Groningen",
+          "Position": "CB",
+          "NationalTeam": "Netherlands",
+          "HonourWon": "Celtic Players' Player of the Year: 2013-14"
+        }
+      }, {
+        "name": "Marcelo",
+        "image": "player-images/marcelo.png",
+        "stats": {
+          "PlaceOfBirth": "Rio de Janeiro",
+          "DateOfBirth": "12 May 1988",
+          "FirstSeniorClub": "Fluminense",
+          "Position": "LB",
+          "NationalTeam": "Brazil",
+          "HonourWon": "IFFHS World Team of the Decade: 2011-20"
+        }
+      }, {
+        "name": "Thiago Alcantara",
+        "image": "player-images/thiagoalcantara.png",
+        "stats": {
+          "PlaceOfBirth": "San Pietro Vernotico",
+          "DateOfBirth": "11 April 1991",
+          "FirstSeniorClub": "Barcelona",
+          "Position": "CM/DM",
+          "NationalTeam": "Spain",
+          "HonourWon": "FA Cup: 2021-22"
+        }
+      }, {
+        "name": "Paul Pogba",
+        "image": "player-images/pogba.png",
+        "stats": {
+          "PlaceOfBirth": "Lagny-sur-Marne",
+          "DateOfBirth": "15 March 1993",
+          "FirstSeniorClub": "Manchester United",
+          "Position": "CM",
+          "NationalTeam": "France",
+          "HonourWon": "Golden Boy: 2013"
+        }
+      }, {
+        "name": "Fernando Torres",
+        "image": "player-images/torres.png",
+        "stats": {
+          "PlaceOfBirth": "Fuenlabrada",
+          "DateOfBirth": "20 March 1984",
+          "FirstSeniorClub": "Atlético Madrid",
+          "Position": "ST",
+          "NationalTeam": "Spain",
+          "HonourWon": "UEFA Euro 2008 Final Man of the Match"
+        }
+      }, {
+        "name": "Frank Lampard",
+        "image": "player-images/lampard.png",
+        "stats": {
+          "PlaceOfBirth": "Romford",
+          "DateOfBirth": "20 June 1978",
+          "FirstSeniorClub": "West Ham United",
+          "Position": "CM/AM",
+          "NationalTeam": "England",
+          "HonourWon": "EPL Hall of Fame: 2021"
+        }
+      }, {
+        "name": "Wayne Rooney",
+        "image": "player-images/rooney.png",
+        "stats": {
+          "PlaceOfBirth": "Liverpool",
+          "DateOfBirth": "24 October 1985",
+          "FirstSeniorClub": "Everton",
+          "Position": "ST/SS/AM",
+          "NationalTeam": "England",
+          "HonourWon": "Golden Boy: 2004"
+        }
+      }, {
+        "name": "Carlos Tevez",
+        "image": "player-images/tevez.png",
+        "stats": {
+          "PlaceOfBirth": "Ciudadela",
+          "DateOfBirth": "5 February 1984",
+          "FirstSeniorClub": "Boca Juniors",
+          "Position": "ST/SS",
+          "NationalTeam": "Argentina",
+          "HonourWon": "Chinese FA Cup: 2017"
+        }
+      }, {
+        "name": "Gareth Bale",
+        "image": "player-images/bale.png",
+        "stats": {
+          "PlaceOfBirth": "Cardiff",
+          "DateOfBirth": "16 July 1989",
+          "FirstSeniorClub": "Southampton",
+          "Position": "RW/LM",
+          "NationalTeam": "Wales",
+          "HonourWon": "MLS Cup: 2022"
+        }
+      }, {
+        "name": "David Silva",
+        "image": "player-images/davidsilva.png",
+        "stats": {
+          "PlaceOfBirth": "Arguineguín",
+          "DateOfBirth": "8 January 1986",
+          "FirstSeniorClub": "Valencia",
+          "Position": "AM/LM/CM/LW",
+          "NationalTeam": "Spain",
+          "HonourWon": "Copa del Rey: 2019-20"
+        }
+      }, {
+        "name": "Radamel Falcao",
+        "image": "player-images/falcao.png",
+        "stats": {
+          "PlaceOfBirth": "Santa Marta",
+          "DateOfBirth": "10 February 1986",
+          "FirstSeniorClub": "Lanceros Boyacá",
+          "Position": "ST",
+          "NationalTeam": "Colombia",
+          "HonourWon": "UEFA Europa League: 2010-11, 11-12"
+        }
+      }, {
+        "name": "Eden Hazard",
+        "image": "player-images/hazard.png",
+        "stats": {
+          "PlaceOfBirth": "La Louvière",
+          "DateOfBirth": "7 January 1991",
+          "FirstSeniorClub": "Lille",
+          "Position": "LW/AM/RW",
+          "NationalTeam": "Belgium",
+          "HonourWon": "Premier League Player of the Season: 2014-15"
+        }
+      }, {
+        "name": "Nicolas Anelka",
+        "image": "player-images/anelka.png",
+        "stats": {
+          "PlaceOfBirth": "Le Chesnay",
+          "DateOfBirth": "14 March 1979",
+          "FirstSeniorClub": "Paris Saint-Germain",
+          "Position": "ST/RW/SS",
+          "NationalTeam": "France",
+          "HonourWon": "Premier League Golden Boot: 2008-09"
+        }
       }
       ],
 
