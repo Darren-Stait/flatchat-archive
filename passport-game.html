@@ -712,8 +712,15 @@
       let chosenPlayers = [];
       let activeKeys = [];
       let statBank = [];
-      let lockedNameScore = 0;
-      let lockedNamePoints = 0;
+  let lockedNameScore = 0;
+  let lockedNamePoints = 0;
+  // whether the round has been locked in (Lock-In pressed)
+  let isLocked = false;
+  // snapshot of locked-in score (to prevent recalculation later)
+  let lockedCombinedPoints = 0;
+  let lockedMaxCombined = 0;
+  let lockedCombinedCount = 0;
+  let lockedStatsScore = 0;
 
       function shuffle(arr) {
         return arr.slice().sort(() => Math.random() - 0.5)
@@ -929,6 +936,8 @@
       function tileClick(e) {
         e.stopPropagation();
         const tile = e.currentTarget;
+        // If the round is locked, prevent moving tiles back to pool or selecting
+        if (isLocked) return;
         // If tile is already placed inside a zone, clicking it returns it to the pool
         const parent = tile.parentElement;
         if (parent && parent.classList && parent.classList.contains('drop-zone')) {
@@ -954,14 +963,25 @@
       function zoneClick(e) {
         const zone = e.currentTarget;
         if (!selectedTile) return;
-        // Prevent placing a stat that duplicates an existing stat TYPE (data-key) in this zone
+        // If locked, disallow any placement
+        if (isLocked) return;
+
         const key = selectedTile.dataset.key;
-        const existing = Array.from(zone.querySelectorAll('.stat')).some(s => s.dataset.key === key);
-        if (existing) {
-          // flash/shake the zone to indicate invalid place
-          zone.classList.add('shake');
-          setTimeout(() => zone.classList.remove('shake'), 420);
+        // If a stat of same key already exists in this zone, swap it back to pool
+        const existingEl = Array.from(zone.querySelectorAll('.stat')).find(s => s.dataset.key === key);
+        if (existingEl) {
+          // move existing back to pool
+          const poolEl = document.getElementById('stats-pool');
+          // mark it as not placed
+          existingEl.classList.remove('placed', 'correct', 'wrong');
+          try { delete existingEl.dataset.userPlaced; } catch (err) {}
+          poolEl.appendChild(existingEl);
+          // now place the new selectedTile
+          placeTile(zone, selectedTile.dataset.player, selectedTile.dataset.key, selectedTile.textContent.trim(), selectedTile);
+          try { selectedTile.dataset.userPlaced = 'true'; } catch (err) {}
           selectedTile.classList.remove('selected');
+          selectedTile.classList.add('placed', 'placing');
+          setTimeout(() => selectedTile.classList.remove('placing'), 380);
           selectedTile = null;
           return;
         }
@@ -1010,8 +1030,14 @@
       submitBtn.addEventListener('click', () => {
         // remove/hide Lock-In button so it can't be pressed again
         submitBtn.style.display = 'none';
+        // mark locked state so further interactions are ignored
+        isLocked = true;
           // hide clear buttons so selections can't be changed post-lock
           try { setClearButtonsVisible(false); } catch (e) {}
+          // disable name selects so users cannot change names after lock-in
+          try {
+            document.querySelectorAll('.player-select').forEach(s => { s.disabled = true; });
+          } catch (e) {}
 
         // Stats scoring + correction phase
         const placed = [...document.querySelectorAll('.drop-zone .stat')];
@@ -1055,19 +1081,26 @@
           // keep clear buttons hidden after reveal
           try { setClearButtonsVisible(false); } catch (e) {}
         });
-  // Combined score: include name guesses in the correct count, then apply difficulty multiplier
-  const multiplier = getDifficultyMultiplier();
-  // Lock these values so corrections won't change awarded name points
-  lockedNameScore = nameScore;
-  // combined count = correct stats + correct name guesses
-  const combinedCount = score + nameScore;
-  const combinedPoints = combinedCount * multiplier;
-  const playersCount = document.querySelectorAll('.player-card').length;
-  const maxCount = statBank.length + playersCount;
-  const maxCombined = maxCount * multiplier;
 
-  // Show immediate combined score and start correction countdown if needed
-  scoreOut.innerHTML = `Score: <b>${combinedPoints}/${maxCombined}</b> <small>(Correct: ${combinedCount}/${maxCount} ×${multiplier} — Stats: ${score}/${total}, Names: ${nameScore}/${playersCount})</small>`;
+        // Combined score: include name guesses in the correct count, then apply difficulty multiplier
+        const multiplier = getDifficultyMultiplier();
+        // Lock these values so corrections won't change awarded name points
+        lockedNameScore = nameScore;
+        // combined count = correct stats + correct name guesses
+        const combinedCount = score + nameScore;
+        const combinedPoints = combinedCount * multiplier;
+        const playersCount = document.querySelectorAll('.player-card').length;
+        const maxCount = statBank.length + playersCount;
+        const maxCombined = maxCount * multiplier;
+
+        // snapshot locked scores so performCorrections doesn't recompute
+        lockedCombinedPoints = combinedPoints;
+        lockedMaxCombined = maxCombined;
+        lockedCombinedCount = combinedCount;
+        lockedStatsScore = score;
+
+        // Show immediate combined score and start correction countdown if needed
+        scoreOut.innerHTML = `Score: <b>${combinedPoints}/${maxCombined}</b> <small>(Correct: ${combinedCount}/${maxCount} ×${multiplier} — Stats: ${score}/${total}, Names: ${nameScore}/${playersCount})</small>`;
 
         // If there are wrong/unplaced tiles, show a manual "Run Corrections" button
         const wrongOrUnplaced = document.querySelectorAll('.stat.wrong').length +
@@ -1158,20 +1191,13 @@
         // (Intentionally not updating select option lists here so locked names remain visible.)
         // After corrections, update final combined score display using locked name points
         setTimeout(() => {
-          const placed = [...document.querySelectorAll('.drop-zone .stat')];
-          let finalScore = 0;
-          placed.forEach(tile => {
-            // Count only tiles that were placed by the user prior to correction
-            if (tile.classList.contains('correct') && tile.dataset.userPlaced === 'true') finalScore++;
-          });
-          const multiplier = getDifficultyMultiplier();
-          // final combined count includes only user-placed correct stats (finalScore) plus locked name score
-          const finalCount = finalScore + lockedNameScore;
-          const finalPoints = finalCount * multiplier;
+          // Use the locked snapshot values to display the final score and avoid any recalculation
+          const finalPoints = lockedCombinedPoints;
+          const maxCombined = lockedMaxCombined;
+          const finalCount = lockedCombinedCount;
           const playersCount = document.querySelectorAll('.player-card').length;
-          const maxCount = statBank.length + playersCount;
-          const maxCombined = maxCount * multiplier;
-          scoreOut.innerHTML = `Final Score: <b>${finalPoints}/${maxCombined}</b> <small>(Correct: ${finalCount}/${maxCount} ×${multiplier} — Stats: ${finalScore}/${statBank.length}, Names: ${lockedNameScore}/${playersCount})</small>`;
+          const statCount = statBank.length;
+          scoreOut.innerHTML = `Final Score: <b>${finalPoints}/${maxCombined}</b> <small>(Correct: ${finalCount}/${statCount + playersCount} — Stats: ${lockedStatsScore}/${statCount}, Names: ${lockedNameScore}/${playersCount})</small>`;
         }, 420);
       }
       /* =====================================================
@@ -1184,6 +1210,13 @@
         // If a previous 'Reveal Answers' button was left over, remove it so it doesn't appear in the new round
         const lingering = document.getElementById('runCorrectionsBtn');
         if (lingering) lingering.remove();
+        // clear lock state and snapshots
+        isLocked = false;
+        lockedCombinedPoints = 0;
+        lockedMaxCombined = 0;
+        lockedCombinedCount = 0;
+        lockedStatsScore = 0;
+        lockedNameScore = 0;
         setupGame();
       });
       /* =====================================================
