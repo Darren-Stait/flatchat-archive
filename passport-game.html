@@ -1165,15 +1165,24 @@
           if (!sel) return;
           const userPick = sel.value;
           const correct = card.dataset.player;
+          // Show user's wrong pick briefly if applicable
           if (userPick && userPick !== correct) {
-            // show the user's pick as a red badge next to the select
             const badge = document.createElement('span');
             badge.className = 'user-guess';
             badge.textContent = userPick;
             sel.after(badge);
             sel.classList.add('wrong');
-            // after brief delay, switch select to the correct value and mark correct
+            // after brief delay, replace the select options so the correct option is present
             setTimeout(() => {
+              // rebuild select to contain only the correct option (and empty placeholder)
+              try {
+                sel.innerHTML = `<option value="">Select player</option><option value="${correct}">${correct}</option>`;
+              } catch (e) {
+                // fallback: remove all options and add one
+                while (sel.firstChild) sel.removeChild(sel.firstChild);
+                const o = document.createElement('option'); o.value = ''; o.textContent = 'Select player'; sel.appendChild(o);
+                const o2 = document.createElement('option'); o2.value = correct; o2.textContent = correct; sel.appendChild(o2);
+              }
               sel.value = correct;
               sel.classList.remove('wrong');
               sel.classList.add('correct');
@@ -1182,9 +1191,16 @@
               setTimeout(() => badge.remove(), 600);
             }, 900);
           } else {
-            // correct or empty selection: mark correct and lock
-            sel.classList.add('correct');
+            // correct or empty selection: just set the correct option and lock
+            try {
+              sel.innerHTML = `<option value="">Select player</option><option value="${correct}">${correct}</option>`;
+            } catch (e) {
+              while (sel.firstChild) sel.removeChild(sel.firstChild);
+              const o = document.createElement('option'); o.value = ''; o.textContent = 'Select player'; sel.appendChild(o);
+              const o2 = document.createElement('option'); o2.value = correct; o2.textContent = correct; sel.appendChild(o2);
+            }
             sel.value = correct;
+            sel.classList.add('correct');
             sel.disabled = true;
           }
         });
