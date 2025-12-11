@@ -755,6 +755,50 @@
           "NationalTeam": "France",
           "HonourWon": "Premier League Golden Boot: 2008-09"
         }
+      }, {
+        "name": "Zinedine Zidane",
+        "image": "player-images/zidane.png",
+        "stats": {
+          "PlaceOfBirth": "Marseille",
+          "DateOfBirth": "23 June 1972",
+          "FirstSeniorClub": "Cannes",
+          "Position": "AM/LM",
+          "NationalTeam": "France",
+          "HonourWon": "Ballon d'Or: 1998"
+        }
+      }, {
+        "name": "Marcel Desailly",
+        "image": "player-images/desailly.png",
+        "stats": {
+          "PlaceOfBirth": "Accra",
+          "DateOfBirth": "7 September 1968",
+          "FirstSeniorClub": "Nantes",
+          "Position": "CB/DM",
+          "NationalTeam": "France",
+          "HonourWon": "FA Cup 1999-2000"
+        }
+      }, {
+        "name": "Claude Makélélé",
+        "image": "player-images/makelele.png",
+        "stats": {
+          "PlaceOfBirth": "Kinshasa",
+          "DateOfBirth": "18 February 1973",
+          "FirstSeniorClub": "Nantes",
+          "Position": "DM",
+          "NationalTeam": "France",
+          "HonourWon": "UEFA Champions League: 2001-02"
+        }
+      }, {
+        "name": "Dennis Bergkamp",
+        "image": "player-images/bergkamp.png",
+        "stats": {
+          "PlaceOfBirth": "Amsterdam",
+          "DateOfBirth": "10 May 1969",
+          "FirstSeniorClub": "Ajax",
+          "Position": "SS/ST/AM",
+          "NationalTeam": "Netherlands",
+          "HonourWon": "UEFA Cup: 1993-94"
+        }
       }
       ],
 
