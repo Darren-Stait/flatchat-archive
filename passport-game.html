@@ -187,7 +187,7 @@
         max-width: 1600px;
         margin: 20px auto;
         padding: 32px 28px;
-        background: #fff;
+        background: transparent;
         border-radius: 12px;
         box-shadow: 0 6px 25px rgba(0, 0, 0, .08);
         display: flex;
@@ -507,9 +507,13 @@
         max-width: none !important;
         height: 100vh !important;
         margin: 0 !important;
-        padding: 20px !important;
+        /* leave extra space at the bottom so the framed .scale-wrap border
+           isn't clipped by overflow:hidden (prevents bottom border from
+           disappearing in some browsers when scaled) */
+        padding: 12px 12px 40px !important;
+        background: #f4f6f9 !important; /* keep a light backdrop around the framed card */
         border-radius: 0 !important;
-        overflow-y: auto !important;
+        overflow: hidden !important; /* hide native scrollbars, we'll scale to fit */
       }
 
       main:-webkit-full-screen {
@@ -517,38 +521,130 @@
         max-width: none !important;
         height: 100vh !important;
         margin: 0 !important;
-        padding: 20px !important;
+        padding: 12px 12px 40px !important;
+        background: #f4f6f9 !important; /* keep a light backdrop around the framed card */
         border-radius: 0 !important;
-        overflow-y: auto !important;
+        overflow: hidden !important; /* hide native scrollbars, we'll scale to fit */
       }
 
       #fullscreenBtn {
         z-index: 9999;
         padding: 10px 14px;
         border-radius: 8px;
+        background: rgba(0,0,0,0.75);
+        color: #fff;
+        border: none;
       }
 
-      .scale-wrap {
-        transform-origin: top center;
-        transition: transform .18s ease;
-        width: 100%;
+    .scale-wrap {
+      transform-origin: top center;
+      transition: transform .18s ease;
+      width: 100%;
+      /* Make the wrap a positioning context for the fullscreen button so
+        the button visually appears attached to the white card. */
+      position: relative;
+      /* Blue frame moved here (was previously on `main`) so the inner card
+        is framed rather than the entire page. */
+      box-sizing: border-box;
+      border: 6px solid var(--primary);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      padding: 18px;
+    }
+
+      /* Ensure main can be a positioning context for the fullscreen button */
+      main { position: relative; }
+
+      /* Keep the fullscreen button visible — place it at top-left
+         both normally and when main is fullscreen. */
+      /* Keep the fullscreen button attached to the main white box.
+         It is absolutely positioned relative to `main` so it sits inside the
+         card and moves with it. */
+      #fullscreenBtn {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 10050;
+        transform: none !important;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 8px 12px;
+        background: rgba(0,0,0,0.75);
+        color: #fff;
+        border: none;
       }
 
+      /* When main is fullscreen, allow the JS scale transform to run so the
+         content is scaled to fit the viewport. Keep some top padding so the
+         heading isn't overlapped by the fullscreen button. */
+      main:fullscreen .scale-wrap,
+      main:-webkit-full-screen .scale-wrap {
+        /* allow fitScale() JS to set a transform that scales the wrap */
+        padding-top: 48px;
+        box-sizing: border-box;
+        /* keep the framed look in fullscreen */
+        background: linear-gradient(180deg, #ffffff, #fbfdfe);
+        border: 6px solid var(--primary);
+        border-radius: 12px;
+        box-shadow: 0 12px 40px rgba(10,20,30,0.10);
+        padding-left: 18px;
+        padding-right: 18px;
+        max-width: calc(100vw - 120px);
+        margin: 0 auto;
+        margin-bottom: 18px; /* make sure bottom border is inside the viewport padding */
+      }
+
+      /* on wider screens, reduce the top padding so content uses more vertical
+         space (less vertical squish) and allow the wrap to appear wider */
+      @media (min-width: 1400px) {
+        main:fullscreen .scale-wrap,
+        main:-webkit-full-screen .scale-wrap {
+          padding-top: 28px;
+          max-width: calc(100vw - 180px);
+        }
+      }
+      main:fullscreen #fullscreenBtn,
+      main:-webkit-full-screen #fullscreenBtn {
+        top: 12px;
+        left: 12px;
+      }
+
+      /* In fullscreen, align content to the top so the heading remains
+         visible rather than being centered vertically and pushed off-screen. */
       main.fs-fit {
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-start;
       }
 
       @media(max-width:700px) {
         .card-front img {
-          width: 240px;
-          height: 240px
+          width: 200px;
+          height: 200px
         }
 
         .player-card {
           height: auto;
-          min-height: 380px;
+          min-height: 320px;
         }
+      }
+
+      @media (max-width: 700px) {
+        main { border-width: 4px; padding: 20px; }
+      }
+
+      @media (max-width: 700px) {
+        main { border-width: 4px; padding: 20px; }
+      }
+
+      @media (max-width: 480px) {
+        main { padding: 14px; width: 98%; }
+        .card-front img { width: 160px; height: 160px }
+        .controls { gap: 8px }
+        .stat { padding: 8px 10px; font-size: 0.95rem }
+        .legend-chip { padding: 6px 8px; font-size: 0.95rem }
+        .player-select { font-size: 0.95rem; padding: 8px }
+        #players-grid { gap: 14px }
       }
 
       .diff-tooltip {
@@ -609,7 +705,7 @@
     <header style="text-align: center;"> This is a fan site made with the purpose of collating funny and iconic moments for the benefit of other flatchat fans. Click through the lads profiles to find their best moments. </header>
     <main>
       <div class="scale-wrap">
-      <button id="fullscreenBtn" class="btn" style="background:#222;color:#fff;align-self:flex-end;"> ⛶ Fullscreen </button>
+  <button id="fullscreenBtn" class="btn" style="background:#222;color:#fff;"> ⛶ Fullscreen </button>
       <h2>Flatchat Passport Quiz</h2>
       <h3 style="text-align: center;">Click a stat and then click on the box under the player cards to make your guesses! <br>
         <br>Stats accurate as of the beginning of the 25/26 season.
@@ -717,6 +813,8 @@
       let chosenPlayers = [];
       let activeKeys = [];
       let statBank = [];
+  // remember last round players to avoid immediate repeats
+  let lastRoundPlayers = [];
   let lockedNameScore = 0;
   let lockedNamePoints = 0;
   // whether the round has been locked in (Lock-In pressed)
@@ -762,7 +860,13 @@
           playerCount = 4; keyCount = 5;
         }
 
-        chosenPlayers = shuffle(basePool).slice(0, playerCount);
+  // attempt to avoid rolling the same players as last round
+  const shuffledPool = shuffle(basePool);
+  // filter out last round players where possible
+  let available = shuffledPool.filter(p => !lastRoundPlayers.includes(p.name));
+  // if filtering leaves too few players, fall back to full pool
+  if (available.length < playerCount) available = shuffledPool.slice();
+  chosenPlayers = available.slice(0, playerCount);
         // guard: if chosenPlayers is empty (malformed data), fall back
         if (!chosenPlayers || chosenPlayers.length === 0) chosenPlayers = shuffle(EASY_PLAYERS).slice(0, 4);
         // pick keys from the first chosen player's stats and slice to keyCount
@@ -778,6 +882,8 @@
             });
           });
         });
+  // store this round's players for next-round exclusion
+  lastRoundPlayers = chosenPlayers.map(p => p.name);
         // Cards
         chosenPlayers.forEach(p => {
           const card = document.createElement("div");
@@ -1253,9 +1359,17 @@
         // natural size
         const naturalW = wrap.scrollWidth;
         const naturalH = wrap.scrollHeight;
-        const scaleX = window.innerWidth / naturalW;
-        const scaleY = window.innerHeight / naturalH;
-        const scale = Math.min(scaleX, scaleY, 1);
+        // Reserve a small vertical/horizontal gutter to ensure borders and
+        // shadows are not clipped when scaling to fullscreen. These numbers
+        // mirror the padding/margins used in the fullscreen CSS rules.
+        const reservedVertical = 48 + 40 + 24; // top padding + bottom padding + safety
+        const reservedHorizontal = 120; // left+right gutters used in max-width calculations
+        const scaleX = (window.innerWidth - reservedHorizontal) / naturalW;
+        const scaleY = (window.innerHeight - reservedVertical) / naturalH;
+        // subtract a tiny epsilon to avoid rounding making content one pixel too
+        // large which can cause scrollbars to appear in some browsers.
+        const EPS = 0.99;
+        const scale = Math.min(scaleX, scaleY, 1) * EPS;
         wrap.style.transform = `scale(${scale})`;
       }
 
