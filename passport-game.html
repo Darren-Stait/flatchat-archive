@@ -8,12 +8,9 @@
     <style>
       :root {
         --primary: #25b6c4;
-        --accent: #f2b632
+        --accent: #f2b632;
       }
-
-      * {
-        box-sizing: border-box
-      }
+      * { box-sizing: border-box; }
 
       body {
         font-family: "Segoe UI", Arial, sans-serif;
@@ -26,665 +23,261 @@
       }
 
       header {
-        background-color: #25b6c4;
+        background-color: var(--primary);
         color: #fff;
         padding: 8px 25px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       }
 
       .header-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        max-width: 1200px;
-        margin: 0 auto;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:40px;
+        max-width:1200px;
+        margin:0 auto;
       }
 
-      .header-logo {
-        max-width: 520px;
-        height: auto;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
+      .header-logo { max-width:520px; height:auto; transition: transform .3s ease, box-shadow .3s ease; }
+      .header-logo:hover { transform:scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.3); }
 
-      .header-logo:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      }
+      nav { display:flex; align-items:center; }
+      nav a { color:#fff; margin:0 10px; text-decoration:none; font-weight:600; font-size:0.9rem; transition: color .2s ease; }
+      nav a:hover { color: var(--accent); }
 
-      nav {
-        display: flex;
-        align-items: center;
-      }
-
-      nav a {
-        color: #fff;
-        margin: 0 10px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: color 0.2s ease;
-      }
-
-      nav a:hover {
-        color: #f2b632;
-      }
-
-      @media (max-width: 768px) {
-        .header-container {
-          flex-direction: column;
-          text-align: center;
-          gap: 10px;
-        }
-
-        .header-logo {
-          max-width: 90%;
-        }
-
-        nav {
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-
-        nav a {
-          display: inline-block;
-          margin: 6px;
-          font-size: 1rem;
-        }
+      @media (max-width:768px) {
+        .header-container { flex-direction:column; text-align:center; gap:10px; }
+        .header-logo { max-width:90%; }
+        nav { flex-wrap:wrap; justify-content:center; }
+        nav a { display:inline-block; margin:6px; font-size:1rem; }
       }
 
       footer {
-        background-color: #25b6c4;
-        color: #fff;
-        text-align: center;
-        padding: 10px 15px;
-        font-size: 0.9rem;
-        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+        background-color: var(--primary);
+        color:#fff;
+        text-align:center;
+        padding:10px 15px;
+        font-size:0.9rem;
+        box-shadow:0 -2px 8px rgba(0,0,0,0.2);
         position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
       }
+      footer p { margin:0 0 8px; line-height:1.4; }
 
-      footer p {
-        margin: 0 0 8px;
-        line-height: 1.4;
-      }
+      .social-links { margin-top:6px; }
+      .social-links a { display:inline-block; margin:0 8px; text-decoration:none; transition: transform .3s ease; }
+      .social-links img { width:36px; height:36px; object-fit:cover; transition: transform .3s ease; }
+      .social-links img:hover { transform:scale(1.1); }
 
-      .social-links {
-        margin-top: 6px;
-      }
-
-      .social-links a {
-        display: inline-block;
-        margin: 0 8px;
-        text-decoration: none;
-        transition: transform 0.3s ease;
-      }
-
-      .social-links a:hover {
-        transform: scale(1.1);
-      }
-
-      .social-links img {
-        width: 36px;
-        height: 36px;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-
-      .social-links img:hover {
-        transform: scale(1.1);
-      }
-
-      .footer-random {
-        position: absolute;
-        bottom: 10px;
-        right: 20px;
-        z-index: 10;
-      }
-
+      .footer-random { position:absolute; bottom:10px; right:20px; z-index:10; }
       #randomMomentBtn {
-        background: #f5f5f5;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        padding: 6px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background:#f5f5f5; border:none; border-radius:50%; cursor:pointer; padding:6px;
+        box-shadow:0 2px 6px rgba(0,0,0,0.25); transition: transform .3s ease, box-shadow .3s ease;
       }
+      #randomMomentBtn:hover { transform:rotate(15deg) scale(1.1); box-shadow:0 4px 10px rgba(0,0,0,0.3); }
+      #randomMomentBtn img { width:48px; height:48px; border-radius:50%; display:block; }
 
-      #randomMomentBtn:hover {
-        transform: rotate(15deg) scale(1.1);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      }
-
-      #randomMomentBtn img {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        display: block;
-      }
-
-      @media (max-width: 768px) {
-        .footer-random {
-          position: static;
-          margin-top: 10px;
-          display: flex;
-          justify-content: center;
-        }
-
-        #randomMomentBtn img {
-          width: 42px;
-          height: 42px;
-        }
+      @media (max-width:768px) {
+        .footer-random { position:static; margin-top:10px; display:flex; justify-content:center; }
+        #randomMomentBtn img { width:42px; height:42px; }
       }
 
       main {
-        flex: 1;
-        width: 96%;
-        max-width: 1600px;
-        margin: 20px auto;
-        padding: 32px 28px;
-        background: transparent;
-        border-radius: 12px;
-        box-shadow: 0 6px 25px rgba(0, 0, 0, .08);
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+        flex:1;
+        width:96%;
+        max-width:1600px;
+        margin:20px auto;
+        padding:32px 28px;
+        background:transparent;
+        border-radius:12px;
+        box-shadow:0 6px 25px rgba(0,0,0,.08);
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+        position:relative;
       }
 
-      h2 {
-        margin: 0;
-        text-align: center;
-        font-size: 2.2rem;
-        color: #0a7785;
-      }
+      h2 { margin:0; text-align:center; font-size:2.2rem; color:#0a7785; }
+      h3 { font-size:1.3rem; color:#333; margin:8px 0; }
 
-      h3 {
-        font-size: 1.3rem;
-        color: #333;
-        margin: 8px 0;
-      }
-
-      #round-stats {
-        text-align: center;
-        font-weight: 700;
-        color: #0a7785;
-        margin-top: 8px;
-        font-size: 1.1rem;
-      }
-
+      #round-stats { text-align:center; font-weight:700; color:#0a7785; margin-top:8px; font-size:1.1rem; }
       #players-grid {
-        display: grid;
+        display:grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 24px;
-        margin-top: 16px;
-        margin-bottom: 32px;
+        gap:24px;
+        margin-top:16px;
+        margin-bottom:32px;
       }
 
-      .player-card {
-        perspective: 1000px;
-        position: relative;
-        display: block;
-        min-height: 360px;
-      }
+      .player-card { perspective:1000px; position:relative; display:block; min-height:360px; }
+      .card-inner { width:100%; transform-style:preserve-3d; transition: transform .8s cubic-bezier(.25,.9,.35,1.3); display:grid; }
+      .card-inner > * { min-height:auto; }
+      .player-card.hidden .card-inner { transform:rotateY(180deg); }
+      .player-card:not(.hidden):hover .card-inner { transform:scale(1.03); }
 
-      .card-inner {
-        width: 100%;
-        transform-style: preserve-3d;
-        transition: transform .8s cubic-bezier(.25, .9, .35, 1.3);
-        display: grid;
-      }
-
-      .card-inner > * {
-        min-height: auto;
-      }
-
-      .player-card.hidden .card-inner {
-        transform: rotateY(180deg)
-      }
-
-      .player-card:not(.hidden):hover .card-inner {
-        transform: scale(1.03)
-      }
-
-      .card-front,
-      .card-back {
+      .card-front, .card-back {
         grid-area: 1/1;
-        width: 100%;
-        backface-visibility: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        width:100%;
+        backface-visibility:hidden;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
       }
-
-      .card-front {
-        background: #e4f9ff;
-        padding-top: 14px;
-        padding-bottom: 14px
-      }
-
+      .card-front { background:#e4f9ff; padding-top:14px; padding-bottom:14px; }
       .card-front img {
-        width: 280px;
-        height: 280px;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, .16)
+        width:280px; height:280px; object-fit:cover; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,.16);
       }
 
-      .player-name {
-        display: none;
-        margin-top: 10px;
-        font-weight: 800;
-        color: #0a7785;
-        text-align: center;
-        font-size: 1.05rem;
-        transition: opacity .28s ease, transform .28s ease;
-        opacity: 0;
-        transform: translateY(6px);
-      }
+      .player-name { display:none; margin-top:10px; font-weight:800; color:#0a7785; text-align:center; font-size:1.05rem; transition: opacity .28s, transform .28s; opacity:0; transform:translateY(6px); }
 
       .player-select {
-        display: none;
-        margin-top: 8px;
-        font-weight: 700;
-        color: #0a7785;
-        text-align: center;
-        font-size: 1rem;
-        padding: 10px 12px;
-        border-radius: 8px;
-        border: 2px solid rgba(10,119,133,0.08);
-        background: #fff;
-        transition: opacity .28s ease, transform .28s ease;
-        opacity: 0;
-        transform: translateY(6px);
-        appearance: none;
+        display:none;
+        margin-top:8px;
+        font-weight:700;
+        color:#0a7785;
+        text-align:center;
+        font-size:1rem;
+        padding:10px 12px;
+        border-radius:8px;
+        border:2px solid rgba(10,119,133,0.08);
+        background:#fff;
+        transition: opacity .28s, transform .28s;
+        opacity:0; transform:translateY(6px); appearance:none;
       }
+      .player-select.revealed { display:block; opacity:1; transform:translateY(0); }
 
-      .player-select.revealed {
-        display: block;
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .player-select.wrong {
-        outline: 3px solid #ff4f4f;
-        box-shadow: 0 4px 12px rgba(255,79,79,0.12);
-        color: #b91c1c;
-      }
+      .player-select.wrong { outline:3px solid #ff4f4f; box-shadow:0 4px 12px rgba(255,79,79,0.12); color:#b91c1c; }
+      .player-select.correct { outline:3px solid #32d74b; box-shadow:0 4px 12px rgba(50,215,75,0.08); color:#087f5b; }
 
-      .player-select.correct {
-        outline: 3px solid #32d74b;
-        box-shadow: 0 4px 12px rgba(50,215,75,0.08);
-        color: #087f5b;
-      }
       .user-guess {
-        display: inline-block;
-        margin-left: 8px;
-        padding: 4px 8px;
-        border-radius: 8px;
-        background: rgba(185,28,28,0.06);
-        color: #b91c1c;
-        font-weight: 700;
-        font-size: 0.85rem;
-        vertical-align: middle;
-        transition: opacity .36s ease, transform .36s ease;
+        display:inline-block; margin-left:8px; padding:4px 8px; border-radius:8px; background:rgba(185,28,28,0.06);
+        color:#b91c1c; font-weight:700; font-size:0.85rem; vertical-align:middle; transition: opacity .36s, transform .36s;
       }
-
-      .user-guess.faded {
-        opacity: 0;
-        transform: translateY(-6px);
-      }
+      .user-guess.faded { opacity:0; transform: translateY(-6px); }
 
       .card-back {
         background: var(--primary);
         color: #fff;
         transform: rotateY(180deg);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:1.2rem;
       }
 
       .drop-zone {
-        width: 94%;
-        min-height: 130px;
-        margin-top: 14px;
-        padding: 12px;
-        border: 2px dashed #20a5b8;
-        border-radius: 10px;
-        background: #fff;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-content: flex-start;
+        width:94%; min-height:130px; margin-top:14px; padding:12px;
+        border:2px dashed #20a5b8; border-radius:10px; background:#fff;
+        display:flex; flex-wrap:wrap; gap:10px; align-content:flex-start;
       }
 
-      .drop-zone:hover {
-        background: #fff7d1;
-        border-color: var(--accent)
-      }
+      .drop-zone:hover { background:#fff7d1; border-color:var(--accent); }
 
-      #stats-pool {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        padding: 16px 8px 36px;
-        border-top: 3px solid #e6e6e6;
-        justify-content: center;
-      }
+      #stats-pool { display:flex; flex-wrap:wrap; gap:14px; padding:16px 8px 36px; border-top:3px solid #e6e6e6; justify-content:center; }
 
       .stat {
-        padding: 12px 16px;
-        border-radius: 10px;
-        font-weight: 700;
-        font-size: 1.05rem;
-        cursor: pointer;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, .12);
-        user-select: none;
-        -webkit-user-drag: none;
-        transition: transform .12s, opacity .12s;
-        display: inline-block;
-        word-break: break-word;
-        max-width: 100%;
+        padding:12px 16px; border-radius:10px; font-weight:700; font-size:1.05rem; cursor:pointer;
+        box-shadow:0 3px 10px rgba(0,0,0,.12); user-select:none; -webkit-user-drag:none;
+        transition: transform .12s, opacity .12s; display:inline-block; word-break:break-word; max-width:100%;
+      }
+      .stat:hover { transform:scale(1.06); }
+      .stat.selected { outline:3px solid #0a7785; transform:scale(1.03); }
+      .stat.placing { animation: placePop .35s cubic-bezier(.2,.9,.2,1); }
+      .stat.placed { animation: popIn .45s ease-out; }
+      .stat.correct { outline:3px solid #32d74b; }
+      .stat.wrong { outline:3px solid #ff4f4f; }
+
+      .controls { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; align-items:center; margin-top:8px; }
+
+      .btn {
+        padding:12px 22px; border-radius:8px; border:none; font-weight:700; font-size:1.05rem; cursor:pointer;
+        transition: transform .2s ease, box-shadow .2s ease;
+      }
+      .btn:hover { transform: translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+
+      .btn-reset { background: var(--accent); }
+      .btn-submit { background: var(--primary); color:#fff; }
+
+      .legend-chip { display:inline-block; padding:8px 14px; margin:6px; border-radius:8px; font-weight:700; font-size:1.05rem; color:#111; box-shadow:0 2px 6px rgba(0,0,0,.08); }
+
+      #score-output { text-align:center; font-weight:700; margin-top:16px; font-size:1.15rem; color:#0a7785; }
+
+      main:fullscreen { width:100vw !important; max-width:none !important; height:100vh !important; margin:0 !important; padding:12px 12px 40px !important; background:#f4f6f9 !important; border-radius:0 !important; overflow:hidden !important; }
+      main:-webkit-full-screen { width:100vw !important; height:100vh !important; margin:0 !important; padding:12px 12px 40px !important; background:#f4f6f9 !important; border-radius:0 !important; overflow:hidden !important; }
+
+      #fullscreenBtn {
+        z-index:9999; padding:10px 14px; border-radius:8px; background:rgba(0,0,0,0.75); color:#fff; border:none;
+        position:absolute; top:12px; left:12px; transform:none !important; min-width:44px; min-height:44px; padding:8px 12px;
       }
 
-      .stat:hover {
-        transform: scale(1.06)
+      .scale-wrap {
+        transform-origin: top center;
+        transition: transform .18s ease;
+        width:100%;
+        position:relative;
+        box-sizing:border-box;
+        border:6px solid var(--primary);
+        border-radius:12px;
+        background:#fff;
+        box-shadow:0 6px 20px rgba(0,0,0,0.06);
+        padding:18px;
       }
 
-      .stat.selected {
-        outline: 3px solid #0a7785;
-        transform: scale(1.03);
-      }
-      .stat.placing {
-        animation: placePop .35s cubic-bezier(.2,.9,.2,1);
+      @media (max-width:700px) {
+        .card-front img { width:200px; height:200px; }
+        .player-card { height:auto; min-height:320px; }
       }
 
-      .drop-zone.shake {
-        animation: shakeIt .38s ease-in-out;
+      @media (max-width:480px) {
+        main { padding:14px; width:98%; }
+        .card-front img { width:160px; height:160px; }
+        .controls { gap:8px; }
+        .stat { padding:8px 10px; font-size:0.95rem; }
+        .legend-chip { padding:6px 8px; font-size:0.95rem; }
+        .player-select { font-size:0.95rem; padding:8px; }
+        #players-grid { gap:14px; }
       }
+
+      .diff-tooltip {
+        background:#fff;
+        border:1px solid rgba(0,0,0,0.08);
+        box-shadow:0 6px 20px rgba(0,0,0,0.12);
+        border-radius:8px;
+        color:#111;
+        font-size:0.9rem;
+        transform-origin:bottom center;
+        padding:8px 10px;
+      }
+      .diff-tooltip ul li { margin:6px 0; line-height:1.25; }
+
+      #diffInfoBtn { width:34px; height:34px; padding:0; border-radius:8px; background:#eee; font-weight:800; }
+
+      @media (max-width:520px) { .diff-tooltip { left:auto; right:0; min-width:200px; } }
+
+      .clear-select {
+        background:transparent; border:1px solid rgba(0,0,0,0.06); width:30px; height:30px; border-radius:6px; font-weight:800; cursor:pointer;
+        display:inline-flex; align-items:center; justify-content:center; color:#333;
+      }
+      .clear-select:hover { background:rgba(0,0,0,0.04); }
+
+      /* Anchor wrapper for lock-in tooltip */
+      .lockin-wrap { position: relative; display: inline-block; }
 
       @keyframes placePop {
         0% { transform: scale(.85); opacity: .7 }
         60% { transform: scale(1.08) }
         100% { transform: scale(1); opacity: 1 }
       }
-
-      @keyframes shakeIt {
-        0% { transform: translateX(0) }
-        20% { transform: translateX(-8px) }
-        40% { transform: translateX(8px) }
-        60% { transform: translateX(-6px) }
-        80% { transform: translateX(6px) }
-        100% { transform: translateX(0) }
-      }
-
-      .stat.placed {
-        animation: popIn .45s ease-out
-      }
-
       @keyframes popIn {
-        0% {
-          opacity: 0;
-          transform: scale(.55) rotate(-8deg)
-        }
-
-        60% {
-          opacity: 1;
-          transform: scale(1.12) rotate(4deg)
-        }
-
-        100% {
-          transform: scale(1) rotate(0)
-        }
+        0% { opacity:0; transform: scale(.55) rotate(-8deg) }
+        60% { opacity:1; transform: scale(1.12) rotate(4deg) }
+        100% { transform: scale(1) rotate(0) }
       }
 
-      .stat.correct {
-        outline: 3px solid #32d74b
-      }
-
-      .stat.wrong {
-        outline: 3px solid #ff4f4f
-      }
-
-      .controls {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        margin-top: 8px;
-      }
-
-      .btn {
-        padding: 12px 22px;
-        border-radius: 8px;
-        border: none;
-        font-weight: 700;
-        font-size: 1.05rem;
-        cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      }
-
-      .btn-reset {
-        background: var(--accent)
-      }
-
-      .btn-submit {
-        background: var(--primary);
-        color: #fff
-      }
-
-      .legend-chip {
-        display: inline-block;
-        padding: 8px 14px;
-        margin: 6px;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 1.05rem;
-        color: #111;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, .08)
-      }
-
-      #score-output {
-        text-align: center;
-        font-weight: 700;
-        margin-top: 16px;
-        font-size: 1.15rem;
-        color: #0a7785;
-      }
-
-      main:fullscreen {
-        width: 100vw !important;
-        max-width: none !important;
-        height: 100vh !important;
-        margin: 0 !important;
-        /* leave extra space at the bottom so the framed .scale-wrap border
-           isn't clipped by overflow:hidden (prevents bottom border from
-           disappearing in some browsers when scaled) */
-        padding: 12px 12px 40px !important;
-        background: #f4f6f9 !important; /* keep a light backdrop around the framed card */
-        border-radius: 0 !important;
-        overflow: hidden !important; /* hide native scrollbars, we'll scale to fit */
-      }
-
-      main:-webkit-full-screen {
-        width: 100vw !important;
-        max-width: none !important;
-        height: 100vh !important;
-        margin: 0 !important;
-        padding: 12px 12px 40px !important;
-        background: #f4f6f9 !important; /* keep a light backdrop around the framed card */
-        border-radius: 0 !important;
-        overflow: hidden !important; /* hide native scrollbars, we'll scale to fit */
-      }
-
-      #fullscreenBtn {
-        z-index: 9999;
-        padding: 10px 14px;
-        border-radius: 8px;
-        background: rgba(0,0,0,0.75);
-        color: #fff;
-        border: none;
-      }
-
-    .scale-wrap {
-      transform-origin: top center;
-      transition: transform .18s ease;
-      width: 100%;
-      /* Make the wrap a positioning context for the fullscreen button so
-        the button visually appears attached to the white card. */
-      position: relative;
-      /* Blue frame moved here (was previously on `main`) so the inner card
-        is framed rather than the entire page. */
-      box-sizing: border-box;
-      border: 6px solid var(--primary);
-      border-radius: 12px;
-      background: #fff;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-      padding: 18px;
-    }
-
-      /* Ensure main can be a positioning context for the fullscreen button */
-      main { position: relative; }
-
-      /* Keep the fullscreen button visible — place it at top-left
-         both normally and when main is fullscreen. */
-      /* Keep the fullscreen button attached to the main white box.
-         It is absolutely positioned relative to `main` so it sits inside the
-         card and moves with it. */
-      #fullscreenBtn {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        z-index: 10050;
-        transform: none !important;
-        min-width: 44px;
-        min-height: 44px;
-        padding: 8px 12px;
-        background: rgba(0,0,0,0.75);
-        color: #fff;
-        border: none;
-      }
-
-      /* When main is fullscreen, allow the JS scale transform to run so the
-         content is scaled to fit the viewport. Keep some top padding so the
-         heading isn't overlapped by the fullscreen button. */
-      main:fullscreen .scale-wrap,
-      main:-webkit-full-screen .scale-wrap {
-        /* allow fitScale() JS to set a transform that scales the wrap */
-        padding-top: 48px;
-        box-sizing: border-box;
-        /* keep the framed look in fullscreen */
-        background: linear-gradient(180deg, #ffffff, #fbfdfe);
-        border: 6px solid var(--primary);
-        border-radius: 12px;
-        box-shadow: 0 12px 40px rgba(10,20,30,0.10);
-        padding-left: 18px;
-        padding-right: 18px;
-        max-width: calc(100vw - 120px);
-        margin: 0 auto;
-        margin-bottom: 18px; /* make sure bottom border is inside the viewport padding */
-      }
-
-      /* on wider screens, reduce the top padding so content uses more vertical
-         space (less vertical squish) and allow the wrap to appear wider */
-      @media (min-width: 1400px) {
-        main:fullscreen .scale-wrap,
-        main:-webkit-full-screen .scale-wrap {
-          padding-top: 28px;
-          max-width: calc(100vw - 180px);
-        }
-      }
-      main:fullscreen #fullscreenBtn,
-      main:-webkit-full-screen #fullscreenBtn {
-        top: 12px;
-        left: 12px;
-      }
-
-      /* In fullscreen, align content to the top so the heading remains
-         visible rather than being centered vertically and pushed off-screen. */
-      main.fs-fit {
-        align-items: flex-start;
-        justify-content: flex-start;
-      }
-
-      @media(max-width:700px) {
-        .card-front img {
-          width: 200px;
-          height: 200px
-        }
-
-        .player-card {
-          height: auto;
-          min-height: 320px;
-        }
-      }
-
-      @media (max-width: 700px) {
-        main { border-width: 4px; padding: 20px; }
-      }
-
-      @media (max-width: 700px) {
-        main { border-width: 4px; padding: 20px; }
-      }
-
-      @media (max-width: 480px) {
-        main { padding: 14px; width: 98%; }
-        .card-front img { width: 160px; height: 160px }
-        .controls { gap: 8px }
-        .stat { padding: 8px 10px; font-size: 0.95rem }
-        .legend-chip { padding: 6px 8px; font-size: 0.95rem }
-        .player-select { font-size: 0.95rem; padding: 8px }
-        #players-grid { gap: 14px }
-      }
-
-      .diff-tooltip {
-        background: #fff;
-        border: 1px solid rgba(0,0,0,0.08);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-        border-radius: 8px;
-        color: #111;
-        font-size: 0.9rem;
-        transform-origin: bottom center;
-      }
-      .diff-tooltip ul li {
-        margin: 6px 0;
-        line-height: 1.25;
-      }
-      #diffInfoBtn {
-        width: 34px;
-        height: 34px;
-        padding: 0;
-        border-radius: 8px;
-        background: #eee;
-        font-weight: 800;
-      }
-      @media (max-width: 520px) {
-        .diff-tooltip { left: auto; right: 0; min-width: 200px; }
-      }
-      .clear-select {
-        background: transparent;
-        border: 1px solid rgba(0,0,0,0.06);
-        width: 30px;
-        height: 30px;
-        border-radius: 6px;
-        font-weight: 800;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: #333;
-      }
-      .clear-select:hover { background: rgba(0,0,0,0.04); }
     </style>
   </head>
   <body>
@@ -702,133 +295,127 @@
         </nav>
       </div>
     </header>
-    <header style="text-align: center;"> This is a fan site made with the purpose of collating funny and iconic moments for the benefit of other flatchat fans. Click through the lads profiles to find their best moments. </header>
+
+    <header style="text-align:center; padding:8px 24px;">
+      This is a fan site made with the purpose of collating funny and iconic moments for the benefit of other flatchat fans. Click through the lads profiles to find their best moments.
+    </header>
+
     <main>
       <div class="scale-wrap">
-  <button id="fullscreenBtn" class="btn" style="background:#222;color:#fff;"> ⛶ Fullscreen </button>
-      <h2>Flatchat Passport Quiz</h2>
-      <h3 style="text-align: center;">Click a stat and then click on the box under the player cards to make your guesses! <br>
-        <br>Stats accurate as of the beginning of the 25/26 season.
-      </h3>
-      <div id="round-stats">Loading...</div>
-      <div id="players-grid"></div>
-      <h3 style="text-align: center;">Stats to place:</h3>
-      <div id="stats-pool"></div>
-      <div class="controls">
-        <label style="display:flex;align-items:center;gap:8px;font-weight:700"> Difficulty: <select id="difficultySelect" style="padding:8px;border-radius:6px">
-            <option value="easy">Easy (x1 points)</option>
-            <option value="hard">Hard (x2 points)</option>
-            <option value="very-hard">Very Hard (x4 points)</option>
-            <option value="extreme">Extreme (x8 points)</option>
-          </select>
-            <!-- Tooltip trigger for difficulty descriptions -->
-            <div class="diff-tooltip-wrap" style="position:relative;display:inline-block">
+        <button id="fullscreenBtn" class="btn" style="background:#222;color:#fff;"> ⛶ Fullscreen </button>
+
+        <h2>Flatchat Passport Quiz</h2>
+        <h3 style="text-align:center;">
+          Click a stat and then click on the box under the player cards to make your guesses!
+          <br><br>Stats accurate as of the beginning of the 25/26 season.
+        </h3>
+
+        <div id="round-stats">Loading...</div>
+        <div id="players-grid"></div>
+
+        <h3 style="text-align:center;">Stats to place:</h3>
+        <div id="stats-pool"></div>
+
+        <!-- Controls block - rebuilt and cleaned -->
+        <div class="controls">
+          <label style="display:flex;align-items:center;gap:8px;font-weight:700">
+            Difficulty:
+            <select id="difficultySelect" style="padding:8px;border-radius:6px;margin-left:8px">
+              <option value="easy">Easy (x1 points)</option>
+              <option value="hard">Hard (x2 points)</option>
+              <option value="very-hard">Very Hard (x4 points)</option>
+              <option value="extreme">Extreme (x8 points)</option>
+            </select>
+
+            <div class="diff-tooltip-wrap" style="position:relative;display:inline-block;margin-left:8px">
               <button id="diffInfoBtn" aria-expanded="false" aria-controls="diffTooltip" class="btn" style="margin-left:8px;padding:6px 8px;">i</button>
               <div id="diffTooltip" role="tooltip" aria-hidden="true" class="diff-tooltip" style="display:none;position:absolute;left:0;bottom:38px;z-index:40;min-width:240px;">
                 <ul style="margin:0;padding:10px 12px;list-style:none;">
                   <li><strong>Easy (x1 points)</strong>: The most well-known footballers, should know every player. (20 points available)</li>
-                  <li><strong>Hard (x2 points) </strong>: Lesser-known top division ballers, should know most of the players. (20 points available)</li>
+                  <li><strong>Hard (x2 points)</strong>: Lesser-known top division ballers, should know most of the players. (20 points available)</li>
                   <li><strong>Very Hard (x4 points)</strong>: Obscure top division ballers or better-known non top 5 league players, should know some of the players. (20 points available)</li>
                   <li><strong>Extreme (x8 points)</strong>: Forgotten ballers that made no impact on the game, maybe you'll know 1 player. (24 points available)</li>
                 </ul>
               </div>
             </div>
           </label>
-        <button id="resetGame" class="btn btn-reset">🔄 Start New Round</button>
-        <button id="submitAnswers" class="btn btn-submit">Lock-In</button>
-      </div>
+
+          <button id="resetGame" class="btn btn-reset" style="margin-left:8px">🔄 Start New Round</button>
+
+          <!-- Lock-in wrapper: tooltip is positioned relative to this -->
+          <div class="lockin-wrap" style="margin-left:8px;">
+            <button id="submitAnswers" class="btn btn-submit" aria-disabled="true" disabled>Lock-In</button>
+
+            <div id="submitDisabledTip" role="tooltip" aria-hidden="true" class="diff-tooltip" style="display:none; position:absolute; left:105%; top:50%; transform:translateY(-50%); z-index:40; min-width:220px; padding:8px 10px; white-space:normal;">
+            </div>
+          </div>
+        </div>
+
         <div id="score-output"></div>
       </div>
     </main>
+
     <footer>
       <p>Please support the boys at all the links below.</p>
       <div class="social-links">
-        <a href="https://www.tiktok.com/@theflatchat" target="_blank">
-          <img src="icons/tiktok.png" alt="TikTok">
-        </a>
-        <a href="https://www.instagram.com/theflatchatofficial/" target="_blank">
-          <img src="icons/instagram.png" alt="Instagram">
-        </a>
-        <a href="https://www.youtube.com/@theflatchat" target="_blank">
-          <img src="icons/youtube.png" alt="YouTube">
-        </a>
-        <a href="https://www.youtube.com/@FlatChatDarts" target="_blank">
-          <img src="icons/darts.png" alt="Darts YouTube">
-        </a>
-        <a href="https://www.thesoccershopdirect.co.uk/product-category/the-flat-chat/" target="_blank">
-          <img src="icons/merch.png" alt="Merch">
-        </a>
-        <a href="https://www.cameo.com/theflatchat" target="_blank">
-          <img src="icons/cameo.png" alt="Cameo">
-        </a>
-        <a href="https://x.com/theflatchatx" target="_blank">
-          <img src="icons/x.png" alt="X">
-        </a>
-        <a href="https://www.threads.com/@theflatchatofficial" target="_blank">
-          <img src="icons/threads.png" alt="Threads">
-        </a>
+        <a href="https://www.tiktok.com/@theflatchat" target="_blank"><img src="icons/tiktok.png" alt="TikTok"></a>
+        <a href="https://www.instagram.com/theflatchatofficial/" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
+        <a href="https://www.youtube.com/@theflatchat" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
+        <a href="https://www.youtube.com/@FlatChatDarts" target="_blank"><img src="icons/darts.png" alt="Darts YouTube"></a>
+        <a href="https://www.thesoccershopdirect.co.uk/product-category/the-flat-chat/" target="_blank"><img src="icons/merch.png" alt="Merch"></a>
+        <a href="https://www.cameo.com/theflatchat" target="_blank"><img src="icons/cameo.png" alt="Cameo"></a>
+        <a href="https://x.com/theflatchatx" target="_blank"><img src="icons/x.png" alt="X"></a>
+        <a href="https://www.threads.com/@theflatchatofficial" target="_blank"><img src="icons/threads.png" alt="Threads"></a>
       </div>
+
       <p>Site made by Darren 'Unico'</p>
       <p>Thanks to the following members from the Members-Only Discord for contributions in play testing this game: ADM101010, Kyle Mathewson and Archie</p>
+
       <div class="footer-random">
         <button id="randomMomentBtn">
           <img src="icons/randomiser.png" alt="Random Moment" />
         </button>
       </div>
     </footer>
+
+    <!-- keep your external helpers unchanged -->
     <script src="scripts/modal-auto-stop-video.js"></script>
     <script src="scripts/randomMoment.js"></script>
 
-    <script>
-  let STAT_COLORS = {};
-  let EASY_PLAYERS = [];
-  let HARD_PLAYERS = [];
-  let VERY_HARD_PLAYERS = [];
-  let EXTREME_PLAYERS = [];
-
-      async function loadPlayerData() {
-        const response = await fetch("passport-game-data/players.json");
-        const data = await response.json();
-
-        STAT_COLORS = data.STAT_COLORS;
-        EASY_PLAYERS = data.EASY_PLAYERS;
-        HARD_PLAYERS = data.HARD_PLAYERS;
-        // optional pools - default to empty arrays if not present
-        VERY_HARD_PLAYERS = data.VERY_HARD_PLAYERS || [];
-        EXTREME_PLAYERS = data.EXTREME_PLAYERS || [];
-
-        setupGame();
-      }
-    </script>
-
+    <!-- Consolidated & cleaned game script -->
     <script>
       /* =====================================================
-         STATE + DOM SHORTCUTS
+         DATA PLACEHOLDERS
+         ===================================================== */
+      let STAT_COLORS = {};
+      let EASY_PLAYERS = [];
+      let HARD_PLAYERS = [];
+      let VERY_HARD_PLAYERS = [];
+      let EXTREME_PLAYERS = [];
+
+      /* =====================================================
+         DOM SHORTCUTS + STATE
          ===================================================== */
       const grid = document.getElementById("players-grid");
       const pool = document.getElementById("stats-pool");
       const diffSel = document.getElementById("difficultySelect");
       const roundStats = document.getElementById("round-stats");
       const scoreOut = document.getElementById("score-output");
+
       let chosenPlayers = [];
       let activeKeys = [];
       let statBank = [];
-  // remember last round players to avoid immediate repeats
-  let lastRoundPlayers = [];
-  let lockedNameScore = 0;
-  let lockedNamePoints = 0;
-  // whether the round has been locked in (Lock-In pressed)
-  let isLocked = false;
-  // snapshot of locked-in score (to prevent recalculation later)
-  let lockedCombinedPoints = 0;
-  let lockedMaxCombined = 0;
-  let lockedCombinedCount = 0;
-  let lockedStatsScore = 0;
+      let lastRoundPlayers = [];
+      let lockedNameScore = 0;
+      let isLocked = false;
+      let lockedCombinedPoints = 0;
+      let lockedMaxCombined = 0;
+      let lockedCombinedCount = 0;
+      let lockedStatsScore = 0;
 
-      function shuffle(arr) {
-        return arr.slice().sort(() => Math.random() - 0.5)
-      }
-      // difficulty scoring multiplier
+      let updatePlayerSelects = null; // will hold ref to select-updater
+
+      function shuffle(arr) { return arr.slice().sort(() => Math.random() - 0.5); }
       function getDifficultyMultiplier() {
         const d = diffSel.value;
         if (d === 'hard') return 2;
@@ -836,111 +423,130 @@
         if (d === 'extreme') return 8;
         return 1;
       }
+
       /* =====================================================
-         BUILD A ROUND
+         LOAD PLAYERS
+         ===================================================== */
+      async function loadPlayerData() {
+        try {
+          const response = await fetch("passport-game-data/players.json");
+          const data = await response.json();
+          STAT_COLORS = data.STAT_COLORS || {};
+          EASY_PLAYERS = data.EASY_PLAYERS || [];
+          HARD_PLAYERS = data.HARD_PLAYERS || [];
+          VERY_HARD_PLAYERS = data.VERY_HARD_PLAYERS || [];
+          EXTREME_PLAYERS = data.EXTREME_PLAYERS || [];
+        } catch (err) {
+          console.error("Failed to load players.json", err);
+        }
+        setupGame();
+      }
+
+      /* =====================================================
+         SETUP + RENDER
          ===================================================== */
       function setupGame() {
         grid.innerHTML = "";
         pool.innerHTML = "";
         scoreOut.textContent = "";
+        isLocked = false;
+
         roundStats.textContent = "Loading…";
-        // Difficulty mapping: determine player pool and counts per difficulty
+
+        // Choose pool & counts based on difficulty
         let basePool = EASY_PLAYERS;
         let playerCount = 4;
         let keyCount = 4;
         const diff = diffSel.value;
+
         if (diff === 'easy') {
           basePool = EASY_PLAYERS; playerCount = 4; keyCount = 4;
         } else if (diff === 'hard') {
           basePool = HARD_PLAYERS; playerCount = 4; keyCount = 4;
         } else if (diff === 'very-hard') {
-          basePool = VERY_HARD_PLAYERS && VERY_HARD_PLAYERS.length ? VERY_HARD_PLAYERS : HARD_PLAYERS; playerCount = 4; keyCount = 5;
+          basePool = VERY_HARD_PLAYERS.length ? VERY_HARD_PLAYERS : HARD_PLAYERS;
+          playerCount = 4; keyCount = 5;
         } else if (diff === 'extreme') {
-          basePool = EXTREME_PLAYERS && EXTREME_PLAYERS.length ? EXTREME_PLAYERS : (VERY_HARD_PLAYERS && VERY_HARD_PLAYERS.length ? VERY_HARD_PLAYERS : HARD_PLAYERS);
+          basePool = EXTREME_PLAYERS.length ? EXTREME_PLAYERS : (VERY_HARD_PLAYERS.length ? VERY_HARD_PLAYERS : HARD_PLAYERS);
           playerCount = 4; keyCount = 5;
         }
 
-  // attempt to avoid rolling the same players as last round
-  const shuffledPool = shuffle(basePool);
-  // filter out last round players where possible
-  let available = shuffledPool.filter(p => !lastRoundPlayers.includes(p.name));
-  // if filtering leaves too few players, fall back to full pool
-  if (available.length < playerCount) available = shuffledPool.slice();
-  chosenPlayers = available.slice(0, playerCount);
-        // guard: if chosenPlayers is empty (malformed data), fall back
-        if (!chosenPlayers || chosenPlayers.length === 0) chosenPlayers = shuffle(EASY_PLAYERS).slice(0, 4);
-        // pick keys from the first chosen player's stats and slice to keyCount
+        const shuffledPool = shuffle(basePool);
+        let available = shuffledPool.filter(p => !lastRoundPlayers.includes(p.name));
+        if (available.length < playerCount) available = shuffledPool.slice();
+
+        chosenPlayers = available.slice(0, playerCount);
+        if (!chosenPlayers || !chosenPlayers.length) chosenPlayers = shuffle(EASY_PLAYERS).slice(0,4);
+
         const availableKeys = Object.keys(chosenPlayers[0].stats || {});
         activeKeys = shuffle(availableKeys).slice(0, Math.min(keyCount, availableKeys.length));
+
         statBank = [];
         chosenPlayers.forEach(p => {
           activeKeys.forEach(k => {
-            statBank.push({
-              player: p.name,
-              key: k,
-              value: p.stats[k]
-            });
+            statBank.push({ player: p.name, key: k, value: p.stats[k] });
           });
         });
-  // store this round's players for next-round exclusion
-  lastRoundPlayers = chosenPlayers.map(p => p.name);
-        // Cards
+
+        lastRoundPlayers = chosenPlayers.map(p => p.name);
+
+        // build cards
         chosenPlayers.forEach(p => {
           const card = document.createElement("div");
           card.className = "player-card hidden";
           card.dataset.player = p.name;
           card.innerHTML = `
-                <div class="card-inner">
-                  <div class="card-front">
-                    <div class="select-wrap" style="display:flex;align-items:center;gap:8px;">
-                      <select class="player-select" aria-hidden="true">
-                        <option value="">Select player</option>
-                      </select>
-                      <button type="button" class="clear-select" aria-label="Clear selection" title="Clear selection" style="display:none;">×</button>
-                    </div>
-                    <img src="${p.image}">
-                    <div class="drop-zone" data-owner="${p.name}"></div>
-                  </div>
-                  <div class="card-back"></div>
-                  </div>`;
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="select-wrap" style="display:flex;align-items:center;gap:8px;">
+                  <select class="player-select" aria-hidden="true">
+                    <option value="">Select player</option>
+                  </select>
+                  <button class="clear-select" title="Clear selection" style="display:none;">×</button>
+                </div>
+                <img src="${p.image}">
+                <div class="drop-zone" data-owner="${p.name}"></div>
+              </div>
+              <div class="card-back"></div>
+            </div>`;
           grid.appendChild(card);
         });
-        // Stat pool: render from the statBank but shuffle so stats are mixed
+
+        // stat pool
         const shuffledBank = shuffle(statBank);
         pool.innerHTML = shuffledBank.map(s => {
           const bg = STAT_COLORS[s.key] || "#25b6c4";
           const color = bg === "#25b6c4" ? "#fff" : "#111";
           return `<div class="stat" data-player="${s.player}" data-key="${s.key}" style="background:${bg};color:${color}">${s.value}</div>`;
         }).join('');
-        // Legend
+
+        // legend
         roundStats.innerHTML = activeKeys.map(k => {
-          const bg = STAT_COLORS[k];
+          const bg = STAT_COLORS[k] || "#25b6c4";
           const c = bg === "#25b6c4" ? "#fff" : "#111";
-          return `
-															<span class="legend-chip" style="background:${bg};color:${c}">${k}</span>`;
+          return `<span class="legend-chip" style="background:${bg};color:${c}">${k}</span>`;
         }).join(" ");
+
         revealCards();
-        // after pool is rendered, wire click handlers
-        // populate player-select options from the difficulty pool
+
         setTimeout(() => {
-          // Populate selects only with the 4 players chosen for this round
           const names = shuffle(chosenPlayers.map(x => x.name));
-          // wire selects so chosen names are removed from others
           wirePlayerSelects(names);
+
           document.querySelectorAll('.player-select').forEach(sel => {
             sel.classList.add('revealed');
             sel.disabled = false;
           });
+
           attachPointerDrag();
+          updateSubmitState();
         }, 250);
       }
 
-      // Auto-reset the round when difficulty is changed
       diffSel.addEventListener('change', () => {
-        // show Lock-In in case it was hidden
+        // show Lock-In if it was hidden earlier
         const submitBtnEl = document.getElementById('submitAnswers');
         if (submitBtnEl) submitBtnEl.style.display = '';
-        // rebuild the round
         setupGame();
       });
 
@@ -953,113 +559,103 @@
         }, 200);
       }
 
-      // Helper to keep dropdown options unique across selects
-      let updatePlayerSelects = null;
+      /* =====================================================
+         SELECT WIRING: unique options + clear buttons
+         ===================================================== */
       function wirePlayerSelects(names) {
         const selects = Array.from(document.querySelectorAll('.player-select'));
+
         function update() {
-          // gather currently chosen names
           const chosen = selects.map(s => s.value).filter(v => v);
           selects.forEach(sel => {
             const current = sel.value;
-            // rebuild options: always include empty choice
             const options = ['<option value="">Select player</option>'];
             names.forEach(n => {
-              // include name if not chosen elsewhere, or if it's the current select's value
               if (n === current || !chosen.includes(n)) options.push(`<option value="${n}">${n}</option>`);
             });
             sel.innerHTML = options.join('');
-            // restore the selection (if still present)
             sel.value = current || '';
-            // manage clear button next to this select
             const clearBtn = sel.parentElement.querySelector('.clear-select');
-            if (clearBtn) {
-              if (sel.value) {
-                clearBtn.style.display = 'inline-flex';
-              } else {
-                clearBtn.style.display = 'none';
-              }
-            }
+            if (clearBtn) clearBtn.style.display = sel.value ? 'inline-flex' : 'none';
           });
+          updateSubmitState();
         }
+
         selects.forEach(s => s.addEventListener('change', update));
-        // wire clear buttons
         selects.forEach(sel => {
           const btn = sel.parentElement.querySelector('.clear-select');
           if (!btn) return;
           btn.addEventListener('click', (ev) => {
             ev.stopPropagation();
             sel.value = '';
-            // trigger update to refresh other selects
             update();
-            // focus the select so keyboard users remain oriented
+            updateSubmitState();
             sel.focus();
           });
         });
+
         updatePlayerSelects = update;
         update();
+        updateSubmitState();
         return update;
       }
-      // helper to show/hide clear buttons (used on lock-in)
+
       function setClearButtonsVisible(visible) {
         document.querySelectorAll('.clear-select').forEach(b => {
           b.style.display = visible ? 'inline-flex' : 'none';
           b.disabled = !visible;
         });
       }
+
       /* =====================================================
-         CLICK-TO-SELECT / CLICK-TO-PLACE IMPLEMENTATION
+         POOL / DROP-ZONE INTERACTIONS (click-to-place)
          ===================================================== */
       let selectedTile = null;
 
       function attachPointerDrag() {
-        // Prepare pool tiles to be clickable
         const tiles = [...document.querySelectorAll("#stats-pool .stat")];
         tiles.forEach(tile => {
           tile.style.touchAction = "manipulation";
-          tile.addEventListener("click", tileClick);
+          tile.removeEventListener('click', tileClick);
+          tile.addEventListener('click', tileClick);
         });
 
-        // Make each drop zone clickable: click a zone to place selected tile
         const zones = [...document.querySelectorAll('.drop-zone')];
         zones.forEach(z => {
+          z.removeEventListener('click', zoneClick);
           z.addEventListener('click', zoneClick);
         });
 
-        // Also make clicking anywhere on the player card place the selected tile
         const cards = [...document.querySelectorAll('.player-card')];
         cards.forEach(card => {
           card.style.touchAction = 'manipulation';
-          card.addEventListener('click', (e) => {
-            // Ignore clicks on existing stat tiles (they have their own behavior)
-            if (e.target.closest('.stat')) return;
-            // Find the drop zone for this card and attempt to place
-            const zone = card.querySelector('.drop-zone');
-            if (!zone) return;
-            // Reuse the same handler as zone clicks by calling with an object
-            zoneClick({ currentTarget: zone, stopPropagation: () => {} });
-          });
+          card.removeEventListener('click', cardClickHandler);
+          card.addEventListener('click', cardClickHandler);
         });
+      }
+
+      function cardClickHandler(e) {
+        if (e.target.closest('.stat')) return;
+        const zone = this.querySelector('.drop-zone');
+        if (!zone) return;
+        zoneClick({ currentTarget: zone, stopPropagation: () => {} });
       }
 
       function tileClick(e) {
         e.stopPropagation();
         const tile = e.currentTarget;
-        // If the round is locked, prevent moving tiles back to pool or selecting
         if (isLocked) return;
-        // If tile is already placed inside a zone, clicking it returns it to the pool
+
         const parent = tile.parentElement;
         if (parent && parent.classList && parent.classList.contains('drop-zone')) {
-          // move back to pool
-          document.getElementById('stats-pool').appendChild(tile);
-          tile.classList.remove('placed');
-          tile.classList.remove('selected');
-          // remove flag indicating user had placed this tile
-          if (tile.dataset.userPlaced) delete tile.dataset.userPlaced;
+          const poolEl = document.getElementById('stats-pool');
+          tile.classList.remove('placed', 'selected', 'correct', 'wrong');
+          try { delete tile.dataset.userPlaced; } catch (err) {}
+          poolEl.appendChild(tile);
+          updateSubmitState();
           return;
         }
 
-        // Select / deselect behavior for pool tiles
         if (selectedTile) selectedTile.classList.remove('selected');
         if (selectedTile === tile) {
           selectedTile = null;
@@ -1072,20 +668,16 @@
       function zoneClick(e) {
         const zone = e.currentTarget;
         if (!selectedTile) return;
-        // If locked, disallow any placement
         if (isLocked) return;
 
         const key = selectedTile.dataset.key;
-        // If a stat of same key already exists in this zone, swap it back to pool
         const existingEl = Array.from(zone.querySelectorAll('.stat')).find(s => s.dataset.key === key);
         if (existingEl) {
-          // move existing back to pool
           const poolEl = document.getElementById('stats-pool');
-          // mark it as not placed
           existingEl.classList.remove('placed', 'correct', 'wrong');
           try { delete existingEl.dataset.userPlaced; } catch (err) {}
           poolEl.appendChild(existingEl);
-          // now place the new selectedTile
+
           placeTile(zone, selectedTile.dataset.player, selectedTile.dataset.key, selectedTile.textContent.trim(), selectedTile);
           try { selectedTile.dataset.userPlaced = 'true'; } catch (err) {}
           selectedTile.classList.remove('selected');
@@ -1095,27 +687,25 @@
           return;
         }
 
-        // Place the selected tile into the zone (move it)
         placeTile(zone, selectedTile.dataset.player, selectedTile.dataset.key, selectedTile.textContent.trim(), selectedTile);
-        // mark this tile as user-placed so corrections won't award points for auto-filled tiles
         try { selectedTile.dataset.userPlaced = 'true'; } catch (err) {}
-        // small place animation
         selectedTile.classList.remove('selected');
         selectedTile.classList.add('placed', 'placing');
         setTimeout(() => selectedTile.classList.remove('placing'), 380);
         selectedTile = null;
+        updateSubmitState();
       }
 
       function placeTile(zone, p, k, t, originEl) {
         if (originEl) {
-          // move existing element
           zone.appendChild(originEl);
           originEl.classList.add('placed');
           originEl.style.touchAction = 'manipulation';
-          // ensure click handler remains for returning to pool and animate place
+          originEl.removeEventListener('click', tileClick);
           originEl.addEventListener('click', tileClick);
           originEl.classList.add('placing');
           setTimeout(() => originEl.classList.remove('placing'), 380);
+          updateSubmitState();
           return;
         }
 
@@ -1124,33 +714,33 @@
         d.dataset.player = p;
         d.dataset.key = k;
         d.textContent = t;
-        const bg = STAT_COLORS[k];
+        const bg = STAT_COLORS[k] || '#25b6c4';
         const c = bg === '#25b6c4' ? '#fff' : '#111';
         d.style.background = bg;
         d.style.color = c;
         d.style.touchAction = 'manipulation';
         d.addEventListener('click', tileClick);
         zone.appendChild(d);
+        updateSubmitState();
       }
+
       /* =====================================================
-         LOCK-IN + COUNTDOWN + AUTOCORRECT
+         LOCK-IN + CORRECTIONS
          ===================================================== */
       const submitBtn = document.getElementById('submitAnswers');
       submitBtn.addEventListener('click', () => {
-        // remove/hide Lock-In button so it can't be pressed again
-        submitBtn.style.display = 'none';
-        // mark locked state so further interactions are ignored
-        isLocked = true;
-          // hide clear buttons so selections can't be changed post-lock
-          try { setClearButtonsVisible(false); } catch (e) {}
-          // disable name selects so users cannot change names after lock-in
-          try {
-            document.querySelectorAll('.player-select').forEach(s => { s.disabled = true; });
-          } catch (e) {}
+        if (submitBtn.disabled) return;
 
-        // Stats scoring + correction phase
+        // remove Lock-In so it cannot be pressed again
+        submitBtn.style.display = 'none';
+        isLocked = true;
+
+        try { setClearButtonsVisible(false); } catch (e) {}
+        try { document.querySelectorAll('.player-select').forEach(s => s.disabled = true);} catch (e) {}
+
+        // Stats scoring
         const placed = [...document.querySelectorAll('.drop-zone .stat')];
-        let score = 0;
+        let statsCorrect = 0;
         const total = statBank.length;
         placed.forEach(tile => {
           const owner = tile.parentElement.dataset.owner;
@@ -1160,13 +750,13 @@
           const isCorrect = ownerData && ownerData.stats[key] === value;
           if (isCorrect) {
             tile.classList.add('correct');
-            score++;
+            statsCorrect++;
           } else {
             tile.classList.add('wrong');
           }
         });
 
-        // Compute name score immediately (name-guessing is part of main phase)
+        // Name scoring
         const selects = document.querySelectorAll('.player-select');
         let nameScore = 0;
         selects.forEach(sel => {
@@ -1174,58 +764,44 @@
           if (!card) return;
           if (sel.value && sel.value === card.dataset.player) nameScore++;
         });
+
         selects.forEach(sel => {
           const card = sel.closest('.player-card');
+          if (!card) return;
           const correct = card.dataset.player;
-
-          sel.classList.remove("correct", "wrong");
-
           if (!sel.value) return;
-
-          if (sel.value === correct) {
-            sel.classList.add("correct");
-          } else {
-            sel.classList.add("wrong");
-          }
-          // keep clear buttons hidden after reveal
+          if (sel.value === correct) sel.classList.add('correct');
+          else sel.classList.add('wrong');
           try { setClearButtonsVisible(false); } catch (e) {}
         });
 
-        // Combined score: include name guesses in the correct count, then apply difficulty multiplier
         const multiplier = getDifficultyMultiplier();
-        // Lock these values so corrections won't change awarded name points
         lockedNameScore = nameScore;
-        // combined count = correct stats + correct name guesses
-        const combinedCount = score + nameScore;
+        const combinedCount = statsCorrect + nameScore;
         const combinedPoints = combinedCount * multiplier;
         const playersCount = document.querySelectorAll('.player-card').length;
         const maxCount = statBank.length + playersCount;
         const maxCombined = maxCount * multiplier;
 
-        // snapshot locked scores so performCorrections doesn't recompute
         lockedCombinedPoints = combinedPoints;
         lockedMaxCombined = maxCombined;
         lockedCombinedCount = combinedCount;
-        lockedStatsScore = score;
+        lockedStatsScore = statsCorrect;
 
-        // Show immediate combined score and start correction countdown if needed
-        scoreOut.innerHTML = `Score: <b>${combinedPoints}/${maxCombined}</b> <small>(Correct: ${combinedCount}/${maxCount} ×${multiplier} — Stats: ${score}/${total}, Names: ${nameScore}/${playersCount})</small>`;
+        scoreOut.innerHTML = `Score: <b>${combinedPoints}/${maxCombined}</b> <small>(Correct: ${combinedCount}/${maxCount} ×${multiplier} — Stats: ${statsCorrect}/${total}, Names: ${nameScore}/${playersCount})</small>`;
 
-        // If there are wrong/unplaced tiles, show a manual "Run Corrections" button
         const wrongOrUnplaced = document.querySelectorAll('.stat.wrong').length +
           Array.from(document.querySelectorAll('.stat')).filter(tile => tile.parentElement.id === 'stats-pool').length;
-        // Remove any existing corrections button from previous rounds
+
         const existingBtn = document.getElementById('runCorrectionsBtn');
         if (existingBtn) existingBtn.remove();
 
         if (wrongOrUnplaced > 0) {
-          scoreOut.innerHTML = `Score: <b>${combinedPoints}/${maxCombined}</b> – corrections available <small>(Stats: ${score}/${total}, Names: ${nameScore}/${playersCount})</small>`;
-          // create a button the user can click to initiate corrections
+          scoreOut.innerHTML = `Score: <b>${combinedPoints}/${maxCombined}</b> – corrections available <small>(Stats: ${statsCorrect}/${total}, Names: ${nameScore}/${playersCount})</small>`;
           const runBtn = document.createElement('button');
           runBtn.id = 'runCorrectionsBtn';
           runBtn.className = 'btn btn-submit';
           runBtn.textContent = 'Reveal Answers';
-          // insert next to the Start New Round / Reset button for prominence
           const resetBtn = document.getElementById('resetGame');
           if (resetBtn && resetBtn.parentNode) resetBtn.parentNode.insertBefore(runBtn, resetBtn.nextSibling);
           runBtn.addEventListener('click', () => {
@@ -1234,16 +810,14 @@
             performCorrections();
           });
         } else {
-          // no corrections required — proceed immediately
           setTimeout(performCorrections, 300);
         }
       });
 
       function performCorrections() {
         const wrong = [...document.querySelectorAll('.stat.wrong')];
-        // Tiles still in the pool (not placed anywhere)
         const unplaced = Array.from(document.querySelectorAll('.stat')).filter(tile => tile.parentElement.id === 'stats-pool');
-        // Fix wrong tiles
+
         wrong.forEach(tile => {
           const p = tile.dataset.player;
           const zone = document.querySelector(`.drop-zone[data-owner="${p}"]`);
@@ -1256,7 +830,7 @@
             tile.style.transform = 'scale(1)';
           }, 300);
         });
-        // Fix unplaced tiles
+
         unplaced.forEach(tile => {
           const p = tile.dataset.player;
           const zone = document.querySelector(`.drop-zone[data-owner="${p}"]`);
@@ -1268,26 +842,22 @@
             tile.style.transform = 'scale(1)';
           }, 300);
         });
-        // Also update the name dropdowns: show user's wrong pick in red before switching to correct
+
         document.querySelectorAll('.player-card').forEach(card => {
           const sel = card.querySelector('.player-select');
           if (!sel) return;
           const userPick = sel.value;
           const correct = card.dataset.player;
-          // Show user's wrong pick briefly if applicable
           if (userPick && userPick !== correct) {
             const badge = document.createElement('span');
             badge.className = 'user-guess';
             badge.textContent = userPick;
             sel.after(badge);
             sel.classList.add('wrong');
-            // after brief delay, replace the select options so the correct option is present
             setTimeout(() => {
-              // rebuild select to contain only the correct option (and empty placeholder)
               try {
                 sel.innerHTML = `<option value="">Select player</option><option value="${correct}">${correct}</option>`;
               } catch (e) {
-                // fallback: remove all options and add one
                 while (sel.firstChild) sel.removeChild(sel.firstChild);
                 const o = document.createElement('option'); o.value = ''; o.textContent = 'Select player'; sel.appendChild(o);
                 const o2 = document.createElement('option'); o2.value = correct; o2.textContent = correct; sel.appendChild(o2);
@@ -1300,7 +870,6 @@
               setTimeout(() => badge.remove(), 600);
             }, 900);
           } else {
-            // correct or empty selection: just set the correct option and lock
             try {
               sel.innerHTML = `<option value="">Select player</option><option value="${correct}">${correct}</option>`;
             } catch (e) {
@@ -1313,10 +882,8 @@
             sel.disabled = true;
           }
         });
-        // (Intentionally not updating select option lists here so locked names remain visible.)
-        // After corrections, update final combined score display using locked name points
+
         setTimeout(() => {
-          // Use the locked snapshot values to display the final score and avoid any recalculation
           const finalPoints = lockedCombinedPoints;
           const maxCombined = lockedMaxCombined;
           const finalCount = lockedCombinedCount;
@@ -1325,17 +892,15 @@
           scoreOut.innerHTML = `Final Score: <b>${finalPoints}/${maxCombined}</b> <small>(Correct: ${finalCount}/${statCount + playersCount} — Stats: ${lockedStatsScore}/${statCount}, Names: ${lockedNameScore}/${playersCount})</small>`;
         }, 420);
       }
+
       /* =====================================================
          RESET
          ===================================================== */
       document.getElementById("resetGame").addEventListener("click", () => {
-        // Re-show the Lock-In button and reset the round
         const submitBtnEl = document.getElementById('submitAnswers');
         if (submitBtnEl) submitBtnEl.style.display = '';
-        // If a previous 'Reveal Answers' button was left over, remove it so it doesn't appear in the new round
         const lingering = document.getElementById('runCorrectionsBtn');
         if (lingering) lingering.remove();
-        // clear lock state and snapshots
         isLocked = false;
         lockedCombinedPoints = 0;
         lockedMaxCombined = 0;
@@ -1344,34 +909,29 @@
         lockedNameScore = 0;
         setupGame();
       });
+
       /* =====================================================
-         FULLSCREEN MODE
+         FULLSCREEN FIT
          ===================================================== */
       const fsBtn = document.getElementById("fullscreenBtn");
       const main = document.querySelector("main");
-      const scaleWrap = () => document.querySelector('main .scale-wrap');
+      function scaleWrap() { return document.querySelector('main .scale-wrap'); }
 
       function fitScale() {
         const wrap = scaleWrap();
         if (!wrap) return;
-        // natural size
         const naturalW = wrap.scrollWidth;
         const naturalH = wrap.scrollHeight;
-        // Reserve a small vertical/horizontal gutter to ensure borders and
-        // shadows are not clipped when scaling to fullscreen. These numbers
-        // mirror the padding/margins used in the fullscreen CSS rules.
-        const reservedVertical = 48 + 40 + 24; // top padding + bottom padding + safety
-        const reservedHorizontal = 120; // left+right gutters used in max-width calculations
+        const reservedVertical = 48 + 40 + 24;
+        const reservedHorizontal = 120;
         const scaleX = (window.innerWidth - reservedHorizontal) / naturalW;
         const scaleY = (window.innerHeight - reservedVertical) / naturalH;
-        // subtract a tiny epsilon to avoid rounding making content one pixel too
-        // large which can cause scrollbars to appear in some browsers.
         const EPS = 0.99;
         const scale = Math.min(scaleX, scaleY, 1) * EPS;
         wrap.style.transform = `scale(${scale})`;
       }
 
-      fsBtn.addEventListener("click", () => {
+      fsBtn.addEventListener('click', () => {
         if (!document.fullscreenElement) {
           if (main.requestFullscreen) main.requestFullscreen();
           else if (main.webkitRequestFullscreen) main.webkitRequestFullscreen();
@@ -1385,15 +945,12 @@
         }
       });
 
-      // When fullscreen state changes, apply or remove scaling and resize handler
       function onFsChange() {
         if (document.fullscreenElement === main) {
-          // enter fullscreen: compute fit and add resize listener
           fitScale();
           window.addEventListener('resize', fitScale);
           main.classList.add('fs-fit');
         } else {
-          // exit fullscreen: reset transforms
           const wrap = scaleWrap();
           if (wrap) wrap.style.transform = '';
           window.removeEventListener('resize', fitScale);
@@ -1402,54 +959,109 @@
           fsBtn.style.background = "#222";
         }
       }
+      document.addEventListener('fullscreenchange', onFsChange);
 
-      document.addEventListener("fullscreenchange", onFsChange);
       /* =====================================================
-         START FIRST ROUND
-         ===================================================== */
-      loadPlayerData();
-      /* =====================================================
-         DIFFICULTY TOOLTIP: Accessible show/hide behavior
+         TOOLTIP BEHAVIOR (difficulty & submit-disabled)
          ===================================================== */
       (function(){
         const btn = document.getElementById('diffInfoBtn');
         const tip = document.getElementById('diffTooltip');
         if (!btn || !tip) return;
 
-        function show() {
-          tip.style.display = 'block';
-          tip.setAttribute('aria-hidden', 'false');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-        function hide() {
-          tip.style.display = 'none';
-          tip.setAttribute('aria-hidden', 'true');
-          btn.setAttribute('aria-expanded', 'false');
-        }
+        function show() { tip.style.display = 'block'; tip.setAttribute('aria-hidden','false'); btn.setAttribute('aria-expanded','true'); }
+        function hide() { tip.style.display = 'none'; tip.setAttribute('aria-hidden','true'); btn.setAttribute('aria-expanded','false'); }
 
-        // click toggles for touch and mouse
-        btn.addEventListener('click', (e)=>{
-          e.stopPropagation();
-          if (tip.style.display === 'none' || tip.style.display === '') show();
-          else hide();
-        });
-
-        // hover/focus to show (non-intrusive)
+        btn.addEventListener('click', (e)=>{ e.stopPropagation(); if (tip.style.display === 'none' || tip.style.display === '') show(); else hide(); });
         btn.addEventListener('mouseenter', show);
         btn.addEventListener('mouseleave', hide);
         btn.addEventListener('focus', show);
         btn.addEventListener('blur', hide);
 
-        // close on Escape
-        document.addEventListener('keydown', (ev)=>{
-          if (ev.key === 'Escape') hide();
-        });
-
-        // close on outside click
-        document.addEventListener('click', (ev)=>{
-          if (!ev.target.closest || !btn.contains(ev.target)) hide();
-        });
+        document.addEventListener('keydown', (ev)=>{ if (ev.key === 'Escape') hide(); });
+        document.addEventListener('click', (ev)=>{ if (!ev.target.closest || !btn.contains(ev.target)) hide(); });
       })();
+
+      (function(){
+        const submitBtnEl = document.getElementById('submitAnswers');
+        const tipEl = document.getElementById('submitDisabledTip');
+        if (!submitBtnEl || !tipEl) return;
+
+        function showTip() {
+          if (!submitBtnEl.disabled) return;
+          tipEl.style.display = 'block';
+          tipEl.setAttribute('aria-hidden', 'false');
+        }
+        function hideTip() {
+          tipEl.style.display = 'none';
+          tipEl.setAttribute('aria-hidden', 'true');
+        }
+
+        submitBtnEl.addEventListener('mouseenter', showTip);
+        submitBtnEl.addEventListener('focus', showTip);
+        submitBtnEl.addEventListener('mouseleave', hideTip);
+        submitBtnEl.addEventListener('blur', hideTip);
+
+        let lastTouch = 0;
+        submitBtnEl.addEventListener('touchstart', (ev) => {
+          if (!submitBtnEl.disabled) return;
+          const now = Date.now();
+          if (now - lastTouch < 700) return;
+          showTip();
+          lastTouch = now;
+        }, { passive: true });
+      })();
+
+      /* =====================================================
+         SUBMIT ENABLING/REASON
+         ===================================================== */
+      function updateSubmitState() {
+        const submitBtn = document.getElementById('submitAnswers');
+        if (!submitBtn) return;
+        const tipEl = document.getElementById('submitDisabledTip');
+
+        const totalNeeded = (Array.isArray(statBank) ? statBank.length : 0);
+        const placedCount = document.querySelectorAll('.drop-zone .stat').length;
+        const selects = Array.from(document.querySelectorAll('.player-select'));
+        const allNamesSelected = selects.length > 0 ? selects.every(s => (s.value || '').toString().trim() !== '') : false;
+        const ready = totalNeeded > 0 && placedCount >= totalNeeded && allNamesSelected;
+
+        submitBtn.disabled = !ready;
+        submitBtn.setAttribute('aria-disabled', (!ready).toString());
+        submitBtn.style.opacity = ready ? '' : '0.6';
+        submitBtn.title = ready ? '' : 'Place all stats and select names before locking in';
+
+        if (tipEl) {
+          if (ready) {
+            tipEl.textContent = '';
+            tipEl.style.display = 'none';
+            tipEl.setAttribute('aria-hidden', 'true');
+          } else {
+            const reason = getSubmitDisabledReason();
+            tipEl.textContent = reason;
+            tipEl.style.display = 'block';
+            tipEl.setAttribute('aria-hidden', 'false');
+          }
+        }
+      }
+
+      function getSubmitDisabledReason() {
+        const totalNeeded = (Array.isArray(statBank) ? statBank.length : 0);
+        const placedCount = document.querySelectorAll('.drop-zone .stat').length;
+        const missingStats = Math.max(0, totalNeeded - placedCount);
+        const selects = Array.from(document.querySelectorAll('.player-select'));
+        const missingNames = selects.filter(s => !(s.value || '').toString().trim()).length;
+        const parts = [];
+        if (missingStats > 0) parts.push(`${missingStats} stat${missingStats>1?'s':''} not placed`);
+        if (missingNames > 0) parts.push(`${missingNames} name${missingNames>1?'s':''} not selected`);
+        if (parts.length === 0) return 'Locked';
+        return parts.join(' and ');
+      }
+
+      /* =====================================================
+         START
+         ===================================================== */
+      loadPlayerData();
     </script>
   </body>
 </html>
