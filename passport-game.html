@@ -138,7 +138,6 @@
         transform: scale(1.1);
       }
 
-      /* Default: desktop view */
       .footer-random {
         position: absolute;
         bottom: 10px;
@@ -168,11 +167,9 @@
         display: block;
       }
 
-      /* ✅ Mobile view: place button below text, centered */
       @media (max-width: 768px) {
         .footer-random {
           position: static;
-          /* no absolute positioning */
           margin-top: 10px;
           display: flex;
           justify-content: center;
@@ -180,61 +177,64 @@
 
         #randomMomentBtn img {
           width: 42px;
-          /* slightly smaller on mobile */
           height: 42px;
         }
       }
 
       main {
         flex: 1;
-        width: 92%;
-        max-width: 1400px;
-        margin: 28px auto;
-        padding: 22px;
+        width: 96%;
+        max-width: 1600px;
+        margin: 20px auto;
+        padding: 32px 28px;
         background: #fff;
         border-radius: 12px;
         box-shadow: 0 6px 25px rgba(0, 0, 0, .08);
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 20px;
       }
 
       h2 {
         margin: 0;
-        text-align: center
+        text-align: center;
+        font-size: 2.2rem;
+        color: #0a7785;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        color: #333;
+        margin: 8px 0;
       }
 
       #round-stats {
         text-align: center;
         font-weight: 700;
         color: #0a7785;
-        margin-top: -4px
+        margin-top: 8px;
+        font-size: 1.1rem;
       }
 
       #players-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 18px;
-        margin-top: 8px;
-          /* Small gap so the "Stats to place" header and pool aren't overlapped. */
-          margin-bottom: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        margin-top: 16px;
+        margin-bottom: 32px;
       }
 
       .player-card {
         perspective: 1000px;
         position: relative;
         display: block;
-        /* Allow the card to size based on its content so long stat names
-           cause the card to grow and push following text down */
-        min-height: 320px;
+        min-height: 360px;
       }
 
       .card-inner {
         width: 100%;
         transform-style: preserve-3d;
         transition: transform .8s cubic-bezier(.25, .9, .35, 1.3);
-        /* Use grid so the front/back faces can occupy the same area
-           while still contributing to the parent's height. */
         display: grid;
       }
 
@@ -252,26 +252,24 @@
 
       .card-front,
       .card-back {
-        /* stacked into same grid area so they overlay but still affect
-           the parent's height */
         grid-area: 1/1;
         width: 100%;
         backface-visibility: hidden;
         display: flex;
         flex-direction: column;
-        align-items: center; /* center image + controls horizontally */
+        align-items: center;
         text-align: center;
       }
 
       .card-front {
         background: #e4f9ff;
-        padding-top: 10px;
-        padding-bottom: 10px
+        padding-top: 14px;
+        padding-bottom: 14px
       }
 
       .card-front img {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
         object-fit: cover;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, .16)
@@ -289,15 +287,14 @@
         transform: translateY(6px);
       }
 
-      /* Player select (name guessing) */
       .player-select {
         display: none;
-        margin-top: 6px;
+        margin-top: 8px;
         font-weight: 700;
         color: #0a7785;
         text-align: center;
-        font-size: 0.95rem;
-        padding: 8px 10px;
+        font-size: 1rem;
+        padding: 10px 12px;
         border-radius: 8px;
         border: 2px solid rgba(10,119,133,0.08);
         background: #fff;
@@ -352,16 +349,16 @@
       }
 
       .drop-zone {
-        width: 92%;
-        min-height: 110px;
-        margin-top: 12px;
-        padding: 10px;
+        width: 94%;
+        min-height: 130px;
+        margin-top: 14px;
+        padding: 12px;
         border: 2px dashed #20a5b8;
         border-radius: 10px;
         background: #fff;
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 10px;
         align-content: flex-start;
       }
 
@@ -373,15 +370,17 @@
       #stats-pool {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
-        padding: 10px 4px 30px;
-        border-top: 3px solid #e6e6e6
+        gap: 14px;
+        padding: 16px 8px 36px;
+        border-top: 3px solid #e6e6e6;
+        justify-content: center;
       }
 
       .stat {
-        padding: 10px 14px;
+        padding: 12px 16px;
         border-radius: 10px;
         font-weight: 700;
+        font-size: 1.05rem;
         cursor: pointer;
         box-shadow: 0 3px 10px rgba(0, 0, 0, .12);
         user-select: none;
@@ -453,19 +452,26 @@
 
       .controls {
         display: flex;
-        gap: 12px;
+        gap: 16px;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        margin-top: -8px
+        margin-top: 8px;
       }
 
       .btn {
-        padding: 10px 18px;
+        padding: 12px 22px;
         border-radius: 8px;
         border: none;
         font-weight: 700;
-        cursor: pointer
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       }
 
       .btn-reset {
@@ -479,10 +485,11 @@
 
       .legend-chip {
         display: inline-block;
-        padding: 6px 10px;
-        margin: 4px;
+        padding: 8px 14px;
+        margin: 6px;
         border-radius: 8px;
         font-weight: 700;
+        font-size: 1.05rem;
         color: #111;
         box-shadow: 0 2px 6px rgba(0, 0, 0, .08)
       }
@@ -490,12 +497,11 @@
       #score-output {
         text-align: center;
         font-weight: 700;
-        margin-top: 6px
+        margin-top: 16px;
+        font-size: 1.15rem;
+        color: #0a7785;
       }
 
-      /* floating-tile and pointer-based dragging removed; game uses click-to-select/place */
-
-      /* FULLSCREEN MODE */
       main:fullscreen {
         width: 100vw !important;
         max-width: none !important;
@@ -535,16 +541,16 @@
 
       @media(max-width:700px) {
         .card-front img {
-          width: 220px;
-          height: 220px
+          width: 240px;
+          height: 240px
         }
 
         .player-card {
           height: auto;
-          min-height: 360px; /* slightly larger on narrow viewports for safety */
+          min-height: 380px;
         }
       }
-      /* Difficulty tooltip styles */
+
       .diff-tooltip {
         background: #fff;
         border: 1px solid rgba(0,0,0,0.08);
@@ -566,7 +572,6 @@
         background: #eee;
         font-weight: 800;
       }
-      /* ensure the tooltip sits above on narrow screens too */
       @media (max-width: 520px) {
         .diff-tooltip { left: auto; right: 0; min-width: 200px; }
       }
