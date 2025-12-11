@@ -799,6 +799,61 @@
           "NationalTeam": "Netherlands",
           "HonourWon": "UEFA Cup: 1993-94"
         }
+      }, {
+        "name": "Clarence Seedorf",
+        "image": "player-images/seedorf.png",
+        "stats": {
+          "PlaceOfBirth": "Paramaribo",
+          "DateOfBirth": "1 April 1976",
+          "FirstSeniorClub": "Ajax",
+          "Position": "CM/AM/RM",
+          "NationalTeam": "Netherlands",
+          "HonourWon": "UEFA Champions League: 3x winner"
+        }
+      }, {
+        "name": "Patrick Vieira",
+        "image": "player-images/vieira.png",
+        "stats": {
+          "PlaceOfBirth": "Dakar",
+          "DateOfBirth": "23 June 1976",
+          "FirstSeniorClub": "AS Cannes",
+          "Position": "DM/CM",
+          "NationalTeam": "France",
+          "HonourWon": "FA Cup: 2010-11"
+        }
+      }, {
+        "name": "Michael Essien",
+        "image": "player-images/essien.png",
+        "stats": {
+          "PlaceOfBirth": "Accra",
+          "DateOfBirth": "3 December 1982",
+          "FirstSeniorClub": "Bastia",
+          "Position": "DM/CM",
+          "NationalTeam": "Ghana",
+          "HonourWon": "Ligue 1: 2003–04, 2004–05"
+        }
+      }, {
+        "name": "Xabi Alonso",
+        "image": "player-images/alonso.png",
+        "stats": {
+          "PlaceOfBirth": "Tolosa",
+          "DateOfBirth": "25 November 1981",
+          "FirstSeniorClub": "Real Sociedad",
+          "Position": "DM/CM",
+          "NationalTeam": "Spain",
+          "HonourWon": "Spanish Player of the Year: 2003"
+        }
+      }, {
+        "name": "Roberto Carlos",
+        "image": "player-images/robertocarlos.png",
+        "stats": {
+          "PlaceOfBirth": "Garça",
+          "DateOfBirth": "10 April 1973",
+          "FirstSeniorClub": "União São João",
+          "Position": "LB",
+          "NationalTeam": "Brazil",
+          "HonourWon": "Ballon d'Or: 2002 (runner-up)"
+        }
       }
       ],
 
@@ -1449,6 +1504,270 @@
           "Position": "LW",
           "NationalTeam": "England",
           "HonourWon": "Scottish Premiership: 2020–21"
+        }
+      }, {
+        "name": "Sergio Araujo",
+        "image": "player-images/araujo.png",
+        "stats": {
+          "PlaceOfBirth": "Buenos Aires",
+          "DateOfBirth": "28 January 1992",
+          "FirstSeniorClub": "Boca Juniors",
+          "Position": "ST",
+          "NationalTeam": "Argentina",
+          "HonourWon": "Greek Cup: 2022–23"
+        }
+      }, {
+        "name": "Fabrice Ondoa",
+        "image": "player-images/ondoa.png",
+        "stats": {
+          "PlaceOfBirth": "Yaoundé",
+          "DateOfBirth": "24 December 1995",
+          "FirstSeniorClub": "Pobla Mafumet",
+          "Position": "GK",
+          "NationalTeam": "Cameroon",
+          "HonourWon": "Latvian Football Cup: 2022"
+        }
+      }, {
+        "name": "Jordi Mboula",
+        "image": "player-images/mboula.png",
+        "stats": {
+          "PlaceOfBirth": "Granollers",
+          "DateOfBirth": "16 March 1999",
+          "FirstSeniorClub": "Monaco",
+          "Position": "RW",
+          "NationalTeam": "Spain",
+          "HonourWon": "Trophée des Champions runner-up: 2018"
+        }
+      }, {
+        "name": "Mauricio Lemos",
+        "image": "player-images/lemos.png",
+        "stats": {
+          "PlaceOfBirth": "Rivera",
+          "DateOfBirth": "28 December 1995",
+          "FirstSeniorClub": "Defensor Sporting",
+          "Position": "CB",
+          "NationalTeam": "Uruguay",
+          "HonourWon": "Campeonato Mineiro: 2023, 2024"
+        }
+      }, {
+        "name": "Silas Gnaka",
+        "image": "player-images/gnaka.png",
+        "stats": {
+          "PlaceOfBirth": "Ouragahio",
+          "DateOfBirth": "18 December 1998",
+          "FirstSeniorClub": "Brøndby IF",
+          "Position": "DM/LB",
+          "NationalTeam": "Ivory Coast",
+          "HonourWon": "Africa U-23 Cup of Nations: runner-up 2019"
+        }
+      }, {
+        "name": "Jordi Calavera",
+        "image": "player-images/calavera.png",
+        "stats": {
+          "PlaceOfBirth": "Cabra del Camp",
+          "DateOfBirth": "2 August 1995",
+          "FirstSeniorClub": "Gimnàstic",
+          "Position": "RB",
+          "NationalTeam": "Spain",
+          "HonourWon": "No Honours Yet"
+        }
+      }, {
+        "name": "Ivan Durdov",
+        "image": "player-images/durdov.png",
+        "stats": {
+          "PlaceOfBirth": "Split",
+          "DateOfBirth": "17 July 2000",
+          "FirstSeniorClub": "Solin",
+          "Position": "ST",
+          "NationalTeam": "Croatia",
+          "HonourWon": "No Honours Yet"
+        }
+      }, {
+        "name": "Mitja Ilenič",
+        "image": "player-images/ilenic.png",
+        "stats": {
+          "PlaceOfBirth": "Unknown City",
+          "DateOfBirth": "26 December 2004",
+          "FirstSeniorClub": "Domžale",
+          "Position": "RB",
+          "NationalTeam": "Slovenia",
+          "HonourWon": "No Honours Yet"
+        }
+      }, {
+        "name": "Dario Kolobaric",
+        "image": "player-images/kolobaric.png",
+        "stats": {
+          "PlaceOfBirth": "Teslić",
+          "DateOfBirth": "6 February 2000",
+          "FirstSeniorClub": "Domžale",
+          "Position": "ST",
+          "NationalTeam": "Slovenia",
+          "HonourWon": "No Honours Yet"
+        }
+      }, {
+        "name": "Felix Afena-Gyan",
+        "image": "player-images/afena.png",
+        "stats": {
+          "PlaceOfBirth": "Sunyani",
+          "DateOfBirth": "19 January 2003",
+          "FirstSeniorClub": "Roma",
+          "Position": "ST",
+          "NationalTeam": "Ghana",
+          "HonourWon": "UEFA Europa Conference League: 2021–22"
+        }
+      }, {
+        "name": "Mukhtar Ali",
+        "image": "player-images/mukhtarali.png",
+        "stats": {
+          "PlaceOfBirth": "Jeddah",
+          "DateOfBirth": "30 October 1997",
+          "FirstSeniorClub": "Chelsea",
+          "Position": "DM/CM",
+          "NationalTeam": "Saudi Arabia",
+          "HonourWon": "KNVB Cup: 2016–17" 
+        }
+      }, {
+        "name": "Danny Cadamarteri",
+        "image": "player-images/cadamarteri.png",
+        "stats": {
+          "PlaceOfBirth": "Cleckheaton",
+          "DateOfBirth": "12 October 1979",
+          "FirstSeniorClub": "Everton",
+          "Position": "ST",
+          "NationalTeam": "England",
+          "HonourWon": "6 Month Drug Ban: 2006"
+        }
+      }, {
+        "name": "Fabrice Olinga",
+        "image": "player-images/olinga.png",
+        "stats": {
+          "PlaceOfBirth": "Douala",
+          "DateOfBirth": "12 May 1996",
+          "FirstSeniorClub": "Málaga",
+          "Position": "LW",
+          "NationalTeam": "Cameroon",
+          "HonourWon": "Belgian Cup runner-up: 2013–14"
+        }
+      }, {
+        "name": "Nabil Bahoui",
+        "image": "player-images/bahoui.png",
+        "stats": {
+          "PlaceOfBirth": "Stockholm",
+          "DateOfBirth": "5 February 1991",
+          "FirstSeniorClub": "IF Brommapojkarna",
+          "Position": "LW/ST",
+          "NationalTeam": "Sweden",
+          "HonourWon": "Allsvenskan: 2018"
+        }
+      }, {
+        "name": "Julian Jenner",
+        "image": "player-images/jenner.png",
+        "stats": {
+          "PlaceOfBirth": "Delft",
+          "DateOfBirth": "28 February 1984",
+          "FirstSeniorClub": "NAC Breda",
+          "Position": "RW/LW",
+          "NationalTeam": "Netherlands",
+          "HonourWon": "Hungarian League Cup: 2012–13"
+        }
+      }, {
+        "name": "Brown Ideye",
+        "image": "player-images/ideye.png",
+        "stats": {
+          "PlaceOfBirth": "Yenagoa",
+          "DateOfBirth": "11 October 1988",
+          "FirstSeniorClub": "Bayelsa United",
+          "Position": "ST",
+          "NationalTeam": "Nigeria",
+          "HonourWon": "Ukrainian Super Cup: 2011"
+        }
+      }, {
+        "name": "Xavier Mbuyamba",
+        "image": "player-images/mbuyamba.png",
+        "stats": {
+          "PlaceOfBirth": "Maastricht",
+          "DateOfBirth": "31 December 2001",
+          "FirstSeniorClub": "MVV Maastricht",
+          "Position": "CB",
+          "NationalTeam": "Netherlands",
+          "HonourWon": "No Honours Yet"
+        }
+      }, {
+        "name": "Mehdi Nafti",
+        "image": "player-images/nafti.png",
+        "stats": {
+          "PlaceOfBirth": "Toulouse",
+          "DateOfBirth": "28 November 1978",
+          "FirstSeniorClub": "Toulouse",
+          "Position": "DM",
+          "NationalTeam": "Tunisia",
+          "HonourWon": "Africa Cup of Nations: 2004"
+        }
+      }, {
+        "name": "Willem Geubbels",
+        "image": "player-images/geubbels.png",
+        "stats": {
+          "PlaceOfBirth": "Villeurbanne",
+          "DateOfBirth": "16 August 2001",
+          "FirstSeniorClub": "Lyon",
+          "Position": "ST",
+          "NationalTeam": "France",
+          "HonourWon": "Coupe de France: 2021–22"
+        }
+      }, {
+        "name": "Ulises Dávila",
+        "image": "player-images/davila.png",
+        "stats": {
+          "PlaceOfBirth": "Guadalajara",
+          "DateOfBirth": "13 April 1991",
+          "FirstSeniorClub": "Guadalajara",
+          "Position": "AM",
+          "NationalTeam": "Mexico",
+          "HonourWon": "Australia Cup: 2022"
+        }
+      }, {
+        "name": "Omenuke Mfulu",
+        "image": "player-images/mfulu.png",
+        "stats": {
+          "PlaceOfBirth": "Poissy",
+          "DateOfBirth": "20 March 1994",
+          "FirstSeniorClub": "Reims",
+          "Position": "DM",
+          "NationalTeam": "DR Congo",
+          "HonourWon": "No Honours Yet"
+        }
+      }, {
+        "name": "Jashaun Anglin",
+        "image": "player-images/anglin.png",
+        "stats": {
+          "PlaceOfBirth": "Kingston",
+          "DateOfBirth": "6 May 2001",
+          "FirstSeniorClub": "Harbour View",
+          "Position": "DM",
+          "NationalTeam": "Jamaica",
+          "HonourWon": "Jamaica Premier League: 2022"
+        }
+      }, {
+        "name": "Nacer Barazite",
+        "image": "player-images/barazite.png",
+        "stats": {
+          "PlaceOfBirth": "Arnhem",
+          "DateOfBirth": "27 May 1990",
+          "FirstSeniorClub": "Arsenal",
+          "Position": "AM/ST",
+          "NationalTeam": "Netherlands",
+          "HonourWon": "Austrian Bundesliga: 2013"
+        }
+      }, {
+        "name": "Akwasi Asante",
+        "image": "player-images/asante.png",
+        "stats": {
+          "PlaceOfBirth": "Amsterdam",
+          "DateOfBirth": "6 September 1992",
+          "FirstSeniorClub": "Birmingham City",
+          "Position": "ST",
+          "NationalTeam": "Ghana",
+          "HonourWon": "National League North: 2015–16"        
         }
       }
     ]
