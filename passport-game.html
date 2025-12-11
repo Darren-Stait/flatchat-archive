@@ -905,14 +905,12 @@
                   </div>`;
           grid.appendChild(card);
         });
-        // Stat pool: restore previous ordering — group stats by player (player then activeKeys)
-        pool.innerHTML = chosenPlayers.map(p => {
-          return activeKeys.map(k => {
-            const value = p.stats[k];
-            const bg = STAT_COLORS[k] || "#25b6c4";
-            const color = bg === "#25b6c4" ? "#fff" : "#111";
-            return `<div class="stat" data-player="${p.name}" data-key="${k}" style="background:${bg};color:${color}">${value}</div>`;
-          }).join('');
+        // Stat pool: render from the statBank but shuffle so stats are mixed
+        const shuffledBank = shuffle(statBank);
+        pool.innerHTML = shuffledBank.map(s => {
+          const bg = STAT_COLORS[s.key] || "#25b6c4";
+          const color = bg === "#25b6c4" ? "#fff" : "#111";
+          return `<div class="stat" data-player="${s.player}" data-key="${s.key}" style="background:${bg};color:${color}">${s.value}</div>`;
         }).join('');
         // Legend
         roundStats.innerHTML = activeKeys.map(k => {
