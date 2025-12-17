@@ -304,11 +304,15 @@
       <div class="scale-wrap">
         <button id="fullscreenBtn" class="btn" style="background:#222;color:#fff;"> ⛶ Fullscreen </button>
 
-        <h2>Flatchat Passport Quiz</h2>
+        <h2>Flatchat Passport Game</h2>
         <h3 style="text-align:center;">
           Click a stat and then click on the box under the player cards to make your guesses!
-          <br><br>Stats accurate as of the beginning of the 25/26 season.
+          <br>Make sure to guess the players name using the dropdowns.
         </h3>
+        <h4 style="text-align:center;">
+          Choose your difficulty below - harder difficulties give more points per correct stat!
+          <br>All data collected from Wikipedia. Good luck! 🙂
+        </h4>
 
         <div id="round-stats">Loading...</div>
         <div id="players-grid"></div>
@@ -332,9 +336,9 @@
               <div id="diffTooltip" role="tooltip" aria-hidden="true" class="diff-tooltip" style="display:none;position:absolute;left:0;bottom:38px;z-index:40;min-width:240px;">
                 <ul style="margin:0;padding:10px 12px;list-style:none;">
                   <li><strong>Easy (x1 points)</strong>: The most well-known footballers, should know every player. (20 points available)</li>
-                  <li><strong>Hard (x2 points)</strong>: Lesser-known top division ballers, should know most of the players. (20 points available)</li>
-                  <li><strong>Very Hard (x4 points)</strong>: Obscure top division ballers or better-known non top 5 league players, should know some of the players. (20 points available)</li>
-                  <li><strong>Extreme (x8 points)</strong>: Forgotten ballers that made no impact on the game, maybe you'll know 1 player. (24 points available)</li>
+                  <li><strong>Hard (x2 points)</strong>: Lesser-known top division ballers, should know most of the players. (40 points available)</li>
+                  <li><strong>Very Hard (x3 points)</strong>: Obscure top division ballers or better-known non top 5 league players, should know some of the players. (60 points available)</li>
+                  <li><strong>Extreme (x4 points)</strong>: Forgotten ballers that made no impact on the game, maybe you'll know 1 player. (80 points available)</li>
                 </ul>
               </div>
             </div>
@@ -353,6 +357,9 @@
 
         <div id="score-output"></div>
       </div>
+      <h5 style="text-align:center;">
+        Massive thanks to ADM101010 for being the worlds greatest quality assurance and Kyle Mathewson and Melissa too for playtesting and providing feedback. 
+      </h5>
     </main>
 
     <footer>
@@ -369,7 +376,6 @@
       </div>
 
       <p>Site made by Darren 'Unico'</p>
-      <p>Thanks to the following members from the Members-Only Discord for contributions in play testing this game: ADM101010, Kyle Mathewson and Archie</p>
 
       <div class="footer-random">
         <button id="randomMomentBtn">
@@ -419,8 +425,8 @@
       function getDifficultyMultiplier() {
         const d = diffSel.value;
         if (d === 'hard') return 2;
-        if (d === 'very-hard') return 4;
-        if (d === 'extreme') return 8;
+        if (d === 'very-hard') return 3;
+        if (d === 'extreme') return 4;
         return 1;
       }
 
