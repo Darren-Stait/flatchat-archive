@@ -5,7 +5,7 @@
     "FirstSeniorClub": "#E7FFE8",
     "Position": "#E5F1FF",
     "NationalTeam": "#F8E3FF",
-    "Height": "#E8F4FF",
+    "Height": "#E8D7C3",
     "HonourWon": "#FFEACD"
   },
   "EASY_PLAYERS": [
@@ -1752,6 +1752,318 @@
         "Height": "6'1",
         "HonourWon": "Nottingham Forest Player of the Season: 2019–20"
       }
+    },
+    {
+      "name": "Martin Hinteregger",
+      "image": "player-images/hinteregger.png",
+      "stats": {
+        "PlaceOfBirth": "Sankt Veit an der Glan",
+        "DateOfBirth": "7 September 1992",
+        "FirstSeniorClub": "Red Bull Salzburg",
+        "Position": "CB",
+        "NationalTeam": "Austria",
+        "Height": "6'0",
+        "HonourWon": "UEFA Europa League: 2021–22"
+      }
+    },
+    {
+      "name": "Florian Grillitsch",
+      "image": "player-images/grillitsch.png",
+      "stats": {
+        "PlaceOfBirth": "Neunkirchen",
+        "DateOfBirth": "7 August 1995",
+        "FirstSeniorClub": "Werder Bremen",
+        "Position": "DM/CM",
+        "NationalTeam": "Austria",
+        "Height": "6'2",
+        "HonourWon": "No Honours Yet"
+      }
+    },
+    {
+      "name": "Mitchel Bakker",
+      "image": "player-images/bakker.png",
+      "stats": {
+        "PlaceOfBirth": "Purmerend",
+        "DateOfBirth": "20 June 2000",
+        "FirstSeniorClub": "Ajax",
+        "Position": "LB/LM",
+        "NationalTeam": "Netherlands",
+        "Height": "6'2",
+        "HonourWon": "Ligue 1: 2019–20"
+      }
+    },
+    {
+      "name": "Kevin Strootman",
+      "image": "player-images/strootman.png",
+      "stats": {
+        "PlaceOfBirth": "Ridderkerk",
+        "DateOfBirth": "13 February 1990",
+        "FirstSeniorClub": "Sparta Rotterdam",
+        "Position": "CM/DM",
+        "NationalTeam": "Netherlands",
+        "Height": "6'1",
+        "HonourWon": "KNVB Cup: 2011–12"
+      }
+    },
+    {
+      "name": "Riechedly Bazoer",
+      "image": "player-images/bazoer.png",
+      "stats": {
+        "PlaceOfBirth": "Utrecht",
+        "DateOfBirth": "12 October 1996",
+        "FirstSeniorClub": "Ajax",
+        "Position": "CB/DM/CM",
+        "NationalTeam": "Curaçao",
+        "Height": "6'0",
+        "HonourWon": "Ajax Talent of the Year: 2016"
+      }
+    },
+    {
+      "name": "Pontus Jansson",
+      "image": "player-images/jansson.png",
+      "stats": {
+        "PlaceOfBirth": "Arlöv",
+        "DateOfBirth": "13 February 1991",
+        "FirstSeniorClub": "Malmö FF",
+        "Position": "CB",
+        "NationalTeam": "Sweden",
+        "Height": "6'4",
+        "HonourWon": "EFL Championship play-offs: 2021"
+      }
+    },
+    {
+      "name": "Jean-Philippe Gbamin",
+      "image": "player-images/gbamin.png",
+      "stats": {
+        "PlaceOfBirth": "San Pédro",
+        "DateOfBirth": "25 September 1995",
+        "FirstSeniorClub": "RC Lens",
+        "Position": "DM/CB",
+        "NationalTeam": "Ivory Coast",
+        "Height": "6'1",
+        "HonourWon": "UEFA European Under-19 Championship runner-up: 2013"
+      }
+    },
+    {
+      "name": "Valentin Rongier",
+      "image": "player-images/rongier.png",
+      "stats": {
+        "PlaceOfBirth": "Mâcon",
+        "DateOfBirth": "7 December 1994",
+        "FirstSeniorClub": "Nantes",
+        "Position": "CM/DM",
+        "NationalTeam": "France",
+        "Height": "5'8",
+        "HonourWon": "UNFP Ligue 1 Team of the Year: 2022–23"
+      }
+    },
+    {
+      "name": "Morgan Sanson",
+      "image": "player-images/sanson.png",
+      "stats": {
+        "PlaceOfBirth": "Saint-Doulchard",
+        "DateOfBirth": "18 August 1994",
+        "FirstSeniorClub": "Le Mans",
+        "Position": "CM/AM",
+        "NationalTeam": "France",
+        "Height": "5'11",
+        "HonourWon": "UEFA Europa League runner-up: 2017–18"
+      }
+    },
+    {
+      "name": "Nahitan Nández",
+      "image": "player-images/nandez.png",
+      "stats": {
+        "PlaceOfBirth": "Punta del Este",
+        "DateOfBirth": "28 December 1995",
+        "FirstSeniorClub": "Peñarol",
+        "Position": "CM/RM",
+        "NationalTeam": "Uruguay",
+        "Height": "5'8",
+        "HonourWon": "Supercopa Argentina: 2018"
+      }
+    },
+    {
+      "name": "Lucas Torreira",
+      "image": "player-images/torreira.png",
+      "stats": {
+        "PlaceOfBirth": "Fray Bentos",
+        "DateOfBirth": "11 February 1996",
+        "FirstSeniorClub": "Pescara",
+        "Position": "DM",
+        "NationalTeam": "Uruguay",
+        "Height": "5'5",
+        "HonourWon": "FA Cup: 2019–20"
+      }
+    },
+    {
+      "name": "Lucas Leiva",
+      "image": "player-images/leiva.png",
+      "stats": {
+        "PlaceOfBirth": "Dourados",
+        "DateOfBirth": "9 January 1987",
+        "FirstSeniorClub": "Grêmio",
+        "Position": "DM",
+        "NationalTeam": "Brazil",
+        "Height": "5'10",
+        "HonourWon": "Liverpool Player of the Year: 2010–11"
+      }
+    },
+    {
+      "name": "Manuel Lazzari",
+      "image": "player-images/lazzari.png",
+      "stats": {
+        "PlaceOfBirth": "Valdagno",
+        "DateOfBirth": "29 November 1993",
+        "FirstSeniorClub": "Montecchio Maggiore",
+        "Position": "RM/RB",
+        "NationalTeam": "Italy",
+        "Height": "5'9",
+        "HonourWon": "Serie B: 2016–17"
+      }
+    },
+    {
+      "name": "Mattia Zaccagni",
+      "image": "player-images/zaccagni.png",
+      "stats": {
+        "PlaceOfBirth": "Cesena",
+        "DateOfBirth": "16 June 1995",
+        "FirstSeniorClub": "Bellaria Igearona",
+        "Position": "LW/CM/AM",
+        "NationalTeam": "Italy",
+        "Height": "5'9",
+        "HonourWon": "Serie A Goal of the Year: 2021"
+      }
+    },
+    {
+      "name": "Sofyan Amrabat",
+      "image": "player-images/amrabat.png",
+      "stats": {
+        "PlaceOfBirth": "Huizen",
+        "DateOfBirth": "21 August 1996",
+        "FirstSeniorClub": "Utrecht",
+        "Position": "DM/CM",
+        "NationalTeam": "Morocco",
+        "Height": "6'0",
+        "HonourWon": "FA Cup: 2023–24"
+      }
+    },
+    {
+      "name": "Andreas Christensen",
+      "image": "player-images/christensen.png",
+      "stats": {
+        "PlaceOfBirth": "Lillerød",
+        "DateOfBirth": "10 April 1996",
+        "FirstSeniorClub": "Chelsea",
+        "Position": "CB",
+        "NationalTeam": "Denmark",
+        "Height": "6'2",
+        "HonourWon": "Copa del Rey: 2024–25"
+      }
+    },
+    {
+      "name": "Guido Rodríguez",
+      "image": "player-images/rodriguez.png",
+      "stats": {
+        "PlaceOfBirth": "Sáenz Peña",
+        "DateOfBirth": "12 April 1994",
+        "FirstSeniorClub": "River Plate",
+        "Position": "DM",
+        "NationalTeam": "Argentina",
+        "Height": "6'1",
+        "HonourWon": "Liga MX Balón de Oro: 2018–19"
+      }
+    },
+    {
+      "name": "Marcos Acuña",
+      "image": "player-images/acuna.png",
+      "stats": {
+        "PlaceOfBirth": "Zapala",
+        "DateOfBirth": "28 October 1991",
+        "FirstSeniorClub": "Ferro Carril Oeste",
+        "Position": "LB/LM/LW",
+        "NationalTeam": "Argentina",
+        "Height": "5'8",
+        "HonourWon": "UEFA Europa League: 2022–23"
+      }
+    },
+    {
+      "name": "Teemu Pukki",
+      "image": "player-images/pukki.png",
+      "stats": {
+        "PlaceOfBirth": "Kotka",
+        "DateOfBirth": "29 March 1990",
+        "FirstSeniorClub": "KTP",
+        "Position": "ST",
+        "NationalTeam": "Finland",
+        "Height": "5'11",
+        "HonourWon": "Premier League Player of the Month: August 2019"
+      }
+    },
+    {
+      "name": "Robin Koch",
+      "image": "player-images/koch.png",
+      "stats": {
+        "PlaceOfBirth": "Kaiserslautern",
+        "DateOfBirth": "17 July 1996",
+        "FirstSeniorClub": "Eintracht Trier",
+        "Position": "CB/DM",
+        "NationalTeam": "Germany",
+        "Height": "6'4",
+        "HonourWon": "UEFA Europa League Team of the Season: 2024–25"
+      }
+    },
+    {
+      "name": "Harrison Reed",
+      "image": "player-images/reed.png",
+      "stats": {
+        "PlaceOfBirth": "Worthing",
+        "DateOfBirth": "27 January 1995",
+        "FirstSeniorClub": "Southampton",
+        "Position": "CM/DM",
+        "NationalTeam": "England",
+        "Height": "5'11",
+        "HonourWon": "EFL Championship: 2021–22"
+      }
+    },
+    {
+      "name": "Joe Worrall",
+      "image": "player-images/worrall.png",
+      "stats": {
+        "PlaceOfBirth": "Nottingham",
+        "DateOfBirth": "10 January 1997",
+        "FirstSeniorClub": "Nottingham Forest",
+        "Position": "CB",
+        "NationalTeam": "England",
+        "Height": "6'4",
+        "HonourWon": "Turkish Cup: 2023–24"
+      }
+    },
+    {
+      "name": "Adam Lallana",
+      "image": "player-images/lallana.png",
+      "stats": {
+        "PlaceOfBirth": "St Albans",
+        "DateOfBirth": "10 May 1988",
+        "FirstSeniorClub": "Southampton",
+        "Position": "AM/LM/CM",
+        "NationalTeam": "England",
+        "Height": "5'8",
+        "HonourWon": "England Player of the Year: 2016"
+      }
+    },
+    {
+      "name": "Billy Gilmour",
+      "image": "player-images/gilmour.png",
+      "stats": {
+        "PlaceOfBirth": "Irvine",
+        "DateOfBirth": "11 June 2001",
+        "FirstSeniorClub": "Chelsea",
+        "Position": "DM/CM",
+        "NationalTeam": "Scotland",
+        "Height": "5'7",
+        "HonourWon": "UEFA Champions League: 2020–21"
+      }
     }
   ],
   "VERY_HARD_PLAYERS": [
@@ -2013,6 +2325,175 @@
         "NationalTeam": "England",
         "Height": "6'0",
         "HonourWon": "Chelsea Goal of the Year: 2013–14"
+      }
+    },
+    {
+      "name": "Ravel Morrison",
+      "image": "player-images/morrison.png",
+      "stats": {
+        "PlaceOfBirth": "Wythenshawe",
+        "DateOfBirth": "2 February 1993",
+        "FirstSeniorClub": "Manchester United",
+        "Position": "AM",
+        "NationalTeam": "Jamaica",
+        "Height": "5'9",
+        "HonourWon": "Football League Championship play-offs: 2014"
+      }
+    },
+    {
+      "name": "Federico Bonazzoli",
+      "image": "player-images/bonazzoli.png",
+      "stats": {
+        "PlaceOfBirth": "Manerbio",
+        "DateOfBirth": "21 May 1997",
+        "FirstSeniorClub": "Inter",
+        "Position": "ST",
+        "NationalTeam": "Italy",
+        "Height": "6'1",
+        "HonourWon": "Serie A Goal of the Month: August 2025"
+      }
+    },
+    {
+      "name": "Jean-Kévin Augustin",
+      "image": "player-images/augustin.png",
+      "stats": {
+        "PlaceOfBirth": "Paris",
+        "DateOfBirth": "16 June 1997",
+        "FirstSeniorClub": "Paris Saint-Germain",
+        "Position": "ST",
+        "NationalTeam": "France",
+        "Height": "5'10",
+        "HonourWon": "Coupe de France: 2021–22"
+      }
+    },
+    {
+      "name": "Sebastian Rode",
+      "image": "player-images/rode.png",
+      "stats": {
+        "PlaceOfBirth": "Seeheim-Jugenheim",
+        "DateOfBirth": "11 October 1990",
+        "FirstSeniorClub": "Kickers Offenbach",
+        "Position": "CM/DM",
+        "NationalTeam": "Germany",
+        "Height": "5'11",
+        "HonourWon": "DFB-Pokal: 2015–16"
+      }
+    },
+    {
+      "name": "Adem Ljajić",
+      "image": "player-images/ljajic.png",
+      "stats": {
+        "PlaceOfBirth": "Novi Pazar",
+        "DateOfBirth": "29 September 1991",
+        "FirstSeniorClub": "Partizan",
+        "Position": "AM/LW",
+        "NationalTeam": "Serbia",
+        "Height": "6'0",
+        "HonourWon": "Turkish Cup: 2020–21"
+      }
+    },
+    {
+      "name": "Ibrahima Mbaye",
+      "image": "player-images/mbaye.png",
+      "stats": {
+        "PlaceOfBirth": "Guédiawaye",
+        "DateOfBirth": "19 November 1994",
+        "FirstSeniorClub": "Inter Milan",
+        "Position": "RB",
+        "NationalTeam": "Senegal",
+        "Height": "6'2",
+        "HonourWon": "Africa Cup of Nations: 2021"
+      }
+    },
+    {
+      "name": "Pione Sisto",
+      "image": "player-images/sisto.png",
+      "stats": {
+        "PlaceOfBirth": "Kampala",
+        "DateOfBirth": "4 February 1995",
+        "FirstSeniorClub": "Midtjylland",
+        "Position": "LW/RW",
+        "NationalTeam": "Denmark",
+        "Height": "5'7",
+        "HonourWon": "Danish Superliga Player of the Year: 2013–14"
+      }
+    },
+    {
+      "name": "Alen Halilović",
+      "image": "player-images/halilovic.png",
+      "stats": {
+        "PlaceOfBirth": "Dubrovnik",
+        "DateOfBirth": "18 June 1996",
+        "FirstSeniorClub": "Dinamo Zagreb",
+        "Position": "AM/RW",
+        "NationalTeam": "Croatia",
+        "Height": "5'7",
+        "HonourWon": "Copa del Rey: 2014–15"
+      }
+    },
+    {
+      "name": "Mbaye Niang",
+      "image": "player-images/niang.png",
+      "stats": {
+        "PlaceOfBirth": "Meulan-en-Yvelines",
+        "DateOfBirth": "19 December 1994",
+        "FirstSeniorClub": "Caen",
+        "Position": "ST/LW",
+        "NationalTeam": "Senegal",
+        "Height": "6'3",
+        "HonourWon": "Coupe de France: 2018–19"
+      }
+    },
+    {
+      "name": "Dennis Man",
+      "image": "player-images/man.png",
+      "stats": {
+        "PlaceOfBirth": "Vladimirescu",
+        "DateOfBirth": "26 August 1998",
+        "FirstSeniorClub": "UTA Arad",
+        "Position": "RW",
+        "NationalTeam": "Romania",
+        "Height": "6'1",
+        "HonourWon": "Serie B: 2023–24"
+      }
+    },
+    {
+      "name": "Gerson Rodrigues",
+      "image": "player-images/gersonrodrigues.png",
+      "stats": {
+        "PlaceOfBirth": "Pragal",
+        "DateOfBirth": "20 June 1995",
+        "FirstSeniorClub": "Swift Hesperange",
+        "Position": "LW/ST",
+        "NationalTeam": "Luxembourg",
+        "Height": "6'2",
+        "HonourWon": "Divizia Nationala: 2018"
+      }
+    },
+    {
+      "name": "Lucas Piazón",
+      "image": "player-images/piazon.png",
+      "stats": {
+        "PlaceOfBirth": "São Paulo",
+        "DateOfBirth": "20 January 1994",
+        "FirstSeniorClub": "Chelsea",
+        "Position": "LW/RW/AM",
+        "NationalTeam": "Brazil",
+        "Height": "6'0",
+        "HonourWon": "Taça de Portugal: 2020–21"
+      }
+    },
+    {
+      "name": "Khouma Babacar",
+      "image": "player-images/babacar.png",
+      "stats": {
+        "PlaceOfBirth": "Thies",
+        "DateOfBirth": "17 March 1993",
+        "FirstSeniorClub": "Fiorentina",
+        "Position": "ST",
+        "NationalTeam": "Senegal",
+        "Height": "6'1",
+        "HonourWon": "Danish Superliga: 2021–22"
       }
     }
   ],
