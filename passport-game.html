@@ -424,6 +424,33 @@
         return 1;
       }
 
+/* =====================================================
+   USED PLAYER TRACKING (localStorage)
+   ===================================================== */
+
+function getUsedKey(diff) {
+  return `usedPlayers_${diff}`;
+}
+
+function getUsedPlayers(diff) {
+  try {
+    return JSON.parse(localStorage.getItem(getUsedKey(diff))) || [];
+  } catch {
+    return [];
+  }
+}
+
+function addUsedPlayers(diff, names) {
+  const used = new Set(getUsedPlayers(diff));
+  names.forEach(n => used.add(n));
+  localStorage.setItem(getUsedKey(diff), JSON.stringify([...used]));
+}
+
+function clearUsedPlayers(diff) {
+  localStorage.removeItem(getUsedKey(diff));
+}
+
+
       /* =====================================================
          LOAD PLAYERS
          ===================================================== */
@@ -471,12 +498,31 @@
           playerCount = 4; keyCount = 4;
         }
 
-        const shuffledPool = shuffle(basePool);
-        let available = shuffledPool.filter(p => !lastRoundPlayers.includes(p.name));
-        if (available.length < playerCount) available = shuffledPool.slice();
+const diffKey = diffSel.value;
+const used = new Set(getUsedPlayers(diffKey));
 
-        chosenPlayers = available.slice(0, playerCount);
-        if (!chosenPlayers || !chosenPlayers.length) chosenPlayers = shuffle(EASY_PLAYERS).slice(0,4);
+let available = basePool.filter(p => !used.has(p.name));
+
+if (available.length < playerCount) {
+  grid.innerHTML = `
+    <div style="grid-column:1/-1;text-align:center;padding:40px;">
+      <h3>🚫 No more players available</h3>
+      <p>You have rolled all available players for <b>${diffKey}</b> difficulty in this browser.</p>
+      <button class="btn btn-reset" id="clearUsedBtn">Reset this difficulty</button>
+    </div>
+  `;
+  pool.innerHTML = '';
+  roundStats.textContent = '';
+  scoreOut.textContent = '';
+
+  document.getElementById('clearUsedBtn').addEventListener('click', () => {
+    clearUsedPlayers(diffKey);
+    setupGame();
+  });
+  return;
+}
+
+chosenPlayers = shuffle(available).slice(0, playerCount);
 
         const availableKeys = Object.keys(chosenPlayers[0].stats || {});
         activeKeys = shuffle(availableKeys).slice(0, Math.min(keyCount, availableKeys.length));
@@ -489,6 +535,8 @@
         });
 
         lastRoundPlayers = chosenPlayers.map(p => p.name);
+
+        addUsedPlayers(diffSel.value, lastRoundPlayers);
 
         // build cards
         chosenPlayers.forEach(p => {
