@@ -325,20 +325,20 @@
           <label style="display:flex;align-items:center;gap:8px;font-weight:700">
             Difficulty:
             <select id="difficultySelect" style="padding:8px;border-radius:6px;margin-left:8px">
-              <option value="easy">Easy (x1 points)</option>
-              <option value="hard">Hard (x2 points)</option>
-              <option value="very-hard">Very Hard (x4 points)</option>
-              <option value="extreme">Extreme (x8 points)</option>
+              <option value="easy">Easy (No Multiplier)</option>
+              <option value="hard">Hard (x1.5 points)</option>
+              <option value="very-hard">Very Hard (x2 points)</option>
+              <option value="extreme">Extreme (x3 points)</option>
             </select>
 
             <div class="diff-tooltip-wrap" style="position:relative;display:inline-block;margin-left:8px">
               <button id="diffInfoBtn" aria-expanded="false" aria-controls="diffTooltip" class="btn" style="margin-left:8px;padding:6px 8px;">i</button>
               <div id="diffTooltip" role="tooltip" aria-hidden="true" class="diff-tooltip" style="display:none;position:absolute;left:0;bottom:38px;z-index:40;min-width:240px;">
                 <ul style="margin:0;padding:10px 12px;list-style:none;">
-                  <li><strong>Easy (x1 points)</strong>: The most well-known footballers, should know every player. (20 points available)</li>
-                  <li><strong>Hard (x2 points)</strong>: Lesser-known top division ballers, should know most of the players. (40 points available)</li>
-                  <li><strong>Very Hard (x3 points)</strong>: Obscure top division ballers or better-known non top 5 league players, should know some of the players. (60 points available)</li>
-                  <li><strong>Extreme (x4 points)</strong>: Forgotten ballers that made no impact on the game, maybe you'll know 1 player. (80 points available)</li>
+                  <li><strong>Easy (No Multiplier)</strong>: The most well-known footballers, should know every player. (20 points available)</li>
+                  <li><strong>Hard (x1.5 points)</strong>: Lesser-known top division ballers, should know most of the players. (30 points available)</li>
+                  <li><strong>Very Hard (x2 points)</strong>: Obscure top division ballers or better-known non top 5 league players, should know some of the players. (40 points available)</li>
+                  <li><strong>Extreme (x3 points)</strong>: Forgotten ballers that made no impact on the game, maybe you'll know 1 player. (60 points available)</li>
                 </ul>
               </div>
             </div>
@@ -424,9 +424,9 @@
       function shuffle(arr) { return arr.slice().sort(() => Math.random() - 0.5); }
       function getDifficultyMultiplier() {
         const d = diffSel.value;
-        if (d === 'hard') return 2;
-        if (d === 'very-hard') return 3;
-        if (d === 'extreme') return 4;
+        if (d === 'hard') return 1.5;
+        if (d === 'very-hard') return 2;
+        if (d === 'extreme') return 3;
         return 1;
       }
 
