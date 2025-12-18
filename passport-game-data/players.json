@@ -3575,6 +3575,318 @@
         "Height": "6'0",
         "HonourWon": "National League North: 2015–16"
       }
+    },
+    {
+      "name": "Ben Sahar",
+      "image": "player-images/sahar.png",
+      "stats": {
+        "PlaceOfBirth": "Holon",
+        "DateOfBirth": "10 August 1989",
+        "FirstSeniorClub": "Chelsea",
+        "Position": "ST/LW",
+        "NationalTeam": "Israel",
+        "Height": "5'11",
+        "HonourWon": "2. Bundesliga: 2012–13"
+      }
+    },
+    {
+      "name": "Gai Assulin",
+      "image": "player-images/assulin.png",
+      "stats": {
+        "PlaceOfBirth": "Nahariya",
+        "DateOfBirth": "9 April 1991",
+        "FirstSeniorClub": "Barcelona",
+        "Position": "LW",
+        "NationalTeam": "Israel",
+        "Height": "5'10",
+        "HonourWon": "No Honours Yet"
+      }
+    },
+    {
+      "name": "Sergio Tejera",
+      "image": "player-images/tejera.png",
+      "stats": {
+        "PlaceOfBirth": "Barcelona",
+        "DateOfBirth": "28 May 1990",
+        "FirstSeniorClub": "Chelsea",
+        "Position": "CM/DM",
+        "NationalTeam": "Catalonia",
+        "Height": "5'11",
+        "HonourWon": "FIFA U-17 World Cup runner-up: 2007"
+      }
+    },
+    {
+      "name": "Denílson da Silva",
+      "image": "player-images/denilson.png",
+      "stats": {
+        "PlaceOfBirth": "João Câmara",
+        "DateOfBirth": "7 March 1998",
+        "FirstSeniorClub": "América-RN",
+        "Position": "ST",
+        "NationalTeam": "Brazil",
+        "Height": "6'3",
+        "HonourWon": "No Honours Yet"
+      }
+    },
+    {
+      "name": "Kerlon",
+      "image": "player-images/kerlon.png",
+      "stats": {
+        "PlaceOfBirth": "Ipatinga",
+        "DateOfBirth": "27 January 1988",
+        "FirstSeniorClub": "Cruzeiro",
+        "Position": "AM/SS/ST",
+        "NationalTeam": "Brazil",
+        "Height": "5'6",
+        "HonourWon": "Campeonato Mineiro: 2006"
+      }
+    },
+    {
+      "name": "Ibrahim Rabiu",
+      "image": "player-images/rabiu.png",
+      "stats": {
+        "PlaceOfBirth": "Kano",
+        "DateOfBirth": "15 March 1991",
+        "FirstSeniorClub": "Sporting CP",
+        "Position": "CM/AM",
+        "NationalTeam": "Nigeria",
+        "Height": "5'6",
+        "HonourWon": "Scottish Cup: 2012–13"
+      }
+    },
+    {
+      "name": "Nii Lamptey",
+      "image": "player-images/lamptey.png",
+      "stats": {
+        "PlaceOfBirth": "Tema",
+        "DateOfBirth": "10 December 1974",
+        "FirstSeniorClub": "Anderlecht",
+        "Position": "RW/AM",
+        "NationalTeam": "Ghana",
+        "Height": "5'7",
+        "HonourWon": "Belgian First Division: 1990–91"
+      }
+    },
+    {
+      "name": "Anthony Vanden Borre",
+      "image": "player-images/vandenborre.png",
+      "stats": {
+        "PlaceOfBirth": "Likasi",
+        "DateOfBirth": "24 October 1987",
+        "FirstSeniorClub": "Anderlecht",
+        "Position": "RB",
+        "NationalTeam": "Belgium",
+        "Height": "6'1",
+        "HonourWon": "FA Cup runner-up: 2010"
+      }
+    },
+    {
+      "name": "Szabolcs Huszti",
+      "image": "player-images/huszti.png",
+      "stats": {
+        "PlaceOfBirth": "Miskolc",
+        "DateOfBirth": "18 April 1983",
+        "FirstSeniorClub": "Ferencváros",
+        "Position": "LM/AM/CM",
+        "NationalTeam": "Hungary",
+        "Height": "5'8",
+        "HonourWon": "Russian Super Cup: 2011"
+      }
+    },
+    {
+      "name": "Tarkan Serbest",
+      "image": "player-images/serbest.png",
+      "stats": {
+        "PlaceOfBirth": "Vienna",
+        "DateOfBirth": "2 May 1994",
+        "FirstSeniorClub": "Austria Wien",
+        "Position": "DM/CB/CM",
+        "NationalTeam": "Turkey",
+        "Height": "6'0",
+        "HonourWon": "No Honours Yet"
+      }
+    },
+    {
+      "name": "Emmanuel Mayuka",
+      "image": "player-images/mayuka.png",
+      "stats": {
+        "PlaceOfBirth": "Kabwe",
+        "DateOfBirth": "21 November 1990",
+        "FirstSeniorClub": "Kabwe Warriors",
+        "Position": "ST",
+        "NationalTeam": "Zambia",
+        "Height": "5'10",
+        "HonourWon": "Toto Cup: 2008–09"
+      }
+    },
+    {
+      "name": "Matej Delač",
+      "image": "player-images/delac.png",
+      "stats": {
+        "PlaceOfBirth": "Gornji Vakuf",
+        "DateOfBirth": "20 August 1992",
+        "FirstSeniorClub": "Inter Zaprešić",
+        "Position": "GK",
+        "NationalTeam": "Croatia",
+        "Height": "6'3",
+        "HonourWon": "Taça de Portugal: 2012–13"
+      }
+    },
+    {
+      "name": "Jos Hooiveld",
+      "image": "player-images/hooiveld.png",
+      "stats": {
+        "PlaceOfBirth": "Zeijen",
+        "DateOfBirth": "22 April 1983",
+        "FirstSeniorClub": "Heerenveen",
+        "Position": "CB",
+        "NationalTeam": "Netherlands",
+        "Height": "6'4",
+        "HonourWon": "Championship runners-up: 2011–12"
+      }
+    },
+    {
+      "name": "Pawel Brożek",
+      "image": "player-images/brozek.png",
+      "stats": {
+        "PlaceOfBirth": "Kielce",
+        "DateOfBirth": "21 April 1983",
+        "FirstSeniorClub": "Wisła Kraków",
+        "Position": "ST",
+        "NationalTeam": "Poland",
+        "Height": "5'11",
+        "HonourWon": "Scottish Premier League: 2011–12"
+      }
+    },
+    {
+      "name": "Gabriel Torje",
+      "image": "player-images/torje.png",
+      "stats": {
+        "PlaceOfBirth": "Timișoara",
+        "DateOfBirth": "22 November 1989",
+        "FirstSeniorClub": "Politehnica Timișoara",
+        "Position": "RW/LW",
+        "NationalTeam": "Romania",
+        "Height": "5'6",
+        "HonourWon": "Liga I: 2022–23"
+      }
+    },
+    {
+      "name": "Alexandru Maxim",
+      "image": "player-images/maxim.png",
+      "stats": {
+        "PlaceOfBirth": "Piatra Neamț",
+        "DateOfBirth": "8 July 1990",
+        "FirstSeniorClub": "Badalona",
+        "Position": "AM/LW",
+        "NationalTeam": "Romania",
+        "Height": "5'10",
+        "HonourWon": "2. Bundesliga: 2016–17"
+      }
+    },
+    {
+      "name": "Piotr Trochowski",
+      "image": "player-images/trochowski.png",
+      "stats": {
+        "PlaceOfBirth": "Tczew",
+        "DateOfBirth": "22 March 1984",
+        "FirstSeniorClub": "Bayern Munich",
+        "Position": "LM/AM/CM/RM",
+        "NationalTeam": "Germany",
+        "Height": "5'7",
+        "HonourWon": "UEFA Europa League: 2013–14"
+      }
+    },
+    {
+      "name": "David Jarolím",
+      "image": "player-images/jarolim.png",
+      "stats": {
+        "PlaceOfBirth": "Čáslav",
+        "DateOfBirth": "17 May 1979",
+        "FirstSeniorClub": "Slavia Prague",
+        "Position": "DM/CM/RM",
+        "NationalTeam": "Czech Republic",
+        "Height": "5'9",
+        "HonourWon": "UEFA Intertoto Cup: 2005"
+      }
+    },
+    {
+      "name": "Mike Havenaar",
+      "image": "player-images/havenaar.png",
+      "stats": {
+        "PlaceOfBirth": "Hiroshima",
+        "DateOfBirth": "20 May 1987",
+        "FirstSeniorClub": "Yokohama F. Marinos",
+        "Position": "ST",
+        "NationalTeam": "Japan",
+        "Height": "6'4",
+        "HonourWon": "Finnish League Cup: 2015"
+      }
+    },
+    {
+      "name": "Michal Žewłakow",
+      "image": "player-images/zewlakow.png",
+      "stats": {
+        "PlaceOfBirth": "Warsaw",
+        "DateOfBirth": "22 April 1976",
+        "FirstSeniorClub": "Polonia Warsaw",
+        "Position": "CB/RB",
+        "NationalTeam": "Poland",
+        "Height": "6'0",
+        "HonourWon": "Greek Super Cup: 2007"
+      }
+    },
+    {
+      "name": "Chinedu Obasi",
+      "image": "player-images/obasi.png",
+      "stats": {
+        "PlaceOfBirth": "Enugu",
+        "DateOfBirth": "1 June 1986",
+        "FirstSeniorClub": "Lyn",
+        "Position": "ST/RW",
+        "NationalTeam": "Nigeria",
+        "Height": "6'2",
+        "HonourWon": "Norwegian PL Player of the month: August 2006"
+      }
+    },
+    {
+      "name": "Igor Vetokele",
+      "image": "player-images/vetokele.png",
+      "stats": {
+        "PlaceOfBirth": "Ostend",
+        "DateOfBirth": "23 March 1992",
+        "FirstSeniorClub": "Gent",
+        "Position": "ST",
+        "NationalTeam": "Angola",
+        "Height": "5'8",
+        "HonourWon": "Danish Superliga: 2012–13"
+      }
+    },
+    {
+      "name": "Florent Hanin",
+      "image": "player-images/hanin.png",
+      "stats": {
+        "PlaceOfBirth": "Harfleur",
+        "DateOfBirth": "4 February 1990",
+        "FirstSeniorClub": "Leixões",
+        "Position": "LB",
+        "NationalTeam": "France",
+        "Height": "5'10",
+        "HonourWon": "No Honours Yet"
+      }
+    },
+    {
+      "name": "Daniel Opare",
+      "image": "player-images/opare.png",
+      "stats": {
+        "PlaceOfBirth": "Accra",
+        "DateOfBirth": "18 October 1990",
+        "FirstSeniorClub": "Ashanti Gold",
+        "Position": "RB",
+        "NationalTeam": "Ghana",
+        "Height": "5'8",
+        "HonourWon": "Belgian Cup: 2011"
+      }
     }
   ]
 }
