@@ -2495,6 +2495,526 @@
         "Height": "6'1",
         "HonourWon": "Danish Superliga: 2021–22"
       }
+    },
+    {
+      "name": "Chuba Akpom",
+      "image": "player-images/akpom.png",
+      "stats": {
+        "PlaceOfBirth": "Newham",
+        "DateOfBirth": "9 October 1995",
+        "FirstSeniorClub": "Arsenal",
+        "Position": "ST",
+        "NationalTeam": "England",
+        "Height": "6'0",
+        "HonourWon": "Super League Greece: 2018–19"
+      }
+    },
+    {
+      "name": "Nathaniel Chalobah",
+      "image": "player-images/chalobah.png",
+      "stats": {
+        "PlaceOfBirth": "Freetown",
+        "DateOfBirth": "12 December 1994",
+        "FirstSeniorClub": "Chelsea",
+        "Position": "DM/CM",
+        "NationalTeam": "England",
+        "Height": "6'4",
+        "HonourWon": "Premier League: 2016–17"
+      }
+    },
+    {
+      "name": "Dwight Gayle",
+      "image": "player-images/gayle.png",
+      "stats": {
+        "PlaceOfBirth": "Walthamstow",
+        "DateOfBirth": "17 October 1989",
+        "FirstSeniorClub": "Dagenham & Redbridge",
+        "Position": "ST",
+        "NationalTeam": "England",
+        "Height": "5'9",
+        "HonourWon": "EFL Team of the Season: 2016–17"
+      }
+    },
+    {
+      "name": "Max Gradel",
+      "image": "player-images/gradel.png",
+      "stats": {
+        "PlaceOfBirth": "Abidjan",
+        "DateOfBirth": "30 November 1987",
+        "FirstSeniorClub": "Leicester City",
+        "Position": "LW",
+        "NationalTeam": "Ivory Coast",
+        "Height": "5'9",
+        "HonourWon": "Coupe de la Ligue: 2012–13"
+      }
+    },
+    {
+      "name": "Wellington Silva",
+      "image": "player-images/wellingtonsilva.png",
+      "stats": {
+        "PlaceOfBirth": "Rio de Janeiro",
+        "DateOfBirth": "6 January 1993",
+        "FirstSeniorClub": "Fluminense",
+        "Position": "LW/RW",
+        "NationalTeam": "Brazil",
+        "Height": "5'8",
+        "HonourWon": "Campeonato Brasileiro Série A: 2010"
+      }
+    },
+    {
+      "name": "Jem Karacan",
+      "image": "player-images/karacan.png",
+      "stats": {
+        "PlaceOfBirth": "Catford",
+        "DateOfBirth": "21 February 1989",
+        "FirstSeniorClub": "Reading",
+        "Position": "CM/DM",
+        "NationalTeam": "Turkey",
+        "Height": "5'10",
+        "HonourWon": "Turkish Super Cup: 2015"
+      }
+    },
+    {
+      "name": "Adlène Guedioura",
+      "image": "player-images/guedioura.png",
+      "stats": {
+        "PlaceOfBirth": "La Roche-sur-Yon",
+        "DateOfBirth": "12 November 1985",
+        "FirstSeniorClub": "Sedan",
+        "Position": "CM/DM",
+        "NationalTeam": "Algeria",
+        "Height": "5'10",
+        "HonourWon": "Nottingham Forest Goal of the Season: 2011–12"
+      }
+    },
+    {
+      "name": "Jacob Butterfield",
+      "image": "player-images/butterfield.png",
+      "stats": {
+        "PlaceOfBirth": "Bradford",
+        "DateOfBirth": "10 June 1990",
+        "FirstSeniorClub": "Barnsley",
+        "Position": "CM/AM/DM",
+        "NationalTeam": "England",
+        "Height": "5'11",
+        "HonourWon": "Scunthorpe United Player of the Year: 2023–24"
+      }
+    },
+    {
+      "name": "Henri Lansbury",
+      "image": "player-images/lansbury.png",
+      "stats": {
+        "PlaceOfBirth": "Enfield",
+        "DateOfBirth": "12 October 1990",
+        "FirstSeniorClub": "Arsenal",
+        "Position": "CM/AM",
+        "NationalTeam": "England",
+        "Height": "5'9",
+        "HonourWon": "EFL Championship Player of the Month: February 2015"
+      }
+    },
+    {
+      "name": "Matěj Vydra",
+      "image": "player-images/vydra.png",
+      "stats": {
+        "PlaceOfBirth": "Chotěboř",
+        "DateOfBirth": "1 May 1992",
+        "FirstSeniorClub": "Vysočina Jihlava",
+        "Position": "ST/SS",
+        "NationalTeam": "Czech Republic",
+        "Height": "5'11",
+        "HonourWon": "Football League Championship: Golden Boot 2017–18"
+      }
+    },
+    {
+      "name": "Sone Aluko",
+      "image": "player-images/aluko.png",
+      "stats": {
+        "PlaceOfBirth": "Hounslow",
+        "DateOfBirth": "19 February 1989",
+        "FirstSeniorClub": "Birmingham City",
+        "Position": "RW/SS/LM/ST",
+        "NationalTeam": "Nigeria",
+        "Height": "5'8",
+        "HonourWon": "Scottish Premier League Young Player of the Month: November 2008"
+      }
+    },
+    {
+      "name": "George Boyd",
+      "image": "player-images/georgeboyd.png",
+      "stats": {
+        "PlaceOfBirth": "Chatham",
+        "DateOfBirth": "2 October 1985",
+        "FirstSeniorClub": "Stevenage",
+        "Position": "LM/RM",
+        "NationalTeam": "Scotland",
+        "Height": "6'1",
+        "HonourWon": "Burnley Player of the Year: 2014–15"
+      }
+    },
+    {
+      "name": "Stephen Ward",
+      "image": "player-images/stephenward.png",
+      "stats": {
+        "PlaceOfBirth": "Dublin",
+        "DateOfBirth": "20 August 1985",
+        "FirstSeniorClub": "Bohemians",
+        "Position": "LB",
+        "NationalTeam": "Republic of Ireland",
+        "Height": "5'11",
+        "HonourWon": "Championship Player of the Month: February 2007"
+      }
+    },
+    {
+      "name": "Keith Andrews",
+      "image": "player-images/keithandrews.png",
+      "stats": {
+        "PlaceOfBirth": "Dublin",
+        "DateOfBirth": "13 September 1980",
+        "FirstSeniorClub": "Wolverhampton Wanderers",
+        "Position": "CM/DM",
+        "NationalTeam": "Republic of Ireland",
+        "Height": "6'0",
+        "HonourWon": "Nations Cup: 2011"
+      }
+    },
+    {
+      "name": "Jason Shackell",
+      "image": "player-images/shackell.png",
+      "stats": {
+        "PlaceOfBirth": "Stevenage",
+        "DateOfBirth": "27 September 1983",
+        "FirstSeniorClub": "Norwich City",
+        "Position": "CB",
+        "NationalTeam": "England",
+        "Height": "6'4",
+        "HonourWon": "Barnsley Player of the Year: 2010–11"
+      }
+    },
+    {
+      "name": "Alfie Doughty",
+      "image": "player-images/doughty.png",
+      "stats": {
+        "PlaceOfBirth": "London",
+        "DateOfBirth": "21 December 1999",
+        "FirstSeniorClub": "Charlton Athletic",
+        "Position": "LM",
+        "NationalTeam": "England",
+        "Height": "6'0",
+        "HonourWon": "Charlton Athletic Young Player of the Year: 2019–20"
+      }
+    },
+    {
+      "name": "Omar Mascarell",
+      "image": "player-images/mascarell.png",
+      "stats": {
+        "PlaceOfBirth": "Santa Cruz de Tenerife",
+        "DateOfBirth": "2 February 1993",
+        "FirstSeniorClub": "Real Madrid",
+        "Position": "DM/CM",
+        "NationalTeam": "Equatorial Guinea",
+        "Height": "5'11",
+        "HonourWon": "DFB-Pokal: 2017–18"
+      }
+    },
+    {
+      "name": "Assan Ouédraogo",
+      "image": "player-images/ouedraogo.png",
+      "stats": {
+        "PlaceOfBirth": "Mülheim",
+        "DateOfBirth": "9 May 2006",
+        "FirstSeniorClub": "Schalke 04",
+        "Position": "CM/AM",
+        "NationalTeam": "Germany",
+        "Height": "6'3",
+        "HonourWon": "FIFA U-17 World Cup: 2023"
+      }
+    },
+    {
+      "name": "Ádám Szalai",
+      "image": "player-images/szalai.png",
+      "stats": {
+        "PlaceOfBirth": "Budapest",
+        "DateOfBirth": "9 December 1987",
+        "FirstSeniorClub": "Mainz 05",
+        "Position": "ST",
+        "NationalTeam": "Hungary",
+        "Height": "6'4",
+        "HonourWon": "Hungarian Player of The Year: 2012"
+      }
+    },
+    {
+      "name": "Attila Szalai",
+      "image": "player-images/atillaszalai.png",
+      "stats": {
+        "PlaceOfBirth": "Budapest",
+        "DateOfBirth": "20 January 1998",
+        "FirstSeniorClub": "Rapid Wien",
+        "Position": "CB",
+        "NationalTeam": "Hungary",
+        "Height": "6'4",
+        "HonourWon": "Turkish Cup: 2022–23"
+      }
+    },
+    {
+      "name": "Ryad Boudebouz",
+      "image": "player-images/boudebouz.png",
+      "stats": {
+        "PlaceOfBirth": "Colmar",
+        "DateOfBirth": "19 February 1990",
+        "FirstSeniorClub": "Sochaux",
+        "Position": "AM/RW/RM",
+        "NationalTeam": "Algeria",
+        "Height": "5'10",
+        "HonourWon": "Saudi First Division League: 2022–23"
+      }
+    },
+    {
+      "name": "Eljero Elia",
+      "image": "player-images/elia.png",
+      "stats": {
+        "PlaceOfBirth": "Voorburg",
+        "DateOfBirth": "13 February 1987",
+        "FirstSeniorClub": "ADO Den Haag",
+        "Position": "LW",
+        "NationalTeam": "Netherlands",
+        "Height": "5'9",
+        "HonourWon": "Bundesliga Goal of the Month: December 2009"
+      }
+    },
+    {
+      "name": "Yacine Brahimi",
+      "image": "player-images/brahimi.png",
+      "stats": {
+        "PlaceOfBirth": "Paris",
+        "DateOfBirth": "8 February 1990",
+        "FirstSeniorClub": "Rennes",
+        "Position": "LW/LM",
+        "NationalTeam": "Algeria",
+        "Height": "5'7",
+        "HonourWon": "Amir of Qatar Cup: 2025"
+      }
+    },
+    {
+      "name": "Alex Pritchard",
+      "image": "player-images/pritchard.png",
+      "stats": {
+        "PlaceOfBirth": "Orsett",
+        "DateOfBirth": "3 May 1993",
+        "FirstSeniorClub": "Tottenham Hotspur",
+        "Position": "AM/LM",
+        "NationalTeam": "England",
+        "Height": "5'7",
+        "HonourWon": "Brentford Players' Player of the Year: 2014–15"
+      }
+    },
+    {
+      "name": "Valentin Stocker",
+      "image": "player-images/stocker.png",
+      "stats": {
+        "PlaceOfBirth": "Lucerne",
+        "DateOfBirth": "12 April 1989",
+        "FirstSeniorClub": "FC Basel",
+        "Position": "LW/LM/AM/RW",
+        "NationalTeam": "Switzerland",
+        "Height": "5'10",
+        "HonourWon": "Uhren Cup: 2008,2013"
+      }
+    },
+    {
+      "name": "Kevin Großkreutz",
+      "image": "player-images/grosskreutz.png",
+      "stats": {
+        "PlaceOfBirth": "Dortmund",
+        "DateOfBirth": "19 July 1988",
+        "FirstSeniorClub": "Rot Weiss Ahlen",
+        "Position": "RB/LM/LW",
+        "NationalTeam": "Germany",
+        "Height": "6'1",
+        "HonourWon": "FIFA World Cup: 2014"
+      }
+    },
+    {
+      "name": "Alejandro Faurlín",
+      "image": "player-images/faurlin.png",
+      "stats": {
+        "PlaceOfBirth": "Rosario",
+        "DateOfBirth": "9 August 1986",
+        "FirstSeniorClub": "Rosario Central",
+        "Position": "CM",
+        "NationalTeam": "Argentina",
+        "Height": "6'1",
+        "HonourWon": "Football League Championship: 2010–11"
+      }
+    },
+    {
+      "name": "Marko Marin",
+      "image": "player-images/marin.png",
+      "stats": {
+        "PlaceOfBirth": "Bosanska Gradiška",
+        "DateOfBirth": "13 March 1989",
+        "FirstSeniorClub": "Borussia Mönchengladbach",
+        "Position": "AM/LW/RW",
+        "NationalTeam": "Germany",
+        "Height": "5'7",
+        "HonourWon": "Magyar Kupa: 2021–22"
+      }
+    },
+    {
+      "name": "Pablo Piatti",
+      "image": "player-images/piatti.png",
+      "stats": {
+        "PlaceOfBirth": "Ucacha",
+        "DateOfBirth": "31 March 1989",
+        "FirstSeniorClub": "Estudiantes",
+        "Position": "LW/RW",
+        "NationalTeam": "Argentina",
+        "Height": "5'5",
+        "HonourWon": "La Liga Team of the Season: 2016–17"
+      }
+    },
+    {
+      "name": "Sebastián Blanco",
+      "image": "player-images/blanco.png",
+      "stats": {
+        "PlaceOfBirth": "Lomas de Zamora",
+        "DateOfBirth": "15 March 1988",
+        "FirstSeniorClub": "Lanús",
+        "Position": "AM/LW",
+        "NationalTeam": "Argentina",
+        "Height": "5'6",
+        "HonourWon": "Supercopa Argentina: 2015"
+      }
+    },
+    {
+      "name": "Andreas Beck",
+      "image": "player-images/beck.png",
+      "stats": {
+        "PlaceOfBirth": "Kemerovo",
+        "DateOfBirth": "13 March 1987",
+        "FirstSeniorClub": "VfB Stuttgart",
+        "Position": "RB",
+        "NationalTeam": "Germany",
+        "Height": "5'11",
+        "HonourWon": "Bundesliga: 2006–07"
+      }
+    },
+    {
+      "name": "Reto Ziegler",
+      "image": "player-images/ziegler.png",
+      "stats": {
+        "PlaceOfBirth": "Geneva",
+        "DateOfBirth": "16 January 1986",
+        "FirstSeniorClub": "Grasshoppers",
+        "Position": "CB/LB",
+        "NationalTeam": "Switzerland",
+        "Height": "6'0",
+        "HonourWon": "Nationalliga A: 2003"
+      }
+    },
+    {
+      "name": "Vurnon Anita",
+      "image": "player-images/anita.png",
+      "stats": {
+        "PlaceOfBirth": "Willemstad",
+        "DateOfBirth": "4 April 1989",
+        "FirstSeniorClub": "Ajax",
+        "Position": "DM/LB/RB",
+        "NationalTeam": "Curaçao",
+        "Height": "5'7",
+        "HonourWon": "Eerste divisie: 2024-25"
+      }
+    },
+    {
+      "name": "Ike Opara",
+      "image": "player-images/opara.png",
+      "stats": {
+        "PlaceOfBirth": "Durham",
+        "DateOfBirth": "21 February 1989",
+        "FirstSeniorClub": "San Jose Earthquakes",
+        "Position": "CB",
+        "NationalTeam": "United States",
+        "Height": "6'2",
+        "HonourWon": "MLS Cup: 2013"
+      }
+    },
+    {
+      "name": "Dan Gosling",
+      "image": "player-images/gosling.png",
+      "stats": {
+        "PlaceOfBirth": "Brixham",
+        "DateOfBirth": "1 February 1990",
+        "FirstSeniorClub": "Plymouth Argyle",
+        "Position": "CM/DM",
+        "NationalTeam": "England",
+        "Height": "6'0",
+        "HonourWon": "Everton Goal of the Season: 2008–09"
+      }
+    },
+    {
+      "name": "Mats Rits",
+      "image": "player-images/rits.png",
+      "stats": {
+        "PlaceOfBirth": "Antwerp",
+        "DateOfBirth": "18 July 1993",
+        "FirstSeniorClub": "Germinal Beerschot",
+        "Position": "DM/CM",
+        "NationalTeam": "Belgium",
+        "Height": "5'10",
+        "HonourWon": "Belgian Super Cup: 2018,2021"
+      }
+    },
+    {
+      "name": "Moritz Leitner",
+      "image": "player-images/leitner.png",
+      "stats": {
+        "PlaceOfBirth": "Munich",
+        "DateOfBirth": "8 December 1992",
+        "FirstSeniorClub": "1860 Munich",
+        "Position": "CM",
+        "NationalTeam": "Germany",
+        "Height": "5'9",
+        "HonourWon": "Bundesliga: 2011–12"
+      }
+    },
+    {
+      "name": "Ogenyi Onazi",
+      "image": "player-images/onazi.png",
+      "stats": {
+        "PlaceOfBirth": "Jos",
+        "DateOfBirth": "25 December 1992",
+        "FirstSeniorClub": "El Kanemi Warriors",
+        "Position": "DM/CM",
+        "NationalTeam": "Nigeria",
+        "Height": "5'8",
+        "HonourWon": "Coppa Italia: 2012–13"
+      }
+    },
+    {
+      "name": "Dennis Aogo",
+      "image": "player-images/aogo.png",
+      "stats": {
+        "PlaceOfBirth": "Karlsruhe",
+        "DateOfBirth": "14 January 1987",
+        "FirstSeniorClub": "SC Freiburg",
+        "Position": "LB/DM",
+        "NationalTeam": "Germany",
+        "Height": "6'0",
+        "HonourWon": "FIFA World Cup third place: 2010"
+      }
+    },
+    {
+      "name": "Christian Poulsen",
+      "image": "player-images/poulsen.png",
+      "stats": {
+        "PlaceOfBirth": "Asnæs",
+        "DateOfBirth": "28 February 1980",
+        "FirstSeniorClub": "Holbæk",
+        "Position": "DM",
+        "NationalTeam": "Denmark",
+        "Height": "6'0",
+        "HonourWon": "Copa del Rey: 2006–07"
+      }
     }
   ],
   "EXTREME_PLAYERS": [
