@@ -8,6 +8,7 @@ if (randomMomentBtn) {
       "aaron-flatchat-yt.html#modal-great-1", "aaron-flatchat-yt.html#modal-great-2", "aaron-flatchat-yt.html#modal-great-3",
       "aaron-flatchat-yt.html#modal-great-4", "aaron-flatchat-yt.html#modal-great-5", "aaron-flatchat-yt.html#modal-great-6",
       "aaron-flatchat-yt.html#modal-great-7", "aaron-flatchat-yt.html#modal-great-8", "aaron-flatchat-yt.html#modal-great-9",
+      "aaron-flatchat-yt.html#modal-great-10",
       
       "aaron-flatchat-yt.html#modal-face-1", "aaron-flatchat-yt.html#modal-face-2", "aaron-flatchat-yt.html#modal-face-3",
       "aaron-flatchat-yt.html#modal-face-4", "aaron-flatchat-yt.html#modal-face-5", "aaron-flatchat-yt.html#modal-face-6",
@@ -34,6 +35,7 @@ if (randomMomentBtn) {
       "aaron-flatchat-yt.html#modal-general-40", "aaron-flatchat-yt.html#modal-general-41", "aaron-flatchat-yt.html#modal-general-42",
       "aaron-flatchat-yt.html#modal-general-43", "aaron-flatchat-yt.html#modal-general-44", "aaron-flatchat-yt.html#modal-general-45",
       "aaron-flatchat-yt.html#modal-general-46", "aaron-flatchat-yt.html#modal-general-47", "aaron-flatchat-yt.html#modal-general-48",
+      "aaron-flatchat-yt.html#modal-general-49",
 
       "aaron-flatchat-yt.html#modal-wild-1", "aaron-flatchat-yt.html#modal-wild-2", "aaron-flatchat-yt.html#modal-wild-3",
       "aaron-flatchat-yt.html#modal-wild-4", "aaron-flatchat-yt.html#modal-wild-5", "aaron-flatchat-yt.html#modal-wild-6",
@@ -64,7 +66,7 @@ if (randomMomentBtn) {
       "heggie-flatchat-yt.html#modal-general-7", "heggie-flatchat-yt.html#modal-general-8", "heggie-flatchat-yt.html#modal-general-9",
       "heggie-flatchat-yt.html#modal-general-10", "heggie-flatchat-yt.html#modal-general-11", "heggie-flatchat-yt.html#modal-general-12",
       "heggie-flatchat-yt.html#modal-general-13", "heggie-flatchat-yt.html#modal-general-14", "heggie-flatchat-yt.html#modal-general-15",
-      "heggie-flatchat-yt.html#modal-general-16", "heggie-flatchat-yt.html#modal-general-17",
+      "heggie-flatchat-yt.html#modal-general-16", "heggie-flatchat-yt.html#modal-general-17", "heggie-flatchat-yt.html#modal-general-18",
       
       // --- calum-flatchat-yt ---
       "calum-flatchat-yt.html#modal-funky-1", "calum-flatchat-yt.html#modal-funky-2", "calum-flatchat-yt.html#modal-funky-3",
@@ -88,6 +90,7 @@ if (randomMomentBtn) {
       "jacob-flatchat-yt.html#modal-general-7", "jacob-flatchat-yt.html#modal-general-8", "jacob-flatchat-yt.html#modal-general-9",
       "jacob-flatchat-yt.html#modal-general-10", "jacob-flatchat-yt.html#modal-general-11", "jacob-flatchat-yt.html#modal-general-12",
       "jacob-flatchat-yt.html#modal-general-13", "jacob-flatchat-yt.html#modal-general-14", "jacob-flatchat-yt.html#modal-general-15",
+      "jacob-flatchat-yt.html#modal-general-16", "jacob-flatchat-yt.html#modal-general-17",
       
       "jacob-flatchat-yt.html#modal-funky-1", "jacob-flatchat-yt.html#modal-funky-2", "jacob-flatchat-yt.html#modal-funky-3",
       "jacob-flatchat-yt.html#modal-funky-4", "jacob-flatchat-yt.html#modal-funky-5",
