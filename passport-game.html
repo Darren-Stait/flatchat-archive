@@ -177,7 +177,35 @@
 
       .drop-zone:hover { background:#fff7d1; border-color:var(--accent); }
 
-      #stats-pool { display:flex; flex-wrap:wrap; gap:14px; padding:16px 8px 36px; border-top:3px solid #e6e6e6; justify-content:center; }
+      #stats-pool { 
+        display:flex; 
+        flex-wrap:wrap; 
+        gap:14px; 
+        padding:16px 8px 36px; 
+        border-top:3px solid #e6e6e6; 
+        justify-content:center; 
+        background:#fff;
+      }
+
+      /* Mobile sticky stats tray */
+      @media (max-width:768px) {
+        #stats-pool {
+          position:sticky;
+          bottom:0;
+          z-index:100;
+          border-top:3px solid var(--primary);
+          box-shadow:0 -4px 12px rgba(0,0,0,0.15);
+          padding:12px 8px 16px;
+          margin-top:20px;
+          max-height:40vh;
+          overflow-y:auto;
+          -webkit-overflow-scrolling:touch;
+        }
+        /* Add padding to bottom of content to prevent overlap */
+        main .scale-wrap {
+          padding-bottom:20px;
+        }
+      }
 
       .stat {
         padding:12px 16px; border-radius:10px; font-weight:700; font-size:1.05rem; cursor:pointer;
@@ -192,6 +220,15 @@
       .stat.wrong { outline:3px solid #ff4f4f; }
 
       .controls { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; align-items:center; margin-top:8px; }
+      main:fullscreen .controls,
+      main:-webkit-full-screen .controls {
+        max-width:100% !important;
+        width:100% !important;
+        box-sizing:border-box !important;
+        display:flex !important;
+        visibility:visible !important;
+        opacity:1 !important;
+      }
 
       .btn {
         padding:12px 22px; border-radius:8px; border:none; font-weight:700; font-size:1.05rem; cursor:pointer;
@@ -206,12 +243,82 @@
 
       #score-output { text-align:center; font-weight:700; margin-top:16px; font-size:1.15rem; color:#0a7785; }
 
-      main:fullscreen { width:100vw !important; max-width:none !important; height:100vh !important; margin:0 !important; padding:12px 12px 40px !important; background:#f4f6f9 !important; border-radius:0 !important; overflow:hidden !important; }
-      main:-webkit-full-screen { width:100vw !important; height:100vh !important; margin:0 !important; padding:12px 12px 40px !important; background:#f4f6f9 !important; border-radius:0 !important; overflow:hidden !important; }
+      main:fullscreen { 
+        width:100vw !important; 
+        max-width:none !important; 
+        height:100vh !important; 
+        margin:0 !important; 
+        padding:0 !important; 
+        background:#f4f6f9 !important; 
+        border-radius:0 !important; 
+        overflow:hidden !important; 
+        display:flex !important;
+        flex-direction:column !important;
+        align-items:center !important;
+        justify-content:center !important;
+      }
+      main:-webkit-full-screen { 
+        width:100vw !important; 
+        max-width:none !important;
+        height:100vh !important; 
+        margin:0 !important; 
+        padding:0 !important; 
+        background:#f4f6f9 !important; 
+        border-radius:0 !important; 
+        overflow:hidden !important;
+        display:flex !important;
+        flex-direction:column !important;
+        align-items:center !important;
+        justify-content:center !important;
+      }
+      main:fullscreen .scale-wrap {
+        width:auto !important;
+        max-width:calc(100vw - 36px) !important;
+        border:6px solid var(--primary) !important;
+        padding:12px !important;
+        display:flex !important;
+        flex-direction:column !important;
+        overflow:visible !important;
+        transform-origin:center center !important;
+        margin:auto !important;
+        position:relative !important;
+        box-sizing:border-box !important;
+      }
+      main:-webkit-full-screen .scale-wrap {
+        width:auto !important;
+        max-width:calc(100vw - 36px) !important;
+        border:6px solid var(--primary) !important;
+        padding:12px !important;
+        display:flex !important;
+        flex-direction:column !important;
+        overflow:visible !important;
+        transform-origin:center center !important;
+        margin:auto !important;
+        position:relative !important;
+        box-sizing:border-box !important;
+      }
 
       #fullscreenBtn {
         z-index:9999; padding:10px 14px; border-radius:8px; background:rgba(0,0,0,0.75); color:#fff; border:none;
         position:absolute; top:12px; left:12px; transform:none !important; min-width:44px; min-height:44px; padding:8px 12px;
+        cursor:pointer;
+      }
+      /* Hide fullscreen button on mobile */
+      @media (max-width:768px) {
+        #fullscreenBtn {
+          display:none !important;
+        }
+      }
+      /* Hide fullscreen button in fullscreen mode */
+      main:fullscreen #fullscreenBtn,
+      main:-webkit-full-screen #fullscreenBtn {
+        display:none !important;
+      }
+      
+      /* Hide all direct children of main except scale-wrap in fullscreen */
+      main:fullscreen > *:not(.scale-wrap),
+      main:-webkit-full-screen > *:not(.scale-wrap) {
+        display:none !important;
       }
 
       .scale-wrap {
@@ -230,6 +337,10 @@
       @media (max-width:700px) {
         .card-front img { width:200px; height:200px; }
         .player-card { height:auto; min-height:320px; }
+        /* Ensure stats tray is visible above other content */
+        #stats-pool {
+          background:#fff;
+        }
       }
 
       @media (max-width:480px) {
@@ -240,6 +351,11 @@
         .legend-chip { padding:6px 8px; font-size:0.95rem; }
         .player-select { font-size:0.95rem; padding:8px; }
         #players-grid { gap:14px; }
+        /* Enhanced sticky stats tray for small screens */
+        #stats-pool {
+          padding:10px 6px 14px;
+          max-height:35vh;
+        }
       }
 
       .diff-tooltip {
@@ -974,6 +1090,36 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
       function fitScale() {
         const wrap = scaleWrap();
         if (!wrap) return;
+        
+        // In fullscreen, scale to fit viewport without scrolling
+        if (document.fullscreenElement === main || document.webkitFullscreenElement === main) {
+          // Reset transform to get natural dimensions
+          wrap.style.transform = '';
+          // Use double requestAnimationFrame to ensure layout is fully calculated
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              // Get the actual content dimensions (including padding)
+              const naturalW = wrap.scrollWidth;
+              const naturalH = wrap.scrollHeight;
+              
+              // Account for padding (12px on each side = 24px total) and border (6px on each side = 12px total)
+              const padding = 24;
+              const border = 12;
+              const availableW = window.innerWidth - padding - border;
+              const availableH = window.innerHeight - padding - border;
+              
+              // Calculate scale to fit both dimensions, prioritizing height
+              const scaleX = availableW / naturalW;
+              const scaleY = availableH / naturalH;
+              const scale = Math.min(scaleX, scaleY, 1) * 0.92; // 92% to ensure no overflow
+              
+              wrap.style.transform = `scale(${scale})`;
+            });
+          });
+          return;
+        }
+        
+        // Non-fullscreen scaling (original behavior)
         const naturalW = wrap.scrollWidth;
         const naturalH = wrap.scrollHeight;
         const reservedVertical = 48 + 40 + 24;
@@ -1000,10 +1146,13 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
       });
 
       function onFsChange() {
-        if (document.fullscreenElement === main) {
-          fitScale();
-          window.addEventListener('resize', fitScale);
-          main.classList.add('fs-fit');
+        if (document.fullscreenElement === main || document.webkitFullscreenElement === main) {
+          // Small delay to ensure fullscreen is fully applied
+          setTimeout(() => {
+            fitScale();
+            window.addEventListener('resize', fitScale);
+            main.classList.add('fs-fit');
+          }, 100);
         } else {
           const wrap = scaleWrap();
           if (wrap) wrap.style.transform = '';
@@ -1014,6 +1163,7 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
         }
       }
       document.addEventListener('fullscreenchange', onFsChange);
+      document.addEventListener('webkitfullscreenchange', onFsChange);
 
       /* =====================================================
          TOOLTIP BEHAVIOR (difficulty & submit-disabled)
