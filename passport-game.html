@@ -46,10 +46,17 @@
       nav a:hover { color: var(--accent); }
 
       @media (max-width:768px) {
-        .header-container { flex-direction:column; text-align:center; gap:10px; }
-        .header-logo { max-width:90%; }
-        nav { flex-wrap:wrap; justify-content:center; }
-        nav a { display:inline-block; margin:6px; font-size:1rem; }
+        header { padding:6px 12px; }
+        .header-container { flex-direction:column; text-align:center; gap:6px; }
+        .header-logo { max-width:85%; }
+        nav { flex-wrap:wrap; justify-content:center; gap:4px; }
+        nav a { display:inline-block; margin:3px; font-size:0.85rem; }
+        header + header { padding:4px 12px !important; font-size:0.75rem !important; line-height:1.3 !important; }
+        footer { padding:8px 10px; font-size:0.8rem; }
+        footer p { margin:0 0 4px; }
+        .social-links { margin-top:4px; }
+        .social-links img { width:28px; height:28px; }
+        h5 { font-size:0.7rem !important; margin:4px 0 !important; line-height:1.3 !important; }
       }
 
       footer {
@@ -195,15 +202,15 @@
           z-index:100;
           border-top:3px solid var(--primary);
           box-shadow:0 -4px 12px rgba(0,0,0,0.15);
-          padding:12px 8px 16px;
-          margin-top:20px;
-          max-height:40vh;
+          padding:8px 6px 12px;
+          margin-top:12px;
+          max-height:30vh;
           overflow-y:auto;
           -webkit-overflow-scrolling:touch;
         }
         /* Add padding to bottom of content to prevent overlap */
         main .scale-wrap {
-          padding-bottom:20px;
+          padding-bottom:12px;
         }
       }
 
@@ -283,6 +290,9 @@
         margin:auto !important;
         position:relative !important;
         box-sizing:border-box !important;
+        transition:none !important;
+        will-change:transform !important;
+        backface-visibility:hidden !important;
       }
       main:-webkit-full-screen .scale-wrap {
         width:auto !important;
@@ -296,6 +306,9 @@
         margin:auto !important;
         position:relative !important;
         box-sizing:border-box !important;
+        transition:none !important;
+        will-change:transform !important;
+        backface-visibility:hidden !important;
       }
 
       #fullscreenBtn {
@@ -334,27 +347,87 @@
         padding:18px;
       }
 
-      @media (max-width:700px) {
-        .card-front img { width:200px; height:200px; }
-        .player-card { height:auto; min-height:320px; }
-        /* Ensure stats tray is visible above other content */
+      @media (max-width:768px) {
+        main { padding:12px 8px; width:100%; margin:8px auto; gap:8px; }
+        h2 { font-size:1.4rem; margin:4px 0; }
+        h3 { font-size:1rem; margin:4px 0; }
+        h4 { font-size:0.85rem; margin:4px 0; line-height:1.3; }
+        #round-stats { font-size:0.9rem; margin-top:4px; }
+        #players-grid { 
+          grid-template-columns: repeat(4, 1fr);
+          gap:6px;
+          margin-top:8px;
+          margin-bottom:12px;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .player-card { min-height:200px; }
+        .card-front { padding-top:6px; padding-bottom:6px; }
+        .card-front img { width:80px; height:80px; }
+        .select-wrap { gap:3px !important; }
+        .clear-select { width:22px; height:22px; font-size:0.8rem; }
+        .drop-zone { 
+          width:90%; 
+          min-height:60px; 
+          margin-top:6px; 
+          padding:6px; 
+          gap:4px;
+        }
+        .stat { padding:6px 8px; font-size:0.75rem; border-radius:8px; }
+        .legend-chip { padding:3px 6px; font-size:0.75rem; margin:2px; }
+        .player-select { font-size:0.75rem; padding:4px 6px; margin-top:3px; }
+        .controls { gap:8px; margin-top:4px; flex-direction:column; }
+        .controls label { flex-direction:column; align-items:flex-start; gap:4px; }
+        .controls select { width:100%; margin-left:0 !important; }
+        .btn { padding:10px 16px; font-size:0.9rem; }
+        #score-output { font-size:0.95rem; margin-top:8px; }
+        .scale-wrap { padding:12px 8px; }
+        /* Compact stats tray */
         #stats-pool {
-          background:#fff;
+          padding:6px 4px 10px;
+          gap:6px;
+          max-height:30vh;
         }
       }
 
       @media (max-width:480px) {
-        main { padding:14px; width:98%; }
-        .card-front img { width:160px; height:160px; }
-        .controls { gap:8px; }
-        .stat { padding:8px 10px; font-size:0.95rem; }
-        .legend-chip { padding:6px 8px; font-size:0.95rem; }
-        .player-select { font-size:0.95rem; padding:8px; }
-        #players-grid { gap:14px; }
-        /* Enhanced sticky stats tray for small screens */
+        main { padding:8px 6px; gap:6px; }
+        h2 { font-size:1.2rem; margin:3px 0; }
+        h3 { font-size:0.9rem; margin:3px 0; }
+        h4 { font-size:0.75rem; margin:3px 0; line-height:1.3; }
+        #round-stats { font-size:0.8rem; margin-top:3px; }
+        #players-grid { 
+          grid-template-columns: repeat(2, 1fr);
+          gap:6px;
+          margin-top:6px;
+          margin-bottom:8px;
+        }
+        .player-card { min-height:180px; }
+        .card-front { padding-top:4px; padding-bottom:4px; }
+        .card-front img { width:90px; height:90px; }
+        .select-wrap { gap:2px !important; }
+        .clear-select { width:20px; height:20px; font-size:0.75rem; }
+        .drop-zone { 
+          min-height:50px; 
+          margin-top:4px;
+          padding:4px;
+          gap:3px;
+        }
+        .stat { padding:5px 6px; font-size:0.7rem; border-radius:6px; }
+        .legend-chip { padding:2px 5px; font-size:0.7rem; margin:2px; }
+        .player-select { font-size:0.7rem; padding:3px 5px; margin-top:2px; }
+        .btn { padding:8px 12px; font-size:0.85rem; }
+        #score-output { font-size:0.85rem; margin-top:6px; }
+        .scale-wrap { padding:8px 6px; }
         #stats-pool {
-          padding:10px 6px 14px;
-          max-height:35vh;
+          padding:5px 3px 8px;
+          gap:4px;
+          max-height:28vh;
+          margin-top:8px;
+        }
+        .controls { gap:6px; margin-top:3px; }
+        main .scale-wrap {
+          padding-bottom:10px;
         }
       }
 
@@ -422,15 +495,14 @@
 
         <h2>Flatchat Passport Game</h2>
         <h3 style="text-align:center;">
-          Click a stat and then click on the box under the player cards to make your guesses!
-          <br>Make sure to guess the players name using the dropdowns.
+          Match the stats to the players and guess their names! (Simply click the stat and place)
         </h3>
         <h4 style="text-align:center;">
-          Choose your difficulty below - harder difficulties give more points per correct stat!
-          <br>All data collected from Wikipedia. Good luck! 🙂
+          Choose your difficulty - harder = more points! All data from Wikipedia. Good luck! 🙂
         </h4>
 
         <div id="round-stats">Loading...</div>
+        <div id="current-difficulty" style="text-align:center;font-weight:700;color:#0a7785;margin-top:4px;font-size:1rem;"></div>
         <div id="players-grid"></div>
 
         <h3 style="text-align:center;">Stats to place:</h3>
@@ -449,7 +521,7 @@
 
             <div class="diff-tooltip-wrap" style="position:relative;display:inline-block;margin-left:8px">
               <button id="diffInfoBtn" aria-expanded="false" aria-controls="diffTooltip" class="btn" style="margin-left:8px;padding:6px 8px;">i</button>
-              <div id="diffTooltip" role="tooltip" aria-hidden="true" class="diff-tooltip" style="display:none;position:absolute;left:0;bottom:38px;z-index:40;min-width:240px;">
+              <div id="diffTooltip" role="tooltip" aria-hidden="true" class="diff-tooltip" style="display:none;position:fixed;z-index:200;min-width:240px;">
                 <ul style="margin:0;padding:10px 12px;list-style:none;">
                   <li><strong>Easy (No Multiplier)</strong>: The most well-known footballers, should know every player. (20 points available)</li>
                   <li><strong>Hard (x1.5 points)</strong>: Lesser-known top division ballers, should know most of the players. (30 points available)</li>
@@ -545,6 +617,21 @@
         if (d === 'extreme') return 3;
         return 1;
       }
+      
+      function updateDifficultyDisplay() {
+        const diffDisplay = document.getElementById('current-difficulty');
+        if (!diffDisplay) return;
+        const d = diffSel.value;
+        const multiplier = getDifficultyMultiplier();
+        let diffName = '';
+        if (d === 'easy') diffName = 'Easy';
+        else if (d === 'hard') diffName = 'Hard';
+        else if (d === 'very-hard') diffName = 'Very Hard';
+        else if (d === 'extreme') diffName = 'Extreme';
+        
+        const multiplierText = multiplier === 1 ? 'No Multiplier' : `×${multiplier} points`;
+        diffDisplay.textContent = `Selected Difficulty: ${diffName} (${multiplierText})`;
+      }
 
 /* =====================================================
    USED PLAYER TRACKING (localStorage)
@@ -600,6 +687,7 @@ function clearUsedPlayers(diff) {
         scoreOut.textContent = "";
         isLocked = false;
 
+        updateDifficultyDisplay();
         roundStats.textContent = "Loading…";
 
         // Choose pool & counts based on difficulty
@@ -717,6 +805,7 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
         // show Lock-In if it was hidden earlier
         const submitBtnEl = document.getElementById('submitAnswers');
         if (submitBtnEl) submitBtnEl.style.display = '';
+        updateDifficultyDisplay();
         setupGame();
       });
 
@@ -1087,45 +1176,81 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
       const main = document.querySelector("main");
       function scaleWrap() { return document.querySelector('main .scale-wrap'); }
 
+      let lockedScale = null; // Store the locked scale value in fullscreen
+      let storedNaturalWidth = 0;
+      let storedNaturalHeight = 0;
+
       function fitScale() {
         const wrap = scaleWrap();
         if (!wrap) return;
         
-        // In fullscreen, scale to fit viewport without scrolling
+        // In fullscreen, scale is calculated once and locked - never recalculates
         if (document.fullscreenElement === main || document.webkitFullscreenElement === main) {
-          // Reset transform to get natural dimensions
+          // If scale is already calculated and locked, never recalculate
+          if (lockedScale !== null) {
+            return; // Keep the locked scale - no resizing in fullscreen
+          }
+          
+          // If we have stored natural dimensions, use them (no need to remeasure)
+          if (storedNaturalWidth > 0 && storedNaturalHeight > 0) {
+            const currentWidth = window.innerWidth;
+            const currentHeight = window.innerHeight;
+            const padding = 24;
+            const border = 12;
+            const availableW = currentWidth - padding - border;
+            const availableH = currentHeight - padding - border;
+            const scaleX = availableW / storedNaturalWidth;
+            const scaleY = availableH / storedNaturalHeight;
+            const scale = Math.min(scaleX, scaleY, 1) * 0.92;
+            lockedScale = scale;
+            wrap.style.transform = `scale(${scale})`;
+            return;
+          }
+          
+          // First time: measure natural size (only happens once on fullscreen entry)
+          const currentWidth = window.innerWidth;
+          const currentHeight = window.innerHeight;
+          
+          // Temporarily remove transform to measure, but do it in a way that minimizes visual impact
+          const hadTransform = wrap.style.transform;
           wrap.style.transform = '';
-          // Use double requestAnimationFrame to ensure layout is fully calculated
+          
+          // Use requestAnimationFrame to measure after layout
           requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              // Get the actual content dimensions (including padding)
-              const naturalW = wrap.scrollWidth;
-              const naturalH = wrap.scrollHeight;
-              
-              // Account for padding (12px on each side = 24px total) and border (6px on each side = 12px total)
-              const padding = 24;
-              const border = 12;
-              const availableW = window.innerWidth - padding - border;
-              const availableH = window.innerHeight - padding - border;
-              
-              // Calculate scale to fit both dimensions, prioritizing height
-              const scaleX = availableW / naturalW;
-              const scaleY = availableH / naturalH;
-              const scale = Math.min(scaleX, scaleY, 1) * 0.92; // 92% to ensure no overflow
-              
-              wrap.style.transform = `scale(${scale})`;
-            });
+            // Get natural dimensions
+            const naturalW = wrap.scrollWidth;
+            const naturalH = wrap.scrollHeight;
+            
+            // Store for future use (though we won't need it since scale is locked)
+            storedNaturalWidth = naturalW;
+            storedNaturalHeight = naturalH;
+            
+            // Calculate scale
+            const padding = 24;
+            const border = 12;
+            const availableW = currentWidth - padding - border;
+            const availableH = currentHeight - padding - border;
+            const scaleX = availableW / naturalW;
+            const scaleY = availableH / naturalH;
+            const scale = Math.min(scaleX, scaleY, 1) * 0.92;
+            
+            // Lock the scale immediately
+            lockedScale = scale;
+            wrap.style.transform = `scale(${scale})`;
           });
           return;
         }
         
         // Non-fullscreen scaling (original behavior)
+        lockedScale = null; // Clear locked scale when not in fullscreen
+        const currentWidth = window.innerWidth;
+        const currentHeight = window.innerHeight;
         const naturalW = wrap.scrollWidth;
         const naturalH = wrap.scrollHeight;
         const reservedVertical = 48 + 40 + 24;
         const reservedHorizontal = 120;
-        const scaleX = (window.innerWidth - reservedHorizontal) / naturalW;
-        const scaleY = (window.innerHeight - reservedVertical) / naturalH;
+        const scaleX = (currentWidth - reservedHorizontal) / naturalW;
+        const scaleY = (currentHeight - reservedVertical) / naturalH;
         const EPS = 0.99;
         const scale = Math.min(scaleX, scaleY, 1) * EPS;
         wrap.style.transform = `scale(${scale})`;
@@ -1147,16 +1272,22 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
 
       function onFsChange() {
         if (document.fullscreenElement === main || document.webkitFullscreenElement === main) {
-          // Small delay to ensure fullscreen is fully applied
+          lockedScale = null; // Reset locked scale to allow calculation on entry
+          storedNaturalWidth = 0;
+          storedNaturalHeight = 0;
+          // Wait a bit to ensure content is stable, then calculate once
           setTimeout(() => {
-            fitScale();
-            window.addEventListener('resize', fitScale);
+            fitScale(); // Calculate once on fullscreen entry
             main.classList.add('fs-fit');
-          }, 100);
+          }, 200);
         } else {
+          lockedScale = null; // Clear locked scale
+          storedNaturalWidth = 0;
+          storedNaturalHeight = 0;
           const wrap = scaleWrap();
-          if (wrap) wrap.style.transform = '';
-          window.removeEventListener('resize', fitScale);
+          if (wrap) {
+            wrap.style.transform = '';
+          }
           main.classList.remove('fs-fit');
           fsBtn.textContent = "⛶ Fullscreen";
           fsBtn.style.background = "#222";
@@ -1171,9 +1302,52 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
       (function(){
         const btn = document.getElementById('diffInfoBtn');
         const tip = document.getElementById('diffTooltip');
+        const statsPool = document.getElementById('stats-pool');
         if (!btn || !tip) return;
 
-        function show() { tip.style.display = 'block'; tip.setAttribute('aria-hidden','false'); btn.setAttribute('aria-expanded','true'); }
+        function show() { 
+          tip.style.display = 'block'; 
+          tip.setAttribute('aria-hidden','false'); 
+          btn.setAttribute('aria-expanded','true');
+          
+          // Position tooltip - above stats pool on mobile, near button on desktop
+          const isMobile = window.innerWidth <= 768;
+          
+          if (isMobile && statsPool) {
+            // Mobile: position above stats pool
+            requestAnimationFrame(() => {
+              const statsRect = statsPool.getBoundingClientRect();
+              const tipRect = tip.getBoundingClientRect();
+              const centerX = statsRect.left + (statsRect.width / 2);
+              const leftPos = centerX - (tipRect.width / 2);
+              // Ensure tooltip doesn't go off screen
+              const finalLeft = Math.max(10, Math.min(leftPos, window.innerWidth - tipRect.width - 10));
+              tip.style.left = finalLeft + 'px';
+              tip.style.right = 'auto';
+              tip.style.bottom = (window.innerHeight - statsRect.top + 10) + 'px';
+              tip.style.top = 'auto';
+              tip.style.transform = 'none';
+            });
+          } else {
+            // Desktop: position near the button
+            requestAnimationFrame(() => {
+              const btnRect = btn.getBoundingClientRect();
+              const tipRect = tip.getBoundingClientRect();
+              // Position to the left of button, centered vertically
+              tip.style.left = (btnRect.left - tipRect.width - 10) + 'px';
+              tip.style.right = 'auto';
+              tip.style.top = (btnRect.top + btnRect.height / 2 - tipRect.height / 2) + 'px';
+              tip.style.bottom = 'auto';
+              tip.style.transform = 'none';
+              
+              // If tooltip would go off left edge, position to the right instead
+              if (parseInt(tip.style.left) < 10) {
+                tip.style.left = (btnRect.right + 10) + 'px';
+                tip.style.right = 'auto';
+              }
+            });
+          }
+        }
         function hide() { tip.style.display = 'none'; tip.setAttribute('aria-hidden','true'); btn.setAttribute('aria-expanded','false'); }
 
         btn.addEventListener('click', (e)=>{ e.stopPropagation(); if (tip.style.display === 'none' || tip.style.display === '') show(); else hide(); });
@@ -1183,7 +1357,7 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
         btn.addEventListener('blur', hide);
 
         document.addEventListener('keydown', (ev)=>{ if (ev.key === 'Escape') hide(); });
-        document.addEventListener('click', (ev)=>{ if (!ev.target.closest || !btn.contains(ev.target)) hide(); });
+        document.addEventListener('click', (ev)=>{ if (!ev.target.closest || (!btn.contains(ev.target) && !tip.contains(ev.target))) hide(); });
       })();
 
       (function(){
