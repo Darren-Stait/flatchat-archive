@@ -10,6 +10,8 @@
         --primary: #25b6c4;
         --accent: #f2b632;
       }
+      
+      /* fullscreen helpers are injected in the script area; see JS below */
       * { box-sizing: border-box; }
 
       body {
@@ -124,6 +126,17 @@
       .card-inner > * { min-height:auto; }
       .player-card.hidden .card-inner { transform:rotateY(180deg); }
       .player-card:not(.hidden):hover .card-inner { transform:scale(1.03); }
+
+      /* When we temporarily disable scaling during interactions, prevent
+         card hover/scale and transitions from changing layout. JS will add
+         `no-scale` to the body while a stat is being placed. */
+      body.no-scale .player-card:not(.hidden) .card-inner {
+        transform: none !important;
+        transition: none !important;
+      }
+      body.no-scale .scale-wrap {
+        transition: none !important;
+      }
 
       .card-front, .card-back {
         grid-area: 1/1;
@@ -278,8 +291,28 @@
         align-items:center !important;
         justify-content:center !important;
       }
+
+      /* Fullscreen banner: positioned above the main section in the top margin */
+      main:fullscreen::before,
+      main:-webkit-full-screen::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 18px; /* small offset into the top margin */
+        width: min(1200px, 86%);
+        height: 92px;
+        background-image: url('icons/flatchat_banner.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        border: 6px solid #ffffff; /* white border */
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        z-index: 100001;
+        pointer-events: none;
+      }
       main:fullscreen .scale-wrap {
-        width:auto !important;
         max-width:calc(100vw - 36px) !important;
         border:6px solid var(--primary) !important;
         padding:12px !important;
@@ -295,7 +328,6 @@
         backface-visibility:hidden !important;
       }
       main:-webkit-full-screen .scale-wrap {
-        width:auto !important;
         max-width:calc(100vw - 36px) !important;
         border:6px solid var(--primary) !important;
         padding:12px !important;
@@ -956,6 +988,10 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
       }
 
       function placeTile(zone, p, k, t, originEl) {
+        // Temporarily lock scale/transform to prevent visual rescaling while
+        // placing a stat tile.
+        try { lockWrapDuringPlacement(600); } catch (e) {}
+
         if (originEl) {
           zone.appendChild(originEl);
           originEl.classList.add('placed');
@@ -1179,11 +1215,14 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
       let lockedScale = null; // Store the locked scale value in fullscreen
       let storedNaturalWidth = 0;
       let storedNaturalHeight = 0;
+      
 
       function fitScale() {
         const wrap = scaleWrap();
         if (!wrap) return;
-        
+        // If another routine has locked fullscreen scale, do nothing
+        try { if (wrap.dataset && wrap.dataset.scaleLocked) return; } catch (e) {}
+
         // In fullscreen, scale is calculated once and locked - never recalculates
         if (document.fullscreenElement === main || document.webkitFullscreenElement === main) {
           // If scale is already calculated and locked, never recalculate
@@ -1236,7 +1275,7 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
             
             // Lock the scale immediately
             lockedScale = scale;
-            wrap.style.transform = `scale(${scale})`;
+              wrap.style.transform = `scale(${scale})`;
           });
           return;
         }
@@ -1254,6 +1293,40 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
         const EPS = 0.99;
         const scale = Math.min(scaleX, scaleY, 1) * EPS;
         wrap.style.transform = `scale(${scale})`;
+      }
+
+      // Lock the current computed transform on `.scale-wrap` and disable
+      // card hover-scaling for a short time during placement so nothing
+      // reflows or rescales visually.
+      function lockWrapDuringPlacement(ms = 600) {
+        const wrap = scaleWrap();
+        if (!wrap) return;
+        // If fullscreen has a pinned scale, don't interfere
+        try { if (wrap.dataset && wrap.dataset.scaleLocked) return; } catch (e) {}
+        try {
+          // Clear any existing timer
+          if (wrap._placementTimer) clearTimeout(wrap._placementTimer);
+
+          // Save original inline transform so we can restore later
+          wrap.dataset._origTransform = wrap.style.transform || '';
+
+          // Freeze to the computed transform (so changes elsewhere don't nudge it)
+          const computed = window.getComputedStyle(wrap).transform;
+          if (computed && computed !== 'none') wrap.style.transform = computed;
+
+          // Add body class to disable card scaling
+          document.body.classList.add('no-scale');
+
+          // Schedule unlock
+          wrap._placementTimer = setTimeout(() => {
+            try { document.body.classList.remove('no-scale'); } catch (e) {}
+            try {
+              wrap.style.transform = wrap.dataset._origTransform || '';
+            } catch (e) {}
+            try { delete wrap.dataset._origTransform; } catch (e) {}
+            wrap._placementTimer = null;
+          }, ms);
+        } catch (e) {}
       }
 
       fsBtn.addEventListener('click', () => {
@@ -1280,6 +1353,7 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
             fitScale(); // Calculate once on fullscreen entry
             main.classList.add('fs-fit');
           }, 200);
+          // fullscreen: fitScale runs and we rely on CSS banner
         } else {
           lockedScale = null; // Clear locked scale
           storedNaturalWidth = 0;
@@ -1295,6 +1369,55 @@ chosenPlayers = shuffle(available).slice(0, playerCount);
       }
       document.addEventListener('fullscreenchange', onFsChange);
       document.addEventListener('webkitfullscreenchange', onFsChange);
+
+      /* Debug helper: watches `.scale-wrap` for attribute/child changes and
+         polls its measured size/transform. When enabled it logs changes to
+         the console so you can reproduce and paste the output for diagnosis. */
+      (function(){
+        const ENABLE = true; // set to false to disable
+        if (!ENABLE) return;
+        const wrap = scaleWrap();
+        if (!wrap) return;
+        let lastW = wrap.offsetWidth;
+        let lastH = wrap.offsetHeight;
+        let lastTransform = window.getComputedStyle(wrap).transform;
+
+        function log(reason, data) {
+          try {
+            console.log('[SCALE-WATCH]', new Date().toISOString(), reason, data || {}, {
+              offsetWidth: wrap.offsetWidth,
+              offsetHeight: wrap.offsetHeight,
+              scrollWidth: wrap.scrollWidth,
+              scrollHeight: wrap.scrollHeight,
+              inlineTransform: wrap.style.transform,
+              computedTransform: window.getComputedStyle(wrap).transform,
+              dataset: { ...wrap.dataset }
+            });
+            console.trace();
+          } catch (e) {}
+        }
+
+        const mo = new MutationObserver(records => {
+          for (const r of records) log('mutation', { type: r.type, attributeName: r.attributeName, addedNodes: r.addedNodes.length, removedNodes: r.removedNodes.length });
+        });
+        mo.observe(wrap, { attributes: true, attributeFilter: ['style','class'], childList: true, subtree: true });
+
+        const poll = setInterval(() => {
+          try {
+            const w = wrap.offsetWidth, h = wrap.offsetHeight;
+            const tf = window.getComputedStyle(wrap).transform;
+            if (w !== lastW || h !== lastH || tf !== lastTransform) {
+              log('size-change', { prev: { w: lastW, h: lastH, tf: lastTransform }, now: { w, h, tf } });
+              lastW = w; lastH = h; lastTransform = tf;
+            }
+          } catch (e) {}
+        }, 250);
+
+        window.__scaleWatcher = {
+          stop() { mo.disconnect(); clearInterval(poll); console.log('scaleWatcher stopped'); }
+        };
+        console.log('Scale watcher active: call window.__scaleWatcher.stop() to disable');
+      })();
 
       /* =====================================================
          TOOLTIP BEHAVIOR (difficulty & submit-disabled)
