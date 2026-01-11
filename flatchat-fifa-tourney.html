@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flatchat Football Groups</title>
+  <link rel="icon" type="image/x-icon" href="icons/flatchat-small.webp">
+
+  <style>
+    /* ===== EXISTING CSS (UNCHANGED) ===== */
+    /* --- SNIPPED FOR BREVITY IN EXPLANATION ---
+       THIS IS YOUR ORIGINAL CSS EXACTLY AS PROVIDED
+       DO NOT REMOVE OR MODIFY
+    */
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #25b6c4;
+      color: #fff;
+      padding: 8px 25px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header-logo {
+      max-width: 520px;
+      height: auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header-logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #f2b632;
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .header-logo {
+        max-width: 90%;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px;
+        font-size: 1rem;
+      }
+    }
+
+    main {
+      flex: 1;
+      width: 90%;
+      max-width: 1400px;
+      margin: 20px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background-color: #25b6c4;
+      color: #fff;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer p {
+      margin: 0 0 8px;
+      line-height: 1.4;
+    }
+
+    .social-links {
+      margin-top: 6px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 8px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.1);
+    }
+
+    .social-links img {
+      width: 36px;
+      height: 36px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-random {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    #randomMomentBtn {
+      background: #f5f5f5;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #randomMomentBtn:hover {
+      transform: rotate(15deg) scale(1.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #randomMomentBtn img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .footer-random {
+        position: static;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+      }
+
+      #randomMomentBtn img {
+        width: 42px;
+        height: 42px;
+      }
+    }
+
+    /* ===== NEW FOOTBALL PAGE CSS ONLY ===== */
+
+    .groups-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .group-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background: #fff;
+    }
+
+    .group-title {
+      background: #25b6c4;
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+      padding: 10px;
+    }
+
+    table.group-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    table.group-table th {
+      background: #f2f2f2;
+      padding: 8px;
+    }
+
+    table.group-table td {
+      padding: 8px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    table.group-table tr:first-child td {
+      background: #e8f4f5;
+      font-weight: 700;
+    }
+
+    .results-container {
+      margin-top: 40px;
+    }
+
+    .results-title {
+      background: #25b6c4;
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px 8px 0 0;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .results-box {
+      max-height: 200px;
+      overflow-y: auto;
+      background: #fff;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 0 0 8px 8px;
+    }
+
+    .result-item {
+      padding: 6px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="index.html">
+        <img src="icons/flatchat_banner.jpg" alt="Flatchat Archive Logo" class="header-logo" />
+      </a>
+      <nav>
+        <a href="aaron.html">Aaron 'The Goat' Turnbull</a>
+        <a href="heggie.html">Heggie 'The Hog' Heggerson</a>
+        <a href="calum.html">Calum 'The Lobster' Porter</a>
+        <a href="jacob.html">Jacob 'Speccy' Murray</a>
+        <a href="darts-marathon-summary.html">Macmillan Darts Marathon 2025</a>
+      </nav>
+    </div>
+  </header>
+
+<main>
+
+  <h1 style="text-align:center; color:#25b6c4;">Live Football Group Tables</h1>
+
+  <div class="groups-grid">
+    <div class="group-card"><div class="group-title">Group 1</div><table class="group-table" id="group1"></table></div>
+    <div class="group-card"><div class="group-title">Group 2</div><table class="group-table" id="group2"></table></div>
+    <div class="group-card"><div class="group-title">Group 3</div><table class="group-table" id="group3"></table></div>
+    <div class="group-card"><div class="group-title">Group 4</div><table class="group-table" id="group4"></table></div>
+  </div>
+
+  <div class="results-container">
+    <div class="results-title">Latest Results</div>
+    <div class="results-box">
+      <div class="result-item" style="font-weight: bold;">Ewan (Real Madrid) 7 - 3 Johno (Liverpool)</div>
+      <div class="result-item" style="font-weight: bold;">Bobo (Napoli) 2 - 1 Maule (Arsenal)</div>
+    </div>
+  </div>
+
+</main>
+
+  <footer>
+    <p>Please support the boys at all the links below.</p>
+    <div class="social-links">
+      <a href="https://www.tiktok.com/@theflatchat" target="_blank"><img src="icons/tiktok.png" alt="TikTok"></a>
+      <a href="https://www.instagram.com/theflatchatofficial/" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
+      <a href="https://www.youtube.com/@theflatchat" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
+      <a href="https://www.youtube.com/@FlatChatDarts" target="_blank"><img src="icons/darts.png" alt="Darts YouTube"></a>
+      <a href="https://www.thesoccershopdirect.co.uk/product-category/the-flat-chat/" target="_blank"><img src="icons/merch.png" alt="Merch"></a>
+      <a href="https://www.cameo.com/theflatchat" target="_blank"><img src="icons/cameo.png" alt="Cameo"></a>
+      <a href="https://x.com/theflatchatx" target="_blank"><img src="icons/x.png" alt="X"></a>
+      <a href="https://www.threads.com/@theflatchatofficial" target="_blank"><img src="icons/threads.png" alt="Threads"></a>
+    </div>
+    <p>Site made by Darren 'Unico'</p>
+    <p>Thanks to the following members from the Members-Only Discord for top-tier flatchat moment contributions: Maule13, FinnAllen</p>
+    <div class="footer-random">
+      <button id="randomMomentBtn">
+        <img src="icons/randomiser.png" alt="Random Moment" />
+      </button>
+    </div>
+  </footer>
+
+<script>
+  const groups = {
+    group1: [
+      { team: "Heggie", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Cheeseburger", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Unico", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Farquad", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Chazi", p: 0, gd: 0, gf: 0, ga: 0 }
+    ],
+    group2: [
+      { team: "Bobo", p: 3, gd: 1, gf: 2, ga: 1 },
+      { team: "Jacob", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Archie", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "CB7", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Maule", p: 0, gd: -1, gf: 1, ga: 2 }
+    ],
+    group3: [
+      { team: "Aaron", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Jack", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Jonathan", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "1400Matt", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Bandaa", p: 0, gd: 0, gf: 0, ga: 0 }
+    ],
+    group4: [
+      { team: "Ewan", p: 3, gd: 4, gf: 7, ga: 3 },
+      { team: "Calum", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Tradiac", p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Johno", p: 0, gd: -4, gf: 3, ga: 7 }
+    ]
+  };
+
+  function renderGroup(id, teams) {
+    teams.sort((a,b)=>b.p-a.p||b.gd-a.gd||b.gf-a.gf);
+    const t = document.getElementById(id);
+    t.innerHTML = "<tr><th>#</th><th>Team</th><th>Pts</th><th>GD</th><th>GF</th><th>GA</th></tr>";
+    teams.forEach((team,i)=>{
+      t.innerHTML += `<tr><td>${i+1}</td><td>${team.team}</td><td>${team.p}</td><td>${team.gd}</td><td>${team.gf}</td><td>${team.ga}</td></tr>`;
+    });
+  }
+
+  Object.keys(groups).forEach(g=>renderGroup(g, groups[g]));
+</script>
+
+</body>
+</html>
