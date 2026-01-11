@@ -261,6 +261,23 @@
       padding: 6px 0;
       border-bottom: 1px solid #e0e0e0;
     }
+/* ===== TABLE WIDTH SAFETY FIX ===== */
+
+.group-card {
+  overflow-x: auto;
+}
+
+.group-table {
+  min-width: 520px; /* prevents column collapse */
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .group-table {
+    min-width: 100%;
+  }
+}
+
   </style>
 </head>
 
@@ -295,6 +312,7 @@
   <div class="results-container">
     <div class="results-title">Latest Results</div>
     <div class="results-box">
+      <div class="result-item" style="font-weight: bold;">Jacob (Newcastle) 10 - 3 Maule (Arsenal) - Scorers: Wissa (6), Gordon (1), Guimaraes (1), Tonali (1), Thiaw (1), Gyokeres (1), Saka (1), Odegaard (1)</div>
       <div class="result-item" style="font-weight: bold;">Archie (Juventus) 10 - 3 Maule (Arsenal) - Scorers: Openda (4), McKennie (4), Rice (2), Kostic (1), Conceicao (1), Gyokeres (1)</div>
       <div class="result-item" style="font-weight: bold;">Aaron (Atletico Madrid) 4 - 4 Jack (Inter) - Scorers: Griezzman (3), Lautaro (2), Alvarez (1), Barella (1), Zielinski (1)</div>
       <div class="result-item" style="font-weight: bold;">Archie (Juventus) 13 - 0 CB7 (Man City) - Scorers: David (9), Koopmeiners (2), McKennie (1), Yildiz (1)</div>
@@ -316,7 +334,7 @@
   <div class="results-container">
     <div class="results-title">Top Scorers</div>
     <div class="results-box">
-      <div class="result-item" style="font-weight: bold;">Gyokeres (11) - Maule</div>
+      <div class="result-item" style="font-weight: bold;">Gyokeres (12) - Maule</div>
       <div class="result-item" style="font-weight: bold;">Jonathan David (9) - Archie</div>
       <div class="result-item" style="font-weight: bold;">Kylian Mbappe (9) - Ewan</div>
       <div class="result-item" style="font-weight: bold;">Randall Kolo Muani (9) - Unico</div>
@@ -361,8 +379,8 @@
     group2: [
       { team: "Archie", plyd: 2, p: 6, gd: 20, gf: 23, ga: 3 },
       { team: "Bobo", plyd: 2, p: 6, gd: 13, gf: 14, ga: 1 },
+      { team: "Jacob", plyd: 1, p: 3, gd: 7, gf: 10, ga: 3 },
       { team: "Maule", plyd: 3, p: 3, gd: 3, gf: 16, ga: 13 },
-      { team: "Jacob", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 },
       { team: "CB7", plyd: 3, p: 0, gd: -36, gf: 1, ga: 37 }
     ],
     group3: [
