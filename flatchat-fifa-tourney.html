@@ -295,6 +295,9 @@
   <div class="results-container">
     <div class="results-title">Latest Results</div>
     <div class="results-box">
+      <div class="result-item" style="font-weight: bold;">Heggie (Al Nassr) 7 - 6 Unico (Spurs) - Scorers: Kolo Muani (5), CR7 (2), Felix (2), Mane (2), Otavio (1), Simons (1)</div>
+      <div class="result-item" style="font-weight: bold;">Cheeseburger (Barcelona) 8 - 1 Farquad (Al Hilal) - Scorers: Fermin (4), Raphinha (1), Lewandowski (1), Rashford (1)</div>
+      <div class="result-item" style="font-weight: bold;">Ewan (Real Madrid) 11 - 2 Tradiac (PSG) - Scorers: Mbappe (9), Valverde (1), Courtois (1)</div>
       <div class="result-item" style="font-weight: bold;">Maule (Arsenal) 12 - 1 CB7 (Man City) - Scorers: Gyokeres (9), Martinelli (1), Odegaard (1), Rice (1), Foden (1)</div>
       <div class="result-item" style="font-weight: bold;">Bobo (Napoli) 12 - 0 CB7 (Man City)</div>
       <div class="result-item" style="font-weight: bold;">Tradiac (PSG) 13 - 1 Johno (Liverpool)</div>
@@ -329,40 +332,40 @@
 <script>
   const groups = {
     group1: [
-      { team: "Heggie", p: 0, gd: 0, gf: 0, ga: 0 },
-      { team: "Cheeseburger", p: 0, gd: 0, gf: 0, ga: 0 },
-      { team: "Unico", p: 0, gd: 0, gf: 0, ga: 0 },
-      { team: "Farquad", p: 0, gd: 0, gf: 0, ga: 0 },
-      { team: "Chazi", p: 0, gd: 0, gf: 0, ga: 0 }
+      { team: "Heggie", plyd: 1, p: 3, gd: 1, gf: 7, ga: 6 },
+      { team: "Cheeseburger", plyd: 1, p: 3, gd: 7, gf: 8, ga: 1 },
+      { team: "Chazi", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Unico", plyd: 1, p: 0, gd: -1, gf: 6, ga: 7 },
+      { team: "Farquad", plyd: 1, p: 0, gd: -7, gf: 1, ga: 8 }
     ],
     group2: [
-      { team: "Bobo", p: 6, gd: 13, gf: 14, ga: 1 },
-      { team: "Maule", p: 3, gd: 10, gf: 13, ga: 3 },
-      { team: "Jacob", p: 0, gd: 0, gf: 0, ga: 0 },
-      { team: "Archie", p: 0, gd: 0, gf: 0, ga: 0 },
-      { team: "CB7", p: 0, gd: -23, gf: 1, ga: 24 }
+      { team: "Bobo", plyd: 2, p: 6, gd: 13, gf: 14, ga: 1 },
+      { team: "Maule", plyd: 2, p: 3, gd: 10, gf: 13, ga: 3 },
+      { team: "Jacob", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Archie", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "CB7", plyd: 2, p: 0, gd: -23, gf: 1, ga: 24 }
     ],
     group3: [
-      { team: "Aaron", p: 0, gd: 0, gf: 0, ga: 0 },
-      { team: "Jack", p: 0, gd: 0, gf: 0, ga: 0 },
-      { team: "Jonathan", p: 0, gd: 0, gf: 0, ga: 0 },
-      { team: "1400Matt", p: 0, gd: 0, gf: 0, ga: 0 },
-      { team: "Bandaa", p: 0, gd: 0, gf: 0, ga: 0 }
+      { team: "Aaron", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Jack", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Jonathan", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "1400Matt", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Bandaa", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 }
     ],
     group4: [
-      { team: "Tradiac", p: 3, gd: 12, gf: 13, ga: 1 },
-      { team: "Ewan", p: 3, gd: 4, gf: 7, ga: 3 },
-      { team: "Calum", p: 0, gd: 0, gf: 0, ga: 0 },
-      { team: "Johno", p: 0, gd: -16, gf: 4, ga: 20 }
+      { team: "Ewan", plyd: 2, p: 6, gd: 13, gf: 18, ga: 5 },
+      { team: "Tradiac", plyd: 2, p: 3, gd: 3, gf: 15, ga: 12 },
+      { team: "Calum", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 },
+      { team: "Johno", plyd: 2, p: 0, gd: -16, gf: 4, ga: 20 }
     ]
   };
 
   function renderGroup(id, teams) {
     teams.sort((a,b)=>b.p-a.p||b.gd-a.gd||b.gf-a.gf);
     const t = document.getElementById(id);
-    t.innerHTML = "<tr><th>#</th><th>Team</th><th>Pts</th><th>GD</th><th>GF</th><th>GA</th></tr>";
+    t.innerHTML = "<tr><th>#</th><th>Team</th><th>Played</th><th>Pts</th><th>GD</th><th>GF</th><th>GA</th></tr>";
     teams.forEach((team,i)=>{
-      t.innerHTML += `<tr><td>${i+1}</td><td>${team.team}</td><td>${team.p}</td><td>${team.gd}</td><td>${team.gf}</td><td>${team.ga}</td></tr>`;
+      t.innerHTML += `<tr><td>${i+1}</td><td>${team.team}</td><td>${team.plyd}</td><td>${team.p}</td><td>${team.gd}</td><td>${team.gf}</td><td>${team.ga}</td></tr>`;
     });
   }
 
