@@ -365,6 +365,8 @@ h2 {
   <div class="results-container">
     <div class="results-title">Latest Results</div>
     <div class="results-box">
+      <div class="result-item" style="font-weight: bold;">Chazi (Man United) 5 - 4 CB7 (Man City)</div>
+      <div class="result-item" style="font-weight: bold;">Chazi (Man United) 9 - 3 CB7 (Man City)</div>
       <div class="result-item" style="font-weight: bold;">Jack (Inter) 5 - 4 CB7 (Man City)</div>
       <div class="result-item" style="font-weight: bold;">CB7 (Man City) 6 - 5 Jack (Inter)</div>
       <div class="result-item" style="font-weight: bold;">Aaron (Inter) 8 - 1 Tradiac (Man City)</div>
@@ -550,9 +552,9 @@ h2 {
   };
 
   const ueclGroup = [
-  { team: "CB7", plyd: 2, p: 3, gd: 0, gf: 10, ga: 10 },
+  { team: "Chazi", plyd: 2, p: 6, gd: 7, gf: 14, ga: 7 },
   { team: "Jack", plyd: 2, p: 3, gd: 0, gf: 10, ga: 10 },
-  { team: "Chazi", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 }
+  { team: "CB7", plyd: 4, p: 3, gd: -7, gf: 17, ga: 24 }
   ];
 
 function renderGroup(id, teams) {
@@ -590,7 +592,7 @@ renderKnockout("uelRound1",[
   [sorted[3][2].team, sorted[2][3].team]
 ]);
 
-renderKnockout("uclSemis", [["CheeseBurger/Archie","Bandaa/Ewan"],["Jacob/Heggie","Calum/1400Matt"]]);
+renderKnockout("uclSemis", [["CheeseBurger","Bandaa/Ewan"],["Jacob/Heggie","Calum/1400Matt"]]);
 renderKnockout("uclFinal", [["TBD","TBD"]]);
 
 renderKnockout("uelSemis", [["Unico/Maule","Aaron"],["Bobo/Farquad","Jonathan/Johno"]]);
