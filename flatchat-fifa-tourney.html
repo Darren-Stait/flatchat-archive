@@ -365,6 +365,10 @@ h2 {
   <div class="results-container">
     <div class="results-title">Latest Results</div>
     <div class="results-box">
+      <div class="result-item" style="font-weight: bold;">Jack (Inter) 5 - 4 CB7 (Man City)</div>
+      <div class="result-item" style="font-weight: bold;">CB7 (Man City) 6 - 5 Jack (Inter)</div>
+      <div class="result-item" style="font-weight: bold;">Aaron (Inter) 8 - 1 Tradiac (Man City)</div>
+      <div class="result-item" style="font-weight: bold;">Tradiac (PSG) 6 - 2 Aaron (Inter) - Scorers: Alvarez (5), Simeone (2), Griezmann (1), Barcola (1)</div>
       <div class="result-item" style="font-weight: bold;">Jonathan (Chelsea) 10 - 3 Jack (Inter) - Scorers: Palmer (5), Pedro (1), Delap (1), Garnacho (1), Neto (1), Enzo (1), Thuram (1), Barella (1), Dumfries (1)</div>
       <div class="result-item" style="font-weight: bold;">Matt (Bayern) 11 - 5 Jonathan (Chelsea) - Scorers: Kane (5), Musiala (4), Pedro (4), Diaz (2), Fernandez (1)</div>
       <div class="result-item" style="font-weight: bold;">Cheeseburger (Barcelona) 8 - 4 Chazi (Man United) - Scorers: Raphinha (4), Yamal (2), Lewandowski (2), Mbuemo (1), Fernandes (1), Mainoo (1), Amad (1)</div>
@@ -411,6 +415,7 @@ h2 {
 <div class="result-item" style="font-weight: bold;">Gyokeres (12) - Maule</div>
 <div class="result-item" style="font-weight: bold;">Lewandowski (12) - Cheeseburger</div>
 <div class="result-item" style="font-weight: bold;">CR7 (11) - Heggie</div>
+<div class="result-item" style="font-weight: bold;">Alvarez (11) - Aaron</div>
 <div class="result-item" style="font-weight: bold;">Guessand (10) - Bandaa</div>
 <div class="result-item" style="font-weight: bold;">David (9) - Archie</div>
 <div class="result-item" style="font-weight: bold;">Mbappe (9) - Ewan</div>
@@ -420,11 +425,10 @@ h2 {
 <div class="result-item" style="font-weight: bold;">Watkins (8) - Bandaa</div>
 <div class="result-item" style="font-weight: bold;">Openda (7) - Archie</div>
 <div class="result-item" style="font-weight: bold;">Yamal (7) - Cheeseburger</div>
-<div class="result-item" style="font-weight: bold;">Alvarez (6) - Aaron</div>
 <div class="result-item" style="font-weight: bold;">Raphinha (6) - Cheeseburger</div>
+<div class="result-item" style="font-weight: bold;">Griezmann (6) - Aaron</div>
 <div class="result-item" style="font-weight: bold;">Fermin (5) - Cheeseburger</div>
 <div class="result-item" style="font-weight: bold;">McKennie (5) - Archie</div>
-<div class="result-item" style="font-weight: bold;">Griezmann (5) - Aaron</div>
 <div class="result-item" style="font-weight: bold;">Gordon (5) - Jacob</div>
 <div class="result-item" style="font-weight: bold;">Guimaraes (5) - Jacob</div>
 <div class="result-item" style="font-weight: bold;">Pedro (5) - Jonathan</div>
@@ -460,6 +464,7 @@ h2 {
 <div class="result-item" style="font-weight: bold;">Conceicao (2) - Archie</div>
 <div class="result-item" style="font-weight: bold;">Thiaw (2) - Jacob</div>
 <div class="result-item" style="font-weight: bold;">Hojlund (2) - Bobo</div>
+<div class="result-item" style="font-weight: bold;">Simeone (2) - Aaron</div>
 <div class="result-item" style="font-weight: bold;">Courtois (1) - Ewan</div>
 <div class="result-item" style="font-weight: bold;">Foden (1) - CB7</div>
 <div class="result-item" style="font-weight: bold;">Garnacho (1) - Jonathan</div>
@@ -545,9 +550,9 @@ h2 {
   };
 
   const ueclGroup = [
-  { team: "Chazi", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 },
-  { team: "CB7", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 },
-  { team: "Jack", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 }
+  { team: "CB7", plyd: 2, p: 3, gd: 0, gf: 10, ga: 10 },
+  { team: "Jack", plyd: 2, p: 3, gd: 0, gf: 10, ga: 10 },
+  { team: "Chazi", plyd: 0, p: 0, gd: 0, gf: 0, ga: 0 }
   ];
 
 function renderGroup(id, teams) {
@@ -588,7 +593,7 @@ renderKnockout("uelRound1",[
 renderKnockout("uclSemis", [["CheeseBurger/Archie","Bandaa/Ewan"],["Jacob/Heggie","Calum/1400Matt"]]);
 renderKnockout("uclFinal", [["TBD","TBD"]]);
 
-renderKnockout("uelSemis", [["Unico/Maule","Tradiac/Aaron"],["Bobo/Farquad","Jonathan/Johno"]]);
+renderKnockout("uelSemis", [["Unico/Maule","Aaron"],["Bobo/Farquad","Jonathan/Johno"]]);
 renderKnockout("uelFinal", [["TBD","TBD"]]);
 
 function showView(v){
