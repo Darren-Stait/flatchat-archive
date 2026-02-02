@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flatchat Rondo</title>
+<script src="questions.js"></script>
+
+<style>
+          :root {
+        --primary: #25b6c4;
+        --accent: #f2b632;
+      }
+      
+html {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  scrollbar-gutter: stable;
+}
+
+/* Fullscreen styling */
+:fullscreen {
+  background: #f5f5f5;
+}
+
+:fullscreen header,
+:fullscreen footer {
+  display: none !important;
+}
+
+      header {
+        background-color: var(--primary);
+        color: #fff;
+        padding: 8px 25px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      }
+
+      .header-container {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:40px;
+        max-width:1200px;
+        margin:0 auto;
+      }
+
+      .header-logo { max-width:520px; height:auto; transition: transform .3s ease, box-shadow .3s ease; }
+      .header-logo:hover { transform:scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.3); }
+
+      nav { display:flex; align-items:center; }
+      nav a { color:#fff; margin:0 10px; text-decoration:none; font-weight:600; font-size:0.9rem; transition: color .2s ease; }
+      nav a:hover { color: var(--accent); }
+
+      @media (max-width:768px) {
+        header { padding:6px 12px; }
+        .header-container { flex-direction:column; text-align:center; gap:6px; }
+        .header-logo { max-width:85%; }
+        nav { flex-wrap:wrap; justify-content:center; gap:4px; }
+        nav a { display:inline-block; margin:3px; font-size:0.85rem; }
+        header + header { padding:4px 12px !important; font-size:0.75rem !important; line-height:1.3 !important; }
+        footer { padding:8px 10px; font-size:0.8rem; }
+        footer p { margin:0 0 4px; }
+        .social-links { margin-top:4px; }
+        .social-links img { width:28px; height:28px; }
+        h5 { font-size:0.7rem !important; margin:4px 0 !important; line-height:1.3 !important; }
+      }
+
+      footer {
+        background-color: var(--primary);
+        color:#fff;
+        text-align:center;
+        padding:10px 15px;
+        font-size:0.9rem;
+        box-shadow:0 -2px 8px rgba(0,0,0,0.2);
+        position: relative;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+      }
+      footer p { margin:0 0 8px; line-height:1.4; }
+
+      .social-links { margin-top:6px; }
+      .social-links a { display:inline-block; margin:0 8px; text-decoration:none; transition: transform .3s ease; }
+      .social-links img { width:36px; height:36px; object-fit:cover; transition: transform .3s ease; }
+      .social-links img:hover { transform:scale(1.1); }
+
+      .footer-random { position:absolute; bottom:10px; right:20px; z-index:10; }
+      #randomMomentBtn {
+        background:#f5f5f5; border:none; border-radius:50%; cursor:pointer; padding:6px;
+        box-shadow:0 2px 6px rgba(0,0,0,0.25); transition: transform .3s ease, box-shadow .3s ease;
+      }
+      #randomMomentBtn:hover { transform:rotate(15deg) scale(1.1); box-shadow:0 4px 10px rgba(0,0,0,0.3); }
+      #randomMomentBtn img { width:48px; height:48px; border-radius:50%; display:block; }
+
+      @media (max-width:768px) {
+        .footer-random { position:static; margin-top:10px; display:flex; justify-content:center; }
+        #randomMomentBtn img { width:42px; height:42px; }
+      }
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 60px;
+}
+
+#fullscreenBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+}
+
+/* ---------- SCOREBOARD ---------- */
+#scoreboard {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ---------- PLAYER CARD ---------- */
+.player-card {
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+  min-width: 150px;
+  text-align: center;
+}
+
+.player-card.active {
+  border: 2px solid #25b6c4;
+}
+
+/* ---------- RONDO ---------- */
+#board {
+  position: relative;
+  width: min(90vmin, 800px);
+  height: min(90vmin, 800px);
+}
+
+.letter {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.letter.active { background: #25b6c4; color: #fff; }
+.letter.correct { background: #3cb371; color: #fff; }
+.letter.wrong { background: #d9534f; color: #fff; }
+.letter.skipped { background: #ffc107; color: #000; }
+
+/* ---------- LEGEND ---------- */
+#legend {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 0.85em;
+  z-index: 50;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.legend-item:last-child {
+  margin-bottom: 0;
+}
+
+.legend-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-dot.correct { background: #3cb371; }
+.legend-dot.skipped { background: #ffc107; }
+.legend-dot.wrong { background: #d9534f; }
+
+/* ---------- CENTER ---------- */
+#center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45%;
+  height: 45%;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  gap: 8px;
+  font-size: clamp(13px, 1.6vmin, 16px);
+}
+
+/* ---------- SETUP PANEL BELOW CIRCLE ---------- */
+#setupPanel {
+  width: min(80vmin, 650px);
+  margin: -30px auto 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+}
+
+#setupPanel .name-input { margin: 6px auto; }
+
+#center .center-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px 8px 8px;
+  box-sizing: border-box;
+  overflow: visible;
+  text-align: center;
+  max-height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.center-top {
+  width: 100%;
+}
+
+.center-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.center-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.name-input {
+  display: block;
+  width: 68%;
+  max-width: 220px;
+  margin: 6px auto;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 0.95em;
+}
+
+#center button {
+  padding: 6px 10px;
+  font-size: 0.95em;
+}
+
+/* ---------- BUTTONS ---------- */
+button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+}
+
+button.primary { background: #25b6c4; }
+button.correct { background: #3cb371; }
+button.wrong { background: #d9534f; }
+button.secondary { background: #777; }
+
+button.fullscreen {
+  background: #25b6c4;
+  margin-top: 8px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#errorMessage {
+  color: #d9534f;
+  font-weight: 600;
+  margin: 6px auto 10px auto;
+  display: none;
+  max-width: 88%;
+  padding: 4px 6px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 0.95em;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+/* constrain selects and other controls inside the center */
+#center select {
+  width: 68%;
+  max-width: 220px;
+  box-sizing: border-box;
+}
+
+#nameInputs input.error {
+  border: 2px solid #d9534f !important;
+  background-color: #fff5f5;
+}
+</style>
+</head>
+
+<body>
+
+    <header>
+      <div class="header-container">
+        <a href="index.html">
+          <img src="icons/flatchat_banner.jpg" alt="Flatchat Archive Logo" class="header-logo" />
+        </a>
+        <nav>
+          <a href="aaron.html">Aaron 'The Goat' Turnbull</a>
+          <a href="heggie.html">Heggie 'The Hog' Heggerson</a>
+          <a href="calum.html">Calum 'The Lobster' Porter</a>
+          <a href="jacob.html">Jacob 'Speccy' Murray</a>
+          <a href="darts-marathon-summary.html">Macmillan Darts Marathon 2025</a>
+        </nav>
+      </div>
+    </header>
+
+<main>
+  <button id="fullscreenBtn" class="fullscreen" onclick="toggleFullscreen()">Fullscreen</button>
+  <div id="legend">
+    <div class="legend-item">
+      <div class="legend-dot correct"></div>
+      <span>Correct</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot skipped"></div>
+      <span>Skipped</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot wrong"></div>
+      <span>Incorrect</span>
+    </div>
+  </div>
+  <div id="scoreboard"></div>
+  <div id="board">
+    <div id="center"></div>
+  </div>
+  <div id="setupPanel"></div>
+</main>
+
+    <footer>
+      <p>Please support the boys at all the links below.</p>
+      <div class="social-links">
+        <a href="https://www.tiktok.com/@theflatchat" target="_blank"><img src="icons/tiktok.png" alt="TikTok"></a>
+        <a href="https://www.instagram.com/theflatchatofficial/" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
+        <a href="https://www.youtube.com/@theflatchat" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
+        <a href="https://www.youtube.com/@FlatChatDarts" target="_blank"><img src="icons/darts.png" alt="Darts YouTube"></a>
+        <a href="https://www.thesoccershopdirect.co.uk/product-category/the-flat-chat/" target="_blank"><img src="icons/merch.png" alt="Merch"></a>
+        <a href="https://www.cameo.com/theflatchat" target="_blank"><img src="icons/cameo.png" alt="Cameo"></a>
+        <a href="https://x.com/theflatchatx" target="_blank"><img src="icons/x.png" alt="X"></a>
+        <a href="https://www.threads.com/@theflatchatofficial" target="_blank"><img src="icons/threads.png" alt="Threads"></a>
+      </div>
+
+      <p>Site made by Darren 'Unico'</p>
+
+      <div class="footer-random">
+        <button id="randomMomentBtn">
+          <img src="icons/randomiser.png" alt="Random Moment" />
+        </button>
+      </div>
+    </footer>
+<script>
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+let players = [];
+let currentPlayer = 0;
+let timerInterval;
+let currentQA = null;
+let gameOver = false;
+let setupStep = 0;
+let selectedPlayerCount = 1;
+let selectedTimeLimit = 180;
+let selectedDifficulty = 'medium';
+let selectedSkips = 3;
+let selectedPlayerNames = [];
+
+const board = document.getElementById('board');
+const scoreboard = document.getElementById('scoreboard');
+
+/* ---------- FULLSCREEN ---------- */
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().then(()=>{
+      setTimeout(calculatePositions, 50);
+    });
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+document.addEventListener('fullscreenchange', ()=>{
+  calculatePositions();
+  setTimeout(()=>{
+    if (currentPlayer >= 0 && players.length > 0) {
+      buildBoardForPlayer();
+    }
+  }, 50);
+});
+
+/* ---------- LETTER POSITIONS ---------- */
+const letterPositions = {};
+function calculatePositions() {
+  const size = board.clientWidth;
+  const r = size / 2 - 40;
+  alphabet.forEach((l,i)=>{
+    const angle = (i / alphabet.length) * 2 * Math.PI;
+    letterPositions[l] = {
+      x: size/2 + r * Math.cos(angle) - 20,
+      y: size/2 + r * Math.sin(angle) - 20
+    };
+  });
+}
+window.addEventListener('resize', calculatePositions);
+
+/* ---------- SETUP ---------- */
+function showSetup() {
+  stopTimer();
+  scoreboard.innerHTML = '';
+  board.querySelectorAll('.letter').forEach(l => l.remove());
+  setupStep = 0;
+  selectedPlayerCount = 1;
+  selectedTimeLimit = 180;
+  selectedDifficulty = 'medium';
+  showSetupStep();
+}
+
+function showSetupStep() {
+  document.getElementById('setupPanel').innerHTML = '';
+  
+  if (setupStep === 0) {
+    // Step 1: Select player count and show names immediately
+    let namesHtml = '';
+    const countVal = selectedPlayerCount || 1;
+    
+    if (countVal > 1) {
+      namesHtml = `
+        <div class="center-body" id="namesContainer">
+          ${Array.from({length: countVal}, (_, i) => 
+            `<input class="name-input" type="text" id="playerName${i}" placeholder="Player ${i+1}" required>`
+          ).join('')}
+        </div>
+      `;
+    }
+    
+    document.getElementById('center').innerHTML = `
+      <div class="center-inner">
+        <div class="center-top">
+          <h3 style="margin:6px 0">How many players?</h3>
+          <select id="playerCount" onchange="updatePlayerCount()" style="margin-bottom:6px">
+            <option value="1" ${countVal === 1 ? 'selected' : ''}>1 Player</option>
+            <option value="2" ${countVal === 2 ? 'selected' : ''}>2 Players</option>
+            <option value="3" ${countVal === 3 ? 'selected' : ''}>3 Players</option>
+            <option value="4" ${countVal === 4 ? 'selected' : ''}>4 Players</option>
+          </select>
+        </div>
+        ${namesHtml}
+        <div class="center-actions">
+          <button class="primary" onclick="proceedSetup()">Next</button>
+        </div>
+      </div>
+    `;
+    
+    // Show error message in setupPanel if applicable
+    document.getElementById('setupPanel').innerHTML = `
+      <div id="errorMessage" style="display:none; color: #d9534f; font-weight: 600; margin-top: 8px; font-size: 0.95em; text-align: center;">Please enter names for all players</div>
+    `;
+  } else if (setupStep === 1) {
+    // Step 2: Select time limit
+    document.getElementById('center').innerHTML = `
+      <div class="center-inner">
+        <div class="center-top">
+          <h3 style="margin:6px 0">Time per player:</h3>
+          <label style="font-weight:600">(In Seconds)</label><br>
+          <input type="number" id="timeLimit" min="30" max="600" value="${selectedTimeLimit}" style="width:80px; padding:6px; margin-top:6px; margin-bottom:6px">
+        </div>
+        <div class="center-actions">
+          <button class="secondary" onclick="prevSetup()">Back</button>
+          <button class="primary" onclick="proceedSetup()">Next</button>
+        </div>
+      </div>
+    `;
+  } else if (setupStep === 2) {
+    // Step 3: Select difficulty
+    document.getElementById('center').innerHTML = `
+      <div class="center-inner">
+        <div class="center-top">
+          <h3 style="margin:6px 0">Question difficulty</h3>
+          <select id="difficulty" style="margin-bottom:6px">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <div class="center-actions">
+          <button class="secondary" onclick="prevSetup()">Back</button>
+          <button class="primary" onclick="proceedSetup()">Next</button>
+        </div>
+      </div>
+    `;
+  } else if (setupStep === 3) {
+    // Step 4: Select number of skips
+    document.getElementById('center').innerHTML = `
+      <div class="center-inner">
+        <div class="center-top">
+          <h3 style="margin:6px 0">Number of skips</h3>
+          <input type="number" id="skips" min="1" max="26" value="${selectedSkips}" style="margin-bottom:6px; width: 60px; padding: 6px; text-align: center;">
+        </div>
+        <div class="center-actions">
+          <button class="secondary" onclick="prevSetup()">Back</button>
+          <button class="primary" onclick="proceedSetup()">Start Game</button>
+        </div>
+      </div>
+    `;
+  }
+}
+
+function proceedSetup() {
+  if (setupStep === 0) {
+    // Validate and save player names if multiplayer
+    selectedPlayerNames = [];
+    if (selectedPlayerCount > 1) {
+      const errorMsg = document.getElementById('errorMessage');
+      let hasError = false;
+      
+      // Clear previous error styling
+      document.querySelectorAll('#namesContainer .name-input').forEach(input => {
+        input.classList.remove('error');
+      });
+      
+      for (let i = 0; i < selectedPlayerCount; i++) {
+        const nameInput = document.getElementById(`playerName${i}`);
+        if (!nameInput.value.trim()) {
+          nameInput.classList.add('error');
+          hasError = true;
+        } else {
+          selectedPlayerNames.push(nameInput.value.trim());
+        }
+      }
+      
+      if (hasError) {
+        if (errorMsg) errorMsg.style.display = 'block';
+        return;
+      }
+      
+      if (errorMsg) errorMsg.style.display = 'none';
+    }
+    setupStep = 1;
+    showSetupStep();
+  } else if (setupStep === 1) {
+    selectedTimeLimit = parseInt(document.getElementById('timeLimit').value) || 180;
+    setupStep = 2;
+    showSetupStep();
+  } else if (setupStep === 2) {
+    selectedDifficulty = document.getElementById('difficulty').value;
+    setupStep = 3;
+    showSetupStep();
+  } else if (setupStep === 3) {
+    selectedSkips = parseInt(document.getElementById('skips').value) || 3;
+    startGame();
+  }
+}
+
+function updatePlayerCount() {
+  selectedPlayerCount = parseInt(document.getElementById('playerCount').value);
+  showSetupStep();
+}
+
+function prevSetup() {
+  if (setupStep > 0) {
+    setupStep--;
+    showSetupStep();
+  }
+}
+
+function startGame() {
+  const count = selectedPlayerCount;
+  
+  players = Array.from({length: count}, (_, i) => {
+    let name = 'Player ' + (i+1);
+    
+    if (count === 1) {
+      name = 'You';
+    } else if (selectedPlayerNames[i]) {
+      name = selectedPlayerNames[i];
+    }
+    
+    return {
+      name: name,
+      score: 0,
+      time: selectedTimeLimit,
+      skips: selectedSkips,
+      letterIndex: 0,
+      letters: alphabet.map(l => ({ letter:l, state:'pending' }))
+    };
+  });
+
+  // hide setup panel now that game is starting
+  const setupPanel = document.getElementById('setupPanel');
+  if (setupPanel) setupPanel.innerHTML = '';
+
+  currentPlayer = 0;
+  gameOver = false;
+  calculatePositions();
+  renderScoreboard();
+  nextTurn();
+}
+
+/* ---------- SCOREBOARD ---------- */
+function renderScoreboard() {
+  scoreboard.innerHTML = '';
+  players.forEach((p,i)=>{
+    const d = document.createElement('div');
+    d.className = 'player-card' + (i===currentPlayer?' active':'');
+    d.innerHTML = `
+      <strong>${p.name}</strong><br>
+      Score: ${p.score}<br>
+      Skips: ${p.skips}<br>
+      Time: ${Math.floor(p.time/60)}:${String(p.time%60).padStart(2,'0')}
+    `;
+    scoreboard.appendChild(d);
+  });
+}
+
+/* ---------- BOARD ---------- */
+function buildBoardForPlayer() {
+  board.querySelectorAll('.letter').forEach(l => l.remove());
+  players[currentPlayer].letters.forEach(obj=>{
+    const d = document.createElement('div');
+    d.className = `letter ${obj.state}`;
+    d.textContent = obj.letter;
+    d.style.left = `${letterPositions[obj.letter].x}px`;
+    d.style.top = `${letterPositions[obj.letter].y}px`;
+    board.appendChild(d);
+  });
+}
+
+/* ---------- TIMER ---------- */
+function startTimer() {
+  stopTimer();
+  timerInterval = setInterval(()=>{
+    const p = players[currentPlayer];
+    p.time--;
+    renderScoreboard();
+    if (p.time <= 0) {
+      // Mark all remaining pending letters as skipped
+      p.letters.forEach(l => {
+        if (l.state === 'pending') {
+          l.state = 'skipped';
+        }
+      });
+      nextPlayer();
+    }
+  },1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+/* ---------- GAME FLOW ---------- */
+function getNextPendingLetter() {
+  const p = players[currentPlayer];
+  const pending = p.letters.filter(l=>l.state==='pending');
+  if (!pending.length) return null;
+  p.letterIndex %= pending.length;
+  return pending[p.letterIndex];
+}
+
+function nextTurn() {
+  if (gameOver) return;
+
+  const letterObj = getNextPendingLetter();
+  if (!letterObj) {
+    if (players.every(pl=>pl.letters.every(l=>l.state!=='pending'))) {
+      endGame();
+      return;
+    }
+    nextPlayer();
+    return;
+  }
+
+  buildBoardForPlayer();
+  document.querySelectorAll('.letter').forEach(el=>{
+    if (el.textContent === letterObj.letter) el.classList.add('active');
+  });
+
+  const pool = QUESTION_POOL[letterObj.letter] || [{
+    question:`Something starting with ${letterObj.letter}`,
+    answer:`Any valid answer starting with ${letterObj.letter}`,
+    difficulty: 'easy'
+  }];
+
+  // Filter pool by selected difficulty
+  const filteredPool = pool.filter(q => q.difficulty === selectedDifficulty);
+  const selectedPool = filteredPool.length > 0 ? filteredPool : pool;
+
+  currentQA = selectedPool[Math.floor(Math.random()*selectedPool.length)];
+
+  document.getElementById('center').innerHTML = `
+    <strong>${players[currentPlayer].name}</strong><br><br>
+    ${letterObj.letter}: ${currentQA.question}<br><br>
+    <button class="secondary" onclick="skip()">Skip</button>
+    <button class="primary" onclick="reveal()">Reveal Answer</button>
+  `;
+
+  renderScoreboard();
+  startTimer();
+  window.currentLetter = letterObj;
+}
+
+function reveal() {
+  stopTimer();
+  document.getElementById('center').innerHTML = `
+    <strong>${players[currentPlayer].name}</strong><br><br>
+    ${window.currentLetter.letter}: ${currentQA.answer}<br><br>
+    <button class="correct" onclick="correct()">Correct</button>
+    <button class="wrong" onclick="wrong()">Wrong</button>
+  `;
+}
+
+function correct() {
+  players[currentPlayer].score++;
+  currentLetter.state = 'correct';
+  nextTurn();
+}
+
+function wrong() {
+  currentLetter.state = 'wrong';
+  nextPlayer();
+}
+
+function skip() {
+  const p = players[currentPlayer];
+  if (p.skips <= 0) return;
+  p.skips--;
+  window.currentLetter.state = 'skipped';
+  nextPlayer();
+}
+
+function nextPlayer() {
+  stopTimer();
+  currentPlayer = (currentPlayer + 1) % players.length;
+  renderScoreboard();
+  nextTurn();
+}
+
+/* ---------- END ---------- */
+function endGame() {
+  stopTimer();
+  gameOver = true;
+  const winner = [...players].sort((a,b)=>b.score-a.score)[0];
+
+  document.getElementById('center').innerHTML = `
+    <h2>Congratulations ${winner.name}!</h2>
+    <p>You are the winner with <strong>${winner.score}</strong> points</p>
+    <button class="primary" onclick="showSetup()">Play Again</button>
+  `;
+}
+
+// start
+showSetup();
+</script>
+
+</body>
+</html>
