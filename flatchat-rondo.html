@@ -174,6 +174,7 @@ main {
   font-weight: 600;
 }
 
+.letter.skipped-retry { background: #ffc107; color: #000; }
 .letter.active { background: #25b6c4; color: #fff; }
 .letter.correct { background: #3cb371; color: #fff; }
 .letter.wrong { background: #d9534f; color: #fff; }
@@ -255,13 +256,22 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 6px 8px 8px 8px;
   box-sizing: border-box;
-  overflow: visible;
+  overflow-y: auto;
   text-align: center;
   max-height: 100%;
+  gap: 4px;
   -webkit-overflow-scrolling: touch;
+}
+
+#center .center-inner .setup-row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
 
 .center-top {
@@ -284,47 +294,161 @@ main {
   gap: 8px;
 }
 
+/* ---------- SETUP FORM CONTROLS ---------- */
+#center .setup-row label {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+  display: block;
+}
+
+#center select {
+  width: 68%;
+  max-width: 200px;
+  padding: 10px 12px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 0.95em;
+  font-family: inherit;
+  color: #333;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+#center select:hover {
+  border-color: var(--primary);
+}
+
+#center select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 182, 196, 0.25);
+}
+
 .name-input {
   display: block;
   width: 68%;
   max-width: 220px;
   margin: 6px auto;
-  padding: 6px 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
   box-sizing: border-box;
   font-size: 0.95em;
+  font-family: inherit;
+  color: #333;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.name-input::placeholder {
+  color: #999;
+}
+
+.name-input:hover {
+  border-color: #bbb;
+}
+
+.name-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 182, 196, 0.25);
+}
+
+#center input[type="number"] {
+  width: 68%;
+  max-width: 120px;
+  padding: 10px 12px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 0.95em;
+  font-family: inherit;
+  text-align: center;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#center input[type="number"]:hover {
+  border-color: #bbb;
+}
+
+#center input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 182, 196, 0.25);
+}
+
+#center .setup-row .name-input {
+  max-width: 180px;
+  padding: 10px 12px;
+  font-size: 0.95em;
+  max-height: 20px;
+}
+
+#namesContainer input.name-input.error {
+  border: 2px solid #d9534f !important;
+  background-color: #fff5f5 !important;
+  box-shadow: 0 0 0 2px rgba(217, 83, 79, 0.2);
 }
 
 #center button {
-  padding: 6px 10px;
+  padding: 10px 18px;
   font-size: 0.95em;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+#center button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#center button:active {
+  transform: translateY(0);
 }
 
 /* ---------- BUTTONS ---------- */
 button {
   border: none;
   padding: 8px 14px;
-  border-radius: 6px;
+  border-radius: 10px;
   margin: 4px;
   cursor: pointer;
   font-weight: 600;
   color: #fff;
 }
 
-button.primary { background: #25b6c4; }
+button.primary { background: var(--primary); }
+button.primary:hover { background: #1e9aa6; }
+
 button.correct { background: #3cb371; }
+button.correct:hover { background: #2e8b57; }
+
 button.wrong { background: #d9534f; }
+button.wrong:hover { background: #c9302c; }
+
 button.secondary { background: #777; }
+button.secondary:hover { background: #555; }
 
 button.fullscreen {
-  background: #25b6c4;
+  background: var(--primary);
   margin-top: 8px;
 }
 
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none !important;
 }
 
 #errorMessage {
@@ -333,25 +457,16 @@ button:disabled {
   margin: 6px auto 10px auto;
   display: none;
   max-width: 88%;
-  padding: 4px 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #fff5f5;
+  border: 1px solid rgba(217, 83, 79, 0.3);
   box-sizing: border-box;
   text-align: center;
-  font-size: 0.95em;
+  font-size: 0.9em;
   word-wrap: break-word;
   overflow-wrap: anywhere;
   white-space: normal;
-}
-
-/* constrain selects and other controls inside the center */
-#center select {
-  width: 68%;
-  max-width: 220px;
-  box-sizing: border-box;
-}
-
-#nameInputs input.error {
-  border: 2px solid #d9534f !important;
-  background-color: #fff5f5;
 }
 </style>
 </head>
@@ -427,7 +542,7 @@ let gameOver = false;
 let setupStep = 0;
 let selectedPlayerCount = 1;
 let selectedTimeLimit = 180;
-let selectedDifficulty = 'medium';
+let selectedDifficulty = 'normal';
 let selectedSkips = 3;
 let selectedPlayerNames = [];
 
@@ -477,33 +592,31 @@ function showSetup() {
   setupStep = 0;
   selectedPlayerCount = 1;
   selectedTimeLimit = 180;
-  selectedDifficulty = 'medium';
+  selectedDifficulty = 'normal';
+  selectedSkips = 3;
   showSetupStep();
 }
 
 function showSetupStep() {
   document.getElementById('setupPanel').innerHTML = '';
-  
+
   if (setupStep === 0) {
-    // Step 1: Select player count and show names immediately
-    let namesHtml = '';
     const countVal = selectedPlayerCount || 1;
-    
+    let namesHtml = '';
     if (countVal > 1) {
       namesHtml = `
-        <div class="center-body" id="namesContainer">
-          ${Array.from({length: countVal}, (_, i) => 
+        <div class="setup-row" id="namesContainer">
+          ${Array.from({length: countVal}, (_, i) =>
             `<input class="name-input" type="text" id="playerName${i}" placeholder="Player ${i+1}" required>`
           ).join('')}
         </div>
       `;
     }
-    
     document.getElementById('center').innerHTML = `
       <div class="center-inner">
-        <div class="center-top">
-          <h3 style="margin:6px 0">How many players?</h3>
-          <select id="playerCount" onchange="updatePlayerCount()" style="margin-bottom:6px">
+        <div class="setup-row">
+          <label>How many players?</label>
+          <select id="playerCount" onchange="updatePlayerCount()">
             <option value="1" ${countVal === 1 ? 'selected' : ''}>1 Player</option>
             <option value="2" ${countVal === 2 ? 'selected' : ''}>2 Players</option>
             <option value="3" ${countVal === 3 ? 'selected' : ''}>3 Players</option>
@@ -511,24 +624,18 @@ function showSetupStep() {
           </select>
         </div>
         ${namesHtml}
+        <div id="errorMessage" style="display:none; color:#d9534f; font-weight:600; font-size:0.85em;">Enter all player names</div>
         <div class="center-actions">
           <button class="primary" onclick="proceedSetup()">Next</button>
         </div>
       </div>
     `;
-    
-    // Show error message in setupPanel if applicable
-    document.getElementById('setupPanel').innerHTML = `
-      <div id="errorMessage" style="display:none; color: #d9534f; font-weight: 600; margin-top: 8px; font-size: 0.95em; text-align: center;">Please enter names for all players</div>
-    `;
   } else if (setupStep === 1) {
-    // Step 2: Select time limit
     document.getElementById('center').innerHTML = `
       <div class="center-inner">
-        <div class="center-top">
-          <h3 style="margin:6px 0">Time per player:</h3>
-          <label style="font-weight:600">(In Seconds)</label><br>
-          <input type="number" id="timeLimit" min="30" max="600" value="${selectedTimeLimit}" style="width:80px; padding:6px; margin-top:6px; margin-bottom:6px">
+        <div class="setup-row">
+          <label>Time per player (seconds)</label>
+          <input type="number" id="timeLimit" min="30" max="600" value="${selectedTimeLimit}">
         </div>
         <div class="center-actions">
           <button class="secondary" onclick="prevSetup()">Back</button>
@@ -537,15 +644,13 @@ function showSetupStep() {
       </div>
     `;
   } else if (setupStep === 2) {
-    // Step 3: Select difficulty
     document.getElementById('center').innerHTML = `
       <div class="center-inner">
-        <div class="center-top">
-          <h3 style="margin:6px 0">Question difficulty</h3>
-          <select id="difficulty" style="margin-bottom:6px">
-            <option value="easy">Easy</option>
-            <option value="medium" selected>Medium</option>
-            <option value="hard">Hard</option>
+        <div class="setup-row">
+          <label>Question difficulty</label>
+          <select id="difficulty">
+            <option value="normal" selected>Normal</option>
+            <option value="extreme">Extreme</option>
           </select>
         </div>
         <div class="center-actions">
@@ -555,12 +660,11 @@ function showSetupStep() {
       </div>
     `;
   } else if (setupStep === 3) {
-    // Step 4: Select number of skips
     document.getElementById('center').innerHTML = `
       <div class="center-inner">
-        <div class="center-top">
-          <h3 style="margin:6px 0">Number of skips</h3>
-          <input type="number" id="skips" min="1" max="26" value="${selectedSkips}" style="margin-bottom:6px; width: 60px; padding: 6px; text-align: center;">
+        <div class="setup-row">
+          <label>Number of skips</label>
+          <input type="number" id="skips" min="1" max="26" value="${selectedSkips}">
         </div>
         <div class="center-actions">
           <button class="secondary" onclick="prevSetup()">Back</button>
@@ -573,32 +677,26 @@ function showSetupStep() {
 
 function proceedSetup() {
   if (setupStep === 0) {
-    // Validate and save player names if multiplayer
     selectedPlayerNames = [];
     if (selectedPlayerCount > 1) {
       const errorMsg = document.getElementById('errorMessage');
       let hasError = false;
-      
-      // Clear previous error styling
       document.querySelectorAll('#namesContainer .name-input').forEach(input => {
         input.classList.remove('error');
       });
-      
       for (let i = 0; i < selectedPlayerCount; i++) {
         const nameInput = document.getElementById(`playerName${i}`);
-        if (!nameInput.value.trim()) {
-          nameInput.classList.add('error');
+        if (!nameInput || !nameInput.value.trim()) {
+          if (nameInput) nameInput.classList.add('error');
           hasError = true;
         } else {
           selectedPlayerNames.push(nameInput.value.trim());
         }
       }
-      
       if (hasError) {
         if (errorMsg) errorMsg.style.display = 'block';
         return;
       }
-      
       if (errorMsg) errorMsg.style.display = 'none';
     }
     setupStep = 1;
@@ -647,7 +745,8 @@ function startGame() {
       time: selectedTimeLimit,
       skips: selectedSkips,
       letterIndex: 0,
-      letters: alphabet.map(l => ({ letter:l, state:'pending' }))
+      letters: alphabet.map(l => ({ letter:l, state:'pending' })),
+      hasReturnedToSkipped: false
     };
   });
 
@@ -699,9 +798,9 @@ function startTimer() {
     p.time--;
     renderScoreboard();
     if (p.time <= 0) {
-      // Mark all remaining pending letters as skipped
+      // Mark all remaining pending/skipped-retry letters as skipped
       p.letters.forEach(l => {
-        if (l.state === 'pending') {
+        if (l.state === 'pending' || l.state === 'skipped-retry') {
           l.state = 'skipped';
         }
       });
@@ -717,7 +816,7 @@ function stopTimer() {
 /* ---------- GAME FLOW ---------- */
 function getNextPendingLetter() {
   const p = players[currentPlayer];
-  const pending = p.letters.filter(l=>l.state==='pending');
+  const pending = p.letters.filter(l=>l.state==='pending'||l.state==='skipped-retry');
   if (!pending.length) return null;
   p.letterIndex %= pending.length;
   return pending[p.letterIndex];
@@ -726,9 +825,18 @@ function getNextPendingLetter() {
 function nextTurn() {
   if (gameOver) return;
 
-  const letterObj = getNextPendingLetter();
+  let letterObj = getNextPendingLetter();
   if (!letterObj) {
-    if (players.every(pl=>pl.letters.every(l=>l.state!=='pending'))) {
+    const p = players[currentPlayer];
+    const skipped = p.letters.filter(l=>l.state==='skipped');
+    if (skipped.length > 0 && !p.hasReturnedToSkipped) {
+      p.hasReturnedToSkipped = true;
+      skipped.forEach(l=>l.state='skipped-retry');
+      letterObj = getNextPendingLetter();
+    }
+  }
+  if (!letterObj) {
+    if (players.every(pl=>pl.letters.every(l=>l.state!=='pending'&&l.state!=='skipped-retry'))) {
       endGame();
       return;
     }
@@ -744,7 +852,7 @@ function nextTurn() {
   const pool = QUESTION_POOL[letterObj.letter] || [{
     question:`Something starting with ${letterObj.letter}`,
     answer:`Any valid answer starting with ${letterObj.letter}`,
-    difficulty: 'easy'
+    difficulty: 'normal'
   }];
 
   // Filter pool by selected difficulty
@@ -753,10 +861,15 @@ function nextTurn() {
 
   currentQA = selectedPool[Math.floor(Math.random()*selectedPool.length)];
 
+  const skipBtn = players[currentPlayer].skips > 0
+    ? '<button class="secondary" onclick="skip()">Skip</button>'
+    : '';
+  const nameLine = players.length > 1 ? `<strong>${players[currentPlayer].name}</strong><br><br>` : '';
   document.getElementById('center').innerHTML = `
-    <strong>${players[currentPlayer].name}</strong><br><br>
-    ${letterObj.letter}: ${currentQA.question}<br><br>
-    <button class="secondary" onclick="skip()">Skip</button>
+    ${nameLine}
+    <strong style="font-size:1.4em">${letterObj.letter}</strong><br><br>
+    ${currentQA.question}<br><br>
+    ${skipBtn}
     <button class="primary" onclick="reveal()">Reveal Answer</button>
   `;
 
@@ -767,9 +880,11 @@ function nextTurn() {
 
 function reveal() {
   stopTimer();
+  const nameLine = players.length > 1 ? `<strong>${players[currentPlayer].name}</strong><br><br>` : '';
   document.getElementById('center').innerHTML = `
-    <strong>${players[currentPlayer].name}</strong><br><br>
-    ${window.currentLetter.letter}: ${currentQA.answer}<br><br>
+    ${nameLine}
+    <strong style="font-size:1.4em">${window.currentLetter.letter}</strong><br><br>
+    ${currentQA.answer}<br><br>
     <button class="correct" onclick="correct()">Correct</button>
     <button class="wrong" onclick="wrong()">Wrong</button>
   `;

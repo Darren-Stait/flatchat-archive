@@ -1,132 +1,117 @@
 const QUESTION_POOL = {
   A: [
-    { question: "An animal", answer: "Any animal starting with A (e.g. Antelope)", difficulty: "easy" },
-    { question: "A type of ape", answer: "Any ape starting with A (e.g. Ape)", difficulty: "medium" },
-    { question: "An obscure aquatic creature", answer: "Any aquatic creature starting with A (e.g. Anglerfish)", difficulty: "hard" }
+    { question: "(Surname) Highest scorer in Europa League history <br>(Submitted by PaddyD)", answer: "Pierre-Emerick Aubameyang", difficulty: "normal" },
+    { question: "(Surname) Premier League winner for Leicester with the middle name Kevin <br>(Submitted by Laboon)", answer: "Marc Kevin Albrighton", difficulty: "extreme" }
   ],
   B: [
-    { question: "A country", answer: "Any country starting with B (e.g. Brazil)", difficulty: "easy" },
-    { question: "A breed of dog", answer: "Any dog breed starting with B (e.g. Beagle)", difficulty: "medium" },
-    { question: "A type of bacteria", answer: "Any bacteria starting with B (e.g. Bacillus)", difficulty: "hard" }
+    { question: "(First name) Zimbabwean striker that played for Man City and Portsmouth <br>(Submitted by PaddyD)", answer: "Benjani", difficulty: "normal" },
+    { question: "(Surname) Pink haired former winger for Ajax, Liverpool and Fulham <br>(Submitted by Laboon)", answer: "Ryan Babel", difficulty: "normal" },
+    { question: "A type of bacteria", answer: "Any bacteria starting with B (e.g. Bacillus)", difficulty: "extreme" }
   ],
   C: [
-    { question: "A type of food", answer: "Any food starting with C (e.g. Curry)", difficulty: "easy" },
-    { question: "A citrus fruit", answer: "Any citrus starting with C (e.g. Clementine)", difficulty: "medium" },
-    { question: "A chemical element", answer: "Any element starting with C (e.g. Chromium)", difficulty: "hard" }
+    { question: "EFL club once managed by Ole Gunnar Solskjaer <br>(Submitted by PaddyD)", answer: "Cardiff", difficulty: "normal" },
+    { question: "(Surname) 'When the seagulls follow the trawler, it's because they think sardines will be thrown in the sea' (Submitted by Laboon)", answer: "Eric Cantona", difficulty: "extreme" }
   ],
   D: [
-    { question: "A city", answer: "Any city starting with D (e.g. Denver)", difficulty: "easy" },
-    { question: "A desert", answer: "Any desert starting with D (e.g. Sahara)", difficulty: "medium" },
-    { question: "A type of diatom", answer: "Any diatom starting with D (e.g. Denticula)", difficulty: "hard" }
+    { question: "(Known by) Ex Real Madrid, Man City & Juve player who scored the only goal in the 2026 Copa Libertadores final <br>(Submitted by PaddyD)", answer: "Danilo", difficulty: "normal" },
+    { question: "The city Bohemian FC is from <br>(Submitted by Laboon)", answer: "Dublin", difficulty: "normal" },
+    { question: "A type of diatom", answer: "Any diatom starting with D (e.g. Denticula)", difficulty: "extreme" }
   ],
   E: [
-    { question: "A famous person", answer: "Any famous person starting with E (e.g. Einstein)", difficulty: "easy" },
-    { question: "A European capital", answer: "Any European capital starting with E (e.g. Edinburgh)", difficulty: "medium" },
-    { question: "An extinct animal species", answer: "Any extinct species starting with E (e.g. Elasmotherium)", difficulty: "hard" }
+    { question: "(Surname) First player to lose 4 Champions League finals <br>(Submitted by PaddyD)", answer: "Patrice Evra", difficulty: "normal" },
+    { question: "(Surname) Former Swedish International that played for Feyenoord and Bolton <br>(Submitted by Laboon)", answer: "Johan Elmander", difficulty: "normal" },
+    { question: "An extinct animal species", answer: "Any extinct species starting with E (e.g. Elasmotherium)", difficulty: "extreme" }
   ],
   F: [
-    { question: "A sport", answer: "Any sport starting with F (e.g. Football)", difficulty: "easy" },
-    { question: "A type of fish", answer: "Any fish starting with F (e.g. Flounder)", difficulty: "medium" },
-    { question: "A fictional element from science", answer: "Any fictional element starting with F (e.g. Fictionalium)", difficulty: "hard" }
+    { question: "German team who beat Rangers in the 2022 Europa League final <br>(Submitted by PaddyD)", answer: "Frankfurt", difficulty: "normal" },
+    { question: "(Surname) Most capped player from Honduras <br>(Submitted by Laboon)", answer: "Maynor Figueroa", difficulty: "normal" },
+    { question: "A fictional element from science", answer: "Any fictional element starting with F (e.g. Fictionalium)", difficulty: "extreme" }
   ],
   G: [
-    { question: "A movie title", answer: "Any movie title starting with G (e.g. Gladiator)", difficulty: "easy" },
-    { question: "A type of gemstone", answer: "Any gemstone starting with G (e.g. Garnet)", difficulty: "medium" },
-    { question: "A genus of plants", answer: "Any plant genus starting with G (e.g. Ginkgo)", difficulty: "hard" }
+    { question: "Italian team Djed Spence once spent time on loan at <br>(Submitted by PaddyD)", answer: "Genoa", difficulty: "normal" },
+    { question: "(Surname) AS Roma coach during the 25/26 Serie A season <br>(Submitted by Laboon)", answer: "Gian Piero Gasperini", difficulty: "normal" },
+    { question: "A genus of plants", answer: "Any plant genus starting with G (e.g. Ginkgo)", difficulty: "extreme" }
   ],
   H: [
-    { question: "A musical instrument", answer: "Any instrument starting with H (e.g. Harp)", difficulty: "easy" },
-    { question: "A historical figure", answer: "Any historical figure starting with H (e.g. Henry VIII)", difficulty: "medium" },
-    { question: "A type of hexapod", answer: "Any hexapod starting with H (e.g. Hemiptera)", difficulty: "hard" }
+    { question: "EFL Club that once signed Harry Maguire and Andy Robertson on the same day <br>(Submitted by PaddyD)", answer: "Hull City", difficulty: "normal" },
+    { question: "(Known by) Former goalkeeper who played 20 Premier League games for Chelsea been 2006 and 2014 <br>(Submitted by Laboon)", answer: "Hilario", difficulty: "normal" },
+    { question: "A type of hexapod", answer: "Any hexapod starting with H (e.g. Hemiptera)", difficulty: "extreme" }
   ],
   I: [
-    { question: "A historical event", answer: "Any event starting with I (e.g. Industrial Revolution)", difficulty: "easy" },
-    { question: "An island", answer: "Any island starting with I (e.g. Iceland)", difficulty: "medium" },
-    { question: "An isotope", answer: "Any isotope starting with I (e.g. Iodine-131)", difficulty: "hard" }
+    { question: "Football Club owned by a member of the class of 92 <br>(Submitted by PaddyD)", answer: "Inter Miami", difficulty: "normal" },
+    { question: "(Surname) Former Norweigan striker that played for Tottenham and Wolves <br>(Submitted by Laboon)", answer: "Steffen Iversen", difficulty: "extreme" }
   ],
   J: [
-    { question: "A book title", answer: "Any book title starting with J (e.g. Jane Eyre)", difficulty: "easy" },
-    { question: "A type of jewelry", answer: "Any jewelry starting with J (e.g. Jade bracelet)", difficulty: "medium" },
-    { question: "A jawless fish", answer: "Any jawless fish starting with J (e.g. Jawfish)", difficulty: "hard" }
+    { question: "(First name) Manager who won the world cup with Germany in 2014 <br>(Submitted by PaddyD)", answer: "Joachim Löw", difficulty: "normal" },
+    { question: "(Surname) Former Australian International that played for Crystal Palace and Aston Villa <br>(Submitted by Laboon)", answer: "Mile Jedinak", difficulty: "normal" },
+    { question: "A jawless fish", answer: "Any jawless fish starting with J (e.g. Jawfish)", difficulty: "extreme" }
   ],
   K: [
-    { question: "A type of flower", answer: "Any flower starting with K (e.g. Kalanchoe)", difficulty: "easy" },
-    { question: "A kitchen utensil", answer: "Any utensil starting with K (e.g. Knife)", difficulty: "medium" },
-    { question: "A ketone compound", answer: "Any ketone starting with K (e.g. Ketohexose)", difficulty: "hard" }
+    { question: "(Known by) Player who famously scored in a 0-0 draw with Celtic <br>(Submitted by PaddyD)", answer: "Kaka", difficulty: "normal" },
+    { question: "A ketone compound", answer: "Any ketone starting with K (e.g. Ketohexose)", difficulty: "extreme" }
   ],
   L: [
-    { question: "A musical genre", answer: "Any genre starting with L (e.g. Latin)", difficulty: "easy" },
-    { question: "A type of lizard", answer: "Any lizard starting with L (e.g. Leopard Gecko)", difficulty: "medium" },
-    { question: "A lichen species", answer: "Any lichen starting with L (e.g. Lobaria)", difficulty: "hard" }
+    { question: "(Surname) Belgian player who has played for Brighton and Arsenal <br>(Submitted by PaddyD)", answer: "Leandro Trossard", difficulty: "normal" },
+    { question: "(First name) Argentinian centre half deemed too small for the league <br>(Submitted by Laboon)", answer: "Lisandro Martinez", difficulty: "normal" },
+    { question: "A lichen species", answer: "Any lichen starting with L (e.g. Lobaria)", difficulty: "extreme" }
   ],
   M: [
-    { question: "A famous landmark", answer: "Any landmark starting with M (e.g. Machu Picchu)", difficulty: "easy" },
-    { question: "A metal", answer: "Any metal starting with M (e.g. Magnesium)", difficulty: "medium" },
-    { question: "A mollusk genus", answer: "Any mollusk starting with M (e.g. Murex)", difficulty: "hard" }
+    { question: "(Known by) Fullback who Gareth Bale scored a hattrick against for Spurs in the UCL <br>(Submitted by PaddyD)", answer: "Maicon", difficulty: "normal" },
+    { question: "A mollusk genus", answer: "Any mollusk starting with M (e.g. Murex)", difficulty: "extreme" }
   ],
   N: [
-    { question: "A type of dance", answer: "Any dance starting with N (e.g. Nia)", difficulty: "easy" },
-    { question: "A country in Africa", answer: "Any African country starting with N (e.g. Nigeria)", difficulty: "medium" },
-    { question: "A nematode species", answer: "Any nematode starting with N (e.g. Necator)", difficulty: "hard" }
+    { question: "Name of Manchester United before they became Manchester United <br>(Submitted by PaddyD)", answer: "Newton Heath", difficulty: "normal" },
+    { question: "English Team with a 100% win rate in European Cup finals <br>(Submitted by Laboon)", answer: "Nottingham Forest", difficulty: "normal" },
+    { question: "A nematode species", answer: "Any nematode starting with N (e.g. Necator)", difficulty: "extreme" }
   ],
   O: [
-    { question: "A type of ocean", answer: "Any ocean starting with O (e.g. Ocean)", difficulty: "easy" },
-    { question: "An orchestra instrument", answer: "Any instrument starting with O (e.g. Oboe)", difficulty: "medium" },
-    { question: "An ore mineral", answer: "Any ore starting with O (e.g. Olivenite)", difficulty: "hard" }
+    { question: "La Liga side that play home games at El Sadar Stadium <br>(Submitted by PaddyD)", answer: "Osasuna", difficulty: "normal" },
+    { question: "An ore mineral", answer: "Any ore starting with O (e.g. Olivenite)", difficulty: "extreme" }
   ],
   P: [
-    { question: "A beverage", answer: "Any beverage starting with P (e.g. Pepsi)", difficulty: "easy" },
-    { question: "A type of pasta", answer: "Any pasta starting with P (e.g. Penne)", difficulty: "medium" },
-    { question: "A prehistoric creature", answer: "Any prehistoric creature starting with P (e.g. Pteranodon)", difficulty: "hard" }
+    { question: "Team that won the 2008 FA Cup <br>(Submitted by PaddyD)", answer: "Portsmouth", difficulty: "normal" },
+    { question: "A prehistoric creature", answer: "Any prehistoric creature starting with P (e.g. Pteranodon)", difficulty: "extreme" }
   ],
   Q: [
-    { question: "A type of clothing", answer: "Any clothing starting with Q (e.g. Quilted jacket)", difficulty: "easy" },
-    { question: "A queen in history", answer: "Any queen starting with Q (e.g. Queen Victoria)", difficulty: "medium" },
-    { question: "A quark type", answer: "Any quark starting with Q (e.g. Quantum)", difficulty: "hard" }
+    { question: "A type of clothing", answer: "Any clothing starting with Q (e.g. Quilted jacket)", difficulty: "normal" },
+    { question: "(First name) Dutch fullback that signed for Burnley in 2025 from Feyenoord <br>(Submitted by PaddyD)", answer: "Quilindschy Hartman", difficulty: "extreme" }
   ],
   R: [
-    { question: "A color", answer: "Any color starting with R (e.g. Red)", difficulty: "easy" },
-    { question: "A river", answer: "Any river starting with R (e.g. Rhine)", difficulty: "medium" },
-    { question: "A rare earth element", answer: "Any rare earth starting with R (e.g. Rhenium)", difficulty: "hard" }
+    { question: "Scottish team that went into administration in 2012 <br>(Submitted by PaddyD)", answer: "Rangers", difficulty: "normal" },
+    { question: "Team that made the quarter finals in the 1996 Champions League, furthest in their history (Submitted by Laboon)", answer: "Rosenborg", difficulty: "extreme" }
   ],
   S: [
-    { question: "A type of vehicle", answer: "Any vehicle starting with S (e.g. Sedan)", difficulty: "easy" },
-    { question: "A type of shell", answer: "Any shell starting with S (e.g. Scallop)", difficulty: "medium" },
-    { question: "A stellar phenomenon", answer: "Any stellar phenomenon starting with S (e.g. Supernova)", difficulty: "hard" }
+    { question: "(Surname) Argentinian centre back who won the UCL with Man United in 1999 <br>(Submitted by PaddyD)", answer: "Jaap Stam", difficulty: "normal" },
+    { question: "(Surname) Former player nicknamed the 'Baby Faced Assasin' <br>(Submitted by Laboon)", answer: "Ole Gunnar Solskjaer", difficulty: "normal" },
+    { question: "(Surname) Former player nicknamed the 'Baby Faced Assasin' <br>(Submitted by Laboon)", answer: "Ole Gunnar Solskjaer", difficulty: "extreme" },
   ],
   T: [
-    { question: "A holiday", answer: "Any holiday starting with T (e.g. Thanksgiving)", difficulty: "easy" },
-    { question: "A type of tree", answer: "Any tree starting with T (e.g. Teak)", difficulty: "medium" },
-    { question: "A textile fiber", answer: "Any fiber starting with T (e.g. Tencel)", difficulty: "hard" }
+    { question: "Turkish team that Daniel Sturridge had a spell at <br>(Submitted by PaddyD)", answer: "Trabzonspor", difficulty: "normal" },
+    { question: "A textile fiber", answer: "Any fiber starting with T (e.g. Tencel)", difficulty: "extreme" }
   ],
   U: [
-    { question: "A body of water", answer: "Any body of water starting with U (e.g. Ural River)", difficulty: "easy" },
-    { question: "A university", answer: "Any university starting with U (e.g. UCLA)", difficulty: "medium" },
-    { question: "An ultraviolet phenomenon", answer: "Any UV phenomenon starting with U (e.g. Ultraviolet radiation)", difficulty: "hard" }
+    { question: "Dutch team Celtic beat in the final league phase game in the Europa League 25/26 season <br>(Submitted by PaddyD)", answer: "FC Utrecht", difficulty: "normal" },
+    { question: "An ultraviolet phenomenon", answer: "Any UV phenomenon starting with U (e.g. Ultraviolet radiation)", difficulty: "extreme" }
   ],
   V: [
-    { question: "A type of tree", answer: "Any tree starting with V (e.g. Vine maple)", difficulty: "easy" },
-    { question: "A vegetable", answer: "Any vegetable starting with V (e.g. Violet)", difficulty: "medium" },
-    { question: "A virus species", answer: "Any virus starting with V (e.g. Varicella)", difficulty: "hard" }
+    { question: "(First name) Member of the Wimbledon crazy gang turned hard man actor <br>(Submitted by PaddyD)", answer: "Vinnie Jones", difficulty: "normal" },
+    { question: "A virus species", answer: "Any virus starting with V (e.g. Varicella)", difficulty: "extreme" }
   ],
   W: [
-    { question: "A type of weather", answer: "Any weather starting with W (e.g. Windy)", difficulty: "easy" },
-    { question: "A type of weapon", answer: "Any weapon starting with W (e.g. Wand)", difficulty: "medium" },
-    { question: "A wavelength phenomenon", answer: "Any wavelength phenomenon starting with W (e.g. Wien's displacement law)", difficulty: "hard" }
+    { question: "(Surname) Youngest player to ever play for England <br>(Submitted by PaddyD)", answer: "Theo Walcott", difficulty: "normal" },
+    { question: "Blue wearing english team that has an alliterative name with this letter <br>(Submitted by Laboon)", answer: "Wycombe Wanderers", difficulty: "normal" },
+    { question: "A wavelength phenomenon", answer: "Any wavelength phenomenon starting with W (e.g. Wien's displacement law)", difficulty: "extreme" }
   ],
   X: [
-    { question: "A musical instrument", answer: "Any instrument starting with X (e.g. Xylophone)", difficulty: "easy" },
-    { question: "An x-ray application", answer: "Any x-ray use starting with X (e.g. X-radiography)", difficulty: "medium" },
-    { question: "A xenon compound", answer: "Any xenon compound starting with X (e.g. Xenon difluoride)", difficulty: "hard" }
+    { question: "A musical instrument", answer: "Any instrument starting with X (e.g. Xylophone)", difficulty: "normal" },
+    { question: "(Contains first name) 1998 World Cup winning left back <br>(Submitted by Laboon)", answer: "Bixente Lizarazu", difficulty: "extreme" }
   ],
   Y: [
-    { question: "A type of fabric", answer: "Any fabric starting with Y (e.g. Yarn)", difficulty: "easy" },
-    { question: "A yacht type", answer: "Any yacht starting with Y (e.g. Yacht)", difficulty: "medium" },
-    { question: "A yttrium compound", answer: "Any yttrium compound starting with Y (e.g. Yttrium oxide)", difficulty: "hard" }
+    { question: "(First name) Trickster from DR Congo that played for Palace & Everton <br>(Submitted by PaddyD)", answer: "Yannick Bolasie", difficulty: "normal" },
+    { question: "A yttrium compound", answer: "Any yttrium compound starting with Y (e.g. Yttrium oxide)", difficulty: "extreme" }
   ],
   Z: [
-    { question: "An animal", answer: "Any animal starting with Z (e.g. Zebra)", difficulty: "easy" },
-    { question: "A geological zone", answer: "Any zone starting with Z (e.g. Zone)", difficulty: "medium" },
-    { question: "A zoological classification", answer: "Any classification starting with Z (e.g. Zooplankton)", difficulty: "hard" }
+    { question: "(Surname) Italian fullback that spent time at Chelsea and Atalanta <br>(Submitted by PaddyD)", answer: "Davide Zappacosta", difficulty: "normal" },
+    { question: "A zoological classification", answer: "Any classification starting with Z (e.g. Zooplankton)", difficulty: "extreme" }
   ]
 };
