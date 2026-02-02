@@ -550,20 +550,22 @@ button.wrong:hover {
 </head>
 <body>
 
-<header>
-  <div class="header-container">
-    <img src="https://d29fhpw069ctt2.cloudfront.net/photo/115360/preview/a326e2ed-d2d9-481e-9fb5-7a0bcecdc33f_300x169.jpeg" alt="Flatchat FC" class="header-logo">
-    <nav>
-      <a href="https://en.wikipedia.org/wiki/Flatchat_F.C.">Home</a>
-      <a href="https://en.wikipedia.org/wiki/Flatchat_F.C.#Honours">Honours</a>
-      <a href="https://en.wikipedia.org/wiki/Flatchat_F.C.#Notable_players">Notable Players</a>
-    </nav>
-  </div>
-</header>
-
-<header style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); padding: 6px 15px; text-align: center; font-size: 0.85rem; line-height: 1.4;">
-  In memory of the GREAT Denis Law, Colin Hendry, and Ian Fage. Forever in our hearts.
-</header>
+  <header>
+    <div class="header-container">
+      <a href="index.html">
+        <img src="icons/flatchat_banner.jpg" alt="Flatchat Archive Logo" class="header-logo" />
+      </a>
+      <nav>
+        <a href="aaron.html">Aaron 'The Goat' Turnbull</a>
+        <a href="heggie.html">Heggie 'The Hog' Heggerson</a>
+        <a href="calum.html">Calum 'The Lobster' Porter</a>
+        <a href="jacob.html">Jacob 'Speccy' Murray</a>
+        <a href="darts-marathon-summary.html">Macmillan Darts Marathon 2025</a>
+        <a href="flatchat-fifa-tourney.html">Flatchat FIFA Tourney 2026</a>
+        <a href="passport-game.html">Passport Game</a>
+      </nav>
+    </div>
+  </header>
 
 <main>
   <button id="fullscreenBtn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
@@ -592,24 +594,28 @@ button.wrong:hover {
 </main>
 
 <footer>
-  <p>Created by <a href="https://en.wikipedia.org/wiki/Flatchat_F.C." style="color:#fff; text-decoration:underline;">Flatchat FC</a></p>
+  <p>Please support the boys at all the links below.</p>
   <div class="social-links">
-    <a href="https://www.youtube.com/@FlatchatFC" target="_blank" title="YouTube">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-    </a>
-    <a href="https://www.instagram.com/flatchat_fc/" target="_blank" title="Instagram">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-    </a>
-    <a href="https://www.tiktok.com/@flatchat_fc" target="_blank" title="TikTok">
-      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
-    </a>
+    <a href="https://www.tiktok.com/@theflatchat" target="_blank"><img src="icons/tiktok.png" alt="TikTok"></a>
+    <a href="https://www.instagram.com/theflatchatofficial/" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
+    <a href="https://www.youtube.com/@theflatchat" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
+    <a href="https://www.youtube.com/@FlatChatDarts" target="_blank"><img src="icons/darts.png" alt="Darts YouTube"></a>
+    <a href="https://www.thesoccershopdirect.co.uk/product-category/the-flat-chat/" target="_blank"><img src="icons/merch.png" alt="Merch"></a>
+    <a href="https://www.cameo.com/theflatchat" target="_blank"><img src="icons/cameo.png" alt="Cameo"></a>
+    <a href="https://x.com/theflatchatx" target="_blank"><img src="icons/x.png" alt="X"></a>
+    <a href="https://www.threads.com/@theflatchatofficial" target="_blank"><img src="icons/threads.png" alt="Threads"></a>
   </div>
+  <p>Site made by Darren 'Unico'</p>
+  <p>Thanks to the following members from the Members-Only Discord for top-tier flatchat moment contributions: Maule13, FinnAllen</p>
   <div class="footer-random">
-    <button id="randomMomentBtn" onclick="window.open('https://www.youtube.com/@FlatchatFC/videos','_blank')" title="Random Moment">
-      <img src="https://yt3.googleusercontent.com/MkKgd8kETauzWy83lHUyqG2fKd3RzqCMQpMi4zJgvxAUEQfWBFsCrOp-Ou_FgfxBcOhtE1Sqmw=s160-c-k-c0x00ffffff-no-rj" alt="Random">
+    <button id="randomMomentBtn">
+      <img src="icons/randomiser.png" alt="Random Moment" />
     </button>
   </div>
 </footer>
+
+<script src="scripts/modal-auto-stop-video.js"></script>
+<script src="scripts/randomMoment.js"></script>
 
 <script>
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
