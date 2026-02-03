@@ -6,6 +6,7 @@ const QUESTION_POOL = {
   B: [
     { question: "(First name) Zimbabwean striker that played for Man City and Portsmouth <br>(Submitted by PaddyD)", answer: "Benjani", difficulty: "normal" },
     { question: "(Surname) Pink haired former winger for Ajax, Liverpool and Fulham <br>(Submitted by Laboon)", answer: "Ryan Babel", difficulty: "normal" },
+    { question: "(Full name) Celtic defender that joined from Toulouse in 2001 <br>(Submitted by F0ley)", answer: "Bobo Balde", difficulty: "normal" },
     { question: "A type of bacteria", answer: "Any bacteria starting with B (e.g. Bacillus)", difficulty: "extreme" }
   ],
   C: [
