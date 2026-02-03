@@ -712,7 +712,7 @@ window.addEventListener('resize', () => {
   }
 });
 
-function validateQuestionFile(text) {
+function validateQuestionFile(text, playerCount = selectedPlayerCount) {
   const match = text.match(/const\s+QUESTION_POOL\s*=\s*(\{[\s\S]*?\});/);
   if (!match) return "QUESTION_POOL not found";
 
@@ -727,9 +727,15 @@ function validateQuestionFile(text) {
     if (!/^[A-Z]$/.test(key)) {
       return `Invalid key "${key}" (must be A–Z)`;
     }
+
     if (!Array.isArray(pool[key])) {
       return `Value for "${key}" must be an array`;
     }
+
+    if (pool[key].length < playerCount) {
+      return `Not enough questions for "${key}" — need at least ${playerCount}, found ${pool[key].length}`;
+    }
+
     for (const q of pool[key]) {
       if (!q.question || !q.answer) {
         return `Each question must have question and answer`;
@@ -883,7 +889,7 @@ else if (setupStep === 2) {
 
     const reader = new FileReader();
     reader.onload = e => {
-      const error = validateQuestionFile(e.target.result);
+      const error = validateQuestionFile(e.target.result, selectedPlayerCount);
       if (error) {
         fileError.textContent = error;
         return;
@@ -1077,9 +1083,17 @@ function renderScoreboard() {
 
 function buildBoardForPlayer() {
   board.querySelectorAll('.letter').forEach(l => l.remove());
+
+  const activeLetter = getNextPendingLetter();
+
   players[currentPlayer].letters.forEach(obj => {
     const d = document.createElement('div');
     d.className = `letter ${obj.state}`;
+
+    if (activeLetter && obj.letter === activeLetter.letter) {
+      d.classList.add('active');
+    }
+
     d.textContent = obj.letter;
     d.style.left = `${letterPositions[obj.letter].x}px`;
     d.style.top = `${letterPositions[obj.letter].y}px`;
@@ -1090,13 +1104,29 @@ function buildBoardForPlayer() {
 /* ---------- TURN LOGIC ---------- */
 function getNextPendingLetter() {
   const p = players[currentPlayer];
-  const pending = p.letters.filter(l => l.state === 'pending' || l.state === 'skipped-retry');
-  if (!pending.length) return null;
-  return pending[p.letterIndex % pending.length];
+  const letters = p.letters;
+  const len = letters.length;
+
+  for (let i = 0; i < len; i++) {
+    const idx = (p.letterIndex + i) % len;
+    const l = letters[idx];
+
+    if (l.state === 'pending' || l.state === 'skipped-retry') {
+      p.letterIndex = idx; // lock onto this position
+      return l;
+    }
+  }
+
+  return null;
 }
 
 function nextTurn() {
   if (gameOver) return;
+
+  if (isRoundOver()) {
+    showWinnerScreen();
+    return;
+  }
 
   const letterObj = getNextPendingLetter();
   if (!letterObj) return;
@@ -1144,16 +1174,37 @@ function reveal() {
 }
 
 function correct() {
-  players[currentPlayer].score++;
+  const p = players[currentPlayer];
+  const letterObj = getNextPendingLetter();
+  if (!letterObj) return;
+
+  letterObj.state = 'correct';
+  p.score++;
+
+  p.letterIndex = (p.letterIndex + 1) % p.letters.length;
   nextTurn();
 }
 
 function wrong() {
+  const p = players[currentPlayer];
+  const letterObj = getNextPendingLetter();
+  if (!letterObj) return;
+
+  letterObj.state = 'wrong';
+
+  p.letterIndex = (p.letterIndex + 1) % p.letters.length;
   nextPlayer();
 }
 
 function skip() {
-  players[currentPlayer].skips--;
+  const p = players[currentPlayer];
+  const letterObj = getNextPendingLetter();
+  if (!letterObj) return;
+
+  p.skips--;
+  letterObj.state = 'skipped-retry';
+
+  p.letterIndex = (p.letterIndex + 1) % p.letters.length;
   nextPlayer();
 }
 
@@ -1162,6 +1213,49 @@ function nextPlayer() {
   currentPlayer = (currentPlayer + 1) % players.length;
   renderScoreboard();
   nextTurn();
+}
+
+function isRoundOver() {
+  return players.every(p =>
+    p.letters.every(l =>
+      l.state === 'correct' || l.state === 'wrong'
+    )
+  );
+}
+
+function showWinnerScreen() {
+  gameOver = true;
+  clearInterval(timerInterval);
+
+  const sorted = [...players].sort((a, b) => b.score - a.score);
+  const winner = sorted[0];
+
+  scoreboard.innerHTML = '';
+
+  document.getElementById('center').innerHTML = `
+    <div class="center-inner">
+      <h2 style="margin-bottom:10px;">🏆 Winner</h2>
+      <h1 style="color:#25b6c4;margin-bottom:14px;">
+        ${winner.name}
+      </h1>
+
+      <div style="font-size:0.9em;margin-bottom:12px;">
+        Final Scores:
+        <br><br>
+        ${sorted.map(p => `
+          <div>
+            <strong>${p.name}</strong> — ${p.score} points
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="center-actions">
+        <button class="primary" onclick="showSetup()">
+          New Game
+        </button>
+      </div>
+    </div>
+  `;
 }
 
 showSetup();
