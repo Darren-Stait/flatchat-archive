@@ -1027,6 +1027,21 @@ function updatePlayerCount() {
   showSetupStep();
 }
 
+function getNextActivePlayer() {
+  for (let i = 1; i <= players.length; i++) {
+    const idx = (currentPlayer + i) % players.length;
+    const p = players[idx];
+
+    const hasLetters = p.letters.some(
+      l => l.state === 'pending' || l.state === 'skipped-retry'
+    );
+
+    if (hasLetters) return idx;
+  }
+
+  return null;
+}
+
 function prevSetup() {
 
   // From difficulty → back to question source
@@ -1123,13 +1138,26 @@ function getNextPendingLetter() {
 function nextTurn() {
   if (gameOver) return;
 
+  // If current player is done, move to someone who isn't
+  const letterObj = getNextPendingLetter();
+  if (!letterObj) {
+    const next = getNextActivePlayer();
+
+    if (next === null) {
+      showWinnerScreen();
+      return;
+    }
+
+    currentPlayer = next;
+    renderScoreboard();
+    nextTurn();
+    return;
+  }
+
   if (isRoundOver()) {
     showWinnerScreen();
     return;
   }
-
-  const letterObj = getNextPendingLetter();
-  if (!letterObj) return;
 
   buildBoardForPlayer();
 
