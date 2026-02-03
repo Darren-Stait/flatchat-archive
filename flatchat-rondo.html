@@ -585,6 +585,92 @@ button.wrong:hover {
 #center {
   animation: fadeIn 0.3s ease-out;
 }
+
+/* ============================
+   MOBILE RESPONSIVENESS FIX
+   ============================ */
+@media (max-width: 768px) {
+
+  /* --- Center circle spacing --- */
+  #center {
+    width: 60%;
+    height: 60%;
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  /* --- Setup inputs (player names / time / skips) --- */
+  .name-input {
+    width: 90%;
+    max-width: 220px;
+    margin: 2px auto;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  select {
+    width: 100%;
+    max-width: 180px;
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  /* --- File upload box --- */
+  #dropZone {
+    max-width: 200px !important;
+    padding: 10px !important;
+    font-size: 0.7rem;
+  }
+
+  /* --- Legend (correct / skipped / wrong key) --- */
+  #legend {
+    position: static;
+    margin-bottom: 10px;
+    font-size: 0.7rem;
+    padding: 8px 10px;
+  }
+
+  .legend-item {
+    gap: 6px;
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* --- Action buttons (skip / reveal / correct / wrong) --- */
+  button {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+  }
+
+  .center-actions {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  /* --- Board letters --- */
+  .letter {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  /* --- Scoreboard cards --- */
+  .player-card {
+    min-width: 120px;
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+
+  /* --- Background logos off (extra clarity) --- */
+  .background-logo {
+    display: none;
+  }
+}
+
 </style>
 
 </head>
