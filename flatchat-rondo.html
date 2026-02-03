@@ -569,11 +569,6 @@ button.wrong:hover {
     padding: 8px 18px;
     font-size: 0.9rem;
   }
-  
-  #legend {
-    font-size: 0.8em;
-    padding: 10px 12px;
-  }
 }
 
 /* ---------- ANIMATIONS ---------- */
@@ -622,14 +617,6 @@ button.wrong:hover {
     font-size: 0.7rem;
   }
 
-  /* --- Legend (correct / skipped / wrong key) --- */
-  #legend {
-    position: static;
-    margin-bottom: 10px;
-    font-size: 0.7rem;
-    padding: 8px 10px;
-  }
-
   .legend-item {
     gap: 6px;
   }
@@ -669,29 +656,38 @@ button.wrong:hover {
   .background-logo {
     display: none;
   }
+/* ============================
+   MOBILE LEGEND BOTTOM DOCK
+   ============================ */
 @media (max-width: 768px) {
-
-  /* --- Move legend to bottom bar --- */
   #legend {
     position: fixed !important;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 200;
+    bottom: env(safe-area-inset-bottom, 0);
+    left: 0;
+    right: 0;
+    top: auto !important;
+
+    width: 100%;
+    max-width: none;
+
     display: flex;
-    gap: 12px;
-    align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 6px 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    font-size: 0.7rem;
+    gap: 14px;
+
+    padding: 8px 0;
+    margin: 0;
+
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 0;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.25);
+    z-index: 99999;
+
+    transform: none !important;
   }
 
   .legend-item {
-    flex-direction: row;
-    margin-bottom: 0;
+    margin: 0;
+    font-size: 0.7rem;
   }
 
   .legend-dot {
@@ -699,9 +695,9 @@ button.wrong:hover {
     height: 10px;
   }
 
-  /* --- Give board some breathing room above legend --- */
+  /* Push game up so letters never hide behind bar */
   main {
-    padding-bottom: 120px;
+    padding-bottom: 140px !important;
   }
 }
 }
