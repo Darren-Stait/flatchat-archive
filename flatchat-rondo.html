@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flatchat Rondo</title>
-
+<link rel="icon" type="image/x-icon" href="icons/flatchat-small.webp">
+<link rel="preconnect" href="https://www.youtube.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script src="questions.js"></script>
 
 <style>
@@ -182,42 +184,31 @@ main {
 @media (max-width: 768px) {
   .background-logo { display: none; }
 }
-
 /* ============================
-   TOP BUTTONS
+   TOP CONTROL BUTTONS - UNIFIED STYLE
    ============================ */
-#fullscreenBtn,
-#customSheetBtn {
+.top-btn {
   position: absolute;
   top: 15px;
   z-index: 100;
+
   padding: 8px 14px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+
   font-weight: 600;
-  box-shadow: var(--card-shadow);
-  transition: all .2s ease;
-  color: #fff;
   font-size: 0.8rem;
+
+  color: #fff;
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s ease;
 }
 
-#fullscreenBtn {
-  right: 15px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-}
-
-#customSheetBtn {
-  left: 15px;
-  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
-}
-
-#fullscreenBtn:hover,
-#customSheetBtn:hover {
+.top-btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--card-shadow-hover);
 }
-
 /* ============================
    SCOREBOARD
    ============================ */
@@ -576,6 +567,24 @@ body.builder-mode #center {
     gap: 6px;
   }
 }
+/* ============================
+   TOP BUTTON POSITIONS + COLORS
+   ============================ */
+#fullscreenBtn {
+  right: 15px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+#customSheetBtn {
+  left: 15px;
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+}
+
+#submitQuestionBtn {
+  left: 15px;
+  top: 60px;
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+}
 </style>
 </head>
 
@@ -602,11 +611,14 @@ body.builder-mode #center {
   <img src="icons/flatchat_banner.jpg" class="background-logo left" alt="">
   <img src="icons/flatchat_banner.jpg" class="background-logo right" alt="">
 
-  <button id="fullscreenBtn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
-  <button id="customSheetBtn" onclick="openSheetBuilder()">📝 Create Custom Sheet</button>
-  <a id="submitQuestionBtn" href="https://forms.gle/YjuYWK7ZCvQmzC2KA" target="_blank">
-  <button class="secondary">📝 Submit a Question</button>
-  </a>
+  <button id="fullscreenBtn" class="top-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+  <button id="customSheetBtn" class="top-btn" onclick="openSheetBuilder()">📝 Open Custom Sheet Builder</button>
+  <button
+    id="submitQuestionBtn"
+    class="top-btn"
+    onclick="window.open('https://forms.gle/YjuYWK7ZCvQmzC2KA', '_blank')">
+    📝 Submit a Question
+  </button>
 
 
   <div id="scoreboard"></div>
