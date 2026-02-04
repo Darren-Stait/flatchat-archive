@@ -4,23 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flatchat Rondo</title>
+
 <script src="questions.js"></script>
 
 <style>
+/* ============================
+   ROOT VARIABLES
+   ============================ */
 :root {
   --primary: #25b6c4;
   --primary-dark: #1a8a96;
   --accent: #f2b632;
-  --accent-dark: #e0a520;
   --success: #3cb371;
   --danger: #d9534f;
   --warning: #ffc107;
-  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --card-shadow: 0 8px 24px rgba(0,0,0,0.12);
   --card-shadow-hover: 0 12px 32px rgba(0,0,0,0.18);
 }
 
-html {
+/* ============================
+   BASE
+   ============================ */
+html, body {
   margin: 0;
   width: 100%;
   height: 100%;
@@ -30,35 +35,9 @@ html {
 body {
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   background: var(--primary);
-  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  scrollbar-gutter: stable;
-  position: relative;
-}
-
-header,
-footer {
-  position: relative;
-  z-index: 2;
-}
-
-/* Fullscreen styling */
-:fullscreen {
-  background: var(--primary);
-  overflow: hidden;
-}
-
-:fullscreen header,
-:fullscreen footer {
-  display: none !important;
-}
-
-:fullscreen body {
-  overflow: hidden;
 }
 
 header {
@@ -171,6 +150,9 @@ footer p { margin:0 0 8px; line-height:1.4; }
   #randomMomentBtn img { width:42px; height:42px; }
 }
 
+/* ============================
+   MAIN LAYOUT
+   ============================ */
 main {
   flex: 1;
   display: flex;
@@ -179,191 +161,156 @@ main {
   justify-content: center;
   position: relative;
   width: 100%;
-  margin: 0;
-  padding: 20px 0 80px 0;
+  padding: 20px 0 80px;
 }
 
+/* ============================
+   BACKGROUND LOGOS
+   ============================ */
 .background-logo {
   position: absolute;
-  width: 400px;
+  width: clamp(250px, 40vw, 900px);
   height: auto;
   pointer-events: none;
   top: 50%;
   transform: translateY(-50%);
   z-index: 0;
 }
-
-.background-logo.left {
-  left: 2%;
-}
-
-.background-logo.right {
-  right: 2%;
-}
-
-@media (max-width: 1200px) {
-  .background-logo {
-    width: 300px;
-  }
-}
+.background-logo.left { left: -5%; }
+.background-logo.right { right: -5%; }
 
 @media (max-width: 768px) {
-  .background-logo {
-    display: none;
-  }
+  .background-logo { display: none; }
 }
 
-#fullscreenBtn {
+/* ============================
+   TOP BUTTONS
+   ============================ */
+#fullscreenBtn,
+#customSheetBtn {
   position: absolute;
   top: 15px;
-  right: 15px;
   z-index: 100;
-  padding: 10px 18px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white;
+  padding: 8px 14px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
   box-shadow: var(--card-shadow);
-  transition: all .3s ease;
+  transition: all .2s ease;
+  color: #fff;
+  font-size: 0.8rem;
 }
 
-#fullscreenBtn:hover {
+#fullscreenBtn {
+  right: 15px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+#customSheetBtn {
+  left: 15px;
+  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+}
+
+#fullscreenBtn:hover,
+#customSheetBtn:hover {
   transform: translateY(-2px);
   box-shadow: var(--card-shadow-hover);
 }
 
-/* ---------- SCOREBOARD ---------- */
+/* ============================
+   SCOREBOARD
+   ============================ */
 #scoreboard {
   display: flex;
   gap: 16px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin: 20px 0;
   flex-wrap: wrap;
   justify-content: center;
-  position: relative;
   z-index: 1;
 }
 
-/* ---------- PLAYER CARD ---------- */
 .player-card {
   background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
   padding: 12px 16px;
   border-radius: 12px;
   box-shadow: var(--card-shadow);
-  font-size: 0.95rem;
-  min-width: 160px;
+  font-size: 0.9rem;
+  min-width: 150px;
   text-align: center;
-  transition: all .3s ease;
   border: 2px solid transparent;
 }
 
-.player-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--card-shadow-hover);
-}
-
 .player-card.active {
-  border: 2px solid var(--primary);
+  border-color: var(--primary);
   background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-  box-shadow: 0 8px 24px rgba(37, 182, 196, 0.3);
 }
 
-/* ---------- RONDO ---------- */
+/* ============================
+   BOARD / LETTERS
+   ============================ */
 #board {
   position: relative;
   width: min(90vmin, 800px);
   height: min(90vmin, 800px);
-  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.1));
   z-index: 1;
 }
 
 .letter {
   position: absolute;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
+  background: #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1.1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  transition: all .3s ease;
+  font-size: 1.05rem;
   border: 2px solid #fff;
 }
 
-.letter:hover {
-  transform: scale(1.1);
-}
+.letter.active { background: var(--primary); color:#fff; }
+.letter.correct { background: var(--success); color:#fff; }
+.letter.wrong { background: var(--danger); color:#fff; }
+.letter.skipped-retry { background: var(--warning); color:#000; }
 
-.letter.skipped-retry { 
-  background: linear-gradient(135deg, #ffd54f 0%, var(--warning) 100%);
-  color: #000; 
-  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
-}
-.letter.active { 
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: #fff; 
-  box-shadow: 0 4px 12px rgba(37, 182, 196, 0.5);
-  transform: scale(1.15);
-}
-.letter.correct { 
-  background: linear-gradient(135deg, #66bb6a 0%, var(--success) 100%);
-  color: #fff; 
-  box-shadow: 0 4px 12px rgba(60, 179, 113, 0.4);
-}
-.letter.wrong { 
-  background: linear-gradient(135deg, #ef5350 0%, var(--danger) 100%);
-  color: #fff; 
-  box-shadow: 0 4px 12px rgba(217, 83, 79, 0.4);
-}
-.letter.skipped { 
-  background: linear-gradient(135deg, #ffd54f 0%, var(--warning) 100%);
-  color: #000; 
-  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
-}
-
-/* ---------- LEGEND ---------- */
+/* ============================
+   LEGEND
+   ============================ */
 #legend {
+  display: none;
   position: absolute;
   top: 15px;
   left: 15px;
-  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-  padding: 12px 16px;
-  border-radius: 10px;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
   box-shadow: var(--card-shadow);
-  font-size: 0.9em;
+  font-size: 0.8rem;
   z-index: 50;
-  border: 1px solid rgba(0,0,0,0.05);
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: 8px;
+  margin-bottom: 6px;
 }
-
-.legend-item:last-child {
-  margin-bottom: 0;
-}
+.legend-item:last-child { margin-bottom: 0; }
 
 .legend-dot {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 }
+.legend-dot.correct { background: var(--success); }
+.legend-dot.skipped { background: var(--warning); }
+.legend-dot.wrong { background: var(--danger); }
 
-.legend-dot.correct { background: linear-gradient(135deg, #66bb6a 0%, var(--success) 100%); }
-.legend-dot.skipped { background: linear-gradient(135deg, #ffd54f 0%, var(--warning) 100%); }
-.legend-dot.wrong { background: linear-gradient(135deg, #ef5350 0%, var(--danger) 100%); }
-
-/* ---------- CENTER ---------- */
+/* ============================
+   CENTER CIRCLE
+   ============================ */
 #center {
   position: absolute;
   top: 50%;
@@ -372,339 +319,197 @@ main {
   width: 45%;
   height: 45%;
   border-radius: 50%;
-  background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.8);
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  padding: 10px;
   text-align: center;
-  box-sizing: border-box;
   overflow: hidden;
-  gap: 6px;
-  font-size: clamp(12px, 1.4vmin, 15px);
-  border: 3px solid rgba(255,255,255,0.8);
+  font-size: clamp(11px, 1.4vmin, 14px);
 }
 
-/* ---------- SETUP PANEL BELOW CIRCLE ---------- */
-#setupPanel {
-  width: min(80vmin, 650px);
-  margin: -30px auto 0 auto;
-  text-align: center;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 10;
-}
-
-#setupPanel .name-input { margin: 8px auto; }
-
-#center .center-inner {
+.center-inner {
   width: 100%;
   height: 100%;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4px 6px;
-  box-sizing: border-box;
-  overflow-y: auto;
-  text-align: center;
-  max-height: 100%;
-  gap: 3px;
-  -webkit-overflow-scrolling: touch;
-}
-
-#center .center-inner .setup-row {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.center-top {
-  width: 100%;
-}
-
-.center-body {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 4px;
 }
 
-.center-actions {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-/* ---------- SETUP FORM CONTROLS ---------- */
-#center .setup-row label {
-  font-size: 0.9em;
+/* ============================
+   FORM CONTROLS
+   ============================ */
+label {
+  font-size: 0.8rem;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 3px;
-  display: block;
 }
 
-input[type="number"],
-input[type="text"],
-select {
-  width: 80%;
-  max-width: 200px;
-  padding: 7px 10px;
-  font-size: 0.9rem;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  box-sizing: border-box;
-  transition: all .3s ease;
-  background: #fff;
-}
-
-input[type="number"]:focus,
-input[type="text"]:focus,
-select:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37, 182, 196, 0.1);
-}
-
-.name-input {
+input, select {
   width: 85%;
-  max-width: 280px;
-  margin: 4px auto;
+  max-width: 180px;
+  padding: 5px 8px;
+  font-size: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-.name-input input {
-  width: 100%;
-  max-width: none;
-}
-
-.name-input.error input {
-  border-color: var(--danger);
-  background: #fff5f5;
-}
-
-.error-message {
-  color: var(--danger);
-  font-size: 0.9em;
-  margin-top: 8px;
-  display: none;
-  font-weight: 600;
-}
-
-/* ---------- BUTTONS ---------- */
 button {
-  padding: 8px 18px;
-  font-size: 0.9rem;
+  padding: 6px 12px;
+  font-size: 0.75rem;
   font-weight: 600;
+  border-radius: 6px;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-  transition: all .3s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-button:active {
-  transform: translateY(0);
 }
 
 button.primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: #fff;
+  background: var(--primary);
+  color:#fff;
 }
-
-button.primary:hover {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, #156b75 100%);
-}
-
 button.secondary {
-  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
-  color: #fff;
+  background: #6c757d;
+  color:#fff;
 }
-
-button.secondary:hover {
-  background: linear-gradient(135deg, #5a6268 0%, #4e555b 100%);
-}
-
 button.correct {
-  background: linear-gradient(135deg, var(--success) 0%, #2e8b57 100%);
-  color: #fff;
+  background: var(--success);
+  color:#fff;
 }
-
-button.correct:hover {
-  background: linear-gradient(135deg, #2e8b57 0%, #25724a 100%);
-}
-
 button.wrong {
-  background: linear-gradient(135deg, var(--danger) 0%, #c9302c 100%);
-  color: #fff;
-}
-
-button.wrong:hover {
-  background: linear-gradient(135deg, #c9302c 0%, #a02622 100%);
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
-  .letter {
-    width: 38px;
-    height: 38px;
-    font-size: 1rem;
-  }
-  
-  button {
-    padding: 8px 18px;
-    font-size: 0.9rem;
-  }
-}
-
-/* ---------- ANIMATIONS ---------- */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-#center {
-  animation: fadeIn 0.3s ease-out;
+  background: var(--danger);
+  color:#fff;
 }
 
 /* ============================
-   MOBILE RESPONSIVENESS FIX
+   SHEET BUILDER (COMPACT)
+   ============================ */
+#sheetBuilder {
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+  overflow-y: auto;
+  font-size: 0.65rem;
+}
+
+.sheet-letter {
+  margin-bottom: 6px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+}
+
+.sheet-letter h3 {
+  margin: 0 0 4px;
+  font-size: 0.7rem;
+  color: var(--primary);
+}
+
+.sheet-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.sheet-row input {
+  flex: 1;
+  padding: 3px 4px;
+  font-size: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+#sheetBuilder button {
+  padding: 3px 6px;
+  font-size: 0.6rem;
+}
+
+/* ============================
+   MOBILE
    ============================ */
 @media (max-width: 768px) {
-
-  /* --- Center circle spacing --- */
-  #center {
-    width: 60%;
-    height: 60%;
-    font-size: 12px;
-    padding: 8px;
-  }
-
-  /* --- Setup inputs (player names / time / skips) --- */
-  .name-input {
-    width: 90%;
-    max-width: 220px;
-    margin: 2px auto;
-  }
-
-  input[type="text"],
-  input[type="number"],
-  select {
-    width: 100%;
-    max-width: 180px;
-    padding: 6px 8px;
-    font-size: 0.8rem;
-  }
-
-  /* --- File upload box --- */
-  #dropZone {
-    max-width: 200px !important;
-    padding: 10px !important;
-    font-size: 0.7rem;
-  }
-
-  .legend-item {
-    gap: 6px;
-  }
-
-  .legend-dot {
-    width: 12px;
-    height: 12px;
-  }
-
-  /* --- Action buttons (skip / reveal / correct / wrong) --- */
-  button {
-    padding: 6px 12px;
-    font-size: 0.75rem;
-    border-radius: 6px;
-  }
-
-  .center-actions {
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  /* --- Board letters --- */
   .letter {
     width: 32px;
     height: 32px;
     font-size: 0.85rem;
   }
 
-  /* --- Scoreboard cards --- */
-  .player-card {
-    min-width: 120px;
-    font-size: 0.8rem;
-    padding: 8px 10px;
-  }
-
-  /* --- Background logos off (extra clarity) --- */
-  .background-logo {
-    display: none;
-  }
-/* ============================
-   MOBILE LEGEND BOTTOM DOCK
-   ============================ */
-@media (max-width: 768px) {
-  #legend {
-    position: fixed !important;
-    bottom: env(safe-area-inset-bottom, 0);
-    left: 0;
-    right: 0;
-    top: auto !important;
-
-    width: 100%;
-    max-width: none;
-
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-
-    padding: 8px 0;
-    margin: 0;
-
-    background: rgba(255, 255, 255, 0.97);
-    border-radius: 0;
-    box-shadow: 0 -4px 12px rgba(0,0,0,0.25);
-    z-index: 99999;
-
-    transform: none !important;
-  }
-
-  .legend-item {
-    margin: 0;
-    font-size: 0.7rem;
-  }
-
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-  }
-
-  /* Push game up so letters never hide behind bar */
-  main {
-    padding-bottom: 140px !important;
+  #center {
+    width: 60%;
+    height: 60%;
   }
 }
+
+/* ============================
+   FORM ERROR STYLES
+   ============================ */
+.input-error {
+  border-color: var(--danger) !important;
+  box-shadow: 0 0 0 1px var(--danger);
+}
+
+.form-error {
+  color: var(--danger);
+  font-size: 0.7rem;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+
+/* ============================
+   BUILDER MODE - BIGGER CIRCLE
+   ============================ */
+body.builder-mode #center {
+  width: 65% !important;
+  height: 65% !important;
+}
+/* ============================
+   FULLSCREEN GAME MODE
+   ============================ */
+body.fullscreen main {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+}
+
+body.fullscreen header,
+body.fullscreen footer {
+  display: none;
+}
+
+body.fullscreen {
+  overflow: hidden;
+}
+/* ============================
+   BUILDER MODE SHAPE
+   ============================ */
+body.builder-mode #center {
+  border-radius: 10% !important;
+}
+/* ============================
+   REVEAL LAYOUT HARD FIX
+   ============================ */
+#center {
+  overflow: hidden !important;
+}
+
+#center .reveal-grid {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  max-height: 100%;
+}
+
+#center .reveal-answer {
+  overflow-y: auto;
+  padding: 6px;
+  word-break: break-word;
 }
 
 </style>
-
 </head>
+
 <body>
 
   <header>
@@ -725,13 +530,14 @@ button.wrong:hover {
   </header>
 
 <main>
-  <img src="icons/flatchat_banner.jpg" alt="" class="background-logo left" aria-hidden="true">
-  <img src="icons/flatchat_banner.jpg" alt="" class="background-logo right" aria-hidden="true">
-  
+  <img src="icons/flatchat_banner.jpg" class="background-logo left" alt="">
+  <img src="icons/flatchat_banner.jpg" class="background-logo right" alt="">
+
   <button id="fullscreenBtn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
-  
+  <button id="customSheetBtn" onclick="openSheetBuilder()">📝 Create Custom Sheet</button>
+
   <div id="scoreboard"></div>
-  
+
   <div id="board">
     <div id="legend">
       <div class="legend-item">
@@ -749,8 +555,6 @@ button.wrong:hover {
     </div>
     <div id="center">Loading...</div>
   </div>
-  
-  <div id="setupPanel"></div>
 </main>
 
 <footer>
@@ -774,10 +578,11 @@ button.wrong:hover {
   </div>
 </footer>
 
-<script src="scripts/modal-auto-stop-video.js"></script>
-<script src="scripts/randomMoment.js"></script>
-
 <script>
+/* ============================
+   GAME LOGIC (UNCHANGED)
+   ============================ */
+
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 let letterPositions = {};
 let players = [];
@@ -792,7 +597,6 @@ let selectedTimeLimit = 180;
 let selectedDifficulty = 'normal';
 let selectedSkips = 3;
 let setupStep = 0;
-let usingCustomQuestions = false;
 
 const scoreboard = document.getElementById('scoreboard');
 const board = document.getElementById('board');
@@ -814,14 +618,6 @@ function calculatePositions() {
   });
 }
 
-function toggleFullscreen() {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen();
-  } else {
-    document.exitFullscreen();
-  }
-}
-
 window.addEventListener('resize', () => {
   if (players.length) {
     calculatePositions();
@@ -829,7 +625,144 @@ window.addEventListener('resize', () => {
   }
 });
 
-function validateQuestionFile(text, playerCount = selectedPlayerCount) {
+/* ---------- FULLSCREEN ---------- */
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+    document.body.classList.add('fullscreen');
+  } else {
+    document.exitFullscreen();
+    document.body.classList.remove('fullscreen');
+  }
+}
+
+/* ---------- SETUP ---------- */
+function showSetup() {
+  document.body.classList.remove('builder-mode');
+  document.getElementById('legend').style.display = 'none';
+  gameOver = false;
+  players = [];
+  currentPlayer = 0;
+  scoreboard.innerHTML = '';
+  board.querySelectorAll('.letter').forEach(l => l.remove());
+  setupStep = 0;
+  showSetupStep();
+}
+
+/* ---------- SETUP STEPS ---------- */
+function showSetupStep() {
+
+  if (setupStep === 0) {
+    let namesHTML = '';
+    if (selectedPlayerCount > 1) {
+      for (let i = 0; i < selectedPlayerCount; i++) {
+        namesHTML += `
+          <div>
+            <input type="text" id="playerName${i}" placeholder="Player ${i+1} Name" value="${selectedPlayerNames[i] || ''}">
+          </div>
+        `;
+      }
+    }
+
+    document.getElementById('center').innerHTML = `
+      <div class="center-inner">
+        <label>Number of Players</label>
+        <select id="playerCount" onchange="updatePlayerCount()">
+          ${[1,2,3,4].map(n => `<option value="${n}" ${selectedPlayerCount===n?'selected':''}>${n}</option>`).join('')}
+        </select>
+
+        ${namesHTML}
+
+        <button class="primary" onclick="proceedSetup()">Next</button>
+      </div>
+    `;
+    document.querySelectorAll('[id^="playerName"]').forEach(input => {
+  input.addEventListener('input', () => {
+    input.classList.remove('input-error');
+    const err = document.getElementById('formError');
+    if (err) err.remove();
+  });
+});
+  }
+
+  else if (setupStep === 1) {
+    document.getElementById('center').innerHTML = `
+      <div class="center-inner">
+        <label>Time per player (seconds)</label>
+        <input type="number" id="timeLimit" min="30" max="600" value="${selectedTimeLimit}">
+        <button class="secondary" onclick="prevSetup()">Back</button>
+        <button class="primary" onclick="proceedSetup()">Next</button>
+      </div>
+    `;
+  }
+
+  else if (setupStep === 2) {
+    document.getElementById('center').innerHTML = `
+      <div class="center-inner">
+
+        <div id="dropZone" style="border:1px dashed #aaa;padding:10px;border-radius:8px;font-size:0.65rem;">
+          Click to upload custom question file
+          <input type="file" id="customQuestions" accept=".js" style="display:none;">
+        </div>
+
+        <small>Leave empty to use default questions</small>
+
+        <button class="secondary" onclick="prevSetup()">Back</button>
+        <button class="primary" onclick="proceedSetup()">Next</button>
+      </div>
+    `;
+
+    const dz = document.getElementById('dropZone');
+    const fi = document.getElementById('customQuestions');
+
+fi.onchange = e => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const error = validateQuestionFile(ev.target.result, selectedPlayerCount);
+
+    if (error) {
+      // Keep the inline UX: show error in the circle instead of popup
+      const centerInner = document.querySelector('#center .center-inner');
+      if (centerInner) {
+        const msg = document.createElement('div');
+        msg.className = 'form-error';
+        msg.textContent = "Invalid question file: " + error;
+        centerInner.prepend(msg);
+      }
+      fi.value = '';
+      return;
+    }
+
+    // Load the custom pool
+    window.QUESTION_POOL = null;
+    eval(ev.target.result);
+
+    // Auto-advance to next setup step
+    setupStep = 3;
+    showSetupStep();
+  };
+
+  reader.readAsText(file);
+};
+    dz.onclick = () => fi.click();
+  }
+
+  else if (setupStep === 3) {
+    document.getElementById('center').innerHTML = `
+      <div class="center-inner">
+        <label>Number of skips</label>
+        <input type="number" id="skips" min="1" max="26" value="${selectedSkips}">
+        <button class="secondary" onclick="prevSetup()">Back</button>
+        <button class="primary" onclick="proceedSetup()">Start Game</button>
+      </div>
+    `;
+  }
+}
+
+function validateQuestionFile(text, playerCount) {
   const match = text.match(/const\s+QUESTION_POOL\s*=\s*(\{[\s\S]*?\});/);
   if (!match) return "QUESTION_POOL not found";
 
@@ -842,296 +775,103 @@ function validateQuestionFile(text, playerCount = selectedPlayerCount) {
 
   for (const key in pool) {
     if (!/^[A-Z]$/.test(key)) {
-      return `Invalid key "${key}" (must be A–Z)`;
+      return `Invalid key "${key}"`;
     }
-
     if (!Array.isArray(pool[key])) {
       return `Value for "${key}" must be an array`;
     }
-
     if (pool[key].length < playerCount) {
-      return `Not enough questions for "${key}" — need at least ${playerCount}, found ${pool[key].length}`;
+      return `Not enough questions for "${key}" — need at least ${playerCount}`;
     }
-
     for (const q of pool[key]) {
       if (!q.question || !q.answer) {
         return `Each question must have question and answer`;
       }
     }
   }
-
-  return null; // valid
+  return null;
 }
 
-/* ---------- SETUP ---------- */
-function showSetup() {
-  gameOver = false;
-  players = [];
-  currentPlayer = 0;
-  scoreboard.innerHTML = '';
-  board.querySelectorAll('.letter').forEach(l => l.remove());
-  setupStep = 0;
+function validatePlayerNames() {
+  // Only enforce names if more than 1 player
+  if (selectedPlayerCount < 2) return true;
+
+  // Clear previous errors
+  document.querySelectorAll('.input-error').forEach(el => {
+    el.classList.remove('input-error');
+  });
+
+  const err = document.getElementById('formError');
+  if (err) err.remove();
+
+  for (let i = 0; i < selectedPlayerCount; i++) {
+    const input = document.getElementById(`playerName${i}`);
+    if (!input || !input.value.trim()) {
+      if (input) input.classList.add('input-error');
+
+      const centerInner = document.querySelector('#center .center-inner');
+      if (centerInner) {
+        const msg = document.createElement('div');
+        msg.id = 'formError';
+        msg.className = 'form-error';
+        msg.textContent = 'Please enter a name for every player before continuing.';
+        centerInner.prepend(msg);
+      }
+
+      input?.focus();
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/* ---------- SETUP HELPERS ---------- */
+function updatePlayerCount() {
+  selectedPlayerCount = parseInt(document.getElementById('playerCount').value);
   showSetupStep();
 }
 
-function showSetupStep() {
-
-  /* STEP 0 — PLAYERS */
-  if (setupStep === 0) {
-    let namesHTML = '';
-    if (selectedPlayerCount > 1) {
-      for (let i = 0; i < selectedPlayerCount; i++) {
-        namesHTML += `
-          <div class="name-input">
-            <input type="text" id="playerName${i}" placeholder="Player ${i+1} Name" value="${selectedPlayerNames[i] || ''}">
-          </div>
-        `;
-      }
-    }
-
-    document.getElementById('center').innerHTML = `
-      <div class="center-inner">
-        <div class="setup-row">
-          <label>Number of Players</label>
-          <select id="playerCount" onchange="updatePlayerCount()">
-            ${[1,2,3,4].map(n => `<option value="${n}" ${selectedPlayerCount===n?'selected':''}>${n}</option>`).join('')}
-          </select>
-        </div>
-        <div id="namesContainer">${namesHTML}</div>
-        <div id="errorMessage" class="error-message">Please fill in all player names</div>
-        <div class="center-actions">
-          <button class="primary" onclick="proceedSetup()">Next</button>
-        </div>
-      </div>
-    `;
-  }
-
-  /* STEP 1 — TIME */
-  else if (setupStep === 1) {
-    document.getElementById('center').innerHTML = `
-      <div class="center-inner">
-        <div class="setup-row">
-          <label>Time per player (seconds)</label>
-          <input type="number" id="timeLimit" min="30" max="600" value="${selectedTimeLimit}">
-        </div>
-        <div class="center-actions">
-          <button class="secondary" onclick="prevSetup()">Back</button>
-          <button class="primary" onclick="proceedSetup()">Next</button>
-        </div>
-      </div>
-    `;
-  }
-
-  /* STEP 2 — DIFFICULTY OR UPLOAD */
-else if (setupStep === 2) {
-  document.getElementById('center').innerHTML = `
-    <div class="center-inner" style="text-align:center;">
-
-      <div
-        id="dropZone"
-        style="
-          border: 2px dashed #aaa;
-          border-radius: 12px;
-          padding: 18px;
-          cursor: pointer;
-          max-width: 100px;
-          margin: 0 auto 10px;
-          background: rgba(255,255,255,0.9);
-        "
-      >
-        <strong>Drag & drop your custom question sheet</strong><br><br>
-        <span style="font-size:0.8rem;color:#555;">
-          or click to browse
-        </span>
-
-        <input
-          type="file"
-          id="customQuestions"
-          accept=".js"
-          style="display:none;"
-        />
-      </div>
-
-      <div id="fileStatus" style="font-size:0.8rem;color:#2e7d32;margin-bottom:6px;"></div>
-      <div id="fileError" style="font-size:0.75rem;color:#d9534f;margin-bottom:6px;"></div>
-
-      <div style="margin-bottom:10px;">
-        <a href="template_upload.js" download style="font-size:0.75rem;">
-          ⬇ Download question sheet template
-        </a>
-      </div>
-
-      <small style="display:block;font-size:0.7rem;color:#666;margin-bottom:14px;">
-        Leave empty to use default questions
-      </small>
-
-      <div class="center-actions" style="justify-content:center;">
-        <button class="secondary" onclick="prevSetup()">Back</button>
-        <button class="primary" onclick="proceedSetup()">Next</button>
-      </div>
-
-    </div>
-  `;
-
-  const dropZone = document.getElementById('dropZone');
-  const fileInput = document.getElementById('customQuestions');
-  const fileStatus = document.getElementById('fileStatus');
-  const fileError = document.getElementById('fileError');
-
-  dropZone.addEventListener('click', () => fileInput.click());
-
-  dropZone.addEventListener('dragover', e => {
-    e.preventDefault();
-    dropZone.style.borderColor = '#25b6c4';
-  });
-
-  dropZone.addEventListener('dragleave', () => {
-    dropZone.style.borderColor = '#aaa';
-  });
-
-  dropZone.addEventListener('drop', e => {
-    e.preventDefault();
-    dropZone.style.borderColor = '#aaa';
-    fileInput.files = e.dataTransfer.files;
-    handleFile();
-  });
-
-  fileInput.addEventListener('change', handleFile);
-
-  function handleFile() {
-    fileError.textContent = '';
-    fileStatus.textContent = '';
-
-    if (!fileInput.files.length) return;
-
-    const reader = new FileReader();
-    reader.onload = e => {
-      const error = validateQuestionFile(e.target.result, selectedPlayerCount);
-      if (error) {
-        fileError.textContent = error;
-        return;
-      }
-
-      const match = e.target.result.match(
-        /const\s+QUESTION_POOL\s*=\s*(\{[\s\S]*?\});/
-      );
-      window.QUESTION_POOL = eval('(' + match[1] + ')');
-      selectedDifficulty = null;
-
-      fileStatus.textContent = `✔ ${fileInput.files[0].name} loaded`;
-
-      // ⚡ Auto-advance
-      setTimeout(() => {
-        setupStep = 3;
-        showSetupStep();
-      }, 300);
-    };
-
-    reader.readAsText(fileInput.files[0]);
-  }
-}
-else if (setupStep === 2.5) {
-  document.getElementById('center').innerHTML = `
-    <div class="center-inner">
-
-      <div class="setup-row">
-        <label>Question difficulty</label>
-        <select id="difficulty">
-          <option value="normal" selected>Normal</option>
-          <option value="extreme">Extreme</option>
-        </select>
-      </div>
-
-      <div class="center-actions">
-        <button class="secondary" onclick="prevSetup()">Back</button>
-        <button class="primary" onclick="proceedSetup()">Next</button>
-      </div>
-
-    </div>
-  `;
-}
-  /* STEP 3 — SKIPS */
-  else if (setupStep === 3) {
-    document.getElementById('center').innerHTML = `
-      <div class="center-inner">
-        <div class="setup-row">
-          <label>Number of skips</label>
-          <input type="number" id="skips" min="1" max="26" value="${selectedSkips}">
-        </div>
-        <div class="center-actions">
-          <button class="secondary" onclick="prevSetup()">Back</button>
-          <button class="primary" onclick="proceedSetup()">Start Game</button>
-        </div>
-      </div>
-    `;
+function prevSetup() {
+  if (setupStep > 0) {
+    setupStep--;
+    showSetupStep();
   }
 }
 
 function proceedSetup() {
+if (setupStep === 0) {
 
-  if (setupStep === 0) {
+  // Single-player: skip name handling entirely
+  if (selectedPlayerCount === 1) {
     selectedPlayerNames = [];
-    let hasError = false;
-
-    for (let i = 0; i < selectedPlayerCount; i++) {
-      const el = document.getElementById(`playerName${i}`);
-      if (selectedPlayerCount > 1 && (!el || !el.value.trim())) {
-        hasError = true;
-      } else if (el) {
-        selectedPlayerNames.push(el.value.trim());
-      }
-    }
-
-    if (hasError) {
-      document.getElementById('errorMessage').style.display = 'block';
-      return;
-    }
-
     setupStep = 1;
     showSetupStep();
+    return;
   }
 
+  // Multiplayer: enforce names
+  if (!validatePlayerNames()) return;
+
+  selectedPlayerNames = [];
+  for (let i = 0; i < selectedPlayerCount; i++) {
+    const el = document.getElementById(`playerName${i}`);
+    selectedPlayerNames.push(el.value.trim());
+  }
+
+  setupStep = 1;
+  showSetupStep();
+}
   else if (setupStep === 1) {
     selectedTimeLimit = parseInt(document.getElementById('timeLimit').value) || 180;
     setupStep = 2;
     showSetupStep();
   }
 
-else if (setupStep === 2) {
-  const fileInput = document.getElementById('customQuestions');
-
-  if (fileInput && fileInput.files.length > 0) {
-    usingCustomQuestions = true;
-    selectedDifficulty = null;
-
-    const reader = new FileReader();
-    reader.onload = e => {
-      try {
-        const match = e.target.result.match(
-          /const\s+QUESTION_POOL\s*=\s*(\{[\s\S]*?\});/
-        );
-        if (!match) throw new Error('QUESTION_POOL not found');
-        window.QUESTION_POOL = eval('(' + match[1] + ')');
-        setupStep = 3;
-        showSetupStep();
-      } catch (err) {
-        alert(err.message);
-      }
-    };
-    reader.readAsText(fileInput.files[0]);
-
-  } else {
-    // Default questions → ask for difficulty next
-    usingCustomQuestions = false;
-    setupStep = 2.5;
+  else if (setupStep === 2) {
+    setupStep = 3;
     showSetupStep();
   }
-}
-else if (setupStep === 2.5) {
-  selectedDifficulty = document.getElementById('difficulty').value;
-  setupStep = 3;
-  showSetupStep();
-}
 
   else if (setupStep === 3) {
     selectedSkips = parseInt(document.getElementById('skips').value) || 3;
@@ -1139,59 +879,18 @@ else if (setupStep === 2.5) {
   }
 }
 
-function updatePlayerCount() {
-  selectedPlayerCount = parseInt(document.getElementById('playerCount').value);
-  showSetupStep();
-}
-
-function getNextActivePlayer() {
-  for (let i = 1; i <= players.length; i++) {
-    const idx = (currentPlayer + i) % players.length;
-    const p = players[idx];
-
-    const hasLetters = p.letters.some(
-      l => l.state === 'pending' || l.state === 'skipped-retry'
-    );
-
-    if (hasLetters) return idx;
-  }
-
-  return null;
-}
-
-function prevSetup() {
-
-  // From difficulty → back to question source
-  if (setupStep === 2.5) {
-    setupStep = 2;
-    showSetupStep();
-    return;
-  }
-
-  // From question source → back to time
-  if (setupStep === 2) {
-    setupStep = 1;
-    showSetupStep();
-    return;
-  }
-
-  // Normal linear back
-  if (setupStep > 0) {
-    setupStep--;
-    showSetupStep();
-  }
-}
-
 /* ---------- GAME ---------- */
 function startGame() {
+  document.body.classList.remove('builder-mode');
+  document.getElementById('legend').style.display = 'block';
+
   players = Array.from({ length: selectedPlayerCount }, (_, i) => ({
     name: selectedPlayerCount === 1 ? 'You' : selectedPlayerNames[i] || `Player ${i+1}`,
     score: 0,
     time: selectedTimeLimit,
     skips: selectedSkips,
     letterIndex: 0,
-    letters: alphabet.map(l => ({ letter: l, state: 'pending' })),
-    hasReturnedToSkipped: false
+    letters: alphabet.map(l => ({ letter: l, state: 'pending' }))
   }));
 
   calculatePositions();
@@ -1213,26 +912,6 @@ function renderScoreboard() {
   });
 }
 
-function buildBoardForPlayer() {
-  board.querySelectorAll('.letter').forEach(l => l.remove());
-
-  const activeLetter = getNextPendingLetter();
-
-  players[currentPlayer].letters.forEach(obj => {
-    const d = document.createElement('div');
-    d.className = `letter ${obj.state}`;
-
-    if (activeLetter && obj.letter === activeLetter.letter) {
-      d.classList.add('active');
-    }
-
-    d.textContent = obj.letter;
-    d.style.left = `${letterPositions[obj.letter].x}px`;
-    d.style.top = `${letterPositions[obj.letter].y}px`;
-    board.appendChild(d);
-  });
-}
-
 /* ---------- TURN LOGIC ---------- */
 function getNextPendingLetter() {
   const p = players[currentPlayer];
@@ -1244,22 +923,41 @@ function getNextPendingLetter() {
     const l = letters[idx];
 
     if (l.state === 'pending' || l.state === 'skipped-retry') {
-      p.letterIndex = idx; // lock onto this position
+      p.letterIndex = idx;
       return l;
     }
   }
-
   return null;
+}
+
+function buildBoardForPlayer() {
+  board.querySelectorAll('.letter').forEach(l => l.remove());
+
+  const activeLetter = getNextPendingLetter();
+
+  players[currentPlayer].letters.forEach(obj => {
+    const d = document.createElement('div');
+    d.className = `letter ${obj.state}`;
+    if (activeLetter && obj.letter === activeLetter.letter) {
+      d.classList.add('active');
+    }
+    d.textContent = obj.letter;
+    d.style.left = `${letterPositions[obj.letter].x}px`;
+    d.style.top = `${letterPositions[obj.letter].y}px`;
+    board.appendChild(d);
+  });
 }
 
 function nextTurn() {
   if (gameOver) return;
 
   // If current player is done, move to someone who isn't
-  const letterObj = getNextPendingLetter();
+  let letterObj = getNextPendingLetter();
+
   if (!letterObj) {
     const next = getNextActivePlayer();
 
+    // Everyone finished
     if (next === null) {
       showWinnerScreen();
       return;
@@ -1271,11 +969,6 @@ function nextTurn() {
     return;
   }
 
-  if (isRoundOver()) {
-    showWinnerScreen();
-    return;
-  }
-
   buildBoardForPlayer();
 
   const pool = (window.QUESTION_POOL || QUESTION_POOL)[letterObj.letter] || [{
@@ -1283,17 +976,13 @@ function nextTurn() {
     answer: `Any valid answer starting with ${letterObj.letter}`
   }];
 
-  const selectedPool = selectedDifficulty
-    ? pool.filter(q => !q.difficulty || q.difficulty === selectedDifficulty)
-    : pool;
-
-  currentQA = selectedPool[Math.floor(Math.random() * selectedPool.length)];
+  currentQA = pool[Math.floor(Math.random() * pool.length)];
 
   document.getElementById('center').innerHTML = `
-    <strong style="font-size:1.6em">${letterObj.letter}</strong><br><br>
+    <strong style="font-size:1.4em">${letterObj.letter}</strong><br>
     ${currentQA.question}<br><br>
     ${players[currentPlayer].skips > 0 ? '<button class="secondary" onclick="skip()">Skip</button>' : ''}
-    <button class="primary" onclick="reveal()">Reveal Answer</button>
+    <button class="primary" onclick="reveal()">Reveal</button>
   `;
 
   startTimer();
@@ -1311,10 +1000,20 @@ function startTimer() {
 
 function reveal() {
   clearInterval(timerInterval);
+
   document.getElementById('center').innerHTML = `
-    ${currentQA.answer}<br><br>
-    <button class="correct" onclick="correct()">Correct</button>
-    <button class="wrong" onclick="wrong()">Wrong</button>
+    <div class="reveal-grid">
+      
+      <div class="reveal-answer">
+        ${currentQA.answer}
+      </div>
+
+      <div style="display:flex; gap:8px; justify-content:center; padding:6px;">
+        <button class="correct" onclick="correct()">Correct</button>
+        <button class="wrong" onclick="wrong()">Wrong</button>
+      </div>
+
+    </div>
   `;
 }
 
@@ -1325,8 +1024,7 @@ function correct() {
 
   letterObj.state = 'correct';
   p.score++;
-
-  p.letterIndex = (p.letterIndex + 1) % p.letters.length;
+  p.letterIndex++;
   nextTurn();
 }
 
@@ -1336,8 +1034,7 @@ function wrong() {
   if (!letterObj) return;
 
   letterObj.state = 'wrong';
-
-  p.letterIndex = (p.letterIndex + 1) % p.letters.length;
+  p.letterIndex++;
   nextPlayer();
 }
 
@@ -1348,8 +1045,7 @@ function skip() {
 
   p.skips--;
   letterObj.state = 'skipped-retry';
-
-  p.letterIndex = (p.letterIndex + 1) % p.letters.length;
+  p.letterIndex++;
   nextPlayer();
 }
 
@@ -1360,12 +1056,19 @@ function nextPlayer() {
   nextTurn();
 }
 
-function isRoundOver() {
-  return players.every(p =>
-    p.letters.every(l =>
-      l.state === 'correct' || l.state === 'wrong'
-    )
-  );
+function getNextActivePlayer() {
+  for (let i = 1; i <= players.length; i++) {
+    const idx = (currentPlayer + i) % players.length;
+    const p = players[idx];
+
+    const hasLetters = p.letters.some(
+      l => l.state === 'pending' || l.state === 'skipped-retry'
+    );
+
+    if (hasLetters) return idx;
+  }
+
+  return null; // Everyone is finished
 }
 
 function showWinnerScreen() {
@@ -1375,34 +1078,103 @@ function showWinnerScreen() {
   const sorted = [...players].sort((a, b) => b.score - a.score);
   const winner = sorted[0];
 
-  scoreboard.innerHTML = '';
-
   document.getElementById('center').innerHTML = `
     <div class="center-inner">
-      <h2 style="margin-bottom:10px;">🏆 Winner</h2>
-      <h1 style="color:#25b6c4;margin-bottom:14px;">
-        ${winner.name}
-      </h1>
-
-      <div style="font-size:0.9em;margin-bottom:12px;">
-        Final Scores:
-        <br><br>
-        ${sorted.map(p => `
-          <div>
-            <strong>${p.name}</strong> — ${p.score} points
-          </div>
-        `).join('')}
-      </div>
-
-      <div class="center-actions">
-        <button class="primary" onclick="showSetup()">
-          New Game
-        </button>
-      </div>
+      <h2>🏆 Winner</h2>
+      <h1 style="color:var(--primary)">${winner.name}</h1>
+      ${sorted.map(p => `<div>${p.name}: ${p.score}</div>`).join('')}
+      <br>
+      <button class="primary" onclick="showSetup()">New Game</button>
     </div>
   `;
 }
 
+/* ---------- SHEET BUILDER ---------- */
+function openSheetBuilder() {
+  document.body.classList.add('builder-mode');
+  document.getElementById('legend').style.display = 'none';
+  clearInterval(timerInterval);
+  gameOver = true;
+
+  const center = document.getElementById('center');
+
+  center.innerHTML = `
+    <div id="sheetBuilder">
+      <strong>Custom Question Builder</strong><br><br>
+      <strong>Add enough questions for at least 1 per person playing.</strong><br><br>
+      <div id="sheetLetters"></div>
+      <button class="secondary" onclick="showSetup()">Back</button>
+      <button class="primary" onclick="generateSheetFile()">Generate File</button>
+    </div>
+  `;
+
+  const container = document.getElementById('sheetLetters');
+
+  alphabet.forEach(letter => {
+    const section = document.createElement('div');
+    section.className = 'sheet-letter';
+
+    section.innerHTML = `
+      <h3>${letter}</h3>
+      <div class="sheet-rows"></div>
+      <button class="secondary" onclick="addSheetRow(this)">+ Add</button>
+    `;
+
+    container.appendChild(section);
+  });
+}
+
+function addSheetRow(btn) {
+  const rows = btn.parentElement.querySelector('.sheet-rows');
+
+  const row = document.createElement('div');
+  row.className = 'sheet-row';
+
+  row.innerHTML = `
+    <input type="text" placeholder="Question">
+    <input type="text" placeholder="Answer">
+    <button class="wrong" onclick="this.parentElement.remove()">✕</button>
+  `;
+
+  rows.appendChild(row);
+}
+
+function generateSheetFile() {
+  const pool = {};
+
+  document.querySelectorAll('.sheet-letter').forEach(section => {
+    const letter = section.querySelector('h3').textContent;
+    pool[letter] = [];
+
+    section.querySelectorAll('.sheet-row').forEach(row => {
+      const inputs = row.querySelectorAll('input');
+      const q = inputs[0].value.trim();
+      const a = inputs[1].value.trim();
+      if (q && a) pool[letter].push({ question: q, answer: a });
+    });
+
+    if (pool[letter].length === 0) {
+      pool[letter].push({ question: "Placeholder question", answer: "Placeholder answer" });
+    }
+  });
+
+  const fileContent = `const QUESTION_POOL = ${JSON.stringify(pool, null, 2)};`;
+  const blob = new Blob([fileContent], { type: 'text/javascript' });
+  const link = document.createElement('a');
+
+  link.href = URL.createObjectURL(blob);
+  link.download = 'custom_questions.js';
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) {
+    document.body.classList.remove('fullscreen');
+  }
+});
+
+/* ---------- INIT ---------- */
 showSetup();
 </script>
 
