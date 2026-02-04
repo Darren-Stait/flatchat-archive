@@ -705,9 +705,10 @@ function toggleFullscreen() {
 
 /* ---------- SETUP ---------- */
 function showSetup() {
+  gameOver = true;
+  updateBuilderButtonVisibility();
   const btn = document.getElementById('customSheetBtn');
   if (btn) btn.textContent = '📝 Open Custom Sheet Builder';
-  if (btn) btn.style.display = 'none';
   isInBuilder = false;
   document.body.classList.remove('builder-mode');
   document.getElementById('legend').style.display = 'none';
@@ -959,9 +960,10 @@ if (setupStep === 0) {
 
 /* ---------- GAME ---------- */
 function startGame() {
+  gameOver = false;
+  updateBuilderButtonVisibility();
   const btn = document.getElementById('customSheetBtn');
   if (btn) btn.textContent = '📝 Open Custom Sheet Builder';
-  if (btn) btn.style.display = 'none';
   isInBuilder = false;
   document.body.classList.remove('builder-mode');
   document.getElementById('legend').style.display = 'block';
@@ -1212,6 +1214,7 @@ function resumeTurn(playerIndex) {
 
 function showWinnerScreen() {
   gameOver = true;
+  updateBuilderButtonVisibility();
   clearInterval(timerInterval);
 
   const sorted = [...players].sort((a, b) => b.score - a.score);
@@ -1241,6 +1244,14 @@ function loadQuestionPoolFromText(text) {
 
   window.QUESTION_POOL = pool;
   return null;
+}
+
+function updateBuilderButtonVisibility() {
+  const btn = document.getElementById('customSheetBtn');
+  if (!btn) return;
+
+  // Show only when NOT actively playing
+  btn.style.display = gameOver ? 'inline-block' : 'none';
 }
 
 function openSheetBuilder() {
