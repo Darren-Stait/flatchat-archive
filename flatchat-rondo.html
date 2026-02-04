@@ -456,7 +456,21 @@ button.wrong {
   margin-bottom: 4px;
   font-weight: 600;
 }
+/* ============================
+   BUILDER VALIDATION STYLES
+   ============================ */
+.sheet-letter.error {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 1px var(--danger);
+}
 
+.builder-error {
+  color: var(--danger);
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-align: center;
+}
 
 /* ============================
    BUILDER MODE - BIGGER CIRCLE
@@ -506,7 +520,11 @@ body.builder-mode #center {
   padding: 6px;
   word-break: break-word;
 }
-
+@media (max-width: 768px) {
+  #legend {
+    display: none !important;
+  }
+}
 </style>
 </head>
 
@@ -597,6 +615,7 @@ let selectedTimeLimit = 180;
 let selectedDifficulty = 'normal';
 let selectedSkips = 3;
 let setupStep = 0;
+let isInBuilder = false;
 
 const scoreboard = document.getElementById('scoreboard');
 const board = document.getElementById('board');
@@ -638,6 +657,9 @@ function toggleFullscreen() {
 
 /* ---------- SETUP ---------- */
 function showSetup() {
+  const btn = document.getElementById('customSheetBtn');
+  if (btn) btn.textContent = '📝 Open Custom Sheet Builder';
+  isInBuilder = false;
   document.body.classList.remove('builder-mode');
   document.getElementById('legend').style.display = 'none';
   gameOver = false;
@@ -720,31 +742,38 @@ fi.onchange = e => {
   if (!file) return;
 
   const reader = new FileReader();
-  reader.onload = ev => {
-    const error = validateQuestionFile(ev.target.result, selectedPlayerCount);
+reader.onload = ev => {
+  const text = ev.target.result;
 
-    if (error) {
-      // Keep the inline UX: show error in the circle instead of popup
-      const centerInner = document.querySelector('#center .center-inner');
-      if (centerInner) {
-        const msg = document.createElement('div');
-        msg.className = 'form-error';
-        msg.textContent = "Invalid question file: " + error;
-        centerInner.prepend(msg);
-      }
-      fi.value = '';
-      return;
+  const error = validateQuestionFile(text, selectedPlayerCount);
+  if (error) {
+    const centerInner = document.querySelector('#center .center-inner');
+    if (centerInner) {
+      const msg = document.createElement('div');
+      msg.className = 'form-error';
+      msg.textContent = "Invalid question file: " + error;
+      centerInner.prepend(msg);
     }
+    fi.value = '';
+    return;
+  }
 
-    // Load the custom pool
-    window.QUESTION_POOL = null;
-    eval(ev.target.result);
+  const loadError = loadQuestionPoolFromText(text);
+  if (loadError) {
+    const centerInner = document.querySelector('#center .center-inner');
+    if (centerInner) {
+      const msg = document.createElement('div');
+      msg.className = 'form-error';
+      msg.textContent = "Failed to load file: " + loadError;
+      centerInner.prepend(msg);
+    }
+    return;
+  }
 
-    // Auto-advance to next setup step
-    setupStep = 3;
-    showSetupStep();
-  };
-
+  // Auto-advance
+  setupStep = 3;
+  showSetupStep();
+};
   reader.readAsText(file);
 };
     dz.onclick = () => fi.click();
@@ -881,6 +910,9 @@ if (setupStep === 0) {
 
 /* ---------- GAME ---------- */
 function startGame() {
+  const btn = document.getElementById('customSheetBtn');
+  if (btn) btn.textContent = '📝 Open Custom Sheet Builder';
+  isInBuilder = false;
   document.body.classList.remove('builder-mode');
   document.getElementById('legend').style.display = 'block';
 
@@ -1089,8 +1121,36 @@ function showWinnerScreen() {
   `;
 }
 
-/* ---------- SHEET BUILDER ---------- */
+function loadQuestionPoolFromText(text) {
+  const match = text.match(/const\s+QUESTION_POOL\s*=\s*(\{[\s\S]*?\});/);
+  if (!match) return "QUESTION_POOL not found";
+
+  let pool;
+  try {
+    pool = eval('(' + match[1] + ')');
+  } catch {
+    return "Invalid QUESTION_POOL syntax";
+  }
+
+  window.QUESTION_POOL = pool;
+  return null;
+}
+
 function openSheetBuilder() {
+  const btn = document.getElementById('customSheetBtn');
+
+  // If already in builder, go back to setup/game
+  if (isInBuilder) {
+    isInBuilder = false;
+    btn.textContent = '📝 Open Custom Sheet Builder';
+    showSetup();
+    return;
+  }
+
+  // Otherwise, open builder
+  isInBuilder = true;
+  btn.textContent = '⬅ Close Custom Sheet Builder';
+
   document.body.classList.add('builder-mode');
   document.getElementById('legend').style.display = 'none';
   clearInterval(timerInterval);
@@ -1101,9 +1161,8 @@ function openSheetBuilder() {
   center.innerHTML = `
     <div id="sheetBuilder">
       <strong>Custom Question Builder</strong><br><br>
-      <strong>Add enough questions for at least 1 per person playing.</strong><br><br>
       <div id="sheetLetters"></div>
-      <button class="secondary" onclick="showSetup()">Back</button>
+      <button class="secondary" onclick="openSheetBuilder()">Back to Game</button>
       <button class="primary" onclick="generateSheetFile()">Generate File</button>
     </div>
   `;
@@ -1141,6 +1200,15 @@ function addSheetRow(btn) {
 
 function generateSheetFile() {
   const pool = {};
+  let hasError = false;
+
+  // Clear previous errors
+  document.querySelectorAll('.sheet-letter').forEach(section => {
+    section.classList.remove('error');
+  });
+
+  const oldErr = document.getElementById('builderError');
+  if (oldErr) oldErr.remove();
 
   document.querySelectorAll('.sheet-letter').forEach(section => {
     const letter = section.querySelector('h3').textContent;
@@ -1154,9 +1222,22 @@ function generateSheetFile() {
     });
 
     if (pool[letter].length === 0) {
-      pool[letter].push({ question: "Placeholder question", answer: "Placeholder answer" });
+      hasError = true;
+      section.classList.add('error');
     }
   });
+
+  if (hasError) {
+    const centerInner = document.querySelector('#sheetBuilder');
+    if (centerInner) {
+      const msg = document.createElement('div');
+      msg.id = 'builderError';
+      msg.className = 'builder-error';
+      msg.textContent = 'Please add at least one question for every letter before generating the file.';
+      centerInner.prepend(msg);
+    }
+    return;
+  }
 
   const fileContent = `const QUESTION_POOL = ${JSON.stringify(pool, null, 2)};`;
   const blob = new Blob([fileContent], { type: 'text/javascript' });
