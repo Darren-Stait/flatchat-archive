@@ -254,6 +254,7 @@ main {
   width: min(90vw, 800px);
   min-width: 420px;
   min-height: 420px;
+  max-width: 900px;
   aspect-ratio: 1 / 1;
   z-index: 1;
 }
@@ -318,8 +319,8 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(360px, 50%, 620px);
-  height: clamp(360px, 50%, 620px);
+  width: clamp(380px, 55%, 650px);
+  height: clamp(380px, 55%, 650px);
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
@@ -573,16 +574,6 @@ body.builder-mode #center {
   .button-row {
     flex-direction: column;
     gap: 6px;
-  }
-}
-body.hosted-scale main {
-  transform: scale(1.06);
-  transform-origin: top center;
-}
-
-@media (min-width: 1600px) {
-  body.hosted-scale main {
-    transform: scale(1.1);
   }
 }
 </style>
@@ -1384,10 +1375,6 @@ document.addEventListener('fullscreenchange', () => {
     document.body.classList.remove('fullscreen');
   }
 });
-// Apply scale only when hosted (not file://)
-if (location.protocol === 'http:' || location.protocol === 'https:') {
-  document.body.classList.add('hosted-scale');
-}
 /* ---------- INIT ---------- */
 showSetup();
 </script>
