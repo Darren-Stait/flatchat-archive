@@ -1052,6 +1052,10 @@ function buildBoardForPlayer() {
 }
 
 function nextTurn() {
+  if (allPlayersOutOfTime()) {
+  showWinnerScreen();
+  return;
+  }
   if (gameOver) return;
 
   // If current player is done, move to someone who isn't
@@ -1107,11 +1111,34 @@ document.getElementById('center').innerHTML = `
 
 function startTimer() {
   clearInterval(timerInterval);
+
   timerInterval = setInterval(() => {
     const p = players[currentPlayer];
+
+    // If this player is already out of time, skip immediately
+    if (p.time <= 0) {
+      clearInterval(timerInterval);
+
+      if (allPlayersOutOfTime()) {
+        showWinnerScreen();
+      } else {
+        showTurnIncoming();
+      }
+      return;
+    }
+
     p.time--;
     renderScoreboard();
-    if (p.time <= 0) nextPlayer();
+
+    if (p.time <= 0) {
+      clearInterval(timerInterval);
+
+      if (allPlayersOutOfTime()) {
+        showWinnerScreen();
+      } else {
+        showTurnIncoming();
+      }
+    }
   }, 1000);
 }
 
@@ -1248,6 +1275,10 @@ function showWinnerScreen() {
       <button class="primary" onclick="showSetup()">New Game</button>
     </div>
   `;
+}
+
+function allPlayersOutOfTime() {
+  return players.every(p => p.time <= 0);
 }
 
 function loadQuestionPoolFromText(text) {
