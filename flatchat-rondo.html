@@ -707,6 +707,7 @@ function toggleFullscreen() {
 function showSetup() {
   const btn = document.getElementById('customSheetBtn');
   if (btn) btn.textContent = '📝 Open Custom Sheet Builder';
+  if (btn) btn.style.display = 'none';
   isInBuilder = false;
   document.body.classList.remove('builder-mode');
   document.getElementById('legend').style.display = 'none';
@@ -960,6 +961,7 @@ if (setupStep === 0) {
 function startGame() {
   const btn = document.getElementById('customSheetBtn');
   if (btn) btn.textContent = '📝 Open Custom Sheet Builder';
+  if (btn) btn.style.display = 'none';
   isInBuilder = false;
   document.body.classList.remove('builder-mode');
   document.getElementById('legend').style.display = 'block';
