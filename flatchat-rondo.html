@@ -604,6 +604,10 @@ body.builder-mode #center {
 
   <button id="fullscreenBtn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
   <button id="customSheetBtn" onclick="openSheetBuilder()">📝 Create Custom Sheet</button>
+  <a id="submitQuestionBtn" href="https://forms.gle/YjuYWK7ZCvQmzC2KA" target="_blank">
+  <button class="secondary">📝 Submit a Question</button>
+  </a>
+
 
   <div id="scoreboard"></div>
 
@@ -1250,11 +1254,14 @@ function loadQuestionPoolFromText(text) {
 }
 
 function updateBuilderButtonVisibility() {
-  const btn = document.getElementById('customSheetBtn');
-  if (!btn) return;
+  const builderBtn = document.getElementById('customSheetBtn');
+  const submitBtn = document.getElementById('submitQuestionBtn');
 
   // Show only when NOT actively playing
-  btn.style.display = gameOver ? 'inline-block' : 'none';
+  const display = gameOver ? 'inline-block' : 'none';
+
+  if (builderBtn) builderBtn.style.display = display;
+  if (submitBtn) submitBtn.style.display = display;
 }
 
 function openSheetBuilder() {
