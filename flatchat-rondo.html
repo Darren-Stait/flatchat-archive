@@ -993,7 +993,11 @@ function startGame() {
     time: selectedTimeLimit,
     skips: selectedSkips,
     letterIndex: 0,
-    letters: alphabet.map(l => ({ letter: l, state: 'pending' }))
+letters: alphabet.map(l => ({
+  letter: l,
+  state: 'pending',
+  qa: null   // ← stores the assigned question
+}))
   }));
 
   calculatePositions();
@@ -1078,12 +1082,17 @@ function nextTurn() {
 
   buildBoardForPlayer();
 
-  const pool = (window.QUESTION_POOL || QUESTION_POOL)[letterObj.letter] || [{
-    question: `Something starting with ${letterObj.letter}`,
-    answer: `Any valid answer starting with ${letterObj.letter}`
-  }];
+const pool = (window.QUESTION_POOL || QUESTION_POOL)[letterObj.letter] || [{
+  question: `Something starting with ${letterObj.letter}`,
+  answer: `Any valid answer starting with ${letterObj.letter}`
+}];
 
-  currentQA = pool[Math.floor(Math.random() * pool.length)];
+// Assign a question ONLY if this letter doesn't already have one
+if (!letterObj.qa) {
+  letterObj.qa = pool[Math.floor(Math.random() * pool.length)];
+}
+
+currentQA = letterObj.qa;
 
 document.getElementById('center').innerHTML = `
   <div class="center-inner">
@@ -1166,6 +1175,7 @@ function correct() {
   const letterObj = getNextPendingLetter();
   if (!letterObj) return;
 
+  letterObj.qa = null;
   letterObj.state = 'correct';
   p.score++;
   p.letterIndex++;
@@ -1177,6 +1187,7 @@ function wrong() {
   const letterObj = getNextPendingLetter();
   if (!letterObj) return;
 
+  letterObj.qa = null;
   letterObj.state = 'wrong';
   p.letterIndex++;
 
