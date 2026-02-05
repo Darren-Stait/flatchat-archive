@@ -676,6 +676,19 @@ let currentQA = null;
 let timerInterval = null;
 let gameOver = false;
 
+// For multiplayer: per-letter shuffled queues to ensure unique questions
+let availableQuestionsByLetter = {};
+
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+  }
+  return arr;
+}
+
 let selectedPlayerCount = 2;
 let selectedPlayerNames = [];
 let selectedTimeLimit = 180;
@@ -1000,6 +1013,17 @@ letters: alphabet.map(l => ({
 }))
   }));
 
+  // Build per-letter queues of available questions to avoid duplicates in multiplayer
+  availableQuestionsByLetter = {};
+  const poolSource = (window.QUESTION_POOL || (typeof QUESTION_POOL !== 'undefined' ? QUESTION_POOL : null));
+  if (selectedPlayerCount > 1 && poolSource) {
+    alphabet.forEach(letter => {
+      const pool = poolSource[letter] || [];
+      // Create a shuffled copy
+      availableQuestionsByLetter[letter] = shuffleArray(pool.slice());
+    });
+  }
+
   calculatePositions();
   renderScoreboard();
   nextTurn();
@@ -1082,14 +1106,24 @@ function nextTurn() {
 
   buildBoardForPlayer();
 
-const pool = (window.QUESTION_POOL || QUESTION_POOL)[letterObj.letter] || [{
+const defaultPool = [{
   question: `Something starting with ${letterObj.letter}`,
   answer: `Any valid answer starting with ${letterObj.letter}`
 }];
 
-// Assign a question ONLY if this letter doesn't already have one
+const globalPool = (window.QUESTION_POOL || (typeof QUESTION_POOL !== 'undefined' ? QUESTION_POOL : null));
+
+// Assign a question ONLY if this letter doesn't already have one.
+// In multiplayer, prefer using the per-letter shuffled queue to avoid duplicates.
 if (!letterObj.qa) {
-  letterObj.qa = pool[Math.floor(Math.random() * pool.length)];
+  if (selectedPlayerCount > 1 && availableQuestionsByLetter[letterObj.letter] && availableQuestionsByLetter[letterObj.letter].length > 0) {
+    letterObj.qa = availableQuestionsByLetter[letterObj.letter].shift();
+  } else if (globalPool && Array.isArray(globalPool[letterObj.letter]) && globalPool[letterObj.letter].length > 0) {
+    const pool = globalPool[letterObj.letter];
+    letterObj.qa = pool[Math.floor(Math.random() * pool.length)];
+  } else {
+    letterObj.qa = defaultPool[0];
+  }
 }
 
 currentQA = letterObj.qa;
