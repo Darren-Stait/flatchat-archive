@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flatchat Archive - Jacob</title>
-  <link rel="icon" type="image/x-icon" href="icons/flatchat-small.webp">
+  <title>Flatchat Archive - Aaron</title>
+  <link rel="icon" type="image/x-icon" href="../icons/flatchat-small.webp">
   <link rel="preconnect" href="https://www.youtube.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
@@ -16,75 +16,6 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-    }
-
-    /* HEADER */
-    header {
-      background-color: #25b6c4;
-      color: #fff;
-      padding: 8px 25px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .header-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .header-logo {
-      max-width: 520px;
-      height: auto;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .header-logo:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: #f2b632;
-    }
-
-    @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-      }
-
-      .header-logo {
-        max-width: 90%;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 6px;
-        font-size: 1rem;
-      }
     }
 
     /* MAIN CONTENT */
@@ -176,7 +107,8 @@
 
     /* Show slide when corresponding radio is checked */
     #slide1:checked ~ .gallery-slides .slide1,
-    #slide2:checked ~ .gallery-slides .slide2 {
+    #slide2:checked ~ .gallery-slides .slide2,
+    #slide3:checked ~ .gallery-slides .slide3 {
       opacity: 1;
       z-index: 1;
     }
@@ -200,7 +132,6 @@
       text-decoration: none;
       transition: all 0.3s ease;
       user-select: none;
-      right: 10px;
     }
 
     .gallery-arrow:hover {
@@ -208,10 +139,17 @@
       transform: translateY(-50%) scale(1.1);
     }
 
+    .arrow-next {
+      right: 10px;
+    }
+
     /* Single Next button: only show the correct target per slide */
     .arrow-next { display: none; }
     #slide1:checked ~ .arrow-next.from1 { display: flex; }
     #slide2:checked ~ .arrow-next.from2 { display: flex; }
+    #slide3:checked ~ .arrow-next.from3 { display: flex; }
+
+    /* Indicators removed */
 
     .selection-section {
       flex: 1;
@@ -265,96 +203,19 @@
         height: 400px;
         flex: 0 0 auto;
       }
-    }
 
-    /* FOOTER */
-    footer {
-      background-color: #25b6c4;
-      color: #fff;
-      text-align: center;
-      padding: 10px 15px;
-      font-size: 0.9rem;
-      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    footer p {
-      margin: 0 0 8px;
-      line-height: 1.4;
-    }
-
-    .social-links {
-      margin-top: 6px;
-    }
-
-    .social-links a {
-      display: inline-block;
-      margin: 0 8px;
-      text-decoration: none;
-      transition: transform 0.3s ease;
-    }
-
-    .social-links a:hover {
-      transform: scale(1.1);
-    }
-
-    .social-links img {
-      width: 36px;
-      height: 36px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .social-links img:hover {
-      transform: scale(1.1);
-    }
-
-    /* Default: desktop view */
-    .footer-random {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      z-index: 10;
-    }
-
-    #randomMomentBtn {
-      background: #f5f5f5;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      padding: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    #randomMomentBtn:hover {
-      transform: rotate(15deg) scale(1.1);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    #randomMomentBtn img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: block;
-    }
-
-    /* ✅ Mobile view: place button below text, centered */
-    @media (max-width: 768px) {
-      .footer-random {
-        position: static; /* no absolute positioning */
-        margin-top: 10px;
-        display: flex;
-        justify-content: center;
+      .gallery-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
       }
 
-      #randomMomentBtn img {
-        width: 42px; /* slightly smaller on mobile */
-        height: 42px;
+      .arrow-prev {
+        left: 5px;
+      }
+
+      .arrow-next {
+        right: 5px;
       }
     }
 
@@ -381,9 +242,8 @@
     .modal-inner {
       background: #fff;
       border-radius: 10px;
-      /* increased max width by 10% (900 -> 990) */
-        /* base width cap (used as reference) */
-        width: min(990px, 96%);
+      /* base width cap (used as reference) */
+      width: min(990px, 96%);
       /* raised max height to better fit taller video content */
       max-height: 95vh;
       overflow: auto;
@@ -428,6 +288,7 @@
     }
 
     /* Optimize iframe loading - prevent loading until modal is visible */
+    /* Iframes with empty src don't load until src is set */
     .modal:not(:target) .modal-video {
       display: none;
     }
@@ -435,6 +296,11 @@
     .modal:target .modal-video {
       display: block;
     }
+
+    .modal:not(:target) iframe.modal-video {
+      display: none;
+    }
+
 
     /* Video placeholder - shows before iframe loads */
     .video-placeholder {
@@ -606,94 +472,40 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <a href="index.html">
-        <img src="icons/flatchat_banner.jpg" alt="Flatchat Archive Logo" class="header-logo" />
-      </a>
-      <nav>
-        <a href="aaron.html">Aaron 'The Goat' Turnbull</a>
-        <a href="heggie.html">Heggie 'The Hog' Heggerson</a>
-        <a href="calum.html">Calum 'The Lobster' Porter</a>
-        <a href="jacob.html">Jacob 'Speccy' Murray</a>
-        <a href="darts-marathon-summary.html">Macmillan Darts Marathon 2025</a>
-      </nav>
-    </div>
-  </header>
+  <div data-include="../includes/header.html"></div>
+  
 
   <header style="text-align: center;">
     This is a fan site made with the purpose of collating funny and iconic moments for the benefit of other flatchat fans. Click through the lads profiles to find their best moments.
   </header>
   <main>
-    <h1 class="page-title">Jacob 'Speccy' Murray</h1>
+    <h1 class="page-title">Flatchat Stats</h1>
     
     <div class="content-wrapper">
-      <!-- Left side - Gallery -->
-      <div class="picture-section">
-        <div class="gallery-container">
-          <!-- Hidden radio buttons to track current slide -->
-          <input type="radio" name="gallery" id="slide1" class="gallery-radio" checked>
-          <input type="radio" name="gallery" id="slide2" class="gallery-radio">
-
-          <!-- Single Next control (contextual) -->
-          <label for="slide2" class="gallery-arrow arrow-next from1">›</label>
-          <label for="slide1" class="gallery-arrow arrow-next from2">›</label>
-
-          <!-- Slides -->
-          <div class="gallery-slides">
-            <div class="gallery-slide slide1">
-              <img src="icons/jacob.png" alt="Jacob image 1">
-            </div>
-            <div class="gallery-slide slide2">
-              <img src="icons/jacob-rvp.png" alt="Jacob image 2">
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="selection-section">
-        <a href="jacob-flatchat-yt.html" class="selection-box">
-          Flatchat YouTube
-          <img src="icons/youtube.png" alt="YouTube">
+        <a href="darts-marathon-summary.html" class="selection-box">
+          Flatchat Darts Marathon 2025
         </a>
-        
-        <div class="selection-box coming-soon">
-          Flatchat TikTok
-          <img src="icons/tiktok.png" alt="TikTok">
-          <div class="coming-soon-label">Coming Soon</div>
-        </div>
-        
-        <div class="selection-box coming-soon">
-          Flatchat Darts
-          <img src="icons/darts.png" alt="Darts">
-          <div class="coming-soon-label">Coming Soon</div>
-        </div>
+      </div>
+      <div class="selection-section">
+        <a href="flatchat-fifa-tourney.html" class="selection-box">
+          Flatchat FIFA Tourney
+        </a>
+      </div>
     </div>
   </main>
 
-  <footer>
-    <p>Please support the boys at all the links below.</p>
-    <div class="social-links">
-      <a href="https://www.tiktok.com/@theflatchat" target="_blank"><img src="icons/tiktok.png" alt="TikTok"></a>
-      <a href="https://www.instagram.com/theflatchatofficial/" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
-      <a href="https://www.youtube.com/@theflatchat" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
-      <a href="https://www.youtube.com/@FlatChatDarts" target="_blank"><img src="icons/darts.png" alt="Darts YouTube"></a>
-      <a href="https://www.thesoccershopdirect.co.uk/product-category/the-flat-chat/" target="_blank"><img src="icons/merch.png" alt="Merch"></a>
-      <a href="https://www.cameo.com/theflatchat" target="_blank"><img src="icons/cameo.png" alt="Cameo"></a>
-      <a href="https://x.com/theflatchatx" target="_blank"><img src="icons/x.png" alt="X"></a>
-      <a href="https://www.threads.com/@theflatchatofficial" target="_blank"><img src="icons/threads.png" alt="Threads"></a>
-    </div>
-    <p>Site made by Darren 'Unico'.</p>
-    <p>Thanks to the following members from the Members-Only Discord for top-tier flatchat moment contributions: Maule13, FinnAllen</p>
-    <div class="footer-random">
-      <button id="randomMomentBtn">
-        <img src="icons/randomiser.png" alt="Random Moment" />
-      </button>
-    </div>
-  </footer>
+  <div data-include="../includes/footer.html"></div>
 
-<script src="scripts/modal-auto-stop-video.js"></script>
-<script src="scripts/randomMoment.js"></script>
+<script src="../scripts/modal-auto-stop-video.js"></script>
+<script src="../scripts/randomMoment.js"></script>
 
+<script src="../includes/include-html.js"></script>
 </body>
 </html>
+
+
+
+
+
+

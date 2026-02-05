@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flatchat Rondo</title>
-<link rel="icon" type="image/x-icon" href="icons/flatchat-small.webp">
+<link rel="icon" type="image/x-icon" href="../icons/flatchat-small.webp">
 <link rel="preconnect" href="https://www.youtube.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script src="questions.js"></script>
@@ -590,26 +590,11 @@ body.builder-mode #center {
 
 <body>
 
-  <header>
-    <div class="header-container">
-      <a href="index.html">
-        <img src="icons/flatchat_banner.jpg" alt="Flatchat Archive Logo" class="header-logo" />
-      </a>
-      <nav>
-        <a href="aaron.html">Aaron 'The Goat' Turnbull</a>
-        <a href="heggie.html">Heggie 'The Hog' Heggerson</a>
-        <a href="calum.html">Calum 'The Lobster' Porter</a>
-        <a href="jacob.html">Jacob 'Speccy' Murray</a>
-        <a href="darts-marathon-summary.html">Macmillan Darts Marathon 2025</a>
-        <a href="flatchat-fifa-tourney.html">Flatchat FIFA Tourney 2026</a>
-        <a href="passport-game.html">Passport Game</a>
-      </nav>
-    </div>
-  </header>
+  <div data-include="../includes/header.html"></div>
 
 <main>
-  <img src="icons/flatchat_banner.jpg" class="background-logo left" alt="">
-  <img src="icons/flatchat_banner.jpg" class="background-logo right" alt="">
+  <img src="../icons/flatchat_banner.jpg" class="background-logo left" alt="">
+  <img src="../icons/flatchat_banner.jpg" class="background-logo right" alt="">
 
   <button id="fullscreenBtn" class="top-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
   <button id="customSheetBtn" class="top-btn" onclick="openSheetBuilder()">📝 Open Custom Sheet Builder</button>
@@ -642,27 +627,9 @@ body.builder-mode #center {
   </div>
 </main>
 
-<footer>
-  <p>Please support the boys at all the links below.</p>
-  <div class="social-links">
-    <a href="https://www.tiktok.com/@theflatchat" target="_blank"><img src="icons/tiktok.png" alt="TikTok"></a>
-    <a href="https://www.instagram.com/theflatchatofficial/" target="_blank"><img src="icons/instagram.png" alt="Instagram"></a>
-    <a href="https://www.youtube.com/@theflatchat" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
-    <a href="https://www.youtube.com/@FlatChatDarts" target="_blank"><img src="icons/darts.png" alt="Darts YouTube"></a>
-    <a href="https://www.thesoccershopdirect.co.uk/product-category/the-flat-chat/" target="_blank"><img src="icons/merch.png" alt="Merch"></a>
-    <a href="https://www.cameo.com/theflatchat" target="_blank"><img src="icons/cameo.png" alt="Cameo"></a>
-    <a href="https://x.com/theflatchatx" target="_blank"><img src="icons/x.png" alt="X"></a>
-    <a href="https://www.threads.com/@theflatchatofficial" target="_blank"><img src="icons/threads.png" alt="Threads"></a>
-  </div>
-  <p>Site made by Darren 'Unico'</p>
-  <p>Thanks to the following members from the Members-Only Discord for top-tier flatchat moment contributions: Maule13, FinnAllen</p>
-  <div class="footer-random">
-    <button id="randomMomentBtn">
-      <img src="icons/randomiser.png" alt="Random Moment" />
-    </button>
-  </div>
-</footer>
+<div data-include="../includes/footer.html"></div>
 
+<script src="../includes/include-html.js"></script>
 <script>
 /* ============================
    GAME LOGIC (UNCHANGED)

@@ -1,0 +1,85 @@
+<style>
+  header {
+    background-color: #25b6c4;
+    color: #fff;
+    padding: 8px 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header-logo {
+    max-width: 520px;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .header-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover {
+    color: #f2b632;
+  }
+
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .header-logo {
+      max-width: 90%;
+    }
+
+    nav {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 6px;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<header>
+  <div class="header-container">
+    <a href="/index.html">
+      <img src="/icons/flatchat_banner.jpg" alt="Flatchat Archive Logo" class="header-logo" />
+    </a>
+    <nav>
+      <a href="/aaron/aaron.html">Aaron 'The Goat' Turnbull</a>
+      <a href="/heggie/heggie.html">Heggie 'The Hog' Heggerson</a>
+      <a href="/calum/calum.html">Calum 'The Lobster' Porter</a>
+      <a href="/jacob/jacob.html">Jacob 'Speccy' Murray</a>
+      <a href="/stats/stats.html">Flatchat Stats</a>
+      <a href="/games/games.html">Flatchat Games</a>
+    </nav>
+  </div>
+</header>
