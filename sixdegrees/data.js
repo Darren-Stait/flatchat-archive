@@ -31,7 +31,7 @@ const players = {
     career: { "AS Roma": [[1997, 2003]], "AC Milan": [[2003, 2008]] },
 },
 "Kaka": {
-    career: { "AC Milan": [[2003, 2009]], "Real Madrid": [[2009, 2013]], "AC Milan": [[2013, 2014]] },
+    career: { "AC Milan": [[2003, 2009], [2013, 2014]], "Real Madrid": [[2009, 2013]] },
 },
 "Fillipo Inzaghi": {
     career: { "Juventus": [[1999, 2001]], "AC Milan": [[2001, 2012]] },
@@ -98,7 +98,7 @@ const players = {
 },
 // MAN CITY STARS
 "Edin Dzeko": {
-    career: { "VfL Wolfsburg": [[2007, 2011]], "Manchester City": [[2011, 2016]], "AS Roma": [[2015, 2021]], "Inter Milan": [[2021, 2023]], "Fenerbache": [[2023, 2025]], "Fiorentina": [[2025, 2026]], "Schalke": [[2026]] },
+    career: { "Wolfsburg": [[2007, 2011]], "Manchester City": [[2011, 2016]], "AS Roma": [[2015, 2021]], "Inter Milan": [[2021, 2023]], "Fenerbache": [[2023, 2025]], "Fiorentina": [[2025, 2026]], "Schalke": [[2026]] },
 }
 };
 

@@ -1090,7 +1090,7 @@ function startNewGame() {
     const length = shortestPathLength(s, t);
 
     // Block 1 and 2-step solutions
-    if (length >= 2 && length !== Infinity) {
+    if (length >= 3 && length !== Infinity) {
 
       startPlayer = s;
       targetPlayer = t;
