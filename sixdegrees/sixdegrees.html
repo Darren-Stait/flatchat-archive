@@ -1,1 +1,316 @@
-.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Six Degrees (Playable)</title>
+
+<style>
+body {
+  font-family: system-ui, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 2rem;
+}
+.card {
+  background: #020617;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 720px;
+}
+select, button {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+.path {
+  margin-top: 1rem;
+}
+.step {
+  margin: 0.25rem 0;
+}
+.valid { color: #22c55e; }
+.small {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Six Degrees of Football</h1>
+
+<div class="card">
+  <p id="goal"></p>
+  <button onclick="startNewGame()">🔁 New Puzzle</button>
+
+  <p id="current"></p>
+
+  <label>Choose teammate to move to:</label>
+  <select id="choice"></select>
+  <button onclick="makeMove()">Confirm Move</button>
+
+  <div id="path" class="path"></div>
+</div>
+
+<script src="./data.js"></script>
+<script>
+let selectionMode = "club"; // "club" | "player"
+let selectedContext = null; // { club, seasons }
+
+
+/* =====================
+   HELPERS
+   ===================== */
+function overlaps(a, b) {
+  for (const [s1, e1] of a) {
+    for (const [s2, e2] of b) {
+      const start = Math.max(s1, s2);
+      const end = Math.min(e1, e2);
+      if (start <= end) return [start, end];
+    }
+  }
+  return null;
+}
+
+function getClubContexts(player) {
+  const contexts = [];
+
+  const career = players[player].career;
+
+  for (const club in career) {
+    career[club].forEach(([s, e]) => {
+      contexts.push({
+        club,
+        seasons: s === e ? `${s}` : `${s}–${e}`,
+        range: [s, e]
+      });
+    });
+  }
+
+  return contexts;
+}
+
+function getTeammatesInContext(player, context) {
+  const res = [];
+  const [cs, ce] = context.range;
+
+  for (const other in players) {
+    if (other === player) continue;
+
+    const career = players[other].career[context.club];
+    if (!career) continue;
+
+    for (const [os, oe] of career) {
+      const start = Math.max(cs, os);
+      const end = Math.min(ce, oe);
+      if (start <= end) {
+        res.push({
+          name: other,
+          seasons: start === end ? `${start}` : `${start}–${end}`
+        });
+      }
+    }
+  }
+
+  return res;
+}
+
+function getTeammates(player) {
+  const res = [];
+  const p = players[player];
+
+  // club overlaps (same as before)
+  for (const club in p.career) {
+    for (const other in players) {
+      if (other === player) continue;
+      if (!players[other].career[club]) continue;
+
+      const overlap = overlaps(
+        p.career[club],
+        players[other].career[club]
+      );
+
+      if (overlap) {
+        res.push({
+          name: other,
+          via: `${club} (${overlap[0]}–${overlap[1]})`
+        });
+      }
+    }
+  }
+
+  // manager overlaps (NEW)
+  for (const mgr of p.managers || []) {
+    for (const other in players) {
+      if (other === player) continue;
+      if (!players[other].managers?.includes(mgr)) continue;
+
+      res.push({
+        name: other,
+        via: `Manager: ${mgr}`
+      });
+    }
+  }
+
+  return res;
+}
+
+function wereDirectTeammates(a, b) {
+  const careerA = players[a].career;
+  const careerB = players[b].career;
+
+  for (const club in careerA) {
+    if (!careerB[club]) continue;
+
+    for (const [s1, e1] of careerA[club]) {
+      for (const [s2, e2] of careerB[club]) {
+        if (Math.max(s1, s2) <= Math.min(e1, e2)) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+/* =====================
+   GAME STATE
+   ===================== */
+let startPlayer;
+let currentPlayer;
+let targetPlayer;
+let path = [];
+
+/* =====================
+   GAME SETUP
+   ===================== */
+function startNewGame() {
+  const names = Object.keys(players);
+  const MAX_ATTEMPTS = 200;
+
+  for (let i = 0; i < MAX_ATTEMPTS; i++) {
+    const candidateStart =
+      names[Math.floor(Math.random() * names.length)];
+
+    const startContexts = getClubContexts(candidateStart);
+    if (!startContexts.length) continue;
+
+    const candidateTarget =
+      names[Math.floor(Math.random() * names.length)];
+
+    if (candidateTarget === candidateStart) continue;
+
+    // 🚫 block direct teammates
+    if (wereDirectTeammates(candidateStart, candidateTarget)) continue;
+
+    // sanity: make sure both have careers
+    if (!players[candidateTarget]) continue;
+
+    // ✅ valid non-trivial puzzle
+    startPlayer = candidateStart;
+    targetPlayer = candidateTarget;
+    currentPlayer = startPlayer;
+    path = [currentPlayer];
+
+    selectionMode = "club";
+    selectedContext = null;
+
+    render();
+    return;
+  }
+
+  // 🚨 fallback (never freeze)
+  console.warn("Fallback puzzle used");
+
+  startPlayer = names[0];
+  targetPlayer = names[1];
+  currentPlayer = startPlayer;
+  path = [currentPlayer];
+  selectionMode = "club";
+  selectedContext = null;
+  render();
+}
+
+/* =====================
+   UI RENDERING
+   ===================== */
+function render() {
+  document.getElementById("goal").innerHTML = `
+    <strong>Start:</strong> ${startPlayer}<br>
+    <strong>Target:</strong> ${targetPlayer}
+  `;
+
+  document.getElementById("current").innerHTML =
+    `<strong>Current:</strong> ${currentPlayer}`;
+
+const dropdown = document.getElementById("choice");
+dropdown.innerHTML = "";
+
+if (selectionMode === "club") {
+  const contexts = getClubContexts(currentPlayer);
+
+  contexts.forEach(c => {
+    const opt = document.createElement("option");
+    opt.value = JSON.stringify(c);
+    opt.textContent = `🏟️ ${c.club} (${c.seasons})`;
+    dropdown.appendChild(opt);
+  });
+}
+
+if (selectionMode === "player") {
+  const teammates = getTeammatesInContext(
+    currentPlayer,
+    selectedContext
+  );
+
+  teammates.forEach(t => {
+    const opt = document.createElement("option");
+    opt.value = t.name;
+    opt.textContent =
+      `👤 ${t.name} (${t.seasons})`;
+    dropdown.appendChild(opt);
+  });
+}
+
+  document.getElementById("path").innerHTML =
+    path.map(p => `<div class="step valid">👤 ${p}</div>`).join("");
+}
+
+function makeMove() {
+  const value = document.getElementById("choice").value;
+  if (!value) return;
+
+  if (selectionMode === "club") {
+    selectedContext = JSON.parse(value);
+    selectionMode = "player";
+    render();
+    return;
+  }
+
+  if (selectionMode === "player") {
+    currentPlayer = value;
+    path.push(currentPlayer);
+
+    // reset for next turn
+    selectionMode = "club";
+    selectedContext = null;
+
+    render();
+
+    if (currentPlayer === targetPlayer) {
+      setTimeout(() => {
+        alert(`🎉 You connected ${startPlayer} to ${targetPlayer}!`);
+      }, 50);
+    }
+  }
+}
+
+/* =====================
+   INIT
+   ===================== */
+startNewGame();
+</script>
+
+</body>
+</html>
