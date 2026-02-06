@@ -1,316 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Six Degrees (Playable)</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flatchat Six Degrees</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+:root {
+  --brand: #25b6c4;
+  --brand-dark: #1e9aa6;
+  --bg: #f4fbfc;
+  --text: #1f2937;
+  --muted: #6b7280;
+}
+
+* { box-sizing: border-box; transition: all 0.2s ease; }
+
 body {
-  font-family: system-ui, sans-serif;
-  background: #0f172a;
-  color: #e5e7eb;
-  padding: 2rem;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
+
 .card {
-  background: #020617;
-  padding: 1rem;
-  border-radius: 8px;
-  max-width: 720px;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 2px solid var(--brand);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
-select, button {
-  width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
+
+.goal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
 }
-.path {
-  margin-top: 1rem;
+
+.player-card { text-align: center; }
+
+.player-headshot {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid var(--brand);
+  margin-bottom: 12px;
 }
-.step {
-  margin: 0.25rem 0;
+
+.target-glow {
+  box-shadow: 0 0 0 4px rgba(37,182,196,0.2);
 }
-.valid { color: #22c55e; }
-.small {
+
+.player-card strong { color: var(--brand); }
+
+.top-centre {
+  text-align: center;
+  min-width: 180px;
+}
+
+.top-centre .label {
   font-size: 0.85rem;
-  opacity: 0.8;
+  color: var(--muted);
+}
+
+.current-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--brand);
+  margin-top: 4px;
+}
+
+.moves {
+  margin-top: 12px;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.choices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.choice-card {
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.choice-card img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(37,182,196,0.5);
+}
+
+.path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(37,182,196,0.08);
+  border: 1px solid var(--brand);
+  font-size: 0.9rem;
+}
+
+.step img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--brand);
+}
+
+button.primary {
+  background: var(--brand);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.primary:hover {
+  background: var(--brand-dark);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden { display: none; }
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 400px;
+  border: 2px solid var(--brand);
+}
+.separator {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 10px 0;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 1px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Six Degrees of Football</h1>
+<div data-include="../includes/header.html"></div>
 
 <div class="card">
-  <p id="goal"></p>
-  <button onclick="startNewGame()">🔁 New Puzzle</button>
 
-  <p id="current"></p>
+  <div id="how-to-play" style="background: rgba(37,182,196,0.08); padding: 16px 20px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid var(--brand); position: relative; max-height: 200px; overflow: hidden; transition: max-height 0.3s ease;">
+    <button onclick="toggleHowToPlay()" style="position: absolute; top: 12px; right: 12px; background: transparent; border: none; font-size: 1.4rem; cursor: pointer; color: var(--brand); padding: 0; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">−</button>
+    <h3 style="margin-top:0;color:var(--brand);">How to Play</h3>
+    <p style="margin:8px 0;font-size:0.95rem;">Connect the <strong>Start</strong> player to the <strong>Target</strong> player by finding teammates who shared a club. Select a club from the start player's career, then pick a teammate from that era. Keep moving through teammates until you reach the target!</p>
+  </div>
 
-  <label>Choose teammate to move to:</label>
-  <select id="choice"></select>
-  <button onclick="makeMove()">Confirm Move</button>
+  <div class="goal-row">
+    <div class="player-card">
+      <img id="start-img" class="player-headshot">
+      <div><strong>Start</strong></div>
+      <div id="start-name"></div>
+    </div>
 
+    <div class="top-centre">
+      <div class="label">Current Player:</div>
+      <div class="current-name" id="current-player"></div>
+      <div class="moves">Moves: <span id="move-count">0</span></div>
+    </div>
+
+    <div class="player-card">
+      <img id="target-img" class="player-headshot target-glow">
+      <div><strong>Target</strong></div>
+      <div id="target-name"></div>
+    </div>
+  </div>
+
+  <div id="choices" class="choices-grid"></div>
   <div id="path" class="path"></div>
+
+  <div style="text-align:center;margin-top:40px;">
+    <button class="primary" onclick="startNewGame()">New Puzzle</button>
+  </div>
+
 </div>
 
+<div id="win-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>🎉 Connection Complete!</h2>
+    <p id="win-text"></p>
+    <button class="primary" onclick="startNewGame(); closeModal();">
+      Play Again
+    </button>
+  </div>
+</div>
+
+<div data-include="../includes/footer.html"></div>
+
 <script src="./data.js"></script>
+<script src="../includes/include-html.js"></script>
+
 <script>
-let selectionMode = "club"; // "club" | "player"
-let selectedContext = null; // { club, seasons }
+let startPlayer, currentEntity, targetPlayer;
+let path = [];
+let selectionMode = "club";
+let selectedContext = null;
 
-
-/* =====================
-   HELPERS
-   ===================== */
+/* =============================
+   UTIL
+============================= */
 function overlaps(a, b) {
-  for (const [s1, e1] of a) {
-    for (const [s2, e2] of b) {
-      const start = Math.max(s1, s2);
-      const end = Math.min(e1, e2);
-      if (start <= end) return [start, end];
-    }
-  }
-  return null;
+  return Math.max(a[0], b[0]) <= Math.min(a[1], b[1]);
 }
 
-function getClubContexts(player) {
+function isManager(name) {
+  return !!managers[name];
+}
+
+/* =============================
+   CLUB CONTEXTS (PLAYER OR MANAGER)
+============================= */
+function getClubContexts(entity) {
   const contexts = [];
 
-  const career = players[player].career;
-
-  for (const club in career) {
-    career[club].forEach(([s, e]) => {
-      contexts.push({
-        club,
-        seasons: s === e ? `${s}` : `${s}–${e}`,
-        range: [s, e]
+  if (!isManager(entity)) {
+    for (const club in players[entity].career) {
+      players[entity].career[club].forEach(([s,e]) => {
+        contexts.push({ club, range:[s,e], seasons:`${s===e?s:s+"–"+e}` });
       });
-    });
+    }
+  } else {
+    for (const club in managers[entity]) {
+      managers[entity][club].forEach(([s,e]) => {
+        contexts.push({ club, range:[s,e], seasons:`${s===e?s:s+"–"+e}` });
+      });
+    }
   }
 
   return contexts;
 }
 
-function getTeammatesInContext(player, context) {
+/* =============================
+   PLAYERS IN CLUB PERIOD
+============================= */
+function getPlayersInClubPeriod(club, range) {
   const res = [];
-  const [cs, ce] = context.range;
-
-  for (const other in players) {
-    if (other === player) continue;
-
-    const career = players[other].career[context.club];
-    if (!career) continue;
-
-    for (const [os, oe] of career) {
-      const start = Math.max(cs, os);
-      const end = Math.min(ce, oe);
-      if (start <= end) {
-        res.push({
-          name: other,
-          seasons: start === end ? `${start}` : `${start}–${end}`
-        });
+  for (const p in players) {
+    if (!players[p].career[club]) continue;
+    for (const r of players[p].career[club]) {
+      if (overlaps(r, range)) {
+        res.push({ name:p, type:"player" });
+        break;
       }
     }
   }
-
   return res;
 }
 
-function getTeammates(player) {
+function getManagersInClubPeriod(club, range) {
   const res = [];
-  const p = players[player];
+  for (const m in managers) {
+    if (m === currentEntity) continue; // ❌ prevent self-link
 
-  // club overlaps (same as before)
-  for (const club in p.career) {
-    for (const other in players) {
-      if (other === player) continue;
-      if (!players[other].career[club]) continue;
+    if (!managers[m][club]) continue;
 
-      const overlap = overlaps(
-        p.career[club],
-        players[other].career[club]
-      );
-
-      if (overlap) {
-        res.push({
-          name: other,
-          via: `${club} (${overlap[0]}–${overlap[1]})`
-        });
+    for (const r of managers[m][club]) {
+      if (overlaps(r, range)) {
+        res.push({ name:m, type:"manager" });
+        break;
       }
     }
   }
-
-  // manager overlaps (NEW)
-  for (const mgr of p.managers || []) {
-    for (const other in players) {
-      if (other === player) continue;
-      if (!players[other].managers?.includes(mgr)) continue;
-
-      res.push({
-        name: other,
-        via: `Manager: ${mgr}`
-      });
-    }
-  }
-
   return res;
 }
 
-function wereDirectTeammates(a, b) {
-  const careerA = players[a].career;
-  const careerB = players[b].career;
+/* =============================
+   RENDER CHOICES
+============================= */
+function renderChoices(items, mode) {
+  const container = document.getElementById("choices");
+  container.innerHTML = "";
 
-  for (const club in careerA) {
-    if (!careerB[club]) continue;
+  items.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "choice-card";
 
-    for (const [s1, e1] of careerA[club]) {
-      for (const [s2, e2] of careerB[club]) {
-        if (Math.max(s1, s2) <= Math.min(e1, e2)) {
-          return true;
-        }
-      }
+    if (mode === "club") {
+      div.innerHTML = `
+        <img src="${clubToBadge(item.club)}"
+             style="width:80px;height:80px;border-radius:50%;border:2px solid var(--brand);">
+        <div style="font-weight:600;margin-top:6px;">${item.seasons}</div>
+      `;
+      div.onclick = () => {
+        selectedContext = item;
+        selectionMode = "entity";
+        render();
+      };
     }
-  }
-  return false;
+
+    else if (mode === "entity") {
+      if (item.type === "manager") {
+        div.innerHTML = `
+          <img src="${managerToImage(item.name)}"
+               style="width:80px;height:80px;border-radius:50%;border:2px dashed var(--brand);">
+          <div style="font-weight:600;margin-top:6px;font-size:0.85rem;">${item.name}</div>
+        `;
+      } else {
+        div.innerHTML = `
+          <img src="${nameToImage(item.name)}"
+               style="width:80px;height:80px;border-radius:50%;border:2px solid var(--brand);">
+          <div style="font-weight:600;margin-top:6px;">${item.name}</div>
+        `;
+      }
+
+      div.onclick = () => {
+        currentEntity = item.name;
+        path.push(item.name);  // THIS COUNTS AS MOVE
+        selectionMode = "club";
+        selectedContext = null;
+        render();
+        checkWin();
+      };
+    }
+
+    container.appendChild(div);
+  });
 }
 
-/* =====================
-   GAME STATE
-   ===================== */
-let startPlayer;
-let currentPlayer;
-let targetPlayer;
-let path = [];
-
-/* =====================
-   GAME SETUP
-   ===================== */
-function startNewGame() {
-  const names = Object.keys(players);
-  const MAX_ATTEMPTS = 200;
-
-  for (let i = 0; i < MAX_ATTEMPTS; i++) {
-    const candidateStart =
-      names[Math.floor(Math.random() * names.length)];
-
-    const startContexts = getClubContexts(candidateStart);
-    if (!startContexts.length) continue;
-
-    const candidateTarget =
-      names[Math.floor(Math.random() * names.length)];
-
-    if (candidateTarget === candidateStart) continue;
-
-    // 🚫 block direct teammates
-    if (wereDirectTeammates(candidateStart, candidateTarget)) continue;
-
-    // sanity: make sure both have careers
-    if (!players[candidateTarget]) continue;
-
-    // ✅ valid non-trivial puzzle
-    startPlayer = candidateStart;
-    targetPlayer = candidateTarget;
-    currentPlayer = startPlayer;
-    path = [currentPlayer];
-
-    selectionMode = "club";
-    selectedContext = null;
-
-    render();
-    return;
-  }
-
-  // 🚨 fallback (never freeze)
-  console.warn("Fallback puzzle used");
-
-  startPlayer = names[0];
-  targetPlayer = names[1];
-  currentPlayer = startPlayer;
-  path = [currentPlayer];
-  selectionMode = "club";
-  selectedContext = null;
-  render();
-}
-
-/* =====================
-   UI RENDERING
-   ===================== */
+/* =============================
+   MAIN RENDER
+============================= */
 function render() {
-  document.getElementById("goal").innerHTML = `
-    <strong>Start:</strong> ${startPlayer}<br>
-    <strong>Target:</strong> ${targetPlayer}
-  `;
+  document.getElementById("start-name").textContent = startPlayer;
+  document.getElementById("target-name").textContent = targetPlayer;
+  document.getElementById("current-player").textContent = currentEntity;
+  document.getElementById("move-count").textContent = path.length - 1;
 
-  document.getElementById("current").innerHTML =
-    `<strong>Current:</strong> ${currentPlayer}`;
-
-const dropdown = document.getElementById("choice");
-dropdown.innerHTML = "";
-
-if (selectionMode === "club") {
-  const contexts = getClubContexts(currentPlayer);
-
-  contexts.forEach(c => {
-    const opt = document.createElement("option");
-    opt.value = JSON.stringify(c);
-    opt.textContent = `🏟️ ${c.club} (${c.seasons})`;
-    dropdown.appendChild(opt);
-  });
-}
-
-if (selectionMode === "player") {
-  const teammates = getTeammatesInContext(
-    currentPlayer,
-    selectedContext
-  );
-
-  teammates.forEach(t => {
-    const opt = document.createElement("option");
-    opt.value = t.name;
-    opt.textContent =
-      `👤 ${t.name} (${t.seasons})`;
-    dropdown.appendChild(opt);
-  });
-}
+  document.getElementById("start-img").src = nameToImage(startPlayer);
+  document.getElementById("target-img").src = nameToImage(targetPlayer);
 
   document.getElementById("path").innerHTML =
-    path.map(p => `<div class="step valid">👤 ${p}</div>`).join("");
-}
-
-function makeMove() {
-  const value = document.getElementById("choice").value;
-  if (!value) return;
+    path.map(p => `
+      <div class="step">
+        <img src="${isManager(p)?managerToImage(p):nameToImage(p)}">
+        <span>${p}</span>
+      </div>
+    `).join("");
 
   if (selectionMode === "club") {
-    selectedContext = JSON.parse(value);
-    selectionMode = "player";
-    render();
-    return;
+    renderChoices(getClubContexts(currentEntity), "club");
   }
 
-  if (selectionMode === "player") {
-    currentPlayer = value;
-    path.push(currentPlayer);
+  else if (selectionMode === "entity") {
+    const club = selectedContext.club;
+    const range = selectedContext.range;
 
-    // reset for next turn
-    selectionMode = "club";
-    selectedContext = null;
+const playersList = getPlayersInClubPeriod(club, range);
+const managersList = getManagersInClubPeriod(club, range);
 
-    render();
+const container = document.getElementById("choices");
+container.innerHTML = "";
 
-    if (currentPlayer === targetPlayer) {
-      setTimeout(() => {
-        alert(`🎉 You connected ${startPlayer} to ${targetPlayer}!`);
-      }, 50);
-    }
+// Render Players
+if (playersList.length > 0) {
+  renderChoices(playersList, "entity");
+}
+
+// Add Separator if both exist
+if (playersList.length > 0 && managersList.length > 0) {
+const sep = document.createElement("div");
+sep.className = "separator";
+sep.textContent = "Managers";
+container.appendChild(sep);
+}
+
+// Render Managers
+if (managersList.length > 0) {
+  renderChoices(managersList, "entity");
+}
+
   }
 }
 
-/* =====================
-   INIT
-   ===================== */
+/* =============================
+   GAME START
+============================= */
+function startNewGame() {
+  const names = Object.keys(players);
+
+  while (true) {
+    const s = names[Math.floor(Math.random()*names.length)];
+    const t = names[Math.floor(Math.random()*names.length)];
+    if (s !== t) {
+      startPlayer = s;
+      targetPlayer = t;
+      currentEntity = s;
+      path = [s];
+      selectionMode = "club";
+      selectedContext = null;
+      render();
+      break;
+    }
+  }
+
+  closeModal();
+}
+
+/* =============================
+   HELPERS
+============================= */
+function nameToImage(name) {
+  const last = name.split(" ").pop().toLowerCase().replace(/[^a-z0-9]/g,'');
+  return `../../games/player-images/${last}.png`;
+}
+
+function managerToImage(name) {
+  return nameToImage(name);
+}
+
+function clubToBadge(club) {
+  return `../../games/badges/${club.toLowerCase().replace(/\s+/g,'')}.png`;
+}
+
+function checkWin() {
+  if (currentEntity === targetPlayer) {
+    document.getElementById("win-modal").classList.remove("hidden");
+  }
+}
+
+function closeModal() {
+  document.getElementById("win-modal").classList.add("hidden");
+}
+
 startNewGame();
 </script>
+
 
 </body>
 </html>
