@@ -154,7 +154,9 @@ button.primary:hover {
   align-items: center;
 }
 
-.hidden { display: none; }
+.hidden {
+  display: none !important;
+}
 
 .modal-content {
   background: white;
@@ -293,6 +295,75 @@ body.fullscreen {
     max-height: 55px;
   }
 }
+
+.mode-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.mode-box {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  border: 2px solid var(--brand);
+  text-align: center;
+  width: 350px;
+}
+
+.mode-btn {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.custom-setup {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.custom-setup select {
+  padding: 8px;
+  border: 2px solid var(--brand);
+  border-radius: 8px;
+}
+.menu-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: white;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.menu-btn:hover {
+  background: var(--brand);
+  color: white;
+  transform: translateY(-2px);
+}
+.dead-end-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 20px;
+  font-weight: 600;
+  color: var(--brand);
+  background: rgba(37,182,196,0.08);
+  border-radius: 10px;
+}
+
 </style>
 </head>
 
@@ -300,7 +371,39 @@ body.fullscreen {
 
 <div data-include="../includes/header.html"></div>
 
+<div id="mode-screen" class="mode-screen">
+  <div class="mode-box">
+
+    <h2 id="mode-title">Select Game Mode</h2>
+
+    <div id="mode-buttons">
+      <button class="primary mode-btn" onclick="startRandomMode()">
+        🎲 Random Challenge
+      </button>
+
+      <button class="primary mode-btn" onclick="activateCustomMode()">
+        🎯 Custom Challenge
+      </button>
+    </div>
+
+    <div id="custom-setup" class="custom-setup hidden">
+      <h3>Choose Players</h3>
+
+      <select id="custom-start"></select>
+      <select id="custom-target"></select>
+
+      <button class="primary" onclick="startCustomMode()">
+        Start Game
+      </button>
+    </div>
+
+  </div>
+</div>
+
 <div class="card">
+<button id="menuBtn" class="menu-btn" onclick="returnToMenu()">
+  Back to Menu
+</button>
 <button id="fullscreenBtn" class="fullscreen-btn" onclick="toggleFullscreen()">
   Fullscreen
 </button>
@@ -376,19 +479,57 @@ function isManager(name) {
    CLUB CONTEXTS (PLAYER OR MANAGER)
 ============================= */
 function getClubContexts(entity) {
+
   const contexts = [];
 
   if (!isManager(entity)) {
+
     for (const club in players[entity].career) {
-      players[entity].career[club].forEach(([s,e]) => {
-        contexts.push({ club, range:[s,e], seasons:`${s===e?s:s+"–"+e}` });
+
+      const spells = players[entity].career[club];
+
+      // Check if this club leads somewhere at all
+      let valid = false;
+
+      spells.forEach(range => {
+
+        const playersList = getPlayersInClubPeriod(club, range)
+          .filter(p => p.name !== entity);
+
+        const managersList = getManagersInClubPeriod(club, range);
+
+        if (playersList.length > 0 || managersList.length > 0) {
+          valid = true;
+        }
+
       });
+
+      if (valid) {
+        contexts.push({ club });
+      }
     }
+
   } else {
+
     for (const club in managers[entity]) {
-      managers[entity][club].forEach(([s,e]) => {
-        contexts.push({ club, range:[s,e], seasons:`${s===e?s:s+"–"+e}` });
+
+      const spells = managers[entity][club];
+
+      let valid = false;
+
+      spells.forEach(range => {
+
+        const playersList = getPlayersInClubPeriod(club, range);
+
+        if (playersList.length > 0) {
+          valid = true;
+        }
+
       });
+
+      if (valid) {
+        contexts.push({ club });
+      }
     }
   }
 
@@ -417,6 +558,104 @@ function getPlayersInClubPeriod(club, range) {
   }
 
   return res;
+}
+
+function startRandomMode() {
+  document.getElementById("mode-screen").classList.add("hidden");
+  startNewGame();
+}
+
+function activateCustomMode() {
+
+  document.getElementById("mode-buttons").classList.add("hidden");
+  document.getElementById("custom-setup").classList.remove("hidden");
+
+  const startSelect = document.getElementById("custom-start");
+  const targetSelect = document.getElementById("custom-target");
+
+  const names = Object.keys(players);
+
+  // Fill start dropdown
+  startSelect.innerHTML = "";
+  names.forEach(name => {
+    const option = document.createElement("option");
+    option.value = name;
+    option.textContent = name;
+    startSelect.appendChild(option);
+  });
+
+  // Initially fill target with valid options
+  updateTargetOptions();
+
+  // When start changes → update target
+  startSelect.addEventListener("change", updateTargetOptions);
+}
+
+function updateTargetOptions() {
+
+  const start = document.getElementById("custom-start").value;
+  const targetSelect = document.getElementById("custom-target");
+
+  targetSelect.innerHTML = "";
+
+  const names = Object.keys(players);
+
+  names.forEach(name => {
+
+    if (name === start) return;
+
+    const length = shortestPathLength(start, name);
+
+    if (length >= 3 && length !== Infinity) {
+      const option = document.createElement("option");
+      option.value = name;
+      option.textContent = name;
+      targetSelect.appendChild(option);
+    }
+  });
+
+  // If no valid targets exist
+  if (targetSelect.options.length === 0) {
+    const option = document.createElement("option");
+    option.textContent = "No valid targets available";
+    option.disabled = true;
+    targetSelect.appendChild(option);
+  }
+}
+
+function returnToMenu() {
+
+  // Exit fullscreen if active
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+    document.body.classList.remove("fullscreen");
+    document.getElementById("fullscreenBtn").textContent = "Fullscreen";
+  }
+
+  // Reset mode screen
+  document.getElementById("mode-screen").classList.remove("hidden");
+
+  // Reset custom view
+  document.getElementById("custom-setup").classList.add("hidden");
+  document.getElementById("mode-buttons").classList.remove("hidden");
+}
+
+function startCustomMode() {
+
+  const start = document.getElementById("custom-start").value;
+  const target = document.getElementById("custom-target").value;
+
+  document.getElementById("mode-screen").classList.add("hidden");
+
+  startPlayer = start;
+  targetPlayer = target;
+  currentEntity = start;
+
+  path = [start];
+  selectionMode = "club";
+  selectedContext = null;
+
+  render();
 }
 
 function getManagersInClubPeriod(club, range) {
@@ -453,48 +692,66 @@ function toggleFullscreen() {
     btn.textContent = "Fullscreen";
   }
 }
-
-/* =============================
-   RENDER CHOICES
-============================= */
 function renderChoices(items, mode, append = false) {
 
   const container = document.getElementById("choices");
 
-  // Only clear automatically for club mode
   if (!append && mode === "club") {
     container.innerHTML = "";
   }
 
   items.forEach(item => {
+
     const div = document.createElement("div");
     div.className = "choice-card";
 
     if (mode === "club") {
+
+      const club = item.club;
+      let spells;
+
+      if (!isManager(currentEntity)) {
+        spells = players[currentEntity].career[club];
+      } else {
+        spells = managers[currentEntity][club];
+      }
+
+      const rangesText = spells
+        .map(([s, e]) => s === e ? `${s}` : `${s}–${e}`)
+        .join(", ");
+
       div.innerHTML = `
-        <img src="${clubToBadge(item.club)}" class="club-badge">
-        <div style="font-weight:600;margin-top:6px;">${item.seasons}</div>
+        <img src="${clubToBadge(club)}" class="club-badge">
+        <div style="font-weight:600;margin-top:6px;">${rangesText}</div>
       `;
+
       div.onclick = () => {
-        selectedContext = item;
+        selectedContext = club;
         selectionMode = "entity";
         render();
       };
-    }
 
-    else if (mode === "entity") {
+    } else if (mode === "entity") {
+
+      const overlapText = item.overlap
+        ? `<span style="font-weight:400;color:var(--muted);font-size:0.8rem;"> (${item.overlap})</span>`
+        : "";
 
       if (item.type === "manager") {
         div.innerHTML = `
           <img src="${managerToImage(item.name)}"
                style="width:80px;height:80px;border-radius:50%;border:2px dashed var(--brand);">
-          <div style="font-weight:600;margin-top:6px;font-size:0.85rem;">${item.name}</div>
+          <div style="font-weight:600;margin-top:6px;">
+            ${item.name}${overlapText}
+          </div>
         `;
       } else {
         div.innerHTML = `
           <img src="${nameToImage(item.name)}"
                style="width:80px;height:80px;border-radius:50%;border:2px solid var(--brand);">
-          <div style="font-weight:600;margin-top:6px;">${item.name}</div>
+          <div style="font-weight:600;margin-top:6px;">
+            ${item.name}${overlapText}
+          </div>
         `;
       }
 
@@ -509,6 +766,7 @@ function renderChoices(items, mode, append = false) {
     }
 
     container.appendChild(div);
+
   });
 }
 
@@ -520,8 +778,6 @@ function renderNavigation() {
     const btn = document.createElement("button");
     btn.textContent = "← Back to Clubs";
     btn.className = "back-btn";
-    btn.style.background = "white";
-    btn.style.color = "var(--brand)";
     btn.style.border = "2px solid var(--brand)";
     btn.style.padding = "6px 12px";
     btn.style.fontSize = "0.8rem";
@@ -588,27 +844,61 @@ function getConnectedEntities(entity) {
 
   const connections = new Set();
 
-  const contexts = getClubContexts(entity);
+  if (!isManager(entity)) {
 
-  contexts.forEach(ctx => {
+    for (const club in players[entity].career) {
 
-    const playersList = getPlayersInClubPeriod(ctx.club, ctx.range);
-    playersList.forEach(p => {
-      if (p.name !== entity) {
-        connections.add(p.name);
-      }
-    });
+      const spells = players[entity].career[club];
 
-    if (!isManager(entity)) {
-      const managersList = getManagersInClubPeriod(ctx.club, ctx.range);
-      managersList.forEach(m => {
-        if (m.name !== entity) {
-          connections.add(m.name);
+      spells.forEach(range => {
+
+        // Players
+        for (const p in players) {
+          if (p === entity) continue;
+          if (!players[p].career[club]) continue;
+
+          players[p].career[club].forEach(r => {
+            if (overlaps(range, r)) {
+              connections.add(p);
+            }
+          });
         }
+
+        // Managers
+        for (const m in managers) {
+          if (!managers[m][club]) continue;
+
+          managers[m][club].forEach(r => {
+            if (overlaps(range, r)) {
+              connections.add(m);
+            }
+          });
+        }
+
       });
     }
 
-  });
+  } else {
+
+    for (const club in managers[entity]) {
+
+      const spells = managers[entity][club];
+
+      spells.forEach(range => {
+
+        for (const p in players) {
+          if (!players[p].career[club]) continue;
+
+          players[p].career[club].forEach(r => {
+            if (overlaps(range, r)) {
+              connections.add(p);
+            }
+          });
+        }
+
+      });
+    }
+  }
 
   return Array.from(connections);
 }
@@ -621,7 +911,7 @@ function render() {
   document.getElementById("start-name").textContent = startPlayer;
   document.getElementById("target-name").textContent = targetPlayer;
   document.getElementById("current-player").textContent = currentEntity;
-  document.getElementById("move-count").textContent = path.length - 1;
+  document.getElementById("move-count").textContent = Math.max(0, path.length - 1);
 
   document.getElementById("start-img").src = nameToImage(startPlayer);
   document.getElementById("target-img").src = nameToImage(targetPlayer);
@@ -640,39 +930,143 @@ function render() {
 
 else if (selectionMode === "entity") {
 
-  const club = selectedContext.club;
-  const range = selectedContext.range;
-
+  const club = selectedContext;
   const container = document.getElementById("choices");
   container.innerHTML = "";
 
-  const playersList = getPlayersInClubPeriod(club, range);
+  let playersList = [];
+  let managersList = [];
 
-  // If manager → only players
-  if (isManager(currentEntity)) {
+  if (!isManager(currentEntity)) {
 
-    if (playersList.length > 0) {
-      addSectionHeader("Teammates");
-      renderChoices(playersList, "entity");
-    }
+    const playerSpells = players[currentEntity].career[club];
 
+    playerSpells.forEach(pRange => {
+
+      // Players
+      for (const p in players) {
+        if (p === currentEntity) continue;
+        if (!players[p].career[club]) continue;
+
+        players[p].career[club].forEach(oRange => {
+
+          if (overlaps(pRange, oRange)) {
+
+            const overlapStart = Math.max(pRange[0], oRange[0]);
+            const overlapEnd = Math.min(pRange[1], oRange[1]);
+
+            playersList.push({
+              name: p,
+              type: "player",
+              overlap: overlapStart === overlapEnd
+                ? `${overlapStart}`
+                : `${overlapStart}–${overlapEnd}`
+            });
+          }
+        });
+      }
+
+      // Managers
+      for (const m in managers) {
+        if (!managers[m][club]) continue;
+
+        managers[m][club].forEach(mRange => {
+
+          if (overlaps(pRange, mRange)) {
+
+            const overlapStart = Math.max(pRange[0], mRange[0]);
+            const overlapEnd = Math.min(pRange[1], mRange[1]);
+
+            managersList.push({
+              name: m,
+              type: "manager",
+              overlap: overlapStart === overlapEnd
+                ? `${overlapStart}`
+                : `${overlapStart}–${overlapEnd}`
+            });
+          }
+        });
+      }
+
+    });
+
+  } else {
+
+    const managerSpells = managers[currentEntity][club];
+
+    managerSpells.forEach(mRange => {
+
+      for (const p in players) {
+
+        if (!players[p].career[club]) continue;
+
+        players[p].career[club].forEach(pRange => {
+
+          if (overlaps(mRange, pRange)) {
+
+            const overlapStart = Math.max(mRange[0], pRange[0]);
+            const overlapEnd = Math.min(mRange[1], pRange[1]);
+
+            playersList.push({
+              name: p,
+              type: "player",
+              overlap: overlapStart === overlapEnd
+                ? `${overlapStart}`
+                : `${overlapStart}–${overlapEnd}`
+            });
+          }
+        });
+      }
+
+    });
+  }
+
+  // Remove duplicates
+  playersList = removeDuplicateEntities(playersList);
+  managersList = removeDuplicateEntities(managersList);
+
+  if (playersList.length === 0 && managersList.length === 0) {
+
+    const message = document.createElement("div");
+    message.className = "dead-end-message";
+    message.textContent = "No more players available this way. Try something else.";
+    container.appendChild(message);
     return;
   }
 
-  const managersList = getManagersInClubPeriod(club, range);
-
-  // Players Section
   if (playersList.length > 0) {
-    addSectionHeader("Teammates");
+    addSectionHeader("Players");
     renderChoices(playersList, "entity");
   }
 
-  // Managers Section
-  if (managersList.length > 0) {
+  if (managersList.length > 0 && !isManager(currentEntity)) {
     addSectionHeader("Managers");
     renderChoices(managersList, "entity", true);
   }
 }
+}
+
+function removeDuplicateEntities(list) {
+
+  const merged = new Map();
+
+  list.forEach(item => {
+
+    if (!merged.has(item.name)) {
+      merged.set(item.name, {
+        ...item,
+        overlaps: [item.overlap]
+      });
+    } else {
+      merged.get(item.name).overlaps.push(item.overlap);
+    }
+
+  });
+
+  return Array.from(merged.values()).map(item => ({
+    ...item,
+    overlap: item.overlaps.join(", ")
+  }));
 }
 
 /* =============================
@@ -682,7 +1076,11 @@ function startNewGame() {
 
   const names = Object.keys(players);
 
-  while (true) {
+  let attempts = 0;
+
+  while (attempts < 200) {
+    attempts++;
+
 
     const s = names[Math.floor(Math.random() * names.length)];
     const t = names[Math.floor(Math.random() * names.length)];
@@ -692,7 +1090,7 @@ function startNewGame() {
     const length = shortestPathLength(s, t);
 
     // Block 1 and 2-step solutions
-    if (length >= 3 && length !== Infinity) {
+    if (length >= 2 && length !== Infinity) {
 
       startPlayer = s;
       targetPlayer = t;
@@ -762,9 +1160,6 @@ document.addEventListener("fullscreenchange", () => {
   }
 });
 
-startNewGame();
 </script>
-
-
 </body>
 </html>
