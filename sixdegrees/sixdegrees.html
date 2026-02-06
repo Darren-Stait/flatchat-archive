@@ -27,9 +27,10 @@ body {
 }
 
 .card {
+  position: relative;
   max-width: 1000px;
   margin: 50px auto;
-  padding: 40px;
+  padding: 60px 40px 40px 40px;  /* ← increase top padding */
   border-radius: 20px;
   background: #ffffff;
   border: 2px solid var(--brand);
@@ -211,19 +212,19 @@ button.primary:hover {
 }
 .fullscreen-btn {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 16px;
+  right: 16px;
   background: white;
   color: var(--brand);
   border: 2px solid var(--brand);
   border-radius: 10px;
-  padding: 6px 10px;
-  font-size: 0.9rem;
+  padding: 6px 12px;
+  font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: all 0.2s ease;
-  z-index: 10;
+  z-index: 5;
 }
 
 .fullscreen-btn:hover {
@@ -250,6 +251,26 @@ body.fullscreen footer {
 body.fullscreen {
   overflow: hidden;
 }
+#navigation-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.back-btn {
+  background: white;
+  border: 2px solid var(--brand);
+  color: var(--brand);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: var(--brand);
+  color: white;
+}
 </style>
 </head>
 
@@ -275,7 +296,7 @@ body.fullscreen {
     </div>
 
     <div class="top-centre">
-      <div class="label">Current Player:</div>
+      <div class="label">Current Player/Manager:</div>
       <div class="current-name" id="current-player"></div>
       <div class="moves">Moves: <span id="move-count">0</span></div>
     </div>
@@ -287,6 +308,7 @@ body.fullscreen {
     </div>
   </div>
 
+  <div id="navigation-bar" style="margin-top:20px; text-align: center;"></div>
   <div id="choices" class="choices-grid"></div>
   <div id="path" class="path"></div>
 
@@ -469,6 +491,30 @@ function renderChoices(items, mode, append = false) {
   });
 }
 
+function renderNavigation() {
+  const nav = document.getElementById("navigation-bar");
+  nav.innerHTML = "";
+
+  if (selectionMode === "entity") {
+    const btn = document.createElement("button");
+    btn.textContent = "← Back to Clubs";
+    btn.className = "back-btn";
+    btn.style.background = "white";
+    btn.style.color = "var(--brand)";
+    btn.style.border = "2px solid var(--brand)";
+    btn.style.padding = "6px 12px";
+    btn.style.fontSize = "0.8rem";
+
+    btn.onclick = () => {
+      selectionMode = "club";
+      selectedContext = null;
+      render();
+    };
+
+    nav.appendChild(btn);
+  }
+}
+
 function toggleHowToPlay() {
   const box = document.getElementById("how-to-play");
   const btn = document.getElementById("howto-toggle-btn");
@@ -491,10 +537,66 @@ function addSectionHeader(text) {
   document.getElementById("choices").appendChild(header);
 }
 
+function shortestPathLength(start, target) {
+
+  const visited = new Set([start]);
+  const queue = [[start, 0]];
+
+  while (queue.length > 0) {
+    const [node, depth] = queue.shift();
+
+    if (node === target) {
+      return depth;
+    }
+
+    // Get all next entities from this node
+    const nextEntities = getConnectedEntities(node);
+
+    for (const next of nextEntities) {
+      if (!visited.has(next)) {
+        visited.add(next);
+        queue.push([next, depth + 1]);
+      }
+    }
+  }
+
+  return Infinity;
+}
+
+function getConnectedEntities(entity) {
+
+  const connections = new Set();
+
+  const contexts = getClubContexts(entity);
+
+  contexts.forEach(ctx => {
+
+    const playersList = getPlayersInClubPeriod(ctx.club, ctx.range);
+    playersList.forEach(p => {
+      if (p.name !== entity) {
+        connections.add(p.name);
+      }
+    });
+
+    if (!isManager(entity)) {
+      const managersList = getManagersInClubPeriod(ctx.club, ctx.range);
+      managersList.forEach(m => {
+        if (m.name !== entity) {
+          connections.add(m.name);
+        }
+      });
+    }
+
+  });
+
+  return Array.from(connections);
+}
+
 /* =============================
    MAIN RENDER
 ============================= */
 function render() {
+  renderNavigation();
   document.getElementById("start-name").textContent = startPlayer;
   document.getElementById("target-name").textContent = targetPlayer;
   document.getElementById("current-player").textContent = currentEntity;
@@ -556,12 +658,21 @@ else if (selectionMode === "entity") {
    GAME START
 ============================= */
 function startNewGame() {
+
   const names = Object.keys(players);
 
   while (true) {
-    const s = names[Math.floor(Math.random()*names.length)];
-    const t = names[Math.floor(Math.random()*names.length)];
-    if (s !== t) {
+
+    const s = names[Math.floor(Math.random() * names.length)];
+    const t = names[Math.floor(Math.random() * names.length)];
+
+    if (s === t) continue;
+
+    const length = shortestPathLength(s, t);
+
+    // Block 1-step solutions
+    if (length >= 2 && length !== Infinity) {
+
       startPlayer = s;
       targetPlayer = t;
       currentEntity = s;
@@ -594,6 +705,12 @@ function clubToBadge(club) {
 
 function checkWin() {
   if (currentEntity === targetPlayer) {
+
+    const moves = path.length - 1;
+
+    document.getElementById("win-text").textContent =
+      `You connected ${startPlayer} to ${targetPlayer} in ${moves} move${moves !== 1 ? "s" : ""}!`;
+
     document.getElementById("win-modal").classList.remove("hidden");
   }
 }
