@@ -271,6 +271,28 @@ body.fullscreen {
   background: var(--brand);
   color: white;
 }
+.club-badge {
+  max-width: 90px;
+  max-height: 90px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 6px auto;
+}
+@media (max-width: 768px) {
+  .club-badge {
+    max-width: 70px;
+    max-height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .club-badge {
+    max-width: 55px;
+    max-height: 55px;
+  }
+}
 </style>
 </head>
 
@@ -450,8 +472,7 @@ function renderChoices(items, mode, append = false) {
 
     if (mode === "club") {
       div.innerHTML = `
-        <img src="${clubToBadge(item.club)}"
-             style="width:80px;height:80px;border-radius:50%;border:2px solid var(--brand);">
+        <img src="${clubToBadge(item.club)}" class="club-badge">
         <div style="font-weight:600;margin-top:6px;">${item.seasons}</div>
       `;
       div.onclick = () => {
