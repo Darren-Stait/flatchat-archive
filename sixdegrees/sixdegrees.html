@@ -171,6 +171,85 @@ button.primary:hover {
   color: var(--muted);
   letter-spacing: 1px;
 }
+.section-header {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 15px 0 5px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#how-to-play {
+  background: rgba(37,182,196,0.08);
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border-left: 4px solid var(--brand);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#how-to-play.collapsed {
+  max-height: 40px;
+  overflow: hidden;
+}
+.howto-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--brand);
+  transition: transform 0.2s ease;
+}
+.howto-toggle:active {
+  transform: scale(0.9);
+}
+.fullscreen-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: white;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.fullscreen-btn:hover {
+  background: var(--brand);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* FULLSCREEN MODE */
+body.fullscreen .card {
+  margin: 0;
+  max-width: none;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.fullscreen header,
+body.fullscreen footer {
+  display: none;
+}
+
+body.fullscreen {
+  overflow: hidden;
+}
 </style>
 </head>
 
@@ -179,11 +258,13 @@ button.primary:hover {
 <div data-include="../includes/header.html"></div>
 
 <div class="card">
-
-  <div id="how-to-play" style="background: rgba(37,182,196,0.08); padding: 16px 20px; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid var(--brand); position: relative; max-height: 200px; overflow: hidden; transition: max-height 0.3s ease;">
-    <button onclick="toggleHowToPlay()" style="position: absolute; top: 12px; right: 12px; background: transparent; border: none; font-size: 1.4rem; cursor: pointer; color: var(--brand); padding: 0; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">−</button>
+<button id="fullscreenBtn" class="fullscreen-btn" onclick="toggleFullscreen()">
+  Fullscreen
+</button>
+  <div id="how-to-play">
+    <button id="howto-toggle-btn" onclick="toggleHowToPlay()" class="howto-toggle">−</button>
     <h3 style="margin-top:0;color:var(--brand);">How to Play</h3>
-    <p style="margin:8px 0;font-size:0.95rem;">Connect the <strong>Start</strong> player to the <strong>Target</strong> player by finding teammates who shared a club. Select a club from the start player's career, then pick a teammate from that era. Keep moving through teammates until you reach the target!</p>
+    <p style="margin:8px 0;font-size:0.95rem;">Connect the <strong>Start</strong> player to the <strong>Target</strong> player by finding teammates or managers who they once shared a club with. Select a club from the start player's career, then pick a teammate or manager they worked with/under. Keep moving through teammates/managers until you reach the target player!</p>
   </div>
 
   <div class="goal-row">
@@ -275,41 +356,71 @@ function getClubContexts(entity) {
 ============================= */
 function getPlayersInClubPeriod(club, range) {
   const res = [];
+
   for (const p in players) {
+
+    // Skip current entity only if it's a player
+    if (!isManager(currentEntity) && p === currentEntity) continue;
+
     if (!players[p].career[club]) continue;
+
     for (const r of players[p].career[club]) {
       if (overlaps(r, range)) {
-        res.push({ name:p, type:"player" });
+        res.push({ name: p, type: "player" });
         break;
       }
     }
   }
+
   return res;
 }
 
 function getManagersInClubPeriod(club, range) {
   const res = [];
+
   for (const m in managers) {
-    if (m === currentEntity) continue; // ❌ prevent self-link
+
+    // Prevent manager self-loop
+    if (isManager(currentEntity) && m === currentEntity) continue;
 
     if (!managers[m][club]) continue;
 
     for (const r of managers[m][club]) {
       if (overlaps(r, range)) {
-        res.push({ name:m, type:"manager" });
+        res.push({ name: m, type: "manager" });
         break;
       }
     }
   }
+
   return res;
+}
+
+function toggleFullscreen() {
+  const btn = document.getElementById("fullscreenBtn");
+
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+    document.body.classList.add("fullscreen");
+    btn.textContent = "Exit Fullscreen";
+  } else {
+    document.exitFullscreen();
+    document.body.classList.remove("fullscreen");
+    btn.textContent = "Fullscreen";
+  }
 }
 
 /* =============================
    RENDER CHOICES
 ============================= */
-function renderChoices(items, mode) {
+function renderChoices(items, mode, append = false) {
+
   const container = document.getElementById("choices");
-  container.innerHTML = "";
+
+  // Only clear automatically for club mode
+  if (!append && mode === "club") {
+    container.innerHTML = "";
+  }
 
   items.forEach(item => {
     const div = document.createElement("div");
@@ -329,6 +440,7 @@ function renderChoices(items, mode) {
     }
 
     else if (mode === "entity") {
+
       if (item.type === "manager") {
         div.innerHTML = `
           <img src="${managerToImage(item.name)}"
@@ -345,7 +457,7 @@ function renderChoices(items, mode) {
 
       div.onclick = () => {
         currentEntity = item.name;
-        path.push(item.name);  // THIS COUNTS AS MOVE
+        path.push(item.name);
         selectionMode = "club";
         selectedContext = null;
         render();
@@ -355,6 +467,28 @@ function renderChoices(items, mode) {
 
     container.appendChild(div);
   });
+}
+
+function toggleHowToPlay() {
+  const box = document.getElementById("how-to-play");
+  const btn = document.getElementById("howto-toggle-btn");
+
+  box.classList.toggle("collapsed");
+
+  const collapsed = box.classList.contains("collapsed");
+
+  // Save state
+  localStorage.setItem("howToPlayCollapsed", collapsed);
+
+  // Update icon
+  btn.textContent = collapsed ? "+" : "−";
+}
+
+function addSectionHeader(text) {
+  const header = document.createElement("div");
+  header.className = "section-header";
+  header.textContent = text;
+  document.getElementById("choices").appendChild(header);
 }
 
 /* =============================
@@ -381,35 +515,41 @@ function render() {
     renderChoices(getClubContexts(currentEntity), "club");
   }
 
-  else if (selectionMode === "entity") {
-    const club = selectedContext.club;
-    const range = selectedContext.range;
+else if (selectionMode === "entity") {
 
-const playersList = getPlayersInClubPeriod(club, range);
-const managersList = getManagersInClubPeriod(club, range);
+  const club = selectedContext.club;
+  const range = selectedContext.range;
 
-const container = document.getElementById("choices");
-container.innerHTML = "";
+  const container = document.getElementById("choices");
+  container.innerHTML = "";
 
-// Render Players
-if (playersList.length > 0) {
-  renderChoices(playersList, "entity");
-}
+  const playersList = getPlayersInClubPeriod(club, range);
 
-// Add Separator if both exist
-if (playersList.length > 0 && managersList.length > 0) {
-const sep = document.createElement("div");
-sep.className = "separator";
-sep.textContent = "Managers";
-container.appendChild(sep);
-}
+  // If manager → only players
+  if (isManager(currentEntity)) {
 
-// Render Managers
-if (managersList.length > 0) {
-  renderChoices(managersList, "entity");
-}
+    if (playersList.length > 0) {
+      addSectionHeader("Teammates");
+      renderChoices(playersList, "entity");
+    }
 
+    return;
   }
+
+  const managersList = getManagersInClubPeriod(club, range);
+
+  // Players Section
+  if (playersList.length > 0) {
+    addSectionHeader("Teammates");
+    renderChoices(playersList, "entity");
+  }
+
+  // Managers Section
+  if (managersList.length > 0) {
+    addSectionHeader("Managers");
+    renderChoices(managersList, "entity", true);
+  }
+}
 }
 
 /* =============================
@@ -461,6 +601,28 @@ function checkWin() {
 function closeModal() {
   document.getElementById("win-modal").classList.add("hidden");
 }
+
+window.addEventListener("load", () => {
+  const collapsed = localStorage.getItem("howToPlayCollapsed") === "true";
+  const box = document.getElementById("how-to-play");
+  const btn = document.getElementById("howto-toggle-btn");
+
+  if (collapsed) {
+    box.classList.add("collapsed");
+    btn.textContent = "+";
+  } else {
+    btn.textContent = "−";
+  }
+});
+
+document.addEventListener("fullscreenchange", () => {
+  const btn = document.getElementById("fullscreenBtn");
+
+  if (!document.fullscreenElement) {
+    document.body.classList.remove("fullscreen");
+    btn.textContent = "Fullscreen";
+  }
+});
 
 startNewGame();
 </script>
