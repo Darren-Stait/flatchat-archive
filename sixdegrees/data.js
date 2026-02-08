@@ -182,7 +182,7 @@ const managers = {
     career: { "Arsenal": [[1996, 2018]] },
   },
   "Rudi Garcia": { 
-    image: "/games/player-images/garcia.png",
+    image: "/games/player-images/rudigarcia.png",
     career: { "Lille": [[2008, 2013]], "AS Roma": [[2013, 2016]], "Marseille": [[2016, 2019]], "Napoli": [[2023]] },
   },
   "Luciano Spalletti": { 
