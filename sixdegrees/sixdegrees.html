@@ -563,7 +563,7 @@ body.fullscreen {
     </div>
 
 <div class="top-centre">
-  <div class="label">Current Player/Manager:</div>
+  <div class="label" id="current-label">Current Player</div>
   <img id="current-img" class="current-headshot">
   <div class="current-name" id="current-player"></div>
   <div class="moves">Moves: <span id="move-count">0</span></div>
@@ -602,7 +602,7 @@ body.fullscreen {
 <script src="../includes/include-html.js"></script>
 
 <script>
-let startPlayer, currentEntity, targetPlayer;
+let startPlayer, currentEntity, currentType, targetPlayer;
 let path = [];
 let selectionMode = "club";
 let selectedContext = null;
@@ -625,13 +625,11 @@ function getClubContexts(entity) {
 
   const contexts = [];
 
-  if (!isManager(entity)) {
+  if (currentType === "player") {
 
     for (const club in players[entity].career) {
 
       const spells = players[entity].career[club];
-
-      // Check if this club leads somewhere at all
       let valid = false;
 
       spells.forEach(range => {
@@ -647,17 +645,14 @@ function getClubContexts(entity) {
 
       });
 
-      if (valid) {
-        contexts.push({ club });
-      }
+      if (valid) contexts.push({ club });
     }
 
-  } else {
+  } else { // manager
 
     for (const club in managers[entity].career) {
 
       const spells = managers[entity].career[club];
-
       let valid = false;
 
       spells.forEach(range => {
@@ -670,9 +665,7 @@ function getClubContexts(entity) {
 
       });
 
-      if (valid) {
-        contexts.push({ club });
-      }
+      if (valid) contexts.push({ club });
     }
   }
 
@@ -688,7 +681,7 @@ function getPlayersInClubPeriod(club, range) {
   for (const p in players) {
 
     // Skip current entity only if it's a player
-    if (!isManager(currentEntity) && p === currentEntity) continue;
+    if (currentType === "player" && p === currentEntity) continue;
 
     if (!players[p].career[club]) continue;
 
@@ -807,7 +800,7 @@ function getManagersInClubPeriod(club, range) {
   for (const m in managers) {
 
     // Prevent manager self-loop
-    if (isManager(currentEntity) && m === currentEntity) continue;
+    if (currentType === "manager" && m === currentEntity) continue;
 
     if (!managers[m].career[club]) continue;
 
@@ -860,15 +853,19 @@ function renderChoices(items, mode, append = false) {
       const club = item.club;
       let spells;
 
-      if (!isManager(currentEntity)) {
+      if (currentType === "player") {
         spells = players[currentEntity].career[club];
       } else {
         spells = managers[currentEntity].career[club];
       }
 
-      const rangesText = spells
-        .map(([s, e]) => s === e ? `${s}` : `${s}–${e}`)
-        .join(", ");
+const rangesText = spells
+  .map(spell => {
+    const s = spell[0];
+    const e = spell[1] ?? spell[0];   // ← fix here
+    return s === e ? `${s}` : `${s}–${e}`;
+  })
+  .join(", ");
 
       div.innerHTML = `
         <img src="${clubToBadge(club)}" class="club-badge">
@@ -907,6 +904,7 @@ function renderChoices(items, mode, append = false) {
 
       div.onclick = () => {
         currentEntity = item.name;
+        currentType = item.type;
         path.push(item.name);
         selectionMode = "club";
         selectedContext = null;
@@ -1061,7 +1059,11 @@ function render() {
   document.getElementById("start-name").textContent = startPlayer;
   document.getElementById("target-name").textContent = targetPlayer;
   document.getElementById("current-player").textContent = currentEntity;
-  document.getElementById("current-img").src = getImage(currentEntity);
+  document.getElementById("current-label").textContent =
+  currentType === "manager"
+    ? "Current Manager"
+    : "Current Player";
+  document.getElementById("current-img").src = getImage(currentEntity, currentType);
   document.getElementById("move-count").textContent = Math.max(0, path.length - 1);
 
   document.getElementById("start-img").src = getImage(startPlayer);
@@ -1088,7 +1090,7 @@ else if (selectionMode === "entity") {
   let playersList = [];
   let managersList = [];
 
-  if (!isManager(currentEntity)) {
+  if (currentType === "player") {
 
     const playerSpells = players[currentEntity].career[club];
 
@@ -1106,13 +1108,14 @@ else if (selectionMode === "entity") {
             const overlapStart = Math.max(pRange[0], oRange[0]);
             const overlapEnd = Math.min(pRange[1], oRange[1]);
 
-            playersList.push({
-              name: p,
-              type: "player",
-              overlap: overlapStart === overlapEnd
-                ? `${overlapStart}`
-                : `${overlapStart}–${overlapEnd}`
-            });
+playersList.push({
+  name: p,
+  type: "player",
+  sortYear: overlapStart,
+  overlap: overlapStart === overlapEnd
+    ? `${overlapStart}`
+    : `${overlapStart}–${overlapEnd}`
+});
           }
         });
       }
@@ -1128,13 +1131,14 @@ else if (selectionMode === "entity") {
             const overlapStart = Math.max(pRange[0], mRange[0]);
             const overlapEnd = Math.min(pRange[1], mRange[1]);
 
-            managersList.push({
-              name: m,
-              type: "manager",
-              overlap: overlapStart === overlapEnd
-                ? `${overlapStart}`
-                : `${overlapStart}–${overlapEnd}`
-            });
+managersList.push({
+  name: m,
+  type: "manager",
+  sortYear: overlapStart,
+  overlap: overlapStart === overlapEnd
+    ? `${overlapStart}`
+    : `${overlapStart}–${overlapEnd}`
+});
           }
         });
       }
@@ -1175,6 +1179,8 @@ else if (selectionMode === "entity") {
   // Remove duplicates
   playersList = removeDuplicateEntities(playersList);
   managersList = removeDuplicateEntities(managersList);
+  playersList.sort((a, b) => a.sortYear - b.sortYear);
+  managersList.sort((a, b) => a.sortYear - b.sortYear);
 
   if (playersList.length === 0 && managersList.length === 0) {
 
@@ -1190,7 +1196,7 @@ else if (selectionMode === "entity") {
     renderChoices(playersList, "entity");
   }
 
-  if (managersList.length > 0 && !isManager(currentEntity)) {
+  if (managersList.length > 0 && currentType === "player") {
     addSectionHeader("Managers");
     renderChoices(managersList, "entity", true);
   }
@@ -1245,8 +1251,9 @@ function startNewGame() {
 
       startPlayer = s;
       targetPlayer = t;
-      currentEntity = s;
-      path = [s];
+currentEntity = s;
+currentType = "player";
+path = [s];
       selectionMode = "club";
       selectedContext = null;
       render();
@@ -1257,9 +1264,15 @@ function startNewGame() {
   closeModal();
 }
 
-function getImage(name) {
+function getImage(name, type = null) {
+
+  if (type === "player") return players[name]?.image;
+  if (type === "manager") return managers[name]?.image;
+
+  // fallback
   if (players[name]) return players[name].image;
   if (managers[name]) return managers[name].image;
+
   return "";
 }
 
