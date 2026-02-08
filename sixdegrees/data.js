@@ -4,7 +4,7 @@ const players = {
 // CHELSEA STARS
 "Frank Lampard": {
   image: "/games/player-images/lampard.png",
-  career: { "West Ham United": [[1995, 2001]], "Chelsea": [[2001, 2014]], "Manchester City": [[2014, 2015]] },
+  career: { "West Ham": [[1995, 2001]], "Chelsea": [[2001, 2014]], "Manchester City": [[2014, 2015]] },
 },
 "Didier Drogba": {
   image: "/games/player-images/drogba.png",
@@ -142,12 +142,39 @@ const players = {
 "Jack Grealish": {
     image: "/games/player-images/grealish.png",
     career: { "Aston Villa": [[2013, 2021]], "Manchester City": [[2021, 2026]], "Everton": [[2025, 2026]] },
+},
+"Vincent Kompany": {
+    image: "/games/player-images/kompany.png",
+    career: { "Hamburg": [[2006, 2008]], "Manchester City": [[2008, 2019]] },
+},
+"John Stones": {
+    image: "/games/player-images/stones.png",
+    career: { "Everton": [[2013, 2016]], "Manchester City": [[2016, 2026]] },
+},
+// LIVERPOOL STARS
+"John Arne Riise": {
+    image: "/games/player-images/riise.png",
+    career: { "Monaco": [[1998, 2001]], "Liverpool": [[2001, 2008]], "AS Roma": [[2008, 2011]], "Fulham": [[2011, 2014]] },
+},
+"Mohamed Salah": {
+    image: "/games/player-images/salah.png",
+    career: { "Chelsea": [[2014, 2016]], "Fiorentina": [[2015]], "AS Roma": [[2015, 2016]], "Liverpool": [[2017, 2026]] },
+},
+"Trent Alexander-Arnold": {
+    image: "/games/player-images/alexanderarnold.png",
+    career: { "Liverpool": [[2016, 2025]], "Real Madrid": [[2025, 2026]] },
+},
+"Virgil van Dijk": {
+    image: "/games/player-images/vandijk.png",
+    career: { "Celtic": [[2013, 2015]], "Southampton": [[2015, 2018]], "Liverpool": [[2018, 2026]] },
+},
+"Dejan Lovren": {
+    image: "/games/player-images/lovren.png",
+    career: { "Lyon": [[2010, 2013], [2023, 2024]], "Southampton": [[2013, 2014]], "Liverpool": [[2014, 2020]] },
 }
 };
 
 // Manager career data: who managed which club during which years
-
-
 const managers = {
   "Carlo Ancelotti": { 
     image: "/games/player-images/ancelotti.png",
@@ -171,11 +198,11 @@ const managers = {
   },
   "Manuel Pellegrini": { 
     image: "/games/player-images/pellegrini.png",
-    career: { "Villarreal": [[2004, 2009]], "Real Madrid": [[2009, 2010]], "Malaga": [[2010, 2013]], "Manchester City": [[2013, 2016]], "West Ham United": [[2018, 2019]], "Real Betis": [[2020, 2026]] },
+    career: { "Villarreal": [[2004, 2009]], "Real Madrid": [[2009, 2010]], "Malaga": [[2010, 2013]], "Manchester City": [[2013, 2016]], "West Ham": [[2018, 2019]], "Real Betis": [[2020, 2026]] },
   },
   "Harry Redknapp": { 
     image: "/games/player-images/redknapp.png",
-    career: { "West Ham United": [[1994, 2001]], "Portsmouth": [[2002, 2004], [2005, 2008]], "Southampton": [[2004, 2005]], "Tottenham Hotspur": [[2008, 2012]], "Queens Park Rangers": [[2012, 2015]] },
+    career: { "West Ham": [[1994, 2001]], "Portsmouth": [[2002, 2004], [2005, 2008]], "Southampton": [[2004, 2005]], "Tottenham Hotspur": [[2008, 2012]], "QPR": [[2012, 2015]] },
   },
   "Arsene Wenger": { 
     image: "/games/player-images/wenger.png",
@@ -195,7 +222,7 @@ const managers = {
   },
   "Claude Puel": { 
     image: "/games/player-images/puel.png",
-    career: { "Lille": [[2002, 2008]], "Olympique Lyonnais": [[2009, 2011]], "Nice": [[2012, 2016], [2025, 2026]], "Southampton": [[2016, 2017]], "Leicester City": [[2017, 2019]] },
+    career: { "Monaco": [[1999, 2001]], "Lille": [[2002, 2008]], "Olympique Lyonnais": [[2009, 2011]], "Nice": [[2012, 2016], [2025, 2026]], "Southampton": [[2016, 2017]], "Leicester City": [[2017, 2019]] },
   },
   "Massimiliano Allegri": { 
     image: "/games/player-images/allegri.png",
@@ -231,7 +258,7 @@ const managers = {
   },
   "Julen Lopetegui": { 
     image: "/games/player-images/lopetegui.png",
-    career: { "Porto": [[2014, 2016]], "Real Madrid": [[2018]], "Sevilla": [[2019, 2022]], "Wolverhampton Wanderers": [[2022, 2023]], "West Ham United": [[2024, 2025]] },
+    career: { "Porto": [[2014, 2016]], "Real Madrid": [[2018]], "Sevilla": [[2019, 2022]], "Wolverhampton Wanderers": [[2022, 2023]], "West Ham": [[2024, 2025]] },
   },
   "Mauricio Pochettino": { 
     image: "/games/player-images/pochettino.png",
@@ -295,6 +322,18 @@ const managers = {
   },
   "David Moyes": { 
     image: "/games/player-images/moyes.png",
-    career: { "Everton": [[2002, 2013], [2025, 2026]], "Manchester United": [[2013, 2014]], "Real Sociedad": [[2014, 2015]], "Sunderland": [[2016, 2017]], "West Ham United": [[2017, 2018], [2019, 2024]] },
+    career: { "Everton": [[2002, 2013], [2025, 2026]], "Manchester United": [[2013, 2014]], "Real Sociedad": [[2014, 2015]], "Sunderland": [[2016, 2017]], "West Ham": [[2017, 2018], [2019, 2024]] },
   },
+  "Roberto Martinez": {
+    image: "/games/player-images/robertomartinez.png",
+    career: { "Swansea": [[2007, 2009]], "Wigan": [[2009, 2013]], "Everton": [[2013, 2016]] },
+  },
+  "Mark Hughes": {
+    image: "/games/player-images/markhughes.png",
+    career: { "Blackburn": [[2004, 2008]],"Manchester City": [[2008, 2009]], "Fulham": [[2010, 2011]], "QPR": [[2012]], "Stoke": [[2013, 2018]], "Southampton": [[2018]] },
+  },
+  "Brendan Rodgers": {
+    image: "/games/player-images/rodgers.png",
+    career: { "Swansea": [[2010, 2012]], "Liverpool": [[2012, 2015]], "Celtic": [[2016, 2019], [2023, 2025]], "Leicester": [[2019, 2023]] },
+  }
 };
