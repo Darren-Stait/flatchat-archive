@@ -96,7 +96,7 @@ body {
 
 .choices-grid {
   display: grid;
-  gap: 14px;
+  gap: 10px;
   grid-template-columns: repeat(10, 1fr);
 }
 
@@ -304,12 +304,6 @@ body.fullscreen {
   display: block;
   margin: 0 auto 6px auto;
 }
-@media (max-width: 768px) {
-  .club-badge {
-    max-width: 70px;
-    max-height: 70px;
-  }
-}
 
 @media (max-width: 480px) {
   .club-badge {
@@ -403,24 +397,68 @@ body.fullscreen {
 
 @media (max-width: 768px) {
 
+  .club-badge {
+    max-width: 70px;
+    max-height: 70px;
+  }
+
+  /* Make the whole top area compact */
   .goal-row {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
   }
 
-  .player-headshot {
-    width: 90px;
-    height: 90px;
+  .goal-row img {
+    margin-bottom: 2px;
   }
 
+  .top-centre {
+    margin-bottom: 4px;
+  }
+
+  /* Remove vertical stacking */
+  .goal-row > div {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Shrink all headshots */
+  .player-headshot,
   .current-headshot {
-    width: 70px;
-    height: 70px;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 10px;
   }
 
-  .step img {
-    width: 22px;
-    height: 22px;
+  /* Reduce name size */
+  .player-name,
+  .current-name {
+    font-size: 0.7rem;
+    line-height: 1.1;
+  }
+
+  /* Hide big labels */
+  .label {
+    display: none;
+  }
+
+  /* Reduce moves size */
+  .moves {
+    font-size: 0.75rem;
+  }
+
+  /* Reduce card padding */
+  .card {
+    margin: 10px;
+    padding: 45px 12px 15px;
+  }
+
+  .club-badge {
+    max-width: 70px;
+    max-height: 70px;
   }
 }
 
