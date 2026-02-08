@@ -55,6 +55,16 @@ body {
   margin-bottom: 12px;
 }
 
+.current-headshot {
+  width: 90px;
+  height: 90px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid var(--brand);
+  margin: 10px auto 6px;
+  display: block;
+}
+
 .target-glow {
   box-shadow: 0 0 0 4px rgba(37,182,196,0.2);
 }
@@ -86,9 +96,8 @@ body {
 
 .choices-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 16px;
-  margin-top: 40px;
+  gap: 14px;
+  grid-template-columns: repeat(10, 1fr);
 }
 
 .choice-card {
@@ -99,9 +108,22 @@ body {
   text-align: center;
 }
 
-.choice-card img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 12px rgba(37,182,196,0.5);
+.choice-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid var(--brand);
+  transition: transform 0.15s ease;
+}
+
+.choice-card:hover img {
+  transform: scale(1.05);
+}
+
+.choice-card div {
+  font-size: 0.75rem;
+  margin-top: 4px;
 }
 
 .path {
@@ -364,6 +386,88 @@ body.fullscreen {
   border-radius: 10px;
 }
 
+.large-choice img {
+  width: 90px;
+  height: 90px;
+}
+
+.medium-choice img {
+  width: 70px;
+  height: 70px;
+}
+
+.small-choice img {
+  width: 55px;
+  height: 55px;
+}
+
+@media (max-width: 768px) {
+
+  .goal-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .player-headshot {
+    width: 90px;
+    height: 90px;
+  }
+
+  .current-headshot {
+    width: 70px;
+    height: 70px;
+  }
+
+  .step img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .large-choice img { width: 70px; height: 70px; }
+  .medium-choice img { width: 55px; height: 55px; }
+  .small-choice img { width: 45px; height: 45px; }
+
+  .current-name {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .choices-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .choices-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .choices-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .choice-card img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 420px) {
+  .choices-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .choice-card img {
+    width: 45px;
+    height: 45px;
+  }
+}
 </style>
 </head>
 
@@ -420,11 +524,12 @@ body.fullscreen {
       <div id="start-name"></div>
     </div>
 
-    <div class="top-centre">
-      <div class="label">Current Player/Manager:</div>
-      <div class="current-name" id="current-player"></div>
-      <div class="moves">Moves: <span id="move-count">0</span></div>
-    </div>
+<div class="top-centre">
+  <div class="label">Current Player/Manager:</div>
+  <img id="current-img" class="current-headshot">
+  <div class="current-name" id="current-player"></div>
+  <div class="moves">Moves: <span id="move-count">0</span></div>
+</div>
 
     <div class="player-card">
       <img id="target-img" class="player-headshot target-glow">
@@ -694,6 +799,13 @@ function toggleFullscreen() {
 }
 function renderChoices(items, mode, append = false) {
 
+  const count = items.length;
+  let sizeClass = "large-choice";
+
+  if (count > 16) sizeClass = "small-choice";
+  else if (count > 8) sizeClass = "medium-choice";
+
+
   const container = document.getElementById("choices");
 
   if (!append && mode === "club") {
@@ -703,7 +815,7 @@ function renderChoices(items, mode, append = false) {
   items.forEach(item => {
 
     const div = document.createElement("div");
-    div.className = "choice-card";
+    div.className = `choice-card ${sizeClass}`;
 
     if (mode === "club") {
 
@@ -740,7 +852,7 @@ function renderChoices(items, mode, append = false) {
       if (item.type === "manager") {
         div.innerHTML = `
           <img src="${getImage(item.name)}"
-               style="width:80px;height:80px;border-radius:50%;border:2px dashed var(--brand);">
+               style="border-radius:50%;border:2px solid var(--brand);">
           <div style="font-weight:600;margin-top:6px;">
             ${item.name}${overlapText}
           </div>
@@ -748,7 +860,7 @@ function renderChoices(items, mode, append = false) {
       } else {
         div.innerHTML = `
           <img src="${getImage(item.name)}"
-               style="width:80px;height:80px;border-radius:50%;border:2px solid var(--brand);">
+               style="border-radius:50%;border:2px solid var(--brand);">
           <div style="font-weight:600;margin-top:6px;">
             ${item.name}${overlapText}
           </div>
@@ -911,6 +1023,7 @@ function render() {
   document.getElementById("start-name").textContent = startPlayer;
   document.getElementById("target-name").textContent = targetPlayer;
   document.getElementById("current-player").textContent = currentEntity;
+  document.getElementById("current-img").src = getImage(currentEntity);
   document.getElementById("move-count").textContent = Math.max(0, path.length - 1);
 
   document.getElementById("start-img").src = getImage(startPlayer);
