@@ -111,7 +111,7 @@ const players = {
     career: { "Bayern Munich": [[2002, 2015]], "Manchester United": [[2015, 2017]] },
 },
 "Manuel Neuer": {
-    image: "/games/player-images/neuer.png",  image: "/games/player-images/lampard.png",
+    image: "/games/player-images/neuer.png",
     career: { "Schalke 04": [[2005, 2011]], "Bayern Munich": [[2011, 2026]] },
 },
 "David Alaba": {
@@ -150,7 +150,7 @@ const players = {
 
 const managers = {
   "Carlo Ancelotti": { 
-    image: "/games/player-images/lampard.png",
+    image: "/games/player-images/ancelotti.png",
     career: { "Juventus": [[1999, 2001]], "AC Milan": [[2001, 2009]], "Chelsea": [[2009, 2011]], "Paris Saint-Germain": [[2011, 2013]], "Real Madrid": [[2013, 2015], [2021, 2025]], "Bayern Munich": [[2016, 2017]], "Napoli": [[2018, 2019]], "Everton": [[2019, 2021]] },
   },
   "Jose Mourinho": { 
