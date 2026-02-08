@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flatchat Six Degrees</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --brand: #25b6c4;
+  --brand-dark: #1e9aa6;
+  --bg: #f4fbfc;
+  --text: #1f2937;
+  --muted: #6b7280;
+}
+
+* { box-sizing: border-box; transition: all 0.2s ease; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.card {
+  position: relative;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 60px 40px 40px 40px;  /* ← increase top padding */
+  border-radius: 20px;
+  background: #ffffff;
+  border: 2px solid var(--brand);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.goal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.player-card { text-align: center; }
+
+.player-headshot {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid var(--brand);
+  margin-bottom: 12px;
+}
+
+.current-headshot {
+  width: 90px;
+  height: 90px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid var(--brand);
+  margin: 10px auto 6px;
+  display: block;
+}
+
+.target-glow {
+  box-shadow: 0 0 0 4px rgba(37,182,196,0.2);
+}
+
+.player-card strong { color: var(--brand); }
+
+.top-centre {
+  text-align: center;
+  min-width: 180px;
+}
+
+.top-centre .label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.current-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--brand);
+  margin-top: 4px;
+}
+
+.moves {
+  margin-top: 12px;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.choices-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.choice-card {
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.choice-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid var(--brand);
+  transition: transform 0.15s ease;
+}
+
+.choice-card:hover img {
+  transform: scale(1.05);
+}
+
+.choice-card div {
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(37,182,196,0.08);
+  border: 1px solid var(--brand);
+  font-size: 0.9rem;
+}
+
+.step img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--brand);
+}
+
+button.primary {
+  background: var(--brand);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.primary:hover {
+  background: var(--brand-dark);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 400px;
+  border: 2px solid var(--brand);
+}
+.separator {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 10px 0;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+.section-header {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 15px 0 5px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#how-to-play {
+  background: rgba(37,182,196,0.08);
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border-left: 4px solid var(--brand);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#how-to-play.collapsed {
+  max-height: 40px;
+  overflow: hidden;
+}
+.howto-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--brand);
+  transition: transform 0.2s ease;
+}
+.howto-toggle:active {
+  transform: scale(0.9);
+}
+.fullscreen-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: white;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.fullscreen-btn:hover {
+  background: var(--brand);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* FULLSCREEN MODE */
+body.fullscreen .card {
+  margin: 0;
+  max-width: none;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.fullscreen header,
+body.fullscreen footer {
+  display: none;
+}
+
+body.fullscreen {
+  overflow: hidden;
+}
+#navigation-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.back-btn {
+  background: white;
+  border: 2px solid var(--brand);
+  color: var(--brand);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: var(--brand);
+  color: white;
+}
+.club-badge {
+  max-width: 90px;
+  max-height: 90px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 6px auto;
+}
+
+@media (max-width: 480px) {
+  .club-badge {
+    max-width: 55px;
+    max-height: 55px;
+  }
+}
+
+.mode-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.mode-box {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  border: 2px solid var(--brand);
+  text-align: center;
+  width: 350px;
+}
+
+.mode-btn {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.custom-setup {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.custom-setup select {
+  padding: 8px;
+  border: 2px solid var(--brand);
+  border-radius: 8px;
+}
+.menu-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: white;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.menu-btn:hover {
+  background: var(--brand);
+  color: white;
+  transform: translateY(-2px);
+}
+.dead-end-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 20px;
+  font-weight: 600;
+  color: var(--brand);
+  background: rgba(37,182,196,0.08);
+  border-radius: 10px;
+}
+
+.large-choice img {
+  width: 90px;
+  height: 90px;
+}
+
+.medium-choice img {
+  width: 70px;
+  height: 70px;
+}
+
+.small-choice img {
+  width: 55px;
+  height: 55px;
+}
+
+@media (max-width: 768px) {
+
+  .club-badge {
+    max-width: 70px;
+    max-height: 70px;
+  }
+
+  .goal-row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .goal-row > div {
+    flex: 1;
+    text-align: center;
+  }
+
+  .goal-row img {
+    display: block;
+    margin: 0 auto 4px;
+  }
+
+  .player-headshot {
+    width: 65px;
+    height: 65px;
+  }
+
+  .current-headshot {
+    width: 60px;
+    height: 60px;
+  }
+
+  .player-name {
+    font-size: 0.8rem;
+  }
+
+  .current-name {
+    font-size: 0.9rem;
+  }
+  .card {
+    margin: 20px 10px;
+    padding: 50px 15px 20px;
+  }
+
+  .top-centre {
+    margin-bottom: 8px;
+  }
+
+  .moves {
+    font-size: 0.85rem;
+  }
+  .club-badge {
+    max-width: 70px;
+    max-height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .large-choice img { width: 70px; height: 70px; }
+  .medium-choice img { width: 55px; height: 55px; }
+  .small-choice img { width: 45px; height: 45px; }
+
+  .current-name {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .choices-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .choices-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .choices-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .choice-card img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 420px) {
+  .choices-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .choice-card img {
+    width: 45px;
+    height: 45px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div data-include="../includes/header.html"></div>
+
+<div id="mode-screen" class="mode-screen">
+  <div class="mode-box">
+
+    <h2 id="mode-title">Select Game Mode</h2>
+
+    <div id="mode-buttons">
+      <button class="primary mode-btn" onclick="startRandomMode()">
+        🎲 Random Challenge
+      </button>
+
+      <button class="primary mode-btn" onclick="activateCustomMode()">
+        🎯 Custom Challenge
+      </button>
+    </div>
+
+    <div id="custom-setup" class="custom-setup hidden">
+      <h3>Choose Players</h3>
+
+      <select id="custom-start"></select>
+      <select id="custom-target"></select>
+
+      <button class="primary" onclick="startCustomMode()">
+        Start Game
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<div class="card">
+<button id="menuBtn" class="menu-btn" onclick="returnToMenu()">
+  Back to Menu
+</button>
+<button id="fullscreenBtn" class="fullscreen-btn" onclick="toggleFullscreen()">
+  Fullscreen
+</button>
+  <div id="how-to-play">
+    <button id="howto-toggle-btn" onclick="toggleHowToPlay()" class="howto-toggle">−</button>
+    <h3 style="margin-top:0;color:var(--brand);">How to Play</h3>
+    <p style="margin:8px 0;font-size:0.95rem;">Connect the <strong>Start</strong> player to the <strong>Target</strong> player by finding teammates or managers who they once shared a club with. Select a club from the start player's career, then pick a teammate or manager they worked with/under. Keep moving through teammates/managers until you reach the target player!</p>
+  </div>
+
+  <div class="goal-row">
+    <div class="player-card">
+      <img id="start-img" class="player-headshot">
+      <div><strong>Start</strong></div>
+      <div id="start-name"></div>
+    </div>
+
+<div class="top-centre">
+  <div class="label">Current Player/Manager:</div>
+  <img id="current-img" class="current-headshot">
+  <div class="current-name" id="current-player"></div>
+  <div class="moves">Moves: <span id="move-count">0</span></div>
+</div>
+
+    <div class="player-card">
+      <img id="target-img" class="player-headshot target-glow">
+      <div><strong>Target</strong></div>
+      <div id="target-name"></div>
+    </div>
+  </div>
+
+  <div id="navigation-bar" style="margin-top:20px; text-align: center;"></div>
+  <div id="choices" class="choices-grid"></div>
+  <div id="path" class="path"></div>
+
+  <div style="text-align:center;margin-top:40px;">
+    <button class="primary" onclick="startNewGame()">New Puzzle</button>
+  </div>
+
+</div>
+
+<div id="win-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>🎉 Connection Complete!</h2>
+    <p id="win-text"></p>
+    <button class="primary" onclick="startNewGame(); closeModal();">
+      Play Again
+    </button>
+  </div>
+</div>
+
+<div data-include="../includes/footer.html"></div>
+
+<script src="./data.js"></script>
+<script src="../includes/include-html.js"></script>
+
+<script>
+let startPlayer, currentEntity, targetPlayer;
+let path = [];
+let selectionMode = "club";
+let selectedContext = null;
+
+/* =============================
+   UTIL
+============================= */
+function overlaps(a, b) {
+  return Math.max(a[0], b[0]) <= Math.min(a[1], b[1]);
+}
+
+function isManager(name) {
+  return !!managers[name];
+}
+
+/* =============================
+   CLUB CONTEXTS (PLAYER OR MANAGER)
+============================= */
+function getClubContexts(entity) {
+
+  const contexts = [];
+
+  if (!isManager(entity)) {
+
+    for (const club in players[entity].career) {
+
+      const spells = players[entity].career[club];
+
+      // Check if this club leads somewhere at all
+      let valid = false;
+
+      spells.forEach(range => {
+
+        const playersList = getPlayersInClubPeriod(club, range)
+          .filter(p => p.name !== entity);
+
+        const managersList = getManagersInClubPeriod(club, range);
+
+        if (playersList.length > 0 || managersList.length > 0) {
+          valid = true;
+        }
+
+      });
+
+      if (valid) {
+        contexts.push({ club });
+      }
+    }
+
+  } else {
+
+    for (const club in managers[entity].career) {
+
+      const spells = managers[entity].career[club];
+
+      let valid = false;
+
+      spells.forEach(range => {
+
+        const playersList = getPlayersInClubPeriod(club, range);
+
+        if (playersList.length > 0) {
+          valid = true;
+        }
+
+      });
+
+      if (valid) {
+        contexts.push({ club });
+      }
+    }
+  }
+
+  return contexts;
+}
+
+/* =============================
+   PLAYERS IN CLUB PERIOD
+============================= */
+function getPlayersInClubPeriod(club, range) {
+  const res = [];
+
+  for (const p in players) {
+
+    // Skip current entity only if it's a player
+    if (!isManager(currentEntity) && p === currentEntity) continue;
+
+    if (!players[p].career[club]) continue;
+
+    for (const r of players[p].career[club]) {
+      if (overlaps(r, range)) {
+        res.push({ name: p, type: "player" });
+        break;
+      }
+    }
+  }
+
+  return res;
+}
+
+function startRandomMode() {
+  document.getElementById("mode-screen").classList.add("hidden");
+  startNewGame();
+}
+
+function activateCustomMode() {
+
+  document.getElementById("mode-buttons").classList.add("hidden");
+  document.getElementById("custom-setup").classList.remove("hidden");
+
+  const startSelect = document.getElementById("custom-start");
+  const targetSelect = document.getElementById("custom-target");
+
+  const names = Object.keys(players);
+
+  // Fill start dropdown
+  startSelect.innerHTML = "";
+  names.forEach(name => {
+    const option = document.createElement("option");
+    option.value = name;
+    option.textContent = name;
+    startSelect.appendChild(option);
+  });
+
+  // Initially fill target with valid options
+  updateTargetOptions();
+
+  // When start changes → update target
+  startSelect.addEventListener("change", updateTargetOptions);
+}
+
+function updateTargetOptions() {
+
+  const start = document.getElementById("custom-start").value;
+  const targetSelect = document.getElementById("custom-target");
+
+  targetSelect.innerHTML = "";
+
+  const names = Object.keys(players);
+
+  names.forEach(name => {
+
+    if (name === start) return;
+
+    const length = shortestPathLength(start, name);
+
+    if (length >= 3 && length !== Infinity) {
+      const option = document.createElement("option");
+      option.value = name;
+      option.textContent = name;
+      targetSelect.appendChild(option);
+    }
+  });
+
+  // If no valid targets exist
+  if (targetSelect.options.length === 0) {
+    const option = document.createElement("option");
+    option.textContent = "No valid targets available";
+    option.disabled = true;
+    targetSelect.appendChild(option);
+  }
+}
+
+function returnToMenu() {
+
+  // Exit fullscreen if active
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+    document.body.classList.remove("fullscreen");
+    document.getElementById("fullscreenBtn").textContent = "Fullscreen";
+  }
+
+  // Reset mode screen
+  document.getElementById("mode-screen").classList.remove("hidden");
+
+  // Reset custom view
+  document.getElementById("custom-setup").classList.add("hidden");
+  document.getElementById("mode-buttons").classList.remove("hidden");
+}
+
+function startCustomMode() {
+
+  const start = document.getElementById("custom-start").value;
+  const target = document.getElementById("custom-target").value;
+
+  document.getElementById("mode-screen").classList.add("hidden");
+
+  startPlayer = start;
+  targetPlayer = target;
+  currentEntity = start;
+
+  path = [start];
+  selectionMode = "club";
+  selectedContext = null;
+
+  render();
+}
+
+function getManagersInClubPeriod(club, range) {
+  const res = [];
+
+  for (const m in managers) {
+
+    // Prevent manager self-loop
+    if (isManager(currentEntity) && m === currentEntity) continue;
+
+    if (!managers[m].career[club]) continue;
+
+    for (const r of managers[m].career[club]) {
+      if (overlaps(r, range)) {
+        res.push({ name: m, type: "manager" });
+        break;
+      }
+    }
+  }
+
+  return res;
+}
+
+function toggleFullscreen() {
+  const btn = document.getElementById("fullscreenBtn");
+
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+    document.body.classList.add("fullscreen");
+    btn.textContent = "Exit Fullscreen";
+  } else {
+    document.exitFullscreen();
+    document.body.classList.remove("fullscreen");
+    btn.textContent = "Fullscreen";
+  }
+}
+function renderChoices(items, mode, append = false) {
+
+  const count = items.length;
+  let sizeClass = "large-choice";
+
+  if (count > 16) sizeClass = "small-choice";
+  else if (count > 8) sizeClass = "medium-choice";
+
+
+  const container = document.getElementById("choices");
+
+  if (!append && mode === "club") {
+    container.innerHTML = "";
+  }
+
+  items.forEach(item => {
+
+    const div = document.createElement("div");
+    div.className = `choice-card ${sizeClass}`;
+
+    if (mode === "club") {
+
+      const club = item.club;
+      let spells;
+
+      if (!isManager(currentEntity)) {
+        spells = players[currentEntity].career[club];
+      } else {
+        spells = managers[currentEntity].career[club];
+      }
+
+      const rangesText = spells
+        .map(([s, e]) => s === e ? `${s}` : `${s}–${e}`)
+        .join(", ");
+
+      div.innerHTML = `
+        <img src="${clubToBadge(club)}" class="club-badge">
+        <div style="font-weight:600;margin-top:6px;">${rangesText}</div>
+      `;
+
+      div.onclick = () => {
+        selectedContext = club;
+        selectionMode = "entity";
+        render();
+      };
+
+    } else if (mode === "entity") {
+
+      const overlapText = item.overlap
+        ? `<span style="font-weight:400;color:var(--muted);font-size:0.8rem;"> (${item.overlap})</span>`
+        : "";
+
+      if (item.type === "manager") {
+        div.innerHTML = `
+          <img src="${getImage(item.name)}"
+               style="border-radius:50%;border:2px solid var(--brand);">
+          <div style="font-weight:600;margin-top:6px;">
+            ${item.name}${overlapText}
+          </div>
+        `;
+      } else {
+        div.innerHTML = `
+          <img src="${getImage(item.name)}"
+               style="border-radius:50%;border:2px solid var(--brand);">
+          <div style="font-weight:600;margin-top:6px;">
+            ${item.name}${overlapText}
+          </div>
+        `;
+      }
+
+      div.onclick = () => {
+        currentEntity = item.name;
+        path.push(item.name);
+        selectionMode = "club";
+        selectedContext = null;
+        render();
+        checkWin();
+      };
+    }
+
+    container.appendChild(div);
+
+  });
+}
+
+function renderNavigation() {
+  const nav = document.getElementById("navigation-bar");
+  nav.innerHTML = "";
+
+  if (selectionMode === "entity") {
+    const btn = document.createElement("button");
+    btn.textContent = "← Back to Clubs";
+    btn.className = "back-btn";
+    btn.style.border = "2px solid var(--brand)";
+    btn.style.padding = "6px 12px";
+    btn.style.fontSize = "0.8rem";
+
+    btn.onclick = () => {
+      selectionMode = "club";
+      selectedContext = null;
+      render();
+    };
+
+    nav.appendChild(btn);
+  }
+}
+
+function toggleHowToPlay() {
+  const box = document.getElementById("how-to-play");
+  const btn = document.getElementById("howto-toggle-btn");
+
+  box.classList.toggle("collapsed");
+
+  const collapsed = box.classList.contains("collapsed");
+
+  // Save state
+  localStorage.setItem("howToPlayCollapsed", collapsed);
+
+  // Update icon
+  btn.textContent = collapsed ? "+" : "−";
+}
+
+function addSectionHeader(text) {
+  const header = document.createElement("div");
+  header.className = "section-header";
+  header.textContent = text;
+  document.getElementById("choices").appendChild(header);
+}
+
+function shortestPathLength(start, target) {
+
+  const visited = new Set([start]);
+  const queue = [[start, 0]];
+
+  while (queue.length > 0) {
+    const [node, depth] = queue.shift();
+
+    if (node === target) {
+      return depth;
+    }
+
+    // Get all next entities from this node
+    const nextEntities = getConnectedEntities(node);
+
+    for (const next of nextEntities) {
+      if (!visited.has(next)) {
+        visited.add(next);
+        queue.push([next, depth + 1]);
+      }
+    }
+  }
+
+  return Infinity;
+}
+
+function getConnectedEntities(entity) {
+
+  const connections = new Set();
+
+  if (!isManager(entity)) {
+
+    for (const club in players[entity].career) {
+
+      const spells = players[entity].career[club];
+
+      spells.forEach(range => {
+
+        // Players
+        for (const p in players) {
+          if (p === entity) continue;
+          if (!players[p].career[club]) continue;
+
+          players[p].career[club].forEach(r => {
+            if (overlaps(range, r)) {
+              connections.add(p);
+            }
+          });
+        }
+
+        // Managers
+        for (const m in managers) {
+          if (!managers[m].career[club]) continue;
+
+          managers[m].career[club].forEach(r => {
+            if (overlaps(range, r)) {
+              connections.add(m);
+            }
+          });
+        }
+
+      });
+    }
+
+  } else {
+
+    for (const club in managers[entity].career) {
+
+      const spells = managers[entity].career[club];
+
+      spells.forEach(range => {
+
+        for (const p in players) {
+          if (!players[p].career[club]) continue;
+
+          players[p].career[club].forEach(r => {
+            if (overlaps(range, r)) {
+              connections.add(p);
+            }
+          });
+        }
+
+      });
+    }
+  }
+
+  return Array.from(connections);
+}
+
+/* =============================
+   MAIN RENDER
+============================= */
+function render() {
+  renderNavigation();
+  document.getElementById("start-name").textContent = startPlayer;
+  document.getElementById("target-name").textContent = targetPlayer;
+  document.getElementById("current-player").textContent = currentEntity;
+  document.getElementById("current-img").src = getImage(currentEntity);
+  document.getElementById("move-count").textContent = Math.max(0, path.length - 1);
+
+  document.getElementById("start-img").src = getImage(startPlayer);
+  document.getElementById("target-img").src = getImage(targetPlayer);
+
+  document.getElementById("path").innerHTML =
+    path.map(p => `
+      <div class="step">
+        <img src="${isManager(p)?getImage(p):getImage(p)}">
+        <span>${p}</span>
+      </div>
+    `).join("");
+
+  if (selectionMode === "club") {
+    renderChoices(getClubContexts(currentEntity), "club");
+  }
+
+else if (selectionMode === "entity") {
+
+  const club = selectedContext;
+  const container = document.getElementById("choices");
+  container.innerHTML = "";
+
+  let playersList = [];
+  let managersList = [];
+
+  if (!isManager(currentEntity)) {
+
+    const playerSpells = players[currentEntity].career[club];
+
+    playerSpells.forEach(pRange => {
+
+      // Players
+      for (const p in players) {
+        if (p === currentEntity) continue;
+        if (!players[p].career[club]) continue;
+
+        players[p].career[club].forEach(oRange => {
+
+          if (overlaps(pRange, oRange)) {
+
+            const overlapStart = Math.max(pRange[0], oRange[0]);
+            const overlapEnd = Math.min(pRange[1], oRange[1]);
+
+            playersList.push({
+              name: p,
+              type: "player",
+              overlap: overlapStart === overlapEnd
+                ? `${overlapStart}`
+                : `${overlapStart}–${overlapEnd}`
+            });
+          }
+        });
+      }
+
+      // Managers
+      for (const m in managers) {
+        if (!managers[m].career[club]) continue;
+
+        managers[m].career[club].forEach(mRange => {
+
+          if (overlaps(pRange, mRange)) {
+
+            const overlapStart = Math.max(pRange[0], mRange[0]);
+            const overlapEnd = Math.min(pRange[1], mRange[1]);
+
+            managersList.push({
+              name: m,
+              type: "manager",
+              overlap: overlapStart === overlapEnd
+                ? `${overlapStart}`
+                : `${overlapStart}–${overlapEnd}`
+            });
+          }
+        });
+      }
+
+    });
+
+  } else {
+
+    const managerSpells = managers[currentEntity].career[club];
+
+    managerSpells.forEach(mRange => {
+
+      for (const p in players) {
+
+        if (!players[p].career[club]) continue;
+
+        players[p].career[club].forEach(pRange => {
+
+          if (overlaps(mRange, pRange)) {
+
+            const overlapStart = Math.max(mRange[0], pRange[0]);
+            const overlapEnd = Math.min(mRange[1], pRange[1]);
+
+            playersList.push({
+              name: p,
+              type: "player",
+              overlap: overlapStart === overlapEnd
+                ? `${overlapStart}`
+                : `${overlapStart}–${overlapEnd}`
+            });
+          }
+        });
+      }
+
+    });
+  }
+
+  // Remove duplicates
+  playersList = removeDuplicateEntities(playersList);
+  managersList = removeDuplicateEntities(managersList);
+
+  if (playersList.length === 0 && managersList.length === 0) {
+
+    const message = document.createElement("div");
+    message.className = "dead-end-message";
+    message.textContent = "No more players available this way. Try something else.";
+    container.appendChild(message);
+    return;
+  }
+
+  if (playersList.length > 0) {
+    addSectionHeader("Players");
+    renderChoices(playersList, "entity");
+  }
+
+  if (managersList.length > 0 && !isManager(currentEntity)) {
+    addSectionHeader("Managers");
+    renderChoices(managersList, "entity", true);
+  }
+}
+}
+
+function removeDuplicateEntities(list) {
+
+  const merged = new Map();
+
+  list.forEach(item => {
+
+    if (!merged.has(item.name)) {
+      merged.set(item.name, {
+        ...item,
+        overlaps: [item.overlap]
+      });
+    } else {
+      merged.get(item.name).overlaps.push(item.overlap);
+    }
+
+  });
+
+  return Array.from(merged.values()).map(item => ({
+    ...item,
+    overlap: item.overlaps.join(", ")
+  }));
+}
+
+/* =============================
+   GAME START
+============================= */
+function startNewGame() {
+
+  const names = Object.keys(players);
+
+  let attempts = 0;
+
+  while (attempts < 200) {
+    attempts++;
+
+
+    const s = names[Math.floor(Math.random() * names.length)];
+    const t = names[Math.floor(Math.random() * names.length)];
+
+    if (s === t) continue;
+
+    const length = shortestPathLength(s, t);
+
+    // Block 1 and 2-step solutions
+    if (length >= 3 && length !== Infinity) {
+
+      startPlayer = s;
+      targetPlayer = t;
+      currentEntity = s;
+      path = [s];
+      selectionMode = "club";
+      selectedContext = null;
+      render();
+      break;
+    }
+  }
+
+  closeModal();
+}
+
+function getImage(name) {
+  if (players[name]) return players[name].image;
+  if (managers[name]) return managers[name].image;
+  return "";
+}
+
+function clubToBadge(club) {
+  return `../../games/badges/${club.toLowerCase().replace(/\s+/g,'')}.png`;
+}
+
+function checkWin() {
+  if (currentEntity === targetPlayer) {
+
+    const moves = path.length - 1;
+
+    document.getElementById("win-text").textContent =
+      `You connected ${startPlayer} to ${targetPlayer} in ${moves} move${moves !== 1 ? "s" : ""}!`;
+
+    document.getElementById("win-modal").classList.remove("hidden");
+  }
+}
+
+function closeModal() {
+  document.getElementById("win-modal").classList.add("hidden");
+}
+
+window.addEventListener("load", () => {
+  const collapsed = localStorage.getItem("howToPlayCollapsed") === "true";
+  const box = document.getElementById("how-to-play");
+  const btn = document.getElementById("howto-toggle-btn");
+
+  if (collapsed) {
+    box.classList.add("collapsed");
+    btn.textContent = "+";
+  } else {
+    btn.textContent = "−";
+  }
+});
+
+document.addEventListener("fullscreenchange", () => {
+  const btn = document.getElementById("fullscreenBtn");
+
+  if (!document.fullscreenElement) {
+    document.body.classList.remove("fullscreen");
+    btn.textContent = "Fullscreen";
+  }
+});
+
+</script>
+</body>
+</html>
