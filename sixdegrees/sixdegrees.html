@@ -511,9 +511,9 @@ function getClubContexts(entity) {
 
   } else {
 
-    for (const club in managers[entity]) {
+    for (const club in managers[entity].career) {
 
-      const spells = managers[entity][club];
+      const spells = managers[entity].career[club];
 
       let valid = false;
 
@@ -666,9 +666,9 @@ function getManagersInClubPeriod(club, range) {
     // Prevent manager self-loop
     if (isManager(currentEntity) && m === currentEntity) continue;
 
-    if (!managers[m][club]) continue;
+    if (!managers[m].career[club]) continue;
 
-    for (const r of managers[m][club]) {
+    for (const r of managers[m].career[club]) {
       if (overlaps(r, range)) {
         res.push({ name: m, type: "manager" });
         break;
@@ -713,7 +713,7 @@ function renderChoices(items, mode, append = false) {
       if (!isManager(currentEntity)) {
         spells = players[currentEntity].career[club];
       } else {
-        spells = managers[currentEntity][club];
+        spells = managers[currentEntity].career[club];
       }
 
       const rangesText = spells
@@ -739,7 +739,7 @@ function renderChoices(items, mode, append = false) {
 
       if (item.type === "manager") {
         div.innerHTML = `
-          <img src="${managerToImage(item.name)}"
+          <img src="${getImage(item.name)}"
                style="width:80px;height:80px;border-radius:50%;border:2px dashed var(--brand);">
           <div style="font-weight:600;margin-top:6px;">
             ${item.name}${overlapText}
@@ -747,7 +747,7 @@ function renderChoices(items, mode, append = false) {
         `;
       } else {
         div.innerHTML = `
-          <img src="${nameToImage(item.name)}"
+          <img src="${getImage(item.name)}"
                style="width:80px;height:80px;border-radius:50%;border:2px solid var(--brand);">
           <div style="font-weight:600;margin-top:6px;">
             ${item.name}${overlapText}
@@ -866,9 +866,9 @@ function getConnectedEntities(entity) {
 
         // Managers
         for (const m in managers) {
-          if (!managers[m][club]) continue;
+          if (!managers[m].career[club]) continue;
 
-          managers[m][club].forEach(r => {
+          managers[m].career[club].forEach(r => {
             if (overlaps(range, r)) {
               connections.add(m);
             }
@@ -880,9 +880,9 @@ function getConnectedEntities(entity) {
 
   } else {
 
-    for (const club in managers[entity]) {
+    for (const club in managers[entity].career) {
 
-      const spells = managers[entity][club];
+      const spells = managers[entity].career[club];
 
       spells.forEach(range => {
 
@@ -913,13 +913,13 @@ function render() {
   document.getElementById("current-player").textContent = currentEntity;
   document.getElementById("move-count").textContent = Math.max(0, path.length - 1);
 
-  document.getElementById("start-img").src = nameToImage(startPlayer);
-  document.getElementById("target-img").src = nameToImage(targetPlayer);
+  document.getElementById("start-img").src = getImage(startPlayer);
+  document.getElementById("target-img").src = getImage(targetPlayer);
 
   document.getElementById("path").innerHTML =
     path.map(p => `
       <div class="step">
-        <img src="${isManager(p)?managerToImage(p):nameToImage(p)}">
+        <img src="${isManager(p)?getImage(p):getImage(p)}">
         <span>${p}</span>
       </div>
     `).join("");
@@ -968,9 +968,9 @@ else if (selectionMode === "entity") {
 
       // Managers
       for (const m in managers) {
-        if (!managers[m][club]) continue;
+        if (!managers[m].career[club]) continue;
 
-        managers[m][club].forEach(mRange => {
+        managers[m].career[club].forEach(mRange => {
 
           if (overlaps(pRange, mRange)) {
 
@@ -1106,16 +1106,10 @@ function startNewGame() {
   closeModal();
 }
 
-/* =============================
-   HELPERS
-============================= */
-function nameToImage(name) {
-  const last = name.split(" ").pop().toLowerCase().replace(/[^a-z0-9]/g,'');
-  return `../../games/player-images/${last}.png`;
-}
-
-function managerToImage(name) {
-  return nameToImage(name);
+function getImage(name) {
+  if (players[name]) return players[name].image;
+  if (managers[name]) return managers[name].image;
+  return "";
 }
 
 function clubToBadge(club) {
