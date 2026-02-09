@@ -101,20 +101,50 @@ body {
 }
 
 .choice-card {
-  padding: 0;
-  background: transparent;
-  border: none;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  padding: 10px;
+  gap: 6px;
 }
 
-.choice-card img {
+.club-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  width: 100%;
+}
+
+.club-years {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  min-height: 2.4em;
+  max-height: 2.4em;
+  overflow: hidden;
+}
+
+/* Player / Manager icons */
+.choice-card img.entity-img {
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 14px;
   border: 2px solid var(--brand);
-  transition: transform 0.15s ease;
+}
+
+/* Club badges */
+.club-badge {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border: none;
+  border-radius: 0;
 }
 
 .choice-card:hover img {
@@ -122,8 +152,9 @@ body {
 }
 
 .choice-card div {
-  font-size: 0.75rem;
-  margin-top: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .path {
@@ -234,29 +265,6 @@ button.primary:hover {
 .howto-toggle:active {
   transform: scale(0.9);
 }
-.fullscreen-btn {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: white;
-  color: var(--brand);
-  border: 2px solid var(--brand);
-  border-radius: 10px;
-  padding: 6px 12px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: all 0.2s ease;
-  z-index: 5;
-}
-
-.fullscreen-btn:hover {
-  background: var(--brand);
-  color: white;
-  transform: translateY(-2px);
-}
-
 /* FULLSCREEN MODE */
 body.fullscreen .card {
   margin: 0;
@@ -295,14 +303,17 @@ body.fullscreen {
   background: var(--brand);
   color: white;
 }
-.club-badge {
-  max-width: 90px;
-  max-height: 90px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 6px auto;
+
+.badge-wrapper {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background: white;
+  border-radius: 18px;       /* soft rounded square */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 @media (max-width: 480px) {
@@ -395,6 +406,45 @@ body.fullscreen {
   height: 55px;
 }
 
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+  .back-btn {
+  background: white;
+  border: 2px solid var(--brand);
+  color: var(--brand);
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.back-btn:hover {
+  background: var(--brand);
+  color: white;
+}
+
+.fullscreen-btn {
+  background: white;
+  border: 2px solid var(--brand);
+  color: var(--brand);
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.fullscreen-btn:hover {
+  background: var(--brand);
+  color: white;
+}
+
 @media (max-width: 768px) {
 
   .club-badge {
@@ -460,6 +510,215 @@ body.fullscreen {
     max-width: 70px;
     max-height: 70px;
   }
+.entity-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.entity-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.entity-years {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.start-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fcfd;
+}
+
+/* Shared game-style card */
+.game-card {
+  background: white;
+  border: 2px solid var(--brand);
+  border-radius: 20px;
+  padding: 50px 60px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  width: 380px;
+  text-align: center;
+}
+
+.game-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: 15px;
+}
+
+.start-stat {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.start-control {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.start-control label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Styled dropdown */
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 2px solid var(--brand);
+  border-radius: 10px;
+  background: white;
+  appearance: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.select-wrapper select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37,182,196,0.2);
+}
+
+.start-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.primary-btn {
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.secondary-btn {
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: white;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background: var(--brand);
+  color: white;
+}
+.menu-card {
+  background: #f3f7f8;
+  border-radius: 18px;
+  padding: 50px 60px;
+  text-align: center;
+  max-width: 500px;
+  margin: 60px auto;
+}
+
+.menu-title {
+  font-size: 2.5rem;
+  color: var(--brand);
+  margin-bottom: 10px;
+}
+
+.menu-stat {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.menu-section {
+  margin-bottom: 35px;
+  text-align: left;
+}
+
+.menu-section label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.styled-select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid var(--brand);
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.styled-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37,182,196,0.25);
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.primary-btn {
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: var(--brand);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.outline-btn {
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid var(--brand);
+  background: white;
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.outline-btn:hover {
+  background: var(--brand);
+  color: white;
+}
 }
 
 @media (max-width: 480px) {
@@ -513,42 +772,99 @@ body.fullscreen {
 
 <div data-include="../includes/header.html"></div>
 
-<div id="mode-screen" class="mode-screen">
-  <div class="mode-box">
+<div id="start-screen">
+  <div class="card">
 
-    <h2 id="mode-title">Select Game Mode</h2>
-
-    <div id="mode-buttons">
-      <button class="primary mode-btn" onclick="startRandomMode()">
-        🎲 Random Challenge
-      </button>
-
-      <button class="primary mode-btn" onclick="activateCustomMode()">
-        🎯 Custom Challenge
-      </button>
+    <div style="text-align:center; margin-bottom:40px;">
+      <h1 style="color:var(--brand); margin:0; font-size:2.5rem;">
+        Six Degrees
+      </h1>
     </div>
 
-    <div id="custom-setup" class="custom-setup hidden">
-      <h3>Choose Players</h3>
+    <div style="max-width:400px; margin:0 auto 40px;">
 
-      <select id="custom-start"></select>
-      <select id="custom-target"></select>
+      <label style="font-weight:600; display:block; margin-bottom:10px;">
+        Minimum Moves
+      </label>
 
+      <select id="min-moves"
+              style="
+                width:100%;
+                padding:12px;
+                border-radius:12px;
+                border:2px solid var(--brand);
+                font-size:1rem;
+              ">
+        <option value="2">Easy (2+)</option>
+        <option value="3">Normal (3+)</option>
+        <option value="4" selected>Hard (4+)</option>
+        <option value="5">Extreme (5+)</option>
+      </select>
+
+    </div>
+
+    <div class="menu-stat">
+        <div id="total-players-stat"></div>
+        <div id="total-pairs-stat" style="margin-top:6px;"></div>
+    </div>
+
+
+    <div style="max-width:400px; margin:0 auto; display:flex; flex-direction:column; gap:15px;">
+
+      <button class="primary" onclick="beginRandomGame()">
+        Random Game
+      </button>
+
+      <button class="back-btn" onclick="beginCustomGame()">
+        Custom Game
+      </button>
+
+    </div>
+
+  </div>
+</div>
+
+<div id="mode-screen" class="hidden">
+  <div class="card" style="max-width:500px; margin:50px auto;">
+
+    <button class="back-btn" onclick="showScreen('start-screen')">
+      Back
+    </button>
+
+    <h2 style="text-align:center; color:var(--brand); margin-top:20px;">
+      Custom Game
+    </h2>
+
+    <div style="margin-top:30px;">
+      <label style="font-weight:600;">Start Player</label>
+      <select id="custom-start" style="width:100%; padding:10px; border:2px solid var(--brand); border-radius:10px; margin-bottom:20px;"></select>
+
+      <label style="font-weight:600;">Target Player</label>
+      <select id="custom-target" style="width:100%; padding:10px; border:2px solid var(--brand); border-radius:10px;"></select>
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
       <button class="primary" onclick="startCustomMode()">
-        Start Game
+        Start Custom Game
       </button>
     </div>
 
   </div>
 </div>
 
+<div id="game-container" class="hidden">
 <div class="card">
-<button id="menuBtn" class="menu-btn" onclick="returnToMenu()">
-  Back to Menu
-</button>
+
+<div class="top-bar">
+  <button class="back-btn" onclick="showScreen('start-screen')">
+    Back to Menu
+  </button>
+
 <button id="fullscreenBtn" class="fullscreen-btn" onclick="toggleFullscreen()">
-  Fullscreen
+  Fullscreen ⛶
 </button>
+</div>
+
   <div id="how-to-play">
     <button id="howto-toggle-btn" onclick="toggleHowToPlay()" class="howto-toggle">−</button>
     <h3 style="margin-top:0;color:var(--brand);">How to Play</h3>
@@ -559,7 +875,7 @@ body.fullscreen {
     <div class="player-card">
       <img id="start-img" class="player-headshot">
       <div><strong>Start</strong></div>
-      <div id="start-name"></div>
+      <div id="start-name" style="font-weight: 600;"></div>
     </div>
 
 <div class="top-centre">
@@ -572,7 +888,7 @@ body.fullscreen {
     <div class="player-card">
       <img id="target-img" class="player-headshot target-glow">
       <div><strong>Target</strong></div>
-      <div id="target-name"></div>
+      <div id="target-name" style="font-weight: 600;"></div>
     </div>
   </div>
 
@@ -584,6 +900,7 @@ body.fullscreen {
     <button class="primary" onclick="startNewGame()">New Puzzle</button>
   </div>
 
+</div>
 </div>
 
 <div id="win-modal" class="modal hidden">
@@ -606,16 +923,173 @@ let startPlayer, currentEntity, currentType, targetPlayer;
 let path = [];
 let selectionMode = "club";
 let selectedContext = null;
+let availablePlayers = [];
+let validPairs = [];
+let distanceCache = {};
+let MIN_MOVES = 4;
 
 /* =============================
    UTIL
 ============================= */
 function overlaps(a, b) {
-  return Math.max(a[0], b[0]) <= Math.min(a[1], b[1]);
+  return Math.max(a[0], b[0]) < Math.min(a[1], b[1]);
 }
 
 function isManager(name) {
   return !!managers[name];
+}
+
+function beginRandomGame() {
+
+  MIN_MOVES = parseInt(document.getElementById("min-moves").value, 10);
+
+  resetPlayerPool();
+  showScreen("game-container");
+  startNewGame();
+}
+
+function beginCustomGame() {
+
+  MIN_MOVES = parseInt(document.getElementById("min-moves").value, 10);
+
+  populateCustomDropdowns();
+  showScreen("mode-screen");
+}
+
+function populateCustomDropdowns() {
+
+  const startSelect = document.getElementById("custom-start");
+  const targetSelect = document.getElementById("custom-target");
+
+  startSelect.innerHTML = "";
+  targetSelect.innerHTML = "";
+
+  const validStarts = Object.keys(players).filter(s => {
+
+    const distances = distanceCache[s];
+    if (!distances) return false;
+
+    return Object.values(distances).some(d =>
+      typeof d === "number" && d >= MIN_MOVES
+    );
+  });
+
+  validStarts.forEach(name => {
+    const option = new Option(name, name);
+    startSelect.add(option);
+  });
+
+  startSelect.onchange = function () {
+
+    const selectedStart = this.value;
+    const distances = distanceCache[selectedStart];
+
+    targetSelect.innerHTML = "";
+
+    Object.entries(distances).forEach(([name, dist]) => {
+      if (dist >= MIN_MOVES) {
+        targetSelect.add(new Option(name, name));
+      }
+    });
+  };
+
+  // Trigger initial target load
+  if (validStarts.length > 0) {
+    startSelect.value = validStarts[0];
+    startSelect.onchange();
+  }
+}
+
+function updateStartStats() {
+
+  const minMoves = parseInt(
+    document.getElementById("min-moves").value,
+    10
+  );
+
+  const playersList = Object.keys(players);
+
+  let pairCount = 0;
+
+  for (let i = 0; i < playersList.length; i++) {
+    for (let j = i + 1; j < playersList.length; j++) {
+
+      const s = playersList[i];
+      const t = playersList[j];
+
+      const dist = distanceCache[s]?.[t];
+
+      if (typeof dist === "number" && dist >= minMoves) {
+        pairCount++;
+      }
+    }
+  }
+
+  document.getElementById("total-players-stat").textContent =
+    `${playersList.length} players loaded`;
+
+  document.getElementById("total-pairs-stat").textContent =
+    `${pairCount.toLocaleString()} valid ${minMoves}+ move pairs`;
+}
+
+function showScreen(screenId) {
+
+  ["start-screen", "mode-screen", "game-container"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add("hidden");
+  });
+
+  const target = document.getElementById(screenId);
+  if (target) target.classList.remove("hidden");
+}
+
+function backToMenu() {
+  showScreen("start-screen");
+}
+
+function resetPlayerPool() {
+
+  availablePlayers = Object.keys(players)
+    .filter(p => hasValidConnections(p));
+
+  distanceCache = {};
+
+  for (const start of availablePlayers) {
+
+    const distances = computeAllShortestPaths(start);
+    distanceCache[start] = distances;
+  }
+}
+
+function computeAllShortestPaths(startName) {
+
+  const start = { name: startName, type: "player" };
+  const queue = [[start, 0]];
+  const visited = new Set([startName + "_player"]);
+
+  const result = {};
+
+  while (queue.length) {
+
+    const [node, depth] = queue.shift();
+    const key = node.name + "_" + node.type;
+
+    if (node.type === "player" && node.name !== startName) {
+      result[node.name] = depth;
+    }
+
+    for (const n of getNeighbors(node)) {
+
+      const nKey = n.name + "_" + n.type;
+
+      if (!visited.has(nKey)) {
+        visited.add(nKey);
+        queue.push([n, depth + 1]);
+      }
+    }
+  }
+
+  return result;
 }
 
 /* =============================
@@ -742,7 +1216,7 @@ function updateTargetOptions() {
 
     const length = shortestPathLength(start, name);
 
-    if (length >= 3 && length !== Infinity) {
+    if (length >= MIN_MOVES && length !== Infinity) {
       const option = document.createElement("option");
       option.value = name;
       option.textContent = name;
@@ -785,7 +1259,9 @@ function startCustomMode() {
 
   startPlayer = start;
   targetPlayer = target;
+
   currentEntity = start;
+  currentType = "player";   // 🔥 THIS LINE WAS MISSING
 
   path = [start];
   selectionMode = "club";
@@ -867,10 +1343,15 @@ const rangesText = spells
   })
   .join(", ");
 
-      div.innerHTML = `
-        <img src="${clubToBadge(club)}" class="club-badge">
-        <div style="font-weight:600;margin-top:6px;">${rangesText}</div>
-      `;
+div.innerHTML = `
+  <div class="club-item">
+    <div class="badge-wrapper">
+      <img src="${clubToBadge(club)}" class="club-badge">
+    </div>
+    <div class="club-years">${rangesText}</div>
+  </div>
+`;
+
 
       div.onclick = () => {
         selectedContext = club;
@@ -880,26 +1361,25 @@ const rangesText = spells
 
     } else if (mode === "entity") {
 
-      const overlapText = item.overlap
-        ? `<span style="font-weight:400;color:var(--muted);font-size:0.8rem;"> (${item.overlap})</span>`
-        : "";
-
       if (item.type === "manager") {
-        div.innerHTML = `
-          <img src="${getImage(item.name)}"
-               style="border-radius:50%;border:2px solid var(--brand);">
-          <div style="font-weight:600;margin-top:6px;">
-            ${item.name}${overlapText}
-          </div>
-        `;
+div.innerHTML = `
+  <img src="${getImage(item.name)}" class="entity-img">
+  <div class="entity-text">
+    <div class="entity-name">${item.name}</div>
+    ${item.overlap ? `<div class="entity-years">(${item.overlap})</div>` : ""}
+  </div>
+`;
+
       } else {
-        div.innerHTML = `
-          <img src="${getImage(item.name)}"
-               style="border-radius:50%;border:2px solid var(--brand);">
-          <div style="font-weight:600;margin-top:6px;">
-            ${item.name}${overlapText}
-          </div>
-        `;
+div.innerHTML = `
+  <img src="${getImage(item.name)}" class="entity-img">
+  <div class="entity-text">
+    <div class="entity-name">${item.name}</div>
+    ${item.overlap ? `<div class="entity-years">(${item.overlap})</div>` : ""}
+  </div>
+`;
+
+
       }
 
       div.onclick = () => {
@@ -909,7 +1389,9 @@ const rangesText = spells
         selectionMode = "club";
         selectedContext = null;
         render();
-        checkWin();
+        if (path.length - 1 >= MIN_MOVES) {
+            checkWin();
+        }
       };
     }
 
@@ -962,93 +1444,13 @@ function addSectionHeader(text) {
   document.getElementById("choices").appendChild(header);
 }
 
-function shortestPathLength(start, target) {
+function shortestPathLength(startName, targetName) {
 
-  const visited = new Set([start]);
-  const queue = [[start, 0]];
+  const result = findShortestPath(startName, targetName);
 
-  while (queue.length > 0) {
-    const [node, depth] = queue.shift();
+  if (!result) return Infinity;
 
-    if (node === target) {
-      return depth;
-    }
-
-    // Get all next entities from this node
-    const nextEntities = getConnectedEntities(node);
-
-    for (const next of nextEntities) {
-      if (!visited.has(next)) {
-        visited.add(next);
-        queue.push([next, depth + 1]);
-      }
-    }
-  }
-
-  return Infinity;
-}
-
-function getConnectedEntities(entity) {
-
-  const connections = new Set();
-
-  if (!isManager(entity)) {
-
-    for (const club in players[entity].career) {
-
-      const spells = players[entity].career[club];
-
-      spells.forEach(range => {
-
-        // Players
-        for (const p in players) {
-          if (p === entity) continue;
-          if (!players[p].career[club]) continue;
-
-          players[p].career[club].forEach(r => {
-            if (overlaps(range, r)) {
-              connections.add(p);
-            }
-          });
-        }
-
-        // Managers
-        for (const m in managers) {
-          if (!managers[m].career[club]) continue;
-
-          managers[m].career[club].forEach(r => {
-            if (overlaps(range, r)) {
-              connections.add(m);
-            }
-          });
-        }
-
-      });
-    }
-
-  } else {
-
-    for (const club in managers[entity].career) {
-
-      const spells = managers[entity].career[club];
-
-      spells.forEach(range => {
-
-        for (const p in players) {
-          if (!players[p].career[club]) continue;
-
-          players[p].career[club].forEach(r => {
-            if (overlaps(range, r)) {
-              connections.add(p);
-            }
-          });
-        }
-
-      });
-    }
-  }
-
-  return Array.from(connections);
+  return result.length - 1;
 }
 
 /* =============================
@@ -1226,42 +1628,88 @@ function removeDuplicateEntities(list) {
   }));
 }
 
+function showRefreshPoolModal() {
+
+  document.getElementById("win-text").innerHTML = `
+    All available player combinations have been used.<br><br>
+    Would you like to refresh the player pool?
+  `;
+
+  const modal = document.getElementById("win-modal");
+
+  const button = modal.querySelector("button");
+  button.textContent = "Refresh Pool";
+
+  button.onclick = () => {
+    resetPlayerPool();
+    closeModal();
+    startNewGame();
+  };
+
+  modal.classList.remove("hidden");
+}
+
 /* =============================
    GAME START
 ============================= */
 function startNewGame() {
 
-  const names = Object.keys(players);
+  if (availablePlayers.length < 2) {
+    showRefreshPoolModal();
+    return;
+  }
 
-  let attempts = 0;
+  let possibleStarts = [];
 
-  while (attempts < 200) {
-    attempts++;
+  for (const s of availablePlayers) {
 
+    const distances = distanceCache[s];
+    if (!distances) continue;
 
-    const s = names[Math.floor(Math.random() * names.length)];
-    const t = names[Math.floor(Math.random() * names.length)];
+    const hasValidTarget = availablePlayers.some(p => {
+      if (p === s) return false;
+      const d = distances[p];
+      return typeof d === "number" && d >= MIN_MOVES;
+    });
 
-    if (s === t) continue;
-
-    const length = shortestPathLength(s, t);
-
-    // Block 1 and 2-step solutions
-    if (length >= 3 && length !== Infinity) {
-
-      startPlayer = s;
-      targetPlayer = t;
-currentEntity = s;
-currentType = "player";
-path = [s];
-      selectionMode = "club";
-      selectedContext = null;
-      render();
-      break;
+    if (hasValidTarget) {
+      possibleStarts.push(s);
     }
   }
 
-  closeModal();
+  if (possibleStarts.length === 0) {
+    showRefreshPoolModal();
+    return;
+  }
+
+  const s = possibleStarts[Math.floor(Math.random() * possibleStarts.length)];
+  const distances = distanceCache[s];
+
+  const possibleTargets = availablePlayers.filter(p => {
+    if (p === s) return false;
+    const d = distances[p];
+    return typeof d === "number" && d >= MIN_MOVES;
+  });
+
+  if (possibleTargets.length === 0) {
+    showRefreshPoolModal();
+    return;
+  }
+
+  const t = possibleTargets[Math.floor(Math.random() * possibleTargets.length)];
+
+  availablePlayers = availablePlayers.filter(p => p !== s && p !== t);
+
+  startPlayer = s;
+  targetPlayer = t;
+
+  currentEntity = s;
+  currentType = "player";
+  path = [s];
+  selectionMode = "club";
+  selectedContext = null;
+
+  render();
 }
 
 function getImage(name, type = null) {
@@ -1280,13 +1728,156 @@ function clubToBadge(club) {
   return `../../games/badges/${club.toLowerCase().replace(/\s+/g,'')}.png`;
 }
 
+function getNeighbors(entity) {
+
+  const neighbors = [];
+  const { name, type } = entity;
+
+  if (type === "player") {
+
+    for (const club in players[name].career) {
+      const spells = players[name].career[club];
+
+      for (const spell of spells) {
+
+        // Players
+        for (const p in players) {
+          if (p === name) continue;
+          if (!players[p].career[club]) continue;
+
+          for (const otherSpell of players[p].career[club]) {
+            if (overlaps(spell, otherSpell)) {
+              neighbors.push({ name: p, type: "player" });
+              break;
+            }
+          }
+        }
+
+        // Managers
+        for (const m in managers) {
+          if (!managers[m].career[club]) continue;
+
+          for (const mSpell of managers[m].career[club]) {
+            if (overlaps(spell, mSpell)) {
+              neighbors.push({ name: m, type: "manager" });
+              break;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  else { // manager
+
+    for (const club in managers[name].career) {
+      const spells = managers[name].career[club];
+
+      for (const spell of spells) {
+
+        // Players
+        for (const p in players) {
+          if (!players[p].career[club]) continue;
+
+          for (const pSpell of players[p].career[club]) {
+            if (overlaps(spell, pSpell)) {
+              neighbors.push({ name: p, type: "player" });
+              break;
+            }
+          }
+        }
+
+        // Managers
+        for (const m in managers) {
+          if (m === name) continue;
+          if (!managers[m].career[club]) continue;
+
+          for (const mSpell of managers[m].career[club]) {
+            if (overlaps(spell, mSpell)) {
+              neighbors.push({ name: m, type: "manager" });
+              break;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  return neighbors;
+}
+
+function hasValidConnections(playerName) {
+
+  const start = { name: playerName, type: "player" };
+  const neighbors = getNeighbors(start);
+
+  return neighbors.some(n => {
+    const second = getNeighbors(n);
+    return second.length > 0;
+  });
+}
+
+function findShortestPath(startName, targetName) {
+
+  const start = { name: startName, type: "player" };
+  const targetKey = targetName + "_player";
+
+  const queue = [[start]];
+  const visited = new Set([start.name + "_player"]);
+
+  while (queue.length) {
+
+    const path = queue.shift();
+    const current = path[path.length - 1];
+    const key = current.name + "_" + current.type;
+
+    if (key === targetKey) return path;
+
+    const neighbors = getNeighbors(current);
+
+    for (const neighbor of neighbors) {
+
+      const neighborKey = neighbor.name + "_" + neighbor.type;
+
+      if (!visited.has(neighborKey)) {
+        visited.add(neighborKey);
+        queue.push([...path, neighbor]);
+      }
+    }
+  }
+
+  return null;
+}
+
 function checkWin() {
+
   if (currentEntity === targetPlayer) {
 
     const moves = path.length - 1;
 
-    document.getElementById("win-text").textContent =
-      `You connected ${startPlayer} to ${targetPlayer} in ${moves} move${moves !== 1 ? "s" : ""}!`;
+    if (moves < MIN_MOVES) {
+      // Block short wins
+      alert("Minimum " + MIN_MOVES + " moves required.");
+      return;
+    }
+
+    const shortest = findShortestPath(startPlayer, targetPlayer);
+
+    let optimalText = "";
+
+    if (shortest) {
+      optimalText = shortest
+        .map(n => n.name)
+        .join(" → ");
+    }
+
+    document.getElementById("win-text").innerHTML = `
+      You connected them in <strong>${moves}</strong> moves.<br><br>
+      <strong>Shortest possible path:</strong><br>
+      ${optimalText}
+    `;
 
     document.getElementById("win-modal").classList.remove("hidden");
   }
@@ -1317,6 +1908,12 @@ document.addEventListener("fullscreenchange", () => {
     btn.textContent = "Fullscreen";
   }
 });
+
+resetPlayerPool();      // builds distanceCache + availablePlayers
+updateStartStats();     // now stats can use distanceCache
+
+document.getElementById("min-moves")
+  .addEventListener("change", updateStartStats);
 
 </script>
 </body>
