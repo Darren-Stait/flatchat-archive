@@ -43,7 +43,7 @@ const players = {
     image: "/games/player-images/kaka.png",
     career: { "AC Milan": [[2003, 2009], [2013, 2014]], "Real Madrid": [[2009, 2013]] },
 },
-"Fillipo Inzaghi": {
+"Filippo Inzaghi": {
     image: "/games/player-images/inzaghi.png",
     career: { "Juventus": [[1999, 2001]], "AC Milan": [[2001, 2012]] },
 },
@@ -367,7 +367,7 @@ const players = {
 },
 "Miranda": {
     image: "/games/player-images/miranda.png",
-    career: { "Atlético Madrid": [[2011, 2015]], "Inter Milan": [[2015, 2019]] },
+    career: { "Atletico Madrid": [[2011, 2015]], "Inter Milan": [[2015, 2019]] },
 },
 "Raul Albiol": {
     image: "/games/player-images/albiol.png",
@@ -383,7 +383,7 @@ const players = {
 },
 "Axel Witsel": {
     image: "/games/player-images/witsel.png",
-    career: { "Benfica": [[2011, 2012]], "Borussia Dortmund": [[2018, 2022]], "Atlético Madrid": [[2022, 2025]], "Girona": [[2025, 2026]] },
+    career: { "Benfica": [[2011, 2012]], "Borussia Dortmund": [[2018, 2022]], "Atletico Madrid": [[2022, 2025]], "Girona": [[2025, 2026]] },
 },
 "Stefan Savic": {
     image: "/games/player-images/savic.png",
@@ -495,7 +495,7 @@ const players = {
 },
 "Frank de Boer": {
     image: "/games/player-images/frankdeboer.png",
-    career: { "Ajax": [[1988, 1999]], "Barcelona": [[1999, 2003]], "Galatasary": [[2003, 2004]], "Rangers": [2004] }
+    career: { "Ajax": [[1988, 1999]], "Barcelona": [[1999, 2003]], "Galatasaray": [[2003, 2004]], "Rangers": [[2004]] }
 },
 "Ronald de Boer": {
     image: "/games/player-images/ronalddeboer.png",
@@ -503,7 +503,7 @@ const players = {
 },
 "Aritz Aduriz": {
     image: "/games/player-images/aduriz.png",
-    career: { "Athletic Bilabo": [[2002, 2004], [2006, 2008], [2012, 2020]], "Valencia": [[2010, 2012]] }
+    career: { "Athletic Bilbao": [[2002, 2004], [2006, 2008], [2012, 2020]], "Valencia": [[2010, 2012]] }
 },
 "Eric Cantona": {
     image: "/games/player-images/cantona.png",
@@ -560,6 +560,22 @@ const players = {
 "Kevin Mirallas": {
     image: "/games/player-images/mirallas.png",
     career: { "Lille": [[2004, 2008]], "Saint-Etienne": [[2008, 2010]], "Everton": [[2012, 2019]], "Fiorentina": [[2018, 2019]] }
+},
+"Rodrigo Palacio": {
+    image: "/games/player-images/palacio.png",
+    career: { "Genoa": [[2009, 2012]], "Inter Milan": [[2012, 2017]], "Bologna": [[2017, 2021]]}
+},
+"Ivica Olic": {
+    image: "/games/player-images/olic.png",
+    career: { "Hertha Berlin": [[1998, 2000]], "Hamburg": [[2007, 2009], [2015, 2016]], "Bayern Munich": [[2009, 2012]], "Wolfsburg": [[2012, 2015]]}
+},
+"Alan Shearer": {
+    image: "/games/player-images/shearer.png",
+    career: { "Southampton": [[1988, 1992]], "Blackburn Rovers": [[1992, 1996]], "Newcastle United": [[1996, 2006]]}
+},
+"Marcos Senna": {
+    image: "/games/player-images/senna.png",
+    career: { "Villarreal": [[2002, 2013]] }
 }
 };
 
