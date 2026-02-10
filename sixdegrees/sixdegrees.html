@@ -1577,13 +1577,14 @@ managersList.push({
             const overlapStart = Math.max(mRange[0], pRange[0]);
             const overlapEnd = Math.min(mRange[1], pRange[1]);
 
-            playersList.push({
-              name: p,
-              type: "player",
-              overlap: overlapStart === overlapEnd
-                ? `${overlapStart}`
-                : `${overlapStart}–${overlapEnd}`
-            });
+playersList.push({
+  name: p,
+  type: "player",
+  sortYear: overlapStart,
+  overlap: overlapStart === overlapEnd
+    ? `${overlapStart}`
+    : `${overlapStart}–${overlapEnd}`
+});
           }
         });
       }
@@ -1922,8 +1923,12 @@ document.addEventListener("fullscreenchange", () => {
   }
 });
 
-resetPlayerPool();      // builds distanceCache + availablePlayers
-updateStartStats();     // now stats can use distanceCache
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    resetPlayerPool();
+    updateStartStats();
+  }, 0);
+});
 
 document.getElementById("min-moves")
   .addEventListener("change", updateStartStats);
