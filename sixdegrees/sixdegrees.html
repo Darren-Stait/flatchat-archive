@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Flatchat Six Degrees</title>
+<title>Flatchat Six Degrees of Seperation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -413,7 +413,7 @@ body.fullscreen {
   margin-bottom: 20px;
 }
 
-  .back-btn {
+.top-action-btn {
   background: white;
   border: 2px solid var(--brand);
   color: var(--brand);
@@ -421,26 +421,10 @@ body.fullscreen {
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.back-btn:hover {
-  background: var(--brand);
-  color: white;
-}
-
-.fullscreen-btn {
-  background: white;
-  border: 2px solid var(--brand);
-  color: var(--brand);
-  padding: 6px 14px;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.fullscreen-btn:hover {
+.top-action-btn:hover {
   background: var(--brand);
   color: white;
 }
@@ -777,7 +761,7 @@ body.fullscreen {
 
     <div style="text-align:center; margin-bottom:40px;">
       <h1 style="color:var(--brand); margin:0; font-size:2.5rem;">
-        Six Degrees
+        Six Degrees of Seperation
       </h1>
     </div>
 
@@ -856,11 +840,11 @@ body.fullscreen {
 <div class="card">
 
 <div class="top-bar">
-  <button class="back-btn" onclick="showScreen('start-screen')">
+  <button class="top-action-btn" onclick="showScreen('start-screen')">
     Back to Menu
   </button>
 
-<button id="fullscreenBtn" class="fullscreen-btn" onclick="toggleFullscreen()">
+<button id="fullscreenBtn" class="top-action-btn" onclick="toggleFullscreen()">
   Fullscreen ⛶
 </button>
 </div>
@@ -879,6 +863,9 @@ body.fullscreen {
     </div>
 
 <div class="top-centre">
+  <button id="swap-btn" class="top-action-btn" onclick="swapPlayers()">
+  ⇄ Swap
+  </button>
   <div class="label" id="current-label">Current Player</div>
   <img id="current-img" class="current-headshot">
   <div class="current-name" id="current-player"></div>
@@ -954,6 +941,26 @@ function beginCustomGame() {
 
   populateCustomDropdowns();
   showScreen("mode-screen");
+}
+
+function swapPlayers() {
+
+  // Only allow swap if no moves made
+  if (path.length > 1) {
+    return;
+  }
+
+  const temp = startPlayer;
+  startPlayer = targetPlayer;
+  targetPlayer = temp;
+
+  currentEntity = startPlayer;
+  currentType = "player";
+  path = [startPlayer];
+  selectionMode = "club";
+  selectedContext = null;
+
+  render();
 }
 
 function populateCustomDropdowns() {
@@ -1255,18 +1262,18 @@ function startCustomMode() {
   const start = document.getElementById("custom-start").value;
   const target = document.getElementById("custom-target").value;
 
-  document.getElementById("mode-screen").classList.add("hidden");
+  if (!start || !target) return;
 
   startPlayer = start;
   targetPlayer = target;
 
   currentEntity = start;
-  currentType = "player";   // 🔥 THIS LINE WAS MISSING
-
+  currentType = "player";
   path = [start];
   selectionMode = "club";
   selectedContext = null;
 
+  showScreen("game-container");
   render();
 }
 
@@ -1470,6 +1477,12 @@ function render() {
 
   document.getElementById("start-img").src = getImage(startPlayer);
   document.getElementById("target-img").src = getImage(targetPlayer);
+
+  const swapBtn = document.getElementById("swap-btn");
+
+  if (swapBtn) {
+    swapBtn.style.display = path.length > 1 ? "none" : "inline-block";
+  }
 
   document.getElementById("path").innerHTML =
     path.map(p => `

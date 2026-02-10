@@ -112,7 +112,7 @@ const players = {
 },
 "Manuel Neuer": {
     image: "/games/player-images/neuer.png",
-    career: { "Schalke 04": [[2005, 2011]], "Bayern Munich": [[2011, 2026]] },
+    career: { "Schalke": [[2005, 2011]], "Bayern Munich": [[2011, 2026]] },
 },
 "David Alaba": {
     image: "/games/player-images/alaba.png",
@@ -133,7 +133,7 @@ const players = {
 // MAN CITY STARS
 "Edin Dzeko": {
     image: "/games/player-images/dzeko.png",
-    career: { "Wolfsburg": [[2007, 2011]], "Manchester City": [[2011, 2016]], "AS Roma": [[2015, 2021]], "Inter Milan": [[2021, 2023]], "Fenerbache": [[2023, 2025]], "Fiorentina": [[2025, 2026]], "Schalke": [[2026]] },
+    career: { "Wolfsburg": [[2007, 2011]], "Manchester City": [[2011, 2016]], "AS Roma": [[2015, 2021]], "Inter Milan": [[2021, 2023]], "Fenerbahce": [[2023, 2025]], "Fiorentina": [[2025, 2026]], "Schalke": [[2026]] },
 },
 "Yaya Toure": {
     image: "/games/player-images/yayatoure.png",
@@ -199,7 +199,7 @@ const players = {
 },
 "Juan Carlos Valeron": {
     image: "/games/player-images/valeron.png",
-    career: { "Las Palmas": [[1995, 1997], [2013, 2016]], "Deportivo La Coruna": [[20002, 2013]] },
+    career: { "Las Palmas": [[1995, 1997], [2013, 2016]], "Deportivo La Coruna": [[2002, 2013]] },
 },
 "Tim Cahill": {
     image: "/games/player-images/timcahill.png",
@@ -244,6 +244,322 @@ const players = {
 "Henrik Larsson": {
     image: "/games/player-images/henriklarsson.png",
     career: { "Feyenoord": [[1993, 1997]], "Celtic": [[1997, 2004]], "Barcelona": [[2004, 2006]], "Manchester United": [[2007]] },
+},
+"Joao Moutinho": {
+    image: "/games/player-images/moutinho.png",
+    career: { "Sporting": [[2004, 2010]], "Porto": [[2010, 2013]], "Monaco": [[2013, 2018]], "Wolverhampton Wanderers": [[2018, 2023]], "Braga": [[2023, 2026]] },
+},
+"Franck Ribery": {
+    image: "/games/player-images/ribery.png",
+    career: { "Marseille": [[2005, 2007]], "Bayern Munich": [[2007, 2019]], "Fiorentina": [[2019, 2021]] },
+},
+"Pablo Aimar": {
+    image: "/games/player-images/aimar.png",
+    career: { "Valencia": [[2001, 2006]], "Benfica": [[2008, 2013]] },
+},
+"Gianluigi Buffon": {
+    image: "/games/player-images/buffon.png",
+    career: { "Juventus": [[2001, 2018], [2019, 2021]], "Paris Saint-Germain": [[2018, 2019]] },
+},
+"Juan Mata": {
+    image: "/games/player-images/mata.png",
+    career: { "Valencia": [[2007, 2011]], "Chelsea": [[2011, 2014]], "Manchester United": [[2014, 2022]] },
+},
+"Alessandro Nesta": {
+    image: "/games/player-images/nesta.png",
+    career: { "Lazio": [[1993, 2002]], "AC Milan": [[2002, 2012]] },
+},
+"Raul Gonzalez": {
+    image: "/games/player-images/raulgonzalez.png",
+    career: { "Real Madrid": [[1994, 2010]], "Schalke": [[2010, 2012]] },
+},
+"Javier Zanetti": {
+    image: "/games/player-images/zanetti.png",
+    career: { "Inter Milan": [[1995, 2014]] },
+},
+"Per Mertesacker": {
+    image: "/games/player-images/mertesacker.png",
+    career: { "Hannover": [[2003, 2006]], "Werder Bremen": [[2006, 2011]], "Arsenal": [[2011, 2018]] },
+},
+"Nicolas Gaitan": {
+    image: "/games/player-images/gaitan.png",
+    career: { "Benfica": [[2010, 2016]], "Atletico Madrid": [[2016, 2018]], "Lille": [[2020]], "Braga": [[2020, 2021]] },
+},
+"Koke": {
+    image: "/games/player-images/koke.png",
+    career: { "Atletico Madrid": [[2009, 2026]] },
+},
+"Saul Niguez": {
+    image: "/games/player-images/saul.png",
+    career: { "Atletico Madrid": [[2012, 2025]], "Chelsea": [[2021, 2022]], "Sevilla": [[2024, 2025]] },
+},
+"Diego Godin": {
+    image: "/games/player-images/godin.png",
+    career: { "Villarreal": [[2007, 2010]], "Atletico Madrid": [[2010, 2019]], "Inter Milan": [[2019, 2020]], "Cagliari": [[2020, 2021]] },
+},
+"Ciro Immobile": {
+    image: "/games/player-images/immobile.png",
+    career: { "Juventus": [[2009, 2012]], "Genoa": [[2012, 2013]], "Torino": [[2013, 2014], [2016]], "Borussia Dortmund": [[2014, 2016]], "Sevilla": [[2015, 2016]], "Lazio": [[2016, 2024]], "Bologna": [[2025, 2026]] },
+},
+"Lucas Leiva": {
+    image: "/games/player-images/lucasleiva.png",
+    career: { "Liverpool": [[2007, 2017]], "Lazio": [[2017, 2022]] },
+},
+"Santi Cazorla": {
+    image: "/games/player-images/cazorla.png",
+    career: { "Villarreal": [[2003, 2006], [2007, 2011], [2018, 2020]], "Malaga": [[2011, 2012]], "Arsenal": [[2012, 2018]] },
+},
+"Alexandre Lacazette": {
+    image: "/games/player-images/lacazette.png",
+    career: { "Lyon": [[2010, 2017], [2022, 2025]], "Arsenal": [[2017, 2022]] },
+},
+"Jesus Navas": {
+    image: "/games/player-images/jesusnavas.png",
+    career: { "Sevilla": [[2003, 2013], [2017, 2024]], "Manchester City": [[2013, 2017]] },
+},
+"Carlos Bacca": {
+    image: "/games/player-images/bacca.png",
+    career: { "Club Brugge": [[2011, 2013]], "Sevilla": [[2013, 2015]], "AC Milan": [[2015, 2018]], "Villarreal": [[2017, 2021]], "Granada": [[2021, 2022]] },
+},
+"Dimitri Payet": {
+    image: "/games/player-images/payet.png",
+    career: { "Saint-Etienne": [[2007, 2011]], "Lille": [[2011, 2013]], "Marseille": [[2013, 2015], [2017, 2023]], "West Ham": [[2015, 2017]] },
+},
+"Florian Thauvin": {
+    image: "/games/player-images/thauvin.png",
+    career: { "Lille": [[2013]], "Marseille": [[2013, 2015], [2016, 2021]], "Newcastle United": [[2015, 2017]], "Udinese": [[2023, 2025]], "Lens": [[2025, 2026]] },
+},
+"Marco Reus": {
+    image: "/games/player-images/reus.png",
+    career: { "Borussia Monchengladbach": [[2009, 2012]], "Borussia Dortmund": [[2012, 2024]] },
+},
+"Ederson": {
+    image: "/games/player-images/ederson.png",
+    career: { "Benfica": [[2015, 2017]], "Manchester City": [[2017, 2025]], "Fenerbahce": [[2025, 2026]] },
+},
+"Joaquin": {
+    image: "/games/player-images/joaquin.png",
+    career: { "Real Betis": [[2000, 2006], [2015, 2023]], "Valencia": [[2006, 2011]], "Malaga": [[2011, 2023]], "Fiorentina": [[2013, 2015]] },
+},
+"Kevin Kuranyi": {
+    image: "/games/player-images/kuranyi.png",
+    career: { "Stuttgart": [[2001, 2005]], "Schalke": [[2005, 2010]], "Hoffenheim": [[2015, 2016]] },
+},
+"Mesut Özil": {
+    image: "/games/player-images/ozil.png",
+    career: { "Schalke": [[2006, 2008]], "Werder Bremen": [[2008, 2010]], "Real Madrid": [[2010, 2013]], "Arsenal": [[2013, 2021]], "Fenerbahce": [[2021, 2022]] },
+},
+"Mathieu Valbuena": {
+    image: "/games/player-images/valbuena.png",
+    career: { "Marseille": [[2006, 2014]], "Lyon": [[2015, 2017]], "Fenerbahce": [[2017, 2019]] },
+},
+"Loïc Rémy": {
+    image: "/games/player-images/remy.png",
+    career: { "Lyon": [[2006, 2008]], "Nice": [[2008, 2010]], "Marseille": [[2010, 2013]], "QPR": [[2013, 2014]], "Newcastle United": [[2013, 2014]], "Chelsea": [[2014, 2017]], "Crystal Palace": [[2016, 2017]], "Las Palmas": [[2017, 2018]], "Getafe": [[2018]], "Lille": [[2018, 2020]] },
+},
+"Alberto Gilardino": {
+    image: "/games/player-images/gilardino.png",
+    career: { "AC Milan": [[2005, 2008]], "Fiorentina": [[2008, 2012], [2015]], "Genoa": [[2012, 2014]], "Bologna": [[2012, 2013]] },
+},
+"Klaas-Jan Huntelaar": {
+    image: "/games/player-images/huntelaar.png",
+    career: { "Ajax": [[2006, 2009], [2017, 2021]], "Real Madrid": [[2009]], "AC Milan": [[2009, 2010]], "Schalke": [[2010, 2017], [2021]] },
+},
+"Miranda": {
+    image: "/games/player-images/miranda.png",
+    career: { "Atlético Madrid": [[2011, 2015]], "Inter Milan": [[2015, 2019]] },
+},
+"Raul Albiol": {
+    image: "/games/player-images/albiol.png",
+    career: { "Valencia": [[2004, 2009]], "Getafe": [[2004, 2005]], "Real Madrid": [[2009, 2013]], "Napoli": [[2013, 2019]], "Villarreal": [[2019, 2025]] },
+},
+"Dani Parejo": {
+    image: "/games/player-images/parejo.png",
+    career: { "Real Madrid": [[2008, 2009]], "QPR": [[2008]], "Getafe": [[2009, 2011]], "Valencia": [[2011, 2020]], "Villarreal": [[2020, 2026]] },
+},
+"Nabil Fekir": {
+    image: "/games/player-images/fekir.png",
+    career: { "Lyon": [[2013, 2019]], "Real Betis": [[2019, 2024]] },
+},
+"Axel Witsel": {
+    image: "/games/player-images/witsel.png",
+    career: { "Benfica": [[2011, 2012]], "Borussia Dortmund": [[2018, 2022]], "Atlético Madrid": [[2022, 2025]], "Girona": [[2025, 2026]] },
+},
+"Stefan Savic": {
+    image: "/games/player-images/savic.png",
+    career: { "Manchester City": [[2011, 2012]], "Fiorentina": [[2012, 2015]], "Atletico Madrid": [[2015, 2024]] },
+},
+"Javier Pastore": {
+    image: "/games/player-images/pastore.png",
+    career: { "Palermo": [[2009, 2011]], "Paris Saint-Germain": [[2011, 2018]], "AS Roma": [[2018, 2021]], "Elche": [[2021, 2023]] },
+},
+"Bruno Alves": {
+    image: "/games/player-images/brunoalves.png",
+    career: { "Porto": [[2002, 2010]], "Fenerbahce": [[2013, 2016]], "Rangers": [[2017, 2018]] },
+},
+"Eder": {
+    image: "/games/player-images/eder.png",
+    career: { "Braga": [[2012, 2015]], "Swansea": [[2015, 2016]], "Lille": [[2016, 2018]] },
+},
+"Gregory Van der Wiel": {
+    image: "/games/player-images/vanderwiel.png",
+    career: { "Ajax": [[2007, 2012]], "Paris Saint-Germain": [[2012, 2016]], "Fenerbahce": [[2016, 2017]], "Cagliari": [[2017, 2020]] },
+},
+"Yohan Cabaye": {
+    image: "/games/player-images/cabaye.png",
+    career: { "Lille": [[2004, 2011]], "Newcastle United": [[2011, 2014]], "Paris Saint-Germain": [[2014, 2015]], "Crystal Palace": [[2015, 2018]] },
+},
+"Jean-Alain Boumsong": {
+    image: "/games/player-images/boumsong.png",
+    career: { "Rangers": [[2004, 2005]], "Newcastle United": [[2005, 2006]], "Juventus": [[2006, 2008]], "Lyon": [[2008, 2010]] },
+},
+"Nacho Novo": {
+    image: "/games/player-images/novo.png",
+    career: { "Rangers": [[2004, 2010]], "Sporting Gijon": [[2010, 2012]] },
+},
+"Tore André Flo": {
+    image: "/games/player-images/flo.png",
+    career: { "Chelsea": [[1997, 2000]], "Rangers": [[2000, 2002]], "Sunderland": [[2002, 2003]], "Leeds United": [[2007, 2008]] },
+},
+"Shunsuke Nakamura": {
+    image: "/games/player-images/nakamura.png",
+    career: { "Celtic": [[2005, 2009]], "Espanyol": [[2009, 2010]] },
+},
+"Thomas Gravesen": {
+    image: "/games/player-images/gravesen.png",
+    career: { "Hamburg": [[1997, 2000]], "Everton": [[2000, 2005], [2007, 2008]], "Real Madrid": [[2005, 2006]], "Celtic": [[2006, 2008]] },
+},
+"Roy Makaay": {
+    image: "/games/player-images/makaay.png",
+    career: { "Deportivo La Coruna": [[1999, 2003]], "Bayern Munich": [[2003, 2007]], "Feyenoord": [[2007, 2010]] },
+},
+"Jefferson Farfan": {
+    image: "/games/player-images/farfan.png",
+    career: { "PSV Eindhoven": [[2004, 2008]], "Schalke": [[2008, 2015]] },
+},
+"Allan Nyom": {
+    image: "/games/player-images/nyom.png",
+    career: { "Granada": [[2009, 2015]], "Watford": [[2015, 2016]], "West Bromwich Albion": [[2016, 2019]], "Leganes": [[2018, 2019], [2022, 2024]], "Getafe": [[2019, 2022], [2024, 2026]] },
+},
+"Mario Gaspar": {
+    image: "/games/player-images/mariogaspar.png",
+    career: { "Villarreal": [[2009, 2022]], "Watford": [[2022, 2023]], "Elche": [[2023, 2025]] },
+},
+"Luis Enrique": {
+    image: "/games/player-images/luisenrique.png",
+    career: { "Sporting Gijon": [[1989, 1991]], "Real Madrid": [[1991, 1996]], "Barcelona": [[1996, 2004]] },
+},
+"Jonathan Viera": {
+    image: "/games/player-images/jonathanviera.png",
+    career: { "Las Palmas": [[2010, 2012], [2015, 2018], [2019], [2021, 2023], [2025, 2026]], "Valencia": [[2012, 2014]], "Standard Liege": [[2014, 2015]] }
+},
+"Niklas Sule": {
+    image: "/games/player-images/sule.png",
+    career: { "Hoffenheim": [[2013, 2017]], "Bayern Munich": [[2017, 2022]], "Borussia Dortmund": [[2022, 2026]]}
+},
+"Loris Karius": {
+    image: "/games/player-images/karius.png",
+    career: { "Mainz": [[2012, 2016]], "Liverpool": [[2016, 2022]], "Besiktas": [[2018, 2020]], "Newcastle United": [[2022, 2024]], "Schalke": [[2025, 2026]]}
+},
+"Gabriel Batistuta": {
+    image: "/games/player-images/batistuta.png",
+    career: { "Fiorentina": [[1991, 2000]], "Roma": [[2000, 2003]], "Inter Milan": [[2003]]}
+},
+"Davor Suker": {
+    image: "/games/player-images/suker.png",
+    career: { "Sevilla": [[1991, 1996]], "Real Madrid": [[1996, 1999]], "Arsenal": [[1999, 2000]], "West Ham": [[2000, 2001]]}
+},
+"Rivaldo": {
+    image: "/games/player-images/rivaldo.png",
+    career: { "Deportivo La Coruna": [[1996, 1997]], "Barcelona": [[1997, 2002]], "AC Milan": [[2002, 2003]] }
+},
+"Michael Laudrup": {
+    image: "/games/player-images/michaellaudrup.png",
+    career: { "Lazio": [[1983, 1985]], "Juventus": [[1985, 1989]], "Barcelona": [[1989, 1994]], "Real Madrid": [[1994, 1996]], "Ajax": [[1997, 1998]] }
+},
+"Gheorghe Hagi": {
+    image: "/games/player-images/hagi.png",
+    career: { "Real Madrid": [[1990, 1992]], "Barcelona": [[1994, 1996]]}
+},
+"Fernando Hierro": {
+    image: "/games/player-images/hierro.png",
+    career: { "Real Madrid": [[1989, 2003]], "Bolton": [[2004, 2005]]}
+},
+"Gaizka Mendieta": {
+    image: "/games/player-images/mendieta.png",
+    career: { "Valencia": [[1993, 2001]], "Lazio": [[2001, 2004]], "Barcelona": [[2002, 2003]], "Middlesbrough": [[2003, 2008]] }
+},
+"Marcel Desailly": {
+    image: "/games/player-images/desailly.png",
+    career: { "Marseille": [[1992, 1993]], "AC Milan": [[1993, 1998]], "Chelsea": [[1998, 2004]] }
+},
+"Frank de Boer": {
+    image: "/games/player-images/frankdeboer.png",
+    career: { "Ajax": [[1988, 1999]], "Barcelona": [[1999, 2003]], "Galatasary": [[2003, 2004]], "Rangers": [2004] }
+},
+"Ronald de Boer": {
+    image: "/games/player-images/ronalddeboer.png",
+    career: { "Ajax": [[1988, 1991], [1993, 1999]], "Barcelona": [[1999, 2000]], "Rangers": [[2000, 2004]]}
+},
+"Aritz Aduriz": {
+    image: "/games/player-images/aduriz.png",
+    career: { "Athletic Bilabo": [[2002, 2004], [2006, 2008], [2012, 2020]], "Valencia": [[2010, 2012]] }
+},
+"Eric Cantona": {
+    image: "/games/player-images/cantona.png",
+    career: { "Marseille": [[1988, 1991]], "Leeds United": [[1992]], "Manchester United": [[1992, 1997]]}
+},
+"Rui Costa": {
+    image: "/games/player-images/ruicosta.png",
+    career: { "Benfica": [[1990, 1994], [2006, 2008]], "Fiorentina": [[1994, 2001]], "AC Milan": [[2001, 2006]]}
+},
+"Tugay": {
+    image: "/games/player-images/tugay.png",
+    career: { "Galatasaray": [[1987, 1999]], "Rangers": [[1999, 2001]], "Blackburn Rovers": [[2001, 2009]]}
+},
+"Dirk Kuyt": {
+    image: "/games/player-images/kuyt.png",
+    career: { "Feyenoord": [[2003, 2006], [2015, 2017]], "Liverpool": [[2006, 2012]], "Fenerbahce": [[2012, 2015]]}
+},
+"Enzo Fernandez": {
+    image: "/games/player-images/enzofernandez.png",
+    career: { "Benfica": [[2022, 2023]], "Chelsea": [[2023, 2026]]}
+},
+"Julian Alvarez": {
+    image: "/games/player-images/julianalvarez.png",
+    career: { "Manchester City": [[2022, 2024]], "Atletico Madrid": [[2024, 2026]]}
+},
+"Josko Gvardiol": {
+    image: "/games/player-images/gvardiol.png",
+    career: { "RB Leipzig": [[2020, 2023]], "Manchester City": [[2023, 2026]]}
+},
+"Gianfranco Zola": {
+    image: "/games/player-images/zola.png",
+    career: { "Napoli": [[1989, 1993]], "Parma": [[1993, 1996]], "Chelsea": [[1996, 2003]]}
+},
+"Claudio Pizarro": {
+    image: "/games/player-images/pizarro.png",
+    career: { "Werder Bremen": [[1999, 2001], [2008, 2012], [2015, 2017], [2018, 2020]], "Bayern Munich": [[2001, 2007], [2012, 2015]], "Chelsea": [[2007, 2009]], "Koln": [[2017, 2018]]}
+},
+"Diego Milito": {
+    image: "/games/player-images/milito.png",
+    career: { "Genoa": [[2003, 2005], [2008, 2009]], "Zaragoza": [[2005, 2008]], "Inter Milan": [[2009, 2014]] }
+},
+"Guti": {
+    image: "/games/player-images/guti.png",
+    career: { "Real Madrid": [[1995, 2010]], "Besiktas": [[2010, 2011]]}
+},
+"Giuseppe Rossi": {
+    image: "/games/player-images/giusepperossi.png",
+    career: { "Manchester United": [[2004, 2007]], "Newcastle United": [[2006]], "Parma": [[2007]], "Villarreal": [[2007, 2013]], "Fiorentina": [[2013, 2017]], "Levante": [[2016]], "Celta Vigo": [[2016, 2017]], "Genoa": [[2017, 2018]]}
+},
+"Mauro Camoranesi": {
+    image: "/games/player-images/camoranesi.png",
+    career: { "Verona": [[2000, 2002]], "Juventus": [[2002, 2010]], "Stuttgart": [[2010, 2011]] }
+},
+"Kevin Mirallas": {
+    image: "/games/player-images/mirallas.png",
+    career: { "Lille": [[2004, 2008]], "Saint-Etienne": [[2008, 2010]], "Everton": [[2012, 2019]], "Fiorentina": [[2018, 2019]] }
 }
 };
 
@@ -255,7 +571,7 @@ const managers = {
   },
   "Jose Mourinho": { 
     image: "/games/player-images/mourinho.png",
-    career: { "Porto": [[2002, 2004]], "Chelsea": [[2004, 2007], [2013, 2015]], "Inter Milan": [[2008, 2010]], "Real Madrid": [[2010, 2013]], "Manchester United": [[2016, 2018]], "Tottenham Hotspur": [[2019, 2021]], "AS Roma": [[2021, 2024]], "Fenerbache": [[2024, 2025]], "Benfica": [[2025, 2026]] },
+    career: { "Porto": [[2002, 2004]], "Chelsea": [[2004, 2007], [2013, 2015]], "Inter Milan": [[2008, 2010]], "Real Madrid": [[2010, 2013]], "Manchester United": [[2016, 2018]], "Tottenham Hotspur": [[2019, 2021]], "AS Roma": [[2021, 2024]], "Fenerbahce": [[2024, 2025]], "Benfica": [[2025, 2026]] },
   },
   "Antonio Conte": { 
     image: "/games/player-images/conte.png",
@@ -411,7 +727,7 @@ const managers = {
   },
   "Jorge Jesus": {
     image: "/games/player-images/jorgejesus.png",
-    career: { "Benfica": [[2009, 2015], [2020, 2021]], "Sporting CP": [[2015, 2018]], "Al Hilal": [[2018, 2019]], "Fenerbache": [[2022, 2023]], "Al Nassr": [[2025, 2026]] },
+    career: { "Benfica": [[2009, 2015], [2020, 2021]], "Sporting CP": [[2015, 2018]], "Al Hilal": [[2018, 2019]], "Fenerbahce": [[2022, 2023]], "Al Nassr": [[2025, 2026]] },
   },
   "Stefano Pioli": {
     image: "/games/player-images/pioli.png",
@@ -419,7 +735,7 @@ const managers = {
   },
   "Ralf Rangnick": {
     image: "/games/player-images/rangnick.png",
-    career: { "Schalke 04": [[2004, 2005], [2011]], "Hoffenheim": [[2006, 2011]], "RB Leipzig": [[2015, 2016], [2018, 2019]], "Manchester United": [[2021, 2022]] },
+    career: { "Schalke": [[2004, 2005], [2011]], "Hoffenheim": [[2006, 2011]], "RB Leipzig": [[2015, 2016], [2018, 2019]], "Manchester United": [[2021, 2022]] },
   },
   "Alex Ferguson": {
     image: "/games/player-images/alexferguson.png",
@@ -441,4 +757,16 @@ const managers = {
     image: "/games/player-images/martinoneill.png",
     career: { "Celtic": [[2000, 2005], [2025, 2026]], "Aston Villa": [[2006, 2010]], "Sunderland": [[2011, 2013]] },
   },
+  "Diego Simeone": {
+    image: "/games/player-images/diegosimeone.png",
+    career: { "Atletico Madrid": [[2011, 2026]] },
+  },
+  "Alex McLeish": {
+    image: "/games/player-images/mcleish.png",
+    career: { "Rangers": [[2001, 2006]], "Birmingham City": [[2007, 2011]], "Aston Villa": [[2011, 2012]], "Nottingham Forest": [[2012, 2013]] },
+  },
+  "Walter Smith": {
+    image: "/games/player-images/waltersmith.png",
+    career: { "Rangers": [[1991, 1998], [2007, 2011]], "Everton": [[1998, 2002]] },
+  }
 };
