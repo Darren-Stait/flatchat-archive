@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Six Degrees of Seperation - Football</title>
-
+  <link rel="icon" type="image/x-icon" href="icons/flatchat-small.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="preload" href="../includes/header.html" as="fetch" crossorigin="anonymous">
@@ -1225,7 +1225,7 @@ const MAX_MOVES = 6;
    UTIL
 ============================= */
 function overlaps(a, b) {
-  return Math.max(a[0], b[0]) < Math.min(a[1], b[1]);
+  return Math.max(a[0], b[0]) <= Math.min(a[1], b[1]);
 }
 
 function isManager(name) {
