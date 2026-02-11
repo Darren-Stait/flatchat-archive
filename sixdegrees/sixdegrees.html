@@ -3,77 +3,94 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Flatchat Six Degrees of Seperation</title>
+<title>Six Degrees of Seperation - Football</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="preload" href="../includes/header.html" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="../includes/footer.html" as="fetch" crossorigin="anonymous">
 
 <style>
 :root {
-  --brand: #25b6c4;
-  --brand-dark: #1e9aa6;
+  --brand: #179aa3;
+  --brand-dark: #0f7f86;
   --bg: #f4fbfc;
-  --text: #1f2937;
-  --muted: #6b7280;
+  --text: #14292f;
+  --muted: #546168;
 }
 
-* { box-sizing: border-box; transition: all 0.2s ease; }
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: var(--bg);
+  background: linear-gradient(180deg,var(--bg) 0%, #e6f6f7 100%);
   color: var(--text);
 }
 
 .card {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg,#f4fbfc 0%,#e9f7f9 100%);
+}
+
+.card {
   position: relative;
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 60px 40px 40px 40px;  /* ← increase top padding */
-  border-radius: 20px;
-  background: #ffffff;
-  border: 2px solid var(--brand);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  max-width: 1400px;
+  margin: 8px auto;
+  padding: 20px 24px 24px;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f2fbfc 100%
+  );
+  border: 2px solid rgba(23,154,163,0.22);
+  border-radius: 14px;
+  box-shadow:
+  0 12px 36px rgba(0,0,0,0.07),
+  inset 0 0 40px rgba(23,154,163,0.03);
 }
 
 .goal-row {
+  background: rgba(23,154,163,0.04);
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 6px;
   display: flex;
-  justify-content: space-between;
+  gap: 18px;
   align-items: center;
-  gap: 40px;
+  justify-content: space-between;
 }
 
 .player-card { text-align: center; }
 
 .player-headshot {
-  width: 120px;
-  height: 120px;
-  border-radius: 16px;
+  width: 160px;
+  height: 160px;
+  border-radius: 18px;
   object-fit: cover;
   border: 3px solid var(--brand);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .current-headshot {
-  width: 90px;
-  height: 90px;
+  width: 140px;
+  height: 140px;
   border-radius: 16px;
   object-fit: cover;
   border: 3px solid var(--brand);
-  margin: 10px auto 6px;
+  margin: 6px auto 6px;
   display: block;
 }
 
 .target-glow {
-  box-shadow: 0 0 0 4px rgba(37,182,196,0.2);
+  box-shadow: 0 0 0 6px rgba(23,154,163,0.18), 0 6px 18px rgba(23,154,163,0.12);
 }
 
 .player-card strong { color: var(--brand); }
 
 .top-centre {
   text-align: center;
-  min-width: 180px;
+  min-width: 220px;
 }
 
 .top-centre .label {
@@ -82,14 +99,14 @@ body {
 }
 
 .current-name {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: var(--brand);
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .moves {
-  margin-top: 12px;
+  margin-top: 6px;
   font-weight: 600;
   color: var(--brand);
 }
@@ -97,17 +114,114 @@ body {
 .choices-grid {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
 }
 
 .choice-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-  gap: 6px;
+  background: rgba(23,154,163,0.04);
+  border-radius: 10px;
+  padding: 6px 6px;
+  cursor: pointer;
+  transition: 0.15s ease;
 }
+
+.choice-card img.entity-img {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid rgba(23,154,163,0.9);
+}
+
+.choice-card:hover {
+  background: rgba(23,154,163,0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+/* =============================
+   DYNAMIC SHRINK MODES
+============================= */
+
+.choices-grid.tight .choice-card {
+  padding: 8px 6px;
+}
+
+.choices-grid.tight img.entity-img {
+  width: 70px;
+  height: 70px;
+}
+
+.choices-grid.tight .badge-wrapper {
+  width: 60px;
+  height: 60px;
+}
+
+.choices-grid.tight .entity-name {
+  font-size: 0.8rem;
+}
+
+.choices-grid.tight .entity-years {
+  font-size: 0.7rem;
+}
+
+.choices-grid.ultra-tight .choice-card {
+  padding: 6px 4px;
+}
+
+.choices-grid.ultra-tight img.entity-img {
+  width: 50px;
+  height: 50px;
+}
+
+.choices-grid.ultra-tight .badge-wrapper {
+  width: 45px;
+  height: 45px;
+}
+
+.choices-grid.ultra-tight .entity-name {
+  font-size: 0.7rem;
+}
+
+.choices-grid.ultra-tight .entity-years {
+  font-size: 0.65rem;
+}
+
+/* =============================
+   FULLSCREEN SHRINK LEVELS
+============================= */
+
+.card.shrink-1 .choice-card img.entity-img {
+  width: 75px;
+  height: 75px;
+}
+
+.card.shrink-1 .badge-wrapper {
+  width: 60px;
+  height: 60px;
+}
+
+.card.shrink-2 .choice-card img.entity-img {
+  width: 60px;
+  height: 60px;
+}
+
+.card.shrink-2 .badge-wrapper {
+  width: 50px;
+  height: 50px;
+}
+
+.card.shrink-2 .choice-card {
+  padding: 6px 4px;
+}
+
+.card.shrink-2 .entity-name {
+  font-size: 0.75rem;
+}
+
+.card.shrink-2 .entity-years {
+  font-size: 0.65rem;
+}
+
 
 .club-item {
   display: flex;
@@ -125,15 +239,6 @@ body {
   min-height: 2.4em;
   max-height: 2.4em;
   overflow: hidden;
-}
-
-/* Player / Manager icons */
-.choice-card img.entity-img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 2px solid var(--brand);
 }
 
 /* Club badges */
@@ -160,8 +265,8 @@ body {
 .path {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 50px;
+  gap: 12px;
+  margin-top: 8px;
   justify-content: center;
 }
 
@@ -177,21 +282,22 @@ body {
 }
 
 .step img {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid var(--brand);
+  border: 2px solid rgba(23,154,163,0.9);
 }
 
 button.primary {
   background: var(--brand);
   color: white;
   border: none;
-  padding: 10px 18px;
+  padding: 12px 18px;
   border-radius: 10px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
+  box-shadow: 0 6px 14px rgba(23,154,163,0.18);
 }
 
 button.primary:hover {
@@ -213,11 +319,11 @@ button.primary:hover {
 
 .modal-content {
   background: white;
-  padding: 40px;
-  border-radius: 16px;
+  padding: 28px;
+  border-radius: 12px;
   text-align: center;
-  max-width: 400px;
-  border: 2px solid var(--brand);
+  max-width: 420px;
+  border: 2px solid rgba(23,154,163,0.18);
 }
 .separator {
   grid-column: 1 / -1;
@@ -238,10 +344,10 @@ button.primary:hover {
   text-transform: uppercase;
 }
 #how-to-play {
-  background: rgba(37,182,196,0.08);
+  background: rgba(23,154,163,0.06);
   padding: 16px 20px;
   border-radius: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   border-left: 4px solid var(--brand);
   position: relative;
   transition: all 0.3s ease;
@@ -273,6 +379,10 @@ body.fullscreen .card {
   height: 100vh;
   border-radius: 0;
   box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  /* allow the whole card to scroll internally in fullscreen */
+  overflow: auto;
 }
 
 body.fullscreen header,
@@ -281,7 +391,7 @@ body.fullscreen footer {
 }
 
 body.fullscreen {
-  overflow: hidden;
+  overflow: hidden; /* prevent body scroll while allowing card internal scroll */
 }
 #navigation-bar {
   display: flex;
@@ -305,16 +415,21 @@ body.fullscreen {
 }
 
 .badge-wrapper {
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   background: white;
-  border-radius: 18px;       /* soft rounded square */
+  border-radius: 14px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
+
+.card {
+  background: #fbffff;
+}
+
 
 @media (max-width: 480px) {
   .club-badge {
@@ -410,7 +525,7 @@ body.fullscreen {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .top-action-btn {
@@ -429,6 +544,44 @@ body.fullscreen {
   color: white;
 }
 
+.info-tooltip {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  position: relative;
+  cursor: pointer;
+}
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: 220px;
+  background: white;
+  color: #333;
+  text-align: left;
+  border: 2px solid var(--brand);
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease;
+  font-size: 0.85rem;
+  z-index: 10;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.info-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
 
   .club-badge {
@@ -441,7 +594,7 @@ body.fullscreen {
     flex-direction: row !important;
     justify-content: space-between;
     align-items: center;
-    gap: 6px;
+    gap: 12px;
     margin-bottom: 10px;
   }
 
@@ -502,22 +655,50 @@ body.fullscreen {
 
 .entity-name {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1.2;
 }
 
 .entity-years {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--muted);
   line-height: 1.2;
 }
 
-.start-screen {
+#start-screen {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  background: #f8fcfd;
+  padding: 40px 5vw;
+}
+
+#start-screen .card {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 60px 60px;
+}
+
+.start-left h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.start-left p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 480px;
+}
+
+.start-right {
+  max-width: 420px;
+  margin-left: auto;
 }
 
 /* Shared game-style card */
@@ -529,6 +710,43 @@ body.fullscreen {
   box-shadow: 0 20px 50px rgba(0,0,0,0.08);
   width: 380px;
   text-align: center;
+}
+
+#game-container .card {
+  display: flex;
+  flex-direction: column;
+  /* limit card height so inner areas can scroll instead of overflowing */
+  max-height: calc(100vh - 24px);
+  overflow: hidden;
+  padding: 16px 20px 20px;
+}
+
+#game-container .card::before {
+  content: "";
+  display: block;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--brand),
+    #25b6c4
+  );
+  border-radius: 14px 14px 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#choices {
+  flex: 1;
+  align-content: start;
+  /* allow the choices region to scroll when content grows */
+  overflow: auto;
+  min-height: 0; /* necessary for flex children to shrink properly */
+  padding-right: 8px; /* room for scrollbar */
+  background: rgba(23,154,163,0.03);
+  padding: 12px;
+  border-radius: 12px;
 }
 
 .game-title {
@@ -618,11 +836,11 @@ body.fullscreen {
 }
 .menu-card {
   background: #f3f7f8;
-  border-radius: 18px;
-  padding: 50px 60px;
+  border-radius: 12px;
+  padding: 36px 40px;
   text-align: center;
-  max-width: 500px;
-  margin: 60px auto;
+  max-width: 760px;
+  margin: 18px auto;
 }
 
 .menu-title {
@@ -703,6 +921,7 @@ body.fullscreen {
   background: var(--brand);
   color: white;
 }
+
 }
 
 @media (max-width: 480px) {
@@ -726,14 +945,33 @@ body.fullscreen {
   .choices-grid {
     grid-template-columns: repeat(6, 1fr);
   }
+  #start-screen .card {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  .start-right {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .start-left h1 {
+    font-size: 2.4rem;
+  }
 }
 
 @media (max-width: 600px) {
   .choices-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
   }
 
-  .choice-card img {
+  .choice-card img.entity-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .badge-wrapper {
     width: 50px;
     height: 50px;
   }
@@ -753,57 +991,75 @@ body.fullscreen {
 </head>
 
 <body>
-
 <div data-include="../includes/header.html"></div>
-
 <div id="start-screen">
   <div class="card">
+<div class="start-left">
 
-    <div style="text-align:center; margin-bottom:40px;">
-      <h1 style="color:var(--brand); margin:0; font-size:2.5rem;">
-        Six Degrees of Seperation
-      </h1>
-    </div>
+  <h1 style="color:var(--brand); margin:0 0 20px 0; font-size:2.8rem; text-align: center;">
+    Six Degrees of Seperation
+  </h1>
 
-    <div style="max-width:400px; margin:0 auto 40px;">
+  <p style="color:var(--muted); text-align: center;">
+    Connect footballers through teammates and managers.
+    How many moves does it take to link them together?
+  </p>
 
-      <label style="font-weight:600; display:block; margin-bottom:10px;">
-        Minimum Moves
+  <div class="menu-stat" style="margin-top:30px;">
+    <div id="total-players-stat"></div>
+    <div id="total-pairs-stat" style="margin-top:6px;"></div>
+  </div>
+
+</div>
+
+
+<div class="start-right">
+
+  <div style="margin-bottom:20px;">
+    <select id="min-moves"
+            style="
+              width:100%;
+              padding:12px;
+              border-radius:12px;
+              border:2px solid var(--brand);
+              font-size:1rem;
+            ">
+      <option value="2" selected>Easy (Minimum 2 Moves)</option>
+      <option value="3">Normal (Minimum 3 Moves)</option>
+      <option value="4">Hard (Minimum 4 Moves)</option>
+      <option value="5">Extreme (Minimum 5 Moves)</option>
+      <option value="6">Insane (Minimum 6 Moves)</option>
+    </select>
+
+    <div style="margin-top:15px; display:flex; align-items:center; gap:8px;">
+      <input type="checkbox" id="unlimited-mode">
+      <label for="unlimited-mode" style="font-weight:600;">
+        Unlimited Guesses
       </label>
 
-      <select id="min-moves"
-              style="
-                width:100%;
-                padding:12px;
-                border-radius:12px;
-                border:2px solid var(--brand);
-                font-size:1rem;
-              ">
-        <option value="2">Easy (2+)</option>
-        <option value="3">Normal (3+)</option>
-        <option value="4" selected>Hard (4+)</option>
-        <option value="5">Extreme (5+)</option>
-      </select>
-
+      <div class="info-tooltip">
+        ?
+        <span class="tooltip-text">
+          If disabled, you lose after 6 moves.
+          <br><br>
+          Enable to play without a move limit.
+        </span>
+      </div>
     </div>
+  </div>
 
-    <div class="menu-stat">
-        <div id="total-players-stat"></div>
-        <div id="total-pairs-stat" style="margin-top:6px;"></div>
-    </div>
+  <div style="display:flex; flex-direction:column; gap:15px;">
+    <button class="primary" onclick="beginRandomGame()">
+      Random Game
+    </button>
 
+    <button class="back-btn" onclick="beginCustomGame()">
+      Custom Game
+    </button>
+  </div>
 
-    <div style="max-width:400px; margin:0 auto; display:flex; flex-direction:column; gap:15px;">
+</div>
 
-      <button class="primary" onclick="beginRandomGame()">
-        Random Game
-      </button>
-
-      <button class="back-btn" onclick="beginCustomGame()">
-        Custom Game
-      </button>
-
-    </div>
 
   </div>
 </div>
@@ -857,23 +1113,23 @@ body.fullscreen {
 
   <div class="goal-row">
     <div class="player-card">
-      <img id="start-img" class="player-headshot">
+      <img id="start-img" class="player-headshot" loading="lazy" decoding="async">
       <div><strong>Start</strong></div>
       <div id="start-name" style="font-weight: 600;"></div>
     </div>
 
 <div class="top-centre">
   <button id="swap-btn" class="top-action-btn" onclick="swapPlayers()">
-  ⇄ Swap
+  ⇄ Swap Start and Target Players
   </button>
   <div class="label" id="current-label">Current Player</div>
-  <img id="current-img" class="current-headshot">
+  <img id="current-img" class="current-headshot" loading="lazy" decoding="async">
   <div class="current-name" id="current-player"></div>
   <div class="moves">Moves: <span id="move-count">0</span></div>
 </div>
 
     <div class="player-card">
-      <img id="target-img" class="player-headshot target-glow">
+      <img id="target-img" class="player-headshot target-glow" loading="lazy" decoding="async">
       <div><strong>Target</strong></div>
       <div id="target-name" style="font-weight: 600;"></div>
     </div>
@@ -883,7 +1139,7 @@ body.fullscreen {
   <div id="choices" class="choices-grid"></div>
   <div id="path" class="path"></div>
 
-  <div style="text-align:center;margin-top:40px;">
+  <div style="text-align:center;margin-top:20px;">
     <button class="primary" onclick="startNewGame()">New Puzzle</button>
   </div>
 
@@ -892,7 +1148,6 @@ body.fullscreen {
 
 <div id="win-modal" class="modal hidden">
   <div class="modal-content">
-    <h2>🎉 Connection Complete!</h2>
     <p id="win-text"></p>
     <button class="primary" onclick="startNewGame(); closeModal();">
       Play Again
@@ -902,8 +1157,8 @@ body.fullscreen {
 
 <div data-include="../includes/footer.html"></div>
 
-<script src="./data.js"></script>
-<script src="../includes/include-html.js"></script>
+<script src="./data.js" defer></script>
+<script src="../includes/include-html.js" defer></script>
 
 <script>
 let startPlayer, currentEntity, currentType, targetPlayer;
@@ -913,7 +1168,10 @@ let selectedContext = null;
 let availablePlayers = [];
 let validPairs = [];
 let distanceCache = {};
+let graphCacheBuilt = false;
 let MIN_MOVES = 4;
+let UNLIMITED_MODE = true;
+const MAX_MOVES = 6;
 
 /* =============================
    UTIL
@@ -929,6 +1187,7 @@ function isManager(name) {
 function beginRandomGame() {
 
   MIN_MOVES = parseInt(document.getElementById("min-moves").value, 10);
+  UNLIMITED_MODE = document.getElementById("unlimited-mode").checked;
 
   resetPlayerPool();
   showScreen("game-container");
@@ -938,6 +1197,7 @@ function beginRandomGame() {
 function beginCustomGame() {
 
   MIN_MOVES = parseInt(document.getElementById("min-moves").value, 10);
+  UNLIMITED_MODE = document.getElementById("unlimited-mode").checked;
 
   populateCustomDropdowns();
   showScreen("mode-screen");
@@ -976,9 +1236,9 @@ function populateCustomDropdowns() {
     const distances = distanceCache[s];
     if (!distances) return false;
 
-    return Object.values(distances).some(d =>
-      typeof d === "number" && d >= MIN_MOVES
-    );
+return Object.values(distances).some(d =>
+  typeof d === "number" && d === MIN_MOVES
+);
   });
 
   validStarts.forEach(name => {
@@ -994,7 +1254,7 @@ function populateCustomDropdowns() {
     targetSelect.innerHTML = "";
 
     Object.entries(distances).forEach(([name, dist]) => {
-      if (dist >= MIN_MOVES) {
+      if (dist === MIN_MOVES) {
         targetSelect.add(new Option(name, name));
       }
     });
@@ -1016,19 +1276,40 @@ function updateStartStats() {
 
   const playersList = Object.keys(players);
 
-  let pairCount = 0;
+  if (!Object.keys(distanceCache).length) {
+    document.getElementById("total-players-stat").textContent =
+      `${playersList.length} players loaded`;
+    document.getElementById("total-pairs-stat").textContent =
+      `Calculating...`;
+    return;
+  }
+
+  // 1️⃣ Build all valid pairs
+  const validPairs = [];
 
   for (let i = 0; i < playersList.length; i++) {
     for (let j = i + 1; j < playersList.length; j++) {
 
-      const s = playersList[i];
-      const t = playersList[j];
+      const a = playersList[i];
+      const b = playersList[j];
 
-      const dist = distanceCache[s]?.[t];
+      const dist = distanceCache[a]?.[b];
 
-      if (typeof dist === "number" && dist >= minMoves) {
-        pairCount++;
+      if (typeof dist === "number" && dist === minMoves) {
+        validPairs.push([a, b]);
       }
+    }
+  }
+
+  // 2️⃣ Greedy matching to count unique playable puzzles
+  const used = new Set();
+  let playableCount = 0;
+
+  for (const [a, b] of validPairs) {
+    if (!used.has(a) && !used.has(b)) {
+      used.add(a);
+      used.add(b);
+      playableCount++;
     }
   }
 
@@ -1036,7 +1317,7 @@ function updateStartStats() {
     `${playersList.length} players loaded`;
 
   document.getElementById("total-pairs-stat").textContent =
-    `${pairCount.toLocaleString()} valid ${minMoves}+ move pairs`;
+    `${playableCount.toLocaleString()} unique playable ${minMoves}-move puzzles`;
 }
 
 function showScreen(screenId) {
@@ -1054,17 +1335,20 @@ function backToMenu() {
   showScreen("start-screen");
 }
 
-function resetPlayerPool() {
+function resetPlayerPool(forceRebuild = false) {
 
+  // Always rebuild available players
   availablePlayers = Object.keys(players)
     .filter(p => hasValidConnections(p));
 
-  distanceCache = {};
+  // Only rebuild full distance cache if forced OR not built yet
+  if (forceRebuild || !Object.keys(distanceCache).length) {
 
-  for (const start of availablePlayers) {
+    distanceCache = {};
 
-    const distances = computeAllShortestPaths(start);
-    distanceCache[start] = distances;
+    for (const start of availablePlayers) {
+      distanceCache[start] = computeAllShortestPaths(start);
+    }
   }
 }
 
@@ -1223,12 +1507,12 @@ function updateTargetOptions() {
 
     const length = shortestPathLength(start, name);
 
-    if (length >= MIN_MOVES && length !== Infinity) {
+    if (length === MIN_MOVES) {
       const option = document.createElement("option");
       option.value = name;
       option.textContent = name;
       targetSelect.appendChild(option);
-    }
+  }
   });
 
   // If no valid targets exist
@@ -1353,7 +1637,7 @@ const rangesText = spells
 div.innerHTML = `
   <div class="club-item">
     <div class="badge-wrapper">
-      <img src="${clubToBadge(club)}" class="club-badge">
+      <img src="${clubToBadge(club)}" class="club-badge" loading="lazy" decoding="async">
     </div>
     <div class="club-years">${rangesText}</div>
   </div>
@@ -1370,7 +1654,7 @@ div.innerHTML = `
 
       if (item.type === "manager") {
 div.innerHTML = `
-  <img src="${getImage(item.name)}" class="entity-img">
+  <img src="${getImage(item.name)}" class="entity-img" loading="lazy" decoding="async">
   <div class="entity-text">
     <div class="entity-name">${item.name}</div>
     ${item.overlap ? `<div class="entity-years">(${item.overlap})</div>` : ""}
@@ -1379,7 +1663,7 @@ div.innerHTML = `
 
       } else {
 div.innerHTML = `
-  <img src="${getImage(item.name)}" class="entity-img">
+  <img src="${getImage(item.name)}" class="entity-img" loading="lazy" decoding="async">
   <div class="entity-text">
     <div class="entity-name">${item.name}</div>
     ${item.overlap ? `<div class="entity-years">(${item.overlap})</div>` : ""}
@@ -1396,15 +1680,28 @@ div.innerHTML = `
         selectionMode = "club";
         selectedContext = null;
         render();
-        if (path.length - 1 >= MIN_MOVES) {
-            checkWin();
-        }
+const movesMade = path.length - 1;
+
+// First check if we reached the target
+if (currentEntity === targetPlayer) {
+  checkWin();
+  return;
+}
+
+// Then enforce move limit
+if (!UNLIMITED_MODE && movesMade >= MAX_MOVES) {
+  showLoseModal();
+  return;
+}
+
       };
     }
 
     container.appendChild(div);
 
   });
+
+  requestAnimationFrame(adjustChoiceGridCompact);
 }
 
 function renderNavigation() {
@@ -1487,7 +1784,7 @@ function render() {
   document.getElementById("path").innerHTML =
     path.map(p => `
       <div class="step">
-        <img src="${isManager(p)?getImage(p):getImage(p)}">
+        <img src="${isManager(p)?getImage(p):getImage(p)}" loading="lazy" decoding="async">
         <span>${p}</span>
       </div>
     `).join("");
@@ -1654,11 +1951,11 @@ function showRefreshPoolModal() {
   const button = modal.querySelector("button");
   button.textContent = "Refresh Pool";
 
-  button.onclick = () => {
-    resetPlayerPool();
-    closeModal();
-    startNewGame();
-  };
+button.onclick = () => {
+  resetPlayerPool(true); // force rebuild
+  closeModal();
+  startNewGame();
+};
 
   modal.classList.remove("hidden");
 }
@@ -1683,7 +1980,7 @@ function startNewGame() {
     const hasValidTarget = availablePlayers.some(p => {
       if (p === s) return false;
       const d = distances[p];
-      return typeof d === "number" && d >= MIN_MOVES;
+      return typeof d === "number" && d === MIN_MOVES;
     });
 
     if (hasValidTarget) {
@@ -1702,7 +1999,7 @@ function startNewGame() {
   const possibleTargets = availablePlayers.filter(p => {
     if (p === s) return false;
     const d = distances[p];
-    return typeof d === "number" && d >= MIN_MOVES;
+    return typeof d === "number" && d === MIN_MOVES;
   });
 
   if (possibleTargets.length === 0) {
@@ -1888,6 +2185,7 @@ function checkWin() {
     }
 
     document.getElementById("win-text").innerHTML = `
+      🎉 <strong>Connection Complete!</strong><br><br>
       You connected them in <strong>${moves}</strong> moves.<br><br>
       <strong>Shortest possible path:</strong><br>
       ${optimalText}
@@ -1895,6 +2193,34 @@ function checkWin() {
 
     document.getElementById("win-modal").classList.remove("hidden");
   }
+}
+
+function showLoseModal() {
+
+  const shortest = findShortestPath(startPlayer, targetPlayer);
+
+  let optimalText = "";
+
+  if (shortest) {
+    optimalText = shortest.map(n => n.name).join(" → ");
+  }
+
+  document.getElementById("win-text").innerHTML = `
+    ❌ You ran out of moves.<br><br>
+    <strong>Shortest possible path:</strong><br>
+    ${optimalText}
+  `;
+
+  const modal = document.getElementById("win-modal");
+
+  const button = modal.querySelector("button");
+  button.textContent = "Try Again";
+  button.onclick = () => {
+    closeModal();
+    startNewGame();
+  };
+
+  modal.classList.remove("hidden");
 }
 
 function closeModal() {
@@ -1924,14 +2250,46 @@ document.addEventListener("fullscreenchange", () => {
 });
 
 window.addEventListener("load", () => {
-  setTimeout(() => {
-    resetPlayerPool();
-    updateStartStats();
-  }, 0);
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      resetPlayerPool();
+      updateStartStats();
+    }, 0);
+  });
 });
 
 document.getElementById("min-moves")
   .addEventListener("change", updateStartStats);
+
+function adjustChoiceGridCompact() {
+
+  const card = document.querySelector('#game-container .card');
+  if (!card) return;
+
+  card.classList.remove('shrink-1', 'shrink-2');
+
+  const viewportHeight = window.innerHeight;
+
+  // First check: does it overflow?
+  if (card.scrollHeight <= viewportHeight) return;
+
+  // Apply shrink level 1
+  card.classList.add('shrink-1');
+
+  requestAnimationFrame(() => {
+
+    if (card.scrollHeight <= window.innerHeight) return;
+
+    // Still overflowing → apply shrink level 2
+    card.classList.remove('shrink-1');
+    card.classList.add('shrink-2');
+
+  });
+}
+
+window.addEventListener('resize', () => {
+  adjustChoiceGridCompact();
+});
 
 </script>
 </body>

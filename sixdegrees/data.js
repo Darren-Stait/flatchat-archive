@@ -231,7 +231,7 @@ const players = {
 },
 "Harry Kane": {
     image: "/games/player-images/kane.png",
-    career: { "Tottenham Hotspur": [[2009, 2023], [2023, 2026]] },
+    career: { "Tottenham Hotspur": [[2009, 2023]], "Bayern Munich": [[2023, 2026]] },
 },
 "Dries Mertens": {
     image: "/games/player-images/mertens.png",
