@@ -393,6 +393,44 @@ body.fullscreen footer {
 body.fullscreen {
   overflow: hidden; /* prevent body scroll while allowing card internal scroll */
 }
+
+/* =============================
+   LOADING OVERLAY
+============================= */
+
+#loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, #e6f6f7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-box {
+  text-align: center;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(23,154,163,0.2);
+  border-top: 4px solid var(--brand);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+
+.loading-text {
+  font-weight: 600;
+  color: var(--brand);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 #navigation-bar {
   display: flex;
   justify-content: center;
@@ -992,6 +1030,15 @@ body.fullscreen {
 
 <body>
 <div data-include="../includes/header.html"></div>
+
+<div id="loading-overlay">
+  <div class="loading-box">
+    <div class="spinner"></div>
+    <div class="loading-text">Loading game data…</div>
+  </div>
+</div>
+
+<div id="app" style="visibility:hidden;">
 <div id="start-screen">
   <div class="card">
 <div class="start-left">
@@ -1154,13 +1201,14 @@ body.fullscreen {
     </button>
   </div>
 </div>
+</div>
 
 <div data-include="../includes/footer.html"></div>
 
-<script src="./data.js" defer></script>
 <script src="../includes/include-html.js" defer></script>
+<script src="./data.js" defer></script>
 
-<script>
+<script defer>
 let startPlayer, currentEntity, currentType, targetPlayer;
 let path = [];
 let selectionMode = "club";
@@ -1673,28 +1721,31 @@ div.innerHTML = `
 
       }
 
-      div.onclick = () => {
-        currentEntity = item.name;
-        currentType = item.type;
-        path.push(item.name);
-        selectionMode = "club";
-        selectedContext = null;
-        render();
-const movesMade = path.length - 1;
+div.onclick = () => {
 
-// First check if we reached the target
-if (currentEntity === targetPlayer) {
-  checkWin();
-  return;
-}
+  currentEntity = item.name;
+  currentType = item.type;
+  path.push(item.name);
 
-// Then enforce move limit
-if (!UNLIMITED_MODE && movesMade >= MAX_MOVES) {
-  showLoseModal();
-  return;
-}
+  const movesMade = path.length - 1;
 
-      };
+  selectionMode = "club";
+  selectedContext = null;
+
+  render();
+
+  if (currentEntity === targetPlayer) {
+    checkWin();
+    return;
+  }
+
+  if (!UNLIMITED_MODE && movesMade >= MAX_MOVES) {
+    showLoseModal();
+    return;
+  }
+};
+
+
     }
 
     container.appendChild(div);
@@ -1914,6 +1965,7 @@ playersList.push({
     renderChoices(managersList, "entity", true);
   }
 }
+
 }
 
 function removeDuplicateEntities(list) {
@@ -2164,36 +2216,43 @@ function findShortestPath(startName, targetName) {
 
 function checkWin() {
 
-  if (currentEntity === targetPlayer) {
+  const currentName =
+    typeof currentEntity === "string"
+      ? currentEntity
+      : currentEntity?.name;
 
-    const moves = path.length - 1;
+  if (!currentName) return;
+  if (currentName !== targetPlayer) return;
 
-    if (moves < MIN_MOVES) {
-      // Block short wins
-      alert("Minimum " + MIN_MOVES + " moves required.");
-      return;
-    }
+  const moves = path.length - 1;
 
-    const shortest = findShortestPath(startPlayer, targetPlayer);
+  const shortest = findShortestPath(startPlayer, targetPlayer);
 
-    let optimalText = "";
+  let optimalText = "";
 
-    if (shortest) {
-      optimalText = shortest
-        .map(n => n.name)
-        .join(" → ");
-    }
-
-    document.getElementById("win-text").innerHTML = `
-      🎉 <strong>Connection Complete!</strong><br><br>
-      You connected them in <strong>${moves}</strong> moves.<br><br>
-      <strong>Shortest possible path:</strong><br>
-      ${optimalText}
-    `;
-
-    document.getElementById("win-modal").classList.remove("hidden");
+  if (shortest) {
+    optimalText = shortest.map(n => n.name).join(" → ");
   }
+
+  document.getElementById("win-text").innerHTML = `
+    🎉 <strong>Connection Complete!</strong><br><br>
+    You connected them in <strong>${moves}</strong> moves.<br><br>
+    <strong>Shortest possible path:</strong><br>
+    ${optimalText}
+  `;
+
+  const modal = document.getElementById("win-modal");
+
+  const button = modal.querySelector("button");
+  button.textContent = "Play Again";
+  button.onclick = () => {
+    closeModal();
+    startNewGame();
+  };
+
+  modal.classList.remove("hidden");
 }
+
 
 function showLoseModal() {
 
@@ -2249,17 +2308,24 @@ document.addEventListener("fullscreenchange", () => {
   }
 });
 
-window.addEventListener("load", () => {
-  requestAnimationFrame(() => {
-    setTimeout(() => {
-      resetPlayerPool();
-      updateStartStats();
-    }, 0);
-  });
-});
-
 document.getElementById("min-moves")
   .addEventListener("change", updateStartStats);
+
+function initialiseGame() {
+
+  if (typeof players === "undefined") {
+    console.error("Players not loaded.");
+    return;
+  }
+
+  resetPlayerPool(true);
+  updateStartStats();
+
+  document.getElementById("loading-overlay")?.remove();
+
+  document.getElementById("app").style.visibility = "visible";
+}
+
 
 function adjustChoiceGridCompact() {
 
@@ -2289,6 +2355,10 @@ function adjustChoiceGridCompact() {
 
 window.addEventListener('resize', () => {
   adjustChoiceGridCompact();
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  initialiseGame();
 });
 
 </script>
