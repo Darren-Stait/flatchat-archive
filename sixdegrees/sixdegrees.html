@@ -622,63 +622,52 @@ body.fullscreen {
 
 @media (max-width: 768px) {
 
+.top-centre {
+  min-width: auto;
+  width: auto;
+}
+
   .club-badge {
     max-width: 70px;
     max-height: 70px;
   }
 
-  /* Make the whole top area compact */
-  .goal-row {
-    flex-direction: row !important;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
-  }
+.goal-row {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8px;
+}
 
-  .goal-row img {
-    margin-bottom: 2px;
-  }
+.goal-row > div:not(#swap-btn) {
+  flex: 1;
+}
 
-  .top-centre {
-    margin-bottom: 4px;
-  }
+#swap-btn {
+  flex: 0 0 auto;
+  width: auto;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
 
-  /* Remove vertical stacking */
-  .goal-row > div {
-    flex: 1;
-    text-align: center;
-  }
+.player-headshot,
+.current-headshot {
+  width: 52px !important;
+  height: 52px !important;
+}
 
-  /* Shrink all headshots */
-  .player-headshot,
-  .current-headshot {
-    width: 48px !important;
-    height: 48px !important;
-    border-radius: 10px;
-  }
+.current-name {
+  font-size: 0.8rem;
+}
 
-  /* Reduce name size */
-  .player-name,
-  .current-name {
-    font-size: 0.7rem;
-    line-height: 1.1;
-  }
-
-  /* Hide big labels */
-  .label {
-    display: none;
-  }
-
-  /* Reduce moves size */
-  .moves {
-    font-size: 0.75rem;
-  }
+.moves {
+  font-size: 0.75rem;
+}
 
   /* Reduce card padding */
   .card {
-    margin: 10px;
-    padding: 45px 12px 15px;
+    margin: 8px;
+    padding: 16px;
   }
 
   .club-badge {
@@ -703,23 +692,18 @@ body.fullscreen {
   line-height: 1.2;
 }
 
-#start-screen {
-  min-height: 100vh;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  padding: 40px 5vw;
-}
+  #start-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px 16px;
+  }
 
-#start-screen .card {
-  width: 100%;
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-  align-items: center;
-  padding: 60px 60px;
-}
+  #start-screen .card {
+    width: 100%;
+    max-width: 500px;
+  }
 
 .start-left h1 {
   font-size: 3.2rem;
@@ -959,6 +943,24 @@ body.fullscreen {
   background: var(--brand);
   color: white;
 }
+.step {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  gap: 6px;
+}
+
+.step img {
+  width: 32px;
+  height: 32px;
+}
+
+.step .entity-name {
+  font-size: 0.75rem;
+}
+
+.step .entity-years {
+  font-size: 0.65rem;
+}
 
 }
 
@@ -980,22 +982,34 @@ body.fullscreen {
 }
 
 @media (max-width: 900px) {
-  .choices-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-  #start-screen .card {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 40px 20px;
+
+  #start-screen {
+    padding: 20px 16px;
   }
 
-  .start-right {
-    margin-left: 0;
-    max-width: 100%;
+  #start-screen .card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 20px;
   }
 
   .start-left h1 {
-    font-size: 2.4rem;
+    font-size: 1.9rem;
+    text-align: center;
+  }
+
+  .start-left p {
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .start-right {
+    max-width: 100%;
+  }
+
+  .menu-stat {
+    text-align: center;
   }
 }
 
@@ -1015,14 +1029,35 @@ body.fullscreen {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
+
   .choices-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
   }
 
-  .choice-card img {
+  .choice-card img.entity-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .badge-wrapper {
     width: 45px;
     height: 45px;
+  }
+
+  .entity-name {
+    font-size: 0.75rem;
+  }
+
+  .entity-years {
+    font-size: 0.65rem;
+  }
+}
+@media (max-width: 768px) {
+  body.fullscreen .card {
+    height: 100vh;
+    overflow-y: auto;
   }
 }
 </style>
@@ -1167,7 +1202,7 @@ body.fullscreen {
 
 <div class="top-centre">
   <button id="swap-btn" class="top-action-btn" onclick="swapPlayers()">
-  ⇄ Swap Start and Target Players
+  ⇄ Swap
   </button>
   <div class="label" id="current-label">Current Player</div>
   <img id="current-img" class="current-headshot" loading="lazy" decoding="async">
