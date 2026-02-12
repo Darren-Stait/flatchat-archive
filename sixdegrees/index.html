@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Six Degrees of Seperation - Football</title>
-  <link rel="icon" type="image/x-icon" href="icons/flatchat-small.webp">
+<link rel="icon" type="image/x-icon" href="icons/flatchat-small.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="preload" href="../includes/header.html" as="fetch" crossorigin="anonymous">
@@ -2422,14 +2421,24 @@ function startNewGame() {
 
 function getImage(name, type = null) {
 
-  if (type === "player") return players[name]?.image;
-  if (type === "manager") return managers[name]?.image;
+  let img = null;
 
-  // fallback
-  if (players[name]) return players[name].image;
-  if (managers[name]) return managers[name].image;
+  if (type === "player") img = players[name]?.image;
+  else if (type === "manager") img = managers[name]?.image;
+  else {
+    if (players[name]) img = players[name].image;
+    if (managers[name]) img = managers[name].image;
+  }
 
-  return "";
+  if (!img) return "";
+
+  // If it already includes protocol, return as-is
+  if (img.startsWith("http://") || img.startsWith("https://")) {
+    return img;
+  }
+
+  // Otherwise force it absolute
+  return "https://www.flatchat-moments.uk/" + img.replace(/^\/+/, "");
 }
 
 function clubToBadge(club) {
