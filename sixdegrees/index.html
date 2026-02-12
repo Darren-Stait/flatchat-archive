@@ -1999,7 +1999,9 @@ const badgeWrap = document.createElement("div");
 badgeWrap.className = "badge-wrapper";
 
 const img = document.createElement("img");
-img.src = clubToBadge(club);
+resolveImage(clubToBadge(club)).then(src => {
+  img.src = src;
+});
 img.className = "club-badge";
 img.loading = "lazy";
 img.decoding = "async";
@@ -2083,6 +2085,8 @@ div.addEventListener("click", () => {
 
   requestAnimationFrame(adjustChoiceGridCompact);
 }
+
+const imageBlobCache = {};
 
 async function resolveImage(url) {
 
