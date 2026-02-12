@@ -1403,18 +1403,25 @@ body.fullscreen {
 let discordSdk = null;
 let IS_DISCORD_ACTIVITY = false;
 
-async function initDiscord() {
-  if (!window.DiscordSDK) return;
+async function detectDiscordActivity() {
+  if (!window.DiscordSDK) return false;
 
-  const CLIENT_ID = "1471596332853493873";
-  discordSdk = new window.DiscordSDK(CLIENT_ID);
+  try {
+    const CLIENT_ID = "1471596332853493873";
+    const sdk = new window.DiscordSDK(CLIENT_ID);
 
-  await discordSdk.ready();
+    await sdk.ready();
 
-  IS_DISCORD_ACTIVITY = true;
-  console.log("Running inside Discord Activity");
+    discordSdk = sdk;
+    IS_DISCORD_ACTIVITY = true;
 
-  enforceDiscordMode();
+    console.log("Discord Activity detected");
+    return true;
+
+  } catch (e) {
+    console.log("Not running inside Discord");
+    return false;
+  }
 }
 
 let startPlayer, currentEntity, currentType, targetPlayer;
@@ -2016,7 +2023,9 @@ div.appendChild(wrapper);
     } else if (mode === "entity") {
 
 const img = document.createElement("img");
-img.src = getImage(item.name);
+resolveImage(getImage(item.name, item.type)).then(src => {
+  img.src = src;
+});
 img.className = "entity-img";
 img.loading = "lazy";
 img.decoding = "async";
@@ -2073,6 +2082,28 @@ div.addEventListener("click", () => {
   });
 
   requestAnimationFrame(adjustChoiceGridCompact);
+}
+
+async function resolveImage(url) {
+
+  if (!IS_DISCORD_ACTIVITY) {
+    return url; // normal web
+  }
+
+  // Discord mode: convert to blob
+  if (imageBlobCache[url]) {
+    return imageBlobCache[url];
+  }
+
+  try {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    imageBlobCache[url] = blobUrl;
+    return blobUrl;
+  } catch {
+    return "";
+  }
 }
 
 function renderNavigation() {
@@ -2140,11 +2171,14 @@ function render() {
   currentType === "manager"
     ? "Current Manager"
     : "Current Player";
-  document.getElementById("current-img").src = getImage(currentEntity, currentType);
+  resolveImage(getImage(currentEntity, currentType))
+    .then(src => document.getElementById("current-img").src = src);
   document.getElementById("move-count").textContent = Math.max(0, path.length - 1);
 
-  document.getElementById("start-img").src = getImage(startPlayer);
-  document.getElementById("target-img").src = getImage(targetPlayer);
+  resolveImage(getImage(startPlayer))
+    .then(src => document.getElementById("start-img").src = src);
+  resolveImage(getImage(targetPlayer))
+    .then(src => document.getElementById("target-img").src = src);
 
   const swapBtn = document.getElementById("swap-btn");
 
@@ -2161,7 +2195,9 @@ path.forEach(p => {
   step.className = "step";
 
   const img = document.createElement("img");
-  img.src = getImage(p);
+  resolveImage(getImage(p)).then(src => {
+    img.src = src;
+  });
   img.loading = "lazy";
   img.decoding = "async";
 
@@ -2852,12 +2888,16 @@ window.addEventListener('resize', () => {
   adjustChoiceGridCompact();
 });
 
-window.addEventListener("DOMContentLoaded", async () => {
+window.addEventListener("load", async () => {
 
-  await initDiscord();        // Detect Discord
+  await detectDiscordActivity();
 
-  attachEventListeners();     // Wire buttons
-  initialiseGame();           // Load game data
+  initialiseGame();
+  attachEventListeners();
+
+  if (IS_DISCORD_ACTIVITY) {
+    enforceDiscordMode();
+  }
 
 });
 
