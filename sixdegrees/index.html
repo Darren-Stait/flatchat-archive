@@ -1414,7 +1414,7 @@ async function initDiscord() {
   IS_DISCORD_ACTIVITY = true;
   console.log("Running inside Discord Activity");
 
-  adaptUIForDiscord();
+  enforceDiscordMode();
 }
 
 let startPlayer, currentEntity, currentType, targetPlayer;
@@ -2841,6 +2841,8 @@ function attachEventListeners() {
 window.addEventListener('resize', () => {
   adjustChoiceGridCompact();
 });
+
+window.addEventListener("DOMContentLoaded", initDiscord);
 
 window.addEventListener("load", async () => {
 
