@@ -1152,6 +1152,40 @@ body.fullscreen {
     overflow-y: auto;
   }
 }
+
+/* =============================
+   DISCORD MODE START SCREEN
+============================= */
+
+.discord-mode #min-moves,
+.discord-mode #unlimited-mode,
+.discord-mode #unlimited-guesses,
+.discord-mode #difficulty-select,
+.discord-mode #total-players-stat,
+.discord-mode #total-pairs-stat,
+.discord-mode #randomBtn,
+.discord-mode #customBtn {
+  display: none !important;
+}
+
+/* Hide the unlimited guesses label even if wrapped */
+.discord-mode label:has(input[type="checkbox"]) {
+  display: none !important;
+}
+
+/* Center Daily button */
+.discord-mode #start-screen .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.discord-mode #dailyBtn {
+  font-size: 1.2rem;
+  padding: 16px;
+}
+
 </style>
 </head>
 
@@ -1206,11 +1240,11 @@ body.fullscreen {
 
     <div style="margin-top:15px; display:flex; align-items:center; gap:8px;">
       <input type="checkbox" id="unlimited-mode">
-      <label for="unlimited-mode" style="font-weight:600;">
+      <label for="unlimited-mode" id="unlimited-txt" style="font-weight:600;">
         Unlimited Guesses
       </label>
 
-      <div class="info-tooltip">
+      <div class="info-tooltip" id="tooltipID">
         ?
         <span class="tooltip-text">
           If disabled, you lose after 6 moves.
@@ -1222,17 +1256,17 @@ body.fullscreen {
   </div>
 
   <div style="display:flex; flex-direction:column; gap:15px;">
-    <button class="primary" onclick="beginRandomGame()">
-      Random Game
-    </button>
+<button id="randomBtn" class="primary">
+  Random Game
+</button>
 
-    <button class="primary" onclick="beginCustomGame()">
-      Custom Game
-    </button>
+<button id="customBtn" class="primary">
+  Custom Game
+</button>
 
-    <button class="primary" onclick="startDailyChallenge()">
-      Daily Challenge
-    </button>
+<button id="dailyBtn" class="primary">
+  Daily Challenge
+</button>
   </div>
 
 </div>
@@ -1244,9 +1278,9 @@ body.fullscreen {
 <div id="mode-screen" class="hidden">
   <div class="card" style="max-width:500px; margin:50px auto;">
 
-    <button class="back-btn" onclick="showScreen('start-screen')">
-      Back
-    </button>
+<button id="menuBtn" class="back-btn">
+  Back
+</button>
 
     <h2 style="text-align:center; color:var(--brand); margin-top:20px;">
       Custom Game
@@ -1261,9 +1295,9 @@ body.fullscreen {
     </div>
 
     <div style="text-align:center; margin-top:30px;">
-      <button class="primary" onclick="startCustomMode()">
-        Start Custom Game
-      </button>
+<button id="startCustomBtn" class="primary">
+  Start Custom Game
+</button>
     </div>
 
   </div>
@@ -1273,13 +1307,13 @@ body.fullscreen {
 <div class="card">
 
 <div class="top-bar">
-<button class="top-action-btn" onclick="showScreen('start-screen')">
+<button id="menuTopBtn" class="top-action-btn">
   Back to Menu
 </button>
-<button class="top-action-btn" onclick="openHowToPlay()">
+<button id="howToBtn" class="top-action-btn">
   How To Play
 </button>
-<button id="fullscreenBtn" class="top-action-btn" onclick="toggleFullscreen()">
+<button id="fullscreenBtn" class="top-action-btn">
   Fullscreen ⛶
 </button>
 </div>
@@ -1292,7 +1326,7 @@ body.fullscreen {
     </div>
 
 <div class="top-centre">
-  <button id="swap-btn" class="top-action-btn" onclick="swapPlayers()">
+  <button id="swap-btn" class="top-action-btn">
   ⇄ Swap
   </button>
   <div class="label" id="current-label">Current Player</div>
@@ -1313,7 +1347,7 @@ body.fullscreen {
   <div id="path" class="path"></div>
 
   <div style="text-align:center;margin-top:20px;">
-    <button class="primary" onclick="startNewGame()">New Puzzle</button>
+    <button id="newPuzzleBtn" class="primary">New Puzzle</button>
   </div>
 
 </div>
@@ -1322,17 +1356,17 @@ body.fullscreen {
 <div id="win-modal" class="modal hidden">
   <div class="modal-content">
     <p id="win-text"></p>
-    <button class="primary" onclick="startNewGame(); closeModal();">
-      Play Again
-    </button>
+<button id="winModalBtn" class="primary">
+  Play Again
+</button>
   </div>
 </div>
 <div id="daily-modal" class="modal hidden">
   <div class="modal-content">
     <p id="daily-modal-text"></p>
-    <button class="primary" onclick="closeDailyModal()">
-      Back to Menu
-    </button>
+<button id="dailyBackBtn" class="primary">
+  Back to Menu
+</button>
   </div>
 </div>
 <div id="howto-modal" class="modal hidden">
@@ -1340,7 +1374,7 @@ body.fullscreen {
 
     <div class="modal-header">
       <h2>How To Play</h2>
-      <button class="modal-close" onclick="closeHowToPlay()">×</button>
+      <button id="howToCloseBtn" class="modal-close">×</button>
     </div>
 
     <p>
@@ -1383,8 +1417,6 @@ async function initDiscord() {
   adaptUIForDiscord();
 }
 
-initDiscord();
-
 let startPlayer, currentEntity, currentType, targetPlayer;
 let path = [];
 let selectionMode = "club";
@@ -1421,7 +1453,7 @@ function closeHowToPlay() {
 
 function adaptUIForDiscord() {
   // Hide fullscreen button
-  const fullscreenBtn = document.querySelector('[onclick="toggleFullscreen()"]');
+  const fullscreenBtn = document.getElementById("fullscreenBtn");
   if (fullscreenBtn) fullscreenBtn.style.display = "none";
 
   // Optional: auto-launch daily
@@ -1429,6 +1461,9 @@ function adaptUIForDiscord() {
 }
 
 function beginRandomGame() {
+
+  CUSTOM_MODE = false;
+  DAILY_MODE = false;
 
   MIN_MOVES = parseInt(document.getElementById("min-moves").value, 10);
   UNLIMITED_MODE = document.getElementById("unlimited-mode").checked;
@@ -1478,7 +1513,8 @@ function startDailyChallenge() {
   const playedKey = "daily-played-" + today;
 
   if (localStorage.getItem(playedKey)) {
-    openDailyModal("✅ You’ve already completed today’s challenge.<br><br>Come back tomorrow for a new one!");
+    openDailyModal(`✅ You’ve already completed today’s challenge.
+    Come back tomorrow for a new one!`);
     return;
   }
 
@@ -1601,10 +1637,7 @@ function getReachablePlayers(start) {
 
 function updateStartStats() {
 
-  const minMoves = parseInt(
-    document.getElementById("min-moves").value,
-    10
-  );
+  const playersList = Object.keys(players);
 
   if (!Object.keys(distanceCache).length) {
     document.getElementById("total-players-stat").textContent =
@@ -1614,42 +1647,14 @@ function updateStartStats() {
     return;
   }
 
-  const playersList = Object.keys(players);
+  const totalPairs = Object.values(distanceCache)
+    .reduce((sum, obj) => sum + Object.keys(obj).length, 0);
 
-  // 1️⃣ Build all valid pairs
-  const validPairs = [];
+  document.getElementById("total-players-stat").textContent =
+    `${playersList.length} players`;
 
-  for (let i = 0; i < playersList.length; i++) {
-    for (let j = i + 1; j < playersList.length; j++) {
-
-      const a = playersList[i];
-      const b = playersList[j];
-
-      const dist = distanceCache[a]?.[b];
-
-      if (typeof dist === "number" && dist === minMoves) {
-        validPairs.push([a, b]);
-      }
-    }
-  }
-
-  // 2️⃣ Greedy matching to count unique playable puzzles
-  const used = new Set();
-  let playableCount = 0;
-
-  for (const [a, b] of validPairs) {
-    if (!used.has(a) && !used.has(b)) {
-      used.add(a);
-      used.add(b);
-      playableCount++;
-    }
-  }
-
-//  document.getElementById("total-players-stat").textContent =
-//    `${playersList.length} players loaded`;
-
-//  document.getElementById("total-pairs-stat").textContent =
-//    `${playableCount.toLocaleString()} unique playable ${minMoves}-move puzzles`;
+  document.getElementById("total-pairs-stat").textContent =
+    `${totalPairs} valid pairs`;
 }
 
 function showScreen(screenId) {
@@ -1825,17 +1830,20 @@ function activateCustomMode() {
 }
 
 function updateDailyButton() {
+
   const today = getTodayKey();
   const playedKey = "daily-played-" + today;
 
-  const btn = document.querySelector('[onclick="startDailyChallenge()"]');
+  const btn = document.getElementById("dailyBtn");
 
-if (localStorage.getItem(playedKey)) {
-  btn.disabled = true;
-  btn.textContent = "Daily Challenge ✓";
-  btn.style.opacity = "0.6";
-  btn.style.cursor = "not-allowed";
-}
+  if (!btn) return; // 🔥 Prevent crash
+
+  if (localStorage.getItem(playedKey)) {
+    btn.disabled = true;
+    btn.textContent = "Daily Challenge ✓";
+    btn.style.opacity = "0.6";
+    btn.style.cursor = "not-allowed";
+  }
 }
 
 function updateTargetOptions() {
@@ -1999,11 +2007,11 @@ wrapper.appendChild(badgeWrap);
 wrapper.appendChild(years);
 div.appendChild(wrapper);
 
-      div.onclick = () => {
+      div.addEventListener("click", () => {
         selectedContext = club;
         selectionMode = "entity";
         render();
-      };
+      });
 
     } else if (mode === "entity") {
 
@@ -2033,7 +2041,7 @@ div.appendChild(img);
 div.appendChild(textWrap);
 
 
-div.onclick = () => {
+div.addEventListener("click", () => {
 
   currentEntity = item.name;
   currentType = item.type;
@@ -2055,7 +2063,7 @@ div.onclick = () => {
     showLoseModal();
     return;
   }
-};
+});
 
 
     }
@@ -2550,73 +2558,76 @@ function findShortestPath(startName, targetName) {
   return null;
 }
 
-function checkWin() {
+async function checkWin() {
 
-  const currentName =
-    typeof currentEntity === "string"
-      ? currentEntity
-      : currentEntity?.name;
-
-  if (!currentName) return;
-  if (currentName !== targetPlayer) return;
-
-  if (DAILY_MODE) {
-
-  const today = getTodayKey();
-  localStorage.setItem("daily-played-" + today, "true");
-
-  openDailyModal(`
-    🎉 Daily Challenge Complete!
-    You solved it in ${path.length - 1} moves.
-    Share your score with other members in the discord.
-  `);
-
-  DAILY_MODE = false;
-
-  updateDailyButton();
-
-  showScreen("start-screen");
-  return;
-  }
+  if (currentEntity !== targetPlayer) return;
 
   const moves = path.length - 1;
 
-  const shortest = findShortestPath(startPlayer, targetPlayer);
+  // DAILY MODE
+  if (DAILY_MODE) {
 
-  let optimalText = "";
+    const today = getTodayKey();
+    localStorage.setItem("daily-played-" + today, "true");
 
-  if (shortest) {
-    optimalText = shortest.map(n => n.name).join(" → ");
+const moves = path.length - 1;
+
+await postDailyResultToDiscord(moves);
+
+openDailyModal(`
+Daily Challenge Complete!
+Solved in ${moves} moves.
+`);
+
+    DAILY_MODE = false;
+    updateDailyButton();
+    showScreen("start-screen");
+    return;
   }
 
-const winText = document.getElementById("win-text");
-winText.textContent = "";
+  // CUSTOM MODE (no shortest path)
+  if (CUSTOM_MODE) {
 
-const strong = document.createElement("strong");
-strong.textContent = "Connection Complete!";
+    const winText = document.getElementById("win-text");
+    winText.textContent = `🎉 You connected them in ${moves} moves.`;
 
-winText.appendChild(strong);
-winText.appendChild(document.createElement("br"));
-winText.appendChild(document.createElement("br"));
+    document.getElementById("win-modal")
+      .classList.remove("hidden");
 
-const msg = document.createTextNode(
-  `You connected them in ${moves} moves.`
-);
+    return;
+  }
 
-winText.appendChild(msg);
+  // RANDOM MODE (show shortest path)
+  const shortest = findShortestPath(startPlayer, targetPlayer);
+  const optimalText = shortest
+  .map(step => typeof step === "string" ? step : step.name)
+  .join(" → ");
 
-  const modal = document.getElementById("win-modal");
+  const winText = document.getElementById("win-text");
+  winText.textContent = "";
 
-  const button = modal.querySelector("button");
-  button.textContent = "Play Again";
-  button.onclick = () => {
-    closeModal();
-    startNewGame();
-  };
+  winText.appendChild(
+    document.createTextNode(
+      `🎉 You connected them in ${moves} moves.`
+    )
+  );
 
-  modal.classList.remove("hidden");
+  winText.appendChild(document.createElement("br"));
+  winText.appendChild(document.createElement("br"));
+
+  const strong = document.createElement("strong");
+  strong.textContent = "Shortest possible path:";
+  winText.appendChild(strong);
+
+  winText.appendChild(document.createElement("br"));
+
+  winText.appendChild(
+    document.createTextNode(optimalText)
+  );
+
+  document.getElementById("win-modal")
+    .classList.remove("hidden");
 }
-
 
 function showLoseModal() {
 
@@ -2650,12 +2661,8 @@ winText.appendChild(
 
   const modal = document.getElementById("win-modal");
 
-  const button = modal.querySelector("button");
+  const button = document.getElementById("winModalBtn");
   button.textContent = "Try Again";
-  button.onclick = () => {
-    closeModal();
-    startNewGame();
-  };
 
   modal.classList.remove("hidden");
 }
@@ -2731,12 +2738,128 @@ function adjustChoiceGridCompact() {
   });
 }
 
+function enforceDiscordMode() {
+
+  if (!IS_DISCORD_ACTIVITY) return;
+
+  // Add body flag (optional but clean)
+  document.body.classList.add("discord-mode");
+
+  // Hide everything except Daily + How To Play
+  const elementsToHide = [
+    "randomBtn",
+    "customBtn",
+    "fullscreenBtn",
+    "menuBtn",
+    "menuTopBtn",
+    "swap-btn",
+    "startCustomBtn",
+    "newPuzzleBtn",
+    "tooltipID",
+    "unlimited-txt"
+  ];
+
+  elementsToHide.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = "none";
+  });
+
+  // Hide custom screen entirely
+  const customScreen = document.getElementById("custom-screen");
+  if (customScreen) customScreen.remove();
+
+  // Auto-start daily challenge
+  startDailyChallenge();
+}
+
+async function postDailyResultToDiscord(moves) {
+
+  if (!IS_DISCORD_ACTIVITY || !discordSdk) return;
+
+  try {
+
+    const date = getTodayKey();
+
+    const message = `🎯 **Six Degrees Daily – ${date}**
+Solved in **${moves} moves**!
+
+${startPlayer} → ${targetPlayer}`;
+
+    await discordSdk.commands.sendChannelMessage({
+      content: message
+    });
+
+  } catch (err) {
+    console.warn("Failed to post to Discord:", err);
+  }
+}
+
+function attachEventListeners() {
+
+  document.getElementById("randomBtn")
+    ?.addEventListener("click", beginRandomGame);
+
+  document.getElementById("customBtn")
+    ?.addEventListener("click", beginCustomGame);
+
+  document.getElementById("dailyBtn")
+    ?.addEventListener("click", startDailyChallenge);
+
+  document.getElementById("menuBtn")
+    ?.addEventListener("click", () => showScreen("start-screen"));
+
+  document.getElementById("menuTopBtn")
+    ?.addEventListener("click", () => showScreen("start-screen"));
+
+  document.getElementById("howToBtn")
+    ?.addEventListener("click", openHowToPlay);
+
+  document.getElementById("howToCloseBtn")
+    ?.addEventListener("click", closeHowToPlay);
+
+  document.getElementById("fullscreenBtn")
+    ?.addEventListener("click", toggleFullscreen);
+
+  document.getElementById("swap-btn")
+    ?.addEventListener("click", swapPlayers);
+
+  document.getElementById("startCustomBtn")
+    ?.addEventListener("click", startCustomMode);
+
+  document.getElementById("newPuzzleBtn")
+    ?.addEventListener("click", startNewGame);
+
+  document.getElementById("dailyBackBtn")
+    ?.addEventListener("click", closeDailyModal);
+  document.getElementById("winModalBtn")
+  ?.addEventListener("click", () => {
+    closeModal();
+    startNewGame();
+  });
+}
+
 window.addEventListener('resize', () => {
   adjustChoiceGridCompact();
 });
 
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+
+  if (window.DiscordSDK) {
+    try {
+      await initDiscord();
+    } catch (e) {
+      console.warn(e);
+    }
+  }
+
+  if (typeof players === "undefined") {
+    console.error("Players not loaded.");
+    return;
+  }
+
   initialiseGame();
+  attachEventListeners();
+  enforceDiscordMode();
 });
 
 </script>
