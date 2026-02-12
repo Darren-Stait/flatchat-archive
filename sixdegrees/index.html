@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -2432,7 +2433,7 @@ function getImage(name, type = null) {
 }
 
 function clubToBadge(club) {
-  return `../../games/badges/${club.toLowerCase().replace(/\s+/g,'')}.png`;
+  return `https://www.flatchat-moments.uk/games/badges/${club.toLowerCase().replace(/\s+/g,'')}.png`;
 }
 
 function getNeighbors(entity) {
@@ -2842,18 +2843,13 @@ window.addEventListener('resize', () => {
   adjustChoiceGridCompact();
 });
 
-window.addEventListener("DOMContentLoaded", initDiscord);
+window.addEventListener("DOMContentLoaded", async () => {
 
-window.addEventListener("load", async () => {
+  await initDiscord();        // Detect Discord
 
-  attachEventListeners();
-  initialiseGame();
+  attachEventListeners();     // Wire buttons
+  initialiseGame();           // Load game data
 
-  // Wait for Discord
-  await initDiscord();
-
-  // NOW enforce mode
-  enforceDiscordMode();
 });
 
 </script>
