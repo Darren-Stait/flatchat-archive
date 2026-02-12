@@ -1366,13 +1366,6 @@ body.fullscreen {
 <script src="./data.js" defer></script>
 
 <script defer>
-
-if (window.trustedTypes && window.trustedTypes.createPolicy) {
-  window.trustedTypes.createPolicy('default', {
-    createHTML: (input) => input,
-  });
-}
-
 let discordSdk = null;
 let IS_DISCORD_ACTIVITY = false;
 
@@ -1455,7 +1448,9 @@ function beginCustomGame() {
 }
 
 function openDailyModal(message) {
-  document.getElementById("daily-modal-text").innerHTML = message;
+  const el = document.getElementById("daily-modal-text");
+  el.textContent = "";
+  el.appendChild(document.createTextNode(message));
   document.getElementById("daily-modal").classList.remove("hidden");
 }
 
@@ -1532,8 +1527,8 @@ function populateCustomDropdowns() {
   const startSelect = document.getElementById("custom-start");
   const targetSelect = document.getElementById("custom-target");
 
-  startSelect.innerHTML = "";
-  targetSelect.innerHTML = "";
+  startSelect.textContent = "";
+  targetSelect.textContent = "";
 
   const allPlayers = Object.keys(players);
 
@@ -1545,7 +1540,7 @@ function populateCustomDropdowns() {
   startSelect.onchange = function () {
 
     const selectedStart = this.value;
-    targetSelect.innerHTML = "";
+    targetSelect.textContent = "";
 
 // Single BFS to find all reachable players
 const reachable = getReachablePlayers(selectedStart);
@@ -1814,7 +1809,7 @@ function activateCustomMode() {
   const names = Object.keys(players);
 
   // Fill start dropdown
-  startSelect.innerHTML = "";
+  startSelect.textContent = "";
   names.forEach(name => {
     const option = document.createElement("option");
     option.value = name;
@@ -1848,7 +1843,7 @@ function updateTargetOptions() {
   const start = document.getElementById("custom-start").value;
   const targetSelect = document.getElementById("custom-target");
 
-  targetSelect.innerHTML = "";
+  targetSelect.textContent = "";
 
   const names = Object.keys(players);
 
@@ -1955,7 +1950,7 @@ function renderChoices(items, mode, append = false) {
   const container = document.getElementById("choices");
 
   if (!append && mode === "club") {
-    container.innerHTML = "";
+    container.textContent = "";
   }
 
   items.forEach(item => {
@@ -1982,15 +1977,27 @@ const rangesText = spells
   })
   .join(", ");
 
-div.innerHTML = `
-  <div class="club-item">
-    <div class="badge-wrapper">
-      <img src="${clubToBadge(club)}" class="club-badge" loading="lazy" decoding="async">
-    </div>
-    <div class="club-years">${rangesText}</div>
-  </div>
-`;
+const wrapper = document.createElement("div");
+wrapper.className = "club-item";
 
+const badgeWrap = document.createElement("div");
+badgeWrap.className = "badge-wrapper";
+
+const img = document.createElement("img");
+img.src = clubToBadge(club);
+img.className = "club-badge";
+img.loading = "lazy";
+img.decoding = "async";
+
+badgeWrap.appendChild(img);
+
+const years = document.createElement("div");
+years.className = "club-years";
+years.textContent = rangesText;
+
+wrapper.appendChild(badgeWrap);
+wrapper.appendChild(years);
+div.appendChild(wrapper);
 
       div.onclick = () => {
         selectedContext = club;
@@ -2000,26 +2007,31 @@ div.innerHTML = `
 
     } else if (mode === "entity") {
 
-      if (item.type === "manager") {
-div.innerHTML = `
-  <img src="${getImage(item.name)}" class="entity-img" loading="lazy" decoding="async">
-  <div class="entity-text">
-    <div class="entity-name">${item.name}</div>
-    ${item.overlap ? `<div class="entity-years">(${item.overlap})</div>` : ""}
-  </div>
-`;
+const img = document.createElement("img");
+img.src = getImage(item.name);
+img.className = "entity-img";
+img.loading = "lazy";
+img.decoding = "async";
 
-      } else {
-div.innerHTML = `
-  <img src="${getImage(item.name)}" class="entity-img" loading="lazy" decoding="async">
-  <div class="entity-text">
-    <div class="entity-name">${item.name}</div>
-    ${item.overlap ? `<div class="entity-years">(${item.overlap})</div>` : ""}
-  </div>
-`;
+const textWrap = document.createElement("div");
+textWrap.className = "entity-text";
 
+const nameDiv = document.createElement("div");
+nameDiv.className = "entity-name";
+nameDiv.textContent = item.name;
 
-      }
+textWrap.appendChild(nameDiv);
+
+if (item.overlap) {
+  const overlapDiv = document.createElement("div");
+  overlapDiv.className = "entity-years";
+  overlapDiv.textContent = `(${item.overlap})`;
+  textWrap.appendChild(overlapDiv);
+}
+
+div.appendChild(img);
+div.appendChild(textWrap);
+
 
 div.onclick = () => {
 
@@ -2057,7 +2069,7 @@ div.onclick = () => {
 
 function renderNavigation() {
   const nav = document.getElementById("navigation-bar");
-  nav.innerHTML = "";
+  nav.textContent = "";
 
   if (selectionMode === "entity") {
     const btn = document.createElement("button");
@@ -2132,13 +2144,27 @@ function render() {
     swapBtn.style.display = path.length > 1 ? "none" : "inline-block";
   }
 
-  document.getElementById("path").innerHTML =
-    path.map(p => `
-      <div class="step">
-        <img src="${isManager(p)?getImage(p):getImage(p)}" loading="lazy" decoding="async">
-        <span>${p}</span>
-      </div>
-    `).join("");
+const pathContainer = document.getElementById("path");
+pathContainer.textContent = "";
+
+path.forEach(p => {
+
+  const step = document.createElement("div");
+  step.className = "step";
+
+  const img = document.createElement("img");
+  img.src = getImage(p);
+  img.loading = "lazy";
+  img.decoding = "async";
+
+  const span = document.createElement("span");
+  span.textContent = p;
+
+  step.appendChild(img);
+  step.appendChild(span);
+
+  pathContainer.appendChild(step);
+});
 
   if (selectionMode === "club") {
     renderChoices(getClubContexts(currentEntity), "club");
@@ -2148,7 +2174,7 @@ else if (selectionMode === "entity") {
 
   const club = selectedContext;
   const container = document.getElementById("choices");
-  container.innerHTML = "";
+  container.textContent = "";
 
   let playersList = [];
   let managersList = [];
@@ -2293,10 +2319,19 @@ function removeDuplicateEntities(list) {
 
 function showRefreshPoolModal() {
 
-  document.getElementById("win-text").innerHTML = `
-    All available player combinations have been used.<br><br>
-    Would you like to refresh the player pool?
-  `;
+const winText = document.getElementById("win-text");
+winText.textContent = "";
+
+winText.appendChild(
+  document.createTextNode("All available player combinations have been used.")
+);
+
+winText.appendChild(document.createElement("br"));
+winText.appendChild(document.createElement("br"));
+
+winText.appendChild(
+  document.createTextNode("Would you like to refresh the player pool?")
+);
 
   const modal = document.getElementById("win-modal");
 
@@ -2531,8 +2566,8 @@ function checkWin() {
   localStorage.setItem("daily-played-" + today, "true");
 
   openDailyModal(`
-    🎉 <strong>Daily Challenge Complete!</strong><br><br>
-    You solved it in <strong>${path.length - 1}</strong> moves.
+    🎉 Daily Challenge Complete!
+    You solved it in ${path.length - 1} moves.
     Share your score with other members in the discord.
   `);
 
@@ -2554,12 +2589,21 @@ function checkWin() {
     optimalText = shortest.map(n => n.name).join(" → ");
   }
 
-  document.getElementById("win-text").innerHTML = `
-    🎉 <strong>Connection Complete!</strong><br><br>
-    You connected them in <strong>${moves}</strong> moves.<br><br>
-    <strong>Shortest possible path:</strong><br>
-    ${optimalText}
-  `;
+const winText = document.getElementById("win-text");
+winText.textContent = "";
+
+const strong = document.createElement("strong");
+strong.textContent = "Connection Complete!";
+
+winText.appendChild(strong);
+winText.appendChild(document.createElement("br"));
+winText.appendChild(document.createElement("br"));
+
+const msg = document.createTextNode(
+  `You connected them in ${moves} moves.`
+);
+
+winText.appendChild(msg);
 
   const modal = document.getElementById("win-modal");
 
@@ -2584,11 +2628,25 @@ function showLoseModal() {
     optimalText = shortest.map(n => n.name).join(" → ");
   }
 
-  document.getElementById("win-text").innerHTML = `
-    ❌ You ran out of moves.<br><br>
-    <strong>Shortest possible path:</strong><br>
-    ${optimalText}
-  `;
+const winText = document.getElementById("win-text");
+winText.textContent = "";
+
+winText.appendChild(
+  document.createTextNode("❌ You ran out of moves.")
+);
+
+winText.appendChild(document.createElement("br"));
+winText.appendChild(document.createElement("br"));
+
+const strong = document.createElement("strong");
+strong.textContent = "Shortest possible path:";
+winText.appendChild(strong);
+
+winText.appendChild(document.createElement("br"));
+
+winText.appendChild(
+  document.createTextNode(optimalText)
+);
 
   const modal = document.getElementById("win-modal");
 
