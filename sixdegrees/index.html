@@ -2842,23 +2842,15 @@ window.addEventListener('resize', () => {
   adjustChoiceGridCompact();
 });
 
-document.addEventListener("DOMContentLoaded", async () => {
+window.addEventListener("load", async () => {
 
-  if (window.DiscordSDK) {
-    try {
-      await initDiscord();
-    } catch (e) {
-      console.warn(e);
-    }
-  }
-
-  if (typeof players === "undefined") {
-    console.error("Players not loaded.");
-    return;
-  }
-
-  initialiseGame();
   attachEventListeners();
+  initialiseGame();
+
+  // Wait for Discord
+  await initDiscord();
+
+  // NOW enforce mode
   enforceDiscordMode();
 });
 
