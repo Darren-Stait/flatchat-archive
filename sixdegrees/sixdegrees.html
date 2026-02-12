@@ -465,9 +465,35 @@ body.fullscreen {
 }
 
 .card {
-  background: #fbffff;
+  position: relative;
+  border: 2px solid rgba(23,154,163,0.25);
+  background: linear-gradient(180deg,#ffffff 0%,#f7fdfe 100%);
 }
 
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--brand),
+    #25b6c4
+  );
+  border-radius: 14px 14px 0 0;
+}
+
+.goal-row {
+  background: linear-gradient(
+    180deg,
+    rgba(23,154,163,0.08),
+    rgba(23,154,163,0.03)
+  );
+  border: 1px solid rgba(23,154,163,0.18);
+  box-shadow: inset 0 0 30px rgba(23,154,163,0.03);
+}
 
 @media (max-width: 480px) {
   .club-badge {
@@ -560,11 +586,25 @@ body.fullscreen {
 }
 
 .top-bar {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
+
+.top-bar button:nth-child(1) {
+  justify-self: start;
+}
+
+.top-bar button:nth-child(2) {
+  justify-self: center;
+  font-weight: 700;
+}
+
+.top-bar button:nth-child(3) {
+  justify-self: end;
+}
+
 
 .top-action-btn {
   background: white;
@@ -580,6 +620,30 @@ body.fullscreen {
 .top-action-btn:hover {
   background: var(--brand);
   color: white;
+}
+
+.howto-content {
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--brand);
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.modal-close:hover {
+  background: rgba(23,154,163,0.12);
 }
 
 .info-tooltip {
@@ -759,16 +823,37 @@ body.fullscreen {
   left: 0;
 }
 
+.path {
+  padding: 12px;
+  background: rgba(23,154,163,0.06);
+  border: 1px solid rgba(23,154,163,0.18);
+  border-radius: 14px;
+}
+
 #choices {
   flex: 1;
-  align-content: start;
-  /* allow the choices region to scroll when content grows */
   overflow: auto;
-  min-height: 0; /* necessary for flex children to shrink properly */
-  padding-right: 8px; /* room for scrollbar */
-  background: rgba(23,154,163,0.03);
-  padding: 12px;
-  border-radius: 12px;
+  min-height: 0;
+  padding: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(23,154,163,0.06),
+    rgba(23,154,163,0.02)
+  );
+  border: 1px solid rgba(23,154,163,0.15);
+  border-radius: 14px;
+  box-shadow: inset 0 0 40px rgba(23,154,163,0.04);
+}
+
+.choice-card {
+  background: white;
+  border: 1px solid rgba(23,154,163,0.25);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.choice-card:hover {
+  background: rgba(23,154,163,0.12);
+  border-color: var(--brand);
 }
 
 .game-title {
@@ -857,7 +942,13 @@ body.fullscreen {
   color: white;
 }
 .menu-card {
-  background: #f3f7f8;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #eef9fb 100%
+  );
+  border: 2px solid rgba(23,154,163,0.25);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
   border-radius: 12px;
   padding: 36px 40px;
   text-align: center;
@@ -1106,11 +1197,10 @@ body.fullscreen {
               border:2px solid var(--brand);
               font-size:1rem;
             ">
-      <option value="2" selected>Easy (Minimum 2 Moves)</option>
+      <option value="2">Easy (Minimum 2 Moves)</option>
       <option value="3">Normal (Minimum 3 Moves)</option>
       <option value="4">Hard (Minimum 4 Moves)</option>
       <option value="5">Extreme (Minimum 5 Moves)</option>
-      <option value="6">Insane (Minimum 6 Moves)</option>
     </select>
 
     <div style="margin-top:15px; display:flex; align-items:center; gap:8px;">
@@ -1135,8 +1225,12 @@ body.fullscreen {
       Random Game
     </button>
 
-    <button class="back-btn" onclick="beginCustomGame()">
+    <button class="primary" onclick="beginCustomGame()">
       Custom Game
+    </button>
+
+    <button class="primary" onclick="startDailyChallenge()">
+      Daily Challenge
     </button>
   </div>
 
@@ -1178,20 +1272,16 @@ body.fullscreen {
 <div class="card">
 
 <div class="top-bar">
-  <button class="top-action-btn" onclick="showScreen('start-screen')">
-    Back to Menu
-  </button>
-
+<button class="top-action-btn" onclick="showScreen('start-screen')">
+  Back to Menu
+</button>
+<button class="top-action-btn" onclick="openHowToPlay()">
+  How To Play
+</button>
 <button id="fullscreenBtn" class="top-action-btn" onclick="toggleFullscreen()">
   Fullscreen ⛶
 </button>
 </div>
-
-  <div id="how-to-play">
-    <button id="howto-toggle-btn" onclick="toggleHowToPlay()" class="howto-toggle">−</button>
-    <h3 style="margin-top:0;color:var(--brand);">How to Play</h3>
-    <p style="margin:8px 0;font-size:0.95rem;">Connect the <strong>Start</strong> player to the <strong>Target</strong> player by finding teammates or managers who they once shared a club with. Select a club from the start player's career, then pick a teammate or manager they worked with/under. Keep moving through teammates/managers until you reach the target player!</p>
-  </div>
 
   <div class="goal-row">
     <div class="player-card">
@@ -1236,6 +1326,37 @@ body.fullscreen {
     </button>
   </div>
 </div>
+<div id="daily-modal" class="modal hidden">
+  <div class="modal-content">
+    <p id="daily-modal-text"></p>
+    <button class="primary" onclick="closeDailyModal()">
+      Back to Menu
+    </button>
+  </div>
+</div>
+<div id="howto-modal" class="modal hidden">
+  <div class="modal-content howto-content">
+
+    <div class="modal-header">
+      <h2>How To Play</h2>
+      <button class="modal-close" onclick="closeHowToPlay()">×</button>
+    </div>
+
+    <p>
+      Your goal is to connect the <strong>start player</strong> to the 
+      <strong>target player</strong> through teammates or managers.
+      (Tip: you can swap the start and target players if you want to reverse the challenge!)
+    </p>
+
+    <h3>Making Moves</h3>
+    <ul>
+      <li>Select a club. Look through the players and managers they shared time with at that club.</li>
+      <li>Then select a player to move onto that player. Your job is to reach the target player.</li>
+      <li>Repeat until you reach the target.</li>
+    </ul>
+    <h3>Note: not every player is in the game, teammates and managers are ovelapped by years at the club so if a player left in the middle of the year and a new manager came in after in the same year they would match at the same club.</h3>
+  </div>
+</div>
 </div>
 
 <div data-include="../includes/footer.html"></div>
@@ -1255,6 +1376,9 @@ let graphCacheBuilt = false;
 let MIN_MOVES = 4;
 let UNLIMITED_MODE = true;
 const MAX_MOVES = 6;
+let CUSTOM_MODE = false;
+const reachableCache = {};
+let DAILY_MODE = false;
 
 /* =============================
    UTIL
@@ -1265,6 +1389,14 @@ function overlaps(a, b) {
 
 function isManager(name) {
   return !!managers[name];
+}
+
+function openHowToPlay() {
+  document.getElementById("howto-modal").classList.remove("hidden");
+}
+
+function closeHowToPlay() {
+  document.getElementById("howto-modal").classList.add("hidden");
 }
 
 function beginRandomGame() {
@@ -1284,6 +1416,59 @@ function beginCustomGame() {
 
   populateCustomDropdowns();
   showScreen("mode-screen");
+}
+
+function openDailyModal(message) {
+  document.getElementById("daily-modal-text").innerHTML = message;
+  document.getElementById("daily-modal").classList.remove("hidden");
+}
+
+function closeDailyModal() {
+  document.getElementById("daily-modal").classList.add("hidden");
+}
+
+function getTodayKey() {
+  const now = new Date();
+  return now.getFullYear() + "-" +
+         (now.getMonth()+1) + "-" +
+         now.getDate();
+}
+
+function generateDailyPair() {
+  return {
+    start: "Marek Hamsik",
+    target: "Eric Cantona"
+  };
+}
+
+function startDailyChallenge() {
+
+  const today = getTodayKey();
+  const playedKey = "daily-played-" + today;
+
+  if (localStorage.getItem(playedKey)) {
+    openDailyModal("✅ You’ve already completed today’s challenge.<br><br>Come back tomorrow for a new one!");
+    return;
+  }
+
+  DAILY_MODE = true;
+  CUSTOM_MODE = false;
+
+  const pair = generateDailyPair();
+
+  startPlayer = pair.start;
+  targetPlayer = pair.target;
+
+  currentEntity = startPlayer;
+  currentType = "player";
+  path = [startPlayer];
+  selectionMode = "club";
+  selectedContext = null;
+
+  UNLIMITED_MODE = true;
+
+  showScreen("game-container");   // ✅ correct way
+  render();
 }
 
 function swapPlayers() {
@@ -1314,40 +1499,73 @@ function populateCustomDropdowns() {
   startSelect.innerHTML = "";
   targetSelect.innerHTML = "";
 
-  const validStarts = Object.keys(players).filter(s => {
+  const allPlayers = Object.keys(players);
 
-    const distances = distanceCache[s];
-    if (!distances) return false;
-
-return Object.values(distances).some(d =>
-  typeof d === "number" && d === MIN_MOVES
-);
-  });
-
-  validStarts.forEach(name => {
-    const option = new Option(name, name);
-    startSelect.add(option);
+  // In custom mode: allow ANY player as start
+  allPlayers.forEach(name => {
+    startSelect.add(new Option(name, name));
   });
 
   startSelect.onchange = function () {
 
     const selectedStart = this.value;
-    const distances = distanceCache[selectedStart];
-
     targetSelect.innerHTML = "";
 
-    Object.entries(distances).forEach(([name, dist]) => {
-      if (dist === MIN_MOVES) {
-        targetSelect.add(new Option(name, name));
-      }
-    });
+// Single BFS to find all reachable players
+const reachable = getReachablePlayers(selectedStart);
+
+reachable.forEach(name => {
+  if (name !== selectedStart) {
+    targetSelect.add(new Option(name, name));
+  }
+});
+
   };
 
-  // Trigger initial target load
-  if (validStarts.length > 0) {
-    startSelect.value = validStarts[0];
+  // Trigger initial target list
+  if (allPlayers.length > 0) {
+    startSelect.value = allPlayers[0];
     startSelect.onchange();
   }
+}
+
+function getReachablePlayers(start) {
+
+  if (reachableCache[start]) {
+    return reachableCache[start];
+  }
+
+  const visited = new Set([start + "_player"]);
+  const queue = [{ name: start, type: "player" }];
+
+  while (queue.length) {
+
+    const current = queue.shift();
+    const neighbors = getNeighbors(current);
+
+    for (const n of neighbors) {
+
+      const key = n.name + "_" + n.type;
+
+      if (!visited.has(key)) {
+        visited.add(key);
+        queue.push(n);
+      }
+    }
+  }
+
+  // Only return players (not managers) for dropdown
+  const reachablePlayers = [];
+
+  visited.forEach(key => {
+    const [name, type] = key.split("_");
+    if (type === "player" && name !== start) {
+      reachablePlayers.push(name);
+    }
+  });
+
+  reachableCache[start] = reachablePlayers;
+  return reachablePlayers;
 }
 
 function updateStartStats() {
@@ -1357,8 +1575,6 @@ function updateStartStats() {
     10
   );
 
-  const playersList = Object.keys(players);
-
   if (!Object.keys(distanceCache).length) {
     document.getElementById("total-players-stat").textContent =
       `${playersList.length} players loaded`;
@@ -1366,6 +1582,8 @@ function updateStartStats() {
       `Calculating...`;
     return;
   }
+
+  const playersList = Object.keys(players);
 
   // 1️⃣ Build all valid pairs
   const validPairs = [];
@@ -1396,11 +1614,11 @@ function updateStartStats() {
     }
   }
 
-  document.getElementById("total-players-stat").textContent =
-    `${playersList.length} players loaded`;
+//  document.getElementById("total-players-stat").textContent =
+//    `${playersList.length} players loaded`;
 
-  document.getElementById("total-pairs-stat").textContent =
-    `${playableCount.toLocaleString()} unique playable ${minMoves}-move puzzles`;
+//  document.getElementById("total-pairs-stat").textContent =
+//    `${playableCount.toLocaleString()} unique playable ${minMoves}-move puzzles`;
 }
 
 function showScreen(screenId) {
@@ -1575,6 +1793,20 @@ function activateCustomMode() {
   startSelect.addEventListener("change", updateTargetOptions);
 }
 
+function updateDailyButton() {
+  const today = getTodayKey();
+  const playedKey = "daily-played-" + today;
+
+  const btn = document.querySelector('[onclick="startDailyChallenge()"]');
+
+if (localStorage.getItem(playedKey)) {
+  btn.disabled = true;
+  btn.textContent = "Daily Challenge ✓";
+  btn.style.opacity = "0.6";
+  btn.style.cursor = "not-allowed";
+}
+}
+
 function updateTargetOptions() {
 
   const start = document.getElementById("custom-start").value;
@@ -1588,26 +1820,22 @@ function updateTargetOptions() {
 
     if (name === start) return;
 
-    const length = shortestPathLength(start, name);
+    const shortest = findShortestPath(start, name);
+    const length = shortest ? shortest.length - 1 : Infinity;
 
-    if (length === MIN_MOVES) {
+    if (length !== Infinity) {
+
       const option = document.createElement("option");
       option.value = name;
       option.textContent = name;
       targetSelect.appendChild(option);
-  }
+    }
   });
-
-  // If no valid targets exist
-  if (targetSelect.options.length === 0) {
-    const option = document.createElement("option");
-    option.textContent = "No valid targets available";
-    option.disabled = true;
-    targetSelect.appendChild(option);
-  }
 }
 
 function returnToMenu() {
+
+  DAILY_MODE = false;
 
   // Exit fullscreen if active
   if (document.fullscreenElement) {
@@ -1626,6 +1854,7 @@ function returnToMenu() {
 
 function startCustomMode() {
 
+  CUSTOM_MODE = true;
   const start = document.getElementById("custom-start").value;
   const target = document.getElementById("custom-target").value;
 
@@ -2052,6 +2281,7 @@ button.onclick = () => {
 ============================= */
 function startNewGame() {
 
+  CUSTOM_MODE = false;
   if (availablePlayers.length < 2) {
     showRefreshPoolModal();
     return;
@@ -2259,6 +2489,24 @@ function checkWin() {
   if (!currentName) return;
   if (currentName !== targetPlayer) return;
 
+  if (DAILY_MODE) {
+
+  const today = getTodayKey();
+  localStorage.setItem("daily-played-" + today, "true");
+
+  openDailyModal(`
+    🎉 <strong>Daily Challenge Complete!</strong><br><br>
+    You solved it in <strong>${path.length - 1}</strong> moves.
+  `);
+
+  DAILY_MODE = false;
+
+  updateDailyButton();
+
+  showScreen("start-screen");
+  return;
+  }
+
   const moves = path.length - 1;
 
   const shortest = findShortestPath(startPlayer, targetPlayer);
@@ -2355,9 +2603,9 @@ function initialiseGame() {
 
   resetPlayerPool(true);
   updateStartStats();
+  updateDailyButton();
 
   document.getElementById("loading-overlay")?.remove();
-
   document.getElementById("app").style.visibility = "visible";
 }
 

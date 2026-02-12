@@ -755,7 +755,7 @@ const players = {
 },
 "James Beattie": {
     image: "/games/player-images/beattie.png",
-    career: { "Blackburn Rovers": [[1996, 1998]], "Southampton": [[1998, 2005]], "Everton": [[2005, 2007]], "Stoke City": [[2009, 2010]], "Rangers": [[2010, 2011]], "Blackpool": [[2011]]}
+    career: { "Blackburn Rovers": [[1996, 1998]], "Southampton": [[1998, 2005]], "Everton": [[2005, 2007]], "Stoke City": [[2009, 2010]], "Rangers": [[2010, 2011]], "Blackpool": [[2011, 2011]]}
 },
 "Tim Sherwood": {
     image: "/games/player-images/sherwood.png",
