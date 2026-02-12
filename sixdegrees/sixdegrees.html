@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="preload" href="../includes/header.html" as="fetch" crossorigin="anonymous">
 <link rel="preload" href="../includes/footer.html" as="fetch" crossorigin="anonymous">
+<script src="https://discord.com/sdk.js"></script>
 
 <style>
 :root {
@@ -1365,6 +1366,32 @@ body.fullscreen {
 <script src="./data.js" defer></script>
 
 <script defer>
+
+if (window.trustedTypes && window.trustedTypes.createPolicy) {
+  window.trustedTypes.createPolicy('default', {
+    createHTML: (input) => input,
+  });
+}
+
+let discordSdk = null;
+let IS_DISCORD_ACTIVITY = false;
+
+async function initDiscord() {
+  if (!window.DiscordSDK) return;
+
+  const CLIENT_ID = "1471596332853493873";
+  discordSdk = new window.DiscordSDK(CLIENT_ID);
+
+  await discordSdk.ready();
+
+  IS_DISCORD_ACTIVITY = true;
+  console.log("Running inside Discord Activity");
+
+  adaptUIForDiscord();
+}
+
+initDiscord();
+
 let startPlayer, currentEntity, currentType, targetPlayer;
 let path = [];
 let selectionMode = "club";
@@ -1397,6 +1424,15 @@ function openHowToPlay() {
 
 function closeHowToPlay() {
   document.getElementById("howto-modal").classList.add("hidden");
+}
+
+function adaptUIForDiscord() {
+  // Hide fullscreen button
+  const fullscreenBtn = document.querySelector('[onclick="toggleFullscreen()"]');
+  if (fullscreenBtn) fullscreenBtn.style.display = "none";
+
+  // Optional: auto-launch daily
+  showScreen("start-screen");
 }
 
 function beginRandomGame() {
