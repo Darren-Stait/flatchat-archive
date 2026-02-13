@@ -590,6 +590,7 @@ body.fullscreen {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   margin-bottom: 14px;
+  width: 100%
 }
 
 .top-bar button:nth-child(1) {
@@ -602,6 +603,19 @@ body.fullscreen {
 }
 
 .top-bar button:nth-child(3) {
+  justify-self: end;
+}
+
+
+#menuTopBtn {
+  justify-self: start;
+}
+
+#howToBtn {
+  justify-self: center;
+}
+
+#fullscreenBtn {
   justify-self: end;
 }
 
