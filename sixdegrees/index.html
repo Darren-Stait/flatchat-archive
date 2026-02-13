@@ -2567,17 +2567,22 @@ function getImage(name, type = null) {
 
   if (!img) return "";
 
-  // If it already includes protocol, return as-is
+  // If already full URL, leave it
   if (img.startsWith("http://") || img.startsWith("https://")) {
     return img;
   }
 
-  // Otherwise force it absolute
-  return "https://www.flatchat-moments.uk/" + img.replace(/^\/+/, "");
+  // Otherwise treat as local relative path
+  return "./" + img.replace(/^\/+/, "");
 }
 
 function clubToBadge(club) {
-  return `https://www.flatchat-moments.uk/games/badges/${club.toLowerCase().replace(/\s+/g,'')}.png`;
+  const filename = club
+    .toLowerCase()
+    .replace(/\s+/g, '')
+    .replace(/[^a-z0-9]/g, '');
+
+  return `./badges/${filename}.png`;
 }
 
 function getNeighbors(entity) {
