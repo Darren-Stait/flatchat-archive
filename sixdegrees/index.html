@@ -1166,6 +1166,17 @@ body.fullscreen {
   }
 }
 
+.daily-complete {
+  opacity: 0.6;
+  filter: grayscale(0.3);
+  transition: all 0.3s ease;
+}
+
+.daily-complete:hover {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* =============================
    DISCORD MODE START SCREEN
 ============================= */
@@ -1197,6 +1208,13 @@ body.fullscreen {
 .discord-mode #dailyBtn {
   font-size: 1.2rem;
   padding: 16px;
+}
+.daily-timer {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  color: var(--brand);
+  opacity: 0.8;
 }
 
 </style>
@@ -1280,6 +1298,7 @@ body.fullscreen {
 <button id="dailyBtn" class="primary">
   Daily Challenge
 </button>
+<div id="daily-reset-timer" class="daily-timer"></div>
   </div>
 
 </div>
@@ -1369,18 +1388,6 @@ body.fullscreen {
 <div id="win-modal" class="modal hidden">
   <div class="modal-content">
     <p id="win-text"></p>
-
-    <!-- Discord-only share buttons -->
-    <div id="discord-share-actions" class="hidden" style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
-      <button id="copyResultBtn" class="secondary-btn">
-        Copy Result
-      </button>
-
-      <button id="shareResultBtn" class="primary-btn">
-        Share
-      </button>
-    </div>
-
     <button id="winModalBtn" class="primary" style="margin-top:16px;">
       Play Again
     </button>
@@ -1428,8 +1435,10 @@ body.fullscreen {
 <script defer>
 let discordSdk = null;
 
-const IS_DISCORD_ACTIVITY =
-  window.location.origin.includes("discordsays.com");
+//const IS_DISCORD_ACTIVITY =
+//  window.location.origin.includes("discordsays.com");
+
+const IS_DISCORD_ACTIVITY = true;
 
 // Add ?dev=1 to URL to bypass daily lock
 const DEV_OVERRIDE =
@@ -1573,6 +1582,46 @@ function adaptUIForDiscord() {
 
   // Optional: auto-launch daily
   showScreen("start-screen");
+}
+
+function startDailyCountdown() {
+
+  const timerEl = document.getElementById("daily-reset-timer");
+  if (!timerEl) return;
+
+  function update() {
+
+    const { hours, minutes, seconds } = getTimeUntilReset();
+
+    timerEl.textContent =
+      `Resets in ${String(hours).padStart(2,"0")}:` +
+      `${String(minutes).padStart(2,"0")}:` +
+      `${String(seconds).padStart(2,"0")} GMT`;
+
+  }
+
+  update();
+  setInterval(update, 1000);
+}
+
+function getTimeUntilReset() {
+
+  const now = new Date();
+
+  const nextMidnightUTC = new Date(Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate() + 1,
+    0, 0, 0
+  ));
+
+  const diff = nextMidnightUTC - now;
+
+  const hours = Math.floor(diff / 1000 / 60 / 60);
+  const minutes = Math.floor((diff / 1000 / 60) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  return { hours, minutes, seconds };
 }
 
 function beginRandomGame() {
@@ -1958,10 +2007,13 @@ async function updateDailyButton() {
 
   if (!DEV_OVERRIDE && lastPlayed === todayKey) {
     dailyBtn.disabled = true;
-    dailyBtn.textContent = "Completed";
+    dailyBtn.textContent = "Daily Challenge ✓";
+
+    dailyBtn.classList.add("daily-complete");
   } else {
     dailyBtn.disabled = false;
     dailyBtn.textContent = "Daily Challenge";
+    dailyBtn.classList.remove("daily-complete");
   }
 }
 
@@ -2721,11 +2773,78 @@ async function checkWin() {
     await DailyStorage.set("daily-last-played", getTodayKey());
 
 const moves = path.length - 1;
+const pathString = path.join(" → ");
 
-openDailyModal(`
-Daily Challenge Complete!
-Solved in ${moves} moves.
-`);
+const shareText =
+`Six Degrees Daily — ${getTodayKey()}
+🧠 Completed in ${moves} Moves
+
+My Path:
+||${pathString}||`;
+
+openDailyModal("🎉 Daily Challenge Complete!\n\nSolved in " + moves + " moves.\n\n");
+
+const modalText = document.getElementById("daily-modal-text");
+if (!modalText) return;
+
+// Create pre block safely
+const pre = document.createElement("pre");
+pre.id = "shareBlock";
+pre.textContent = shareText;
+
+pre.style.background = "#f4fbfc";
+pre.style.padding = "12px";
+pre.style.borderRadius = "8px";
+pre.style.border = "1px solid var(--brand)";
+pre.style.whiteSpace = "pre-wrap";
+pre.style.fontSize = "0.9rem";
+pre.style.textAlign = "left";
+
+// Create button safely
+const btn = document.createElement("button");
+btn.textContent = "Copy Result";
+btn.style.marginTop = "10px";
+btn.style.padding = "8px 14px";
+btn.style.background = "var(--brand)";
+btn.style.color = "white";
+btn.style.border = "none";
+btn.style.borderRadius = "6px";
+btn.style.cursor = "pointer";
+
+btn.addEventListener("click", () => {
+
+  navigator.clipboard.writeText(shareText);
+
+  btn.textContent = "Copied!";
+  setTimeout(() => btn.textContent = "Copy Result", 1500);
+
+});
+
+modalText.appendChild(pre);
+modalText.appendChild(btn);
+
+
+setTimeout(() => {
+
+  const btn = document.getElementById("copyShareBtn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+
+    const formatted =
+`\\\`\\\`\\\`
+${shareText}
+\\\`\\\`\\\``;
+
+    navigator.clipboard.writeText(formatted);
+
+    btn.textContent = "Copied!";
+    setTimeout(() => btn.textContent = "Copy Result", 1500);
+
+  });
+
+}, 0);
+
 
     DAILY_MODE = false;
     updateDailyButton();
@@ -2741,15 +2860,6 @@ Solved in ${moves} moves.
 
     document.getElementById("win-modal")
       .classList.remove("hidden");
-
-    if (IS_DISCORD_ACTIVITY) {
-      document.getElementById("discord-share-actions")
-      .classList.remove("hidden");
-    } else {
-      document.getElementById("discord-share-actions")
-      .classList.add("hidden");
-    }
-
     return;
   }
 
@@ -2783,27 +2893,15 @@ Solved in ${moves} moves.
 
   document.getElementById("win-modal")
     .classList.remove("hidden");
-
-    if (IS_DISCORD_ACTIVITY) {
-      document.getElementById("discord-share-actions")
-      .classList.remove("hidden");
-    } else {
-      document.getElementById("discord-share-actions")
-      .classList.add("hidden");
-    }
 }
 
 function generateDailyShareText() {
 
-  const date = getTodayKey();
-  const movesCount = path.length - 1;
+  const moves = path.length - 1;
 
-  const header = `🎯 Six Degrees Daily – ${date}`;
-  const movesLine = `Solved in ${movesCount} moves`;
-
-  const pathLine = path.join(" → ");
-
-  return `${header}\n${movesLine}\n\n${pathLine}`;
+  return `Six Degrees
+${startPlayer} → ${targetPlayer}
+Solved in ${moves} moves`;
 }
 
 function copyDailyResult() {
@@ -3018,11 +3116,6 @@ function attachEventListeners() {
     closeModal();
     startNewGame();
   });
-  document.getElementById("copyResultBtn")
-    ?.addEventListener("click", copyDailyResult);
-
-  document.getElementById("shareResultBtn")
-    ?.addEventListener("click", shareDailyResult);
 }
 
 window.addEventListener('resize', () => {
@@ -3038,6 +3131,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     setTimeout(async () => {
       await updateDailyButton();
     }, 50);
+    startDailyCountdown();
     if (IS_DISCORD_ACTIVITY) {
       enforceDiscordMode();
     }
