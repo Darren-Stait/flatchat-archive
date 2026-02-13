@@ -1369,11 +1369,24 @@ body.fullscreen {
 <div id="win-modal" class="modal hidden">
   <div class="modal-content">
     <p id="win-text"></p>
-<button id="winModalBtn" class="primary">
-  Play Again
-</button>
+
+    <!-- Discord-only share buttons -->
+    <div id="discord-share-actions" class="hidden" style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
+      <button id="copyResultBtn" class="secondary-btn">
+        Copy Result
+      </button>
+
+      <button id="shareResultBtn" class="primary-btn">
+        Share
+      </button>
+    </div>
+
+    <button id="winModalBtn" class="primary" style="margin-top:16px;">
+      Play Again
+    </button>
   </div>
 </div>
+
 <div id="daily-modal" class="modal hidden">
   <div class="modal-content">
     <p id="daily-modal-text"></p>
@@ -2599,8 +2612,6 @@ async function checkWin() {
 
 const moves = path.length - 1;
 
-await postDailyResultToDiscord(moves);
-
 openDailyModal(`
 Daily Challenge Complete!
 Solved in ${moves} moves.
@@ -2620,6 +2631,14 @@ Solved in ${moves} moves.
 
     document.getElementById("win-modal")
       .classList.remove("hidden");
+
+    if (IS_DISCORD_ACTIVITY) {
+      document.getElementById("discord-share-actions")
+      .classList.remove("hidden");
+    } else {
+      document.getElementById("discord-share-actions")
+      .classList.add("hidden");
+    }
 
     return;
   }
@@ -2654,6 +2673,54 @@ Solved in ${moves} moves.
 
   document.getElementById("win-modal")
     .classList.remove("hidden");
+
+    if (IS_DISCORD_ACTIVITY) {
+      document.getElementById("discord-share-actions")
+      .classList.remove("hidden");
+    } else {
+      document.getElementById("discord-share-actions")
+      .classList.add("hidden");
+    }
+}
+
+function generateDailyShareText() {
+
+  const date = getTodayKey();
+  const movesCount = path.length - 1;
+
+  const header = `🎯 Six Degrees Daily – ${date}`;
+  const movesLine = `Solved in ${movesCount} moves`;
+
+  const pathLine = path.join(" → ");
+
+  return `${header}\n${movesLine}\n\n${pathLine}`;
+}
+
+function copyDailyResult() {
+
+  const text = generateDailyShareText();
+
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Result copied to clipboard!");
+  });
+
+}
+
+async function shareDailyResult() {
+
+  const text = generateDailyShareText();
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        text: text
+      });
+    } catch (err) {
+      console.log("Share cancelled");
+    }
+  } else {
+    copyDailyResult();
+  }
 }
 
 function showLoseModal() {
@@ -2799,33 +2866,6 @@ function enforceDiscordMode() {
   startDailyChallenge();
 }
 
-async function postDailyResultToDiscord(moves) {
-
-  if (!IS_DISCORD_ACTIVITY) return;
-
-  if (!window.Discord) return;
-
-  try {
-
-    const sdk = new window.Discord.DiscordSDK("1471596332853493873");
-    await sdk.ready();
-
-    const date = getTodayKey();
-
-    const message = `🎯 **Six Degrees Daily – ${date}**
-Solved in **${moves} moves**!
-
-${startPlayer} → ${targetPlayer}`;
-
-    await sdk.commands.sendChannelMessage({
-      content: message
-    });
-
-  } catch (err) {
-    console.error("Discord post failed", err);
-  }
-}
-
 function attachEventListeners() {
 
   document.getElementById("randomBtn")
@@ -2868,6 +2908,11 @@ function attachEventListeners() {
     closeModal();
     startNewGame();
   });
+  document.getElementById("copyResultBtn")
+    ?.addEventListener("click", copyDailyResult);
+
+  document.getElementById("shareResultBtn")
+    ?.addEventListener("click", shareDailyResult);
 }
 
 window.addEventListener('resize', () => {
