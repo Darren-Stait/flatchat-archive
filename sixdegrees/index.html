@@ -1431,6 +1431,10 @@ let discordSdk = null;
 const IS_DISCORD_ACTIVITY =
   window.location.origin.includes("discordsays.com");
 
+// Add ?dev=1 to URL to bypass daily lock
+const DEV_OVERRIDE =
+  window.location.search.includes("dev=1");
+
 let startPlayer, currentEntity, currentType, targetPlayer;
 let path = [];
 let selectionMode = "club";
@@ -1445,6 +1449,95 @@ const MAX_MOVES = 6;
 let CUSTOM_MODE = false;
 const reachableCache = {};
 let DAILY_MODE = false;
+
+/* =============================
+   DAILY STORAGE (Browser + Discord + Dev)
+============================= */
+
+const DailyStorage = (() => {
+
+  let discordStorageReady = false;
+  let discordSdkInstance = null;
+
+  async function initDiscordStorage() {
+    if (!IS_DISCORD_ACTIVITY || !window.Discord) return;
+
+    try {
+      discordSdkInstance =
+        new window.Discord.DiscordSDK("1471596332853493873");
+
+      await discordSdkInstance.ready();
+
+      discordStorageReady = true;
+
+    } catch (err) {
+      console.error("Discord storage init failed:", err);
+    }
+  }
+
+  function hasLocalStorage() {
+    try {
+      return typeof window !== "undefined" &&
+             typeof window.localStorage !== "undefined";
+    } catch {
+      return false;
+    }
+  }
+
+  return {
+
+    async init() {
+      if (IS_DISCORD_ACTIVITY) {
+        await initDiscordStorage();
+      }
+    },
+
+    async get(key) {
+
+      if (DEV_OVERRIDE) return null;
+
+      if (IS_DISCORD_ACTIVITY && discordStorageReady) {
+        const result =
+          await discordSdkInstance.storage.get(key);
+        return result?.value ?? null;
+      }
+
+      if (hasLocalStorage()) {
+        return window.localStorage.getItem(key);
+      }
+
+      return null;
+    },
+
+    async set(key, value) {
+
+      if (DEV_OVERRIDE) return;
+
+      if (IS_DISCORD_ACTIVITY && discordStorageReady) {
+        await discordSdkInstance.storage.set(key, value);
+        return;
+      }
+
+      if (hasLocalStorage()) {
+        window.localStorage.setItem(key, value);
+      }
+    },
+
+    async remove(key) {
+
+      if (IS_DISCORD_ACTIVITY && discordStorageReady) {
+        await discordSdkInstance.storage.delete(key);
+        return;
+      }
+
+      if (hasLocalStorage()) {
+        window.localStorage.removeItem(key);
+      }
+    }
+
+  };
+
+})();
 
 /* =============================
    UTIL
@@ -1521,12 +1614,12 @@ function generateDailyPair() {
   };
 }
 
-function startDailyChallenge() {
+async function startDailyChallenge() {
 
   const today = getTodayKey();
   const playedKey = "daily-played-" + today;
 
-  if (localStorage.getItem(playedKey)) {
+  if (!DEV_OVERRIDE && await DailyStorage.get(playedKey)) {
     openDailyModal(`✅ You’ve already completed today’s challenge.
     Come back tomorrow for a new one!`);
     return;
@@ -1843,7 +1936,7 @@ function activateCustomMode() {
   startSelect.addEventListener("change", updateTargetOptions);
 }
 
-function updateDailyButton() {
+async function updateDailyButton() {
 
   const today = getTodayKey();
   const playedKey = "daily-played-" + today;
@@ -1852,7 +1945,7 @@ function updateDailyButton() {
 
   if (!btn) return; // 🔥 Prevent crash
 
-  if (localStorage.getItem(playedKey)) {
+  if (!DEV_OVERRIDE && await DailyStorage.get(playedKey)) {
     btn.disabled = true;
     btn.textContent = "Daily Challenge ✓";
     btn.style.opacity = "0.6";
@@ -2608,7 +2701,7 @@ async function checkWin() {
   if (DAILY_MODE) {
 
     const today = getTodayKey();
-    localStorage.setItem("daily-played-" + today, "true");
+    await DailyStorage.set("daily-played-" + today, "true");
 
 const moves = path.length - 1;
 
@@ -2919,16 +3012,40 @@ window.addEventListener('resize', () => {
   adjustChoiceGridCompact();
 });
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", async () => {
+
+  await DailyStorage.init();
 
   initialiseGame();
   attachEventListeners();
+  await updateDailyButton();
 
   if (IS_DISCORD_ACTIVITY) {
     enforceDiscordMode();
   }
 
 });
+
+window.devTools = {
+
+  async resetDaily() {
+    const key = "daily-played-" + getTodayKey();
+    await DailyStorage.remove(key);
+    console.log("Daily reset");
+  },
+
+  enableDevOverride() {
+    history.replaceState(null, "", "?dev=1");
+    location.reload();
+  },
+
+  disableDevOverride() {
+    history.replaceState(null, "", window.location.pathname);
+    location.reload();
+  }
+
+};
+
 </script>
 </body>
 </html>
