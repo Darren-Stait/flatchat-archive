@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="preload" href="../includes/header.html" as="fetch" crossorigin="anonymous">
 <link rel="preload" href="../includes/footer.html" as="fetch" crossorigin="anonymous">
-<script src="https://discord.com/sdk.js"></script>
 
 <style>
 :root {
@@ -1401,28 +1400,9 @@ body.fullscreen {
 
 <script defer>
 let discordSdk = null;
-let IS_DISCORD_ACTIVITY = false;
 
-async function detectDiscordActivity() {
-  if (!window.DiscordSDK) return false;
-
-  try {
-    const CLIENT_ID = "1471596332853493873";
-    const sdk = new window.DiscordSDK(CLIENT_ID);
-
-    await sdk.ready();
-
-    discordSdk = sdk;
-    IS_DISCORD_ACTIVITY = true;
-
-    console.log("Discord Activity detected");
-    return true;
-
-  } catch (e) {
-    console.log("Not running inside Discord");
-    return false;
-  }
-}
+const IS_DISCORD_ACTIVITY =
+  window.location.origin.includes("discordsays.com");
 
 let startPlayer, currentEntity, currentType, targetPlayer;
 let path = [];
@@ -2807,9 +2787,14 @@ function enforceDiscordMode() {
 
 async function postDailyResultToDiscord(moves) {
 
-  if (!IS_DISCORD_ACTIVITY || !discordSdk) return;
+  if (!IS_DISCORD_ACTIVITY) return;
+
+  if (!window.Discord) return;
 
   try {
+
+    const sdk = new window.Discord.DiscordSDK("1471596332853493873");
+    await sdk.ready();
 
     const date = getTodayKey();
 
@@ -2818,12 +2803,12 @@ Solved in **${moves} moves**!
 
 ${startPlayer} → ${targetPlayer}`;
 
-    await discordSdk.commands.sendChannelMessage({
+    await sdk.commands.sendChannelMessage({
       content: message
     });
 
   } catch (err) {
-    console.warn("Failed to post to Discord:", err);
+    console.error("Discord post failed", err);
   }
 }
 
@@ -2875,14 +2860,12 @@ window.addEventListener('resize', () => {
   adjustChoiceGridCompact();
 });
 
-document.addEventListener("DOMContentLoaded", async () => {
-
-  const isDiscord = await detectDiscordActivity();
+window.addEventListener("load", () => {
 
   initialiseGame();
   attachEventListeners();
 
-  if (isDiscord) {
+  if (IS_DISCORD_ACTIVITY) {
     enforceDiscordMode();
   }
 
