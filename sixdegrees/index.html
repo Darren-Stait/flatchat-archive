@@ -3027,6 +3027,10 @@ window.addEventListener("DOMContentLoaded", async () => {
     updateStartStats();
     attachEventListeners();
     await updateDailyButton();
+
+    if (IS_DISCORD_ACTIVITY) {
+      enforceDiscordMode();
+    }
   } catch (err) {
     console.error("Initialisation error:", err);
   }
