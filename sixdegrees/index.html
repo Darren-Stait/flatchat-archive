@@ -1946,18 +1946,20 @@ function activateCustomMode() {
 
 async function updateDailyButton() {
 
+  const dailyBtn = document.getElementById("dailyBtn");
+  if (!dailyBtn) return; // prevent crash
+
   const today = getTodayKey();
   const playedKey = "daily-played-" + today;
 
-  const btn = document.getElementById("dailyBtn");
+  const alreadyPlayed = await DailyStorage.get(playedKey);
 
-  if (!btn) return; // 🔥 Prevent crash
-
-  if (!DEV_OVERRIDE && await DailyStorage.get(playedKey)) {
-    btn.disabled = true;
-    btn.textContent = "Daily Challenge ✓";
-    btn.style.opacity = "0.6";
-    btn.style.cursor = "not-allowed";
+  if (!DEV_OVERRIDE && alreadyPlayed) {
+    dailyBtn.disabled = true;
+    dailyBtn.textContent = "Completed";
+  } else {
+    dailyBtn.disabled = false;
+    dailyBtn.textContent = "Daily Challenge";
   }
 }
 
@@ -3026,8 +3028,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     resetPlayerPool(true);
     updateStartStats();
     attachEventListeners();
-    await updateDailyButton();
-
+    setTimeout(async () => {
+      await updateDailyButton();
+    }, 50);
     if (IS_DISCORD_ACTIVITY) {
       enforceDiscordMode();
     }
