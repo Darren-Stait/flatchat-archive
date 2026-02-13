@@ -1610,9 +1610,12 @@ function closeDailyModal() {
 
 function getTodayKey() {
   const now = new Date();
-  return now.getFullYear() + "-" +
-         (now.getMonth()+1) + "-" +
-         now.getDate();
+
+  const year = now.getUTCFullYear();
+  const month = String(now.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(now.getUTCDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`; // e.g. 2026-02-13
 }
 
 function generateDailyPair() {
@@ -1624,12 +1627,13 @@ function generateDailyPair() {
 
 async function startDailyChallenge() {
 
-  const today = getTodayKey();
-  const playedKey = "daily-played-" + today;
+  const todayKey = getTodayKey();
+  const lastPlayed = await DailyStorage.get("daily-last-played");
 
-  if (!DEV_OVERRIDE && await DailyStorage.get(playedKey)) {
-    openDailyModal(`✅ You’ve already completed today’s challenge.
-    Come back tomorrow for a new one!`);
+  if (!DEV_OVERRIDE && lastPlayed === todayKey) {
+    openDailyModal(
+      "✅ You’ve already completed today’s challenge.\nCome back tomorrow!"
+    );
     return;
   }
 
@@ -1649,7 +1653,7 @@ async function startDailyChallenge() {
 
   UNLIMITED_MODE = true;
 
-  showScreen("game-container");   // ✅ correct way
+  showScreen("game-container");
   render();
 }
 
@@ -1947,14 +1951,12 @@ function activateCustomMode() {
 async function updateDailyButton() {
 
   const dailyBtn = document.getElementById("dailyBtn");
-  if (!dailyBtn) return; // prevent crash
+  if (!dailyBtn) return;
 
-  const today = getTodayKey();
-  const playedKey = "daily-played-" + today;
+  const todayKey = getTodayKey();
+  const lastPlayed = await DailyStorage.get("daily-last-played");
 
-  const alreadyPlayed = await DailyStorage.get(playedKey);
-
-  if (!DEV_OVERRIDE && alreadyPlayed) {
+  if (!DEV_OVERRIDE && lastPlayed === todayKey) {
     dailyBtn.disabled = true;
     dailyBtn.textContent = "Completed";
   } else {
@@ -2711,7 +2713,7 @@ async function checkWin() {
   if (DAILY_MODE) {
 
     const today = getTodayKey();
-    await DailyStorage.set("daily-played-" + today, "true");
+    await DailyStorage.set("daily-last-played", getTodayKey());
 
 const moves = path.length - 1;
 
