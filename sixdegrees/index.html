@@ -2757,6 +2757,32 @@ function findShortestPath(startName, targetName) {
   return null;
 }
 
+async function copyToClipboard(text) {
+  try {
+    // Modern method
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (err) {
+    // Fallback for Discord / restricted iframes
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+
+    try {
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      return true;
+    } catch (err2) {
+      document.body.removeChild(textarea);
+      return false;
+    }
+  }
+}
+
 async function checkWin() {
 
   if (currentEntity !== targetPlayer) return;
@@ -2808,11 +2834,16 @@ btn.style.border = "none";
 btn.style.borderRadius = "6px";
 btn.style.cursor = "pointer";
 
-btn.addEventListener("click", () => {
+btn.addEventListener("click", async () => {
 
-  navigator.clipboard.writeText(shareText);
+  const success = await copyToClipboard(shareText);
 
-  btn.textContent = "Copied!";
+  if (success) {
+    btn.textContent = "Copied!";
+  } else {
+    btn.textContent = "Press Ctrl+C";
+  }
+
   setTimeout(() => btn.textContent = "Copy Result", 1500);
 
 });
@@ -2826,19 +2857,24 @@ setTimeout(() => {
   const btn = document.getElementById("copyShareBtn");
   if (!btn) return;
 
-  btn.addEventListener("click", () => {
+btn.addEventListener("click", async () => {
 
-    const formatted =
-`\\\`\\\`\\\`
+  const formatted =
+`\`\`\`
 ${shareText}
-\\\`\\\`\\\``;
+\`\`\``;
 
-    navigator.clipboard.writeText(formatted);
+  const success = await copyToClipboard(formatted);
 
+  if (success) {
     btn.textContent = "Copied!";
-    setTimeout(() => btn.textContent = "Copy Result", 1500);
+  } else {
+    btn.textContent = "Press Ctrl+C";
+  }
 
-  });
+  setTimeout(() => btn.textContent = "Copy Result", 1500);
+
+});
 
 }, 0);
 
@@ -2905,9 +2941,13 @@ function copyDailyResult() {
 
   const text = generateDailyShareText();
 
-  navigator.clipboard.writeText(text).then(() => {
+copyToClipboard(text).then(success => {
+  if (success) {
     alert("Result copied to clipboard!");
-  });
+  } else {
+    alert("Press Ctrl+C to copy.");
+  }
+});
 
 }
 
