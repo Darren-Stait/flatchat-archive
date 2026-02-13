@@ -1438,10 +1438,6 @@ let discordSdk = null;
 const IS_DISCORD_ACTIVITY =
   window.location.origin.includes("discordsays.com");
 
-// Add ?dev=1 to URL to bypass daily lock
-const DEV_OVERRIDE =
-  window.location.search.includes("dev=1");
-
 let startPlayer, currentEntity, currentType, targetPlayer;
 let path = [];
 let selectionMode = "club";
@@ -1456,6 +1452,7 @@ const MAX_MOVES = 6;
 let CUSTOM_MODE = false;
 const reachableCache = {};
 let DAILY_MODE = false;
+const DEV_UNLOCK = true;
 
 /* =============================
    DAILY STORAGE (Browser + Discord + Dev)
@@ -1679,7 +1676,7 @@ async function startDailyChallenge() {
   const todayKey = getTodayKey();
   const lastPlayed = await DailyStorage.get("daily-last-played");
 
-  if (!DEV_OVERRIDE && lastPlayed === todayKey) {
+  if (!DEV_UNLOCK && lastPlayed === todayKey) {
     openDailyModal(
       "✅ You’ve already completed today’s challenge.\nCome back tomorrow!"
     );
@@ -2005,7 +2002,7 @@ async function updateDailyButton() {
   const todayKey = getTodayKey();
   const lastPlayed = await DailyStorage.get("daily-last-played");
 
-  if (!DEV_OVERRIDE && lastPlayed === todayKey) {
+  if (!DEV_UNLOCK && lastPlayed === todayKey) {
     dailyBtn.disabled = true;
     dailyBtn.textContent = "Daily Challenge ✓";
 
