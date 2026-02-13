@@ -1454,85 +1454,93 @@ let DAILY_MODE = false;
    DAILY STORAGE (Browser + Discord + Dev)
 ============================= */
 
+/* =============================
+   DAILY STORAGE (Browser + Discord Safe)
+============================= */
+
 const DailyStorage = (() => {
 
-  let discordStorageReady = false;
-  let discordSdkInstance = null;
-
-  async function initDiscordStorage() {
-    if (!IS_DISCORD_ACTIVITY || !window.Discord) return;
-
-    try {
-      discordSdkInstance =
-        new window.Discord.DiscordSDK("1471596332853493873");
-
-      await discordSdkInstance.ready();
-
-      discordStorageReady = true;
-
-    } catch (err) {
-      console.error("Discord storage init failed:", err);
-    }
-  }
+  const IS_DISCORD =
+    window.location.origin.includes("discordsays.com");
 
   function hasLocalStorage() {
     try {
-      return typeof window !== "undefined" &&
-             typeof window.localStorage !== "undefined";
+      return typeof window.localStorage !== "undefined";
     } catch {
       return false;
     }
   }
 
+  async function idbSet(key, value) {
+    return new Promise((resolve) => {
+      const request = indexedDB.open("sixdegrees-db", 1);
+
+      request.onupgradeneeded = () => {
+        request.result.createObjectStore("store");
+      };
+
+      request.onsuccess = () => {
+        const db = request.result;
+        const tx = db.transaction("store", "readwrite");
+        tx.objectStore("store").put(value, key);
+        tx.oncomplete = () => resolve();
+      };
+    });
+  }
+
+  async function idbGet(key) {
+    return new Promise((resolve) => {
+      const request = indexedDB.open("sixdegrees-db", 1);
+
+      request.onupgradeneeded = () => {
+        request.result.createObjectStore("store");
+      };
+
+      request.onsuccess = () => {
+        const db = request.result;
+        const tx = db.transaction("store", "readonly");
+        const getReq = tx.objectStore("store").get(key);
+
+        getReq.onsuccess = () => {
+          resolve(getReq.result ?? null);
+        };
+      };
+    });
+  }
+
+  async function idbRemove(key) {
+    return new Promise((resolve) => {
+      const request = indexedDB.open("sixdegrees-db", 1);
+
+      request.onupgradeneeded = () => {
+        request.result.createObjectStore("store");
+      };
+
+      request.onsuccess = () => {
+        const db = request.result;
+        const tx = db.transaction("store", "readwrite");
+        tx.objectStore("store").delete(key);
+        tx.oncomplete = () => resolve();
+      };
+    });
+  }
+
   return {
 
-    async init() {
-      if (IS_DISCORD_ACTIVITY) {
-        await initDiscordStorage();
-      }
-    },
-
     async get(key) {
-
-      if (DEV_OVERRIDE) return null;
-
-      if (IS_DISCORD_ACTIVITY && discordStorageReady) {
-        const result =
-          await discordSdkInstance.storage.get(key);
-        return result?.value ?? null;
-      }
-
-      if (hasLocalStorage()) {
-        return window.localStorage.getItem(key);
-      }
-
+      if (IS_DISCORD) return await idbGet(key);
+      if (hasLocalStorage()) return localStorage.getItem(key);
       return null;
     },
 
     async set(key, value) {
-
-      if (DEV_OVERRIDE) return;
-
-      if (IS_DISCORD_ACTIVITY && discordStorageReady) {
-        await discordSdkInstance.storage.set(key, value);
-        return;
-      }
-
-      if (hasLocalStorage()) {
-        window.localStorage.setItem(key, value);
-      }
+      if (IS_DISCORD) return await idbSet(key, value);
+      if (hasLocalStorage()) localStorage.setItem(key, value);
     },
 
     async remove(key) {
-
-      if (IS_DISCORD_ACTIVITY && discordStorageReady) {
-        await discordSdkInstance.storage.delete(key);
-        return;
-      }
-
-      if (hasLocalStorage()) {
-        window.localStorage.removeItem(key);
-      }
+      if (IS_DISCORD) return await idbRemove(key);
+      if (hasLocalStorage()) localStorage.removeItem(key);
     }
 
   };
@@ -3014,15 +3022,20 @@ window.addEventListener('resize', () => {
 
 window.addEventListener("DOMContentLoaded", async () => {
 
-  await DailyStorage.init();
-
-  initialiseGame();
-  attachEventListeners();
-  await updateDailyButton();
-
-  if (IS_DISCORD_ACTIVITY) {
-    enforceDiscordMode();
+  try {
+    resetPlayerPool(true);
+    updateStartStats();
+    attachEventListeners();
+    await updateDailyButton();
+  } catch (err) {
+    console.error("Initialisation error:", err);
   }
+
+  const app = document.getElementById("app");
+  const overlay = document.getElementById("loading-overlay");
+
+  if (app) app.style.visibility = "visible";
+  if (overlay) overlay.style.display = "none";
 
 });
 
