@@ -52,20 +52,25 @@ body {
 
 .goal-row {
   background: rgba(23,154,163,0.04);
-  padding: 12px;
+  padding: 10px;
   border-radius: 12px;
   margin-bottom: 6px;
   display: flex;
-  gap: 18px;
-  align-items: center;
-  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: nowrap;
 }
 
-.player-card { text-align: center; }
+.player-card { 
+  text-align: center; 
+  flex: 0 1 180px;
+  min-width: 0;
+}
 
 .player-headshot {
-  width: 160px;
-  height: 160px;
+  width: clamp(90px, 28vw, 160px);
+  height: clamp(90px, 28vw, 160px);
   border-radius: 18px;
   object-fit: cover;
   border: 3px solid var(--brand);
@@ -73,8 +78,8 @@ body {
 }
 
 .current-headshot {
-  width: 140px;
-  height: 140px;
+  width: clamp(80px, 24vw, 140px);
+  height: clamp(80px, 24vw, 140px);
   border-radius: 16px;
   object-fit: cover;
   border: 3px solid var(--brand);
@@ -90,7 +95,9 @@ body {
 
 .top-centre {
   text-align: center;
-  min-width: 220px;
+  flex: 1 1 180px;
+  min-width: 0;
+  padding-top: 6px;
 }
 
 .top-centre .label {
@@ -776,6 +783,11 @@ body.fullscreen {
   margin: 0 auto;
 }
 
+#game-container {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 /* =============================
    Large Tablets (≤ 1200px)
 ============================= */
@@ -840,7 +852,15 @@ body.fullscreen {
     width: 50px;
     height: 50px;
   }
+  .player-headshot {
+    width: 130px;
+    height: 130px;
+  }
 
+  .current-headshot {
+    width: 115px;
+    height: 115px;
+  }
 }
 
 /* =============================
@@ -883,6 +903,16 @@ body.fullscreen {
   body.fullscreen .card {
     height: 100vh;
     overflow-y: auto;
+  }
+
+  .player-headshot {
+    width: 120px;
+    height: 120px;
+  }
+
+  .current-headshot {
+    width: 110px;
+    height: 110px;
   }
 }
 
