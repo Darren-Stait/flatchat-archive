@@ -808,6 +808,18 @@ const players = {
 "Paolo Maldini": {
     image: "./player-images/maldini.png",
     career: { "AC Milan": [[1984, 2009]]}
+},
+"Radja Nainggolan": {
+    image: "./player-images/nainggolan.png",
+    career: { "Cagliari": [[2010, 2014], [2019, 2021]], "AS Roma": [[2014, 2018]], "Inter Milan": [[2018, 2021]]}
+},
+"Matthias Sammer": {
+    image: "./player-images/sammer.png",
+    career: {"Stuttgart": [[1990, 1992]], "Inter Milan": [[1992, 1993]], "Borussia Dortmund": [[1993, 1998]]}
+},
+"Jurgen Kohler": {
+    image: "./player-images/kohler.png",
+    career: { "Bayern Munich": [[1989, 1991]], "Juventus": [[1991, 1995]], "Borussia Dortmund": [[1995, 2002]]}
 }
 };
 
