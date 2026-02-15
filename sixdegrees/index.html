@@ -113,8 +113,8 @@ body {
 
 .choices-grid {
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
 }
 
 .choice-card {
@@ -126,11 +126,8 @@ body {
 }
 
 .choice-card img.entity-img {
-  width: 85px;
-  height: 85px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 2px solid rgba(23,154,163,0.9);
+  width: clamp(50px, 6vw, 70px);
+  height: clamp(50px, 6vw, 70px);
 }
 
 .choice-card:hover {
@@ -724,6 +721,10 @@ body.fullscreen {
   display: none !important;
 }
 
+.discord-mode .choices-grid {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
 /* Hide the unlimited guesses label even if wrapped */
 .discord-mode label:has(input[type="checkbox"]) {
   display: none !important;
@@ -765,18 +766,14 @@ body.fullscreen {
    RESPONSIVE LAYOUT
 ============================= */
 
-/* Base defaults (desktop first) */
 #start-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 60px 20px;
+  padding: 40px 20px;
 }
 
 #start-screen .card {
-  max-width: 600px;
   width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* =============================
