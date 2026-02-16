@@ -979,7 +979,7 @@ const managers = {
   },
   "Mark Hughes": {
     image: "./player-images/markhughes.png",
-    career: { "Blackburn Rovers": [[2004, 2008]],"Manchester City": [[2008, 2009]], "Fulham": [[2010, 2011]], "QPR": [[2012, 2012]], "Stoke": [[2013, 2018]], "Southampton": [[2018, 2018]] },
+    career: { "Blackburn Rovers": [[2004, 2008]],"Manchester City": [[2008, 2009]], "Fulham": [[2010, 2011]], "QPR": [[2012, 2012]], "Stoke City": [[2013, 2018]], "Southampton": [[2018, 2018]] },
   },
   "Brendan Rodgers": {
     image: "./player-images/rodgers.png",
