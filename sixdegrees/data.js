@@ -871,7 +871,7 @@ const managers = {
   },
   "Claude Puel": { 
     image: "./player-images/puel.png",
-    career: { "Monaco": [[1999, 2001]], "Lille": [[2002, 2008]], "Olympique Lyonnais": [[2009, 2011]], "Nice": [[2012, 2016], [2025, 2026]], "Southampton": [[2016, 2017]], "Leicester City": [[2017, 2019]] },
+    career: { "Monaco": [[1999, 2001]], "Lille": [[2002, 2008]], "Lyon": [[2009, 2011]], "Nice": [[2012, 2016], [2025, 2026]], "Southampton": [[2016, 2017]], "Leicester City": [[2017, 2019]] },
   },
   "Massimiliano Allegri": { 
     image: "./player-images/allegri.png",
