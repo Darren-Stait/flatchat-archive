@@ -555,7 +555,7 @@ const players = {
 },
 "Mauro Camoranesi": {
     image: "./player-images/camoranesi.png",
-    career: { "Verona": [[2000, 2002]], "Juventus": [[2002, 2010]], "Stuttgart": [[2010, 2011]] }
+    career: { "Chievo": [[2000, 2002]], "Juventus": [[2002, 2010]], "Stuttgart": [[2010, 2011]] }
 },
 "Kevin Mirallas": {
     image: "./player-images/mirallas.png",
