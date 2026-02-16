@@ -555,7 +555,7 @@ const players = {
 },
 "Mauro Camoranesi": {
     image: "./player-images/camoranesi.png",
-    career: { "Chievo": [[2000, 2002]], "Juventus": [[2002, 2010]], "Stuttgart": [[2010, 2011]] }
+    career: { "Verona": [[2000, 2002]], "Juventus": [[2002, 2010]], "Stuttgart": [[2010, 2011]] }
 },
 "Kevin Mirallas": {
     image: "./player-images/mirallas.png",
@@ -715,7 +715,7 @@ const players = {
 },
 "Bafetimbi Gomis": {
     image: "./player-images/gomis.png",
-    career: { "Saint-Etienne": [[2004, 2009]], "Lyon": [[2009, 2014]], "Swansea": [[2014, 2017]], "Marseille": [[2016, 2017]], "Galatasaray": [[2017, 2018], [2022, 2023]], "Al Hilal": [[2018, 2022]]}
+    career: { "Saint-Etienne": [[2004, 2009]], "Lyon": [[2009, 2014]], "Swansea City": [[2014, 2017]], "Marseille": [[2016, 2017]], "Galatasaray": [[2017, 2018], [2022, 2023]], "Al Hilal": [[2018, 2022]]}
 },
 "Benoit Cheyrou": {
     image: "./player-images/cheyrou.png",
@@ -820,6 +820,14 @@ const players = {
 "Jurgen Kohler": {
     image: "./player-images/kohler.png",
     career: { "Bayern Munich": [[1989, 1991]], "Juventus": [[1991, 1995]], "Borussia Dortmund": [[1995, 2002]]}
+},
+"Piero Hincapie": {
+    image: "./player-images/hincapie.png",
+    career: { "Bayer Leverkusen": [[2021, 2026]], "Arsenal": [[2025, 2026]]}
+},
+"Esteban Cambiasso": {
+    image: "./player-images/cambiasso.png",
+    career: { "Real Madrid": [[2002, 2004]], "Inter Milan": [[2004, 2014]], "Leicester City": [[2014, 2015]]}
 }
 };
 
@@ -979,11 +987,11 @@ const managers = {
   },
   "Mark Hughes": {
     image: "./player-images/markhughes.png",
-    career: { "Blackburn Rovers": [[2004, 2008]],"Manchester City": [[2008, 2009]], "Fulham": [[2010, 2011]], "QPR": [[2012, 2012]], "Stoke City": [[2013, 2018]], "Southampton": [[2018, 2018]] },
+    career: { "Blackburn Rovers": [[2004, 2008]],"Manchester City": [[2008, 2009]], "Fulham": [[2010, 2011]], "QPR": [[2012, 2012]], "Stoke": [[2013, 2018]], "Southampton": [[2018, 2018]] },
   },
   "Brendan Rodgers": {
     image: "./player-images/rodgers.png",
-    career: { "Swansea": [[2010, 2012]], "Liverpool": [[2012, 2015]], "Celtic": [[2016, 2019], [2023, 2025]], "Leicester": [[2019, 2023]] },
+    career: { "Swansea": [[2010, 2012]], "Liverpool": [[2012, 2015]], "Celtic": [[2016, 2019], [2023, 2025]], "Leicester City": [[2019, 2023]] },
   },
   "Jorge Jesus": {
     image: "./player-images/jorgejesus.png",
