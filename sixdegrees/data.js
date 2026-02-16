@@ -120,7 +120,7 @@ const players = {
 },
 "Mario Gotze": {
     image: "./player-images/gotze.png",
-    career: { "Borussia Dortmund": [[2009, 2013], [2016, 2020]], "Bayern Munich": [[2013, 2016]], "PSV Eindhoven": [[2020, 2022]], "Eintracht Frankfurt": [[2022, 2026]] },
+    career: { "Borussia Dortmund": [[2009, 2013], [2016, 2020]], "Bayern Munich": [[2013, 2016]], "PSV Eindhoven": [[2020, 2022]], "Frankfurt": [[2022, 2026]] },
 },
 "Michael Ballack": {
     image: "./player-images/ballack.png",
