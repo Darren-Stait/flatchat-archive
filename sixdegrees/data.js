@@ -715,7 +715,7 @@ const players = {
 },
 "Bafetimbi Gomis": {
     image: "./player-images/gomis.png",
-    career: { "Saint-Etienne": [[2004, 2009]], "Lyon": [[2009, 2014]], "Swansea City": [[2014, 2017]], "Marseille": [[2016, 2017]], "Galatasaray": [[2017, 2018], [2022, 2023]], "Al Hilal": [[2018, 2022]]}
+    career: { "Saint-Etienne": [[2004, 2009]], "Lyon": [[2009, 2014]], "Swansea": [[2014, 2017]], "Marseille": [[2016, 2017]], "Galatasaray": [[2017, 2018], [2022, 2023]], "Al Hilal": [[2018, 2022]]}
 },
 "Benoit Cheyrou": {
     image: "./player-images/cheyrou.png",
