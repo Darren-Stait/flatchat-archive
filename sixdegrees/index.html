@@ -1382,6 +1382,14 @@ async function startDailyChallenge() {
 
   const pair = generateDailyPair();
 
+  // 🔥 ADD THIS SAFETY CHECK
+  if (!players[pair.start] || !players[pair.target]) {
+    console.error("Daily pair invalid:", pair);
+    DAILY_MODE = false;
+    showScreen("start-screen");
+    return;
+  }
+
   startPlayer = pair.start;
   targetPlayer = pair.target;
 

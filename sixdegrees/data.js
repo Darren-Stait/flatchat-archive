@@ -823,11 +823,6 @@ const players = {
 }
 };
 
-
-
-
-
-
 // Manager career data: who managed which club during which years
 const managers = {
   "Carlo Ancelotti": { 
