@@ -8,355 +8,204 @@
   <link rel="preconnect" href="https://www.youtube.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+/* Fix width calculations everywhere */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* ============================= */
+/* GLOBAL                        */
+/* ============================= */
 
-    /* HEADER */
-    header {
-      background-color: #25b6c4;
-      color: #fff;
-      padding: 8px 25px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(180deg, #f4f8fa, #eef3f6);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-    .header-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+/* ============================= */
+/* MAIN CARD                     */
+/* ============================= */
 
-    .header-logo {
-      max-width: 520px;
-      height: auto;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+main {
+  flex: 1;
+  width: min(750px, 92%);
+  margin: 60px auto;
+  padding: 45px 40px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
 
-    .header-logo:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
+/* ============================= */
+/* PAGE TITLE                    */
+/* ============================= */
 
-    nav {
-      display: flex;
-      align-items: center;
-    }
+.page-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #25b6c4;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 18px;
+  border-bottom: 3px solid #25b6c4;
+  width: 100%;
+}
 
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: color 0.2s ease;
-    }
+/* ============================= */
+/* IMAGE SECTION                 */
+/* ============================= */
 
-    nav a:hover {
-      color: #f2b632;
-    }
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
 
-    @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-      }
+.picture-section {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  position: relative;
+}
 
-      .header-logo {
-        max-width: 90%;
-      }
+.gallery-container {
+  width: 100%;
+  position: relative;
+}
 
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+.gallery-radio {
+  display: none;
+}
 
-      nav a {
-        display: inline-block;
-        margin: 6px;
-        font-size: 1rem;
-      }
-    }
+.gallery-slides {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* keeps image nicely scaled */
+}
 
-    /* MAIN CONTENT */
-    main {
-      flex: 1;
-      width: 67.5%;
-      margin: 20px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+.gallery-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
 
-    .page-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #25b6c4;
-      text-align: center;
-      margin: 0;
-      padding-bottom: 10px;
-      border-bottom: 3px solid #25b6c4;
-    }
+.gallery-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* 👈 change */
+  background: #e9eef0;   /* soft background behind image */
+}
 
-    .content-wrapper {
-      display: flex;
-      gap: 30px;
-      align-items: stretch;
-      flex: 1;
-    }
+/* Slide visibility */
+#slide1:checked ~ .gallery-slides .slide1,
+#slide2:checked ~ .gallery-slides .slide2,
+#slide3:checked ~ .gallery-slides .slide3 {
+  opacity: 1;
+  z-index: 1;
+}
 
-    /* LEFT SIDE - GALLERY */
-    .picture-section {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      background: #e0e0e0;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      position: relative;
-      height: 520px;
-    }
+/* Arrow styling */
 
-    .gallery-container {
-      position: relative;
-      width: 100%;
-      flex: 1;
-      height: 100%;
-      display: block;
-      overflow: hidden;
-    }
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: rgba(37, 182, 196, 0.9);
+  color: white;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
 
-    /* Hide radio buttons */
-    .gallery-radio {
-      display: none;
-    }
+.gallery-arrow:hover {
+  transform: translateY(-50%) scale(1.1);
+}
 
-    .gallery-slides {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      display: block;
-    }
+/* Only show correct arrow */
+.arrow-next { display: none; }
+#slide1:checked ~ .arrow-next.from1 { display: flex; }
+#slide2:checked ~ .arrow-next.from2 { display: flex; }
+#slide3:checked ~ .arrow-next.from3 { display: flex; }
 
-    .gallery-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* ============================= */
+/* BUTTON SECTION                */
+/* ============================= */
 
-    .gallery-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+.selection-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
 
-    /* Show slide when corresponding radio is checked */
-    #slide1:checked ~ .gallery-slides .slide1,
-    #slide2:checked ~ .gallery-slides .slide2 {
-      opacity: 1;
-      z-index: 1;
-    }
+.selection-box {
+  width: 100%;
+  background: linear-gradient(135deg, #25b6c4, #1e9aa6);
+  color: #fff;
+  padding: 22px;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
 
-    /* Arrow styling */
-    .gallery-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(37, 182, 196, 0.8);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      user-select: none;
-      right: 10px;
-    }
+.selection-box img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
 
-    .gallery-arrow:hover {
-      background: rgba(37, 182, 196, 1);
-      transform: translateY(-50%) scale(1.1);
-    }
+.selection-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+}
 
-    /* Single Next button: only show the correct target per slide */
-    .arrow-next { display: none; }
-    #slide1:checked ~ .arrow-next.from1 { display: flex; }
-    #slide2:checked ~ .arrow-next.from2 { display: flex; }
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
 
-    .selection-section {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      justify-content: center;
-      align-items: stretch;
-    }
+@media (max-width: 600px) {
+  main {
+    padding: 30px 20px;
+  }
 
-    .selection-box {
-      background: #25b6c4;
-      color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
+  .page-title {
+    font-size: 1.9rem;
+  }
 
-    .selection-box img {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-    }
-
-    .selection-box:hover {
-      background: #1e9aa6;
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    @media (max-width: 900px) {
-      main {
-        width: 95%;
-      }
-
-      .content-wrapper {
-        flex-direction: column;
-      }
-
-      .picture-section {
-        height: 400px;
-        flex: 0 0 auto;
-      }
-    }
-
-     /* FOOTER */
-    footer {
-      background-color: #25b6c4;
-      color: #fff;
-      text-align: center;
-      padding: 10px 15px;
-      font-size: 0.9rem;
-      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    footer p {
-      margin: 0 0 8px;
-      line-height: 1.4;
-    }
-
-    .social-links {
-      margin-top: 6px;
-    }
-
-    .social-links a {
-      display: inline-block;
-      margin: 0 8px;
-      text-decoration: none;
-      transition: transform 0.3s ease;
-    }
-
-    .social-links a:hover {
-      transform: scale(1.1);
-    }
-
-    .social-links img {
-      width: 36px;
-      height: 36px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .social-links img:hover {
-      transform: scale(1.1);
-    }
-
-    /* Default: desktop view */
-    .footer-random {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      z-index: 10;
-    }
-
-    #randomMomentBtn {
-      background: #f5f5f5;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      padding: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    #randomMomentBtn:hover {
-      transform: rotate(15deg) scale(1.1);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    #randomMomentBtn img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: block;
-    }
-
-    /* ✅ Mobile view: place button below text, centered */
-    @media (max-width: 768px) {
-      .footer-random {
-        position: static; /* no absolute positioning */
-        margin-top: 10px;
-        display: flex;
-        justify-content: center;
-      }
-
-      #randomMomentBtn img {
-        width: 42px; /* slightly smaller on mobile */
-        height: 42px;
-      }
-    }
+  .gallery-slides {
+    aspect-ratio: 1 / 1;
+  }
+}
 
     /* CSS-only modal (uses :target) */
     .modal {
@@ -629,7 +478,7 @@
           <!-- Slides -->
           <div class="gallery-slides">
             <div class="gallery-slide slide1">
-              <img src="../icons/calum.png" alt="Calum image 1">
+              <img src="../icons/calum-wwe.png" alt="Calum image 1">
             </div>
             <div class="gallery-slide slide2">
               <img src="../icons/calum-she.png" alt="Calum image 2">

@@ -171,6 +171,61 @@
       }
     }
 
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal:target {
+  display: flex;
+}
+
+.modal-inner {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+.video-modal {
+  max-width: 800px;
+  width: 95%;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 
   </style>
 </head>
@@ -201,35 +256,137 @@
 
       <div class="video-card">
         <div class="video-wrapper highlights-wrapper">
-          <div class="highlight-boxes">
-            <a href="jacob-flatchat-yt.html#modal-great-2" class="highlight-box">
-              <div class="highlight-date">Date added: 28th December 2025</div>
-              <div class="highlight-text">Grafite!</div>
-            </a>
-            <a href="aaron-flatchat-yt.html#modal-great-10" class="highlight-box">
-              <div class="highlight-date">Date added: 28th December 2025</div>
-              <div class="highlight-text">Aaron sweeps the kit round!</div>
-            </a>
-            <a href="jacob-flatchat-yt.html#modal-general-16" class="highlight-box">
-              <div class="highlight-date">Date added: 28th December 2025</div>
-              <div class="highlight-text">Idiot! Idiot!</div>
-            </a>
-            <a href="heggie-flatchat-yt.html#modal-general-18" class="highlight-box">
-              <div class="highlight-date">Date added: 28th December 2025</div>
-              <div class="highlight-text">Traitor Twist?!?!</div>
-            </a>
-          </div>
+            <div class="highlight-boxes" id="latestHighlights"></div>
         </div>
-        <div class="video-title">Latest Added Highlights</div>
+        <div class="video-title">Latest Highlights</div>
       </div>
     </div>
   </main>
 
   <div data-include="includes/footer.html"></div>
-
+  
 <script src="scripts/modal-auto-stop-video.js"></script>
 <script src="scripts/randomMoment.js"></script>
-
 <script src="includes/include-html.js"></script>
+
+<script>
+fetch("stats/videos.json")
+  .then(res => res.json())
+  .then(data => {
+
+    const videos = data.videos;
+    const highlightContainer = document.getElementById("latestHighlights");
+
+    let allMoments = [];
+
+    videos.forEach(video => {
+
+      if (!video.moments) return;
+
+      video.moments.forEach(moment => {
+
+        allMoments.push({
+          id: moment.id,
+          title: moment.title,
+          date: video.releaseDate,
+          people: moment.people || [],
+          videoId: video.youtubeId,
+          timestamp: moment.timestamp
+        });
+
+      });
+
+    });
+
+    // Sort newest first
+    allMoments.sort((a,b) => new Date(b.date) - new Date(a.date));
+
+    // Take top 4
+    const latestHighlights = allMoments.slice(0,8);
+
+latestHighlights.forEach(moment => {
+
+  const formattedDate = new Date(moment.date)
+    .toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
+
+  // Create highlight box
+  const box = document.createElement("a");
+  box.href = `#highlight-${moment.id}`;
+  box.className = "highlight-box";
+
+  box.innerHTML = `
+    <div class="highlight-date">
+      Highlight Date: ${formattedDate}
+    </div>
+    <div class="highlight-text">
+      ${moment.title}
+    </div>
+  `;
+
+  highlightContainer.appendChild(box);
+
+const modal = document.createElement("div");
+modal.id = `highlight-${moment.id}`;
+modal.className = "modal";
+
+modal.innerHTML = `
+  <div class="modal-inner video-modal">
+    <a href="#" class="modal-close">×</a>
+    <h3 class="modal-title">${moment.title}</h3>
+    
+    <div class="video-wrapper"
+         data-video="https://www.youtube.com/embed/${moment.videoId}?start=${moment.timestamp}&autoplay=1">
+    </div>
+  </div>
+`;
+
+document.body.appendChild(modal);
+
+
+
+});
+
+
+  })
+  .catch(err => console.error("Highlights failed to load:", err));
+
+document.addEventListener("click", function(e) {
+
+  // Open modal
+  if (e.target.closest(".highlight-box")) {
+
+    const href = e.target.closest(".highlight-box").getAttribute("href");
+    const modal = document.querySelector(href);
+    const wrapper = modal.querySelector(".video-wrapper");
+
+    if (!wrapper.querySelector("iframe")) {
+      const iframe = document.createElement("iframe");
+      iframe.src = wrapper.dataset.video;
+      iframe.frameBorder = "0";
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+
+      wrapper.appendChild(iframe);
+    }
+  }
+
+  // Close modal → remove iframe to stop playback
+  if (e.target.classList.contains("modal-close")) {
+
+    const modal = e.target.closest(".modal");
+    const wrapper = modal.querySelector(".video-wrapper");
+
+    wrapper.innerHTML = ""; // removes iframe
+  }
+
+});
+
+</script>
+
 </body>
 </html>
