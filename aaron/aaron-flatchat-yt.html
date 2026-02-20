@@ -435,12 +435,10 @@ main {
     </div>
   </div>
 
-
+<div id="dynamic-modals"></div>
 <div data-include="../includes/footer.html"></div>
-
-<script src="../scripts/modal-auto-stop-video.js"></script>
-<script src="../scripts/randomMoment.js"></script>
 <script src="../includes/include-html.js"></script>
+
 <script>
 const person = "aaron"; // change per page
 
@@ -448,9 +446,7 @@ fetch('/stats/videos.json')
   .then(res => res.json())
   .then(data => {
 
-    const dynamicContainer = document.createElement("div");
-    dynamicContainer.id = "dynamic-modals";
-    document.body.appendChild(dynamicContainer);
+    const dynamicContainer = document.getElementById("dynamic-modals");
 
     const grouped = {};
 
@@ -528,9 +524,3 @@ fetch('/stats/videos.json')
 </script>
 </body>
 </html>
-
-
-
-
-
-
