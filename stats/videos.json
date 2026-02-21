@@ -140,6 +140,54 @@
         }
       ]
     },
+    {
+      "id": "extremetension-2025-11-08",
+      "title": "This EXTREME Football Tension Quiz Was Insanely Difficult...",
+      "youtubeId": "u1QnFSMMVks",
+      "releaseDate": "2025-11-08",
+      "type": "extremetension",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-violin-noises",
+          "title": "Sad violin noises.",
+          "description": "Aaron mocks one of the lads with his sad little violin.",
+          "timestamp": 2703,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]
+    },
+    { 
+      "id": "draft-2025-11-06",
+      "title": "This Is The Greatest Football Draft Challenge Ever Created...",
+      "youtubeId": "jB7ODpX7k6Y",
+      "releaseDate": "2025-11-06",
+      "type": "draft",
+      "moments": [
+        {
+          "id": "aaron-imagine-me",
+          "title": "Imagine if it was me...",
+          "description": "In this insane draft challenge video, Aaron must select his goalkeeper, it couldn't be who he thinks it is could it?!",
+          "timestamp": 218,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        },
+        {
+          "id": "heggie-at-right-back",
+          "title": "He's got himself at Right Back too...",
+          "description": "In this all timer draft challenge, the boys are reading off their teams when Heggie makes a HILARIOUS remake about one of Aaron's players.",
+          "timestamp": 2990,
+          "people": ["heggie"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
     { 
       "id": "misc-2025-11-04",
       "title": "We Rolled All Of Our Favourite Football Quizzes Into This Video",
@@ -498,6 +546,29 @@
       ]        
     },
     {
+      "id": "misc-2025-09-05",
+      "title": "This Viewers 2014 World Cup Quiz Was One Of The Best Quizzes We Have Attempted...",
+      "youtubeId": "7McBvovzc60",
+      "releaseDate": "2025-09-05",
+      "type": "misc",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-very-pacy",
+          "title": "And he was pacy. Very pacy.",
+          "description": "Aaron mutters of the most random sentence in history during this 2014 WC quiz.",
+          "timestamp": 1578,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
       "id": "whq-2025-08-30",
       "title": "This Viewers Worlds Hardest Football Quiz Was A Great Test Of Our Knowledge...",
       "youtubeId": "8tuoOnzcYwk",
@@ -653,6 +724,29 @@
       ]        
     },
     {
+      "id": "misc-2025-07-23",
+      "title": "We Competed In A Charity Football Tournament!!!",
+      "youtubeId": "xYmeefhqU7w",
+      "releaseDate": "2025-07-23",
+      "type": "misc",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-attenborough",
+          "title": "Aaron Attenborough",
+          "description": "Aaron becomes a living legend for a moment as he embarks on Heggie Watch.",
+          "timestamp": 108,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
       "id": "tension-2025-07-10",
       "title": "This Premier League Tension Quiz Seriously Tested Our Ball Knowledge...",
       "youtubeId": "f_Idb1GuYjM",
@@ -779,6 +873,45 @@
       ]        
     },
     {
+      "id": "jeopardy-2025-06-10",
+      "title": "This Football Jeopardy Quiz Was CHAOS!!!",
+      "youtubeId": "yysUQhoS0UI",
+      "releaseDate": "2025-06-10",
+      "type": "jeopardy",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-read-out",
+          "title": "Read it out then!",
+          "description": "Aaron hosts this jeopardy and he drops a howler on this Name that Trophy category, literally leaving the name of the trophy on the image!",
+          "timestamp": 362,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        },
+        {
+          "id": "aaron-wrong-way",
+          "title": "You got it the wrong way round man!",
+          "description": "Aaron messes up another one of the rounds as he makes it impossible for the boys on this one!",
+          "timestamp": 2040,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        },
+        {
+          "id": "calum-world-cup-year",
+          "title": "That wasn't a world cup year!",
+          "description": "This football jeopardy gets Calum all confused and he gives this WOEFUL answer, leaving the other boys in stitches!",
+          "timestamp": 1404,
+          "people": ["calum"],
+          "categories": ["wild-shouts"]
+        }
+      ]        
+    },
+    {
       "id": "careerpath-2025-06-02",
       "title": "This Viewers CAREER PATH Quiz Was A Good Test Of Our Ball Knowledge",
       "youtubeId": "fowrLx586Io",
@@ -879,6 +1012,29 @@
       ]        
     },
     {
+      "id": "misc-2025-05-14",
+      "title": "We Attempted The Most RANDOM FOOTBALL QUIZ Ever Made...",
+      "youtubeId": "MVtxnaa_8Mk",
+      "releaseDate": "2025-05-14",
+      "type": "misc",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-jacob-eyes",
+          "title": "Jacob's missing 2 of his 4 eyes.",
+          "description": "In this Viewer submitted EPIC, Aaron makes a passing remark about Jacob when the boy is missing from the video.",
+          "timestamp": 91,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
       "id": "squadguesser-2025-05-09",
       "title": "This Viewers *NEW SQUADGUESSER* Football Quiz Was EXCELLENT!!!",
       "youtubeId": "YhNGu0O9UCA",
@@ -950,6 +1106,23 @@
       ]
     },
     {
+      "id": "misc-2025-05-01",
+      "title": "This Viewers *NEW* FOOTBALL QUIZ Was EXCEPTIONAL!!!",
+      "youtubeId": "gDclR5luMbM",
+      "releaseDate": "2025-05-01",
+      "type": "misc",
+      "moments": [
+        {
+          "id": "aaron-busquets-f1",
+          "title": "Busquets isn't an F1 driver though.",
+          "description": "It's connection wall time and the lads suggest it may have something to do with F1, Aaron disagrees in the most HILARIOUS way.",
+          "timestamp": 1187,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]
+    },
+    {
       "id": "jeopardy-2025-04-27",
       "title": "The Lads Battled It Out In This FOOTBALL JEOPARDY QUIZ...",
       "youtubeId": "IWYo_nmsiwU",
@@ -989,6 +1162,52 @@
       ]
     },
     {
+      "id": "misc-2025-04-19",
+      "title": "This Head To Head FOOTBALL QUIZ Was Incredible!!!",
+      "youtubeId": "ROFr2uvN0j4",
+      "releaseDate": "2025-04-19",
+      "type": "misc",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-sunshine",
+          "title": "Sunshine.",
+          "description": "Aaron gets wound up by Heggie in this Head to Head quiz leading to him barking at the lad.",
+          "timestamp": 753,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
+      "id": "taskmaster-2025-04-18",
+      "title": "Taskmaster… FOOTBALL EDITION!!!",
+      "youtubeId": "jUdGLR_aWvk",
+      "releaseDate": "2025-04-18",
+      "type": "taskmaster",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-back-and-forth",
+          "title": "Back and forth, back and forth.",
+          "description": "It's Taskmaster time, Aaron must hit the crossbar from the first away as possible. Chaos ensues. (Watch on 2x speed)",
+          "timestamp": 1829,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
       "id": "guess-who-2025-04-03",
       "title": "This Viewers GUESS WHO Football Quiz Was One Of The Best Yet...",
       "youtubeId": "w6yu1PVfqbg",
@@ -1008,6 +1227,37 @@
           "timestamp": 266,
           "people": ["aaron"],
           "categories": ["wild-shouts"]
+        }
+      ]        
+    },
+    {
+      "id": "jeopardy-2025-03-22",
+      "title": "There Was Some UNBELIEVABLE PERFORMANCES In This FOOTBALL JEOPARDY QUIZ...",
+      "youtubeId": "VDjeYv-B5Eo",
+      "releaseDate": "2025-03-22",
+      "type": "jeopardy",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-paddling",
+          "title": "Graceful on top, paddling down the bottom.",
+          "description": "In another edition of Jeopardy, Aaron gets this question right about a Championshippy club and follows it up with a ZINGER about his performance in the episode.",
+          "timestamp": 1824,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        },
+        {
+          "id": "jacob-getting-a-pumping",
+          "title": "If I'm going to get pumped, let's get pumped.",
+          "description": "Jacob puts out a questionable statement on this edition of jeopardy.",
+          "timestamp": 404,
+          "people": ["jacob"],
+          "categories": ["general-funnies"]
         }
       ]        
     },
@@ -1058,6 +1308,29 @@
       ]        
     },
     {
+      "id": "pointless-2025-02-05",
+      "title": "This *POINTLESS QUIZ* Made One Of The Boys RAGE!!!",
+      "youtubeId": "dHzCOPetY6A",
+      "releaseDate": "2025-02-05",
+      "type": "pointless",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-get-it-up-ya",
+          "title": "Get it up ya.",
+          "description": "Another pointless, another FIRE clapback from Aaron as Jacob tries to insult him.",
+          "timestamp": 263,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
       "id": "squadguesser-2025-01-28",
       "title": "These New *FOOTBALL SQUADGUESSER* Rules Made It Much More DIFFICULT...",
       "youtubeId": "3SM5WG7hiYM",
@@ -1089,6 +1362,29 @@
       ]        
     },
     {
+      "id": "pressure-2025-01-22",
+      "title": "This FOOTBALL PRESSURE QUIZ Produces Our Most CONTROVERSIAL Call Yet...",
+      "youtubeId": "VJ_pCLbUa_E",
+      "releaseDate": "2025-01-22",
+      "type": "pressure",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-answer-france",
+          "title": "The answer was France.",
+          "description": "Another original pressure quiz this time and Aaron doesn't even know the answer to this question.",
+          "timestamp": 681,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
       "id": "misc-2025-01-14",
       "title": "This *PRIZE TOWER* Football Quiz Gives YOU The Chance To Win Prizes…",
       "youtubeId": "si8sw_4ytAI",
@@ -1106,6 +1402,29 @@
           "title": "Amwhati?",
           "description": "In this funky prize tower football quiz, Aaron repeats a certain ex Burnley players name in a peculiar way???",
           "timestamp": 1865,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
+      "id": "careerpath-2025-01-07",
+      "title": "Aaron LOSSES HIS HEAD In This CAREER PATH FOOTBALL QUIZ!!!",
+      "youtubeId": "6sLCDNIvcC0",
+      "releaseDate": "2025-01-07",
+      "type": "careerpath",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-zidane-maybe",
+          "title": "How about Zidane?",
+          "description": "On this edition of Career Path quizzes, Heggie reels in a big catch as Aaron goes off so HARD he needs to be censored.",
+          "timestamp": 851,
           "people": ["aaron"],
           "categories": ["general-funnies"]
         }
@@ -1169,6 +1488,121 @@
           "description": "In this BIG FAT QUIZ OF THE YEAR, after a HONKING answer by Aaron, Calum goes on the wind up and gets Aaron to have a breakdown with this one.",
           "timestamp": 2350,
           "people": ["calum"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
+      "id": "millionpounddrop-2024-12-22",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #22 - The Million Pound Drop!!!",
+      "youtubeId": "tUSDsq26Tfg",
+      "releaseDate": "2024-12-22",
+      "type": "millionpounddrop",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-super-mcginn",
+          "title": "Super John McGinn",
+          "description": "Aaron imitates his idol in this Million Pound Drop episode.",
+          "timestamp": 138,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
+      "id": "squadguesser-2024-12-16",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #16 - Football SquadGuesser!!!",
+      "youtubeId": "EjsCI8r4TZ4",
+      "releaseDate": "2024-12-16",
+      "type": "squadguesser",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-11-german",
+          "title": "There's 11 german clubs.",
+          "description": "Aaron is tasked with making his own SquadGuesser quiz which produces this HOWLER of a round.",
+          "timestamp": 810,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
+      "id": "killer-tic-tac-toe-2024-12-08",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #8 - Killer Tic-Tac-Toe!!!",
+      "youtubeId": "8Caj-VitXZQ",
+      "releaseDate": "2024-12-08",
+      "type": "killer-tic-tac-toe",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-anelka",
+          "title": "Anelka? Killer.",
+          "description": "Aaron drops a generational moment here as he mimics Heggie's actions to mock the poor lad.",
+          "timestamp": 1208,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
+      "id": "whodareswins-2024-12-04",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #4 - Who Dares Wins...",
+      "youtubeId": "Aw3duA4DsL4",
+      "releaseDate": "2024-12-04",
+      "type": "whodareswins",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-goat-cam",
+          "title": "GOAT Cam.",
+          "description": "It's Who Dares Wins time and the GOAT has left himself a lot of scoring to do in this one.",
+          "timestamp": 1015,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
+      "id": "millionaire-2024-11-22",
+      "title": "Aaron Hosts THE MOST CHAOTIC *Who Wants To Be A Millionaire* Football Quiz EVER!!!",
+      "youtubeId": "Qd2_dUm-aCk",
+      "releaseDate": "2024-11-22",
+      "type": "millionaire",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-premier-league-site",
+          "title": "It's based off the Premier League website.",
+          "description": "Aaron brings potentially the most DISGUSTING question to this Who want's to be a Millionaire!",
+          "timestamp": 1164,
+          "people": ["aaron"],
           "categories": ["general-funnies"]
         }
       ]        
@@ -1243,6 +1677,29 @@
       ]        
     },
     {
+      "id": "killer-tic-tac-toe-2024-11-02",
+      "title": "One Of The Boys REFUSES TO TALK After LOSING In This FOOTBALL *KILLER* TIC-TAC-TOE Episode!!!",
+      "youtubeId": "s86JoRyv8Ss",
+      "releaseDate": "2024-11-02",
+      "type": "killer-tic-tac-toe",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-fizzing",
+          "title": "He's fizzing.",
+          "description": "The GOAT throws the mother of all tantrums after having a hard time on this Killer Tic-Tac-Toe.",
+          "timestamp": 736,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]
+    },
+    {
       "id": "pointless-2024-11-01",
       "title": "This *FOOTBALL POINTLESS* Answer Had The Boys In ABSOLUTE STITCHES!!!",
       "youtubeId": "ijeKLtofRvo",
@@ -1285,6 +1742,37 @@
           "timestamp": 808,
           "people": ["aaron"],
           "categories": ["wild-shouts"]
+        }
+      ]
+    },
+    {
+      "id": "tenable-2024-10-21",
+      "title": "This FOOTBALL TENABLE Video Proves Why AARON Is The GREATEST OF ALL TIME....",
+      "youtubeId": "zQ3v7gAPY8c",
+      "releaseDate": "2024-10-21",
+      "type": "tenable",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-best-hairline",
+          "title": "Might be best with that hairline.",
+          "description": "During this edition of Tenable, the boys have an answer relating to Turkey for which Aaron uses as an opportunity to insult one of the boys.",
+          "timestamp": 114,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        },
+        {
+          "id": "aaron-do-your-job",
+          "title": "Do your job or don't do it then.",
+          "description": "During this edition of Tenable, Aaron makes a bold statement about a players nationality and tensions erupt between Heggie and Aaron.",
+          "timestamp": 743,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
         }
       ]
     },
@@ -1354,6 +1842,29 @@
           "timestamp": 482,
           "people": ["aaron"],
           "categories": ["face-blindness"]
+        }
+      ]        
+    },
+    {
+      "id": "tenable-2024-09-03",
+      "title": "AARON LOSSES HIS HEAD In This FOOTBALL TENABLE Episode!!!",
+      "youtubeId": "tFa4YshVj0k",
+      "releaseDate": "2024-09-03",
+      "type": "tenable",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-washington-dc",
+          "title": "It's literally Washington comma DC.",
+          "description": "In a classic TENABLE episode, Aaron loses his marbles and throws the mother of all strops after getting this answer denied by the host.",
+          "timestamp": 242,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
         }
       ]        
     },
@@ -1629,6 +2140,29 @@
       ]        
     },
     {
+      "id": "misc-2023-11-24",
+      "title": "The Ultimate PREMIER LEAGUE QUIZ!!! This Is PURE BARCLAYS!!!",
+      "youtubeId": "wsj92b9ngYM",
+      "releaseDate": "2023-11-24",
+      "type": "misc",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-mr-beans",
+          "title": "Mr. Bean?!",
+          "description": "Aaron must name managers to manage one of the EPL 'Big 6' but he names a certain actor instead?!",
+          "timestamp": 1275,
+          "people": ["aaron"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
       "id": "misc-2023-10-27",
       "title": "Our WORST Forfeit Yet!!! Race Against Time FOOTBALL QUIZ!",
       "youtubeId": "EIFsMknQE0k",
@@ -1718,6 +2252,29 @@
           "description": "Heggie shows why we should leave the goalkeeping to Aaron as he makes a vast error that results in quite the impact.",
           "timestamp": 868,
           "people": ["heggie"],
+          "categories": ["general-funnies"]
+        }
+      ]        
+    },
+    {
+      "id": "taskmaster-2023-07-10",
+      "title": "TASKMASTER - FOOTBALL EDITION! FT FOOTBALL CHALLENGES & FORFEITS!!!",
+      "youtubeId": "VqmpoKyOxNk",
+      "releaseDate": "2023-07-10",
+      "type": "taskmaster",
+      "scores": {
+        "aaron": 12,
+        "calum": 8,
+        "jacob": 6,
+        "heggie": 4
+      },
+      "moments": [
+        {
+          "id": "aaron-unbelievable",
+          "title": "I can't believe what I've just seen.",
+          "description": "In this OG Flatchat Taskmaster video, the boys must get a ball through a hoop without using their hands, the GOAT be GOATing.",
+          "timestamp": 933,
+          "people": ["aaron"],
           "categories": ["general-funnies"]
         }
       ]        
