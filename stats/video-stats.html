@@ -389,7 +389,12 @@ const formatDisplayNames = {
   "careerpath": "Career Path",
   "pointless": "Pointless",
   "ufqshowdown": "Ultimate Football Quiz Showdown",
-  "questionofsport": "A Question of Sport"
+  "questionofsport": "A Question of Sport",
+  "killer-tic-tac-toe": "Killer Tic-Tac-Toe",
+  "millionaire": "Who Wants To Be A Millionaire",
+  "millionpounddrop": "Million Pound Drop",
+  "extremetension": "Extreme Tension",
+  "whodareswins": "Who Dares Wins"
 };
 
 let allVideos = [];
@@ -412,6 +417,8 @@ function buildTypeButtons() {
 
   allVideos.forEach(video => {
     if (video.type === "misc") return; // still hide misc button
+    if (video.type === "stream") return;
+    if (video.type === "draft") return;
 
     if (!formatCounts[video.type]) {
       formatCounts[video.type] = 0;
