@@ -16,26 +16,26 @@ body {
 }
 
 main {
-  width: min(1000px, 95%);
-  margin: 60px auto;
+  width: min(1200px, 95%);
+  margin: 30px auto;
   background: #fff;
-  padding: 40px;
-  border-radius: 18px;
-  box-shadow: 0 18px 50px rgba(0,0,0,0.08);
+  padding: 28px 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 
 h1 {
   text-align: center;
   color: #25b6c4;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
 .type-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 50px 30px;
+  grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+  gap: 16px 12px;
+  padding: 10px 0;
   justify-items: center;
-  padding: 20px 0;
 }
 
 .type-icon {
@@ -67,8 +67,8 @@ h1 {
 }
 
 .type-circle {
-  width: 135px;
-  height: 135px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   background: linear-gradient(145deg, #2bb6c4, #1e9aa6);
   display: flex;
@@ -81,8 +81,8 @@ h1 {
 }
 
 .type-circle img {
-  max-width: 85%;
-  max-height: 85%;
+  max-width: 80%;
+  max-height: 80%;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -92,9 +92,9 @@ h1 {
 }
 
 .type-label {
-  margin-top: 16px;
+  margin-top: 10px;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   letter-spacing: 0.3px;
   color: #1e9aa6;
 }
@@ -120,9 +120,9 @@ h1 {
 
 .player-card {
   background: #f3f7f8;
-  border-radius: 12px;
-  padding: 14px 16px;
-  margin-bottom: 16px;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -147,15 +147,15 @@ h1 {
 .player-stats {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
+  gap: 8px;
   text-align: center;
 }
 
 .player-stats div {
   background: #ffffff;
-  padding: 10px 8px;
+  padding: 8px 6px;
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .player-stats span {
@@ -177,25 +177,26 @@ h1 {
 }
 
 #overall-leaderboard {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 #overall-leaderboard h2 {
-  text-align: center;
-  color: #25b6c4;
-  margin-bottom: 25px;
+  text-align: left;
+  margin-bottom: 18px;
+  font-size: 1.1rem;
 }
 
 .leaderboard-row {
   display: grid;
-  grid-template-columns: 1fr auto auto auto auto auto;
+  grid-template-columns: 1fr auto;
   gap: 10px;
   align-items: center;
-  padding: 10px 15px;
+  padding: 8px 10px;
   background: #f3f7f8;
   border-radius: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 600;
+  font-size: 0.85rem;
 }
 
 .leaderboard-row.first {
@@ -213,13 +214,23 @@ h1 {
   color: white;
 }
 
-/* Score history tray */
+.leaderboard-row span:last-child {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .score-history {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  padding-top: 8px;
+  gap: 6px;
+  overflow-x: auto;
+  padding-top: 6px;
   border-top: 1px solid #e2e8ea;
+  scrollbar-width: thin;
+}
+
+.score-history::-webkit-scrollbar {
+  height: 6px;
 }
 
 .score-pill {
@@ -262,6 +273,66 @@ h1 {
   color: #25b6c4;
 }
 
+#statsContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 20px;
+}
+
+.main-dashboard {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main-dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+.stats-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  padding: 6px 14px;
+  background: #25b6c4;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #1e9aa6;
+}
+.page-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.page-subtext {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #6b7c85;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
 </head>
 
@@ -269,20 +340,32 @@ h1 {
 <div data-include="../includes/header.html"></div>
 <main>
 
-<h1>Flatchat Video Stats</h1>
-
-<div id="overall-leaderboard">
-  <h2>Overall Medal Table</h2>
-  <div id="leaderboardContent"></div>
+<div class="page-header">
+  <h1>Flatchat Video Stats</h1>
+  <p class="page-subtext">
+    Select a quiz format to view individual format stats and score history.
+  </p>
 </div>
 
-<div id="type-selection">
-<div class="type-grid" id="typeGrid"></div>
+<div class="main-dashboard">
+
+  <div id="overall-leaderboard" class="dashboard-card">
+    <h2>Overall Medal Table</h2>
+    <div id="leaderboardContent"></div>
+  </div>
+
+  <div id="type-selection" class="dashboard-card">
+    <h2>Formats</h2>
+    <div class="type-grid" id="typeGrid"></div>
+  </div>
+
 </div>
 
 <div id="type-stats" class="hidden stats-section">
+<div class="stats-header">
   <div class="back-btn" onclick="goBack()">← Back</div>
   <h2 id="typeTitle"></h2>
+</div>
   <div id="statsContent"></div>
 </div>
 
@@ -312,7 +395,7 @@ const formatDisplayNames = {
 
 let allVideos = [];
 
-fetch('./videos.json')
+fetch('../stats/videos.json')
   .then(res => res.json())
   .then(data => {
     allVideos = data.videos;
@@ -535,12 +618,15 @@ players.forEach(player => {
 });
 
 
-  statsHTML += `
-    <div class="player-card">
-      <h3>General Stats</h3>
-      <div class="stat-row"><span>Total Videos</span><span>${typeVideos.length}</span></div>
+statsHTML += `
+  <div class="player-card">
+    <h3>General</h3>
+    <div class="stat-row">
+      <span>Total Videos</span>
+      <strong>${typeVideos.length}</strong>
     </div>
-  `;
+  </div>
+`;
 
   document.getElementById("statsContent").innerHTML = statsHTML;
 }
