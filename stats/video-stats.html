@@ -135,12 +135,35 @@ h1 {
   gap: 14px;
 }
 
+.player-header img + img {
+  margin-left: -15px;
+  border: 3px solid #f3f7f8;
+}
+
 .player-avatar {
   width: 55px;
   height: 55px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.leaderboard-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.leaderboard-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.leaderboard-avatar + .leaderboard-avatar {
+  margin-left: -8px;
+  border: 2px solid #f3f7f8;
 }
 
 /* Stats grid */
@@ -189,19 +212,79 @@ h1 {
 .leaderboard-row {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 10px;
   align-items: center;
-  padding: 8px 10px;
+  padding: 18px 22px;
   background: #f3f7f8;
-  border-radius: 10px;
-  margin-bottom: 6px;
-  font-weight: 600;
-  font-size: 0.85rem;
+  border-radius: 18px;
+  margin-bottom: 16px;
+}
+
+.leaderboard-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.leaderboard-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.leaderboard-right {
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+}
+
+.leaderboard-medals {
+  display: grid;
+  grid-template-columns: repeat(4, 30px);
+  justify-content: end;
+  text-align: center;
+}
+
+.leaderboard-medals span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 30px;
+}
+
+.leaderboard-medals span small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;       /* forces identical emoji height */
+  font-size: 16px;
+  line-height: 1;
+}
+.leaderboard-medals span.spoon small {
+  transform: translateY(2px);
+}
+.leaderboard-medals span strong {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.1;
+}
+
+.leaderboard-medals strong {
+  font-weight: 700;
+}
+
+.leaderboard-points {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #25b6c4;
 }
 
 .leaderboard-row.first {
   background: linear-gradient(135deg,#ffd700,#ffb700);
   color: #222;
+}
+
+.leaderboard-row.first .leaderboard-avatar {
+  border: 2px solid rgba(255,255,255,0.6);
 }
 
 .leaderboard-row.second {
@@ -212,12 +295,6 @@ h1 {
 .leaderboard-row.third {
   background: linear-gradient(135deg,#cd7f32,#b8732f);
   color: white;
-}
-
-.leaderboard-row span:last-child {
-  display: flex;
-  gap: 10px;
-  align-items: center;
 }
 
 .score-history {
@@ -271,6 +348,34 @@ h1 {
 .format-leaderboard h3 {
   margin-bottom: 18px;
   color: #25b6c4;
+}
+
+/* Compact version for format leaderboards */
+.format-leaderboard .leaderboard-row {
+  padding: 12px 16px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+
+.format-leaderboard .leaderboard-name {
+  font-size: 0.95rem;
+}
+
+.format-leaderboard .leaderboard-medals {
+  grid-template-columns: repeat(4, 32px);
+}
+
+.format-leaderboard .leaderboard-medals span small {
+  font-size: 12px;
+  height: 16px;
+}
+
+.format-leaderboard .leaderboard-medals span strong {
+  font-size: 0.9rem;
+}
+
+.format-leaderboard .leaderboard-points {
+  font-size: 1rem;
 }
 
 #statsContent {
@@ -332,6 +437,64 @@ h1 {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Overview styling */
+.overview-card {
+  margin-bottom: 24px;
+}
+
+.overview-header {
+  margin-bottom: 16px;
+}
+
+.overview-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.overview-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.overview-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.overview-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.overview-item:last-child {
+  border-bottom: none;
+}
+
+.overview-item span {
+  font-size: 0.8rem;
+  color: #6b7c85;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.overview-item strong,
+.overview-item a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #25b6c4;
+  text-decoration: none;
+}
+
+.overview-item a:hover {
+  text-decoration: underline;
 }
 </style>
 </head>
@@ -397,9 +560,17 @@ const formatDisplayNames = {
   "whodareswins": "Who Dares Wins"
 };
 
+const playerFullNames = {
+  "aaron": "Aaron Turnbull",
+  "calum": "Calum Porter",
+  "jacob": "Jacob Murray",
+  "heggie": "Heggie Heggerson",
+  "andy": "Andy Halliday"
+};
+
 let allVideos = [];
 
-fetch('../stats/videos.json')
+fetch('https://www.flatchat-moments.uk/stats/videos.json')
   .then(res => res.json())
   .then(data => {
     allVideos = data.videos;
@@ -471,20 +642,16 @@ function showStats(type) {
   document.getElementById("typeTitle").textContent = formatType(type) + " Stats";
 
   const typeVideos = allVideos.filter(v => v.type === type);
-    const players = ["aaron","calum","jacob","heggie"];
-
+// Build unique competitors (solo + teams)
+const competitors = [
+  ...new Set(
+    typeVideos.flatMap(video =>
+      video.scores ? Object.keys(video.scores) : []
+    )
+  )
+];
 
 let medalTable = {};
-
-players.forEach(p => {
-  medalTable[p] = {
-    gold: 0,
-    silver: 0,
-    bronze: 0,
-    spoon: 0,
-    points: 0
-  };
-});
 
 typeVideos.forEach(video => {
 
@@ -493,7 +660,275 @@ typeVideos.forEach(video => {
 
   entries.forEach((entry, index) => {
 
-    const player = entry[0];
+const competitor = entry[0];
+
+const members = competitor.includes("-")
+  ? competitor.split("-")
+  : [competitor];
+
+members.forEach(player => {
+
+  if (!medalTable[player]) {
+    medalTable[player] = { gold: 0, silver: 0, bronze: 0, spoon: 0, points: 0 };
+  }
+
+  if(index === 0) {
+    medalTable[player].gold++;
+    medalTable[player].points += 3;
+  }
+  else if(index === 1) {
+    medalTable[player].silver++;
+    medalTable[player].points += 2;
+  }
+  else if(index === 2) {
+    medalTable[player].bronze++;
+    medalTable[player].points += 1;
+  }
+  else if(index === entries.length - 1) {
+    medalTable[player].spoon++;
+  }
+
+});
+
+  });
+
+});
+
+const sortedLeaderboard = Object.entries(medalTable)
+  .sort((a,b) => b[1].points - a[1].points);
+
+
+
+  let statsHTML = "";
+// Sort videos by date
+const sortedByDate = [...typeVideos]
+  .sort((a,b) => new Date(a.releaseDate) - new Date(b.releaseDate));
+
+const firstVideo = sortedByDate[0];
+const lastVideo = sortedByDate[sortedByDate.length - 1];
+
+statsHTML += `
+  <div class="dashboard-card overview-card">
+
+    <div class="overview-header">
+      <div class="overview-title">
+        <img src="../icons/${type}.png" class="overview-logo">
+        <h3>${formatType(type)} Overview</h3>
+      </div>
+    </div>
+
+    <div class="overview-stats">
+
+      <div class="overview-item">
+        <span>Total Videos</span>
+        <strong>${typeVideos.length}</strong>
+      </div>
+
+      <div class="overview-item">
+        <span>First Video</span>
+        <a 
+          href="https://www.youtube.com/watch?v=${firstVideo.youtubeId}" 
+          target="_blank"
+        >
+          ${new Date(firstVideo.releaseDate).toLocaleDateString("en-GB")}
+        </a>
+      </div>
+
+      <div class="overview-item">
+        <span>Most Recent</span>
+        <a 
+          href="https://www.youtube.com/watch?v=${lastVideo.youtubeId}" 
+          target="_blank"
+        >
+          ${new Date(lastVideo.releaseDate).toLocaleDateString("en-GB")}
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+`;
+
+statsHTML += `
+  <div class="format-leaderboard">
+    <h3>${formatType(type)} Medal Table</h3>
+
+    ${sortedLeaderboard.map(entry => {
+
+      const p = entry[1];
+
+      return `
+        <div class="leaderboard-row">
+
+          <div class="leaderboard-left">
+            ${renderLeaderboardAvatars(entry[0])}
+            <div class="leaderboard-name">
+              ${formatCompetitorName(entry[0])}
+            </div>
+          </div>
+
+          <div class="leaderboard-right">
+            <div class="leaderboard-medals">
+              <span>
+                <small>🥇</small>
+                <strong>${p.gold}</strong>
+              </span>
+              <span>
+                <small>🥈</small>
+                <strong>${p.silver}</strong>
+              </span>
+              <span>
+                <small>🥉</small>
+                <strong>${p.bronze}</strong>
+              </span>
+              <span class="spoon">
+                <small>🪵</small>
+                <strong>${p.spoon}</strong>
+              </span>
+            </div>
+            <div class="leaderboard-points">
+              ${p.points} pts
+            </div>
+          </div>
+
+        </div>
+      `;
+    }).join("")}
+
+  </div>
+`;
+
+
+// Build stats first
+const competitorStats = competitors.map(competitor => {
+
+  let totalPoints = 0;
+  let appearances = 0;
+  let highest = 0;
+  let lowest = Infinity;
+
+  const sortedVideos = [...typeVideos]
+    .sort((a,b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+
+  let scoreHistory = [];
+
+  sortedVideos.forEach(video => {
+
+    if (!video.scores) return;
+
+    const score = video.scores[competitor];
+    if (score === undefined) return;
+
+    appearances++;
+    totalPoints += score;
+
+    if (score > highest) highest = score;
+    if (score < lowest) lowest = score;
+
+    scoreHistory.push({
+      score: score,
+      youtubeId: video.youtubeId,
+      date: video.releaseDate
+    });
+
+  });
+
+  if (lowest === Infinity) lowest = 0;
+
+  return {
+    competitor,
+    appearances,
+    totalPoints,
+    highest,
+    lowest,
+    scoreHistory
+  };
+
+});
+
+// 🔥 Sort by most appearances
+competitorStats.sort((a,b) => {
+  if (b.appearances !== a.appearances) {
+    return b.appearances - a.appearances;
+  }
+  return b.totalPoints - a.totalPoints;
+});
+
+// 🔥 Now render in sorted order
+competitorStats.forEach(data => {
+
+  if (data.appearances === 0) return;
+
+  const average = (data.totalPoints / data.appearances).toFixed(2);
+
+  statsHTML += `
+    <div class="player-card">
+
+      <div class="player-header">
+        ${renderAvatars(data.competitor)}
+        <h3>${formatCompetitorName(data.competitor)}</h3>
+      </div>
+
+      <div class="player-stats">
+        <div><span>Apps</span><strong>${data.appearances}</strong></div>
+        <div><span>Points</span><strong>${data.totalPoints}</strong></div>
+        <div><span>Avg</span><strong>${average}</strong></div>
+        <div><span>Highest Score</span><strong>${data.highest}</strong></div>
+        <div><span>Lowest Score</span><strong>${data.lowest}</strong></div>
+      </div>
+
+      <div class="history-row">
+        <div class="history-label">Historical Scores</div>
+        <div class="score-history">
+          ${data.scoreHistory.map(entry => `
+            <a 
+              class="score-pill"
+              href="https://www.youtube.com/watch?v=${entry.youtubeId}"
+              target="_blank"
+              title="${entry.date}"
+            >
+              ${entry.score}
+            </a>
+          `).join("")}
+        </div>
+      </div>
+
+    </div>
+  `;
+});
+  document.getElementById("statsContent").innerHTML = statsHTML;
+}
+
+function goBack() {
+  document.getElementById("type-selection").classList.remove("hidden");
+  document.getElementById("overall-leaderboard").classList.remove("hidden");
+  document.getElementById("type-stats").classList.add("hidden");
+}
+function buildOverallLeaderboard() {
+  let medalTable = {};
+
+  allVideos.forEach(video => {
+
+  if (!video.scores) return;  // 🔥 prevent crash
+
+  const entries = Object.entries(video.scores)
+    .sort((a,b) => b[1] - a[1]);
+
+
+entries.forEach((entry, index) => {
+
+  const competitor = entry[0];
+
+  // Split teams into individuals
+  const members = competitor.includes("-")
+    ? competitor.split("-")
+    : [competitor];
+
+  members.forEach(player => {
+
+    if (!medalTable[player]) {
+      medalTable[player] = { gold: 0, silver: 0, bronze: 0, spoon: 0, points: 0 };
+    }
 
     if(index === 0) {
       medalTable[player].gold++;
@@ -515,179 +950,6 @@ typeVideos.forEach(video => {
 
 });
 
-const sortedLeaderboard = Object.entries(medalTable)
-  .sort((a,b) => b[1].points - a[1].points);
-
-
-
-  let statsHTML = "";
-
-statsHTML += `
-  <div class="format-leaderboard">
-    <h3>${formatType(type)} Medal Table</h3>
-    ${sortedLeaderboard.map(entry => {
-
-      const p = entry[1];
-
-      return `
-        <div class="leaderboard-row">
-          <span>${formatType(entry[0])}</span>
-          <span>
-            🥇 ${p.gold}  
-            🥈 ${p.silver}  
-            🥉 ${p.bronze}  
-            🥄 ${p.spoon}  
-            | ${p.points} pts
-          </span>
-        </div>
-      `;
-    }).join("")}
-  </div>
-`;
-
-
-players.forEach(player => {
-
-  let totalPoints = 0;
-  let wins = 0;
-  let appearances = 0;
-  let highest = 0;
-  let lowest = Infinity;
-
-  const sortedVideos = [...typeVideos]
-    .sort((a,b) => new Date(b.releaseDate) - new Date(a.releaseDate));
-
-  let scoreHistory = [];
-
-  sortedVideos.forEach(video => {
-
-    const score = video.scores[player];
-
-    if(score !== undefined) {
-      appearances++;
-      totalPoints += score;
-      if(score > highest) highest = score;
-
-      scoreHistory.push({
-        score: score,
-        youtubeId: video.youtubeId,
-        date: video.releaseDate
-      });
-    }
-
-    if(score < lowest) lowest = score;
-
-    const maxScore = Math.max(...Object.values(video.scores));
-    if(score === maxScore) wins++;
-
-  });
-
-  if (lowest === Infinity) lowest = 0;
-
-  if(appearances === 0) return;
-
-  const average = (totalPoints / appearances).toFixed(2);
-
-  statsHTML += `
-    <div class="player-card">
-
-      <div class="player-header">
-        <img src="../icons/${player}.png" class="player-avatar" alt="${player}">
-        <h3>${formatType(player)}</h3>
-      </div>
-
-      <div class="player-stats">
-        <div><span>Apps</span><strong>${appearances}</strong></div>
-        <div><span>Points</span><strong>${totalPoints}</strong></div>
-        <div><span>Avg</span><strong>${average}</strong></div>
-        <div><span>Highest Score</span><strong>${highest}</strong></div>
-        <div><span>Lowest Score</span><strong>${lowest}</strong></div>
-      </div>
-
-<div class="history-row">
-  <div class="history-label">Historical Scores</div>
-  <div class="score-history">
-    ${scoreHistory.map(entry => `
-      <a 
-        class="score-pill"
-        href="https://www.youtube.com/watch?v=${entry.youtubeId}"
-        target="_blank"
-        title="${entry.date}"
-      >
-        ${entry.score}
-      </a>
-    `).join("")}
-  </div>
-</div>
-    </div>
-  `;
-});
-
-
-statsHTML += `
-  <div class="player-card">
-    <h3>General</h3>
-    <div class="stat-row">
-      <span>Total Videos</span>
-      <strong>${typeVideos.length}</strong>
-    </div>
-  </div>
-`;
-
-  document.getElementById("statsContent").innerHTML = statsHTML;
-}
-
-function goBack() {
-  document.getElementById("type-selection").classList.remove("hidden");
-  document.getElementById("overall-leaderboard").classList.remove("hidden");
-  document.getElementById("type-stats").classList.add("hidden");
-}
-function buildOverallLeaderboard() {
-
-  const players = ["aaron","calum","jacob","heggie"];
-
-  let medalTable = {};
-
-  players.forEach(p => {
-    medalTable[p] = {
-      gold: 0,
-      silver: 0,
-      bronze: 0,
-      spoon: 0,
-      points: 0
-    };
-  });
-
-  allVideos.forEach(video => {
-
-  if (!video.scores) return;  // 🔥 prevent crash
-
-  const entries = Object.entries(video.scores)
-    .sort((a,b) => b[1] - a[1]);
-
-
-    entries.forEach((entry, index) => {
-
-      const player = entry[0];
-
-      if(index === 0) {
-        medalTable[player].gold++;
-        medalTable[player].points += 3;
-      }
-      else if(index === 1) {
-        medalTable[player].silver++;
-        medalTable[player].points += 2;
-      }
-      else if(index === 2) {
-        medalTable[player].bronze++;
-        medalTable[player].points += 1;
-      }
-      else if(index === entries.length - 1) {
-        medalTable[player].spoon++;
-      }
-
-    });
-
   });
 
   const sorted = Object.entries(medalTable)
@@ -699,20 +961,96 @@ function buildOverallLeaderboard() {
 
     const p = entry[1];
 
-    return `
-      <div class="leaderboard-row">
-        <span>${formatType(entry[0])}</span>
+return `
+  <div class="leaderboard-row">
+
+    <div class="leaderboard-left">
+      ${renderLeaderboardAvatars(entry[0])}
+      <div class="leaderboard-name">
+        ${formatCompetitorName(entry[0])}
+      </div>
+    </div>
+
+    <div class="leaderboard-right">
+      <div class="leaderboard-medals">
         <span>
-          🥇 ${p.gold}  
-          🥈 ${p.silver}  
-          🥉 ${p.bronze}  
-          🥄 ${p.spoon}  
-          | ${p.points} pts
+          <small>🥇</small>
+          <strong>${p.gold}</strong>
+        </span>
+        <span>
+          <small>🥈</small>
+          <strong>${p.silver}</strong>
+        </span>
+        <span>
+          <small>🥉</small>
+          <strong>${p.bronze}</strong>
+        </span>
+        <span class="spoon">
+          <small>🥄</small>
+          <strong>${p.spoon}</strong>
         </span>
       </div>
-    `;
+      <div class="leaderboard-points">
+        ${p.points} pts
+      </div>
+    </div>
+
+  </div>
+`;
   }).join("");
 
+}
+
+function formatCompetitorName(key) {
+
+  const members = key.split("-");
+
+  const formatted = members.map(member => {
+    return playerFullNames[member] || member;
+  });
+
+  if (formatted.length === 1) {
+    return formatted[0];
+  }
+
+  if (formatted.length === 2) {
+    return `${formatted[0]} & ${formatted[1]}`;
+  }
+
+  // 3+ players
+  return formatted.slice(0, -1).join(", ") + " & " + formatted.slice(-1);
+}
+function renderAvatars(key) {
+
+  const members = key.includes("-")
+    ? key.split("-")
+    : [key];
+
+  return members.map(member => `
+    <img 
+      src="../icons/${member}.png" 
+      class="player-avatar"
+      alt="${member}"
+    >
+  `).join("");
+}
+function renderLeaderboardAvatars(key) {
+
+  const members = key.includes("-")
+    ? key.split("-")
+    : [key];
+
+  return `
+    <div class="leaderboard-avatars">
+      ${members.map(member => `
+        <img 
+          src="../icons/${member}.png"
+          class="leaderboard-avatar"
+          alt="${member}"
+        >
+      `).join("")}
+    </div>
+  `;
 }
 </script>
 
