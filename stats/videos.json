@@ -130,15 +130,81 @@
           { "role": "faithful", "win": false },
           { "role": "faithful", "win": true }
         ]
+      }
+    },
+    {
+      "id": "misc-2026-02-17",
+      "title": "This Football *BOARDING PASS* Quiz Will Seriously Test Your Ball Knowledge...",
+      "youtubeId": "-rjN4RYbSyU",
+      "releaseDate": "2026-02-17",
+      "type": "misc",
+      "scores": {
+        "aaron": 12,
+        "calum": 16,
+        "jacob": 11,
+        "heggie": 13
       },
       "moments": [
         {
-          "id": "calum-wearing-orange",
-          "title": "They're wearing orange. So Netherlands.",
-          "description": "In this higher or lower challenge, Calum doesn't read the question properly and guesses a wild answer.",
-          "timestamp": 1482,
+          "id": "aaron-pulisic",
+          "title": "Pulisic?!",
+          "description": "In this unique Boarding Pass quiz, Aaron confuses this Argentinian for the LeBron James of Soccer.",
+          "timestamp": 1614,
           "people": [
-            "calum"
+            "aaron"
+          ],
+          "categories": [
+            "face-blindness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tic-tac-toe-2026-02-16",
+      "title": "Football Tic-Tac-Toe Vs ANDY HALLIDAY...",
+      "youtubeId": "dNMccb5TN3Y",
+      "releaseDate": "2026-02-16",
+      "type": "tic-tac-toe",
+      "results": [
+        { "draw": ["andy", "jacob"] },
+        { "draw": ["andy", "aaron"] },
+        { "winner": "andy", "loser": "calum" },
+        { "winner": "heggie", "loser": "andy" }
+      ],
+      "moments": [
+        {
+          "id": "aaron-rangers-motherwell",
+          "title": "Rangers Motherwell?!",
+          "description": "In this Tic-Tac-Toe Aaron fails to name the person sitting next to him?",
+          "timestamp": 393,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jeopardy-2026-02-15",
+      "title": "These Football Jeopardy Categories Were Extremely FUNKY...",
+      "youtubeId": "00fIOyPv-28",
+      "releaseDate": "2026-02-15",
+      "type": "jeopardy",
+      "scores": {
+        "calum": 3200,
+        "jacob": 4600,
+        "heggie": 2500
+      },
+      "moments": [
+        {
+          "id": "fife-mess",
+          "title": "FIFE Mess",
+          "description": "In this jeopardy, all logic goes out the window about this FIFE related question.",
+          "timestamp": 1968,
+          "people": [
+            "calum", "heggie"
           ],
           "categories": [
             "even-listening"
@@ -147,17 +213,49 @@
       ]
     },
     {
+      "id": "killer-tension-2026-02-14",
+      "title": "This Was A Football *KILLER* Tension Battle For The Ages...",
+      "youtubeId": "q9QnFEGiRw",
+      "releaseDate": "2026-02-14",
+      "type": "killer-tension",
+      "scores": {
+        "calum": 48,
+        "jacob": 39,
+        "heggie": 25,
+        "aaron": 47
+      }
+    },
+    {
+      "id": "tenable-2026-02-13",
+      "title": "We Drafted ANDY HALLIDAY In To Complete These FOOTBALL TENABLES…",
+      "youtubeId": "KdrLxPHN74Y",
+      "releaseDate": "2026-02-13",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-jacob-heggie-andy": {
+          "score": 35,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "codenames-2026-02-12",
+      "title": "This Was Our GREATEST Ever Football Codenames BATTLE...",
+      "youtubeId": "kXLFUyvvxqg",
+      "releaseDate": "2026-02-12",
+      "type": "codenames",
+      "results": [
+        { "winner": "calum-jacob", "loser": "heggie-aaron" },
+        { "winner": "heggie-aaron", "loser": "calum-jacob" },
+        { "winner": "heggie-aaron", "loser": "calum-jacob" }
+      ]
+    },
+    {
       "id": "misc-2025-12-22",
       "title": "The Twist In This Viewers Football Quiz Had The Boys SHOCKED...",
       "youtubeId": "8jZUaqa8N5k",
       "releaseDate": "2025-12-22",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-traitor-twist",
@@ -179,12 +277,6 @@
       "youtubeId": "voz7oJC5YD4",
       "releaseDate": "2025-12-21",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-find-bebe",
@@ -218,12 +310,6 @@
       "youtubeId": "FAEAMo0WIqM",
       "releaseDate": "2025-12-20",
       "type": "honours",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "jacob-idiot",
@@ -245,12 +331,6 @@
       "youtubeId": "0jDWPB7MFoY",
       "releaseDate": "2025-12-18",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-kit-sweep",
@@ -272,12 +352,6 @@
       "youtubeId": "lJW9jIsrW7M",
       "releaseDate": "2025-12-15",
       "type": "killer-tension",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "jacob-grafite",
@@ -299,12 +373,6 @@
       "youtubeId": "9Ot5cDCn978",
       "releaseDate": "2025-11-24",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-when-2021",
@@ -326,12 +394,6 @@
       "youtubeId": "QtYvqXz4X1U",
       "releaseDate": "2025-11-20",
       "type": "pointless",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-national-team",
@@ -353,12 +415,6 @@
       "youtubeId": "3BVSsHq5BH0",
       "releaseDate": "2025-11-18",
       "type": "pressure-tension",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-de-zerbi",
@@ -380,12 +436,6 @@
       "youtubeId": "eia5UZjX77M",
       "releaseDate": "2025-11-17",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-cant-get-it-wrong",
@@ -473,12 +523,6 @@
       "youtubeId": "pB44IwyDA3c",
       "releaseDate": "2025-11-11",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-swaziland",
@@ -500,12 +544,6 @@
       "youtubeId": "u1QnFSMMVks",
       "releaseDate": "2025-11-08",
       "type": "extremetension",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-violin-noises",
@@ -560,12 +598,6 @@
       "youtubeId": "X9uYoQuZKYY",
       "releaseDate": "2025-11-04",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-orient-express",
@@ -587,12 +619,6 @@
       "youtubeId": "OH6SbJ_ddyw",
       "releaseDate": "2025-11-02",
       "type": "house-of-games",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-fridgewell",
@@ -626,12 +652,6 @@
       "youtubeId": "tI2utumZMX8",
       "releaseDate": "2025-10-29",
       "type": "face-blindness",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-willne",
@@ -714,12 +734,6 @@
       "youtubeId": "qzswMFUqOig",
       "releaseDate": "2025-10-25",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-meazza",
@@ -741,12 +755,6 @@
       "youtubeId": "615Kov2YCKc",
       "releaseDate": "2025-10-21",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-100-mill",
@@ -780,12 +788,6 @@
       "youtubeId": "pBpyZNk_iE8",
       "releaseDate": "2025-10-20",
       "type": "questionofsport",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-why-boat",
@@ -819,12 +821,6 @@
       "youtubeId": "fJzXnUZFZFg",
       "releaseDate": "2025-10-14",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-portugal",
@@ -858,12 +854,6 @@
       "youtubeId": "Ow_nQrxudZs",
       "releaseDate": "2025-10-13",
       "type": "taskmaster",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-8-pixels",
@@ -897,12 +887,6 @@
       "youtubeId": "RQMY8ywrGQo",
       "releaseDate": "2025-10-11",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "jacob-virgin-calum",
@@ -924,12 +908,6 @@
       "youtubeId": "dECAOz9wK_g",
       "releaseDate": "2025-10-07",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-why-that",
@@ -951,12 +929,6 @@
       "youtubeId": "6mqUB_2Ca4o",
       "releaseDate": "2025-10-05",
       "type": "face-blindness",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-lamped-him",
@@ -978,12 +950,6 @@
       "youtubeId": "x5_h4iEN2Nc",
       "releaseDate": "2025-09-28",
       "type": "honours",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-kaka-scored",
@@ -1005,12 +971,6 @@
       "youtubeId": "eTgBzhOU3UM",
       "releaseDate": "2025-09-15",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-pukki",
@@ -1032,12 +992,6 @@
       "youtubeId": "NLsIV74gDZU",
       "releaseDate": "2025-09-13",
       "type": "face-blindness",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-lift-title",
@@ -1095,12 +1049,6 @@
       "youtubeId": "WA9-7-oMNko",
       "releaseDate": "2025-09-09",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "jacob-my-money",
@@ -1122,12 +1070,6 @@
       "youtubeId": "7McBvovzc60",
       "releaseDate": "2025-09-05",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-very-pacy",
@@ -1149,12 +1091,6 @@
       "youtubeId": "8tuoOnzcYwk",
       "releaseDate": "2025-08-30",
       "type": "whq",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-brugge-brussels",
@@ -1176,12 +1112,6 @@
       "youtubeId": "ibj1CmnVljs",
       "releaseDate": "2025-08-12",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-where-from",
@@ -1215,12 +1145,6 @@
       "youtubeId": "oVz1b-ULsJs",
       "releaseDate": "2025-08-09",
       "type": "tension",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-go-germany",
@@ -1242,12 +1166,6 @@
       "youtubeId": "XVdAD7mUPUs",
       "releaseDate": "2025-08-04",
       "type": "passport",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-tarkowski",
@@ -1305,12 +1223,6 @@
       "youtubeId": "ljKecGd7Kqk",
       "releaseDate": "2025-07-30",
       "type": "careerpath",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-shut-up-man",
@@ -1344,12 +1256,6 @@
       "youtubeId": "Qoq8dkhSSko",
       "releaseDate": "2025-07-28",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-no-you-dont",
@@ -1371,12 +1277,6 @@
       "youtubeId": "xYmeefhqU7w",
       "releaseDate": "2025-07-23",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-attenborough",
@@ -1398,12 +1298,6 @@
       "youtubeId": "2gRYKpCMLxI",
       "releaseDate": "2025-07-20",
       "type": "catchphrase",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "jacob-disgusting",
@@ -1425,12 +1319,6 @@
       "youtubeId": "f_Idb1GuYjM",
       "releaseDate": "2025-07-10",
       "type": "tension",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-too-far-back",
@@ -1452,12 +1340,6 @@
       "youtubeId": "DjDYni3lwWQ",
       "releaseDate": "2025-07-07",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-move-aaron",
@@ -1521,12 +1403,6 @@
       "youtubeId": "ZPIc2lr9biI",
       "releaseDate": "2025-06-26",
       "type": "whq",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "jacob-bet-in-my-life",
@@ -1548,12 +1424,6 @@
       "youtubeId": "GJ6Pm4JkLa8",
       "releaseDate": "2025-06-23",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-dance-movement",
@@ -1575,12 +1445,6 @@
       "youtubeId": "YKvFqFrWnZc",
       "releaseDate": "2025-06-21",
       "type": "careerpath",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-who",
@@ -1623,12 +1487,6 @@
       "youtubeId": "mpHO0TFo6Yw",
       "releaseDate": "2025-06-12",
       "type": "bigfatquiz",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-10-players",
@@ -1650,12 +1508,6 @@
       "youtubeId": "yysUQhoS0UI",
       "releaseDate": "2025-06-10",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-read-out",
@@ -1701,12 +1553,6 @@
       "youtubeId": "UvSNgLel-Qc",
       "releaseDate": "2025-06-05",
       "type": "questionofsport",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-chicago",
@@ -1728,12 +1574,6 @@
       "youtubeId": "fowrLx586Io",
       "releaseDate": "2025-06-02",
       "type": "careerpath",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-table",
@@ -1755,12 +1595,6 @@
       "youtubeId": "Nye7Ru1Prc4",
       "releaseDate": "2025-05-31",
       "type": "whq",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-magic-aaron",
@@ -1782,12 +1616,6 @@
       "youtubeId": "NrLmNvtIbgU",
       "releaseDate": "2025-05-30",
       "type": "tenable",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-same-as-aguero",
@@ -1809,12 +1637,6 @@
       "youtubeId": "tCS64K4lIMY",
       "releaseDate": "2025-05-28",
       "type": "ufqshowdown",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-2-metres",
@@ -1836,12 +1658,6 @@
       "youtubeId": "e8dj8eqP__M",
       "releaseDate": "2025-05-27",
       "type": "rondo",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-chukwazy",
@@ -1863,12 +1679,6 @@
       "youtubeId": "2yK3HO5KAeU",
       "releaseDate": "2025-05-23",
       "type": "tenable",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-inthe60s",
@@ -1890,12 +1700,6 @@
       "youtubeId": "OhOk64qTgXo",
       "releaseDate": "2025-05-21",
       "type": "tension",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-100-then",
@@ -1917,12 +1721,6 @@
       "youtubeId": "nxRJO7fQvP4",
       "releaseDate": "2025-05-18",
       "type": "logic",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-alaba-canadian",
@@ -1956,12 +1754,6 @@
       "youtubeId": "MVtxnaa_8Mk",
       "releaseDate": "2025-05-14",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-jacob-eyes",
@@ -1983,12 +1775,6 @@
       "youtubeId": "YhNGu0O9UCA",
       "releaseDate": "2025-05-09",
       "type": "squadguesser",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-romero-llenglet",
@@ -2010,12 +1796,6 @@
       "youtubeId": "ybckX-VIQlg",
       "releaseDate": "2025-05-03",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-beckham-one-club",
@@ -2091,12 +1871,6 @@
       "youtubeId": "SKHATK7IRa8",
       "releaseDate": "2025-04-30",
       "type": "questionofsport",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "jacob-italian-then",
@@ -2130,12 +1904,6 @@
       "youtubeId": "qyio_fJ6av4",
       "releaseDate": "2025-04-28",
       "type": "whq",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "jacob-best-thing-youve-done",
@@ -2157,12 +1925,6 @@
       "youtubeId": "IWYo_nmsiwU",
       "releaseDate": "2025-04-27",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-tiote",
@@ -2229,12 +1991,6 @@
       "youtubeId": "ROFr2uvN0j4",
       "releaseDate": "2025-04-19",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-sunshine",
@@ -2256,12 +2012,6 @@
       "youtubeId": "jUdGLR_aWvk",
       "releaseDate": "2025-04-18",
       "type": "taskmaster",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-back-and-forth",
@@ -2283,12 +2033,6 @@
       "youtubeId": "k5y9L_XoBz4",
       "releaseDate": "2025-04-08",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-what-did-you-say",
@@ -2310,12 +2054,6 @@
       "youtubeId": "w6yu1PVfqbg",
       "releaseDate": "2025-04-03",
       "type": "guess-who",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-crouch-32",
@@ -2337,12 +2075,6 @@
       "youtubeId": "VDjeYv-B5Eo",
       "releaseDate": "2025-03-22",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-paddling",
@@ -2376,12 +2108,6 @@
       "youtubeId": "omyyQwDKe18",
       "releaseDate": "2025-03-17",
       "type": "house-of-games",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-well-move-on",
@@ -2403,12 +2129,6 @@
       "youtubeId": "zn3C89BGsTw",
       "releaseDate": "2025-03-03",
       "type": "traitors",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-percy-wallace",
@@ -2430,12 +2150,6 @@
       "youtubeId": "gPizEnhXvPs",
       "releaseDate": "2025-02-21",
       "type": "whq",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-fanny",
@@ -2457,12 +2171,6 @@
       "youtubeId": "eXEUaWb3vjc",
       "releaseDate": "2025-02-15",
       "type": "whq",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-ooooo",
@@ -2484,12 +2192,6 @@
       "youtubeId": "HoCchDJd9Ak",
       "releaseDate": "2025-02-07",
       "type": "pressure",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-say-juan",
@@ -2511,12 +2213,6 @@
       "youtubeId": "dHzCOPetY6A",
       "releaseDate": "2025-02-05",
       "type": "pointless",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-get-it-up-ya",
@@ -2538,12 +2234,6 @@
       "youtubeId": "p07dJvDOz9s",
       "releaseDate": "2025-02-04",
       "type": "whq",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-taking-that",
@@ -2577,12 +2267,6 @@
       "youtubeId": "3SM5WG7hiYM",
       "releaseDate": "2025-01-28",
       "type": "squadguesser",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-veltman",
@@ -2616,12 +2300,6 @@
       "youtubeId": "VJ_pCLbUa_E",
       "releaseDate": "2025-01-22",
       "type": "pressure",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-answer-france",
@@ -2643,12 +2321,6 @@
       "youtubeId": "si8sw_4ytAI",
       "releaseDate": "2025-01-14",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-amwhati",
@@ -2670,12 +2342,6 @@
       "youtubeId": "6sLCDNIvcC0",
       "releaseDate": "2025-01-07",
       "type": "careerpath",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-zidane-maybe",
@@ -2697,12 +2363,6 @@
       "youtubeId": "osLeQo_EAEc",
       "releaseDate": "2025-01-04",
       "type": "guess-who",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "jacob-knows-colours",
@@ -2724,12 +2384,6 @@
       "youtubeId": "YQbAy14ZSpA",
       "releaseDate": "2024-12-30",
       "type": "bigfatquiz",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-hes-50",
@@ -2763,12 +2417,6 @@
       "youtubeId": "7IbakLo2TpI",
       "releaseDate": "2024-12-24",
       "type": "bigfatquiz",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-3-foot-8",
@@ -2802,12 +2450,6 @@
       "youtubeId": "tUSDsq26Tfg",
       "releaseDate": "2024-12-22",
       "type": "millionpounddrop",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-super-mcginn",
@@ -2829,12 +2471,6 @@
       "youtubeId": "EjsCI8r4TZ4",
       "releaseDate": "2024-12-16",
       "type": "squadguesser",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-11-german",
@@ -2856,12 +2492,6 @@
       "youtubeId": "8Caj-VitXZQ",
       "releaseDate": "2024-12-08",
       "type": "killer-tic-tac-toe",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-anelka",
@@ -2883,12 +2513,6 @@
       "youtubeId": "Aw3duA4DsL4",
       "releaseDate": "2024-12-04",
       "type": "whodareswins",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-goat-cam",
@@ -2910,12 +2534,6 @@
       "youtubeId": "fPh4TCgUeZk",
       "releaseDate": "2024-12-01",
       "type": "tenable",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-patter",
@@ -2937,12 +2555,6 @@
       "youtubeId": "Qd2_dUm-aCk",
       "releaseDate": "2024-11-22",
       "type": "millionaire",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-premier-league-site",
@@ -2964,12 +2576,6 @@
       "youtubeId": "-W_0iQdlZYQ",
       "releaseDate": "2024-11-20",
       "type": "careerpath",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-left-back",
@@ -2991,12 +2597,6 @@
       "youtubeId": "YGrqGlTO3vE",
       "releaseDate": "2024-11-19",
       "type": "pointless",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-glen-johnson",
@@ -3018,12 +2618,6 @@
       "youtubeId": "QclLtMY-sgU",
       "releaseDate": "2024-11-16",
       "type": "killer-tic-tac-toe",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "edit-out",
@@ -3046,12 +2640,6 @@
       "youtubeId": "FTW--kQ5q9U",
       "releaseDate": "2024-11-11",
       "type": "squadguesser",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-brazil",
@@ -3073,12 +2661,6 @@
       "youtubeId": "_C0j0MAGd_o",
       "releaseDate": "2024-11-09",
       "type": "killer-tic-tac-toe",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-thats-the-killer",
@@ -3100,12 +2682,6 @@
       "youtubeId": "oTTOm_jicOw",
       "releaseDate": "2024-11-04",
       "type": "tenable",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-ronald-weasley",
@@ -3127,12 +2703,6 @@
       "youtubeId": "s86JoRyv8Ss",
       "releaseDate": "2024-11-02",
       "type": "killer-tic-tac-toe",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-fizzing",
@@ -3154,12 +2724,6 @@
       "youtubeId": "ijeKLtofRvo",
       "releaseDate": "2024-11-01",
       "type": "pointless",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-doonpace",
@@ -3181,12 +2745,6 @@
       "youtubeId": "GJvaGgd85LM",
       "releaseDate": "2024-10-23",
       "type": "catchphrase",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-not-dybala",
@@ -3208,12 +2766,6 @@
       "youtubeId": "dqECWQ4Zpn4",
       "releaseDate": "2024-10-22",
       "type": "careerpath",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-need-more-rounds",
@@ -3235,12 +2787,6 @@
       "youtubeId": "zQ3v7gAPY8c",
       "releaseDate": "2024-10-21",
       "type": "tenable",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-best-hairline",
@@ -3274,12 +2820,6 @@
       "youtubeId": "iTmvhgnQ1fM",
       "releaseDate": "2024-10-12",
       "type": "ufqshowdown",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-bukayo-sagna",
@@ -3301,12 +2841,6 @@
       "youtubeId": "kKugIDT6670",
       "releaseDate": "2024-10-10",
       "type": "careerpath",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-bebe",
@@ -3328,12 +2862,6 @@
       "youtubeId": "IryV95i2nks",
       "releaseDate": "2024-09-04",
       "type": "pointless",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-top-poch",
@@ -3355,12 +2883,6 @@
       "youtubeId": "tFa4YshVj0k",
       "releaseDate": "2024-09-03",
       "type": "tenable",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-washington-dc",
@@ -3382,12 +2904,6 @@
       "youtubeId": "JrYLcbFQBAc",
       "releaseDate": "2024-08-19",
       "type": "pointless",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "jacob-kidding-me-on",
@@ -3409,12 +2925,6 @@
       "youtubeId": "nuDJF3kupOE",
       "releaseDate": "2024-08-13",
       "type": "whq",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-the-man",
@@ -3436,12 +2946,6 @@
       "youtubeId": "IrW0OmojIK0",
       "releaseDate": "2024-08-12",
       "type": "1-percent-club",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-dwight-yorke",
@@ -3463,12 +2967,6 @@
       "youtubeId": "r-sPJ0IcywA",
       "releaseDate": "2024-08-07",
       "type": "tenable",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-hes-british",
@@ -3490,12 +2988,6 @@
       "youtubeId": "AFLhClis1g4",
       "releaseDate": "2024-06-30",
       "type": "millionpounddrop",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-suarez-then",
@@ -3517,12 +3009,6 @@
       "youtubeId": "7no5Md-e9uI",
       "releaseDate": "2024-06-25",
       "type": "1-percent-club",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-1872",
@@ -3565,12 +3051,6 @@
       "youtubeId": "LXkSdAuGWpY",
       "releaseDate": "2024-06-21",
       "type": "codenames",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-adidas",
@@ -3592,28 +3072,6 @@
       "youtubeId": "tDUwiVhz1Io",
       "releaseDate": "2024-05-16",
       "type": "imposter",
-      "results": {
-        "aaron": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false }
-        ],
-        "calum": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false }
-        ],
-        "andy": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false }
-        ],
-        "jacob": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true }
-        ],
-        "heggie": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false }
-        ]
-      },
       "moments": [
         {
           "id": "calum-ping",
@@ -3635,12 +3093,6 @@
       "youtubeId": "ycx-sXO_FUU",
       "releaseDate": "2024-04-16",
       "type": "millionaire",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "kiss-you",
@@ -3663,12 +3115,6 @@
       "youtubeId": "a3WJPjdefH0",
       "releaseDate": "2024-04-06",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-peeping",
@@ -3690,12 +3136,6 @@
       "youtubeId": "8jSUsUYsb-o",
       "releaseDate": "2024-03-26",
       "type": "rondo",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-belgian-manager",
@@ -3717,12 +3157,6 @@
       "youtubeId": "Z-w4-u96UU0",
       "releaseDate": "2024-03-15",
       "type": "killer-tic-tac-toe",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-gangnam-style",
@@ -3780,12 +3214,6 @@
       "youtubeId": "XurHlU4Lsj8",
       "releaseDate": "2024-02-21",
       "type": "guess-who",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "jacob-me-ben",
@@ -3807,12 +3235,6 @@
       "youtubeId": "A3_-tFf58Vg",
       "releaseDate": "2024-01-29",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-loads-one",
@@ -3834,12 +3256,6 @@
       "youtubeId": "CQudqcFGxaU",
       "releaseDate": "2024-01-12",
       "type": "tenable",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-tenable-category",
@@ -3861,12 +3277,6 @@
       "youtubeId": "a7dadUOukfE",
       "releaseDate": "2023-12-22",
       "type": "tenable",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-hate-him",
@@ -3888,12 +3298,6 @@
       "youtubeId": "gF6LSiy-3JM",
       "releaseDate": "2023-12-18",
       "type": "higher-or-lower",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-heart",
@@ -3915,12 +3319,6 @@
       "youtubeId": "wsj92b9ngYM",
       "releaseDate": "2023-11-24",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-mr-beans",
@@ -3942,12 +3340,6 @@
       "youtubeId": "EIFsMknQE0k",
       "releaseDate": "2023-10-27",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-swallow",
@@ -3969,12 +3361,6 @@
       "youtubeId": "CrCLeAzhyMo",
       "releaseDate": "2023-10-06",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-pick-players-you-know",
@@ -3996,12 +3382,6 @@
       "youtubeId": "lPVdCih0GD4",
       "releaseDate": "2023-09-18",
       "type": "careerpath",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-he-froze",
@@ -4044,12 +3424,6 @@
       "youtubeId": "mg3u3u9HQ_k",
       "releaseDate": "2023-09-08",
       "type": "jeopardy",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "red-arse",
@@ -4106,12 +3480,6 @@
       "youtubeId": "4iQwil6OOyQ",
       "releaseDate": "2023-07-25",
       "type": "misc",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "calum-way-off",
@@ -4133,12 +3501,6 @@
       "youtubeId": "VqmpoKyOxNk",
       "releaseDate": "2023-07-10",
       "type": "taskmaster",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-unbelievable",
@@ -4181,12 +3543,6 @@
       "youtubeId": "YHR6TE7y530",
       "releaseDate": "2023-06-07",
       "type": "pointless",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "aaron-egg-head",
@@ -4221,12 +3577,6 @@
       "youtubeId": "6SbU134Dkik",
       "releaseDate": "2023-05-31",
       "type": "bigfatquiz",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "heggie-bark",
@@ -4248,12 +3598,6 @@
       "youtubeId": "S9pE1V55XPg",
       "releaseDate": "2023-05-15",
       "type": "tenable",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "big-skinny-chicken-legs",
@@ -4277,12 +3621,6 @@
       "youtubeId": "1ltaj6lwLAs",
       "releaseDate": "2023-03-07",
       "type": "tic-tac-toe",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
-      },
       "moments": [
         {
           "id": "double-kill",

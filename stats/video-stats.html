@@ -154,9 +154,9 @@ h1 {
 }
 
 .leaderboard-avatar {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 25%;
   object-fit: cover;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
@@ -693,14 +693,18 @@ const formatDisplayNames = {
 };
 
 const formatModes = {
-  "imposter": "role"
+  "imposter": "role",
+  "killer-tic-tac-toe": "h2h",
+  "tic-tac-toe": "h2h",
+  "codenames": "h2h",
+  "tenable": "team"
 };
 
 const playerFullNames = {
   "aaron": "Aaron Turnbull",
   "calum": "Calum Porter",
   "jacob": "Jacob Murray",
-  "heggie": "Heggie Heggerson",
+  "heggie": "Thomas Heggie",
   "andy": "Andy Halliday"
 };
 
@@ -792,6 +796,14 @@ function showStats(type) {
     html += buildRoleStats(typeVideos);
   }
 
+  if (mode === "h2h") {
+    html += buildHeadToHeadStats(typeVideos);
+  }
+
+  if (mode === "team") {
+  html += buildTeamScoreStats(typeVideos);
+}
+
   document.getElementById("statsContent").innerHTML = html;
 }
 
@@ -822,7 +834,8 @@ function buildScoreStats(videos) {
             apps: 0,
             total: 0,
             high: 0,
-            low: Infinity
+            low: Infinity,
+            history: []
           };
         }
 
@@ -834,6 +847,11 @@ function buildScoreStats(videos) {
 
         individualStats[player].apps++;
         individualStats[player].total += score;
+        individualStats[player].history.push({
+          score,
+          youtubeId: video.youtubeId,
+          date: video.releaseDate
+        });
         individualStats[player].high =
           Math.max(individualStats[player].high, score);
         individualStats[player].low =
@@ -926,24 +944,42 @@ function buildScoreStats(videos) {
     Object.entries(combined)
       .sort((a,b)=>b[1].apps-a[1].apps);
 
-  html += sortedCombined.map(([key,s])=>{
+  html += sortedCombined.map(([player,s])=>{
 
     const avg = (s.total / s.apps).toFixed(2);
 
     return `
-      <div class="player-card">
-        <div class="player-header">
-          ${renderAvatars(key)}
-          <h3>${formatCompetitorName(key)}</h3>
-        </div>
-        <div class="player-stats">
-          <div><span>Apps</span><strong>${s.apps}</strong></div>
-          <div><span>Total</span><strong>${s.total}</strong></div>
-          <div><span>Average</span><strong>${avg}</strong></div>
-          <div><span>Highest</span><strong>${s.high}</strong></div>
-          <div><span>Lowest</span><strong>${s.low}</strong></div>
-        </div>
-      </div>
+<div class="player-card">
+
+  <div class="player-header">
+    ${renderAvatars(player)}
+    <h3>${formatCompetitorName(player)}</h3>
+  </div>
+
+  <div class="player-stats">
+    <div><span>Apps</span><strong>${s.apps}</strong></div>
+    <div><span>Total</span><strong>${s.total}</strong></div>
+    <div><span>Average</span><strong>${(s.total/s.apps).toFixed(1)}</strong></div>
+    <div><span>High</span><strong>${s.high}</strong></div>
+    <div><span>Low</span><strong>${s.low}</strong></div>
+  </div>
+
+  <div class="history-row">
+    <div class="history-label">Scores</div>
+    <div class="score-history">
+${(s.history || [])
+  .sort((a,b)=> new Date(b.date) - new Date(a.date))
+  .map(h=>`
+          <a class="score-pill"
+             href="https://www.youtube.com/watch?v=${h.youtubeId}"
+             target="_blank">
+             ${h.score}
+          </a>
+        `).join("")}
+    </div>
+  </div>
+
+</div>
     `;
   }).join("");
 
@@ -1060,6 +1096,165 @@ function buildRoleStats(videos) {
         <div><span>Imp Loss</span><strong>${s.impLoss}</strong></div>
         <div><span>Faith Wins</span><strong>${s.faithWin}</strong></div>
         <div><span>Faith Loss</span><strong>${s.faithLoss}</strong></div>
+      </div>
+    </div>
+  `).join("");
+
+  return `
+    <div class="format-column">
+      ${html}
+    </div>
+  `;
+}
+
+function buildHeadToHeadStats(videos) {
+
+  const teamStats = {};
+  const individualStats = {};
+
+  videos.forEach(video => {
+
+    if (!video.results) return;
+
+    const rounds = Array.isArray(video.results)
+      ? video.results
+      : [video.results];
+
+    rounds.forEach(r => {
+
+      // ---------- DRAW ----------
+      if (r.draw) {
+
+        const teams = r.draw;
+
+        teams.forEach(teamKey => {
+
+          if (!teamStats[teamKey]) {
+            teamStats[teamKey] = { apps: 0, wins: 0, losses: 0, draws: 0 };
+          }
+
+          teamStats[teamKey].apps++;
+          teamStats[teamKey].draws++;
+
+          // credit individuals
+          teamKey.split("-").forEach(player => {
+
+            if (!individualStats[player]) {
+              individualStats[player] = { apps: 0, wins: 0, losses: 0, draws: 0 };
+            }
+
+            individualStats[player].apps++;
+            individualStats[player].draws++;
+
+          });
+
+        });
+
+        return;
+      }
+
+      // ---------- WIN / LOSS ----------
+      const { winner, loser } = r;
+
+      if (!winner || !loser) return;
+
+      // ---- Team Stats ----
+      [winner, loser].forEach(teamKey => {
+
+        if (!teamStats[teamKey]) {
+          teamStats[teamKey] = { apps: 0, wins: 0, losses: 0, draws: 0 };
+        }
+
+        teamStats[teamKey].apps++;
+
+      });
+
+      teamStats[winner].wins++;
+      teamStats[loser].losses++;
+
+      // ---- Individual Stats ----
+      winner.split("-").forEach(player => {
+
+        if (!individualStats[player]) {
+          individualStats[player] = { apps: 0, wins: 0, losses: 0, draws: 0 };
+        }
+
+        individualStats[player].apps++;
+        individualStats[player].wins++;
+
+      });
+
+      loser.split("-").forEach(player => {
+
+        if (!individualStats[player]) {
+          individualStats[player] = { apps: 0, wins: 0, losses: 0, draws: 0 };
+        }
+
+        individualStats[player].apps++;
+        individualStats[player].losses++;
+
+      });
+
+    });
+
+  });
+
+  if (!Object.keys(teamStats).length) {
+    return `<div class="player-card">No data available.</div>`;
+  }
+
+  // ==================================================
+  // 🔥 TEAM LEADERBOARD
+  // ==================================================
+
+  const sortedTeams =
+    Object.entries(teamStats)
+      .sort((a,b)=>b[1].wins-a[1].wins);
+
+  let html = `
+    <div class="format-leaderboard">
+      ${sortedTeams.map(([team,s],i)=>`
+        <div class="leaderboard-row ${i===0?"first":i===1?"second":i===2?"third":""}">
+          <div class="leaderboard-left">
+            ${renderLeaderboardAvatars(team)}
+            <div class="leaderboard-name">
+              ${formatCompetitorName(team)}
+            </div>
+          </div>
+          <div class="leaderboard-right">
+            <div class="leaderboard-medals">
+              <span><small>🏆</small><strong>${s.wins}</strong></span>
+              <span><small>🤝</small><strong>${s.draws}</strong></span>
+            </div>
+            <div class="leaderboard-points">
+              ${((s.wins/s.apps)*100 || 0).toFixed(1)}% Win Rate
+            </div>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  // ==================================================
+  // 🔥 INDIVIDUAL PLAYER CARDS
+  // ==================================================
+
+  const sortedIndividuals =
+    Object.entries(individualStats)
+      .sort((a,b)=>b[1].apps-a[1].apps);
+
+  html += sortedIndividuals.map(([player,s])=>`
+    <div class="player-card">
+      <div class="player-header">
+        ${renderAvatars(player)}
+        <h3>${playerFullNames[player] || player}</h3>
+      </div>
+      <div class="player-stats">
+        <div><span>Games</span><strong>${s.apps}</strong></div>
+        <div><span>Wins</span><strong>${s.wins}</strong></div>
+        <div><span>Losses</span><strong>${s.losses}</strong></div>
+        <div><span>Draws</span><strong>${s.draws}</strong></div>
+        <div><span>Win %</span><strong>${((s.wins/s.apps)*100 || 0).toFixed(1)}%</strong></div>
       </div>
     </div>
   `).join("");
@@ -1214,6 +1409,101 @@ return `
 `;
   }).join("");
 
+}
+
+function buildTeamScoreStats(videos) {
+
+  const teamStats = {};
+
+  videos.forEach(video => {
+
+    if (!video.scores) return;
+
+    Object.entries(video.scores).forEach(([teamKey, value]) => {
+
+      let score, max;
+
+      if (typeof value === "number") {
+        score = value;
+        max = null;
+      } else {
+        score = value.score;
+        max = value.max;
+      }
+
+      if (!teamStats[teamKey]) {
+        teamStats[teamKey] = {
+          apps: 0,
+          total: 0,
+          high: 0,
+          low: Infinity,
+          history: []
+        };
+      }
+
+      teamStats[teamKey].apps++;
+      teamStats[teamKey].total += score;
+      teamStats[teamKey].high =
+        Math.max(teamStats[teamKey].high, score);
+      teamStats[teamKey].low =
+        Math.min(teamStats[teamKey].low, score);
+
+      teamStats[teamKey].history.push({
+        score,
+        max,
+        youtubeId: video.youtubeId,
+        date: video.releaseDate
+      });
+
+    });
+
+  });
+
+  if (!Object.keys(teamStats).length) {
+    return `<div class="player-card">No data available.</div>`;
+  }
+
+  const sorted =
+    Object.entries(teamStats)
+      .sort((a,b)=>b[1].apps-a[1].apps);
+
+  return `
+    <div class="format-column">
+      ${sorted.map(([team,s])=>`
+        <div class="player-card">
+
+          <div class="player-header">
+            ${renderAvatars(team)}
+            <h3>${formatCompetitorName(team)}</h3>
+          </div>
+
+          <div class="player-stats">
+            <div><span>Games</span><strong>${s.apps}</strong></div>
+            <div><span>Total</span><strong>${s.total}</strong></div>
+            <div><span>Average</span><strong>${(s.total/s.apps).toFixed(1)}</strong></div>
+            <div><span>High</span><strong>${s.high}</strong></div>
+            <div><span>Low</span><strong>${s.low}</strong></div>
+          </div>
+
+          <div class="history-row">
+            <div class="history-label">Scores</div>
+            <div class="score-history">
+              ${s.history
+                .sort((a,b)=> new Date(b.date)-new Date(a.date))
+                .map(h=>`
+                  <a class="score-pill"
+                     href="https://www.youtube.com/watch?v=${h.youtubeId}"
+                     target="_blank">
+                     ${h.max ? `${h.score}/${h.max}` : h.score}
+                  </a>
+                `).join("")}
+            </div>
+          </div>
+
+        </div>
+      `).join("")}
+    </div>
+  `;
 }
 
 function formatCompetitorName(key) {
