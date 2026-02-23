@@ -496,6 +496,126 @@ h1 {
 .overview-item a:hover {
   text-decoration: underline;
 }
+
+/* ============================= */
+/* 📱 MOBILE RESPONSIVE STYLES  */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  main {
+    padding: 18px 16px;
+  }
+
+  /* Stack dashboard columns */
+  .main-dashboard {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  /* Leaderboard rows tighter */
+  .leaderboard-row {
+    padding: 14px 14px;
+    border-radius: 14px;
+  }
+
+  .leaderboard-name {
+    font-size: 0.9rem;
+  }
+
+  /* Smaller medal columns */
+  .leaderboard-medals {
+    grid-template-columns: repeat(4, 26px);
+  }
+
+  .leaderboard-medals span small {
+    font-size: 12px;
+    height: 16px;
+  }
+
+  .leaderboard-medals span strong {
+    font-size: 0.85rem;
+  }
+
+  .leaderboard-points {
+    font-size: 1rem;
+  }
+
+  /* Stack overview rows properly */
+  .overview-item {
+    flex-direction: row;
+    font-size: 0.85rem;
+  }
+
+  .overview-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Player cards tighter */
+  .player-card {
+    padding: 14px;
+  }
+
+  .player-avatar {
+    width: 42px;
+    height: 42px;
+  }
+
+  .player-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .player-stats div {
+    font-size: 0.75rem;
+    padding: 6px;
+  }
+
+  .player-stats strong {
+    font-size: 0.9rem;
+  }
+
+  /* History scroll more compact */
+  .score-pill {
+    font-size: 0.75rem;
+    padding: 5px 8px;
+  }
+
+  /* Format icon grid tighter */
+  .type-grid {
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 12px 8px;
+  }
+
+  .type-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .type-label {
+    font-size: 0.65rem;
+  }
+}
+@media (max-width: 480px) {
+
+  .leaderboard-medals {
+    grid-template-columns: repeat(4, 22px);
+  }
+
+  .leaderboard-name {
+    font-size: 0.85rem;
+  }
+
+  .leaderboard-points {
+    font-size: 0.9rem;
+  }
+
+  .player-stats {
+    grid-template-columns: 1fr;
+  }
+
+}
 </style>
 </head>
 
