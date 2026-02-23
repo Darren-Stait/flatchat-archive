@@ -12,6 +12,17 @@
       }
     },
     {
+      "id": "misc-2026-02-21",
+      "title": "This Quiz Made Us Remember The Most OBSCURE Footballers In The World...",
+      "youtubeId": "0e4VyJqCZQI",
+      "releaseDate": "2026-02-21",
+      "type": "misc",
+      "scores": {
+        "aaron-heggie": 51,
+        "calum-jacob": 59
+      }
+    },
+    {
       "id": "higher-or-lower-2026-02-20",
       "title": "We Went Head To Head In This Football HIGHER OR LOWER Quiz...",
       "youtubeId": "LpwX5uZhxPw",
@@ -73,6 +84,64 @@
           ],
           "categories": [
             "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "imposter-2026-02-18",
+      "title": "FOOTBALL IMPOSTOR VS A PROFESSIONAL FOOTBALLER!!!",
+      "youtubeId": "xe_LkeU_Wns",
+      "releaseDate": "2026-02-18",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false }
+        ],
+        "andy": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true }
+        ]
+      },
+      "moments": [
+        {
+          "id": "calum-wearing-orange",
+          "title": "They're wearing orange. So Netherlands.",
+          "description": "In this higher or lower challenge, Calum doesn't read the question properly and guesses a wild answer.",
+          "timestamp": 1482,
+          "people": [
+            "calum"
+          ],
+          "categories": [
+            "even-listening"
           ]
         }
       ]
@@ -3523,11 +3592,27 @@
       "youtubeId": "tDUwiVhz1Io",
       "releaseDate": "2024-05-16",
       "type": "imposter",
-      "scores": {
-        "aaron": 12,
-        "calum": 8,
-        "jacob": 6,
-        "heggie": 4
+      "results": {
+        "aaron": [
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false }
+        ],
+        "andy": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false }
+        ]
       },
       "moments": [
         {
