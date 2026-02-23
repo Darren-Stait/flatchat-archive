@@ -1,6 +1,33 @@
 {
   "videos": [
     {
+      "id": "careerpath-2026-02-23",
+      "title": "The Ultimate PREMIER LEAGUE YEARS Football Career Path Quiz...",
+      "youtubeId": "hqomO8Ib5Qw",
+      "releaseDate": "2026-02-23",
+      "type": "careerpath",
+      "scores": {
+        "aaron-calum-jacob": {
+          "score": 23,
+          "max": 32
+        }
+      },
+      "moments": [
+        {
+          "id": "aaron-what-pronunciation",
+          "title": "What Pronunciation!",
+          "description": "In this career path challenge, Aaron perfectly pronounces this greek keepers name.",
+          "timestamp": 1413,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "great-ball-knowledge"
+          ]
+        }
+      ]
+    },
+    {
       "id": "jeopardy-2026-02-22",
       "title": "ANDY HALLIDAY Joins In For Our First Ever 2 Vs 2 Football Jeopardy Quiz...",
       "youtubeId": "gc98qyN8nP0",
@@ -248,6 +275,469 @@
         { "winner": "calum-jacob", "loser": "heggie-aaron" },
         { "winner": "heggie-aaron", "loser": "calum-jacob" },
         { "winner": "heggie-aaron", "loser": "calum-jacob" }
+      ]
+    },
+    {
+      "id": "draft-2026-02-11",
+      "title": "This Was One Of Our Favourite Football Draft Formats EVER...",
+      "youtubeId": "9C6cqz3ia4Q",
+      "releaseDate": "2026-02-11",
+      "type": "draft"
+    },
+    {
+      "id": "pointless-2026-02-10",
+      "title": "This Was One Of The HARDEST Football Pointless Quizzes We Have Attempted...",
+      "youtubeId": "JmCcEHhGjFE",
+      "releaseDate": "2026-02-10",
+      "type": "pointless",
+      "scores": {
+        "aaron": 377,
+        "calum": 408,
+        "heggie": 458
+      }
+    },
+    {
+      "id": "careerpath-2026-02-09",
+      "title": "This Was The CRAZIEST Football Career Path Quiz Yet...",
+      "youtubeId": "DkwjKZoTd4g",
+      "releaseDate": "2026-02-09",
+      "type": "careerpath",
+      "scores": {
+        "aaron-calum-jacob-heggie": {
+          "score": 64,
+          "max": 87
+        }
+      }
+    },
+    {
+      "id": "jeopardy-2026-02-08",
+      "title": "This Football Jeopardy Quiz Made One Of The Lads WALK OUT...",
+      "youtubeId": "cv0s1iGjFwE",
+      "releaseDate": "2026-02-08",
+      "type": "jeopardy",
+      "scores": {
+        "aaron": 6400,
+        "calum": 1800,
+        "jacob": 5300
+      },
+      "moments": [
+        {
+          "id": "aaron-who-are-you-who-who",
+          "title": "Who are you? Who? Who?",
+          "description": "In this edition of Jeopardy, Aaron bursts out into beautiful melodic song.",
+          "timestamp": 632,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pressure-tension-2026-02-07",
+      "title": "This Football Pressure Tension Quiz Caused Some CHAOS...",
+      "youtubeId": "24gii_mWM3s",
+      "releaseDate": "2026-02-07",
+      "type": "pressure-tension",
+      "scores": {
+        "aaron": 16,
+        "calum": 4,
+        "jacob": 21,
+        "heggie": 36
+      }
+    },
+    {
+      "id": "draft-2026-02-06",
+      "title": "The Greatest *FOOTBALL DRAFT* Challenge The World Has Ever Seen...",
+      "youtubeId": "GuCGrMAMSuM",
+      "releaseDate": "2026-02-06",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2026-02-05",
+      "title": "We Had To Phone A Friend To Complete These FOOTBALL TENABLES...",
+      "youtubeId": "ZCa1BOGU16c",
+      "releaseDate": "2026-02-05",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-jacob-heggie": {
+          "score": 35,
+          "max": 40
+        }
+      },
+      "moments": [
+        {
+          "id": "heggie-shes-on-do-not-disturb",
+          "title": "She's on do not disturb the rat.",
+          "description": "Heggie calls in reinforcements to help out with this FRIENDS themed tenable, but does Erin pick up the phone?",
+          "timestamp": 1184,
+          "people": [
+            "heggie"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "imposter-2026-02-04",
+      "title": "This Was Our Best Ever Game Of FOOTBALL IMPOSTORS...",
+      "youtubeId": "gI7hHIcRHPc",
+      "releaseDate": "2026-02-04",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": false },
+          { "role": "imposter", "win": false }
+        ],
+        "calum": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "face-blindness-2026-02-03",
+      "title": "We Mixed It All Up For This 2 Vs 2 Football Face Blindness Quiz...",
+      "youtubeId": "kXQlU8TdsGw",
+      "releaseDate": "2026-02-03",
+      "type": "face-blindness",
+      "scores": {
+        "aaron-heggie": 42,
+        "calum-jacob": 40
+      }
+    },
+    {
+      "id": "jeopardy-2026-02-02",
+      "title": "These Were Some Of Our FAVOURITE Football Jeopardy Categories Yet...",
+      "youtubeId": "YmJB5wKPrwg",
+      "releaseDate": "2026-02-02",
+      "type": "jeopardy",
+      "scores": {
+        "heggie": 6300,
+        "aaron": 3800,
+        "calum": 4400
+      },
+      "moments": [
+        {
+          "id": "aaron-north-korea-girls",
+          "title": "North Korea Girls",
+          "description": "In this Jeopardy, Aaron makes a passing remark about a certain countries U16 girls tournaments.",
+          "timestamp": 619,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenable-tension-2026-02-02",
+      "title": "February Legends Vid - FlatChat Tenable Tension...",
+      "youtubeId": "nPJOO2LGffQ",
+      "releaseDate": "2026-02-02",
+      "type": "tenable-tension",
+      "scores": {
+        "jacob": 11,
+        "aaron": -10,
+        "calum": 21
+      }
+    },
+    {
+      "id": "traitors-2026-02-01",
+      "title": "This Football Traitors Episode Made One Of The Boys LOSE THEIR MINDS!",
+      "youtubeId": "S-8GFLk_8G0",
+      "releaseDate": "2026-02-01",
+      "type": "traitors",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": true }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "traitor", "win": false }
+        ]
+      }
+    },
+    {
+      "id": "draft-2026-01-31",
+      "title": "We Brought A Viewer On To Challenge Us In This FOOTBALL DRAFT...",
+      "youtubeId": "Bv2DlHJfkZk",
+      "releaseDate": "2026-01-31",
+      "type": "draft"
+    },
+    {
+      "id": "killer-tension-2026-01-30",
+      "title": "This Viewers Killer Tension Quiz Was EXCEPTIONAL...",
+      "youtubeId": "qKZo9xlIT3Q",
+      "releaseDate": "2026-01-30",
+      "type": "killer-tension",
+      "scores": {
+        "jacob": 6,
+        "aaron": -18,
+        "calum": 9,
+        "heggie": 57
+      }
+    },
+    {
+      "id": "squadup-2026-01-29",
+      "title": "This Was A Generational Football Squad Up BATTLE...",
+      "youtubeId": "cFDF0vJMRS4",
+      "releaseDate": "2026-01-29",
+      "type": "squadup",
+      "scores": {
+        "jacob": 30,
+        "aaron": 29,
+        "calum": 29,
+        "heggie": 25
+      }
+    },
+    {
+      "id": "pointless-2026-01-28",
+      "title": "This Was Our Favourite Football Pointless Quiz EVER...",
+      "youtubeId": "WKCz5AqbdnI",
+      "releaseDate": "2026-01-28",
+      "type": "pointless",
+      "scores": {
+        "jacob": 452,
+        "calum": 447,
+        "heggie": 384
+      },
+      "moments": [
+        {
+          "id": "heggie-stephen-carr",
+          "title": "Stephen Carr WHAT?!",
+          "description": "In this edition of Pointless, Heggie potentially pulls off the wildest shout every with this Liverpool RB?!",
+          "timestamp": 422,
+          "people": [
+            "heggie"
+          ],
+          "categories": [
+            "wild-shouts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jeopardy-2026-01-27",
+      "title": "This Was A GENERATIONAL Football Jeopardy Performance...",
+      "youtubeId": "yid0IZT3k3I",
+      "releaseDate": "2026-01-27",
+      "type": "jeopardy",
+      "scores": {
+        "jacob": 3800,
+        "aaron": 2100,
+        "heggie": 6300
+      },
+      "moments": [
+        {
+          "id": "heggie-what-that-tongue-do",
+          "title": "What that tongue do?!",
+          "description": "It's Jeopardy time again and Heggie pulls out one for the ladies.",
+          "timestamp": 1791,
+          "people": [
+            "heggie"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        },
+        {
+          "id": "heggie-its-jacob-and-aaron",
+          "title": "It's Jacob and Aaron!",
+          "description": "Heggie makes a HILARIOUS remark about Aaron and Jacob being these famous twins.",
+          "timestamp": 577,
+          "people": [
+            "heggie"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        },
+        {
+          "id": "but-i-said-that",
+          "title": "But I said that?!",
+          "description": "Aaron tries to get all fancy when he answers this Jeopardy question causing a backfire.",
+          "timestamp": 1791,
+          "people": [
+            "aaron",
+            "calum"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "traitors-2026-01-26",
+      "title": "This Was One Of The Most INTERESTING Football Traitor Performances Ever...",
+      "youtubeId": "u-HpLTvNKJM",
+      "releaseDate": "2026-01-26",
+      "type": "traitors",
+      "results": {
+        "aaron": [
+          { "role": "traitor", "win": false }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "misc-2026-01-25",
+      "title": "We Got Sent A *WWE* Themed Football Quiz And We COOKED...",
+      "youtubeId": "LMkPSAM1lnc",
+      "releaseDate": "2026-01-25",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2026-01-24",
+      "title": "This 2 Vs 2 Football Quiz Caused Major CONTROVERSY...",
+      "youtubeId": "Bmm4X_RGK4c",
+      "releaseDate": "2026-01-24",
+      "type": "misc",
+      "scores": {
+        "heggie-calum": 43,
+        "jacob-aaron": 27
+      }
+    },
+    {
+      "id": "misc-2026-01-23",
+      "title": "We Went Head To Head In This FOOTBALL Quiz MASHUP...",
+      "youtubeId": "JyIAxsyhsv0",
+      "releaseDate": "2026-01-23",
+      "type": "misc",
+      "scores": {
+        "heggie": 27,
+        "jacob": 30,
+        "aaron": 23,
+        "calum": 35
+      }
+    },
+    {
+      "id": "extremetension-2026-01-22",
+      "title": "The Twist In This Football Tension Quiz SERIOUSLY Shocked Us...",
+      "youtubeId": "6WoyOCxPcCw",
+      "releaseDate": "2026-01-22",
+      "type": "extremetension",
+      "scores": {
+        "heggie": 40,
+        "jacob": 69,
+        "aaron": 4,
+        "calum": 15
+      }
+    },
+    {
+      "id": "misc-2026-01-21",
+      "title": "This Football Quiz Will Really Test Your *OBSCURE* Ball Knowledge...",
+      "youtubeId": "l3SN9DtvQLc",
+      "releaseDate": "2026-01-21",
+      "type": "misc",
+      "scores": {
+        "heggie-aaron": 57,
+        "jacob-calum": 61
+      }
+    },
+    {
+      "id": "draft-2026-01-20",
+      "title": "This Football Draft Challenge Produced Some WILD Teams...",
+      "youtubeId": "r_5J8VCkOaM",
+      "releaseDate": "2026-01-20",
+      "type": "draft"
+    },
+    {
+      "id": "jeopardy-2026-01-19",
+      "title": "This Viewers Football Jeopardy Quiz Was SOLID...",
+      "youtubeId": "_vGawuiwu0U",
+      "releaseDate": "2026-01-19",
+      "type": "jeopardy",
+      "scores": {
+        "heggie": 2800,
+        "jacob": 3100,
+        "calum": 3600
+      }
+    },
+    {
+      "id": "questionofsport-2026-01-18",
+      "title": "This Football Question Of Sports Quiz Got CHAOTIC...",
+      "youtubeId": "KPX6fXopfM4",
+      "releaseDate": "2026-01-18",
+      "type": "questionofsport",
+      "scores": {
+        "heggie-calum": 25,
+        "jacob-aaron": 19
+      },
+      "moments": [
+        {
+          "id": "calum-cech-current-premier-league",
+          "title": "Cech. Current Premier League?",
+          "description": "In this Question of Sport, Calum proves once again that he can't read a question correctly.",
+          "timestamp": 1349,
+          "people": [
+            "calum"
+          ],
+          "categories": [
+            "even-listening"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tension-2026-01-17",
+      "title": "We Produced Some EXQUISITE Football Tension Answers...",
+      "youtubeId": "ol3Z7dB44CY",
+      "releaseDate": "2026-01-17",
+      "type": "tension",
+      "scores": {
+        "heggie": 24,
+        "jacob": 55,
+        "aaron": 5,
+        "calum": 40
+      },
+      "moments": [
+        {
+          "id": "aaron-id-love-that-to-be-wrong",
+          "title": "I'd love that to be.... Wrong.",
+          "description": "In this Tension, Aaron proves his comedic genius with this line.",
+          "timestamp": 993,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
       ]
     },
     {

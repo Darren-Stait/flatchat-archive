@@ -689,16 +689,22 @@ const formatDisplayNames = {
   "millionaire": "Who Wants To Be A Millionaire",
   "millionpounddrop": "Million Pound Drop",
   "extremetension": "Extreme Tension",
-  "whodareswins": "Who Dares Wins"
+  "whodareswins": "Who Dares Wins",
+  "squadup": "Squad Up"
 };
 
 const formatModes = {
   "imposter": "role",
+  "traitors": "role",
   "killer-tic-tac-toe": "h2h",
   "tic-tac-toe": "h2h",
   "codenames": "h2h",
   "tenable": "team",
   "careerpath": "team"
+};
+
+const reverseScoreFormats = {
+  "pointless": true
 };
 
 const playerFullNames = {
@@ -794,7 +800,7 @@ function showStats(type) {
   }
 
   if (mode === "role") {
-    html += buildRoleStats(typeVideos);
+    html += buildRoleStats(typeVideos, type);
   }
 
   if (mode === "h2h") {
@@ -818,8 +824,17 @@ function buildScoreStats(videos) {
 
     if (!video.scores) return;
 
-    const sorted = Object.entries(video.scores)
-      .sort((a,b)=>b[1]-a[1]);
+const isReverse = reverseScoreFormats[video.type];
+
+const sorted = Object.entries(video.scores)
+  .sort((a,b)=>{
+    const scoreA = typeof a[1] === "number" ? a[1] : a[1].score;
+    const scoreB = typeof b[1] === "number" ? b[1] : b[1].score;
+
+    return isReverse
+      ? scoreA - scoreB   // 🔥 lowest first
+      : scoreB - scoreA;  // normal highest first
+  });
 
     sorted.forEach(([competitor, score], index) => {
 
@@ -991,8 +1006,20 @@ ${(s.history || [])
 `;
 }
 
-function buildRoleStats(videos) {
+function buildRoleStats(videos, type) {
 
+  const roleLabels = {
+  imposter: {
+    evil: "Imposter",
+    good: "Faithful"
+  },
+  traitors: {
+    evil: "Traitor",
+    good: "Faithful"
+  }
+  };
+
+  const labels = roleLabels[type] || roleLabels.imposter;
   const stats = {};
 
   videos.forEach(video => {
@@ -1092,11 +1119,11 @@ function buildRoleStats(videos) {
         <h3>${playerFullNames[player] || player}</h3>
       </div>
       <div class="player-stats">
-        <div><span>Apps</span><strong>${s.apps}</strong></div>
-        <div><span>Imp Wins</span><strong>${s.impWin}</strong></div>
-        <div><span>Imp Loss</span><strong>${s.impLoss}</strong></div>
-        <div><span>Faith Wins</span><strong>${s.faithWin}</strong></div>
-        <div><span>Faith Loss</span><strong>${s.faithLoss}</strong></div>
+        <div><span>Rounds</span><strong>${s.apps}</strong></div>
+        <div><span>${labels.evil} Wins</span><strong>${s.impWin}</strong></div>
+        <div><span>${labels.evil} Losses</span><strong>${s.impLoss}</strong></div>
+        <div><span>${labels.good} Wins</span><strong>${s.faithWin}</strong></div>
+        <div><span>${labels.good} Losses</span><strong>${s.faithLoss}</strong></div>
       </div>
     </div>
   `).join("");
