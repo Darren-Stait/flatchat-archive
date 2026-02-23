@@ -166,6 +166,14 @@ h1 {
   border: 2px solid #f3f7f8;
 }
 
+.leaderboard-roundwins-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #25b6c4; /* your blue */
+}
+
 /* Stats grid */
 .player-stats {
   display: grid;
@@ -380,7 +388,7 @@ h1 {
 
 #statsContent {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-columns: 320px 1fr;
   gap: 20px;
 }
 
@@ -497,33 +505,54 @@ h1 {
   text-decoration: underline;
 }
 
-/* ============================= */
-/* 📱 MOBILE RESPONSIVE STYLES  */
-/* ============================= */
+.format-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 @media (max-width: 768px) {
 
   main {
-    padding: 18px 16px;
+    padding: 18px 14px;
   }
 
-  /* Stack dashboard columns */
+  /* 🔥 Stack dashboard properly */
   .main-dashboard {
     grid-template-columns: 1fr;
     gap: 18px;
   }
 
-  /* Leaderboard rows tighter */
+  /* 🔥 Stats content stack */
+  #statsContent {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .format-column {
+    gap: 18px;
+  }
+
+  /* 🔥 Leaderboard rows tighter + clean */
   .leaderboard-row {
-    padding: 14px 14px;
-    border-radius: 14px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .leaderboard-left {
+    gap: 10px;
   }
 
   .leaderboard-name {
     font-size: 0.9rem;
   }
 
-  /* Smaller medal columns */
+  .leaderboard-right {
+    justify-items: start;
+    gap: 6px;
+  }
+
   .leaderboard-medals {
     grid-template-columns: repeat(4, 26px);
   }
@@ -538,13 +567,12 @@ h1 {
   }
 
   .leaderboard-points {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
-  /* Stack overview rows properly */
-  .overview-item {
-    flex-direction: row;
-    font-size: 0.85rem;
+  /* 🔥 Overview card tighter */
+  .overview-card {
+    padding: 16px;
   }
 
   .overview-logo {
@@ -552,9 +580,17 @@ h1 {
     height: 36px;
   }
 
-  /* Player cards tighter */
+  .overview-item {
+    font-size: 0.85rem;
+  }
+
+  /* 🔥 Player cards stack clean */
   .player-card {
     padding: 14px;
+  }
+
+  .player-header {
+    gap: 10px;
   }
 
   .player-avatar {
@@ -564,25 +600,19 @@ h1 {
 
   .player-stats {
     grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
+    gap: 8px;
   }
 
   .player-stats div {
-    font-size: 0.75rem;
     padding: 6px;
+    font-size: 0.75rem;
   }
 
   .player-stats strong {
     font-size: 0.9rem;
   }
 
-  /* History scroll more compact */
-  .score-pill {
-    font-size: 0.75rem;
-    padding: 5px 8px;
-  }
-
-  /* Format icon grid tighter */
+  /* 🔥 Type grid smaller */
   .type-grid {
     grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
     gap: 12px 8px;
@@ -595,24 +625,6 @@ h1 {
 
   .type-label {
     font-size: 0.65rem;
-  }
-}
-@media (max-width: 480px) {
-
-  .leaderboard-medals {
-    grid-template-columns: repeat(4, 22px);
-  }
-
-  .leaderboard-name {
-    font-size: 0.85rem;
-  }
-
-  .leaderboard-points {
-    font-size: 0.9rem;
-  }
-
-  .player-stats {
-    grid-template-columns: 1fr;
   }
 
 }
@@ -680,6 +692,10 @@ const formatDisplayNames = {
   "whodareswins": "Who Dares Wins"
 };
 
+const formatModes = {
+  "imposter": "role"
+};
+
 const playerFullNames = {
   "aaron": "Aaron Turnbull",
   "calum": "Calum Porter",
@@ -690,7 +706,7 @@ const playerFullNames = {
 
 let allVideos = [];
 
-fetch('https://www.flatchat-moments.uk/stats/videos.json')
+fetch('./videos.json')
   .then(res => res.json())
   .then(data => {
     allVideos = data.videos;
@@ -759,264 +775,343 @@ function showStats(type) {
   document.getElementById("type-selection").classList.add("hidden");
   document.getElementById("type-stats").classList.remove("hidden");
 
-  document.getElementById("typeTitle").textContent = formatType(type) + " Stats";
+  document.getElementById("typeTitle").textContent =
+    formatType(type) + " Stats";
 
   const typeVideos = allVideos.filter(v => v.type === type);
-// Build unique competitors (solo + teams)
-const competitors = [
-  ...new Set(
-    typeVideos.flatMap(video =>
-      video.scores ? Object.keys(video.scores) : []
-    )
-  )
-];
 
-let medalTable = {};
+  const mode = formatModes[type] || "score";
 
-typeVideos.forEach(video => {
+  let html = buildOverview(typeVideos, type);
 
-  const entries = Object.entries(video.scores)
-    .sort((a,b) => b[1] - a[1]);
-
-  entries.forEach((entry, index) => {
-
-const competitor = entry[0];
-
-const members = competitor.includes("-")
-  ? competitor.split("-")
-  : [competitor];
-
-members.forEach(player => {
-
-  if (!medalTable[player]) {
-    medalTable[player] = { gold: 0, silver: 0, bronze: 0, spoon: 0, points: 0 };
+  if (mode === "score") {
+    html += buildScoreStats(typeVideos);
   }
 
-  if(index === 0) {
-    medalTable[player].gold++;
-    medalTable[player].points += 3;
-  }
-  else if(index === 1) {
-    medalTable[player].silver++;
-    medalTable[player].points += 2;
-  }
-  else if(index === 2) {
-    medalTable[player].bronze++;
-    medalTable[player].points += 1;
-  }
-  else if(index === entries.length - 1) {
-    medalTable[player].spoon++;
+  if (mode === "role") {
+    html += buildRoleStats(typeVideos);
   }
 
-});
+  document.getElementById("statsContent").innerHTML = html;
+}
+
+function buildScoreStats(videos) {
+
+  const individualStats = {};
+  const teamStats = {};
+  const medalTable = {};
+
+  videos.forEach(video => {
+
+    if (!video.scores) return;
+
+    const sorted = Object.entries(video.scores)
+      .sort((a,b)=>b[1]-a[1]);
+
+    sorted.forEach(([competitor, score], index) => {
+
+      const players = competitor.includes("-")
+        ? competitor.split("-")
+        : [competitor];
+
+      // --- Individual stats + medals ---
+      players.forEach(player => {
+
+        if (!individualStats[player]) {
+          individualStats[player] = {
+            apps: 0,
+            total: 0,
+            high: 0,
+            low: Infinity
+          };
+        }
+
+        if (!medalTable[player]) {
+          medalTable[player] = {
+            gold: 0, silver: 0, bronze: 0, spoon: 0, points: 0
+          };
+        }
+
+        individualStats[player].apps++;
+        individualStats[player].total += score;
+        individualStats[player].high =
+          Math.max(individualStats[player].high, score);
+        individualStats[player].low =
+          Math.min(individualStats[player].low, score);
+
+        if (index === 0) {
+          medalTable[player].gold++;
+          medalTable[player].points += 3;
+        }
+        else if (index === 1) {
+          medalTable[player].silver++;
+          medalTable[player].points += 2;
+        }
+        else if (index === 2) {
+          medalTable[player].bronze++;
+          medalTable[player].points += 1;
+        }
+        else if (index === sorted.length - 1) {
+          medalTable[player].spoon++;
+        }
+
+      });
+
+      // --- Team stats ---
+      if (players.length > 1) {
+
+        if (!teamStats[competitor]) {
+          teamStats[competitor] = {
+            apps: 0,
+            total: 0,
+            high: 0,
+            low: Infinity
+          };
+        }
+
+        teamStats[competitor].apps++;
+        teamStats[competitor].total += score;
+        teamStats[competitor].high =
+          Math.max(teamStats[competitor].high, score);
+        teamStats[competitor].low =
+          Math.min(teamStats[competitor].low, score);
+      }
+
+    });
 
   });
 
-});
+  // ----------------------------
+  // 🔥 Format Medal Leaderboard
+  // ----------------------------
 
-const sortedLeaderboard = Object.entries(medalTable)
-  .sort((a,b) => b[1].points - a[1].points);
+  const sortedMedals =
+    Object.entries(medalTable)
+      .sort((a,b)=>b[1].points-a[1].points);
 
-
-
-  let statsHTML = "";
-// Sort videos by date
-const sortedByDate = [...typeVideos]
-  .sort((a,b) => new Date(a.releaseDate) - new Date(b.releaseDate));
-
-const firstVideo = sortedByDate[0];
-const lastVideo = sortedByDate[sortedByDate.length - 1];
-
-statsHTML += `
-  <div class="dashboard-card overview-card">
-
-    <div class="overview-header">
-      <div class="overview-title">
-        <img src="../icons/${type}.png" class="overview-logo">
-        <h3>${formatType(type)} Overview</h3>
-      </div>
+  let html = `
+    <div class="format-leaderboard">
+      ${sortedMedals.map(([player,p],i)=>`
+        <div class="leaderboard-row ${i===0?"first":i===1?"second":i===2?"third":""}">
+          <div class="leaderboard-left">
+            ${renderLeaderboardAvatars(player)}
+            <div class="leaderboard-name">
+              ${formatCompetitorName(player)}
+            </div>
+          </div>
+          <div class="leaderboard-right">
+            <div class="leaderboard-medals">
+              <span><small>🥇</small><strong>${p.gold}</strong></span>
+              <span><small>🥈</small><strong>${p.silver}</strong></span>
+              <span><small>🥉</small><strong>${p.bronze}</strong></span>
+              <span class="spoon"><small>🪵</small><strong>${p.spoon}</strong></span>
+            </div>
+            <div class="leaderboard-points">${p.points} pts</div>
+          </div>
+        </div>
+      `).join("")}
     </div>
+  `;
 
-    <div class="overview-stats">
+  // ----------------------------
+  // 🔥 Combine Teams + Individuals
+  // ----------------------------
 
-      <div class="overview-item">
-        <span>Total Videos</span>
-        <strong>${typeVideos.length}</strong>
+  const combined = {
+    ...individualStats,
+    ...teamStats
+  };
+
+  const sortedCombined =
+    Object.entries(combined)
+      .sort((a,b)=>b[1].apps-a[1].apps);
+
+  html += sortedCombined.map(([key,s])=>{
+
+    const avg = (s.total / s.apps).toFixed(2);
+
+    return `
+      <div class="player-card">
+        <div class="player-header">
+          ${renderAvatars(key)}
+          <h3>${formatCompetitorName(key)}</h3>
+        </div>
+        <div class="player-stats">
+          <div><span>Apps</span><strong>${s.apps}</strong></div>
+          <div><span>Total</span><strong>${s.total}</strong></div>
+          <div><span>Average</span><strong>${avg}</strong></div>
+          <div><span>Highest</span><strong>${s.high}</strong></div>
+          <div><span>Lowest</span><strong>${s.low}</strong></div>
+        </div>
       </div>
+    `;
+  }).join("");
 
-      <div class="overview-item">
-        <span>First Video</span>
-        <a 
-          href="https://www.youtube.com/watch?v=${firstVideo.youtubeId}" 
-          target="_blank"
-        >
-          ${new Date(firstVideo.releaseDate).toLocaleDateString("en-GB")}
-        </a>
-      </div>
-
-      <div class="overview-item">
-        <span>Most Recent</span>
-        <a 
-          href="https://www.youtube.com/watch?v=${lastVideo.youtubeId}" 
-          target="_blank"
-        >
-          ${new Date(lastVideo.releaseDate).toLocaleDateString("en-GB")}
-        </a>
-      </div>
-
-    </div>
-
+  return `
+  <div class="format-column">
+    ${html}
   </div>
 `;
+}
 
-statsHTML += `
-  <div class="format-leaderboard">
-    <h3>${formatType(type)} Medal Table</h3>
+function buildRoleStats(videos) {
 
-    ${sortedLeaderboard.map(entry => {
+  const stats = {};
 
-      const p = entry[1];
+  videos.forEach(video => {
 
-      return `
-        <div class="leaderboard-row">
+    if (!video.results) return;
 
+    Object.entries(video.results).forEach(([player, rounds]) => {
+
+      const roundArray = Array.isArray(rounds)
+        ? rounds
+        : [rounds];
+
+      if (!stats[player]) {
+        stats[player] = {
+          apps: 0,
+          impWin: 0,
+          impLoss: 0,
+          faithWin: 0,
+          faithLoss: 0
+        };
+      }
+
+      roundArray.forEach(r => {
+
+        stats[player].apps++;
+
+        if (r.role === "imposter") {
+          r.win ? stats[player].impWin++ : stats[player].impLoss++;
+        }
+
+        if (r.role === "faithful") {
+          r.win ? stats[player].faithWin++ : stats[player].faithLoss++;
+        }
+
+      });
+
+    });
+
+  });
+
+  if (!Object.keys(stats).length) {
+    return `<div class="player-card">No data available.</div>`;
+  }
+
+  // --------------------------------
+  // 🔥 Leaderboard (Total Wins)
+  // --------------------------------
+
+  const leaderboard =
+    Object.entries(stats)
+      .map(([player, s]) => ({
+        player,
+        totalWins: s.impWin + s.faithWin,
+        ...s
+      }))
+      .sort((a,b)=>b.totalWins-a.totalWins);
+
+  let html = `
+    <div class="format-leaderboard">
+      ${leaderboard.map((p,i)=>`
+        <div class="leaderboard-row ${i===0?"first":i===1?"second":i===2?"third":""}">
           <div class="leaderboard-left">
-            ${renderLeaderboardAvatars(entry[0])}
+            ${renderLeaderboardAvatars(p.player)}
             <div class="leaderboard-name">
-              ${formatCompetitorName(entry[0])}
+              ${playerFullNames[p.player] || p.player}
             </div>
           </div>
 
           <div class="leaderboard-right">
             <div class="leaderboard-medals">
               <span>
-                <small>🥇</small>
-                <strong>${p.gold}</strong>
-              </span>
-              <span>
-                <small>🥈</small>
-                <strong>${p.silver}</strong>
-              </span>
-              <span>
-                <small>🥉</small>
-                <strong>${p.bronze}</strong>
-              </span>
-              <span class="spoon">
-                <small>🪵</small>
-                <strong>${p.spoon}</strong>
+                <small>🏆</small>
+                <strong>${p.totalWins}</strong>
               </span>
             </div>
             <div class="leaderboard-points">
-              ${p.points} pts
+              Round Wins
             </div>
           </div>
-
         </div>
-      `;
-    }).join("")}
-
-  </div>
-`;
-
-
-// Build stats first
-const competitorStats = competitors.map(competitor => {
-
-  let totalPoints = 0;
-  let appearances = 0;
-  let highest = 0;
-  let lowest = Infinity;
-
-  const sortedVideos = [...typeVideos]
-    .sort((a,b) => new Date(b.releaseDate) - new Date(a.releaseDate));
-
-  let scoreHistory = [];
-
-  sortedVideos.forEach(video => {
-
-    if (!video.scores) return;
-
-    const score = video.scores[competitor];
-    if (score === undefined) return;
-
-    appearances++;
-    totalPoints += score;
-
-    if (score > highest) highest = score;
-    if (score < lowest) lowest = score;
-
-    scoreHistory.push({
-      score: score,
-      youtubeId: video.youtubeId,
-      date: video.releaseDate
-    });
-
-  });
-
-  if (lowest === Infinity) lowest = 0;
-
-  return {
-    competitor,
-    appearances,
-    totalPoints,
-    highest,
-    lowest,
-    scoreHistory
-  };
-
-});
-
-// 🔥 Sort by most appearances
-competitorStats.sort((a,b) => {
-  if (b.appearances !== a.appearances) {
-    return b.appearances - a.appearances;
-  }
-  return b.totalPoints - a.totalPoints;
-});
-
-// 🔥 Now render in sorted order
-competitorStats.forEach(data => {
-
-  if (data.appearances === 0) return;
-
-  const average = (data.totalPoints / data.appearances).toFixed(2);
-
-  statsHTML += `
-    <div class="player-card">
-
-      <div class="player-header">
-        ${renderAvatars(data.competitor)}
-        <h3>${formatCompetitorName(data.competitor)}</h3>
-      </div>
-
-      <div class="player-stats">
-        <div><span>Apps</span><strong>${data.appearances}</strong></div>
-        <div><span>Points</span><strong>${data.totalPoints}</strong></div>
-        <div><span>Avg</span><strong>${average}</strong></div>
-        <div><span>Highest Score</span><strong>${data.highest}</strong></div>
-        <div><span>Lowest Score</span><strong>${data.lowest}</strong></div>
-      </div>
-
-      <div class="history-row">
-        <div class="history-label">Historical Scores</div>
-        <div class="score-history">
-          ${data.scoreHistory.map(entry => `
-            <a 
-              class="score-pill"
-              href="https://www.youtube.com/watch?v=${entry.youtubeId}"
-              target="_blank"
-              title="${entry.date}"
-            >
-              ${entry.score}
-            </a>
-          `).join("")}
-        </div>
-      </div>
-
+      `).join("")}
     </div>
   `;
-});
-  document.getElementById("statsContent").innerHTML = statsHTML;
+
+  // --------------------------------
+  // 🔥 Player Cards (ordered by apps)
+  // --------------------------------
+
+  const sortedCards =
+    Object.entries(stats)
+      .sort((a,b)=>b[1].apps-a[1].apps);
+
+  html += sortedCards.map(([player,s])=>`
+    <div class="player-card">
+      <div class="player-header">
+        ${renderAvatars(player)}
+        <h3>${playerFullNames[player] || player}</h3>
+      </div>
+      <div class="player-stats">
+        <div><span>Apps</span><strong>${s.apps}</strong></div>
+        <div><span>Imp Wins</span><strong>${s.impWin}</strong></div>
+        <div><span>Imp Loss</span><strong>${s.impLoss}</strong></div>
+        <div><span>Faith Wins</span><strong>${s.faithWin}</strong></div>
+        <div><span>Faith Loss</span><strong>${s.faithLoss}</strong></div>
+      </div>
+    </div>
+  `).join("");
+
+  return `
+    <div class="format-column">
+      ${html}
+    </div>
+  `;
+}
+
+function buildOverview(videos, type) {
+
+  if (!videos.length) return "";
+
+  const sorted = [...videos]
+    .sort((a,b)=>new Date(a.releaseDate)-new Date(b.releaseDate));
+
+  const first = sorted[0];
+  const last = sorted[sorted.length-1];
+
+  return `
+    <div class="dashboard-card overview-card">
+      <div class="overview-header">
+        <div class="overview-title">
+          <img class="overview-logo"
+               src="../icons/${type}.png">
+          <h3>${formatType(type)}</h3>
+        </div>
+      </div>
+      <div class="overview-stats">
+        <div class="overview-item">
+          <span>Total Videos</span>
+          <strong>${videos.length}</strong>
+        </div>
+        <div class="overview-item">
+          <span>First Video</span>
+          <a target="_blank"
+             href="https://www.youtube.com/watch?v=${first.youtubeId}">
+            ${first.releaseDate}
+          </a>
+        </div>
+        <div class="overview-item">
+          <span>Latest Video</span>
+          <a target="_blank"
+             href="https://www.youtube.com/watch?v=${last.youtubeId}">
+            ${last.releaseDate}
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function goBack() {
