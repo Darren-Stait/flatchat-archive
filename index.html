@@ -302,7 +302,7 @@ fetch("stats/videos.json")
     allMoments.sort((a,b) => new Date(b.date) - new Date(a.date));
 
     // Take top 4
-    const latestHighlights = allMoments.slice(0,8);
+    const latestHighlights = allMoments.slice(0,6);
 
 latestHighlights.forEach(moment => {
 
