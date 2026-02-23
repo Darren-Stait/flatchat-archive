@@ -1,6 +1,17 @@
 {
   "videos": [
     {
+      "id": "jeopardy-2026-02-22",
+      "title": "ANDY HALLIDAY Joins In For Our First Ever 2 Vs 2 Football Jeopardy Quiz...",
+      "youtubeId": "gc98qyN8nP0",
+      "releaseDate": "2026-02-22",
+      "type": "jeopardy",
+      "scores": {
+        "calum-heggie": 6100,
+        "andy-jacob": 6500
+      }
+    },
+    {
       "id": "higher-or-lower-2026-02-20",
       "title": "We Went Head To Head In This Football HIGHER OR LOWER Quiz...",
       "youtubeId": "LpwX5uZhxPw",
