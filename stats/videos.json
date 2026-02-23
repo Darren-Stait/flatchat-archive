@@ -741,6 +741,157 @@
       ]
     },
     {
+      "id": "misc-2026-01-16",
+      "title": "This 2 Vs 2 Football Transfers Quiz Was INCREDIBLE...",
+      "youtubeId": "QlrgvI3KERM",
+      "releaseDate": "2026-01-16",
+      "type": "misc",
+      "scores": {
+        "heggie-jacob": 80,
+        "aaron-calum": 64
+      }
+    },
+    {
+      "id": "passport-2026-01-15",
+      "title": "This Viewers Football Passport Quiz Was ELITE...",
+      "youtubeId": "tzET3Yc9eT4",
+      "releaseDate": "2026-01-15",
+      "type": "passport",
+      "scores": {
+        "heggie-aaron": 76.5,
+        "jacob-calum": 84
+      }
+    },
+    {
+      "id": "passport-2026-01-15",
+      "title": "Extreme Passport Football Quiz - Legends Only Video...",
+      "youtubeId": "OXTCyGmESKs",
+      "releaseDate": "2026-01-15",
+      "type": "passport",
+      "scores": {
+        "heggie-aaron": 103,
+        "jacob-calum": 140
+      }
+    },
+    {
+      "id": "pointless-2026-01-14",
+      "title": "This Was The Best Football Pointless Quiz EVER...",
+      "youtubeId": "6D2Xlqnno3o",
+      "releaseDate": "2026-01-14",
+      "type": "pointless",
+      "scores": {
+        "aaron": 352,
+        "calum": 478,
+        "heggie": 350
+      }
+    },
+    {
+      "id": "draft-2026-01-13",
+      "title": "We Finally Brought Back Football Drafts & This Was A BELTER...",
+      "youtubeId": "sQ1kKv5A5m8",
+      "releaseDate": "2026-01-13",
+      "type": "draft"
+    },
+    {
+      "id": "jeopardy-2026-01-12",
+      "title": "This Was A Head To Head Football Jeopardy Match For The Ages...",
+      "youtubeId": "WM8TAAxg88w",
+      "releaseDate": "2026-01-12",
+      "type": "jeopardy",
+      "scores": {
+        "aaron": 3500,
+        "calum": 6400
+      }
+    },
+    {
+      "id": "tenable-2026-01-11",
+      "title": "We Made Hard Work Of These FOOTBALL TENABLES...",
+      "youtubeId": "SNj-GmaLcBw",
+      "releaseDate": "2026-01-11",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob": {
+          "score": 17,
+          "max": 20
+        },
+        "heggie-calum": {
+          "score": 15,
+          "max": 20
+        }
+      }
+    },
+    {
+      "id": "tension-2026-01-09",
+      "title": "This FOOTBALL TENSION Twist Changed EVERYTHING...",
+      "youtubeId": "R340ZviJUek",
+      "releaseDate": "2026-01-09",
+      "type": "tension",
+      "scores": {
+        "aaron": 12,
+        "calum": 61,
+        "heggie": -8,
+        "jacob": 14
+      }
+    },
+    {
+      "id": "imposter-2026-01-08",
+      "title": "We Have Really Improved Our FOOTBALL IMPOSTOR Skills...",
+      "youtubeId": "tVb1EEIqAlY",
+      "releaseDate": "2026-01-08",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "calum": [
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "killer-tic-tac-toe-2026-01-07",
+      "title": "Football Killer Tic-Tac-Toe Vs @LukePingu",
+      "youtubeId": "X0wuOK_kd38",
+      "releaseDate": "2026-01-07",
+      "type": "killer-tic-tac-toe",
+      "results": [
+        { "draw": ["luke", "jacob", "heggie"] },
+        { "winner": "luke", "loser": "aaron-heggie" },
+        { "winner": "luke", "loser": "aaron-jacob" },
+        { "winner": "luke", "loser": "aaron-heggie" }
+      ]
+    },
+    {
+      "id": "tension-2026-01-06",
+      "title": "This Tension Question Made One Of The Boys Lose Their Head…",
+      "youtubeId": "aUe1ylHfx7o",
+      "releaseDate": "2026-01-06",
+      "type": "tension",
+      "scores": {
+        "aaron": 29,
+        "heggie": 21,
+        "jacob": 7
+      }
+    },
+    {
       "id": "misc-2025-12-22",
       "title": "The Twist In This Viewers Football Quiz Had The Boys SHOCKED...",
       "youtubeId": "8jZUaqa8N5k",
