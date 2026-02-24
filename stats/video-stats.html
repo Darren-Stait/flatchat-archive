@@ -700,7 +700,8 @@ const formatModes = {
   "tic-tac-toe": "h2h",
   "codenames": "h2h",
   "tenable": "team",
-  "careerpath": "team"
+  "careerpath": "team",
+  "whq": "team"
 };
 
 const reverseScoreFormats = {
@@ -796,26 +797,31 @@ function showStats(type) {
 
   let html = buildOverview(typeVideos, type);
 
-  if (mode === "score") {
-    html += buildScoreStats(typeVideos);
-  }
-
-  if (mode === "role") {
-    html += buildRoleStats(typeVideos, type);
-  }
-
-  if (mode === "h2h") {
-    html += buildHeadToHeadStats(typeVideos);
-  }
-
-  if (mode === "team") {
+if (mode === "score") {
+  html += buildScoreStats(typeVideos);
+}
+else if (mode === "team") {
   html += buildTeamScoreStats(typeVideos);
+}
+else if (mode === "role") {
+  html += buildRoleStats(typeVideos, type);
+}
+else if (mode === "h2h") {
+  html += buildHeadToHeadStats(typeVideos);
 }
 
   document.getElementById("statsContent").innerHTML = html;
 }
 
 function buildScoreStats(videos) {
+
+    if (!videos.length) return "";
+
+  // 🔥 Prevent team formats from awarding medals
+  const type = videos[0].type;
+  if (formatModes[type] === "team") {
+    return buildTeamScoreStats(videos);
+  }
 
   const individualStats = {};
   const teamStats = {};
@@ -1349,6 +1355,8 @@ function buildOverallLeaderboard() {
   allVideos.forEach(video => {
 
   if (!video.scores) return;  // 🔥 prevent crash
+
+  if (formatModes[video.type] === "team") return;
 
   const entries = Object.entries(video.scores)
     .sort((a,b) => b[1] - a[1]);

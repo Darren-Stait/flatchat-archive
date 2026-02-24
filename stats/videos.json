@@ -892,6 +892,180 @@
       }
     },
     {
+      "id": "jeopardy-2026-01-05",
+      "title": "This Head To Head Football Jeopardy Quiz Created A TASTY Matchup...",
+      "youtubeId": "53V1K9X3Mcs",
+      "releaseDate": "2026-01-05",
+      "type": "jeopardy",
+      "scores": {
+        "aaron": 5900,
+        "jacob": 8200
+      }
+    },
+    {
+      "id": "misc-2026-01-04",
+      "title": "This Is The ULTIMATE Football Quiz...",
+      "youtubeId": "ICszeXCAbzw",
+      "releaseDate": "2026-01-04",
+      "type": "misc",
+      "moments": [
+        {
+          "id": "aaron-not-50-cent",
+          "title": "That is not 50 cent.",
+          "description": "Aaron's face blindness appears to transcend football and affects his blindness of celebrities.",
+          "timestamp": 2283,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "misc-2026-01-03",
+      "title": "This Call Of Duty Themed Football Quiz Was WILD...",
+      "youtubeId": "jgL_O35tccE",
+      "releaseDate": "2026-01-03",
+      "type": "misc",
+      "scores": {
+        "aaron": 36,
+        "heggie": 34,
+        "jacob": 31,
+        "calum": 19
+      }
+    },
+    {
+      "id": "bigfatquiz-2026-01-02",
+      "title": "The BIG FAT Football Quiz Of The Year... 2025 EDITION!!!",
+      "youtubeId": "NNAbATVXDtI",
+      "releaseDate": "2026-01-02",
+      "type": "bigfatquiz",
+      "scores": {
+        "aaron": 52,
+        "heggie": 63,
+        "jacob": 55,
+        "calum": 58
+      }
+    },
+    {
+      "id": "careerpath-2026-01-01",
+      "title": "This 2 Vs 2 Career Path Football Quiz Was HEATED…",
+      "youtubeId": "RZBJaO2EFp0",
+      "releaseDate": "2026-01-01",
+      "type": "careerpath",
+      "scores": {
+        "aaron-jacob": 5,
+        "calum-heggie": 9
+      }
+    },
+    {
+      "id": "tension-2025-12-31",
+      "title": "This Football Tension Performance Will Need To Be STUDIED...",
+      "youtubeId": "AsS3NWz9r0U",
+      "releaseDate": "2025-12-31",
+      "type": "tension",
+      "scores": {
+        "aaron": 70,
+        "heggie": 38,
+        "jacob": 56,
+        "calum": 61
+      }
+    },
+    {
+      "id": "bigfatquiz-2025-12-30",
+      "title": "The BIG FAT FlatChat Quiz Of 2025!!!",
+      "youtubeId": "EBKsBgNzAnQ",
+      "releaseDate": "2025-12-30",
+      "type": "bigfatquiz",
+      "scores": {
+        "aaron-calum": 39,
+        "heggie-jacob": 29
+      }
+    },
+    {
+      "id": "jeopardy-2025-12-29",
+      "title": "We Produced Our Best EVER Football Jeopardy Performance In This Video...",
+      "youtubeId": "0j4R6j-uRyc",
+      "releaseDate": "2025-12-29",
+      "type": "jeopardy",
+      "scores": {
+        "aaron": 4700,
+        "heggie": 4700,
+        "calum": 5100
+      }
+    },
+    {
+      "id": "whq-2025-12-28",
+      "title": "This New Round In The WORLDS HARDEST Football Quiz Was UNREAL...",
+      "youtubeId": "ev7g3o1zk-A",
+      "releaseDate": "2025-12-28",
+      "type": "whq",
+      "scores": {
+        "aaron-jacob-calum": {
+          "score": 24,
+          "max": 47
+        }
+      }
+    },
+    {
+      "id": "careerpath-2025-12-27",
+      "title": "This Is The ULTIMATE Football Career Path Quiz...",
+      "youtubeId": "GWqbCJ415qk",
+      "releaseDate": "2025-12-27",
+      "type": "careerpath",
+      "scores": {
+        "aaron-jacob-heggie": {
+          "score": 29,
+          "max": 45
+        }
+      }
+    },
+    {
+      "id": "pressure-tension-2025-12-26",
+      "title": "This Pressure Tension Football Quiz Was UNBELIEVABLY Close...",
+      "youtubeId": "O-v3ty58Iik",
+      "releaseDate": "2025-12-26",
+      "type": "pressure-tension",
+      "scores": {
+        "jacob": 16,
+        "heggie": 37,
+        "calum": 22
+      }
+    },
+    {
+      "id": "misc-tension-2025-12-25",
+      "title": "We Mixed Up The Rules For Our SECRET SANTA This Year...",
+      "youtubeId": "AAJHss00W-4",
+      "releaseDate": "2025-12-25",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2025-12-24",
+      "title": "This Football MASTERMIND Quiz Seriously Tested Our Ball Knowledge...",
+      "youtubeId": "CyWstWvEFgw",
+      "releaseDate": "2025-12-24",
+      "type": "misc",
+      "scores": {
+        "aaron-jacob-heggie-calum": {
+          "score": 34,
+          "max": 120
+        }
+      }
+    },
+    {
+      "id": "jeopardy-2025-12-23",
+      "title": "This Head To Head Football Jeopardy Match Was ELITE...",
+      "youtubeId": "l1QiCjUA6Uw",
+      "releaseDate": "2025-12-23",
+      "type": "jeopardy",
+      "scores": {
+        "jacob": 7400,
+        "calum": 5900
+      }
+    },
+    {
       "id": "misc-2025-12-22",
       "title": "The Twist In This Viewers Football Quiz Had The Boys SHOCKED...",
       "youtubeId": "8jZUaqa8N5k",
@@ -918,6 +1092,10 @@
       "youtubeId": "voz7oJC5YD4",
       "releaseDate": "2025-12-21",
       "type": "misc",
+      "scores": {
+        "jacob-heggie": 52,
+        "calum-aaron": 51
+      },
       "moments": [
         {
           "id": "aaron-find-bebe",
@@ -951,6 +1129,10 @@
       "youtubeId": "FAEAMo0WIqM",
       "releaseDate": "2025-12-20",
       "type": "honours",
+      "scores": {
+        "jacob-calum": 14,
+        "heggie-aaron": 17
+      },
       "moments": [
         {
           "id": "jacob-idiot",
@@ -967,11 +1149,30 @@
       ]
     },
     {
+      "id": "extremetension-2025-12-19",
+      "title": "This Was Our Closest EVER Game Of Extreme Football TENSION...",
+      "youtubeId": "jvV0R9HwqSc",
+      "releaseDate": "2025-12-19",
+      "type": "extremetension",
+      "scores": {
+        "jacob": -6,
+        "calum": 21,
+        "heggie": 22,
+        "aaron": 1
+      }
+    },
+    {
       "id": "misc-2025-12-18",
       "title": "This Christmas Themed Football Quiz Was Absolutely INCREDIBLE",
       "youtubeId": "0jDWPB7MFoY",
       "releaseDate": "2025-12-18",
       "type": "misc",
+      "scores": {
+        "aaron-jacob-heggie-calum": {
+          "score": 33,
+          "max": 98
+        }
+      },
       "moments": [
         {
           "id": "aaron-kit-sweep",
@@ -988,11 +1189,36 @@
       ]
     },
     {
+      "id": "jeopardy-2025-12-17",
+      "title": "This Football Jeopardy Performance Was UNBELIEVABLE...",
+      "youtubeId": "dpTM1D4gBAs",
+      "releaseDate": "2025-12-17",
+      "type": "jeopardy",
+      "scores": {
+        "calum": 6400,
+        "heggie": 2900,
+        "aaron": 2900
+      }
+    },
+    {
+      "id": "misc-2025-12-16",
+      "title": "FOOTBALL DART ATTACK Is The Best New Football Quiz...",
+      "youtubeId": "ICztnkLfUXE",
+      "releaseDate": "2025-12-16",
+      "type": "misc"
+    },
+    {
       "id": "killer-tension-2025-12-15",
       "title": "The Answers Produced In This KILLER Tension Quiz Were Exquisite!",
       "youtubeId": "lJW9jIsrW7M",
       "releaseDate": "2025-12-15",
       "type": "killer-tension",
+      "scores": {
+        "calum": 18,
+        "heggie": 61,
+        "aaron": 35,
+        "jacob": 60
+      },
       "moments": [
         {
           "id": "jacob-grafite",
@@ -1007,6 +1233,69 @@
           ]
         }
       ]
+    },
+    {
+      "id": "tenable-2025-12-14",
+      "title": "We Brought In @LukePingu To Help Us SMASH These Timed Football Tenables...",
+      "youtubeId": "44Hs5JvTa4Q",
+      "releaseDate": "2025-12-14",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob-calum-heggie-luke": {
+          "score": 44,
+          "max": 50
+        }
+      }
+    },
+    {
+      "id": "whq-2025-12-13",
+      "title": "This Is The Greatest Redemption Arc In FlatChat HISTORY...",
+      "youtubeId": "W9clakDxrD8",
+      "releaseDate": "2025-12-13",
+      "type": "whq",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 19,
+          "max": 54
+        }
+      }
+    },
+    {
+      "id": "draft-2025-12-12",
+      "title": "We Decided To COOK In This African Only Football Draft…",
+      "youtubeId": "GqF_BUMZB9c",
+      "releaseDate": "2025-12-12",
+      "type": "draft"
+    },
+    {
+      "id": "traitors-2025-12-11",
+      "title": "These NEW Football Traitors Rounds Caused CHAOS!!!",
+      "youtubeId": "pUKomY3a_jQ",
+      "releaseDate": "2025-12-11",
+      "type": "traitors",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": true }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true }
+        ],
+        "jacob": [
+          { "role": "traitor", "win": false }
+        ]
+      }
+    },
+    {
+      "id": "jeopardy-2025-12-10",
+      "title": "These Football Jeopardy Categories Were Very TASTY...",
+      "youtubeId": "XOFkZut6Xmk",
+      "releaseDate": "2025-12-10",
+      "type": "jeopardy",
+      "scores": {
+        "calum": 3100,
+        "heggie": 3900,
+        "jacob": 4400
+      }
     },
     {
       "id": "jeopardy-2025-11-24",
