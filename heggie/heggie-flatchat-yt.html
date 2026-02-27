@@ -450,7 +450,7 @@ fetch('../stats/videos.json')
     const grouped = {};
 
     data.videos.forEach(video => {
-      video.moments.forEach(moment => {
+      video.moments?.forEach(moment => {
 
         if (moment.people.includes(person)) {
 
