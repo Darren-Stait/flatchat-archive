@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<script src="data.js"></script>
+<script src="data(2).js"></script>
 
 <style>
 :root{
@@ -277,18 +277,11 @@ button{
 
 .fullscreen-btn{
   position:absolute;
-  top:16px;
-  right:16px;
-  padding:8px 14px;
-  font-size:14px;
-  font-weight:700;
-  border-radius:12px;
-  border:2px solid var(--brand);
-  background:white;
-  color:var(--brand);
-  cursor:pointer;
-  transition:all 0.2s ease;
-  z-index:500;
+  top:12px;
+  right:12px;
+  padding:6px 10px;
+  font-size:12px;
+  border-radius:10px;
 }
 
 .fullscreen-btn:hover{
@@ -417,6 +410,61 @@ button{
 .stat-circle.pop {
   animation: scorePop 0.4s ease;
 }
+
+@media (max-width: 768px){
+
+  .kit-stage-wrapper{
+    flex-direction:column;
+    gap:16px;
+  }
+  .stat-circle{
+    width:80px;
+    height:80px;
+    font-size:14px;
+  }
+  .kit-card{
+    width:92vw;
+    padding:20px;
+    border-radius:22px;
+  }
+  .fullscreen-btn{
+    position:static;
+    margin-top:10px;
+  }
+  .hint-buttons{
+    gap:8px;
+  }
+
+  .hint-buttons button{
+    padding:6px 12px;
+    font-size:12px;
+  }
+
+  .hint-text{
+    font-size:13px;
+  }
+  .section{
+    margin-top:16px;
+  }
+
+  h3{
+    font-size:18px;
+  }
+  .kit-stage-wrapper{
+    flex-direction:column;
+  }
+
+  .stat-circle{
+    display:flex;
+    flex-direction:row;
+    width:auto;
+    height:auto;
+    padding:8px 14px;
+    border-radius:999px;
+    gap:6px;
+  }
+}
+
 </style>
 </head>
 
