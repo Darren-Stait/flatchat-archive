@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<script src="data.js"></script>
+<script src="data(2).js"></script>
 
 <style>
 :root{
@@ -36,29 +36,26 @@ body{
 }
 
 .card{
-  width:min(95vw,900px);
-  margin:20px auto;
-  padding:25px;
+  width:min(96vw, 1000px);
+  margin:clamp(10px, 2vh, 30px) auto;
+  padding:clamp(16px, 2vw, 28px);
   background:white;
   border-radius:22px;
   box-shadow:0 15px 40px rgba(0,0,0,0.06);
   position:relative;
 }
 
-.card:-webkit-full-screen{
-  width:100vw;
-  height:100vh;
-  border-radius:0;
-  margin:0;
-}
-
-.card:not(:fullscreen):not(:-webkit-full-screen){
-  height:auto !important;
+.card:fullscreen .fullscreen-btn,
+.card:-webkit-full-screen .fullscreen-btn{
+  position:fixed;
+  top:20px;
+  right:20px;
+  z-index:1000;
 }
 
 .meta{
-  font-weight:700;
-  margin-bottom:10px;
+  font-size:clamp(16px, 2vw, 20px);
+  margin-bottom:clamp(6px, 1vh, 12px);
 }
 
 .difficulty-badge{
@@ -75,32 +72,37 @@ body{
 .medium{ background:#fef3c7; color:#92400e; }
 .hard{ background:#fee2e2; color:#991b1b; }
 
-.section{ margin-top:20px; }
+.section{
+  margin-top:clamp(10px, 2vh, 24px);
+}
 
 .search-wrapper{
   width:100%;
-  max-width:420px;
-  margin:10px auto;
+  max-width:500px;
+  margin:clamp(8px, 1.5vh, 16px) auto;
   position:relative;
+  z-index:300;
 }
 
 .search{
   width:100%;
-  padding:10px;
   border-radius:12px;
   border:2px solid var(--brand);
-  font-size:16px;
+  font-size:clamp(14px, 1.6vw, 16px);
+  padding:clamp(10px, 1.5vh, 14px) 16px;
 }
 
 .dropdown{
   position:absolute;
+  top:100%;
+  left:0;
   width:100%;
   background:white;
   border:2px solid var(--brand);
   border-radius:14px;
-  max-height:160px;
+  max-height:260px;
   overflow-y:auto;
-  z-index:10;
+  z-index:400; /* higher than search wrapper */
 }
 
 .dropdown-item{
@@ -113,22 +115,65 @@ body{
 
 #play-area{
   transition: zoom 0.25s ease;
+  display:none;
+}
+
+#game-header{
+  display:none;
 }
 
 .kit-stage{
   display:flex;
   flex-direction:column;   /* IMPORTANT */
   align-items:center;
-  gap:14px;
-  margin-top:3vh;
+  gap:clamp(8px, 1.5vh, 16px);
+  margin-top:clamp(10px, 2vh, 24px);
+}
+
+.kit-stage-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(20px, 4vw, 60px);
+  margin-top:clamp(10px, 2vh, 24px);
+}
+
+.stat-circle{
+  width:clamp(90px, 10vw, 130px);
+  height:clamp(90px, 10vw, 130px);
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:white;
+  background:var(--shirt);
+  border:3px solid rgba(255,255,255,0.4);
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  transition:transform 0.2s ease;
+}
+
+.stat-circle:hover{
+  transform:scale(1.05);
+}
+
+.stat-label{
+  font-size:clamp(11px, 1vw, 13px);
+  opacity:0.8;
+  margin-bottom:4px;
+}
+
+.stat-value{
+  font-size:clamp(22px, 3vw, 32px);
 }
 
 .kit-card{
-  width:min(90vw,650px);
+  width:min(80vw,700px);
   aspect-ratio:4/3;
   background:var(--shirt);
   border-radius:28px;
-  padding:30px;
+  padding:clamp(18px, 2vw, 28px);
   position:relative;
   display:flex;
   flex-direction:column;
@@ -136,6 +181,7 @@ body{
   justify-content:space-between;
   transition:transform 0.25s ease;
   transform-origin:center top;
+  z-index:1;
 }
 
 .badge{
@@ -198,7 +244,8 @@ body{
 .completed-row{
   background:#eef7f0;
   border-left:6px solid var(--complete);
-  padding:10px 14px;
+  font-size:clamp(14px, 1.6vw, 16px);
+  padding:clamp(8px, 1vh, 12px) 14px;
   border-radius:12px;
   font-weight:600;
   display:inline-flex;              /* inline */
@@ -230,21 +277,145 @@ button{
 
 .fullscreen-btn{
   position:absolute;
-  top:15px;
-  right:15px;
-  background:white;
-  border:2px solid var(--brand);
-  border-radius:10px;
-  padding:6px 10px;
+  top:16px;
+  right:16px;
+  padding:8px 14px;
+  font-size:14px;
   font-weight:700;
+  border-radius:12px;
+  border:2px solid var(--brand);
+  background:white;
+  color:var(--brand);
   cursor:pointer;
+  transition:all 0.2s ease;
+  z-index:500;
 }
 
-.card:fullscreen{
-  width:100vw;
-  height:100vh;
-  border-radius:0;
-  margin:0;
+.fullscreen-btn:hover{
+  background:var(--brand);
+  color:white;
+  transform:translateY(-2px);
+}
+
+#menu-screen{
+  margin-top:40px;
+}
+
+.menu-section{
+  margin:20px 0;
+}
+
+#menu-screen select{
+  padding:10px 16px;
+  border-radius:12px;
+  border:2px solid var(--brand);
+  font-weight:600;
+}
+
+.hint-buttons{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.hint-buttons button{
+  padding:8px 16px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0.3px;
+  border:2px solid var(--shirt);
+  background:transparent;
+  color:var(--shirt);
+  cursor:pointer;
+  transition:all 0.2s ease;
+}
+
+/* Hover effect */
+.hint-buttons button:hover:not(:disabled){
+  background:var(--shirt);
+  color:white;
+  transform:translateY(-2px);
+  box-shadow:0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Active click */
+.hint-buttons button:active:not(:disabled){
+  transform:translateY(0);
+  box-shadow:none;
+}
+
+/* Disabled (used hint) */
+.hint-buttons button:disabled{
+  background:var(--shirt);
+  color:white;
+  opacity:0.6;
+  cursor:not-allowed;
+}
+
+.hint-output{
+  margin-top:8px;
+  font-weight:600;
+  color:#333;
+}
+
+.hint-area{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+}
+
+.hint-area button{
+  font-size:clamp(12px, 1.4vw, 14px);
+}
+
+.hint-label{
+  font-size:13px;
+  font-weight:700;
+  color:#666;
+  margin-bottom:6px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.hint-output{
+  margin-bottom:8px;
+  font-weight:600;
+  color:#333;
+  line-height:1.4;
+}
+
+.hint-output div{
+  background:#f2f2f2;
+  padding:6px 10px;
+  border-radius:10px;
+  display:inline-block;
+  margin:4px;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+.stat-circle.shake {
+  animation: shake 0.4s ease;
+}
+
+@keyframes scorePop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+.stat-circle.pop {
+  animation: scorePop 0.4s ease;
 }
 </style>
 </head>
@@ -257,49 +428,123 @@ button{
 
 <button id="fullscreenBtn" class="fullscreen-btn">Fullscreen ⛶</button>
 
-<div class="meta">
-Lives: <span id="lives"></span> |
-Score: <span id="score"></span>
+<div id="game-header">
+
+  <div id="difficultyBadge"></div>
+
 </div>
 
-<div id="difficultyBadge"></div>
+<div id="menu-screen">
+
+  <h2>Start New Game</h2>
+
+  <div class="menu-section">
+    <h3>Select Difficulty</h3>
+    <select id="difficultySelect">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+  </div>
+
+  <div class="menu-section">
+    <h3>How far back should the chain go?</h3>
+    <select id="yearSelect">
+      <option value="2010">Since 2010</option>
+      <option value="2000">Since 2000</option>
+      <option value="1990">Since 1990</option>
+    </select>
+  </div>
+
+  <button onclick="startGameFromMenu()">Start Game</button>
+
+</div>
 
 <div id="play-area">
 
   <div id="after-section" class="section">
 
-  <h3>Who wore it after?</h3>
+    <h3>Who wore it after?</h3>
 
-  <div class="search-wrapper">
-    <input 
-      type="text" 
-      id="search-later" 
-      class="search" 
-      autocomplete="off"
-    >
-    <div id="dropdown-later" class="dropdown"></div>
+    <div class="hint-area">
+      <div class="hint-label">💡 Hints <br>Click each hint button to reveal a clue (1/2 points per hint used)!</div>
+      <div id="after-hint" class="hint-output"></div>
+
+      <div class="hint-buttons">
+        <button onclick="useHint('after','nationality')" id="after-nationality">
+          Nationality
+        </button>
+        <button onclick="useHint('after','years')" id="after-years">
+          Years
+        </button>
+        <button onclick="useHint('after','position')" id="after-position">
+          Position
+        </button>
+      </div>
+    </div>
+
+    <div class="search-wrapper">
+      <input 
+        type="text" 
+        id="search-later" 
+        class="search" 
+        autocomplete="off"
+      >
+      <div id="dropdown-later" class="dropdown"></div>
+    </div>
+
+  </div>
+
+<div class="kit-stage-wrapper">
+
+  <div class="stat-circle lives-circle">
+    <div class="stat-label">Lives</div>
+    <div class="stat-value" id="lives-circle"></div>
+  </div>
+
+  <div class="kit-stage" id="kit-stage"></div>
+
+  <div class="stat-circle score-circle">
+    <div class="stat-label">Score</div>
+    <div class="stat-value" id="score-circle"></div>
   </div>
 
 </div>
 
-  <div class="kit-stage" id="kit-stage"></div>
-
   <div id="before-section" class="section">
 
-  <h3>Who wore it before?</h3>
+    <h3>Who wore it before?</h3>
 
-  <div class="search-wrapper">
-    <input 
-      type="text" 
-      id="search-earlier" 
-      class="search" 
-      autocomplete="off"
-    >
-    <div id="dropdown-earlier" class="dropdown"></div>
+    <div class="hint-area">
+      <div class="hint-label">💡 Hints <br>Click each hint button to reveal a clue (1/2 points per hint used)!</div>
+      <div id="before-hint" class="hint-output"></div>
+
+      <div class="hint-buttons">
+        <button onclick="useHint('before','nationality')" id="before-nationality">
+          Nationality
+        </button>
+        <button onclick="useHint('before','years')" id="before-years">
+          Years
+        </button>
+        <button onclick="useHint('before','position')" id="before-position">
+          Position
+        </button>
+      </div>
+    </div>
+
+    <div class="search-wrapper">
+      <input 
+        type="text" 
+        id="search-earlier" 
+        class="search" 
+        autocomplete="off"
+      >
+      <div id="dropdown-earlier" class="dropdown"></div>
+    </div>
+
+    <div id="message"></div>
+
   </div>
-
-  <div id="message"></div>
-  <button onclick="startRound()">New Round</button>
 
 </div>
 
@@ -320,22 +565,76 @@ let foundRange;
 let lives;
 let score;
 let gameState;
+let selectedDifficulty = "easy";
+let selectedYearCutoff = 2010;
+let previousLives = 3;
+let previousScore = 0;
+let hintsUsed = {
+  before: { nationality:false, years:false, position:false },
+  after:  { nationality:false, years:false, position:false }
+};
+
+let hintText = {
+  before: { nationality:"", years:"", position:"" },
+  after:  { nationality:"", years:"", position:"" }
+};
+
+let edgeHintCount = { before:0, after:0 };
 
 function startRound(){
 
-  const allRounds=[];
-  GAME_DATA.forEach(club=>{
-    club.kitNumbers.forEach(kit=>{
-      allRounds.push({
-        club:club.club,
-        badge:club.badge,
-        shirtNumber:kit.number,
-        difficulty:kit.difficulty,
-        players:kit.players,
-        primaryColor:club.primaryColor
-      });
+hintsUsed = {
+  before: { nationality:false, years:false, position:false },
+  after:  { nationality:false, years:false, position:false }
+};
+
+hintText = {
+  before: { nationality:"", years:"", position:"" },
+  after:  { nationality:"", years:"", position:"" }
+};
+
+edgeHintCount = { before:0, after:0 };
+
+document.getElementById("after-section").style.display = "block";
+document.getElementById("before-section").style.display = "block";
+
+const allRounds = [];
+
+GAME_DATA.forEach(club => {
+  club.kitNumbers.forEach(kit => {
+
+    // Filter by difficulty
+    if(kit.difficulty !== selectedDifficulty) return;
+
+    // Filter players by year cutoff
+    const filteredPlayers = kit.players.filter(player => {
+      const startYear = parseInt(player.years.split("-")[0]);
+      return startYear >= selectedYearCutoff;
     });
+
+    // Must have at least 2 players to form a chain
+    if(filteredPlayers.length >= 2){
+
+      allRounds.push({
+        club: club.club,
+        badge: club.badge,
+        shirtNumber: kit.number,
+        difficulty: kit.difficulty,
+        players: filteredPlayers,
+        primaryColor: club.primaryColor
+      });
+
+    }
   });
+});
+
+  // 🔥 ADD THE UPGRADE RIGHT HERE
+  if(allRounds.length === 0){
+    alert("No chains available for that selection.");
+    document.getElementById("menu-screen").style.display = "block";
+    document.getElementById("play-area").style.display = "none";
+    return;
+  }
 
   currentRound=allRounds[Math.floor(Math.random()*allRounds.length)];
 
@@ -376,8 +675,28 @@ function getAllPlayers(){
 
 function render(){
 
-  document.getElementById("lives").textContent = lives;
-  document.getElementById("score").textContent = score;
+document.getElementById("lives-circle").textContent = lives;
+document.getElementById("score-circle").textContent = score;
+
+const livesCircle = document.querySelector(".lives-circle");
+const scoreCircle = document.querySelector(".score-circle");
+
+// Lives decreased → shake
+if(lives < previousLives){
+  livesCircle.classList.remove("shake");
+  void livesCircle.offsetWidth; // force reflow
+  livesCircle.classList.add("shake");
+}
+
+// Score increased → pop
+if(score > previousScore){
+  scoreCircle.classList.remove("pop");
+  void scoreCircle.offsetWidth; // force reflow
+  scoreCircle.classList.add("pop");
+}
+
+previousLives = lives;
+previousScore = score;
 
   const badge = document.getElementById("difficultyBadge");
   badge.innerHTML = `
@@ -388,9 +707,6 @@ function render(){
 
   const stage = document.getElementById("kit-stage");
   stage.innerHTML = "";
-
-  const completedContainer = document.createElement("div");
-  completedContainer.className = "completed-container";
 
   if(gameState === "won"){ renderCompleted(); return; }
   if(gameState === "lost"){ renderFailed(); return; }
@@ -442,16 +758,16 @@ card.innerHTML = `
     stage.appendChild(card);
   }
 
-  function renderCompleteStrip(index){
-    const player = currentRound.players[index];
-    const strip = document.createElement("div");
-    strip.className = "completed-row";
-    strip.innerHTML = `
-      <span>✓ ${player.name}</span>
-      <span>${player.years}</span>
-    `;
-    completedContainer.appendChild(strip);
-  }
+function renderCompleteStrip(index){
+  const player = currentRound.players[index];
+  const strip = document.createElement("div");
+  strip.className = "completed-row";
+  strip.innerHTML = `
+    <span>✓ ${player.name}</span>
+    <span>${player.years}</span>
+  `;
+  stage.appendChild(strip);
+}
 
 /* =========================
    RENDER DISCOVERED WINDOW
@@ -477,10 +793,6 @@ for(let i = foundRange[1]; i >= foundRange[0]; i--){
   }
 }
 
-if(completedContainer.children.length > 0){
-  stage.appendChild(completedContainer);
-}
-
   for(let i = foundRange[0] - 1; i >= 0; i--){
     // undiscovered older players → show nothing
   }
@@ -498,6 +810,9 @@ document.querySelector("#after-section h3").style.display =
 document.querySelector("#after-section .search-wrapper").style.display =
   noAfter ? "none" : "block";
 
+document.querySelector("#after-section .hint-area").style.display =
+  noAfter ? "none" : "block";
+
 // BEFORE section
 document.querySelector("#before-section h3").style.display =
   noBefore ? "none" : "block";
@@ -505,10 +820,85 @@ document.querySelector("#before-section h3").style.display =
 document.querySelector("#before-section .search-wrapper").style.display =
   noBefore ? "none" : "block";
 
+document.querySelector("#before-section .hint-area").style.display =
+  noBefore ? "none" : "block";
+
   document.getElementById("search-earlier").value = "";
   document.getElementById("search-later").value = "";
 
   requestAnimationFrame(scalePlayAreaToFit);
+  renderHints();
+}
+
+function useHint(direction, type){
+
+  if(gameState !== "playing") return;
+  if(hintsUsed[direction][type]) return;
+
+  const isBefore = direction === "before";
+  const index = isBefore 
+    ? foundRange[0] - 1 
+    : foundRange[1] + 1;
+
+  if(index < 0 || index >= currentRound.players.length) return;
+
+  const player = currentRound.players[index];
+
+  hintsUsed[direction][type] = true;
+  edgeHintCount[direction]++;
+
+  if(type === "nationality"){
+    hintText[direction][type] =
+      "Nationality: " + (player.nationality || "Unknown");
+  }
+
+  if(type === "years"){
+    hintText[direction][type] =
+      "Years: " + player.years;
+  }
+
+  if(type === "position"){
+    hintText[direction][type] =
+      "Position: " + (player.position || "Unknown");
+  }
+
+  renderHints();
+}
+
+function renderHints(){
+
+  ["before","after"].forEach(direction => {
+
+    const output = document.getElementById(direction + "-hint");
+
+    const texts = [];
+
+    if(hintsUsed[direction].nationality){
+      texts.push(hintText[direction].nationality);
+    }
+
+    if(hintsUsed[direction].years){
+      texts.push(hintText[direction].years);
+    }
+
+    if(hintsUsed[direction].position){
+      texts.push(hintText[direction].position);
+    }
+
+    // Render hint text
+    output.innerHTML = texts.map(t => `<div>${t}</div>`).join("");
+
+    // ALWAYS reset buttons first
+    document.getElementById(direction + "-nationality").disabled =
+      hintsUsed[direction].nationality;
+
+    document.getElementById(direction + "-years").disabled =
+      hintsUsed[direction].years;
+
+    document.getElementById(direction + "-position").disabled =
+      hintsUsed[direction].position;
+
+  });
 }
 
 function scalePlayAreaToFit(){
@@ -519,7 +909,7 @@ function scalePlayAreaToFit(){
 
   const viewportHeight = window.innerHeight;
   const playTop = playArea.getBoundingClientRect().top;
-  const availableHeight = viewportHeight - playTop - 20;
+  const availableHeight = viewportHeight - playTop - 100;
 
   const fullHeight = playArea.scrollHeight;
 
@@ -533,6 +923,11 @@ function scalePlayAreaToFit(){
 }
 
 function renderCompleted(){
+
+  // Hide both guess sections completely
+  document.getElementById("after-section").style.display = "none";
+  document.getElementById("before-section").style.display = "none";
+
   document.getElementById("kit-stage").innerHTML=`
     <h2>🎉 Chain Complete!</h2>
     ${[...currentRound.players].reverse().map(p=>`
@@ -541,11 +936,16 @@ function renderCompleted(){
         <span>${p.years}</span>
       </div>
     `).join("")}
-    <button onclick="startRound()">New Round</button>
+    <button onclick="returnToMenu()">New Round</button>
   `;
 }
 
 function renderFailed(){
+
+  // Hide both guess sections completely
+  document.getElementById("after-section").style.display = "none";
+  document.getElementById("before-section").style.display = "none";
+
   document.getElementById("kit-stage").innerHTML=`
     <h2>❌ Out of Lives</h2>
     ${[...currentRound.players].reverse().map(p=>`
@@ -554,7 +954,7 @@ function renderFailed(){
         <span>${p.years}</span>
       </div>
     `).join("")}
-    <button onclick="startRound()">New Round</button>
+    <button onclick="returnToMenu()">New Round</button>
   `;
 }
 
@@ -569,12 +969,23 @@ if(direction === "before"){
   if(foundRange[0] > 0){
     const expected = currentRound.players[foundRange[0] - 1];
 
-    if(expected && name === expected.name.toLowerCase()){
-      foundRange[0]--;
-      score++;
-    } else {
-      lives--;
-    }
+if(expected && name === expected.name.toLowerCase()){
+
+  // STEP 7 — Calculate points based on hints used
+  let points = 1 / Math.pow(2, edgeHintCount.before);
+  score += points;
+
+  // Move chain
+  foundRange[0]--;
+
+  // STEP 8 — Reset hints for this side
+  hintsUsed.before = { nationality:false, years:false, position:false };
+  hintText.before = { nationality:"", years:"", position:"" };
+  edgeHintCount.before = 0;
+
+} else {
+  lives--;
+}
   }
 }
 
@@ -583,12 +994,23 @@ if(direction === "after"){
   if(foundRange[1] < currentRound.players.length - 1){
     const expected = currentRound.players[foundRange[1] + 1];
 
-    if(expected && name === expected.name.toLowerCase()){
-      foundRange[1]++;
-      score++;
-    } else {
-      lives--;
-    }
+if(expected && name === expected.name.toLowerCase()){
+
+  // STEP 7 — Calculate points based on hints used
+  let points = 1 / Math.pow(2, edgeHintCount.after);
+  score += points;
+
+  // Move chain
+  foundRange[1]++;
+
+  // STEP 8 — Reset hints for this side
+  hintsUsed.after = { nationality:false, years:false, position:false };
+  hintText.after = { nationality:"", years:"", position:"" };
+  edgeHintCount.after = 0;
+
+} else {
+  lives--;
+}
   }
 }
 
@@ -604,6 +1026,33 @@ if(direction === "after"){
   }
 
   render();
+}
+
+function returnToMenu(){
+
+  // Hide game UI
+  document.getElementById("play-area").style.display = "none";
+  document.getElementById("game-header").style.display = "none";
+
+  // Show menu
+  document.getElementById("menu-screen").style.display = "block";
+
+  // Optional cleanup
+  document.getElementById("kit-stage").innerHTML = "";
+  document.getElementById("message").innerHTML = "";
+
+}
+
+function startGameFromMenu(){
+
+  selectedDifficulty = document.getElementById("difficultySelect").value;
+  selectedYearCutoff = parseInt(document.getElementById("yearSelect").value);
+
+  document.getElementById("menu-screen").style.display = "none";
+  document.getElementById("play-area").style.display = "block";
+  document.getElementById("game-header").style.display = "block";
+
+  startRound();
 }
 
 function setupAutocomplete(inputId,dropdownId,direction){
@@ -635,8 +1084,6 @@ function setupAutocomplete(inputId,dropdownId,direction){
 
 setupAutocomplete("search-earlier","dropdown-earlier","before");
 setupAutocomplete("search-later","dropdown-later","after");
-
-startRound();
 
 /* FULLSCREEN */
 
