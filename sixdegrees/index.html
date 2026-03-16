@@ -24,7 +24,15 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg,var(--bg) 0%, #e6f6f7 100%);
+    background:
+    linear-gradient(180deg,var(--bg) 0%, #e6f6f7 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.04) 40px,
+      rgba(0,0,0,0.02) 40px,
+      rgba(0,0,0,0.02) 80px
+    );
   color: var(--text);
 }
 
@@ -62,6 +70,12 @@ body {
   flex-wrap: nowrap;
 }
 
+.start-left h1 {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
 .player-card { 
   text-align: center; 
   flex: 0 1 180px;
@@ -88,7 +102,10 @@ body {
 }
 
 .target-glow {
-  box-shadow: 0 0 0 6px rgba(23,154,163,0.18), 0 6px 18px rgba(23,154,163,0.12);
+  box-shadow:
+    0 0 0 6px rgba(23,154,163,0.18),
+    0 0 20px rgba(23,154,163,0.45),
+    0 10px 30px rgba(0,0,0,0.15);
 }
 
 .player-card strong { color: var(--brand); }
@@ -125,11 +142,17 @@ body {
 }
 
 .choice-card {
-  background: rgba(23,154,163,0.04);
-  border-radius: 10px;
-  padding: 6px 6px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  transition: all 0.18s ease;
+}
+
+.choice-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
   cursor: pointer;
-  transition: 0.15s ease;
 }
 
 .choice-card img.entity-img {
@@ -137,11 +160,6 @@ body {
   height: clamp(50px, 6vw, 70px);
 }
 
-.choice-card:hover {
-  background: rgba(23,154,163,0.12);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
 /* =============================
    DYNAMIC SHRINK MODES
 ============================= */
@@ -280,9 +298,9 @@ body {
   gap: 10px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(37,182,196,0.08);
-  border: 1px solid var(--brand);
-  font-size: 0.9rem;
+  background: white;
+  border: 2px solid var(--brand);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 }
 
 .step img {
@@ -293,19 +311,38 @@ body {
   border: 2px solid rgba(23,154,163,0.9);
 }
 
+.step::after {
+  content: "→";
+  margin-left: 8px;
+  color: var(--brand);
+}
+
+.step:last-child::after {
+  display: none;
+}
+
 button.primary {
-  background: var(--brand);
+  width: 100%;
+  padding: 16px;
+
+  background: linear-gradient(180deg,#2ec7d4,#179aa3);
+
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.15);
+
+  font-size: 1.05rem;
+  font-weight: 700;
   color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 10px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 6px 14px rgba(23,154,163,0.18);
+
+  box-shadow:
+    0 6px 16px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+
+  transition: all 0.15s ease;
 }
 
 button.primary:hover {
-  background: var(--brand-dark);
+  transform: translateY(-2px);
 }
 
 .modal {
@@ -460,13 +497,13 @@ body.fullscreen {
 .badge-wrapper {
   width: 70px;
   height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  background: white;
-  border-radius: 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #f5fbfc
+  );
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.08);
 }
 
 .card {
