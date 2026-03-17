@@ -1332,7 +1332,8 @@ function adaptUIForDiscord() {
   // Hide fullscreen button
   const fullscreenBtn = document.getElementById("fullscreenBtn");
   if (fullscreenBtn) fullscreenBtn.style.display = "none";
-
+  const menuFullscreenBtn = document.getElementById("menuFullscreenBtn");
+  if (menuFullscreenBtn) menuFullscreenBtn.style.display = "none";
   // Optional: auto-launch daily
   showScreen("start-screen");
 }
