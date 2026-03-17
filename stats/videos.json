@@ -1588,6 +1588,85 @@
       }
     },
     {
+      "id": "house-of-games-2025-12-09",
+      "title": "We Messed Up This Football House Of Games Round And It Caused CONTROVERSY...",
+      "youtubeId": "yKqnrmgZVWI",
+      "releaseDate": "2025-12-09",
+      "type": "jeopardy",
+      "scores": {
+        "calum": 16,
+        "heggie": 16,
+        "jacob": 18,
+        "aaron": 13
+      }
+    },
+    {
+      "id": "face-blindness-2025-12-08",
+      "title": "This 2 Vs 2 Football Face Blindness Quiz Was EXCEPTIONAL...",
+      "youtubeId": "10dMeKVoZSE",
+      "releaseDate": "2025-12-08",
+      "type": "face-blindness",
+      "scores": {
+        "aaron-calum": 37,
+        "heggie-jacob": 38
+      }
+    },
+    {
+      "id": "rondo-2025-12-07",
+      "title": "We Brought Back Football Rondo & It Was A CRACKER...",
+      "youtubeId": "uTuUcWozrMw",
+      "releaseDate": "2025-12-07",
+      "type": "rondo",
+      "scores": {
+        "aaron": 23,
+        "calum": 20
+      }
+    },
+    {
+      "id": "draft-2025-12-06",
+      "title": "This Was One Of The CLOSEST Football Drafts We Have Ever Done...",
+      "youtubeId": "5aAy68qgQB8",
+      "releaseDate": "2025-12-06",
+      "type": "draft"
+    },
+    {
+      "id": "tension-2025-12-05",
+      "title": "This Was One Of The Greatest Football Tension Performances Ever...",
+      "youtubeId": "nTrwyts7sZo",
+      "releaseDate": "2025-12-05",
+      "type": "tension",
+      "scores": {
+        "aaron": 10,
+        "calum": 38,
+        "heggie": 1,
+        "jacob": 5
+      }
+    },
+    {
+      "id": "questionofsport-2025-12-04",
+      "title": "We Brought A Question Of Sport Back And It Produced A GENERATIONAL Performance...",
+      "youtubeId": "Tg89emMTJE",
+      "releaseDate": "2025-12-04",
+      "type": "questionofsport",
+      "scores": {
+        "aaron-jacob": 9,
+        "calum-heggie": 21
+      }
+    },
+    {
+      "id": "tenable-2025-12-03",
+      "title": "This Timed Football Tenable Episode Will SHOCK Everyone...",
+      "youtubeId": "0JtCf7leNL8",
+      "releaseDate": "2025-12-03",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob-heggie": {
+          "score": 54,
+          "max": 60
+        }
+      }
+    },
+    {
       "id": "jeopardy-2025-11-24",
       "title": "Can The GOAT Continue His Football Jeopardy Win Streak?",
       "youtubeId": "9Ot5cDCn978",
