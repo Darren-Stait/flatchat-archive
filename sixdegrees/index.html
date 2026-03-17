@@ -2417,41 +2417,28 @@ function getNeighbors(entity) {
     }
   }
 
-  else { // manager
+else { // manager
 
-    for (const club in managers[name].career) {
-      const spells = managers[name].career[club];
+  for (const club in managers[name].career) {
+    const spells = managers[name].career[club];
 
-      for (const spell of spells) {
+    for (const spell of spells) {
 
-        // Players
-        for (const p in players) {
-          if (!players[p].career[club]) continue;
+      // Players only
+      for (const p in players) {
+        if (!players[p].career[club]) continue;
 
-          for (const pSpell of players[p].career[club]) {
-            if (overlaps(spell, pSpell)) {
-              neighbors.push({ name: p, type: "player" });
-              break;
-            }
+        for (const pSpell of players[p].career[club]) {
+          if (overlaps(spell, pSpell)) {
+            neighbors.push({ name: p, type: "player" });
+            break;
           }
         }
-
-        // Managers
-        for (const m in managers) {
-          if (m === name) continue;
-          if (!managers[m].career[club]) continue;
-
-          for (const mSpell of managers[m].career[club]) {
-            if (overlaps(spell, mSpell)) {
-              neighbors.push({ name: m, type: "manager" });
-              break;
-            }
-          }
-        }
-
       }
+
     }
   }
+}
 
   return neighbors;
 }
