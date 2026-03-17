@@ -1,6 +1,296 @@
 {
   "videos": [
     {
+      "id": "misc-2026-03-17",
+      "title": "Our Worst Ever Moments Came Back To Haunt Us AGAIN In This Football Quiz...",
+      "youtubeId": "FbYNOCQ7ovs",
+      "releaseDate": "2026-03-17",
+      "type": "misc"
+    },
+    {
+      "id": "careerpath-2026-03-16",
+      "title": "This Is The ULTIMATE January Transfers CAREER PATH Football Quiz...",
+      "youtubeId": "I20PDLsgHvI",
+      "releaseDate": "2026-03-16",
+      "type": "careerpath",
+      "scores": {
+        "aaron": 45,
+        "jacob": 59,
+        "heggie": 61,
+        "calum": 60
+      }
+    },
+    {
+      "id": "pointless-2026-03-15",
+      "title": "These Football Pointless Performances Were Very INTERESTING...",
+      "youtubeId": "lJEY-IA0Kd8",
+      "releaseDate": "2026-03-15",
+      "type": "pointless",
+      "scores": {
+        "aaron": 466,
+        "jacob": 552,
+        "heggie": 320
+      }
+    },
+    {
+      "id": "draft-2026-03-14",
+      "title": "This 2000’s Football Draft Challenge Descended Into CHAOS…",
+      "youtubeId": "OIhp43RkEUw",
+      "releaseDate": "2026-03-14",
+      "type": "draft"
+    },
+    {
+      "id": "killer-tension-2026-03-13",
+      "title": "This Football Tension Quiz Had DOUBLE KILLERS...",
+      "youtubeId": "Y_gHDmcrNTE",
+      "releaseDate": "2026-03-13",
+      "type": "killer-tension",
+      "scores": {
+        "jacob": 6,
+        "calum": 17,
+        "heggie": -9,
+        "aaron": 32
+      },
+      "moments": [
+        {
+          "id": "jacob-coulda-killed-him",
+          "title": "You coulda killed him.",
+          "description": "Jacob gets really reckless with those gangly limbs in this episode of Tension.",
+          "timestamp": 549,
+          "people": [
+            "jacob"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "misc-2026-03-12",
+      "title": "The Biggest And *BEST* 2 Vs 2 Football Quiz Ever...",
+      "youtubeId": "sCnTp8lG8Qg",
+      "releaseDate": "2026-03-12",
+      "type": "misc",
+      "scores": {
+        "jacob-heggie": 38,
+        "calum-aaron": 37
+      }
+    },
+    {
+      "id": "jeopardy-2026-03-11",
+      "title": "This Was One Of Our Most TENSE Football Jeopardy Battles Yet...",
+      "youtubeId": "XFJESl9ae8k",
+      "releaseDate": "2026-03-11",
+      "type": "jeopardy",
+      "scores": {
+        "jacob": 4500,
+        "heggie": 4600,
+        "aaron": 3400
+      }
+    },
+    {
+      "id": "tension-2026-03-10",
+      "title": "This *NEW* Football Tension Format Caused Utter CHAOS & HEADLOSS...",
+      "youtubeId": "lG02hIZROsA",
+      "releaseDate": "2026-03-10",
+      "type": "tension",
+      "scores": {
+        "calum": -4,
+        "jacob": 22,
+        "heggie": 46,
+        "aaron": 45
+      }
+    },
+    {
+      "id": "tenable-2026-03-09",
+      "title": "These Football TENABLE Questions Were TASTY...",
+      "youtubeId": "_iLnY4XQc6E",
+      "releaseDate": "2026-03-09",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-jacob-heggie": {
+          "score": 30,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "imposter-2026-03-08",
+      "title": "We Tried A Brand New Football IMPOSTOR Format & It Was SENSATIONAL...",
+      "youtubeId": "vZMIFEn3ZHg",
+      "releaseDate": "2026-03-08",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false }
+        ],
+        "calum": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "draft-2026-03-07",
+      "title": "This CHAMPIONS LEAGUE Goals Draft Caused A Major HEADLOSS...",
+      "youtubeId": "YNU0fylDRhw",
+      "releaseDate": "2026-03-07",
+      "type": "draft"
+    },
+    {
+      "id": "extremetension-2026-03-06",
+      "title": "This Viewers EXTREME Football Tension Quiz Caused Us MAJOR Issues...",
+      "youtubeId": "ta_QoCndJrU",
+      "releaseDate": "2026-03-06",
+      "type": "extremetension",
+      "scores": {
+        "calum": -2,
+        "aaron": 2,
+        "jacob": -14,
+        "heggie": 25
+      }
+    },
+    {
+      "id": "misc-2026-03-05",
+      "title": "A To Z Of The Best FOOTBALL QUIZZES - 15K Subscriber Special Part 2",
+      "youtubeId": "vw0H9Qn5SHs",
+      "releaseDate": "2026-03-05",
+      "type": "misc",
+      "scores": {
+        "calum": 67,
+        "aaron": 80,
+        "jacob": 93,
+        "heggie": 99
+      }
+    },
+    {
+      "id": "misc-2026-03-04",
+      "title": "A To Z Of The Best FOOTBALL QUIZZES - 15K Subscriber Special Part 1",
+      "youtubeId": "68MyKuMabU0",
+      "releaseDate": "2026-03-04",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2026-03-03",
+      "title": "Can We Win The ULTIMATE FOOTBALL PUB QUIZ - Part 2",
+      "youtubeId": "Ht5usXjeqfY",
+      "releaseDate": "2026-03-03",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2026-03-02",
+      "title": "Can We Win The ULTIMATE FOOTBALL PUB QUIZ - Part 1...",
+      "youtubeId": "v3s_O0A-zuQ",
+      "releaseDate": "2026-03-02",
+      "type": "misc"
+    },
+    {
+      "id": "jeopardy-2026-03-01",
+      "title": "FOOTBALL JEOPARDY QUIZ VS @LukePingu",
+      "youtubeId": "m8uX3IpHt9c",
+      "releaseDate": "2026-03-01",
+      "type": "jeopardy",
+      "scores": {
+        "calum": 2900,
+        "aaron": 3500,
+        "jacob": 4500,
+        "luke": 3800
+      }
+    },
+    {
+      "id": "scattegories-showdown-2026-02-28",
+      "title": "This Football Scattegories Showdown Quiz Produced A GENERATIONAL Performance...",
+      "youtubeId": "CBrWb1-G0CA",
+      "releaseDate": "2026-02-28",
+      "type": "scattegories-showdown",
+      "scores": {
+        "calum": 812,
+        "aaron": 747,
+        "jacob": 581,
+        "heggie": 1052
+      }
+    },
+    {
+      "id": "misc-2026-02-27",
+      "title": "2 Vs 2 Variety Football Quiz... WITH FORFEITS!",
+      "youtubeId": "qVaKs5AMUws",
+      "releaseDate": "2026-02-27",
+      "type": "misc",
+      "scores": {
+        "calum-jacob": 19,
+        "aaron-heggie": 18
+      },
+      "moments": [
+        {
+          "id": "aaron-cinnamon",
+          "title": "Cinnamon Challenge",
+          "description": "Aaron and Heggie lost this video and Aaron stepped up to do this forfeit.",
+          "timestamp": 1904,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "funky-forfeits"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jeopardy-2026-02-26",
+      "title": "This Was A Football Jeopardy MASTERCLASS...",
+      "youtubeId": "4_5NSVqs3wU",
+      "releaseDate": "2026-02-26",
+      "type": "jeopardy",
+      "scores": {
+        "calum": 3700,
+        "jacob": 5000,
+        "aaron": 7000
+      }
+    },
+    {
+      "id": "tension-2026-02-25",
+      "title": "We Played Football TENSION Vs ANDY HALLIDAY...",
+      "youtubeId": "lG02hIZROsA",
+      "releaseDate": "2026-02-25",
+      "type": "tension",
+      "scores": {
+        "calum": 25,
+        "jacob": 47,
+        "heggie": 36,
+        "aaron": 13,
+        "andy": 21
+      }
+    },
+    {
+      "id": "draft-2026-02-24",
+      "title": "This Was One Of Our Hardest Ever Football Draft Challenges...",
+      "youtubeId": "VC516c3MvXM",
+      "releaseDate": "2026-02-24",
+      "type": "draft"
+    },
+    {
       "id": "careerpath-2026-02-23",
       "title": "The Ultimate PREMIER LEAGUE YEARS Football Career Path Quiz...",
       "youtubeId": "hqomO8Ib5Qw",
