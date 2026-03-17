@@ -46,6 +46,7 @@ body {
   max-width: 1400px;
   margin: 8px auto;
   padding: 20px 24px 24px;
+  padding-top: 50px;
   background: linear-gradient(
     180deg,
     #ffffff 0%,
@@ -661,6 +662,13 @@ body.fullscreen {
   justify-self: end;
 }
 
+#menuFullscreenBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10; /* 👈 important */
+}
+
 
 .top-action-btn {
   background: white;
@@ -826,6 +834,13 @@ body.fullscreen {
   padding-right: 16px;
 }
 
+#game-stats {
+  background: rgba(23,154,163,0.06);
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(23,154,163,0.2);
+}
+
 /* =============================
    Large Tablets (≤ 1200px)
 ============================= */
@@ -970,6 +985,9 @@ body.fullscreen {
 <div id="app" style="visibility:hidden;">
 <div id="start-screen">
   <div class="card">
+<button id="menuFullscreenBtn" class="top-action-btn" style="position:absolute;">
+  ⛶ Fullscreen
+</button>
 <div class="start-left">
 
   <h1 style="color:var(--brand); margin:0 0 20px 0; font-size:2.8rem; text-align: center;">
@@ -1030,6 +1048,13 @@ body.fullscreen {
   Daily Challenge
 </button>
 <div id="daily-reset-timer" class="daily-timer"></div>
+<div id="game-stats" style="
+  margin-top:20px;
+  font-size:0.9rem;
+  color:var(--muted);
+  text-align:center;
+  line-height:1.6;
+"></div>
   </div>
 
 </div>
@@ -2605,13 +2630,42 @@ ${shareText}
   // CUSTOM MODE (no shortest path)
   if (CUSTOM_MODE) {
 
-    const winText = document.getElementById("win-text");
-    winText.textContent = `🎉 You connected them in ${moves} moves.`;
+  const shortest = findShortestPath(startPlayer, targetPlayer);
 
-    document.getElementById("win-modal")
-      .classList.remove("hidden");
-    return;
-  }
+  const optimalText = shortest
+    ? shortest.map(step => typeof step === "string" ? step : step.name).join(" → ")
+    : "No path found";
+
+  const winText = document.getElementById("win-text");
+  winText.textContent = "";
+
+  // Your result
+  winText.appendChild(
+    document.createTextNode(
+      `🎉 You connected them in ${moves} moves.`
+    )
+  );
+
+  winText.appendChild(document.createElement("br"));
+  winText.appendChild(document.createElement("br"));
+
+  // Shortest path label
+  const strong = document.createElement("strong");
+  strong.textContent = "Shortest possible path:";
+  winText.appendChild(strong);
+
+  winText.appendChild(document.createElement("br"));
+
+  // Path itself
+  winText.appendChild(
+    document.createTextNode(optimalText)
+  );
+
+  document.getElementById("win-modal")
+    .classList.remove("hidden");
+
+  return;
+}
 
   // RANDOM MODE (show shortest path)
   const shortest = findShortestPath(startPlayer, targetPlayer);
@@ -2643,6 +2697,69 @@ ${shareText}
 
   document.getElementById("win-modal")
     .classList.remove("hidden");
+}
+
+function calculateGameStats() {
+
+  const playerNames = Object.keys(players);
+  const managerNames = Object.keys(managers);
+
+  const clubSet = new Set();
+
+  let minYear = Infinity;
+  let maxYear = -Infinity;
+
+  // Players
+  playerNames.forEach(name => {
+    const career = players[name].career;
+
+    for (const club in career) {
+      clubSet.add(club);
+
+      career[club].forEach(([start, end]) => {
+        minYear = Math.min(minYear, start);
+        maxYear = Math.max(maxYear, end ?? start);
+      });
+    }
+  });
+
+  // Managers
+  managerNames.forEach(name => {
+    const career = managers[name].career;
+
+    for (const club in career) {
+      clubSet.add(club);
+
+      career[club].forEach(([start, end]) => {
+        minYear = Math.min(minYear, start);
+        maxYear = Math.max(maxYear, end ?? start);
+      });
+    }
+  });
+
+  return {
+    players: playerNames.length,
+    managers: managerNames.length,
+    clubs: clubSet.size,
+    minYear,
+    maxYear
+  };
+}
+
+function renderGameStats() {
+  if (!players || !managers) return; // ✅ guard
+
+  const stats = calculateGameStats();
+
+  const el = document.getElementById("game-stats");
+
+  el.innerHTML = `
+    The game currently includes the following:<br>
+    Players: ${stats.players.toLocaleString()}<br>
+    Managers: ${stats.managers.toLocaleString()}<br>
+    Clubs: ${stats.clubs.toLocaleString()}<br>
+    Era: ${stats.minYear} – ${stats.maxYear}
+  `;
 }
 
 function generateDailyShareText() {
@@ -2759,6 +2876,8 @@ function initialiseGame() {
   resetPlayerPool(true);
   updateDailyButton();
 
+  renderGameStats();
+
   document.getElementById("loading-overlay")?.remove();
   document.getElementById("app").style.visibility = "visible";
 }
@@ -2847,8 +2966,11 @@ function attachEventListeners() {
   document.getElementById("howToCloseBtn")
     ?.addEventListener("click", closeHowToPlay);
 
-  document.getElementById("fullscreenBtn")
-    ?.addEventListener("click", toggleFullscreen);
+document.getElementById("fullscreenBtn")
+  ?.addEventListener("click", toggleFullscreen);
+
+document.getElementById("menuFullscreenBtn")
+  ?.addEventListener("click", toggleFullscreen);
 
   document.getElementById("swap-btn")
     ?.addEventListener("click", swapPlayers);
@@ -2875,6 +2997,7 @@ window.addEventListener('resize', () => {
 window.addEventListener("DOMContentLoaded", async () => {
 
   try {
+    initialiseGame();
     resetPlayerPool(true);
     attachEventListeners();
     setTimeout(async () => {
