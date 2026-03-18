@@ -1,4 +1,5 @@
 {
+  "current_progress": "This EXTREME Football Tension Quiz Was Insanely Difficult...",  
   "videos": [
     {
       "id": "misc-2026-03-17",
@@ -1667,11 +1668,98 @@
       }
     },
     {
+      "id": "careerpath-2025-12-02",
+      "title": "This Football Career Path Quiz Was Absolutely INSANE...",
+      "youtubeId": "zd44G-K_258",
+      "releaseDate": "2025-12-02",
+      "type": "careerpath"
+    },
+    {
+      "id": "scattegories-showdown-2025-12-01",
+      "title": "This Scattegories Showdown Football Quiz Produced An Absolute BATTLE...",
+      "youtubeId": "x9DDXwmQfms",
+      "releaseDate": "2025-12-01",
+      "type": "scattegories-showdown",
+      "scores": {
+        "aaron": 666,
+        "calum": 717,
+        "heggie": 1209
+      }
+    },
+    {
+      "id": "pressure-tension-2025-11-30",
+      "title": "This Pressure Tension Football Quiz Was An Absolute ROLLERCOASTER...",
+      "youtubeId": "1W8CEGoEBwE",
+      "releaseDate": "2025-11-30",
+      "type": "pressure-tension",
+      "scores": {
+        "aaron": -17,
+        "calum": -6,
+        "heggie": 46
+      }
+    },
+    {
+      "id": "whq-2025-11-29",
+      "title": "This Was The Best *WORLDS HARDEST* Football Quiz We Have Attempted In A Long Time...",
+      "youtubeId": "1BImd5CMOdU",
+      "releaseDate": "2025-11-29",
+      "type": "whq",
+      "scores": {
+        "aaron-calum-heggie": {
+          "score": 33,
+          "max": 64
+        }
+      }
+    },
+    {
+      "id": "draft-2025-11-28",
+      "title": "We Had Some HOWLER Picks In This Football Draft Challenge...",
+      "youtubeId": "zl2IbkTcVg0",
+      "releaseDate": "2025-11-28",
+      "type": "draft"
+    },
+    {
+      "id": "careerpath-2025-11-27",
+      "title": "This Was One Of The Most Difficult Career Path Football Quizzes Ever Created...",
+      "youtubeId": "1Ca4a_wgsUE",
+      "releaseDate": "2025-11-27",
+      "type": "careerpath",
+      "scores": {
+        "aaron-calum-heggie": {
+          "score": 12,
+          "max": 30
+        }
+      }
+    },
+    {
+      "id": "tension-2025-11-26",
+      "title": "This Is The Most Controversial Football TENSION Quiz Result Ever...",
+      "youtubeId": "OobbzGXfbrA",
+      "releaseDate": "2025-11-26",
+      "type": "tension",
+      "scores": {
+        "aaron": 28,
+        "calum": 16,
+        "heggie": 32
+      }
+    },
+    {
+      "id": "misc-2025-11-25",
+      "title": "You Have To Be WRONG To Be RIGHT In This New Football Quiz...",
+      "youtubeId": "I82-ldp4E_M",
+      "releaseDate": "2025-11-25",
+      "type": "misc"
+    },
+    {
       "id": "jeopardy-2025-11-24",
       "title": "Can The GOAT Continue His Football Jeopardy Win Streak?",
       "youtubeId": "9Ot5cDCn978",
       "releaseDate": "2025-11-24",
       "type": "jeopardy",
+      "scores": {
+        "aaron": 4900,
+        "calum": 3700
+      },
       "moments": [
         {
           "id": "calum-when-2021",
@@ -1688,11 +1776,54 @@
       ]
     },
     {
+      "id": "squadguesser-2025-11-23",
+      "title": "This Football SquadGuesser Quiz Is A Brilliant Test Of Ball Knowledge...",
+      "youtubeId": "OEgqvLBtIhE",
+      "releaseDate": "2025-11-23",
+      "type": "squadguesser"
+    },
+    {
+      "id": "tension-2025-11-23",
+      "title": "Legend Only Video - November 2025. FlatChat Lore Tension",
+      "youtubeId": "BfkfHFvTZzg",
+      "releaseDate": "2025-11-23",
+      "type": "tension",
+      "scores": {
+        "aaron": 40,
+        "calum": 35,
+        "heggie": -3
+      }
+    },
+    {
+      "id": "tenable-2025-11-22",
+      "title": "This Football Timed Tenable Performance Was ELECTRIFYING...",
+      "youtubeId": "1eCNehI1yo0",
+      "releaseDate": "2025-11-22",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie": {
+          "score": 56,
+          "max": 60
+        }
+      }
+    },
+    {
+      "id": "draft-2025-11-21",
+      "title": "This Call Out Football Draft Was A Proper Battle...",
+      "youtubeId": "KBtmNhbzvDg",
+      "releaseDate": "2025-11-21",
+      "type": "draft"
+    },
+    {
       "id": "pointless-2025-11-20",
       "title": "We Changed The Rules For This Football Pointless Quiz...",
       "youtubeId": "QtYvqXz4X1U",
       "releaseDate": "2025-11-20",
       "type": "pointless",
+      "scores": {
+        "aaron": 55,
+        "heggie": 43
+      },
       "moments": [
         {
           "id": "calum-national-team",
@@ -1709,11 +1840,29 @@
       ]
     },
     {
+      "id": "careerpath-2025-11-19",
+      "title": "This Is The HARDEST Football Career Path Quiz Ever...",
+      "youtubeId": "37zP1ayTtPg",
+      "releaseDate": "2025-11-19",
+      "type": "careerpath",
+      "scores": {
+        "aaron-calum-heggie": {
+          "score": 50,
+          "max": 88
+        }
+      }
+    },
+    {
       "id": "pressure-tension-2025-11-18",
       "title": "This *Pressure* Tension Football Quiz Produced Absolute STINKER Answers...",
       "youtubeId": "3BVSsHq5BH0",
       "releaseDate": "2025-11-18",
       "type": "pressure-tension",
+      "scores": {
+        "aaron": -27,
+        "heggie": 47,
+        "calum": 24
+      },
       "moments": [
         {
           "id": "aaron-de-zerbi",
@@ -1735,6 +1884,10 @@
       "youtubeId": "eia5UZjX77M",
       "releaseDate": "2025-11-17",
       "type": "jeopardy",
+      "scores": {
+        "aaron": 6700,
+        "heggie": 5200
+      },
       "moments": [
         {
           "id": "aaron-cant-get-it-wrong",
@@ -1751,11 +1904,47 @@
       ]
     },
     {
+      "id": "tenable-2025-11-16",
+      "title": "We Performed Exquisitely In These Timed FOOTBALL TENABLES…",
+      "youtubeId": "6l_1nalSkh4",
+      "releaseDate": "2025-11-16",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie": {
+          "score": 49,
+          "max": 60
+        }
+      }
+    },
+    {
+      "id": "misc-2025-11-15",
+      "title": "Can We Escape This Insane Crystal Maze Football Quiz…",
+      "youtubeId": "Fp5u49pJH6I",
+      "releaseDate": "2025-11-15",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2025-11-14",
+      "title": "Can The GOAT Take Down Calum In This 1 Vs 1 Football Quiz???",
+      "youtubeId": "y0nosESYBcI",
+      "releaseDate": "2025-11-14",
+      "type": "misc",
+      "scores": {
+        "aaron": 13.5,
+        "calum": 15.5
+      }
+    },
+    {
       "id": "taskmaster-2025-11-13",
       "title": "The GOAT Hosts The Most CHAOTIC FOOTBALL TASKMASTER Ever…",
       "youtubeId": "CQ2ujKUj-48",
       "releaseDate": "2025-11-13",
       "type": "taskmaster",
+      "scores": {
+        "calum": 9,
+        "heggie": 10,
+        "jacob": 5
+      },
       "moments": [
         {
           "id": "jacob-kit-off",
@@ -1817,6 +2006,17 @@
       ]
     },
     {
+      "id": "misc-2025-11-12",
+      "title": "This 2 Vs 2 Football Quiz Was UNREAL...",
+      "youtubeId": "m2iTaZVrrL0",
+      "releaseDate": "2025-11-12",
+      "type": "misc",
+      "scores": {
+        "aaron-jacob": 18,
+        "calum-heggie": 28
+      }
+    },
+    {
       "id": "misc-2025-11-11",
       "title": "Chase The Weakest Link Out Of The Crystal Maze FOOTBALL QUIZ...",
       "youtubeId": "pB44IwyDA3c",
@@ -1838,11 +2038,43 @@
       ]
     },
     {
+      "id": "tenable-2025-11-10",
+      "title": "These Timed Football Tenables With @LukePingu Were Tasty...",
+      "youtubeId": "frHGEhU_8Lo",
+      "releaseDate": "2025-11-10",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob-calum-heggie-luke": {
+          "score": 47,
+          "max": 50
+        }
+      }
+    },
+    {
+      "id": "whq-2025-11-09",
+      "title": "This Was One Of The HARDEST Football Quizzes We Have Attempted...",
+      "youtubeId": "ed9DAGciFGA",
+      "releaseDate": "2025-11-09",
+      "type": "whq",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 32,
+          "max": 105
+        }
+      }
+    },
+    {
       "id": "extremetension-2025-11-08",
       "title": "This EXTREME Football Tension Quiz Was Insanely Difficult...",
       "youtubeId": "u1QnFSMMVks",
       "releaseDate": "2025-11-08",
       "type": "extremetension",
+      "scores": {
+        "aaron": 1,
+        "jacob": -17,
+        "calum": -22,
+        "heggie": 3
+      },
       "moments": [
         {
           "id": "aaron-violin-noises",
