@@ -1,6 +1,39 @@
 {
-  "current_progress": "This Football Jeopardy Quiz Was The Most Difficult EVER...",  
+  "current_progress": "This Premier League Passport Quiz Was EXCEPTIONAL...",  
   "videos": [
+    {
+      "id": "jeopardy-2026-03-19",
+      "title": "This Football Jeopardy Quiz Was An Absolute BATTLE...",
+      "youtubeId": "JJAFefZzjok",
+      "releaseDate": "2026-03-19",
+      "type": "jeopardy",
+      "scores": {
+        "jacob": 5300,
+        "heggie": 3700,
+        "calum": 4400
+      },
+      "moments": [
+        {
+          "id": "calum-gremlin-boy",
+          "title": "Gremlin boy over there.",
+          "description": "Calum tries to think of an insult for the initials of Gareth Barry and ends up insulting our GOAT.",
+          "timestamp": 400,
+          "people": [
+            "calum"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "draft-2026-03-18",
+      "title": "This Football Quiz Combined TENSIONS With A DRAFT TWIST...",
+      "youtubeId": "UjYTq9-uhI8",
+      "releaseDate": "2026-03-18",
+      "type": "draft"
+    },
     {
       "id": "misc-2026-03-17",
       "title": "Our Worst Ever Moments Came Back To Haunt Us AGAIN In This Football Quiz...",
@@ -110,7 +143,7 @@
       "releaseDate": "2026-03-09",
       "type": "tenable",
       "scores": {
-        "aaron-calum-jacob-heggie": {
+        "aaron-jacob-calum-heggie": {
           "score": 30,
           "max": 40
         }
@@ -594,7 +627,7 @@
       "releaseDate": "2026-02-09",
       "type": "careerpath",
       "scores": {
-        "aaron-calum-jacob-heggie": {
+        "aaron-jacob-calum-heggie": {
           "score": 64,
           "max": 87
         }
@@ -653,7 +686,7 @@
       "releaseDate": "2026-02-05",
       "type": "tenable",
       "scores": {
-        "aaron-calum-jacob-heggie": {
+        "aaron-jacob-calum-heggie": {
           "score": 35,
           "max": 40
         }
@@ -3049,11 +3082,58 @@
       }
     },
     {
+      "id": "careerpath-2025-09-18",
+      "title": "This Career Path Quiz From Aaron Was EXCEPTIONAL...",
+      "youtubeId": "okvcNlohzfY",
+      "releaseDate": "2025-09-18",
+      "type": "careerpath",
+      "scores": {
+        "heggie-jacob-calum": {
+          "score": 25,
+          "max": 30
+        }
+      }
+    },
+    {
+      "id": "traitors-2025-09-17",
+      "title": "This Football Traitors Quiz Was An Absolute ROLLER COASTER...",
+      "youtubeId": "Ehj1QuPZLGc",
+      "releaseDate": "2025-09-17",
+      "type": "traitors",
+      "results": {
+        "jacob": [
+          { "role": "traitor", "win": false }
+        ],
+        "aaron": [
+          { "role": "faithful", "win": true }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "codenames-2025-09-16",
+      "title": "This Football Codenames Matchup Produced Some BEEZER Answers…",
+      "youtubeId": "jWldPGjL1C0",
+      "releaseDate": "2025-09-16",
+      "type": "codenames",
+      "results": [
+        { "winner": "calum-jacob", "loser": "heggie-aaron" },
+        { "winner": "heggie-aaron", "loser": "calum-jacob" },
+        { "winner": "heggie-aaron", "loser": "calum-jacob" }
+      ]
+    },
+    {
       "id": "misc-2025-09-15",
       "title": "This 2 VS 2 Viewers Football Quiz Was INCREDIBLE...",
       "youtubeId": "eTgBzhOU3UM",
       "releaseDate": "2025-09-15",
       "type": "misc",
+      "scores": {
+        "heggie-calum": 36,
+        "aaron-jacob": 39
+      }, 
       "moments": [
         {
           "id": "heggie-pukki",
@@ -3070,11 +3150,24 @@
       ]
     },
     {
+      "id": "draft-2025-09-14",
+      "title": "This Football Facts Draft Produced Some WILD Teams...",
+      "youtubeId": "d9QiUa_io3M",
+      "releaseDate": "2025-09-14",
+      "type": "draft"
+    },
+    {
       "id": "face-blindness-2025-09-13",
       "title": "This Football Quiz Is Aaron's WORST NIGHTMARE...",
       "youtubeId": "NLsIV74gDZU",
       "releaseDate": "2025-09-13",
       "type": "face-blindness",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 17,
+          "max": 70
+        }
+      },
       "moments": [
         {
           "id": "aaron-lift-title",
@@ -3127,11 +3220,49 @@
       ]
     },
     {
+      "id": "misc-2025-09-12",
+      "title": "Who Will Become TheFlatChat's World Cup CHAMPION...",
+      "youtubeId": "Ag2Fknneicw",
+      "releaseDate": "2025-09-12",
+      "type": "misc",
+      "scores": {
+        "heggie": 9,
+        "calum": 4,
+        "aaron": 2,
+        "jacob": 1
+      }
+    },
+    {
+      "id": "whq-2025-09-11",
+      "title": "This Was One Of The HARDEST Football Quizzes We Have Ever Attempted...",
+      "youtubeId": "3DPsUTs_TkY",
+      "releaseDate": "2025-09-11",
+      "type": "whq",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 20,
+          "max": 60
+        }
+      }
+    },
+    {
+      "id": "draft-2025-09-10",
+      "title": "Aaron Has His Biggest Ever Headloss In This Football Draft Challenge...",
+      "youtubeId": "1aFepk4tQeo",
+      "releaseDate": "2025-09-10",
+      "type": "draft"
+    },
+    {
       "id": "jeopardy-2025-09-09",
       "title": "We Showed Some Exquisite Football Knowledge In This Jeopardy Quiz…",
       "youtubeId": "WA9-7-oMNko",
       "releaseDate": "2025-09-09",
       "type": "jeopardy",
+      "scores": {
+        "heggie": 2100,
+        "aaron": 3900,
+        "jacob": 4700
+      },
       "moments": [
         {
           "id": "jacob-my-money",
@@ -3146,6 +3277,43 @@
           ]
         }
       ]
+    },
+    {
+      "id": "ultimate-football-showdown-2025-09-08",
+      "title": "The ULTIMATE Football Showdown Quiz Vs Ollie Thomas",
+      "youtubeId": "R1GW1npjKgE",
+      "releaseDate": "2025-09-08",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "calum-jacob-aaron": 31,
+        "ollie": 27
+      }
+    },
+    {
+      "id": "squadup-2025-09-07",
+      "title": "This Football Squad Up Episode Went To The Wire...",
+      "youtubeId": "33lSOBET05M",
+      "releaseDate": "2025-09-07",
+      "type": "squadup",
+      "scores": {
+        "calum": 28,
+        "jacob": 23,
+        "aaron": 17,
+        "heggie": 16
+      }
+    },
+    {
+      "id": "tenable-2025-09-06",
+      "title": "We Produced Some INSANE Answers In These Football Tenable Questions...",
+      "youtubeId": "QbnVzNt8wak",
+      "releaseDate": "2025-09-06",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 33,
+          "max": 40
+        }
+      }
     },
     {
       "id": "misc-2025-09-05",
@@ -3169,6 +3337,63 @@
       ]
     },
     {
+      "id": "draft-2025-09-04",
+      "title": "We Built Some Of The Worst Football Drafts OF ALL TIME...",
+      "youtubeId": "CWrSUGTcgA4",
+      "releaseDate": "2025-09-04",
+      "type": "draft"
+    },
+    {
+      "id": "bullseye-2025-09-03",
+      "title": "This Football Bullseye Quiz Was EXCEPTIONAL...",
+      "youtubeId": "60ijQYUgwNc",
+      "releaseDate": "2025-09-03",
+      "type": "bullseye",
+      "scores": {
+        "calum": 22,
+        "jacob": 14,
+        "aaron": 10,
+        "heggie": 20
+      }
+    },
+    {
+      "id": "squadguesser-2025-09-02",
+      "title": "Can You Guess The Lineups From The Most Famous Football Matches Ever...",
+      "youtubeId": "k-JKc5gPKXk",
+      "releaseDate": "2025-09-02",
+      "type": "squadguesser",
+      "scores": {
+        "calum": 2,
+        "jacob": 3,
+        "aaron": 2.5,
+        "heggie": 2
+      }
+    },
+    {
+      "id": "ultimate-football-showdown-2025-09-01",
+      "title": "Aaron Hosts This *CHAOTIC* Ultimate Football Showdown Quiz Vs Jack Caulfield",
+      "youtubeId": "ZVKG10MXpNE",
+      "releaseDate": "2025-09-01",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "calum-jacob-heggie": 28,
+        "caulfield": 8
+      }
+    },
+    {
+      "id": "tenable-2025-08-31",
+      "title": "We Threaten To Take Aaron's Kit Off In This *FOOTBALL TENABLE* Quiz",
+      "youtubeId": "TNTKGaSzxiE",
+      "releaseDate": "2025-08-31",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 35,
+          "max": 40
+        }
+      }
+    },
+    {
       "id": "whq-2025-08-30",
       "title": "This Viewers Worlds Hardest Football Quiz Was A Great Test Of Our Knowledge...",
       "youtubeId": "8tuoOnzcYwk",
@@ -3190,11 +3415,192 @@
       ]
     },
     {
+      "id": "jeopardy-2025-08-29",
+      "title": "This Viewers Football Jeopardy Quiz Seriously Mixed It Up…",
+      "youtubeId": "AMs4nZLIBy4",
+      "releaseDate": "2025-08-29",
+      "type": "jeopardy",
+      "scores": {
+        "calum": 2200,
+        "aaron": 2700,
+        "heggie": 4300
+      }
+    },
+    {
+      "id": "tension-2025-08-28",
+      "title": "This Football Tension Performance Was EXCEPTIONAL...",
+      "youtubeId": "QfY7nuHrnSY",
+      "releaseDate": "2025-08-28",
+      "type": "tension",
+      "scores": {
+        "calum": 41,
+        "aaron": 36,
+        "heggie": 85,
+        "jacob": 47
+      }
+    },
+    {
+      "id": "careerpath-2025-08-27",
+      "title": "This Was The PERFECT DIFFICULTY For A Football Career Path Quiz...",
+      "youtubeId": "n2GQGt4ArC4",
+      "releaseDate": "2025-08-27",
+      "type": "careerpath",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 21,
+          "max": 32
+        }
+      }
+    },
+    {
+      "id": "misc-2025-08-26",
+      "title": "Our Worst Ever Guesses Came Back To Haunt Us In This Football Quiz...",
+      "youtubeId": "1j-Qj3cinBw",
+      "releaseDate": "2025-08-26",
+      "type": "misc"
+    },
+    {
+      "id": "ultimate-football-showdown-2025-08-25",
+      "title": "We Took On A FOOTBALL GENIUS In This Football Showdown Quiz… @bigmassiveeric",
+      "youtubeId": "cEpZT_1ilIA",
+      "releaseDate": "2025-08-25",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "calum-aaron-heggie": 31,
+        "eric": 51
+      }
+    },
+    {
+      "id": "tenable-2025-08-24",
+      "title": "Can We Cook In These Tricky Football Tenables...",
+      "youtubeId": "iR8DkfPEQ9Q",
+      "releaseDate": "2025-08-24",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 35,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "draft-2025-08-23",
+      "title": "We Attempted This Football Auction Draft Blind....",
+      "youtubeId": "nOcoaWnt9lo",
+      "releaseDate": "2025-08-23",
+      "type": "draft"
+    },
+    {
+      "id": "jeopardy-2025-08-22",
+      "title": "This Football Jeopardy Quiz Performance Must Be Studied...",
+      "youtubeId": "c2PmekrHwPI",
+      "releaseDate": "2025-08-22",
+      "type": "jeopardy",
+      "scores": {
+        "calum": 4000,
+        "aaron": 5900,
+        "jacob": 4700
+      }
+    },
+    {
+      "id": "connect4-2025-08-21",
+      "title": "There Was MORE MAJOR HEAD LOSS In This Football Connect 4...",
+      "youtubeId": "LVCrxgTHM8s",
+      "releaseDate": "2025-08-21",
+      "type": "connect4",
+      "scores": {
+        "calum": 1,
+        "heggie": 2,
+        "jacob": 0
+      }
+    },
+    {
+      "id": "passport-2025-08-20",
+      "title": "This Football Passport Quiz Caused A Major HEAD LOSS...",
+      "youtubeId": "HZdyXFIx7JI",
+      "releaseDate": "2025-08-20",
+      "type": "passport",
+      "scores": {
+        "aaron-jacob-calum": {
+          "score": 24,
+          "max": 45
+        }
+      }
+    },
+    {
+      "id": "careerpath-2025-08-19",
+      "title": "Was This Was Our HARDEST Football Career Path Quiz Yet...",
+      "youtubeId": "-7jT9Ub_a7w",
+      "releaseDate": "2025-08-19",
+      "type": "careerpath",
+      "scores": {
+        "aaron-jacob": {
+          "score": 14,
+          "max": 30
+        }
+      }
+    },
+    {
+      "id": "ultimate-football-showdown-2025-08-18",
+      "title": "BIG JOHN Takes On TheFlatChat In This Ultimate FOOTBALL QUIZ...",
+      "youtubeId": "yVWjjiIPASY",
+      "releaseDate": "2025-08-18",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "aaron-jacob": 58,
+        "bigjohn": 50
+      }
+    },
+    {
+      "id": "draft-2025-08-17",
+      "title": "This Premier League Killer Draft Was An Absolute SHAMBLES...",
+      "youtubeId": "w0e-QLh-knE",
+      "releaseDate": "2025-08-17",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2025-08-16",
+      "title": "Aaron Brings Another Football Tenable BONANZA...",
+      "youtubeId": "5tIQMWW2OfU",
+      "releaseDate": "2025-08-16",
+      "type": "tenable",
+      "scores": {
+        "jacob-calum-heggie": {
+          "score": 26,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "pointless-2025-08-15",
+      "title": "We Scored SOOOO Many Points In This Football Pointless Quiz…",
+      "youtubeId": "Pj0E-fZAJIY",
+      "releaseDate": "2025-08-15",
+      "type": "pointless",
+      "scores": {
+        "aaron": 415,
+        "jacob": 250,
+        "heggie": 363
+      }
+    },
+    {
+      "id": "misc-2025-08-13",
+      "title": "TheFlatChat's 2025/2026 Premier League PREDICTIONS...",
+      "youtubeId": "QGJ-uHvlsgw",
+      "releaseDate": "2025-08-13",
+      "type": "misc"
+    },
+    {
       "id": "jeopardy-2025-08-12",
       "title": "This Football Jeopardy Quiz Was Utter CHAOS...",
       "youtubeId": "ibj1CmnVljs",
       "releaseDate": "2025-08-12",
       "type": "jeopardy",
+      "scores": {
+        "aaron": 2500,
+        "calum": 4500,
+        "heggie": 5500
+      },
       "moments": [
         {
           "id": "aaron-where-from",
@@ -3223,11 +3629,41 @@
       ]
     },
     {
+      "id": "ultimate-football-showdown-2025-08-11",
+      "title": "Can @LukePingu FINALLY Beat TheFlatChat In A Football Quiz???​",
+      "youtubeId": "_v7V-h0d7BU",
+      "releaseDate": "2025-08-11",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "aaron-jacob-calum": 28,
+        "luke": 36
+      }
+    },
+    {
+      "id": "tenable-2025-08-10",
+      "title": "Can We FINALLY Get Aaron's Kit Off In This Football Tenable Episode...",
+      "youtubeId": "TxB9ZFcBqBI",
+      "releaseDate": "2025-08-10",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 37,
+          "max": 40
+        }
+      }
+    },
+    {
       "id": "tension-2025-08-09",
       "title": "This Was Our Most CONTROVERSIAL Football Tension Quiz Yet...",
       "youtubeId": "oVz1b-ULsJs",
       "releaseDate": "2025-08-09",
       "type": "tension",
+      "scores": {
+        "aaron": 19,
+        "calum": 38,
+        "heggie": 31,
+        "jacob": 28
+      },
       "moments": [
         {
           "id": "aaron-go-germany",
@@ -3244,11 +3680,49 @@
       ]
     },
     {
+      "id": "misc-2025-08-08",
+      "title": "This Football Deal Or No Deal Quiz Was CHAOS...",
+      "youtubeId": "E3bNhKCeJUo",
+      "releaseDate": "2025-08-08",
+      "type": "misc",
+      "scores": {
+        "aaron": -8,
+        "calum": -5,
+        "jacob": 36
+      }
+    },
+    {
+      "id": "misc-2025-08-06",
+      "title": "This *Football Tower* Quiz Produced Some STINKER Answers...",
+      "youtubeId": "2FJf2Y8aRxE",
+      "releaseDate": "2025-08-06",
+      "type": "misc"
+    },
+    {
+      "id": "squadup-2025-08-05",
+      "title": "This Football Squad Up Quiz Produced An Epic Battle...",
+      "youtubeId": "6FRk45MSXJs",
+      "releaseDate": "2025-08-05",
+      "type": "squadup",
+      "scores": {
+        "aaron": 13,
+        "calum": 10,
+        "jacob": 10,
+        "heggie": 11
+      }
+    },
+    {
       "id": "passport-2025-08-04",
       "title": "This Premier League Passport Quiz Was EXCEPTIONAL...",
       "youtubeId": "XVdAD7mUPUs",
       "releaseDate": "2025-08-04",
       "type": "passport",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 152,
+          "max": 240
+        }
+      },
       "moments": [
         {
           "id": "aaron-tarkowski",

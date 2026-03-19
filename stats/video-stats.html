@@ -126,6 +126,9 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow: hidden;
+  max-width: 100%;            /* prevent card from growing wider than column */
+  box-sizing: border-box;
 }
 
 /* Header row */
@@ -229,26 +232,37 @@ h1 {
 
 .leaderboard-left {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;   /* 🔥 stack vertically */
+  align-items: center;      /* center everything */
+  gap: 6px;
+  text-align: center;
 }
 
 .leaderboard-name {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.1;
 }
 
 .leaderboard-right {
   display: grid;
   gap: 10px;
   justify-items: end;
+  min-width: 0;
 }
 
 .leaderboard-medals {
-  display: grid;
-  grid-template-columns: repeat(4, 30px);
-  justify-content: end;
-  text-align: center;
+  display: flex;              /* switch to flex */
+  gap: 6px;
+  justify-content: flex-end;
+  overflow-x: auto;           /* enable horizontal scroll */
+  max-width: 160px;           /* 👈 adjust depending on design */
+  padding-bottom: 2px;        /* space for scrollbar */
+  scrollbar-width: thin;
+}
+
+.leaderboard-medals::-webkit-scrollbar {
+  height: 4px;
 }
 
 .leaderboard-medals span {
@@ -312,6 +326,11 @@ h1 {
   padding-top: 6px;
   border-top: 1px solid #e2e8ea;
   scrollbar-width: thin;
+  flex-wrap: nowrap;          /* 🔥 force single row */
+  min-width: 0;
+  max-width: 100%;            /* keep inside card width */
+  width: 100%;                /* match available space */
+  flex: 1 1 auto;             /* allow row to shrink within parent */
 }
 
 .score-history::-webkit-scrollbar {
@@ -327,6 +346,21 @@ h1 {
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
+  flex: 0 0 auto;             /* 🔥 prevents squishing/wrapping */
+  white-space: nowrap;        /* 🔥 keeps numbers clean */
+}
+
+.score-pill-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex: 0 0 auto;
+}
+
+.score-place {
+  font-size: 0.7rem;
+  color: #555;
 }
 
 .score-pill:hover {
@@ -335,11 +369,15 @@ h1 {
 }
 
 .history-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);  /* label + constrained history */
   align-items: center;
-  gap: 14px;
+  column-gap: 14px;
   padding-top: 10px;
   border-top: 1px solid #e2e8ea;
+  min-width: 0;
+  width: 100%;                /* match card width */
+  box-sizing: border-box;
 }
 
 .history-label {
@@ -509,6 +547,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-width: 100%;            /* keep column within grid cell */
 }
 
 @media (max-width: 768px) {
@@ -708,15 +747,23 @@ const reverseScoreFormats = {
   "pointless": true
 };
 
+function formatPlace(n) {
+  const suffixes = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  const suffix = (v > 10 && v < 20) ? "th" : (suffixes[n % 10] || "th");
+  return `${n}${suffix}`;
+}
+
 const playerFullNames = {
-  "aaron": "Aaron",
-  "calum": "Calum",
-  "jacob": "Jacob",
-  "heggie": "Heggie",
+  "aaron": "Aaron Turnbull",
+  "calum": "Calum Porter",
+  "jacob": "Jacob Murray",
+  "heggie": "Thomas Heggie",
   "andy": "Andy Halliday", 
   "luke": "Luke Pingu",
   "genf": "Generation Football",
-  "scaife": "George Scaife"
+  "scaife": "George Scaife",
+  "ollie": "Ollie Thomas"
 };
 
 let allVideos = [];
@@ -875,7 +922,8 @@ const sorted = Object.entries(video.scores)
         individualStats[player].history.push({
           score,
           youtubeId: video.youtubeId,
-          date: video.releaseDate
+          date: video.releaseDate,
+          place: index + 1
         });
         individualStats[player].high =
           Math.max(individualStats[player].high, score);
@@ -995,11 +1043,14 @@ const sorted = Object.entries(video.scores)
 ${(s.history || [])
   .sort((a,b)=> new Date(b.date) - new Date(a.date))
   .map(h=>`
-          <a class="score-pill"
-             href="https://www.youtube.com/watch?v=${h.youtubeId}"
-             target="_blank">
-             ${h.score}
-          </a>
+          <div class="score-pill-wrap">
+            <a class="score-pill"
+               href="https://www.youtube.com/watch?v=${h.youtubeId}"
+               target="_blank">
+               ${h.score}
+            </a>
+            ${h.place ? `<div class="score-place">${formatPlace(h.place)}</div>` : ``}
+          </div>
         `).join("")}
     </div>
   </div>
