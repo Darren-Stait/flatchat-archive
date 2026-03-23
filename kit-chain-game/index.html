@@ -463,11 +463,6 @@ button{
     border-radius:999px;
     gap:6px;
   }
-
-  .sponsor{
-  width:40%;
-  height:30px;
-  }
 }
 
 </style>
@@ -779,6 +774,15 @@ if (lastName.length >= 8) curveHeight = 30;
 if (lastName.length >= 10) curveHeight = 25;
 if (lastName.length >= 12) curveHeight = 20;
 
+const sponsorData = getSponsorFromYears(
+  GAME_DATA.find(c => c.club === currentRound.club),
+  player.years
+);
+
+const sponsorSrc = sponsorData
+  ? "./sponsors/" + sponsorData.image
+  : "";
+
 card.innerHTML = `
   <div class="badge"><img src="${currentRound.badge}"></div>
 
@@ -787,24 +791,18 @@ card.innerHTML = `
       <defs>
         <path id="curve${index}" d="M20,140 Q170,${curveHeight} 320,140" />
       </defs>
-
-      <text
-        text-anchor="middle"
-        font-size="34"
-        font-weight="800"
-        fill="white"
-      >
+      <text text-anchor="middle" font-size="34" font-weight="800" fill="white">
         <textPath href="#curve${index}" startOffset="50%">
           ${lastName}
         </textPath>
       </text>
-
     </svg>
   </div>
 
   <div class="kit-number">${currentRound.shirtNumber}</div>
+
   <div class="sponsor">
-    <img src="${player.sponsor}">
+    <img src="${sponsorSrc}">
   </div>
 `;
 
@@ -881,6 +879,38 @@ document.querySelector("#before-section .hint-area").style.display =
 
   requestAnimationFrame(scalePlayAreaToFit);
   renderHints();
+}
+
+function getSponsorFromYears(clubData, yearString){
+
+  if(!clubData.sponsors) return null;
+
+  const { start: playerStart, end: playerEnd } = parseYears(yearString);
+
+  let bestSponsor = null;
+  let maxOverlap = 0;
+
+  clubData.sponsors.forEach(sponsor => {
+
+    const overlapStart = Math.max(playerStart, sponsor.start);
+    const overlapEnd   = Math.min(playerEnd, sponsor.end);
+
+    const overlapYears = overlapEnd - overlapStart + 1;
+
+    if(overlapYears > maxOverlap){
+      maxOverlap = overlapYears;
+      bestSponsor = sponsor;
+    }
+
+  });
+
+  return bestSponsor;
+}
+
+function parseYears(yearString){
+  const clean = yearString.replace("–", "-");
+  const [start, end] = clean.split("-").map(y => parseInt(y.trim()));
+  return { start, end };
 }
 
 function useHint(direction, type){
