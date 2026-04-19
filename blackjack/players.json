@@ -1,7 +1,6 @@
 [
   {
     "name": "Sergio Aguero",
-    "stats": ["200+ Premier League goals"],
     "teammates": ["Lionel Messi", "David Silva"],
     "leagues": ["Premier League"],
     "honours": ["Premier League winner"],
@@ -10,7 +9,6 @@
   },
   {
     "name": "Lionel Messi",
-    "stats": ["700+ career goals"],
     "teammates": ["Neymar", "Luis Suarez"],
     "leagues": ["La Liga", "Ligue 1"],
     "honours": ["World Cup winner"],
@@ -19,7 +17,6 @@
   },
   {
     "name": "Cristiano Ronaldo",
-    "stats": ["800+ career goals"],
     "teammates": ["Wayne Rooney", "Karim Benzema"],
     "leagues": ["Premier League", "La Liga", "Serie A"],
     "honours": ["5x Ballon d'Or"],
@@ -28,7 +25,6 @@
   },
   {
     "name": "Thierry Henry",
-    "stats": ["Premier League top scorer"],
     "teammates": ["Dennis Bergkamp"],
     "leagues": ["Premier League"],
     "honours": ["World Cup winner"],
@@ -37,7 +33,6 @@
   },
   {
     "name": "Kevin De Bruyne",
-    "stats": ["Top assists in EPL"],
     "teammates": ["Erling Haaland"],
     "leagues": ["Premier League"],
     "honours": ["Champions League winner"],
@@ -46,7 +41,6 @@
   },
   {
     "name": "Erling Haaland",
-    "stats": ["50+ goals season"],
     "teammates": ["Kevin De Bruyne"],
     "leagues": ["Premier League"],
     "honours": ["Champions League winner"],
@@ -55,7 +49,6 @@
   },
   {
     "name": "Kylian Mbappe",
-    "stats": ["World Cup final hat-trick"],
     "teammates": ["Neymar"],
     "leagues": ["Ligue 1"],
     "honours": ["World Cup winner"],
@@ -64,7 +57,6 @@
   },
   {
     "name": "Neymar",
-    "stats": ["100+ Brazil goals"],
     "teammates": ["Messi", "Mbappe"],
     "leagues": ["La Liga", "Ligue 1"],
     "honours": ["Champions League winner"],
@@ -73,7 +65,6 @@
   },
   {
     "name": "Luka Modric",
-    "stats": ["Ballon d'Or winner"],
     "teammates": ["Cristiano Ronaldo"],
     "leagues": ["La Liga"],
     "honours": ["Champions League winner"],
@@ -82,7 +73,6 @@
   },
   {
     "name": "Zlatan Ibrahimovic",
-    "stats": ["Played in 5+ leagues"],
     "teammates": ["Thiago Silva"],
     "leagues": ["Serie A", "Ligue 1"],
     "honours": ["League titles"],
@@ -91,7 +81,6 @@
   },
   {
     "name": "Wayne Rooney",
-    "stats": ["Man United top scorer"],
     "teammates": ["Ronaldo"],
     "leagues": ["Premier League"],
     "honours": ["Champions League winner"],
@@ -100,7 +89,6 @@
   },
   {
     "name": "Harry Kane",
-    "stats": ["200+ EPL goals"],
     "teammates": ["Son Heung-min"],
     "leagues": ["Premier League"],
     "honours": ["Golden Boot winner"],
@@ -109,7 +97,6 @@
   },
   {
     "name": "Son Heung-min",
-    "stats": ["Golden Boot winner"],
     "teammates": ["Harry Kane"],
     "leagues": ["Premier League"],
     "honours": ["Asian Player of Year"],
@@ -118,7 +105,6 @@
   },
   {
     "name": "Virgil van Dijk",
-    "stats": ["Defender of the year"],
     "teammates": ["Mohamed Salah"],
     "leagues": ["Premier League"],
     "honours": ["Champions League winner"],
@@ -127,7 +113,6 @@
   },
   {
     "name": "Mohamed Salah",
-    "stats": ["30+ goal seasons"],
     "teammates": ["Mane"],
     "leagues": ["Premier League"],
     "honours": ["Champions League winner"],
@@ -136,7 +121,6 @@
   },
   {
     "name": "Sadio Mane",
-    "stats": ["AFCON winner"],
     "teammates": ["Salah"],
     "leagues": ["Premier League"],
     "honours": ["Champions League winner"],
@@ -145,7 +129,6 @@
   },
   {
     "name": "Manuel Neuer",
-    "stats": ["Sweeper keeper"],
     "teammates": ["Thomas Muller"],
     "leagues": ["Bundesliga"],
     "honours": ["World Cup winner"],
@@ -154,7 +137,6 @@
   },
   {
     "name": "Thomas Muller",
-    "stats": ["World Cup golden boot"],
     "teammates": ["Neuer"],
     "leagues": ["Bundesliga"],
     "honours": ["World Cup winner"],
@@ -163,7 +145,6 @@
   },
   {
     "name": "Xavi",
-    "stats": ["Most passes game"],
     "teammates": ["Iniesta"],
     "leagues": ["La Liga"],
     "honours": ["World Cup winner"],
@@ -172,7 +153,6 @@
   },
   {
     "name": "Andres Iniesta",
-    "stats": ["World Cup final goal"],
     "teammates": ["Xavi"],
     "leagues": ["La Liga"],
     "honours": ["World Cup winner"],

@@ -227,7 +227,7 @@ h4 {
 </head>
 
 <body>
-
+<div data-include="../includes/header.html"></div>
 <div class="game" id="game">
 
 <div class="top-controls">
@@ -286,7 +286,6 @@ const suits = [
 ];
 
 const tooltips = {
-  stat:"Reveal a statline about the player, career appearances, international caps, goals scored etc.",
   teammate:"Reveal a player that the player has played with",
   league:"Reveal a league that the player has played in",
   honour:"Reveal a honour that the player has won, if at all",
@@ -295,7 +294,6 @@ const tooltips = {
 };
 
 const categories = {
-  stat:{min:1,max:2},
   teammate:{min:1,max:2},
   league:{min:4,max:6},
   honour:{min:3,max:5},
@@ -303,7 +301,7 @@ const categories = {
   position:{min:6,max:9,singleUse:true}
 };
 
-let usage={stat:0,teammate:0,league:0,honour:0,club:0,position:0};
+let usage={teammate:0,league:0,honour:0,club:0,position:0};
 
 let players = [];
 let player;
@@ -461,6 +459,6 @@ else{endGame("Wrong! It was "+player.name);}
 
 render();
 </script>
-
+<script src="../includes/include-html.js"></script>
 </body>
 </html>
