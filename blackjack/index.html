@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Football Blackjack</title>
+
+<style>
+:root {
+  --primary: #25b6c4;
+  --accent: #f2b632;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.game {
+  position: relative;
+  width: 95vw;
+  max-width: 1200px;
+  min-height: 90vh;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  border: 6px solid var(--primary);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-controls {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+h2 {
+  text-align: center;
+  color: #0a7785;
+  margin-top: 30px;
+}
+
+h4 {
+  text-align: center;
+  margin-top: 5px;
+  color: #444;
+}
+
+/* DECK */
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  width: clamp(90px, 8vw, 120px);
+  height: clamp(130px, 12vw, 180px);
+  background: white;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card-corner { font-weight: bold; }
+.card-bottom { transform: rotate(180deg); text-align: right; }
+.card-center { position: relative; z-index: 1; flex: 1; }
+
+.card-info {
+  background: #e4f9ff;
+  color: #0a7785;
+  border-radius: 8px;
+  padding: 6px;
+  font-size: 11px;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+/* LABEL */
+.buttons-label {
+  text-align: center;
+  color: #0a7785;
+  font-weight: 600;
+  margin: 10px 0 5px;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.buttons button,
+.guess button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+}
+
+/* TOOLTIP */
+.tooltip {
+  position: relative;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0a7785;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  width: 150px;
+  text-align: center;
+  transition: 0.2s;
+  pointer-events: none;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* GUESS */
+.guess {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.guess input {
+  width: min(300px, 60%);
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5f5;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: min(90%, 320px);
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* STATUS */
+.status { text-align: center; margin-top: 10px; }
+
+.new-game {
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.new-game button {
+  background: var(--accent);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="game" id="game">
+
+<div class="top-controls">
+  <button class="top-btn" onclick="openModal()">How To Play</button>
+  <button class="top-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+</div>
+
+<h2>♣️ Football Blackjack ♣️</h2>
+<h4>Guess the mystery player</br>Draw cards for clues</br>Don't go over 21</h4>
+
+<div id="helpModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>How To Play</h3>
+    <p>Draw clues like cards.</p>
+    <p>Each clue has a value range.</p>
+    <p><strong>Win:</strong> Guess correctly.</p>
+    <p><strong>Lose:</strong> Bust or guess wrong.</p>
+  </div>
+</div>
+
+<div class="deck" id="deck"></div>
+
+<div class="buttons-label">Choose a clue category</div>
+<div class="buttons" id="buttons"></div>
+
+<div class="guess" id="guessBox">
+  <input id="guessInput" placeholder="Guess player">
+  <button onclick="submitGuess()">Guess</button>
+</div>
+
+<div class="status" id="status"></div>
+
+<div class="new-game" id="newGame">
+  <button onclick="location.reload()">New Game</button>
+</div>
+
+</div>
+
+<script>
+function openModal(){document.getElementById("helpModal").style.display="flex";}
+function closeModal(){document.getElementById("helpModal").style.display="none";}
+window.onclick=e=>{if(e.target.id==="helpModal")closeModal();}
+
+function toggleFullscreen(){
+  const el=document.getElementById("game");
+  if(!document.fullscreenElement){el.requestFullscreen();}
+  else{document.exitFullscreen();}
+}
+
+const suits = [
+  "../Downloads/jacob.webp",
+  "../Downloads/calum.webp",
+  "../Downloads/heggie.webp",
+  "../Downloads/aaron.webp"
+];
+
+const tooltips = {
+  stat:"Reveal a statline about the player, career appearances, international caps, goals scored etc.",
+  teammate:"Reveal a player that the player has played with",
+  league:"Reveal a league that the player has played in",
+  honour:"Reveal a honour that the player has won, if at all",
+  club:"Reveal a club that the player has played for, picked at random",
+  position:"Reveal a clue on the players position"
+};
+
+const categories = {
+  stat:{min:1,max:2},
+  teammate:{min:1,max:2},
+  league:{min:4,max:6},
+  honour:{min:3,max:5},
+  club:{min:5,max:8},
+  position:{min:6,max:9,singleUse:true}
+};
+
+let usage={stat:0,teammate:0,league:0,honour:0,club:0,position:0};
+
+let players = [];
+let player;
+
+/* LOAD DATA */
+fetch("./players.json")
+  .then(res => res.json())
+  .then(data => {
+    players = data;
+    startGame();
+  });
+
+function startGame(){
+  player = players[Math.floor(Math.random() * players.length)];
+  render();
+}
+
+let score=0;
+let gameOver=false;
+
+function endGame(msg){
+gameOver=true;
+document.getElementById("status").textContent=msg;
+document.getElementById("buttons").style.display="none";
+document.getElementById("guessBox").style.display="none";
+document.getElementById("newGame").style.display="block";
+}
+
+function range(cat){
+  let b = categories[cat];
+  let u = usage[cat];
+  return {
+    min: b.min + u,
+    max: b.max + u
+  };
+}
+
+function rand(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
+
+function clue(cat){
+let arr=player[cat+"s"];
+return arr[Math.floor(Math.random()*arr.length)];
+}
+
+function render(){
+let c=document.getElementById("buttons");
+c.innerHTML="";
+for(let cat in categories){
+if(categories[cat].singleUse&&usage[cat]>0)continue;
+let r=range(cat);
+
+let wrap=document.createElement("div");
+wrap.className="tooltip";
+
+let b=document.createElement("button");
+b.textContent=cat.toUpperCase()+" ("+r.min+"-"+r.max+")";
+b.onclick=()=>hit(cat);
+
+let tip=document.createElement("div");
+tip.className="tooltip-text";
+tip.textContent=tooltips[cat];
+
+wrap.append(b,tip);
+c.appendChild(wrap);
+}
+}
+
+function addCard(val,text,cat){
+const wrap=document.createElement("div");
+wrap.className="card-wrapper";
+
+const info=document.createElement("div");
+info.className="card-info";
+info.innerHTML="<strong>"+cat.toUpperCase()+"</strong><br>"+text;
+
+const card=document.createElement("div");
+card.className="card";
+
+const top=document.createElement("div");
+top.className="card-corner";
+top.textContent=val;
+
+const center=document.createElement("div");
+center.className="card-center";
+
+const suit = suits[Math.floor(Math.random() * suits.length)];
+
+function icon(x,y,size){
+const img=document.createElement("img");
+img.src = suit;
+img.style.width=size+"px";
+img.style.position="absolute";
+img.style.left=x+"%";
+img.style.top=y+"%";
+img.style.transform="translate(-50%,-50%)";
+center.appendChild(img);
+}
+
+let n = val;
+
+// cap at a reasonable max to avoid chaos
+n = Math.min(n, 12);
+
+// dynamic size based on count
+let size = n <= 4 ? 18 : n <= 8 ? 14 : 10;
+
+// generate grid layout
+let cols = Math.ceil(Math.sqrt(n));
+let rows = Math.ceil(n / cols);
+
+let index = 0;
+
+for (let r = 0; r < rows; r++) {
+  for (let c = 0; c < cols; c++) {
+    if (index >= n) break;
+
+    let x = (c + 1) * (100 / (cols + 1));
+    let y = (r + 1) * (100 / (rows + 1));
+
+    icon(x, y, size);
+    index++;
+  }
+}
+
+const bottom=document.createElement("div");
+bottom.className="card-corner card-bottom";
+bottom.textContent=val;
+
+card.append(top,center,bottom);
+wrap.append(info,card);
+document.getElementById("deck").appendChild(wrap);
+}
+
+function hit(cat){
+if(gameOver)return;
+let r=range(cat);
+let val=rand(r.min,r.max);
+let c=clue(cat);
+
+usage[cat]++;
+score+=val;
+
+addCard(val,c,cat);
+
+if(score>21){endGame("BUST!");return;}
+render();
+}
+
+function submitGuess(){
+if(gameOver)return;
+let g=document.getElementById("guessInput").value.toLowerCase();
+if(g===player.name.toLowerCase()){endGame("Correct!");}
+else{endGame("Wrong! It was "+player.name);}
+}
+
+render();
+</script>
+
+</body>
+</html>
