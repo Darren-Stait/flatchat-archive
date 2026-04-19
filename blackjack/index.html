@@ -302,9 +302,9 @@ const tooltips = {
 
 const categories = {
   teammate:{min:1,max:2},
-  league:{min:4,max:6},
-  honour:{min:3,max:5},
-  club:{min:5,max:8},
+  league:{min:2,max:3},
+  honour:{min:2,max:3},
+  club:{min:4,max:6},
   position:{min:6,max:9,singleUse:true}
 };
 
@@ -313,16 +313,41 @@ let usage={teammate:0,league:0,honour:0,club:0,position:0};
 let players = [];
 let player;
 
-/* LOAD DATA */
+let usedClues = {
+  teammate: new Set(),
+  league: new Set(),
+  honour: new Set(),
+  club: new Set(),
+  position: new Set()
+};
+
 fetch("https://www.flatchat-moments.uk/blackjack/players.json")
   .then(res => res.json())
   .then(data => {
-    players = data;
+
+    players = data.map(p => ({
+      ...p,
+      teammates: [...new Set(p.teammates.map(x => x.trim()))],
+      leagues: [...new Set(p.leagues.map(x => x.trim()))],
+      honours: [...new Set(p.honours.map(x => x.trim()))],
+      clubs: [...new Set(p.clubs.map(x => x.trim()))],
+      positions: [...new Set(p.positions.map(x => x.trim()))]
+    }));
+
     startGame();
   });
 
 function startGame(){
   player = players[Math.floor(Math.random() * players.length)];
+
+  usedClues = {
+    teammate:new Set(),
+    league:new Set(),
+    honour:new Set(),
+    club:new Set(),
+    position:new Set()
+  };
+
   render();
 }
 
@@ -349,8 +374,24 @@ function range(cat){
 function rand(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
 
 function clue(cat){
-let arr=player[cat+"s"];
-return arr[Math.floor(Math.random()*arr.length)];
+  let arr = player[cat+"s"];
+  let used = usedClues[cat];
+
+  let available = arr.filter(c => !used.has(c));
+
+  if (available.length === 0) return null;
+
+  let choice = available[Math.floor(Math.random()*available.length)];
+  used.add(choice);
+
+  return choice;
+}
+
+function isCategoryExhausted(cat){
+  let arr = player[cat+"s"];
+  let used = usedClues[cat];
+
+  return used.size === arr.length;
 }
 
 function render(){
@@ -365,7 +406,15 @@ wrap.className="tooltip";
 
 let b=document.createElement("button");
 b.textContent=cat.toUpperCase()+" ("+r.min+"-"+r.max+")";
-b.onclick=()=>hit(cat);
+
+// disable if exhausted
+if(isCategoryExhausted(cat)){
+  b.disabled = true;
+  b.style.opacity = "0.4";
+  b.style.cursor = "not-allowed";
+} else {
+  b.onclick = () => hit(cat);
+}
 
 let tip=document.createElement("div");
 tip.className="tooltip-text";
@@ -446,12 +495,18 @@ function hit(cat){
 if(gameOver)return;
 let r=range(cat);
 let val=rand(r.min,r.max);
-let c=clue(cat);
+let c = clue(cat);
+
+// STOP if no clues left
+if (c === null) {
+  render();
+  return;
+}
 
 usage[cat]++;
-score+=val;
+score += val;
 
-addCard(val,c,cat);
+addCard(val, c.charAt(0).toUpperCase() + c.slice(1), cat);
 
 if(score>21){endGame("BUST!");return;}
 render();
