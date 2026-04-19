@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Sergio Aguero",
+    "stats": ["200+ Premier League goals"],
+    "teammates": ["Lionel Messi", "David Silva"],
+    "leagues": ["Premier League"],
+    "honours": ["Premier League winner"],
+    "clubs": ["Manchester City"],
+    "positions": ["Striker"]
+  },
+  {
+    "name": "Lionel Messi",
+    "stats": ["700+ career goals"],
+    "teammates": ["Neymar", "Luis Suarez"],
+    "leagues": ["La Liga", "Ligue 1"],
+    "honours": ["World Cup winner"],
+    "clubs": ["Barcelona", "PSG"],
+    "positions": ["Forward"]
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "stats": ["800+ career goals"],
+    "teammates": ["Wayne Rooney", "Karim Benzema"],
+    "leagues": ["Premier League", "La Liga", "Serie A"],
+    "honours": ["5x Ballon d'Or"],
+    "clubs": ["Man United", "Real Madrid", "Juventus"],
+    "positions": ["Forward"]
+  },
+  {
+    "name": "Thierry Henry",
+    "stats": ["Premier League top scorer"],
+    "teammates": ["Dennis Bergkamp"],
+    "leagues": ["Premier League"],
+    "honours": ["World Cup winner"],
+    "clubs": ["Arsenal", "Barcelona"],
+    "positions": ["Striker"]
+  },
+  {
+    "name": "Kevin De Bruyne",
+    "stats": ["Top assists in EPL"],
+    "teammates": ["Erling Haaland"],
+    "leagues": ["Premier League"],
+    "honours": ["Champions League winner"],
+    "clubs": ["Manchester City"],
+    "positions": ["Midfielder"]
+  },
+  {
+    "name": "Erling Haaland",
+    "stats": ["50+ goals season"],
+    "teammates": ["Kevin De Bruyne"],
+    "leagues": ["Premier League"],
+    "honours": ["Champions League winner"],
+    "clubs": ["Man City", "Dortmund"],
+    "positions": ["Striker"]
+  },
+  {
+    "name": "Kylian Mbappe",
+    "stats": ["World Cup final hat-trick"],
+    "teammates": ["Neymar"],
+    "leagues": ["Ligue 1"],
+    "honours": ["World Cup winner"],
+    "clubs": ["PSG"],
+    "positions": ["Forward"]
+  },
+  {
+    "name": "Neymar",
+    "stats": ["100+ Brazil goals"],
+    "teammates": ["Messi", "Mbappe"],
+    "leagues": ["La Liga", "Ligue 1"],
+    "honours": ["Champions League winner"],
+    "clubs": ["Barcelona", "PSG"],
+    "positions": ["Forward"]
+  },
+  {
+    "name": "Luka Modric",
+    "stats": ["Ballon d'Or winner"],
+    "teammates": ["Cristiano Ronaldo"],
+    "leagues": ["La Liga"],
+    "honours": ["Champions League winner"],
+    "clubs": ["Real Madrid"],
+    "positions": ["Midfielder"]
+  },
+  {
+    "name": "Zlatan Ibrahimovic",
+    "stats": ["Played in 5+ leagues"],
+    "teammates": ["Thiago Silva"],
+    "leagues": ["Serie A", "Ligue 1"],
+    "honours": ["League titles"],
+    "clubs": ["PSG", "AC Milan"],
+    "positions": ["Striker"]
+  },
+  {
+    "name": "Wayne Rooney",
+    "stats": ["Man United top scorer"],
+    "teammates": ["Ronaldo"],
+    "leagues": ["Premier League"],
+    "honours": ["Champions League winner"],
+    "clubs": ["Man United"],
+    "positions": ["Forward"]
+  },
+  {
+    "name": "Harry Kane",
+    "stats": ["200+ EPL goals"],
+    "teammates": ["Son Heung-min"],
+    "leagues": ["Premier League"],
+    "honours": ["Golden Boot winner"],
+    "clubs": ["Tottenham"],
+    "positions": ["Striker"]
+  },
+  {
+    "name": "Son Heung-min",
+    "stats": ["Golden Boot winner"],
+    "teammates": ["Harry Kane"],
+    "leagues": ["Premier League"],
+    "honours": ["Asian Player of Year"],
+    "clubs": ["Tottenham"],
+    "positions": ["Forward"]
+  },
+  {
+    "name": "Virgil van Dijk",
+    "stats": ["Defender of the year"],
+    "teammates": ["Mohamed Salah"],
+    "leagues": ["Premier League"],
+    "honours": ["Champions League winner"],
+    "clubs": ["Liverpool"],
+    "positions": ["Defender"]
+  },
+  {
+    "name": "Mohamed Salah",
+    "stats": ["30+ goal seasons"],
+    "teammates": ["Mane"],
+    "leagues": ["Premier League"],
+    "honours": ["Champions League winner"],
+    "clubs": ["Liverpool"],
+    "positions": ["Forward"]
+  },
+  {
+    "name": "Sadio Mane",
+    "stats": ["AFCON winner"],
+    "teammates": ["Salah"],
+    "leagues": ["Premier League"],
+    "honours": ["Champions League winner"],
+    "clubs": ["Liverpool", "Bayern"],
+    "positions": ["Forward"]
+  },
+  {
+    "name": "Manuel Neuer",
+    "stats": ["Sweeper keeper"],
+    "teammates": ["Thomas Muller"],
+    "leagues": ["Bundesliga"],
+    "honours": ["World Cup winner"],
+    "clubs": ["Bayern Munich"],
+    "positions": ["Goalkeeper"]
+  },
+  {
+    "name": "Thomas Muller",
+    "stats": ["World Cup golden boot"],
+    "teammates": ["Neuer"],
+    "leagues": ["Bundesliga"],
+    "honours": ["World Cup winner"],
+    "clubs": ["Bayern Munich"],
+    "positions": ["Forward"]
+  },
+  {
+    "name": "Xavi",
+    "stats": ["Most passes game"],
+    "teammates": ["Iniesta"],
+    "leagues": ["La Liga"],
+    "honours": ["World Cup winner"],
+    "clubs": ["Barcelona"],
+    "positions": ["Midfielder"]
+  },
+  {
+    "name": "Andres Iniesta",
+    "stats": ["World Cup final goal"],
+    "teammates": ["Xavi"],
+    "leagues": ["La Liga"],
+    "honours": ["World Cup winner"],
+    "clubs": ["Barcelona"],
+    "positions": ["Midfielder"]
+  }
+]
