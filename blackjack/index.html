@@ -279,10 +279,10 @@ function toggleFullscreen(){
 }
 
 const suits = [
-  "../Downloads/jacob.webp",
-  "../Downloads/calum.webp",
-  "../Downloads/heggie.webp",
-  "../Downloads/aaron.webp"
+  "https://www.flatchat-moments.uk/blackjack/images/heggie.webp",
+  "https://www.flatchat-moments.uk/blackjack/images/calum.webp",
+  "https://www.flatchat-moments.uk/blackjack/images/jacob.webp",
+  "https://www.flatchat-moments.uk/blackjack/images/aaron.webp"
 ];
 
 const tooltips = {
@@ -309,7 +309,7 @@ let players = [];
 let player;
 
 /* LOAD DATA */
-fetch("./players.json")
+fetch("https://www.flatchat-moments.uk/blackjack/players.json")
   .then(res => res.json())
   .then(data => {
     players = data;
