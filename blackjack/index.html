@@ -564,11 +564,14 @@ const suit = suits[Math.floor(Math.random() * suits.length)];
 function icon(x,y,size){
 const img=document.createElement("img");
 img.src = suit;
-img.style.width=size+"px";
-img.style.position="absolute";
-img.style.left=x+"%";
-img.style.top=y+"%";
-img.style.transform="translate(-50%,-50%)";
+img.style.width = size + "px";
+img.style.height = size + "px";
+img.style.objectFit = "cover";
+img.style.borderRadius = "50%"; // ✅ makes it circular
+img.style.position = "absolute";
+img.style.left = x + "%";
+img.style.top = y + "%";
+img.style.transform = "translate(-50%,-50%)";
 center.appendChild(img);
 }
 
