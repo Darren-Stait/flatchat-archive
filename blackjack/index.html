@@ -254,14 +254,39 @@ h4 {
   </div>
 </div>
 
+<div id="resultModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeResultModal()">&times;</span>
+    <h3 id="resultTitle"></h3>
+    <p id="resultText"></p>
+    <button class="top-btn" onclick="startGame()" style="margin-top:12px;">
+      Play Again
+    </button>
+  </div>
+</div>
+
 <div class="deck" id="deck"></div>
 
 <div class="buttons-label">Choose a clue category</div>
 <div class="buttons" id="buttons"></div>
 
-<div class="guess" id="guessBox">
-  <input id="guessInput" placeholder="Guess player">
+<div class="guess" id="guessBox" style="position:relative;">
+  <input id="guessInput" placeholder="Guess player" autocomplete="off">
   <button onclick="submitGuess()">Guess</button>
+
+  <div id="suggestions" style="
+    position:absolute;
+    top:50px;
+    left:0;
+    width:100%;
+    background:white;
+    border-radius:8px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    max-height:200px;
+    overflow-y:auto;
+    display:none;
+    z-index:1000;
+  "></div>
 </div>
 
 <div class="status" id="status"></div>
@@ -277,6 +302,15 @@ h4 {
 <script>
 function openModal(){document.getElementById("helpModal").style.display="flex";}
 function closeModal(){document.getElementById("helpModal").style.display="none";}
+function openResultModal(title, text){
+  document.getElementById("resultTitle").textContent = title;
+  document.getElementById("resultText").innerHTML = text;
+  document.getElementById("resultModal").style.display = "flex";
+}
+
+function closeResultModal(){
+  document.getElementById("resultModal").style.display = "none";
+}
 window.onclick=e=>{if(e.target.id==="helpModal")closeModal();}
 
 function toggleFullscreen(){
@@ -313,6 +347,8 @@ let usage={teammate:0,league:0,honour:0,club:0,position:0};
 let players = [];
 let player;
 
+let usedPlayers = [];
+
 let usedClues = {
   teammate: new Set(),
   league: new Set(),
@@ -333,13 +369,73 @@ fetch("https://www.flatchat-moments.uk/blackjack/players.json")
       clubs: [...new Set(p.clubs.map(x => x.trim()))],
       positions: [...new Set(p.positions.map(x => x.trim()))]
     }));
-
+    initAutocomplete();
     startGame();
   });
 
-function startGame(){
-  player = players[Math.floor(Math.random() * players.length)];
+function initAutocomplete() {
+  const input = document.getElementById("guessInput");
+  const suggestions = document.getElementById("suggestions");
 
+  input.addEventListener("input", () => {
+    let value = input.value.toLowerCase().trim();
+
+    if (!value) {
+      suggestions.style.display = "none";
+      return;
+    }
+
+    let matches = players
+      .map(p => p.name)
+      .filter(name => name.toLowerCase().includes(value))
+      .slice(0, 8);
+
+    suggestions.innerHTML = "";
+
+    matches.forEach(name => {
+      let div = document.createElement("div");
+      div.textContent = name;
+      div.style.padding = "10px";
+      div.style.cursor = "pointer";
+
+      div.onmouseover = () => div.style.background = "#f0f8fa";
+      div.onmouseout = () => div.style.background = "white";
+
+      div.onclick = () => {
+        input.value = name;
+        suggestions.style.display = "none";
+      };
+
+      suggestions.appendChild(div);
+    });
+
+    suggestions.style.display = matches.length ? "block" : "none";
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!document.getElementById("guessBox").contains(e.target)) {
+      suggestions.style.display = "none";
+    }
+  });
+}
+
+function startGame(){
+
+  // reset UI
+  document.getElementById("deck").innerHTML = "";
+  document.getElementById("buttons").style.display = "flex";
+  document.getElementById("guessBox").style.display = "flex";
+  document.getElementById("status").textContent = "";
+  document.getElementById("newGame").style.display = "none";
+  document.getElementById("resultModal").style.display = "none";
+  document.getElementById("guessInput").value = "";
+
+  // reset game state
+  usage = {teammate:0,league:0,honour:0,club:0,position:0};
+  score = 0;
+  gameOver = false;
+
+  // reset clues
   usedClues = {
     teammate:new Set(),
     league:new Set(),
@@ -348,18 +444,38 @@ function startGame(){
     position:new Set()
   };
 
+  // prevent duplicate players
+  if (!window.usedPlayers) window.usedPlayers = [];
+
+  if (usedPlayers.length >= players.length) {
+    usedPlayers = [];
+  }
+
+  let availablePlayers = players.filter(p => !usedPlayers.includes(p.name));
+  player = availablePlayers[Math.floor(Math.random() * availablePlayers.length)];
+  usedPlayers.push(player.name);
+
   render();
 }
 
 let score=0;
 let gameOver=false;
 
-function endGame(msg){
-gameOver=true;
-document.getElementById("status").textContent=msg;
-document.getElementById("buttons").style.display="none";
-document.getElementById("guessBox").style.display="none";
-document.getElementById("newGame").style.display="block";
+function endGame(type){
+  gameOver = true;
+
+  document.getElementById("buttons").style.display = "none";
+  document.getElementById("guessBox").style.display = "none";
+
+  if(type === "bust"){
+    openResultModal("BUST!", "You went over 21.<br><br>Player was: " + player.name);
+  }
+  else if(type === "correct"){
+    openResultModal("Correct!", "You guessed it right!");
+  }
+  else if(type === "wrong"){
+    openResultModal("Wrong!", "It was: " + player.name);
+  }
 }
 
 function range(cat){
@@ -461,26 +577,46 @@ let n = val;
 // cap at a reasonable max to avoid chaos
 n = Math.min(n, 12);
 
-// dynamic size based on count
-let size = n <= 4 ? 18 : n <= 8 ? 14 : 10;
+// dynamic size based on count (FIXED)
+let size;
+if (n <= 2) size = 48;
+else if (n <= 4) size = 36;
+else if (n <= 6) size = 26;
+else if (n <= 9) size = 18;
+else size = 12;
 
-// generate grid layout
-let cols = Math.ceil(Math.sqrt(n));
-let rows = Math.ceil(n / cols);
+// max 3 per row layout
+let rows = [];
+let remaining = n;
 
-let index = 0;
+// build rows (max 3 each)
+while (remaining > 0) {
+  let rowSize = Math.min(3, remaining);
+  rows.push(rowSize);
+  remaining -= rowSize;
+}
 
-for (let r = 0; r < rows; r++) {
-  for (let c = 0; c < cols; c++) {
-    if (index >= n) break;
-
-    let x = (c + 1) * (100 / (cols + 1));
-    let y = (r + 1) * (100 / (rows + 1));
-
-    icon(x, y, size);
-    index++;
+// rebalance for better symmetry
+if (rows.length > 1) {
+  // handle cases like 4 → [3,1] → [1,3]
+  if (rows[rows.length - 1] === 1 && rows.length >= 2) {
+    rows[rows.length - 2] -= 1;
+    rows[rows.length - 1] += 1;
   }
 }
+
+// render rows
+let totalRows = rows.length;
+
+rows.forEach((count, rIndex) => {
+  for (let i = 0; i < count; i++) {
+
+    let x = (i + 1) * (100 / (count + 1));
+    let y = (rIndex + 1) * (100 / (totalRows + 1));
+
+    icon(x, y, size);
+  }
+});
 
 const bottom=document.createElement("div");
 bottom.className="card-corner card-bottom";
@@ -508,18 +644,72 @@ score += val;
 
 addCard(val, c.charAt(0).toUpperCase() + c.slice(1), cat);
 
-if(score>21){endGame("BUST!");return;}
-render();
+if(score>21){endGame("bust");return;}
+  render();
 }
 
 function submitGuess(){
 if(gameOver)return;
 let g=document.getElementById("guessInput").value.toLowerCase();
-if(g===player.name.toLowerCase()){endGame("Correct!");}
-else{endGame("Wrong! It was "+player.name);}
+if(g===player.name.toLowerCase()){
+  endGame("correct");
+} else {
+  endGame("wrong");
+}
 }
 
+
 render();
+
+const input = document.getElementById("guessInput");
+const suggestions = document.getElementById("suggestions");
+
+input.addEventListener("input", () => {
+  let value = input.value.toLowerCase().trim();
+
+  if (!value) {
+    suggestions.style.display = "none";
+    return;
+  }
+
+  let matches = players
+    .map(p => p.name)
+    .filter(name => name.toLowerCase().includes(value))
+    .slice(0, 8);
+
+  suggestions.innerHTML = "";
+
+  if (matches.length === 0) {
+    suggestions.style.display = "none";
+    return;
+  }
+
+  matches.forEach(name => {
+    let div = document.createElement("div");
+    div.textContent = name;
+    div.style.padding = "10px";
+    div.style.cursor = "pointer";
+
+    div.onmouseover = () => div.style.background = "#f0f8fa";
+    div.onmouseout = () => div.style.background = "white";
+
+    div.onclick = () => {
+      input.value = name;
+      suggestions.style.display = "none";
+    };
+
+    suggestions.appendChild(div);
+  });
+
+  suggestions.style.display = "block";
+});
+
+document.addEventListener("click", (e) => {
+  if (!document.getElementById("guessBox").contains(e.target)) {
+    suggestions.style.display = "none";
+  }
+});
+
 </script>
 <script src="../includes/include-html.js"></script>
 </body>
