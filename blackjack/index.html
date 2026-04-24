@@ -49,6 +49,16 @@ body {
   justify-content: space-between;
 }
 
+.menu-top-controls{
+  position:absolute;
+  top:12px;
+  left:12px;
+  right:12px;
+  display:flex;
+  justify-content:space-between;
+  z-index:3;
+}
+
 .top-btn {
   background: var(--primary);
   color: white;
@@ -227,6 +237,107 @@ h4 {
   border: none;
   border-radius: 8px;
 }
+
+/* MENU LAYOUT */
+.menu{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f7f9fa;
+  z-index:1000;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+/* CENTER CONTENT */
+.menu-content{
+  text-align:center;
+  z-index:2;
+}
+
+.menu h1{
+  color:#0a7785;
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.menu p{
+  color:#555;
+  margin-bottom:25px;
+}
+
+/* BUTTONS */
+.menu-buttons{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.menu-buttons button{
+  background:#2fa7ad;
+  color:white;
+  border:none;
+  padding:12px 22px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.menu-buttons button:hover{
+  background:#258e94;
+  transform:translateY(-2px);
+}
+
+/* SIDE CARDS */
+.menu-cards{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  opacity:1;
+}
+
+.menu-cards .card{
+  width: 100px;
+  height: 140px;
+  transform: rotate(-12deg);
+  opacity: 0.75;
+  filter: brightness(0.95);
+  pointer-events: none;
+}
+
+.menu-cards.right .card{
+  transform: rotate(12deg);
+}
+
+.menu-cards.left{ left:40px; }
+.menu-cards.right{ right:40px; }
+
+/* CARD STYLE */
+.menu-card{
+  width:80px;
+  height:120px;
+  background:white;
+  border-radius:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:32px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.menu-card:nth-child(1){ transform:rotate(-10deg); }
+.menu-card:nth-child(2){ transform:rotate(10deg); }
+
+.hidden {
+  display: none !important;
+}
 </style>
 </head>
 
@@ -235,8 +346,45 @@ h4 {
 <div class="page-content">
 <div class="game" id="game">
 
+<div id="mainMenu" class="menu">
+
+  <div class="menu-top-controls">
+  <button class="top-btn" onclick="openModal()">How To Play</button>
+  <button class="top-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+  </div>
+
+  <div class="menu-content">
+    <h1>♣️ Football Blackjack ♣️</h1>
+    <p>Select Difficulty</p>
+
+  <div class="menu-buttons">
+
+  <div class="tooltip">
+    <button onclick="startWithDifficulty('easy')">Easy</button>
+    <div class="tooltip-text">World renown players with generous clue ranges</div>
+  </div>
+
+  <div class="tooltip">
+    <button onclick="startWithDifficulty('medium')">Medium</button>
+    <div class="tooltip-text">Top level players with balance clue ranges</div>
+  </div>
+
+  <div class="tooltip">
+    <button onclick="startWithDifficulty('hard')">Hard</button>
+    <div class="tooltip-text">Obscure players and hard clue ranges</div>
+  </div>
+
+</div>
+
+<div class="menu-cards left" id="menuCardsLeft"></div>
+<div class="menu-cards right" id="menuCardsRight"></div>
+</div>
+
+</div>
+
 <div class="top-controls">
   <button class="top-btn" onclick="openModal()">How To Play</button>
+  <button class="top-btn" onclick="goToMenu()">Back to Menu</button>
   <button class="top-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
 </div>
 
@@ -247,10 +395,11 @@ h4 {
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
     <h3>How To Play</h3>
-    <p>Draw clues like cards.</p>
-    <p>Each clue has a value range.</p>
-    <p><strong>Win:</strong> Guess correctly.</p>
-    <p><strong>Lose:</strong> Bust or guess wrong.</p>
+    <p>Draw clues from cards, each card has a category of the clue and a range assigned to it.</p>
+    <p>Your deck value will increase by a random amount in the range of the category.</p>
+    <p>The game ends if you go over 21 on your deck value.<p>
+    <p><strong>To Win:</strong> Guess the mystery player correctly.</p>
+    <p><strong>To Lose:</strong> Bust or guess wrong.</p>
   </div>
 </div>
 
@@ -265,12 +414,22 @@ h4 {
   </div>
 </div>
 
+<div id="scoreDisplay" style="
+  font-size: 18px;
+  font-weight: bold;
+  color: #0a7785;
+  margin-top: 10px;
+  display:none;
+">
+  Deck Value: 0 / 21
+</div>
+
 <div class="deck" id="deck"></div>
 
 <div class="buttons-label">Choose a clue category</div>
 <div class="buttons" id="buttons"></div>
 
-<div class="guess" id="guessBox" style="position:relative;">
+<div class="guess" id="guessBox" style="position:relative;display:none;">
   <input id="guessInput" placeholder="Guess player" autocomplete="off">
   <button onclick="submitGuess()">Guess</button>
 
@@ -331,18 +490,60 @@ const tooltips = {
   league:"Reveal a league that the player has played in",
   honour:"Reveal a honour that the player has won, if at all",
   club:"Reveal a club that the player has played for, picked at random",
-  position:"Reveal a clue on the players position"
+  position:"Reveal a clue on the players position",
+  nationality:"Reveal a clue of the players nationality",
+  age:"Reveal a clue of the players date of birth"
 };
 
-const categories = {
-  teammate:{min:1,max:2},
-  league:{min:2,max:3},
-  honour:{min:2,max:3},
-  club:{min:4,max:6},
-  position:{min:6,max:9,singleUse:true}
-};
+let playersLoaded = false;
 
-let usage={teammate:0,league:0,honour:0,club:0,position:0};
+function getCategories(){
+  if(difficulty === "easy"){
+    return {
+      teammate:{min:1,max:2},
+      league:{min:2,max:3},
+      honour:{min:2,max:3},
+      club:{min:3,max:5},
+      position:{min:5,max:7,singleUse:true},
+      nationality:{min:5,max:7,singleUse:true},
+      age:{min:5,max:7,singleUse:true}
+    };
+  }
+
+  if(difficulty === "medium"){
+    return {
+      teammate:{min:1,max:2},
+      league:{min:2,max:4},
+      honour:{min:3,max:5},
+      club:{min:4,max:6},
+      position:{min:6,max:9,singleUse:true},
+      nationality:{min:6,max:9,singleUse:true},
+      age:{min:6,max:9,singleUse:true}
+    };
+  }
+
+  if(difficulty === "hard"){
+    return {
+      teammate:{min:2,max:4},
+      league:{min:3,max:5},
+      honour:{min:4,max:6},
+      club:{min:5,max:8},
+      position:{min:7,max:10,singleUse:true},
+      nationality:{min:7,max:10,singleUse:true},
+      age:{min:7,max:10,singleUse:true}
+    };
+  }
+}
+
+let usage = {
+  teammate:0,
+  league:0,
+  honour:0,
+  club:0,
+  position:0,
+  nationality:0,
+  age:0
+};
 
 let players = [];
 let player;
@@ -354,24 +555,138 @@ let usedClues = {
   league: new Set(),
   honour: new Set(),
   club: new Set(),
-  position: new Set()
+  position: new Set(),
+  nationality: new Set(),
+  age: new Set()
 };
 
-fetch("https://www.flatchat-moments.uk/blackjack/players.json")
-  .then(res => res.json())
-  .then(data => {
+let difficulty = "easy";
 
-    players = data.map(p => ({
-      ...p,
-      teammates: [...new Set(p.teammates.map(x => x.trim()))],
-      leagues: [...new Set(p.leagues.map(x => x.trim()))],
-      honours: [...new Set(p.honours.map(x => x.trim()))],
-      clubs: [...new Set(p.clubs.map(x => x.trim()))],
-      positions: [...new Set(p.positions.map(x => x.trim()))]
-    }));
-    initAutocomplete();
-    startGame();
-  });
+function loadPlayers(){
+  return fetch("./players.json")
+    .then(res => {
+      if(!res.ok) throw new Error("Local failed");
+      console.log("Loaded LOCAL players.json");
+      return res.json();
+    })
+    .catch(() => {
+      console.warn("Local not found → using remote");
+      return fetch("https://www.flatchat-moments.uk/blackjack/players.json")
+        .then(res => res.json());
+    });
+}
+
+loadPlayers().then(data => {
+
+  players = data.map(p => ({
+    ...p,
+
+    // ✅ ensure arrays always exist
+    teammates: [...new Set((p.teammates || []).map(x => x.trim()))],
+    leagues: [...new Set((p.leagues || []).map(x => x.trim()))],
+    honours: [...new Set((p.honours || []).map(x => x.trim()))],
+    clubs: [...new Set((p.clubs || []).map(x => x.trim()))],
+    positions: [...new Set((p.positions || []).map(x => x.trim()))],
+
+    // 🔥 FIX: guarantee dob + nationality always exist
+    dob: p.dob || null,
+    nationality: p.nationality || "Unknown"
+  }));
+
+  playersLoaded = true;
+  initAutocomplete();
+});
+
+function startWithDifficulty(level){
+  difficulty = level;
+
+  if(!playersLoaded){
+    alert("Loading players...");
+    return;
+  }
+
+  document.getElementById("mainMenu").style.display = "none";
+
+  document.getElementById("scoreDisplay").style.display = "block";
+  document.getElementById("deck").style.display = "flex";
+  document.getElementById("buttons").style.display = "flex";
+  document.getElementById("guessBox").style.display = "flex";
+  document.querySelector(".buttons-label").style.display = "block";
+
+  startGame();
+}
+
+function createMenuCard(containerId){
+  const container = document.getElementById(containerId);
+
+  const card = document.createElement("div");
+  card.className = "card";
+
+  const top = document.createElement("div");
+  top.className = "card-corner";
+  top.textContent = rand(1, 10);
+
+  const center = document.createElement("div");
+  center.className = "card-center";
+
+  const bottom = document.createElement("div");
+  bottom.className = "card-corner card-bottom";
+  bottom.textContent = top.textContent;
+
+  const suit = suits[Math.floor(Math.random() * suits.length)];
+
+  // random number of icons
+  let n = rand(1, 6);
+
+  let size;
+  if (n <= 2) size = 40;
+  else if (n <= 4) size = 28;
+  else size = 18;
+
+  function icon(x,y){
+    const img = document.createElement("img");
+    img.src = suit;
+    img.style.width = size + "px";
+    img.style.height = size + "px";
+    img.style.borderRadius = "50%";
+    img.style.position = "absolute";
+    img.style.left = x + "%";
+    img.style.top = y + "%";
+    img.style.transform = "translate(-50%,-50%)";
+    center.appendChild(img);
+  }
+
+let cols = Math.min(3, n);
+let rows = Math.ceil(n / cols);
+
+let index = 0;
+
+for (let r = 0; r < rows; r++) {
+  for (let c = 0; c < cols; c++) {
+    if (index >= n) break;
+
+    let x = (c + 1) * (100 / (cols + 1));
+    let y = (r + 1) * (100 / (rows + 1));
+
+    icon(x, y);
+    index++;
+  }
+}
+
+  card.append(top, center, bottom);
+
+  container.appendChild(card);
+}
+
+function goToMenu(){
+  document.getElementById("mainMenu").style.display = "flex";
+
+  document.getElementById("scoreDisplay").style.display = "none";
+  document.getElementById("deck").style.display = "none";
+  document.getElementById("buttons").style.display = "none";
+  document.getElementById("guessBox").style.display = "none";
+  document.querySelector(".buttons-label").style.display = "none";
+}
 
 function initAutocomplete() {
   const input = document.getElementById("guessInput");
@@ -431,8 +746,17 @@ function startGame(){
   document.getElementById("guessInput").value = "";
 
   // reset game state
-  usage = {teammate:0,league:0,honour:0,club:0,position:0};
+  usage = {
+    teammate:0,
+    league:0,
+    honour:0,
+    club:0,
+    position:0,
+    nationality:0,
+    age:0
+  };
   score = 0;
+  updateScoreDisplay();
   gameOver = false;
 
   // reset clues
@@ -441,19 +765,34 @@ function startGame(){
     league:new Set(),
     honour:new Set(),
     club:new Set(),
-    position:new Set()
+    position:new Set(),
+    nationality:new Set(),
+    age: new Set()
   };
 
   // prevent duplicate players
   if (!window.usedPlayers) window.usedPlayers = [];
 
-  if (usedPlayers.length >= players.length) {
-    usedPlayers = [];
-  }
+let filtered = players.filter(p => p.difficulty === difficulty);
 
-  let availablePlayers = players.filter(p => !usedPlayers.includes(p.name));
-  player = availablePlayers[Math.floor(Math.random() * availablePlayers.length)];
-  usedPlayers.push(player.name);
+// 🔥 HARD FAIL SAFE
+if(filtered.length === 0){
+  console.warn("No players for difficulty:", difficulty);
+  filtered = players;
+}
+
+let availablePlayers = filtered.filter(p => !usedPlayers.includes(p.name));
+
+// reset if exhausted
+if (availablePlayers.length === 0) {
+  usedPlayers = [];
+  availablePlayers = filtered;
+}
+
+player = availablePlayers[Math.floor(Math.random() * availablePlayers.length)];
+usedPlayers.push(player.name);
+
+console.log("PLAYER:", player);
 
   render();
 }
@@ -479,8 +818,10 @@ function endGame(type){
 }
 
 function range(cat){
-  let b = categories[cat];
-  let u = usage[cat];
+  const cats = getCategories();
+  let b = cats[cat];
+  let u = usage[cat] || 0;
+
   return {
     min: b.min + u,
     max: b.max + u
@@ -490,8 +831,37 @@ function range(cat){
 function rand(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
 
 function clue(cat){
-  let arr = player[cat+"s"];
-  let used = usedClues[cat];
+  if(!player) return null;
+
+  // ✅ AGE (DOB based)
+  if(cat === "age"){
+    if(!player.dob) return "Unknown";
+
+    const dob = new Date(player.dob);
+    const today = new Date();
+
+    let age = today.getFullYear() - dob.getFullYear();
+    const m = today.getMonth() - dob.getMonth();
+
+    if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+      age--;
+    }
+
+    return age + " years old";
+  }
+
+  // ✅ NATIONALITY
+  if(cat === "nationality"){
+    return player.nationality || "Unknown";
+  }
+
+  // default categories
+  let arr = player[cat + "s"];
+
+  if(!Array.isArray(arr) || arr.length === 0) return null;
+
+  let used = usedClues[cat] || new Set();
+  usedClues[cat] = used;
 
   let available = arr.filter(c => !used.has(c));
 
@@ -504,43 +874,58 @@ function clue(cat){
 }
 
 function isCategoryExhausted(cat){
-  let arr = player[cat+"s"];
-  let used = usedClues[cat];
 
-  return used.size === arr.length;
+  // 🔥 FIX: single-use non-array categories
+  if(cat === "age" || cat === "nationality"){
+    return usage[cat] > 0;
+  }
+
+  let arr = player[cat + "s"];
+
+  if(!Array.isArray(arr) || arr.length === 0) return true;
+
+  let used = usedClues[cat] || new Set();
+
+  return used.size >= arr.length;
 }
 
 function render(){
-let c=document.getElementById("buttons");
-c.innerHTML="";
-for(let cat in categories){
-if(categories[cat].singleUse&&usage[cat]>0)continue;
-let r=range(cat);
+  let c = document.getElementById("buttons");
+  c.innerHTML = "";
 
-let wrap=document.createElement("div");
-wrap.className="tooltip";
+  const cats = getCategories();
 
-let b=document.createElement("button");
-b.textContent=cat.toUpperCase()+" ("+r.min+"-"+r.max+")";
+  for(let cat in cats){
+    let r = range(cat);
 
-// disable if exhausted
-if(isCategoryExhausted(cat)){
+    let wrap = document.createElement("div");
+    wrap.className = "tooltip";
+
+    let b = document.createElement("button");
+    b.textContent = cat.toUpperCase()+" ("+r.min+"-"+r.max+")";
+
+    if(cats[cat].singleUse && usage[cat] > 0){
   b.disabled = true;
   b.style.opacity = "0.4";
   b.style.cursor = "not-allowed";
-} else {
+}
+else if(isCategoryExhausted(cat)){
+  b.disabled = true;
+  b.style.opacity = "0.4";
+  b.style.cursor = "not-allowed";
+}
+else {
   b.onclick = () => hit(cat);
 }
 
-let tip=document.createElement("div");
-tip.className="tooltip-text";
-tip.textContent=tooltips[cat];
+    let tip = document.createElement("div");
+    tip.className = "tooltip-text";
+    tip.textContent = tooltips[cat];
 
-wrap.append(b,tip);
-c.appendChild(wrap);
+    wrap.append(b,tip);
+    c.appendChild(wrap);
+  }
 }
-}
-
 function addCard(val,text,cat){
 const wrap=document.createElement("div");
 wrap.className="card-wrapper";
@@ -631,23 +1016,30 @@ document.getElementById("deck").appendChild(wrap);
 }
 
 function hit(cat){
-if(gameOver)return;
-let r=range(cat);
-let val=rand(r.min,r.max);
-let c = clue(cat);
 
-// STOP if no clues left
-if (c === null) {
-  render();
-  return;
-}
+  if(isCategoryExhausted(cat)) return;
 
-usage[cat]++;
-score += val;
+  let c = clue(cat);
 
-addCard(val, c.charAt(0).toUpperCase() + c.slice(1), cat);
+  if(c === null){
+    console.warn("No clue for:", cat);
+    return;
+  }
 
-if(score>21){endGame("bust");return;}
+  usage[cat]++;
+
+  let val = Math.floor(Math.random() * (range(cat).max - range(cat).min + 1)) + range(cat).min;
+
+  addCard(val, c, cat);
+
+  score += val;
+  updateScoreDisplay();
+
+  if(score > 21){
+    endGame("bust");
+    return;
+  }
+
   render();
 }
 
@@ -661,57 +1053,19 @@ if(g===player.name.toLowerCase()){
 }
 }
 
+function updateScoreDisplay(){
+  document.getElementById("scoreDisplay").textContent =
+    "Deck Value: " + score + " / 21";
+}
 
-render();
-
-const input = document.getElementById("guessInput");
-const suggestions = document.getElementById("suggestions");
-
-input.addEventListener("input", () => {
-  let value = input.value.toLowerCase().trim();
-
-  if (!value) {
-    suggestions.style.display = "none";
-    return;
+function initMenuCards(){
+  for(let i=0;i<2;i++){
+    createMenuCard("menuCardsLeft");
+    createMenuCard("menuCardsRight");
   }
+}
 
-  let matches = players
-    .map(p => p.name)
-    .filter(name => name.toLowerCase().includes(value))
-    .slice(0, 8);
-
-  suggestions.innerHTML = "";
-
-  if (matches.length === 0) {
-    suggestions.style.display = "none";
-    return;
-  }
-
-  matches.forEach(name => {
-    let div = document.createElement("div");
-    div.textContent = name;
-    div.style.padding = "10px";
-    div.style.cursor = "pointer";
-
-    div.onmouseover = () => div.style.background = "#f0f8fa";
-    div.onmouseout = () => div.style.background = "white";
-
-    div.onclick = () => {
-      input.value = name;
-      suggestions.style.display = "none";
-    };
-
-    suggestions.appendChild(div);
-  });
-
-  suggestions.style.display = "block";
-});
-
-document.addEventListener("click", (e) => {
-  if (!document.getElementById("guessBox").contains(e.target)) {
-    suggestions.style.display = "none";
-  }
-});
+initMenuCards();
 
 </script>
 <script src="../includes/include-html.js"></script>
