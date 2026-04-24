@@ -1,6 +1,7 @@
 [
 {
 "name":"Sergio Aguero",
+"difficulty":"easy",
 "teammates":["Lionel Messi","David Silva","Yaya Toure","Raheem Sterling","Kevin De Bruyne","Carlos Tevez","Fernandinho","Ederson","Vincent Kompany","Gabriel Jesus","Pablo Zabaleta","Samir Nasri"],
 "leagues":["Premier League","La Liga"],
 "honours":["Premier League","FA Cup","EFL Cup","Olympic Gold Medal"],
@@ -9,6 +10,7 @@
 },
 {
 "name":"Lionel Messi",
+"difficulty":"easy",
 "teammates":["Xavi","Andres Iniesta","Neymar","Luis Suarez","Sergio Busquets","Gerard Pique","Dani Alves","Kylian Mbappe","Angel Di Maria","Jordi Alba","Thiago","Ronaldinho"],
 "leagues":["La Liga","Ligue 1","MLS"],
 "honours":["World Cup","Copa America","Champions League","La Liga","Ballon d'Or"],
@@ -17,6 +19,7 @@
 },
 {
 "name":"Cristiano Ronaldo",
+"difficulty":"easy",
 "teammates":["Wayne Rooney","Karim Benzema","Luka Modric","Paul Scholes","Ryan Giggs","Bruno Fernandes","Casemiro","Marcelo","Gareth Bale","Angel Di Maria","Pepe","Sergio Ramos"],
 "leagues":["Premier League","La Liga","Serie A","Saudi Pro League"],
 "honours":["Champions League","Premier League","La Liga","Serie A","Ballon d'Or","European Championship"],
@@ -25,6 +28,7 @@
 },
 {
 "name":"Thierry Henry",
+"difficulty":"easy",
 "teammates":["Dennis Bergkamp","Patrick Vieira","Robert Pires","Freddie Ljungberg","Xavi","Iniesta","Messi","Samuel Eto'o","Ashley Cole","Sol Campbell","Cesc Fabregas","Kolo Toure"],
 "leagues":["Premier League","La Liga","MLS"],
 "honours":["World Cup","European Championship","Champions League","Premier League"],
@@ -33,6 +37,7 @@
 },
 {
 "name":"Kevin De Bruyne",
+"difficulty":"easy",
 "teammates":["Erling Haaland","Raheem Sterling","Bernardo Silva","David Silva","Vincent Kompany","Romelu Lukaku","Eden Hazard","Thibaut Courtois","Riyad Mahrez","Ilkay Gundogan","Phil Foden","Kyle Walker"],
 "leagues":["Premier League","Bundesliga"],
 "honours":["Champions League","Premier League","FA Cup"],
@@ -41,6 +46,7 @@
 },
 {
 "name":"Erling Haaland",
+"difficulty":"easy",
 "teammates":["Kevin De Bruyne","Jude Bellingham","Marco Reus","Phil Foden","Bernardo Silva","Jack Grealish","Riyad Mahrez","Joshua Kimmich","Martin Odegaard","Alexander Sorloth","Julian Alvarez","Rodri"],
 "leagues":["Premier League","Bundesliga","Austrian Bundesliga"],
 "honours":["Champions League","Premier League","DFB-Pokal"],
@@ -49,6 +55,7 @@
 },
 {
 "name":"Kylian Mbappe",
+"difficulty":"easy",
 "teammates":["Neymar","Lionel Messi","Antoine Griezmann","Paul Pogba","Karim Benzema","Angel Di Maria","Marco Verratti","Thiago Silva","Achraf Hakimi","Ousmane Dembele","Kingsley Coman","Olivier Giroud"],
 "leagues":["Ligue 1"],
 "honours":["World Cup","Nations League","Ligue 1"],
@@ -57,6 +64,7 @@
 },
 {
 "name":"Neymar",
+"difficulty":"easy",
 "teammates":["Lionel Messi","Luis Suarez","Kylian Mbappe","Thiago Silva","Dani Alves","Xavi","Iniesta","Sergio Busquets","Marco Verratti","Edinson Cavani","Ronaldinho","Robinho"],
 "leagues":["La Liga","Ligue 1","Brazilian Serie A"],
 "honours":["Champions League","La Liga","Copa Libertadores"],
@@ -65,6 +73,7 @@
 },
 {
 "name":"Luka Modric",
+"difficulty":"easy",
 "teammates":["Cristiano Ronaldo","Karim Benzema","Sergio Ramos","Toni Kroos","Gareth Bale","Harry Kane","Ivan Rakitic","Mario Mandzukic","Marcelo","Casemiro","Pepe","Mesut Ozil"],
 "leagues":["La Liga","Premier League"],
 "honours":["Ballon d'Or","Champions League","La Liga"],
@@ -73,86 +82,17 @@
 },
 {
 "name":"Zlatan Ibrahimovic",
+"difficulty":"easy",
 "teammates":["Thiago Silva","Paul Pogba","Wayne Rooney","Edinson Cavani","Neymar","Lionel Messi","Xavi","Iniesta","Clarence Seedorf","Andrea Pirlo","Gennaro Gattuso","Marco Verratti"],
 "leagues":["Serie A","Ligue 1","La Liga","Premier League","MLS"],
 "honours":["League titles","Serie A","Ligue 1"],
 "clubs":["Malmo","Ajax","Juventus","Inter","Barcelona","AC Milan","PSG","Manchester United","LA Galaxy"],
 "positions":["Striker"]
 },
-{
-"name":"Wayne Rooney",
-"teammates":["Cristiano Ronaldo","Ryan Giggs","Paul Scholes","Rio Ferdinand","Nemanja Vidic","Robin van Persie","Carlos Tevez","Zlatan Ibrahimovic","David Beckham","Steven Gerrard","Frank Lampard","Gary Neville"],
-"leagues":["Premier League","MLS"],
-"honours":["Champions League","Premier League","FA Cup"],
-"clubs":["Everton","Manchester United","DC United"],
-"positions":["Forward"]
-},
-{
-"name":"Harry Kane",
-"teammates":["Son Heung-min","Dele Alli","Christian Eriksen","Gareth Bale","Hugo Lloris","Raheem Sterling","Jude Bellingham","Phil Foden","Bukayo Saka","Declan Rice","Jordan Henderson","Eric Dier"],
-"leagues":["Premier League","Bundesliga"],
-"honours":["Golden Boot"],
-"clubs":["Tottenham","Bayern Munich"],
-"positions":["Striker"]
-},
-{
-"name":"Son Heung-min",
-"teammates":["Harry Kane","Christian Eriksen","Dele Alli","Hugo Lloris","Jan Vertonghen","Kyle Walker","James Maddison","Richarlison","Ivan Perisic","Heung-Min Son","Kim Min-jae","Lee Kang-in"],
-"leagues":["Premier League","Bundesliga"],
-"honours":["Asian Games Gold"],
-"clubs":["Hamburg","Bayer Leverkusen","Tottenham"],
-"positions":["Forward"]
-},
-{
-"name":"Virgil van Dijk",
-"teammates":["Mohamed Salah","Sadio Mane","Alisson","Trent Alexander-Arnold","Jordan Henderson","Georginio Wijnaldum","Andrew Robertson","Roberto Firmino","Fabinho","Joel Matip","Thiago Alcantara","Diogo Jota"],
-"leagues":["Premier League","Scottish Premiership"],
-"honours":["Champions League","Premier League"],
-"clubs":["Groningen","Celtic","Southampton","Liverpool"],
-"positions":["Defender"]
-},
-{
-"name":"Mohamed Salah",
-"teammates":["Sadio Mane","Roberto Firmino","Virgil van Dijk","Alisson","Trent Alexander-Arnold","Jordan Henderson","Thiago Alcantara","Eden Hazard","Didier Drogba","Kevin De Bruyne","Andrew Robertson","Fabinho"],
-"leagues":["Premier League","Serie A"],
-"honours":["Champions League","Premier League"],
-"clubs":["Basel","Chelsea","Fiorentina","Roma","Liverpool"],
-"positions":["Forward"]
-},
-{
-"name":"Sadio Mane",
-"teammates":["Mohamed Salah","Roberto Firmino","Virgil van Dijk","Alisson","Jordan Henderson","Naby Keita","Thiago Alcantara","Thomas Muller","Robert Lewandowski","Serge Gnabry","Joshua Kimmich","Andrew Robertson"],
-"leagues":["Premier League","Bundesliga"],
-"honours":["Champions League","Premier League","AFCON"],
-"clubs":["Metz","Salzburg","Southampton","Liverpool","Bayern Munich"],
-"positions":["Forward"]
-},
-{
-"name":"Manuel Neuer",
-"teammates":["Thomas Muller","Philipp Lahm","Bastian Schweinsteiger","Toni Kroos","Joshua Kimmich","Robert Lewandowski","Arjen Robben","Franck Ribery","Mesut Ozil","Miroslav Klose","Mats Hummels","Jerome Boateng"],
-"leagues":["Bundesliga"],
-"honours":["World Cup","Champions League","Bundesliga"],
-"clubs":["Schalke","Bayern Munich"],
-"positions":["Goalkeeper"]
-},
-{
-"name":"Thomas Muller",
-"teammates":["Manuel Neuer","Robert Lewandowski","Franck Ribery","Arjen Robben","Joshua Kimmich","Toni Kroos","Philipp Lahm","Mario Gotze","Miroslav Klose","Serge Gnabry","Kingsley Coman","Bastian Schweinsteiger"],
-"leagues":["Bundesliga"],
-"honours":["World Cup","Champions League","Bundesliga"],
-"clubs":["Bayern Munich"],
-"positions":["Forward"]
-},
-{
-"name":"Andres Iniesta",
-"teammates":["Xavi","Lionel Messi","Sergio Busquets","Gerard Pique","Dani Alves","Carles Puyol","David Villa","Pedro","Cesc Fabregas","Xabi Alonso","Fernando Torres","Victor Valdes"],
-"leagues":["La Liga","J1 League"],
-"honours":["World Cup","European Championship","Champions League"],
-"clubs":["Barcelona","Vissel Kobe"],
-"positions":["Midfielder"]
-},
+
 {
 "name":"Jude Bellingham",
+"difficulty":"medium",
 "teammates":["Vinicius Jr","Luka Modric","Toni Kroos","Rodrygo","Harry Kane","Phil Foden","Bukayo Saka","Declan Rice","Marco Reus","Erling Haaland","Thibaut Courtois","Antonio Rudiger"],
 "leagues":["La Liga","Bundesliga"],
 "honours":["La Liga","Champions League"],
@@ -160,87 +100,8 @@
 "positions":["Midfielder"]
 },
 {
-"name":"Vinicius Jr",
-"teammates":["Karim Benzema","Luka Modric","Toni Kroos","Rodrygo","Jude Bellingham","Casemiro","Neymar","Thiago Silva","Richarlison","Eder Militao","Federico Valverde","Eduardo Camavinga"],
-"leagues":["La Liga"],
-"honours":["Champions League","La Liga"],
-"clubs":["Flamengo","Real Madrid"],
-"positions":["Forward"]
-},
-{
-"name":"Karim Benzema",
-"teammates":["Cristiano Ronaldo","Luka Modric","Toni Kroos","Gareth Bale","Kylian Mbappe","Olivier Giroud","Zinedine Zidane","Mesut Ozil","Angel Di Maria","Sergio Ramos","Casemiro","Marcelo"],
-"leagues":["La Liga","Saudi Pro League"],
-"honours":["Ballon d'Or","Champions League","La Liga"],
-"clubs":["Lyon","Real Madrid","Al Ittihad"],
-"positions":["Striker"]
-},
-{
-"name":"Paul Pogba",
-"teammates":["Cristiano Ronaldo","Bruno Fernandes","Zlatan Ibrahimovic","Antoine Griezmann","Kylian Mbappe","Andrea Pirlo","Carlos Tevez","Wayne Rooney","Romelu Lukaku","Marcus Rashford","N'Golo Kante","Angel Di Maria"],
-"leagues":["Premier League","Serie A"],
-"honours":["World Cup","Europa League","Serie A"],
-"clubs":["Manchester United","Juventus"],
-"positions":["Midfielder"]
-},
-{
-"name":"Antoine Griezmann",
-"teammates":["Lionel Messi","Kylian Mbappe","Olivier Giroud","Paul Pogba","Karim Benzema","Luis Suarez","Diego Costa","Jan Oblak","Thomas Lemar","Angel Correa","N'Golo Kante","Raphael Varane"],
-"leagues":["La Liga"],
-"honours":["World Cup","Europa League"],
-"clubs":["Real Sociedad","Atletico Madrid","Barcelona"],
-"positions":["Forward"]
-},
-{
-"name":"Olivier Giroud",
-"teammates":["Kylian Mbappe","Antoine Griezmann","Eden Hazard","N'Golo Kante","Frank Lampard","Didier Drogba","Theo Hernandez","Zlatan Ibrahimovic","Rafael Leao","Christian Pulisic","Mesut Ozil","Alexis Sanchez"],
-"leagues":["Premier League","Serie A","Ligue 1"],
-"honours":["World Cup","Champions League","Serie A"],
-"clubs":["Montpellier","Arsenal","Chelsea","AC Milan"],
-"positions":["Striker"]
-},
-{
-"name":"Robert Lewandowski",
-"teammates":["Thomas Muller","Manuel Neuer","Arjen Robben","Franck Ribery","Mario Gotze","Marco Reus","Joshua Kimmich","Lionel Messi","Pedri","Gavi","Sergio Busquets","Ousmane Dembele"],
-"leagues":["Bundesliga","La Liga"],
-"honours":["Champions League","Bundesliga","La Liga"],
-"clubs":["Lech Poznan","Borussia Dortmund","Bayern Munich","Barcelona"],
-"positions":["Striker"]
-},
-{
-"name":"Pedri",
-"teammates":["Lionel Messi","Sergio Busquets","Gavi","Robert Lewandowski","Frenkie de Jong","Jordi Alba","Dani Alves","Ansu Fati","Ferran Torres","Alvaro Morata","Rodri","Aymeric Laporte"],
-"leagues":["La Liga"],
-"honours":["La Liga","European Championship"],
-"clubs":["Las Palmas","Barcelona"],
-"positions":["Midfielder"]
-},
-{
-"name":"Gavi",
-"teammates":["Pedri","Robert Lewandowski","Frenkie de Jong","Sergio Busquets","Jordi Alba","Alvaro Morata","Rodri","Dani Olmo","Ferran Torres","Koke","Aymeric Laporte","Unai Simon"],
-"leagues":["La Liga"],
-"honours":["La Liga","Nations League"],
-"clubs":["Barcelona"],
-"positions":["Midfielder"]
-},
-{
-"name":"Frenkie de Jong",
-"teammates":["Lionel Messi","Pedri","Gavi","Sergio Busquets","Matthijs de Ligt","Donny van de Beek","Memphis Depay","Virgil van Dijk","Georginio Wijnaldum","Steven Bergwijn","Dusan Tadic","Hakim Ziyech"],
-"leagues":["La Liga","Eredivisie"],
-"honours":["La Liga","Eredivisie"],
-"clubs":["Ajax","Barcelona"],
-"positions":["Midfielder"]
-},
-{
-"name":"Declan Rice",
-"teammates":["Bukayo Saka","Martin Odegaard","Gabriel Jesus","Phil Foden","Harry Kane","Jude Bellingham","Mason Mount","Jack Grealish","Raheem Sterling","Aaron Ramsdale","Ben White","William Saliba"],
-"leagues":["Premier League"],
-"honours":["Europa Conference League"],
-"clubs":["West Ham","Arsenal"],
-"positions":["Midfielder"]
-},
-{
 "name":"Bukayo Saka",
+"difficulty":"medium",
 "teammates":["Martin Odegaard","Gabriel Jesus","Declan Rice","Harry Kane","Phil Foden","Jude Bellingham","Raheem Sterling","Aaron Ramsdale","Ben White","William Saliba","Granit Xhaka","Emile Smith Rowe"],
 "leagues":["Premier League"],
 "honours":["FA Cup"],
@@ -248,23 +109,17 @@
 "positions":["Forward"]
 },
 {
-"name":"Martin Odegaard",
-"teammates":["Bukayo Saka","Gabriel Jesus","Declan Rice","Erling Haaland","Jude Bellingham","Karim Benzema","Toni Kroos","Luka Modric","Martinelli","Aaron Ramsdale","Ben White","Thomas Partey"],
-"leagues":["Premier League","La Liga"],
-"honours":["FA Cup","La Liga"],
-"clubs":["Real Madrid","Real Sociedad","Arsenal"],
+"name":"Declan Rice",
+"difficulty":"medium",
+"teammates":["Bukayo Saka","Martin Odegaard","Gabriel Jesus","Phil Foden","Harry Kane","Jude Bellingham","Mason Mount","Jack Grealish","Raheem Sterling","Aaron Ramsdale","Ben White","William Saliba"],
+"leagues":["Premier League"],
+"honours":["Europa Conference League"],
+"clubs":["West Ham","Arsenal"],
 "positions":["Midfielder"]
 },
 {
-"name":"Gabriel Jesus",
-"teammates":["Kevin De Bruyne","Raheem Sterling","Phil Foden","Bukayo Saka","Martin Odegaard","Declan Rice","Neymar","Casemiro","Alisson","Ederson","Fernandinho","Bernardo Silva"],
-"leagues":["Premier League"],
-"honours":["Premier League","FA Cup"],
-"clubs":["Palmeiras","Manchester City","Arsenal"],
-"positions":["Forward"]
-},
-{
 "name":"Phil Foden",
+"difficulty":"medium",
 "teammates":["Kevin De Bruyne","Erling Haaland","Bernardo Silva","Jack Grealish","Bukayo Saka","Harry Kane","Jude Bellingham","Raheem Sterling","Kyle Walker","Rodri","Ilkay Gundogan","Riyad Mahrez"],
 "leagues":["Premier League"],
 "honours":["Champions League","Premier League"],
@@ -272,103 +127,18 @@
 "positions":["Midfielder"]
 },
 {
-"name":"Jack Grealish",
-"teammates":["Kevin De Bruyne","Erling Haaland","Phil Foden","Harry Kane","Bukayo Saka","Declan Rice","Raheem Sterling","Kyle Walker","Bernardo Silva","John Stones","Kalvin Phillips","Marcus Rashford"],
-"leagues":["Premier League"],
-"honours":["Champions League","Premier League"],
-"clubs":["Aston Villa","Manchester City"],
-"positions":["Midfielder"]
-},
-{
-"name":"Rodri",
-"teammates":["Kevin De Bruyne","Erling Haaland","Phil Foden","Bernardo Silva","Koke","Pedri","Gavi","Alvaro Morata","Aymeric Laporte","Ilkay Gundogan","Ruben Dias","Kyle Walker"],
+"name":"Martin Odegaard",
+"difficulty":"medium",
+"teammates":["Bukayo Saka","Gabriel Jesus","Declan Rice","Erling Haaland","Jude Bellingham","Karim Benzema","Toni Kroos","Luka Modric","Martinelli","Aaron Ramsdale","Ben White","Thomas Partey"],
 "leagues":["Premier League","La Liga"],
-"honours":["Champions League","Premier League"],
-"clubs":["Atletico Madrid","Manchester City"],
+"honours":["FA Cup","La Liga"],
+"clubs":["Real Madrid","Real Sociedad","Arsenal"],
 "positions":["Midfielder"]
 },
-{
-"name":"Ruben Dias",
-"teammates":["Kevin De Bruyne","Erling Haaland","Bernardo Silva","Joao Cancelo","Cristiano Ronaldo","Bruno Fernandes","Pepe","Raphael Guerreiro","Ederson","Kyle Walker","John Stones","Rodri"],
-"leagues":["Premier League","Primeira Liga"],
-"honours":["Champions League","Premier League"],
-"clubs":["Benfica","Manchester City"],
-"positions":["Defender"]
-},
-{
-"name":"Joao Cancelo",
-"teammates":["Cristiano Ronaldo","Bernardo Silva","Kevin De Bruyne","Erling Haaland","Joshua Kimmich","Robert Lewandowski","Lionel Messi","Pedri","Gavi","Ruben Dias","Kyle Walker","Phil Foden"],
-"leagues":["Premier League","La Liga","Serie A","Bundesliga"],
-"honours":["Premier League","Serie A"],
-"clubs":["Benfica","Juventus","Manchester City","Bayern Munich","Barcelona"],
-"positions":["Defender"]
-},
-{
-"name":"Bruno Fernandes",
-"teammates":["Cristiano Ronaldo","Marcus Rashford","Paul Pogba","Harry Maguire","Casemiro","Diogo Dalot","Bernardo Silva","Ruben Dias","Pepe","Joao Felix","Nuno Mendes","Rafael Leao"],
-"leagues":["Premier League","Primeira Liga","Serie A"],
-"honours":["Nations League"],
-"clubs":["Sporting CP","Manchester United"],
-"positions":["Midfielder"]
-},
-{
-"name":"Marcus Rashford",
-"teammates":["Bruno Fernandes","Cristiano Ronaldo","Paul Pogba","Zlatan Ibrahimovic","Wayne Rooney","Harry Maguire","Jadon Sancho","Casemiro","Luke Shaw","David De Gea","Phil Foden","Bukayo Saka"],
-"leagues":["Premier League"],
-"honours":["FA Cup","Europa League"],
-"clubs":["Manchester United"],
-"positions":["Forward"]
-},
-{
-"name":"Casemiro",
-"teammates":["Cristiano Ronaldo","Luka Modric","Toni Kroos","Karim Benzema","Marcus Rashford","Bruno Fernandes","Vinicius Jr","Neymar","Thiago Silva","Marcelo","Sergio Ramos","Pepe"],
-"leagues":["La Liga","Premier League"],
-"honours":["Champions League","La Liga"],
-"clubs":["Real Madrid","Manchester United"],
-"positions":["Midfielder"]
-},
-{
-"name":"Toni Kroos",
-"teammates":["Cristiano Ronaldo","Luka Modric","Karim Benzema","Thomas Muller","Manuel Neuer","Joshua Kimmich","Mesut Ozil","Sergio Ramos","Casemiro","Gareth Bale","Vinicius Jr","Jude Bellingham"],
-"leagues":["La Liga","Bundesliga"],
-"honours":["World Cup","Champions League","La Liga"],
-"clubs":["Bayern Munich","Real Madrid"],
-"positions":["Midfielder"]
-},
-{
-"name":"Sergio Ramos",
-"teammates":["Cristiano Ronaldo","Karim Benzema","Luka Modric","Toni Kroos","Lionel Messi","Neymar","Kylian Mbappe","Gerard Pique","Casemiro","Marcelo","Pepe","David Silva"],
-"leagues":["La Liga","Ligue 1"],
-"honours":["World Cup","Champions League","La Liga"],
-"clubs":["Sevilla","Real Madrid","PSG"],
-"positions":["Defender"]
-},
-{
-"name":"Gerard Pique",
-"teammates":["Lionel Messi","Xavi","Andres Iniesta","Carles Puyol","Sergio Busquets","Cristiano Ronaldo","Wayne Rooney","David Beckham","Pedro","Jordi Alba","Victor Valdes","Cesc Fabregas"],
-"leagues":["La Liga","Premier League"],
-"honours":["World Cup","Champions League","La Liga"],
-"clubs":["Manchester United","Barcelona"],
-"positions":["Defender"]
-},
-{
-"name":"Sergio Busquets",
-"teammates":["Lionel Messi","Xavi","Andres Iniesta","Gerard Pique","Pedri","Gavi","Jordi Alba","Luis Suarez","Neymar","David Villa","Cesc Fabregas","Victor Valdes"],
-"leagues":["La Liga","MLS"],
-"honours":["World Cup","Champions League","La Liga"],
-"clubs":["Barcelona","Inter Miami"],
-"positions":["Midfielder"]
-},
-{
-"name":"David Beckham",
-"teammates":["Ryan Giggs","Paul Scholes","Zinedine Zidane","Ronaldo Nazario","Luis Figo","Raul","Wayne Rooney","Frank Lampard","Steven Gerrard","Gary Neville","Phil Neville","Rio Ferdinand"],
-"leagues":["Premier League","La Liga","MLS","Serie A"],
-"honours":["Champions League","Premier League","La Liga"],
-"clubs":["Manchester United","Real Madrid","LA Galaxy","AC Milan"],
-"positions":["Midfielder"]
-},
+
 {
 "name":"Steven Gerrard",
+"difficulty":"hard",
 "teammates":["Fernando Torres","Luis Suarez","Xabi Alonso","Jamie Carragher","Frank Lampard","Wayne Rooney","David Beckham","Daniel Sturridge","Raheem Sterling","Philippe Coutinho","Dirk Kuyt","Pepe Reina"],
 "leagues":["Premier League","MLS"],
 "honours":["Champions League","FA Cup"],
@@ -377,10 +147,20 @@
 },
 {
 "name":"Frank Lampard",
+"difficulty":"hard",
 "teammates":["Didier Drogba","John Terry","Ashley Cole","Eden Hazard","Petr Cech","Steven Gerrard","Wayne Rooney","David Beckham","Claude Makelele","Michael Ballack","Joe Cole","Ricardo Carvalho"],
 "leagues":["Premier League","MLS"],
 "honours":["Champions League","Premier League"],
 "clubs":["West Ham","Chelsea","Manchester City","New York City FC"],
+"positions":["Midfielder"]
+},
+{
+"name":"David Beckham",
+"difficulty":"hard",
+"teammates":["Ryan Giggs","Paul Scholes","Zinedine Zidane","Ronaldo Nazario","Luis Figo","Raul","Wayne Rooney","Frank Lampard","Steven Gerrard","Gary Neville","Phil Neville","Rio Ferdinand"],
+"leagues":["Premier League","La Liga","MLS","Serie A"],
+"honours":["Champions League","Premier League","La Liga"],
+"clubs":["Manchester United","Real Madrid","LA Galaxy","AC Milan"],
 "positions":["Midfielder"]
 }
 ]
