@@ -445,6 +445,56 @@
       }
     },
     {
+      "id": "tenable-2026-03-31",
+      "title": "FOOTBALL TENABLES VS @LukePingu",
+      "youtubeId": "PnCcpvC2C7g",
+      "releaseDate": "2026-03-31",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob-calum-heggie-luke": {
+          "score": 49,
+          "max": 50
+        }
+      }
+    },
+    {
+      "id": "imposter-2026-03-30",
+      "title": "These Were Some Of The Best FOOTBALL IMPOSTOR Rounds Ever...",
+      "youtubeId": "8ufk1VWKgbM",
+      "releaseDate": "2026-03-30",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": false }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": true }
+        ],
+        "jacob": [
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
       "id": "jeopardy-2026-03-19",
       "title": "This Football Jeopardy Quiz Was An Absolute BATTLE...",
       "youtubeId": "JJAFefZzjok",
