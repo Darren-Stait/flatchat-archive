@@ -2,6 +2,18 @@
   "current_progress": "This Premier League Passport Quiz Was EXCEPTIONAL...",  
   "videos": [
     {
+      "id": "tension-2026-04-28",
+      "title": "FOOTBALL WAVELENGTH TENSION… JACOB EDITION!",
+      "youtubeId": "HgNbXfWgdb8",
+      "releaseDate": "2026-04-28",
+      "type": "tension",
+      "scores": {
+        "calum": 8,
+        "heggie": 41,
+        "aaron": 27
+      }
+    },
+    {
       "id": "imposter-2026-04-27",
       "title": "This Football Impostor Game Was Extremely TACTICAL…",
       "youtubeId": "Vi-nzmTGcxQ",
@@ -495,22 +507,48 @@
       }
     },
     {
-      "id": "jeopardy-2026-03-19",
-      "title": "This Football Jeopardy Quiz Was An Absolute BATTLE...",
-      "youtubeId": "JJAFefZzjok",
-      "releaseDate": "2026-03-19",
-      "type": "jeopardy",
+      "id": "tension-2026-03-29",
+      "title": "FOOTBALL WAVELENGTH TENSION... CHAOTIC VIEWER EDITION!",
+      "youtubeId": "axHTaDe01hg",
+      "releaseDate": "2026-03-29",
+      "type": "tension",
       "scores": {
-        "jacob": 5300,
-        "heggie": 3700,
-        "calum": 4400
+        "jacob": 3,
+        "heggie": 41,
+        "calum": 3,
+        "aaron": -1
       },
       "moments": [
         {
-          "id": "calum-gremlin-boy",
-          "title": "Gremlin boy over there.",
-          "description": "Calum tries to think of an insult for the initials of Gareth Barry and ends up insulting our GOAT.",
-          "timestamp": 400,
+          "id": "aaron-enjoy-that-sip-2",
+          "title": "Enjoy that sip.",
+          "description": "Aaron takes a swig of the new sponsor, maybe he should have got an Irn Bru sponsor instead.",
+          "timestamp": 838,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "questionofsport-2026-03-28",
+      "title": "A QUESTION OF SPORT… FOOTBALL EDITION!",
+      "youtubeId": "i3S6wKw-KN0",
+      "releaseDate": "2026-03-28",
+      "type": "questionofsport",
+      "scores": {
+        "jacob-aaron": 26,
+        "heggie-calum": 20
+      },
+      "moments": [
+        {
+          "id": "calum-dab",
+          "title": "Dabbing Pogba",
+          "description": "Calum attempts to do a dab to signify Pogba in this game of charades.",
+          "timestamp": 1708,
           "people": [
             "calum"
           ],
@@ -519,6 +557,146 @@
           ]
         }
       ]
+    },
+    {
+      "id": "codenames-2026-03-27",
+      "title": "This Was A GENERATIONAL Football Codenames Performance...",
+      "youtubeId": "n8cj80tvquE",
+      "releaseDate": "2026-03-27",
+      "type": "codenames",
+      "results": [
+        { "winner": "heggie-calum", "loser": "jacob-aaron" },
+        { "winner": "heggie-calum", "loser": "jacob-aaron" },
+        { "winner": "jacob-aaron", "loser": "heggie-calum" }
+      ]
+    },
+    {
+      "id": "jeopardy-2026-03-26",
+      "title": "These Football Jeopardy Categories Made The Boys SHIVER…",
+      "youtubeId": "fwnC9f1niD8",
+      "releaseDate": "2026-03-26",
+      "type": "jeopardy",
+      "scores": {
+        "aaron": 4900,
+        "heggie": 3700,
+        "calum": 3200
+      }
+    },
+    {
+      "id": "misc-2026-03-25",
+      "title": "Chelsea HUMBLED At The Hill Dickinson... I Everton 3-0 Chelsea I Matchday Vlog",
+      "youtubeId": "Z-gWBTMYgS4",
+      "releaseDate": "2026-03-25",
+      "type": "misc"
+    },
+    {
+      "id": "tension-2026-03-24",
+      "title": "FOOTBALL WAVELENGTH TENSION… AARON EDITION!",
+      "youtubeId": "ttYa4E4I49k",
+      "releaseDate": "2026-03-24",
+      "type": "tension",
+      "scores": {
+        "jacob": 39,
+        "heggie": 19,
+        "calum": 44
+      },
+      "moments": [
+        {
+          "id": "aaron-enjoy-that-sip-1",
+          "title": "Enjoy that sip Part 1.",
+          "description": "Aaron takes a swig of the new sponsor, maybe he should have got an Irn Bru sponsor instead.",
+          "timestamp": 201,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rondo-2026-03-23",
+      "title": "FOOTBALL RONDO VS ANDY HALLIDAY...",
+      "youtubeId": "eriSWk_duJ0",
+      "releaseDate": "2026-03-23",
+      "type": "rondo",
+      "scores": {
+        "aaron-andy": 27,
+        "calum-jacob": 20
+      }
+    },
+    {
+      "id": "tenable-2026-03-23",
+      "title": "You Will Need INSANE Ball Knowledge For These FOOTBALL TENABLES…",
+      "youtubeId": "WxbGimr9qtk",
+      "releaseDate": "2026-03-22",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 39,
+          "max": 50
+        }
+      }
+    },
+    {
+      "id": "killer-tension-2026-03-22",
+      "title": "This Premier League Killer Tension Episode RATTLED One Of The Lads...",
+      "youtubeId": "Sdj_IpZz4qE",
+      "releaseDate": "2026-03-22",
+      "type": "killer-tension",
+      "scores": {
+        "aaron": 17,
+        "heggie": 6,
+        "calum": 0,
+        "jacob": 15
+      },
+      "moments": [
+        {
+          "id": "heggie-oh-no-not-the-killer",
+          "title": "Oh no, not the killer!",
+          "description": "Heggie gets his pants pulled down by the quiz maker in this killer tension.",
+          "timestamp": 1199,
+          "people": [
+            "heggie"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guess-who-2026-03-21",
+      "title": "GUESS WHO... Football Quiz Edition!",
+      "youtubeId": "D5SrAfOeuFc",
+      "releaseDate": "2026-03-21",
+      "type": "guess-who"
+    },
+    {
+      "id": "tenable-2026-03-20",
+      "title": "This Football Tenable Quiz Produced What EVERYONE Has Been Waiting For...",
+      "youtubeId": "2TTJarnd3OE",
+      "releaseDate": "2026-03-20",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob-calum-heggie": {
+          "score": 36,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "jeopardy-2026-03-19",
+      "title": "This Football Jeopardy Quiz Was An Absolute BATTLE...",
+      "youtubeId": "JJAFefZzjok",
+      "releaseDate": "2026-03-19",
+      "type": "jeopardy",
+      "scores": {
+        "heggie": 3700,
+        "calum": 4400,
+        "jacob": 5300
+      }
     },
     {
       "id": "draft-2026-03-18",
