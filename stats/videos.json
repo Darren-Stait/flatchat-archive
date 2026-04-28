@@ -2,6 +2,449 @@
   "current_progress": "This Premier League Passport Quiz Was EXCEPTIONAL...",  
   "videos": [
     {
+      "id": "imposter-2026-04-27",
+      "title": "This Football Impostor Game Was Extremely TACTICAL…",
+      "youtubeId": "Vi-nzmTGcxQ",
+      "releaseDate": "2026-04-27",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": true }
+        ],
+        "calum": [
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": false }
+        ],
+        "jacob": [
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "tenable-2026-04-26",
+      "title": "These Are Some Of The TRICKIEST Football Tenables We’ve Ever Done…",
+      "youtubeId": "NDb4My0yM0k",
+      "releaseDate": "2026-04-26",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-jacob-heggie": {
+          "score": 35,
+          "max": 40
+        }
+      },
+      "moments": [
+        {
+          "id": "aaron-harvey-elliot",
+          "title": "And he's english.",
+          "description": "Aaron either mixes up his nationalities or fails to hear the question when he gives this hilarious response.",
+          "timestamp": 134,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "even-listening"
+          ]
+        },
+        {
+          "id": "aaron-no-no-no",
+          "title": "No. No. No.",
+          "description": "Aaron gets his eras mixed up in this Neil Lennon answer.",
+          "timestamp": 210,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "even-listening"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "misc-2026-04-25",
+      "title": "Our Channel is CHANGING…",
+      "youtubeId": "Q0CgiWQympM",
+      "releaseDate": "2026-04-25",
+      "type": "misc"
+    },
+    {
+      "id": "draft-2026-04-24",
+      "title": "This Football Draft Challenge Was Extremely FUN…",
+      "youtubeId": "5VRYysovxtI",
+      "releaseDate": "2026-04-24",
+      "type": "draft"
+    },
+    {
+      "id": "tension-2026-04-23",
+      "title": "The MOST CHAOTIC Football Tension Video EVER…",
+      "youtubeId": "EVSascJ3ZwE",
+      "releaseDate": "2026-04-23",
+      "type": "tension",
+      "scores": {
+        "jacob": 7,
+        "heggie": 18,
+        "aaron": 12
+      },
+      "moments": [
+        {
+          "id": "aaron-i-do-need-the-toilet",
+          "title": "I do need the toilet.",
+          "description": "Aaron drops a bomb on the couch which leads him to running off.",
+          "timestamp": 209,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "misc-2026-04-22",
+      "title": "This Football Career Quiz Was SERIOUSLY DIFFICULT…",
+      "youtubeId": "FFaFD9WBlVI",
+      "releaseDate": "2026-04-22",
+      "type": "misc",
+      "moments": [
+        {
+          "id": "aaron-doing-the-studge",
+          "title": "I need more arm room.",
+          "description": "Aaron puts even the best dancers on the planet to shame.",
+          "timestamp": 713,
+          "people": [
+            "aaron"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pointless-2026-04-21",
+      "title": "This Pointless Quiz Was An Unbelievable BATTLE…",
+      "youtubeId": "Cf6hynnKrGM",
+      "releaseDate": "2026-04-21",
+      "type": "pointless",
+      "scores": {
+        "jacob": 471,
+        "aaron": 398
+      }
+    },
+    {
+      "id": "jeopardy-2026-04-20",
+      "title": "This Football Jeopardy Quiz Made The Boys STRUGGLE...",
+      "youtubeId": "xedD7njKb04",
+      "releaseDate": "2026-04-20",
+      "type": "jeopardy",
+      "scores": {
+        "jacob": 5200,
+        "aaron": 3600,
+        "heggie": 2300
+      }
+    },
+    {
+      "id": "imposter-2026-04-19",
+      "title": "Guess The IMPOSTOR... Celebrity Edition!",
+      "youtubeId": "516Ko6SjxdE",
+      "releaseDate": "2026-04-19",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "calum": [
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "tension-2026-04-18",
+      "title": "This General Knowledge Tension Quiz Went To THE WIRE...",
+      "youtubeId": "nu2ROTGAFnc",
+      "releaseDate": "2026-04-18",
+      "type": "tension",
+      "scores": {
+        "jacob": 58,
+        "aaron": 23,
+        "heggie": 49,
+        "calum": 29
+      }
+    },
+    {
+      "id": "traitors-2026-04-16",
+      "title": "ANDY HALLIDAY TAKES ON OUR FOOTBALL TRAITORS QUIZ...",
+      "youtubeId": "plCqr7OtvpM",
+      "releaseDate": "2026-04-16",
+      "type": "traitors",
+      "results": {
+        "aaron": [
+          { "role": "traitor", "win": false }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true }
+        ],
+        "jacob": [
+          { "role": "traitor", "win": false }
+        ],
+        "andy": [
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "imposter-2026-04-15",
+      "title": "This IMPOSTOR Episode Was Our BEST EVER…",
+      "youtubeId": "Vmw9zzOR0kU",
+      "releaseDate": "2026-04-15",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": false }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "jeopardy-2026-04-13",
+      "title": "FOOTBALL JEOPARDY 2 VS 2 BATTLE WITH ANDY HALLIDAY!",
+      "youtubeId": "59phmOmOKBI",
+      "releaseDate": "2026-04-13",
+      "type": "jeopardy",
+      "scores": {
+        "andy-jacob": 7100,
+        "heggie-calum": 8000
+      }
+    },
+    {
+      "id": "tension-2026-04-12",
+      "title": "This Viewers FOOTBALL WAVELENGTH TENSION Video Was UNBELIEVABLE…",
+      "youtubeId": "Dvfceoownps",
+      "releaseDate": "2026-04-12",
+      "type": "tension",
+      "scores": {
+        "jacob": 49,
+        "aaron": 50,
+        "calum": 52,
+        "heggie": 35
+      }
+    },
+    {
+      "id": "tic-tac-toe-2026-04-10",
+      "title": "FOOTBALL TIC-TAC-TOE BATTLE VS ANDY HALLIDAY",
+      "youtubeId": "aNFhkIKl_Cg",
+      "releaseDate": "2026-04-10",
+      "type": "tic-tac-toe",
+      "results": [
+        { "winner": "aaron", "loser": "andy" },
+        { "winner": "jacob", "loser": "andy" },
+        { "draw": ["heggie", "jacob"] },
+        { "winner": "heggie", "loser": "aaron" },
+        { "winner": "heggie", "loser": "andy" },
+        { "winner": "aaron", "loser": "jacob" }
+      ]
+    },
+    {
+      "id": "codenames-2026-04-09",
+      "title": "This Was Our BEST EVER Football Codenames Match...",
+      "youtubeId": "K9JcwbAAezw",
+      "releaseDate": "2026-04-09",
+      "type": "codenames",
+      "results": [
+        { "winner": "heggie-jacob", "loser": "calum-aaron" },
+        { "winner": "calum-aaron", "loser": "heggie-jacob" },
+        { "winner": "heggie-jacob", "loser": "calum-aaron" }
+      ]
+    },
+    {
+      "id": "jeopardy-2026-04-08",
+      "title": "This Football Jeopardy Quiz Showed Our INCREDIBLE Knowledge…",
+      "youtubeId": "3WtSIxelFp4",
+      "releaseDate": "2026-04-08",
+      "type": "jeopardy",
+      "scores": {
+        "jacob": 5300,
+        "calum": 3300,
+        "heggie": 5500
+      }
+    },
+    {
+      "id": "tenable-2026-04-06",
+      "title": "FOOTBALL TENABLES VS ANDY HALLIDAY…",
+      "youtubeId": "iNSDMAqGM1E",
+      "releaseDate": "2026-04-06",
+      "type": "tenable",
+      "scores": {
+        "aaron-jacob-calum-heggie-andy": {
+          "score": 41,
+          "max": 50
+        }
+      }
+    },
+    {
+      "id": "imposter-2026-04-05",
+      "title": "This Video Contains Some Of The BEST Football Impostor Gameplay EVER...",
+      "youtubeId": "zI0M2s_A_RI",
+      "releaseDate": "2026-04-05",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false }
+        ],
+        "jacob": [
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "pressure-tension-2026-04-04",
+      "title": "These NEW Pressure Football Tension Rules Caused SERIOUS PROBLEMS…",
+      "youtubeId": "SABfEGxzIyk",
+      "releaseDate": "2026-04-04",
+      "type": "pressure-tension",
+      "scores": {
+        "jacob": 26,
+        "calum": 20,
+        "heggie": -24,
+        "aaron": 8
+      }
+    },
+    {
+      "id": "draft-2026-04-03",
+      "title": "THE MOST ICONIC FOOTBALL MOMENTS EVER DRAFT…",
+      "youtubeId": "gGugjCk98g4",
+      "releaseDate": "2026-04-03",
+      "type": "draft"
+    },
+    {
+      "id": "traitors-2026-04-02",
+      "title": "THE TRAITORS… FOOTBALL QUIZ EDITON RETURNS!",
+      "youtubeId": "3cbRSLVoMWc",
+      "releaseDate": "2026-04-02",
+      "type": "traitors",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": false }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": false }
+        ],
+        "heggie": [
+          { "role": "traitor", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "jeopardy-2026-04-01",
+      "title": "This Football Jeopardy Performance Has To Be STUDIED...",
+      "youtubeId": "tLzBo8lcdDk",
+      "releaseDate": "2026-04-01",
+      "type": "jeopardy",
+      "scores": {
+        "jacob": 5500,
+        "calum": 4500,
+        "aaron": 5100
+      }
+    },
+    {
       "id": "jeopardy-2026-03-19",
       "title": "This Football Jeopardy Quiz Was An Absolute BATTLE...",
       "youtubeId": "JJAFefZzjok",
