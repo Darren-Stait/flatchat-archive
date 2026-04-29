@@ -68,6 +68,7 @@
           "title": "And he's english.",
           "description": "Aaron either mixes up his nationalities or fails to hear the question when he gives this hilarious response.",
           "timestamp": 134,
+          "endTime": 155,
           "people": [
             "aaron"
           ],
@@ -80,6 +81,7 @@
           "title": "No. No. No.",
           "description": "Aaron gets his eras mixed up in this Neil Lennon answer.",
           "timestamp": 210,
+          "endTime": 226,
           "people": [
             "aaron"
           ],
@@ -120,6 +122,7 @@
           "title": "I do need the toilet.",
           "description": "Aaron drops a bomb on the couch which leads him to running off.",
           "timestamp": 209,
+          "endTime": 288,
           "people": [
             "aaron"
           ],
@@ -140,7 +143,8 @@
           "id": "aaron-doing-the-studge",
           "title": "I need more arm room.",
           "description": "Aaron puts even the best dancers on the planet to shame.",
-          "timestamp": 713,
+          "timestamp": 710,
+          "endTime": 730,
           "people": [
             "aaron"
           ],
@@ -524,6 +528,7 @@
           "title": "Enjoy that sip.",
           "description": "Aaron takes a swig of the new sponsor, maybe he should have got an Irn Bru sponsor instead.",
           "timestamp": 838,
+          "endTime": 847,
           "people": [
             "aaron"
           ],
@@ -549,6 +554,7 @@
           "title": "Dabbing Pogba",
           "description": "Calum attempts to do a dab to signify Pogba in this game of charades.",
           "timestamp": 1708,
+          "endTime": 1715,
           "people": [
             "calum"
           ],
@@ -606,6 +612,7 @@
           "title": "Enjoy that sip Part 1.",
           "description": "Aaron takes a swig of the new sponsor, maybe he should have got an Irn Bru sponsor instead.",
           "timestamp": 201,
+          "endTime": 206,
           "people": [
             "aaron"
           ],
@@ -656,13 +663,14 @@
           "id": "heggie-oh-no-not-the-killer",
           "title": "Oh no, not the killer!",
           "description": "Heggie gets his pants pulled down by the quiz maker in this killer tension.",
-          "timestamp": 1199,
+          "timestamp": 1194,
+          "endTime": 1213,
           "people": [
             "heggie"
           ],
           "categories": [
             "general-funnies"
-          ]
+          ] 
         }
       ]
     },
@@ -762,6 +770,7 @@
           "title": "You coulda killed him.",
           "description": "Jacob gets really reckless with those gangly limbs in this episode of Tension.",
           "timestamp": 549,
+          "endTime": 561,
           "people": [
             "jacob"
           ],
@@ -953,6 +962,7 @@
           "title": "Cinnamon Challenge",
           "description": "Aaron and Heggie lost this video and Aaron stepped up to do this forfeit.",
           "timestamp": 1904,
+          "endTime": 1946,
           "people": [
             "aaron"
           ],
@@ -1013,6 +1023,7 @@
           "title": "What Pronunciation!",
           "description": "In this career path challenge, Aaron perfectly pronounces this greek keepers name.",
           "timestamp": 1413,
+          "endTime": 1429,
           "people": [
             "aaron"
           ],
@@ -1062,6 +1073,7 @@
           "title": "They're wearing orange. So Netherlands.",
           "description": "In this higher or lower challenge, Calum doesn't read the question properly and guesses a wild answer.",
           "timestamp": 1482,
+          "endTime": 1508,
           "people": [
             "calum"
           ],
@@ -1089,6 +1101,7 @@
           "title": "He's not scottish mate",
           "description": "In this killer tension episode, Calum shows how he doesn't read the question once again.",
           "timestamp": 276,
+          "endTime": 290,
           "people": [
             "calum"
           ],
@@ -1100,7 +1113,8 @@
           "id": "heggie-dud-dud-dud-du-du",
           "title": "Dud dud dud du du",
           "description": "In this killer tension episode, it comes down to the last question to decide the winner, who is left with a stink on their face?",
-          "timestamp": 1426,
+          "timestamp": 1418,
+          "endTime": 1453,
           "people": [
             "heggie"
           ],
@@ -1172,6 +1186,7 @@
           "title": "Pulisic?!",
           "description": "In this unique Boarding Pass quiz, Aaron confuses this Argentinian for the LeBron James of Soccer.",
           "timestamp": 1614,
+          "endTime": 1631,
           "people": [
             "aaron"
           ],
@@ -1192,20 +1207,6 @@
         { "draw": ["andy", "aaron"] },
         { "winner": "andy", "loser": "calum" },
         { "winner": "heggie", "loser": "andy" }
-      ],
-      "moments": [
-        {
-          "id": "aaron-rangers-motherwell",
-          "title": "Rangers Motherwell?!",
-          "description": "In this Tic-Tac-Toe Aaron fails to name the person sitting next to him?",
-          "timestamp": 393,
-          "people": [
-            "aaron"
-          ],
-          "categories": [
-            "general-funnies"
-          ]
-        }
       ]
     },
     {
@@ -1225,6 +1226,7 @@
           "title": "FIFE Mess",
           "description": "In this jeopardy, all logic goes out the window about this FIFE related question.",
           "timestamp": 1968,
+          "endTime": 2016,
           "people": [
             "calum", "heggie"
           ],
@@ -1321,6 +1323,7 @@
           "title": "Who are you? Who? Who?",
           "description": "In this edition of Jeopardy, Aaron bursts out into beautiful melodic song.",
           "timestamp": 632,
+          "endTime": 638,
           "people": [
             "aaron"
           ],
@@ -1367,7 +1370,8 @@
           "id": "heggie-shes-on-do-not-disturb",
           "title": "She's on do not disturb the rat.",
           "description": "Heggie calls in reinforcements to help out with this FRIENDS themed tenable, but does Erin pick up the phone?",
-          "timestamp": 1184,
+          "timestamp": 1172,
+          "endTime": 1186,
           "people": [
             "heggie"
           ],
@@ -1441,7 +1445,8 @@
           "id": "aaron-north-korea-girls",
           "title": "North Korea Girls",
           "description": "In this Jeopardy, Aaron makes a passing remark about a certain countries U16 girls tournaments.",
-          "timestamp": 619,
+          "timestamp": 615,
+          "endTime": 630,
           "people": [
             "aaron"
           ],
@@ -1531,6 +1536,7 @@
           "title": "Stephen Carr WHAT?!",
           "description": "In this edition of Pointless, Heggie potentially pulls off the wildest shout every with this Liverpool RB?!",
           "timestamp": 422,
+          "endTime": 435,
           "people": [
             "heggie"
           ],
@@ -1557,6 +1563,7 @@
           "title": "What that tongue do?!",
           "description": "It's Jeopardy time again and Heggie pulls out one for the ladies.",
           "timestamp": 1791,
+          "endTime": 1796,
           "people": [
             "heggie"
           ],
@@ -1569,6 +1576,7 @@
           "title": "It's Jacob and Aaron!",
           "description": "Heggie makes a HILARIOUS remark about Aaron and Jacob being these famous twins.",
           "timestamp": 577,
+          "endTime": 582,
           "people": [
             "heggie"
           ],
@@ -1580,7 +1588,8 @@
           "id": "but-i-said-that",
           "title": "But I said that?!",
           "description": "Aaron tries to get all fancy when he answers this Jeopardy question causing a backfire.",
-          "timestamp": 1791,
+          "timestamp": 2017,
+          "endTime": 2056,
           "people": [
             "aaron",
             "calum"
@@ -1698,7 +1707,8 @@
           "id": "calum-cech-current-premier-league",
           "title": "Cech. Current Premier League?",
           "description": "In this Question of Sport, Calum proves once again that he can't read a question correctly.",
-          "timestamp": 1349,
+          "timestamp": 1345,
+          "endTime": 1362,
           "people": [
             "calum"
           ],
@@ -1725,7 +1735,8 @@
           "id": "aaron-id-love-that-to-be-wrong",
           "title": "I'd love that to be.... Wrong.",
           "description": "In this Tension, Aaron proves his comedic genius with this line.",
-          "timestamp": 993,
+          "timestamp": 990,
+          "endTime": 997,
           "people": [
             "aaron"
           ],
@@ -1909,6 +1920,7 @@
           "title": "That is not 50 cent.",
           "description": "Aaron's face blindness appears to transcend football and affects his blindness of celebrities.",
           "timestamp": 2283,
+          "endTime": 2302,
           "people": [
             "aaron"
           ],
@@ -2072,6 +2084,7 @@
           "title": "Traitor Twist?!?!",
           "description": "In this Wrong to be Right quiz, the quizmaker Kyle conspired with Heggie on this crazy twist!",
           "timestamp": 1874,
+          "emdTime": 1990,
           "people": [
             "heggie"
           ],
@@ -2097,6 +2110,7 @@
           "title": "Where is Tiny Bebe?",
           "description": "In this variety pack quiz challenge, Jacob wins this round but Aaron hits him with the speccy quip.",
           "timestamp": 1843,
+          "endTime": 1898,
           "people": [
             "aaron"
           ],
@@ -2109,6 +2123,7 @@
           "title": "Forever Blowing What?!?!",
           "description": "In this variety pack quiz challenge, Jacob admits to doing what to what player?!",
           "timestamp": 3038,
+          "endTime": 3046,
           "people": [
             "jacob"
           ],
@@ -2133,7 +2148,8 @@
           "id": "jacob-idiot",
           "title": "Idiot! Idiot!",
           "description": "In this 2v2 honours quiz, Jacob gets a bit angry at the boys for falsely correcting him!",
-          "timestamp": 2658,
+          "timestamp": 2646,
+          "endTime": 2667,
           "people": [
             "jacob"
           ],
@@ -2174,6 +2190,7 @@
           "title": "Aaron sweeps the kit round!",
           "description": "Aaron gets a standing ovation for demolishing this round in a Xmas quiz!",
           "timestamp": 116,
+          "endTime": 185,
           "people": [
             "aaron"
           ],
@@ -2220,6 +2237,7 @@
           "title": "Grafite!",
           "description": "In this Killer Tension, Jacob pulls out an unreal shout even he didn't believe in!!!",
           "timestamp": 1908,
+          "endTime": 1919,
           "people": [
             "jacob"
           ],
@@ -2470,6 +2488,7 @@
           "title": "When was 2021?",
           "description": "Calum and Heggie get all kinds of confused together by this weird season?!",
           "timestamp": 586,
+          "endTime": 610,
           "people": [
             "calum"
           ],
@@ -2534,6 +2553,7 @@
           "title": "That's not a national team.",
           "description": "Calum may have messed up a tad on this picture round of pointless.",
           "timestamp": 1167,
+          "endTime": 1194,
           "people": [
             "calum"
           ],
@@ -2573,6 +2593,7 @@
           "title": "I'll go De Zerbi.",
           "description": "In this pressure themed tension, the pressure got to Aaron when he dropped this answer about current PL managers.",
           "timestamp": 1762,
+          "endTime": 1791,
           "people": [
             "aaron"
           ],
@@ -2598,6 +2619,7 @@
           "title": "You really can't get this wrong.",
           "description": "Aaron is tasked in this jeopardy of naming the current super cup holder. Laughs all around at the answer he provides.",
           "timestamp": 1704,
+          "endTime": 1724,
           "people": [
             "aaron"
           ],
@@ -2655,6 +2677,7 @@
           "title": "Get your kit off Jacob.",
           "description": "In this edition of taskmaster the boys must perform an iconic celebration after scoring a long range goal. Jacob gets what out in public?!",
           "timestamp": 210,
+          "endTime": 229,
           "people": [
             "jacob"
           ],
@@ -2676,6 +2699,7 @@
           "title": "Del Piero? Ok bud.",
           "description": "In this episode of the Flatchat podcast, Aaron must name a retired player with great stamina, the start of one of the flatchats greatest chaos livestreams.",
           "timestamp": 2670,
+          "endTime": 2678,
           "people": [
             "aaron"
           ],
@@ -2688,6 +2712,7 @@
           "title": "Name a Celtic player.",
           "description": "A viewer in the livestream chat asks Aaron to name a celtic player while he's lost his head in this podcast episode. Chaos ensues",
           "timestamp": 3574,
+          "endTime": 3591,
           "people": [
             "aaron"
           ],
@@ -2700,6 +2725,7 @@
           "title": "Benzema. Benzema.",
           "description": "Calum is tasked with trying to figure out the best RETIRED player at hold up play in this build an attacker podcast. I don't know if he knows what retired means with this answer?!",
           "timestamp": 2960,
+          "endTime": 2966,
           "people": [
             "calum"
           ],
@@ -2732,6 +2758,7 @@
           "title": "I'm gonna put Swaziland.",
           "description": "Aaron is tasked with naming the Nation of the multiple time Balon D'Or winner Doonpace, but what the hell is this shout?!",
           "timestamp": 2165,
+          "endTime": 2191,
           "people": [
             "aaron"
           ],
@@ -2785,6 +2812,7 @@
           "title": "Sad violin noises.",
           "description": "Aaron mocks one of the lads with his sad little violin.",
           "timestamp": 2703,
+          "endTime": 2717,
           "people": [
             "aaron"
           ],
@@ -2813,6 +2841,7 @@
           "title": "Imagine if it was me...",
           "description": "In this insane draft challenge video, Aaron must select his goalkeeper, it couldn't be who he thinks it is could it?!",
           "timestamp": 218,
+          "endTime": 240,
           "people": [
             "aaron"
           ],
@@ -2825,6 +2854,7 @@
           "title": "He's got himself at Right Back too...",
           "description": "In this all timer draft challenge, the boys are reading off their teams when Heggie makes a HILARIOUS remake about one of Aaron's players.",
           "timestamp": 2990,
+          "endTime": 3010,
           "people": [
             "heggie"
           ],
@@ -2864,6 +2894,7 @@
           "title": "Orient Expresston North End",
           "description": "Aaron leaves the whole world with their jaw on the floor with this UNREAL answer.",
           "timestamp": 1843,
+          "endTime": 1904,
           "people": [
             "aaron"
           ],
@@ -2920,6 +2951,7 @@
           "title": "Liam Fridgewell???",
           "description": "In this members only video, during a round of answer smash, Aaron pulls this bizarre answer out to the lads delight.",
           "timestamp": 2241,
+          "membersOnly": true,
           "people": [
             "aaron"
           ],
@@ -2932,6 +2964,7 @@
           "title": "RKO outta nowhere.",
           "description": "In this members only video, Jacob needs to take a closer look to identify a player when Heggie embraces his inner Legend Killer Randy Orton.",
           "timestamp": 1702,
+          "membersOnly": true,
           "people": [
             "heggie"
           ],
@@ -2995,6 +3028,7 @@
           "title": "WillNE Haha",
           "description": "In this face blindness quiz, Aaron makes a comment about a players square head and compares him to a certain YouTuber.",
           "timestamp": 1773,
+          "endTime": 1786,
           "people": [
             "aaron"
           ],
@@ -3003,47 +3037,11 @@
           ]
         },
         {
-          "id": "aaron-cardiff",
-          "title": "Cardiff then?",
-          "description": "In this face blindness quiz, Aaron finally gets a player right but when he has to name the most named club? The GOAT only goes and names a team he never even played for.",
-          "timestamp": 1318,
-          "people": [
-            "aaron"
-          ],
-          "categories": [
-            "wild-shouts"
-          ]
-        },
-        {
-          "id": "heggie-coventry-boy",
-          "title": "Ooo the coventry boy",
-          "description": "In this face blindness quiz, Heggie initially doesn't know the player but pulls it out of the hat big time with his big brain knowledge.",
-          "timestamp": 2467,
-          "people": [
-            "heggie"
-          ],
-          "categories": [
-            "great-ball-knowledge"
-          ]
-        },
-        {
-          "id": "heggie-west-brom",
-          "title": "Has to be West Brom.",
-          "description": "During a Face Blindness Quiz, Heggie and Jacob are certain this player HAS to have played the most for West Brom.",
-          "timestamp": 1766,
-          "people": [
-            "heggie",
-            "jacob"
-          ],
-          "categories": [
-            "wild-shouts"
-          ]
-        },
-        {
           "id": "jacob-calum-haircut",
           "title": "Calum had that haircut in school.",
           "description": "In this Face Blindness quiz, Jacob and Heggie have no idea who this active PL footballer is although that didn't stop them mocking him at Calum's expense.",
           "timestamp": 1618,
+          "endTime": 1629,
           "people": [
             "jacob"
           ],
@@ -3056,6 +3054,7 @@
           "title": "Is that Phil Foden?",
           "description": "In this Face Blindness quiz, Jacob makes a remark that a certain player looks like Phil Foden, much to Heggie's disgust.",
           "timestamp": 2172,
+          "endTime": 2185,
           "people": [
             "jacob"
           ],
@@ -3120,6 +3119,7 @@
           "title": "Giussepe Meazza Who?!",
           "description": "In this jeopardy quiz, Aaron pulls out one of his boldest shouts yet.",
           "timestamp": 738,
+          "endTime": 769,
           "people": [
             "aaron"
           ],
@@ -3200,22 +3200,11 @@
       },
       "moments": [
         {
-          "id": "aaron-100-mill",
-          "title": "The 100m Championship Player.",
-          "description": "A viewer sends in a new quiz format, this one ends up with Aaron dropping one of his worst shouts of the year.",
-          "timestamp": 577,
-          "people": [
-            "aaron"
-          ],
-          "categories": [
-            "wild-shouts"
-          ]
-        },
-        {
-          "id": "aaron-charlton",
+          "id": "jacob-charlton",
           "title": "If it's Charlton I'm annoyed.",
           "description": "This custom viewer quiz gets Jacob FUMING as this career path doesn't go to plan.",
-          "timestamp": 354,
+          "timestamp": 350,
+          "endTime": 368,
           "people": [
             "jacob"
           ],
@@ -3241,6 +3230,7 @@
           "title": "Why are you a boat?",
           "description": "While giving their team name at the start of this viewer submitted quiz, Calum asks a very important question, however no-one was expecting Aaron's response.",
           "timestamp": 89,
+          "endTime": 100,
           "people": [
             "aaron"
           ],
@@ -3253,6 +3243,7 @@
           "title": "Played against?!?!",
           "description": "In this viewer quiz, Calum gets his words all mixed up producing a HILARIOUS moment.",
           "timestamp": 1547,
+          "endTime": 1561,
           "people": [
             "calum"
           ],
@@ -3343,6 +3334,7 @@
           "title": "Where from? Portugal.",
           "description": "In this very unique viewer submitted gameshow themed quiz, the boys have to name some of Ramos' most played with teammates, Aaron drops an absolute HOWLER with this guess.",
           "timestamp": 3077,
+          "endTime": 3089,
           "people": [
             "aaron"
           ],
@@ -3355,6 +3347,7 @@
           "title": "I was there, supporting Dunbarton.",
           "description": "In this very unique viewer submitted gameshow themed quiz, Aaron drops a funny one liner referencing his love for old school footie knowledge.",
           "timestamp": 1172,
+          "endTime": 1214,
           "people": [
             "aaron"
           ],
@@ -3388,6 +3381,7 @@
           "title": "There's 8 pixels!!!",
           "description": "Having to recreate this famous WC goal, Aaron's final image reveal leaves everyone in tears.",
           "timestamp": 1175,
+          "endTime": 1222,
           "people": [
             "aaron"
           ],
@@ -3400,6 +3394,7 @@
           "title": "Leap of faith.",
           "description": "In this edition of Flatchat taskmaster, the lads must recreate a famous WC goal, Heggie takes things to new heights and shows off his prime athletic ability.",
           "timestamp": 749,
+          "endTime": 754,
           "people": [
             "heggie"
           ],
@@ -3439,6 +3434,7 @@
           "title": "Hold on it says you're a virgin here Calum.",
           "description": "On a question relating to Calum's enjoyment of Pokemon, Jacob makes this wild statement.",
           "timestamp": 1700,
+          "endTime": 1717,
           "people": [
             "jacob"
           ],
@@ -3491,7 +3487,8 @@
           "id": "aaron-why-that",
           "title": "Why have you went that?!",
           "description": "On this unique viewer submitted quiz, Aaron is asked a Flatchat analytics question, someone doesn't know their channel very well.",
-          "timestamp": 403,
+          "timestamp": 395,
+          "endTime": 427,
           "people": [
             "aaron"
           ],
@@ -3527,7 +3524,8 @@
           "id": "heggie-lamped-him",
           "title": "He lamped him.",
           "description": "The boys have a cut in proceedings as Heggie needs medical attention after Jacob did what?!",
-          "timestamp": 2727,
+          "timestamp": 2733,
+          "endTime": 2745,
           "people": [
             "heggie"
           ],
@@ -3617,6 +3615,7 @@
           "title": "I got minus 40!",
           "description": "Jacob loses his head in this extreme tension after dropping the biggest stinker of all time.",
           "timestamp": 2179,
+          "endTime": 2195,
           "people": [
             "jacob"
           ],
@@ -3642,6 +3641,7 @@
           "title": "Kaka scored.",
           "description": "Aaron recalls his favourite 0-0, 0-0 result.",
           "timestamp": 1518,
+          "endTime": 1535,
           "people": [
             "aaron"
           ],
@@ -3811,6 +3811,7 @@
           "title": "Pukki might have more.",
           "description": "In this 2v2 viewer submission quiz, during a round where the team of Calum and Heggie think it might have something to do with Nations Top scorers, Heggie makes a wild statement regarding Pukki.",
           "timestamp": 1445,
+          "endTime": 1468,
           "people": [
             "heggie"
           ],
@@ -3845,6 +3846,7 @@
           "title": "He lifted a title!",
           "description": "Jacob shows his disgust in Aaron after this bold shout for a PL winning captain!",
           "timestamp": 531,
+          "endTime": 551,
           "people": [
             "aaron"
           ],
@@ -3857,18 +3859,7 @@
           "title": "Scunthorpe.",
           "description": "Another face, another wild one from Aaron as he incorrectly names this Celtic legend.",
           "timestamp": 610,
-          "people": [
-            "aaron"
-          ],
-          "categories": [
-            "face-blindness"
-          ]
-        },
-        {
-          "id": "aaron-oh-so-it-is",
-          "title": "Oh so it is.",
-          "description": "Aaron must name this player that played for Everton and Chelsea but struggles before realising he was wrong.",
-          "timestamp": 1324,
+          "endTime": 645,
           "people": [
             "aaron"
           ],
@@ -3881,6 +3872,7 @@
           "title": "He looks like he'd give great head...ers.",
           "description": "Jacob releases this WILD statement when trying to describe this ex-celtic man.",
           "timestamp": 1684,
+          "endTime": 1710,
           "people": [
             "jacob"
           ],
@@ -3940,6 +3932,7 @@
           "title": "Give me my mmmmmmmmoney $$$",
           "description": "In this exquisite jeopardy quiz, Jacob goes a bit off the rails and turns into a TikTok trend.",
           "timestamp": 1231,
+          "endTime": 1248,
           "people": [
             "jacob"
           ],
@@ -3998,6 +3991,7 @@
           "title": "And he was pacy. Very pacy.",
           "description": "Aaron mutters of the most random sentence in history during this 2014 WC quiz.",
           "timestamp": 1578,
+          "endTime": 1594,
           "people": [
             "aaron"
           ],
@@ -4069,21 +4063,7 @@
       "title": "This Viewers Worlds Hardest Football Quiz Was A Great Test Of Our Knowledge...",
       "youtubeId": "8tuoOnzcYwk",
       "releaseDate": "2025-08-30",
-      "type": "whq",
-      "moments": [
-        {
-          "id": "aaron-brugge-brussels",
-          "title": "Is Brugge different to Brussels? No.",
-          "description": "During this world's hardest quiz, Aaron puts out a bold statement regarding these Belgian clubs.",
-          "timestamp": 360,
-          "people": [
-            "aaron"
-          ],
-          "categories": [
-            "wild-shouts"
-          ]
-        }
-      ]
+      "type": "whq"
     },
     {
       "id": "jeopardy-2025-08-29",
@@ -4278,6 +4258,7 @@
           "title": "Where's he from Aaron?",
           "description": "Another Jeopardy, another Aaron GOATed moment, Haaland is the answer but what was the question Aaron?",
           "timestamp": 1782,
+          "endTime": 1810,
           "people": [
             "aaron"
           ],
@@ -4290,6 +4271,7 @@
           "title": "Who?!?! The right back?!?!",
           "description": "Another moment from this Jeopardy ep, Aaron thinks what Right Back cost 40m?",
           "timestamp": 148,
+          "endTime": 180,
           "people": [
             "aaron"
           ],
@@ -4334,21 +4316,7 @@
         "calum": 38,
         "heggie": 31,
         "jacob": 28
-      },
-      "moments": [
-        {
-          "id": "aaron-go-germany",
-          "title": "I'll go Germany.",
-          "description": "In this tension quiz, Aaron may have needed some reading glasses as he gives a wild shout for this Nation WC appearances question.",
-          "timestamp": 590,
-          "people": [
-            "aaron"
-          ],
-          "categories": [
-            "wild-shouts"
-          ]
-        }
-      ]
+      }
     },
     {
       "id": "misc-2025-08-08",
@@ -4396,22 +4364,11 @@
       },
       "moments": [
         {
-          "id": "aaron-tarkowski",
-          "title": "I don't know, I put Tarkowski.",
-          "description": "It's time for a PL Passport Quiz, Aaron's worst nightmare comes to life as he has to name the player by the face.",
-          "timestamp": 244,
-          "people": [
-            "aaron"
-          ],
-          "categories": [
-            "face-blindness"
-          ]
-        },
-        {
           "id": "aaron-fabinho",
           "title": "FABINHO?!",
           "description": "It's time for a PL Passport Quiz, Aaron's worst nightmare comes to life as he has to name the player by the face.",
           "timestamp": 436,
+          "endTime": 442,
           "people": [
             "aaron"
           ],
@@ -4424,6 +4381,7 @@
           "title": "I put Per. Who?!",
           "description": "It's time for a PL Passport Quiz, Aaron's worst nightmare comes to life as he has to name the player by the face.",
           "timestamp": 575,
+          "endTime": 586,
           "people": [
             "aaron"
           ],
@@ -4436,6 +4394,7 @@
           "title": "So there's only 110 men?!",
           "description": "In this UNIQUE passport quiz Aaron makes a very bizarre statment about the people of iceland.",
           "timestamp": 1008,
+          "endTime": 1025,
           "people": [
             "aaron"
           ],
@@ -4457,6 +4416,7 @@
           "title": "Oh shut up man!",
           "description": "Aaron in one of the most chaotic videos of all times forgets to put the loans into the career path causing this meltdown from Heggie followed by a hilarious comeback from Aaron.",
           "timestamp": 760,
+          "endTime": 800,
           "people": [
             "aaron"
           ],
@@ -4469,6 +4429,7 @@
           "title": "He's Georgian by the way.",
           "description": "Another Aaron hosted career path video causes carnage as the Heggie and Calum lose their marbles and Heggie fully delves into confusion.",
           "timestamp": 1940,
+          "endTime": 1981,
           "people": [
             "heggie"
           ],
@@ -4490,6 +4451,7 @@
           "title": "Oh no you don't.",
           "description": "At the end of this Football Jeopardy Heggie makes a remark about Aaron's current standings in the game causing massive laughs all around apart from Aaron.",
           "timestamp": 1745,
+          "endTime": 1759,
           "people": [
             "heggie"
           ],
@@ -4511,6 +4473,7 @@
           "title": "Aaron Attenborough",
           "description": "Aaron becomes a living legend for a moment as he embarks on Heggie Watch.",
           "timestamp": 108,
+          "endTime": 150,
           "people": [
             "aaron"
           ],
@@ -4532,6 +4495,7 @@
           "title": "That is disgusting from you",
           "description": "Jacob gets out the fishing rod and reels Aaron in with this unreal BAIT.",
           "timestamp": 2342,
+          "endTime": 2356,
           "people": [
             "jacob"
           ],
@@ -4546,21 +4510,7 @@
       "title": "This Premier League Tension Quiz Seriously Tested Our Ball Knowledge...",
       "youtubeId": "f_Idb1GuYjM",
       "releaseDate": "2025-07-10",
-      "type": "tension",
-      "moments": [
-        {
-          "id": "aaron-too-far-back",
-          "title": "That's gotta be too far back.",
-          "description": "In this PL tension quiz, Aaron goes for a risky call on this Top UK Scorers in the 24/25 PL with a shout for a guy with 0 goals.",
-          "timestamp": 345,
-          "people": [
-            "aaron"
-          ],
-          "categories": [
-            "wild-shouts"
-          ]
-        }
-      ]
+      "type": "tension"
     },
     {
       "id": "jeopardy-2025-07-07",
@@ -4574,6 +4524,7 @@
           "title": "Move it back a bit Aaron.",
           "description": "Another Jeopardy video gets Aaron quite excited, Heggie has to hold the poor boy back before he deafens the audience.",
           "timestamp": 1012,
+          "endTime": 1025,
           "people": [
             "heggie"
           ],
@@ -4595,6 +4546,7 @@
           "title": "Pardon Jacob?",
           "description": "Jacob spins the wheel in this draft challenge and starts making some accusations regarding Bayern and a certain regime.",
           "timestamp": 1025,
+          "endTime": 1031,
           "people": [
             "jacob"
           ],
@@ -4616,6 +4568,7 @@
           "title": "STFU cause I pulled your pants down.",
           "description": "In this killer draft, Aaron is too slow to write down his killer causing a meltdown by the GOAT.",
           "timestamp": 1573,
+          "endTime": 1597,
           "people": [
             "aaron"
           ],
@@ -4630,21 +4583,7 @@
       "title": "You Need INSANE Ball Knowledge To Pass This Football Quiz...",
       "youtubeId": "ZPIc2lr9biI",
       "releaseDate": "2025-06-26",
-      "type": "whq",
-      "moments": [
-        {
-          "id": "jacob-bet-in-my-life",
-          "title": "I've never bet in my life",
-          "description": "During this difficult round of connection wall, Jacob makes an observation matching Calum and a Newcastle cheater.",
-          "timestamp": 1082,
-          "people": [
-            "jacob"
-          ],
-          "categories": [
-            "general-funnies"
-          ]
-        }
-      ]
+      "type": "whq"
     },
     {
       "id": "jeopardy-2025-06-23",
@@ -4658,6 +4597,7 @@
           "title": "Look at that movement.",
           "description": "Aaron invents a new dance move during this Jeopardy quiz.",
           "timestamp": 650,
+          "endTime": 654,
           "people": [
             "aaron"
           ],
@@ -4679,6 +4619,7 @@
           "title": "WHO?!?!?!",
           "description": "In this career path bonanza, Aaron demonstrates his insane ball knowledge bringing an obscure player and his career path.",
           "timestamp": 1807,
+          "endTime": 1829,
           "people": [
             "aaron"
           ],
@@ -4700,6 +4641,7 @@
           "title": "Ospina is terrible!",
           "description": "Having guessed an incorrect player in this Draft challenge, Aaron's fate is in the hands of the other lads to pick him a forfeit player. His reaction was priceless.",
           "timestamp": 394,
+          "endTime": 409,
           "people": [
             "aaron"
           ],
@@ -4721,6 +4663,7 @@
           "title": "10 players a team?!",
           "description": "24/25 BIG FAT Quiz time and the boys decide to do the tiebreaker for fun, maybe Aaron wishes they didn't.",
           "timestamp": 2087,
+          "endTime": 2117,
           "people": [
             "aaron"
           ],
@@ -4742,6 +4685,7 @@
           "title": "Read it out then!",
           "description": "Aaron hosts this jeopardy and he drops a howler on this Name that Trophy category, literally leaving the name of the trophy on the image!",
           "timestamp": 362,
+          "endTime": 381,
           "people": [
             "aaron"
           ],
@@ -4754,6 +4698,7 @@
           "title": "You got it the wrong way round man!",
           "description": "Aaron messes up another one of the rounds as he makes it impossible for the boys on this one!",
           "timestamp": 2040,
+          "endTime": 2060,
           "people": [
             "aaron"
           ],
@@ -4766,6 +4711,7 @@
           "title": "That wasn't a world cup year!",
           "description": "This football jeopardy gets Calum all confused and he gives this WOEFUL answer, leaving the other boys in stitches!",
           "timestamp": 1404,
+          "endTime": 1443,
           "people": [
             "calum"
           ],
@@ -4780,21 +4726,7 @@
       "title": "A Question Of Sport - Football Edition RETURNS!!!",
       "youtubeId": "UvSNgLel-Qc",
       "releaseDate": "2025-06-05",
-      "type": "questionofsport",
-      "moments": [
-        {
-          "id": "heggie-chicago",
-          "title": "It could be Chicago Fire actually.",
-          "description": "The boys have chose the Away questions on A Question of Sport, but how is there knowledge of Basketball?!",
-          "timestamp": 1485,
-          "people": [
-            "heggie"
-          ],
-          "categories": [
-            "wild-shouts"
-          ]
-        }
-      ]
+      "type": "questionofsport"
     },
     {
       "id": "careerpath-2025-06-02",
@@ -4808,6 +4740,7 @@
           "title": "I just heard something hit the bottom of that table.",
           "description": "In this career path edition, Aaron makes Calum and Jacob show their orgasm faces on camera and Heggie notices Aaron's excitement after this OUTRAGEOUS shout from the GOAT.",
           "timestamp": 1015,
+          "endTime": 1045,
           "people": [
             "aaron"
           ],
@@ -4829,6 +4762,7 @@
           "title": "Magic Mike more like Magic Aaron.",
           "description": "On his quest to get the boys 3 more points in this viewers World's Hardest Quiz, Aaron does something unspeakable, the kit comes OFF!",
           "timestamp": 1895,
+          "endTime": 1938,
           "people": [
             "aaron"
           ],
@@ -4850,6 +4784,7 @@
           "title": "27. Same as Aguero.",
           "description": "Calum let's an answer slip in this edition of Football Tenable.",
           "timestamp": 1183,
+          "endTime": 1197,
           "people": [
             "calum"
           ],
@@ -4871,6 +4806,7 @@
           "title": "I put 2 metres.",
           "description": "In this Away questions round of Ultimate Football Showdown, Calum gets it completely wrong and produces a HOWLER guess.",
           "timestamp": 1055,
+          "endTime": 1074,
           "people": [
             "calum"
           ],
@@ -4892,6 +4828,7 @@
           "title": "You're chukwazy!",
           "description": "This Rondo can't stop Jacob releasing some hot zingers about this Nigerian winger",
           "timestamp": 808,
+          "endTime": 819,
           "people": [
             "jacob"
           ],
@@ -4913,6 +4850,7 @@
           "title": "7-3 in the 60s.",
           "description": "Aaron pulls this one out of nowhere to leave the boys ASTONISHED regarding this team that has never won the UCL.",
           "timestamp": 644,
+          "endTime": 685,
           "people": [
             "aaron"
           ],
@@ -4934,6 +4872,7 @@
           "title": "You'd need to say 100 then.",
           "description": "Calum needs to clean the old ear holes out as he completely misunderstands this question in this viewers Football Tension.",
           "timestamp": 550,
+          "endTime": 570,
           "people": [
             "calum"
           ],
@@ -4954,7 +4893,8 @@
           "id": "aaron-alaba-canadian",
           "title": "Could be Canadian? Could be Alaba?",
           "description": "After revealing their next player is from the Americas, Jacob asks about Canadian players. Aaron the GOAT makes a bold shout for who the canadian should be.",
-          "timestamp": 1565,
+          "timestamp": 1558,
+          "endTime": 1569,
           "people": [
             "aaron"
           ],
@@ -4967,6 +4907,7 @@
           "title": "He's just wrote down what we have in front of us.",
           "description": "In this unique logic puzzle video, the boys finally make their way through it. But, Jacob makes a revelation about what Aaron has been doing when making 'Notes'",
           "timestamp": 3092,
+          "endTime": 3109,
           "people": [
             "aaron"
           ],
@@ -4988,6 +4929,7 @@
           "title": "Jacob's missing 2 of his 4 eyes.",
           "description": "In this Viewer submitted EPIC, Aaron makes a passing remark about Jacob when the boy is missing from the video.",
           "timestamp": 91,
+          "endTime": 102,
           "people": [
             "aaron"
           ],
@@ -5009,6 +4951,7 @@
           "title": "Romero? Llenglet.",
           "description": "In this edition of squadguesser, Heggie asks who the Spurs CB at Atletico is, Aaron answers very convincingly.",
           "timestamp": 1617,
+          "endTime": 1626,
           "people": [
             "aaron"
           ],
