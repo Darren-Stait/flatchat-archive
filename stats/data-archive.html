@@ -87,6 +87,36 @@
         }
       }
 
+.random-modal {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.random-modal iframe {
+  width: 90vw;
+  height: 90vh;
+}
+
+.hidden {
+  display: none;
+}
+
+#closeRandom {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
       /* MAIN CONTENT */
       main {
         flex: 1;
@@ -693,6 +723,22 @@
         background: #e8f4f6;
         transform: translateY(-2px);
       }
+      .random-start-btn {
+  background: #25b6c4;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.random-start-btn:hover {
+  background: #1e9aa6;
+  transform: translateY(-2px);
+}
     </style>
   </head>
   <body>
@@ -700,13 +746,17 @@
     
     <header style="text-align:center;"> This is a fan site made with the purpose of collating funny and iconic moments for the benefit of other flatchat fans. Click through the lads profiles to find their best moments. </header>
     <main>
+      
       <h1 class="page-title">Data Archive</h1>
+      <div style="text-align:center; margin-bottom: 15px;">
+      <button id="randomStartBtn" class="random-start-btn">
+        🎲 Play Random Moments
+      </button>
+    </div>
       <div id="archiveContainer" class="accordion"></div>
     </main>
 
 <div data-include="../includes/footer.html"></div>
-<script src="../scripts/modal-auto-stop-video.js"></script>
-<script src="../scripts/randomMoment.js"></script>
 <script src="../includes/include-html.js"></script>
 <script>
 let allVideos = [];
@@ -833,6 +883,119 @@ function buildModal(id, moment) {
   document.body.appendChild(modal);
 }
 </script>
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+let player;
+let moments = [];
+let currentIndex = 0;
+
+// load moments
+async function loadMoments() {
+  const res = await fetch("./videos.json");
+  const data = await res.json();
+
+  moments = data.videos.flatMap(video =>
+    (video.moments || [])
+    .filter(m => !m.membersOnly)
+    .map(m => ({
+      ...m,
+      youtubeId: video.youtubeId
+    }))
+  );
+}
+
+// shuffle
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
+// init player
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("player", {
+    height: "90%",
+    width: "90%",
+    events: {
+      onStateChange: onPlayerStateChange
+    }
+  });
+}
+
+// play clip
+function playMoment(index) {
+  const m = moments[index];
+
+  player.loadVideoById({
+    videoId: m.youtubeId,
+    startSeconds: m.timestamp
+  });
+
+  // store end time
+  player.endTime = m.endTime || (m.timestamp + 8);
+}
+
+// detect end properly
+function onPlayerStateChange(event) {
+  if (event.data === YT.PlayerState.PLAYING) {
+    checkTime();
+  }
+}
+
+// loop checking current time
+function checkTime() {
+  if (!player || !player.getCurrentTime) return;
+
+  const current = player.getCurrentTime();
+
+  if (current >= player.endTime) {
+    nextMoment();
+    return;
+  }
+
+  // only keep checking if still playing
+  if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+    requestAnimationFrame(checkTime);
+  }
+}
+
+// next clip
+function nextMoment() {
+  currentIndex++;
+
+  if (currentIndex >= moments.length) {
+    shuffle(moments);
+    currentIndex = 0;
+  }
+
+  playMoment(currentIndex);
+}
+
+// start button
+document.getElementById("randomStartBtn").addEventListener("click", async () => {
+  if (!moments.length) await loadMoments();
+
+  shuffle(moments);
+  currentIndex = 0;
+
+  document.getElementById("randomModal").classList.remove("hidden");
+  playMoment(currentIndex);
+});
+
+// close
+document.addEventListener("click", (e) => {
+  if (e.target.id === "closeRandom") {
+    document.getElementById("randomModal").classList.add("hidden");
+    player.stopVideo();
+  }
+});
+</script>
+<div id="randomModal" class="random-modal hidden">
+  <button id="closeRandom">✕</button>
+  <div id="player"></div>
+</div>
 </body>
 </html>
 
