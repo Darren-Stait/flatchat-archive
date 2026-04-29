@@ -2,6 +2,18 @@
   "current_progress": "This Premier League Passport Quiz Was EXCEPTIONAL...",  
   "videos": [
     {
+      "id": "pointless-2026-04-29",
+      "title": "This Is The HARDEST Pointless Quiz We Have Ever Played...",
+      "youtubeId": "rtItLnsQwO0",
+      "releaseDate": "2026-04-29",
+      "type": "pointless",
+      "scores": {
+        "jacob": 536,
+        "aaron": 469,
+        "calum": 337
+      }
+    },
+    {
       "id": "tension-2026-04-28",
       "title": "FOOTBALL WAVELENGTH TENSION… JACOB EDITION!",
       "youtubeId": "HgNbXfWgdb8",
