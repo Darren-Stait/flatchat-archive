@@ -117,6 +117,21 @@
   cursor: pointer;
 }
 
+#skipRandom {
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  font-size: 1.8rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#skipRandom:hover {
+  transform: scale(1.2);
+}
+
       /* MAIN CONTENT */
       main {
         flex: 1;
@@ -782,14 +797,16 @@ function buildArchive() {
     video.moments.forEach(moment => {
 
       allMoments.push({
-        title: moment.title,
-        description: moment.description,
-        timestamp: moment.timestamp,
-        youtubeId: video.youtubeId,
-        date: video.releaseDate,
-        videoTitle: video.title,
-        videoId: video.id
-      });
+  title: moment.title,
+  description: moment.description,
+  timestamp: moment.timestamp,
+  youtubeId: video.youtubeId,
+  tiktokId: video.tiktokId,
+  platform: video.platform,
+  date: video.releaseDate,
+  videoTitle: video.title,
+  videoId: video.id
+});
 
     });
 
@@ -870,12 +887,15 @@ function buildModal(id, moment) {
         ${moment.description}
       </p>
       <p>
-        <a 
-          href="https://www.youtube.com/watch?v=${moment.youtubeId}&t=${moment.timestamp}s"
-          target="_blank"
-        >
-          Watch in Video
-        </a>
+        ${
+  moment.platform === "tiktok"
+    ? `<a href="https://www.tiktok.com/@${moment.username || ""}/video/${moment.tiktokId}" target="_blank">
+         Watch on TikTok
+       </a>`
+    : `<a href="https://www.youtube.com/watch?v=${moment.youtubeId}&t=${moment.timestamp}s" target="_blank">
+         Watch in Video
+       </a>`
+}
       </p>
     </div>
   `;
@@ -899,9 +919,11 @@ async function loadMoments() {
     (video.moments || [])
     .filter(m => !m.membersOnly)
     .map(m => ({
-      ...m,
-      youtubeId: video.youtubeId
-    }))
+  ...m,
+  youtubeId: video.youtubeId,
+  platform: video.platform
+}))
+.filter(m => m.youtubeId) // 🚨 ensures TikToks are ignored
   );
 }
 
@@ -926,6 +948,8 @@ function onYouTubeIframeAPIReady() {
 
 // play clip
 function playMoment(index) {
+  if (!player || !player.loadVideoById) return; // 🚨 guard
+
   const m = moments[index];
 
   player.loadVideoById({
@@ -933,7 +957,6 @@ function playMoment(index) {
     startSeconds: m.timestamp
   });
 
-  // store end time
   player.endTime = m.endTime || (m.timestamp + 8);
 }
 
@@ -988,12 +1011,29 @@ document.getElementById("randomStartBtn").addEventListener("click", async () => 
 document.addEventListener("click", (e) => {
   if (e.target.id === "closeRandom") {
     document.getElementById("randomModal").classList.add("hidden");
-    player.stopVideo();
+    if (player && player.stopVideo) {
+      player.stopVideo();
+    }
+  }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const skipBtn = document.getElementById("skipRandom");
+
+  if (skipBtn) {
+    skipBtn.addEventListener("click", () => {
+      if (player && player.stopVideo) {
+        player.stopVideo();
+      }
+      nextMoment();
+    });
   }
 });
 </script>
 <div id="randomModal" class="random-modal hidden">
   <button id="closeRandom">✕</button>
+
+  <button id="skipRandom">⏭</button>
+
   <div id="player"></div>
 </div>
 </body>
