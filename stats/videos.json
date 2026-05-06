@@ -6864,7 +6864,7 @@
       "title": "THE ULTIMATE FOOTBALL SHOWDOWN QUIZ - Calum Vs Jacob!!!",
       "youtubeId": "r6-QsKsipT0",
       "releaseDate": "2025-03-02",
-      "type": "ultimate-football-showdownon",
+      "type": "ultimate-football-showdown",
       "scores": {
         "jacob": 29,
         "calum": 24
@@ -6884,11 +6884,96 @@
       }
     },
     {
+      "id": "tenable-2025-02-28",
+      "title": "Football Tenable BONANZA... Heggie Edition!!!",
+      "youtubeId": "lb-eOud0X48",
+      "releaseDate": "2025-02-28",
+      "type": "tenable",
+      "scores": {
+        "jacob-calum": {
+          "score": 46,
+          "max": 50
+        }
+      }
+    },
+    {
+      "id": "tension-2025-02-27",
+      "title": "This FOOTBALL TENSION QUIZ Provides The Biggest *DISASTERCLASS* Of All Time...",
+      "youtubeId": "qB-4oHM8cMI",
+      "releaseDate": "2025-02-27",
+      "type": "tension",
+      "scores": {
+        "heggie": 53,
+        "calum": 4
+      }
+    },
+    {
+      "id": "whq-2025-02-26",
+      "title": "Can We Pass Another Worlds Hardest FOOTBALL QUIZ From SPENCER???",
+      "youtubeId": "uLG86whpYwo",
+      "releaseDate": "2025-02-26",
+      "type": "whq",
+      "scores": {
+        "jacob-calum": {
+          "score": 18,
+          "max": 49
+        }
+      }
+    },
+    {
+      "id": "draft-2025-02-25",
+      "title": "The Ultimate *PREMIER LEAGUE BIG 6 DRAFT*... With A Wheel!!!",
+      "youtubeId": "362OH8k6Eoo",
+      "releaseDate": "2025-02-25",
+      "type": "draft"
+    },
+    {
+      "id": "pointless-2025-02-24",
+      "title": "These *BRAND NEW FOOTBALL POINTLESS* Rounds Made The Boys Seriously Think...",
+      "youtubeId": "bCSMxNwyOgg",
+      "releaseDate": "2025-02-24",
+      "type": "pointless",
+      "scores": {
+        "jacob": 429,
+        "calum": 516
+      }
+    },
+    {
+      "id": "misc-2025-02-23",
+      "title": "This Viewer *MIXED IT UP* With This BRAND NEW FOOTBALL QUIZ...",
+      "youtubeId": "66upSkP6G4Q",
+      "releaseDate": "2025-02-23",
+      "type": "misc",
+      "scores": {
+        "jacob-calum-heggie": {
+          "score": 28,
+          "max": 60
+        }
+      }
+    },
+    {
+      "id": "jeopardy-2025-02-22",
+      "title": "The Lads Seriously COOKED In This FOOTBALL JEOPARDY QUIZ...",
+      "youtubeId": "aCROJzPUldA",
+      "releaseDate": "2025-02-22",
+      "type": "jeopardy",
+      "scores": {
+        "jacob": 7100,
+        "heggie": 7400
+      }
+    },
+    {
       "id": "whq-2025-02-21",
       "title": "This Viewers WORLDS HARDEST FOOTBALL QUIZ Was Absolutely SOLID...",
       "youtubeId": "gPizEnhXvPs",
       "releaseDate": "2025-02-21",
       "type": "whq",
+      "scores": {
+        "jacob-calum-heggie": {
+          "score": 18,
+          "max": 39
+        }
+      },
       "moments": [
         {
           "id": "calum-fanny",
@@ -6906,11 +6991,139 @@
       ]
     },
     {
+      "id": "draft-2025-02-20",
+      "title": "We Used A Wheel To Decide Our *PREMIER LEAGUE TEAM OF THE SEASON DRAFT*...",
+      "youtubeId": "LcqBEJfQ2zY",
+      "releaseDate": "2025-02-20",
+      "type": "draft"
+    },
+    {
+      "id": "careerpath-2025-02-19",
+      "title": "The Host *LOST THEIR HEAD* At The Lads In This CAREER PATH FOOTBALL QUIZ...",
+      "youtubeId": "nVrfxzEo-ZQ",
+      "releaseDate": "2025-02-19",
+      "type": "careerpath",
+      "scores": {
+        "jacob-heggie": {
+          "score": 35,
+          "max": 69
+        }
+      }
+    },
+    {
+      "id": "tenable-2025-02-18",
+      "title": "This Was Our *GREATEST EVER* Football Tenable Performance...",
+      "youtubeId": "WDH74RTyQ0Q",
+      "releaseDate": "2025-02-18",
+      "type": "tenable",
+      "scores": {
+        "jacob-calum-heggie": {
+          "score": 47,
+          "max": 50
+        }
+      }
+    },
+    {
+      "id": "draft-2025-02-17",
+      "title": "We Played This Viewers *FOOTBALL DRAFT CHALLENGE* Which Had A Definitive Winner...",
+      "youtubeId": "7XUzivyGZsU",
+      "releaseDate": "2025-02-17",
+      "type": "draft"
+    },
+    {
+      "id": "misc-2025-02-16",
+      "title": "Can You Pass Our Ultimate FOOTBALL PUB QUIZ...",
+      "youtubeId": "Sz72sLfDxLE",
+      "releaseDate": "2025-02-16",
+      "type": "misc"
+    },
+    {
       "id": "whq-2025-02-15",
       "title": "This *VIEWERS WORLDS HARDEST QUIZ* Seriously Impressed Us!!!",
       "youtubeId": "eXEUaWb3vjc",
       "releaseDate": "2025-02-15",
-      "type": "whq"
+      "type": "whq",
+      "scores": {
+        "jacob-calum-heggie": {
+          "score": 27,
+          "max": 52
+        }
+      }
+    },
+    {
+      "id": "draft-2025-02-14",
+      "title": "There Was Some WILD Picks In This FOOTBALL FACTS DRAFT!!!",
+      "youtubeId": "tLtvYHo9Yd4",
+      "releaseDate": "2025-02-14",
+      "type": "draft"
+    },
+    {
+      "id": "millionaire-2025-02-13",
+      "title": "This *WHO WANTS TO BE A MILLIONAIRE* Football Quiz Is One Of Our HARDEST EVER!!!",
+      "youtubeId": "7O8J8nr78VY",
+      "releaseDate": "2025-02-13",
+      "type": "millionaire"
+    },
+    {
+      "id": "guess-who-2025-02-12",
+      "title": "This Viewers *GUESS WHO FOOTBALL QUIZ* Really Got Our Brains Thinking...",
+      "youtubeId": "h310cHYbokQ",
+      "releaseDate": "2025-02-12",
+      "type": "guess-who",
+      "scores": {
+        "jacob-heggie": {
+          "score": 21,
+          "max": 30
+        }
+      }
+    },
+    {
+      "id": "jeopardy-2025-02-11",
+      "title": "This *JEOPARDY FOOTBALL QUIZ* Caused The Boys Some Issues...",
+      "youtubeId": "769tJh_atK4",
+      "releaseDate": "2025-02-11",
+      "type": "jeopardy",
+      "scores": {
+        "jacob": 6700,
+        "calum": 5200
+      }
+    },
+    {
+      "id": "whq-2025-02-10",
+      "title": "We Brought Our Own WORLDS HARDEST FOOTBALL QUIZ And This Happened...",
+      "youtubeId": "bRU4nyhj0dw",
+      "releaseDate": "2025-02-10",
+      "type": "whq",
+      "scores": {
+        "calum-heggie": {
+          "score": 24,
+          "max": 35
+        }
+      }
+    },
+    {
+      "id": "careerpath-2025-02-09",
+      "title": "This CAREER PATH FOOTBALL QUIZ Produced some EXCEPTIONAL Knowledge!!!",
+      "youtubeId": "m9edJOmnGZg",
+      "releaseDate": "2025-02-09",
+      "type": "careerpath",
+      "scores": {
+        "calum-aaron-jacob": {
+          "score": 30,
+          "max": 66
+        }
+      }
+    },
+    {
+      "id": "tension-2025-02-08",
+      "title": "This HEAD TO HEAD Football *TENSION* Quiz Was Absolutely ELECTRIC!!!",
+      "youtubeId": "voaGOy5mW5k",
+      "releaseDate": "2025-02-08",
+      "type": "tension",
+      "scores": {
+        "jacob": 47,
+        "calum": 49
+      }
     },
     {
       "id": "pressure-2025-02-07",
@@ -6918,6 +7131,11 @@
       "youtubeId": "HoCchDJd9Ak",
       "releaseDate": "2025-02-07",
       "type": "pressure",
+      "scores": {
+        "aaron": -1,
+        "calum": 11,
+        "heggie": 2
+      },
       "moments": [
         {
           "id": "aaron-say-juan",
@@ -6935,11 +7153,29 @@
       ]
     },
     {
+      "id": "tenable-2025-02-06",
+      "title": "Premier League FOOTBALL TENABLES With @LukePingu",
+      "youtubeId": "1x5hxxUJwN0",
+      "releaseDate": "2025-02-06",
+      "type": "tenable",
+      "scores": {
+        "calum-aaron-jacob-luke": {
+          "score": 33,
+          "max": 40
+        }
+      }
+    },
+    {
       "id": "pointless-2025-02-05",
       "title": "This *POINTLESS QUIZ* Made One Of The Boys RAGE!!!",
       "youtubeId": "dHzCOPetY6A",
       "releaseDate": "2025-02-05",
       "type": "pointless",
+      "scores": {
+        "aaron": 217,
+        "jacob": 386,
+        "heggie": 332
+      },
       "moments": [
         {
           "id": "aaron-get-it-up-ya",
@@ -6962,6 +7198,12 @@
       "youtubeId": "p07dJvDOz9s",
       "releaseDate": "2025-02-04",
       "type": "whq",
+      "scores": {
+        "calum-aaron-jacob-aaron": {
+          "score": 6,
+          "max": 46
+        }
+      },
       "moments": [
         {
           "id": "calum-i-like-you-g",
@@ -6977,6 +7219,32 @@
           ]
         }
       ]
+    },
+    {
+      "id": "tenable-2025-02-03",
+      "title": "2 VS 2 FOOTBALL TENABLE - Aaron's Revenge Edition...",
+      "youtubeId": "uVzwABXofN8",
+      "releaseDate": "2025-02-03",
+      "type": "tenable"
+    },
+    {
+      "id": "ultimate-football-showdown-2025-02-02",
+      "title": "The GOAT Hosts This ULTIMATE FOOTBALL SHOWDOWN QUIZ!!!",
+      "youtubeId": "hc2_MJukDBk",
+      "releaseDate": "2025-02-02",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "jacob": 3,
+        "calum": 27,
+        "heggie": 25
+      }
+    },
+    {
+      "id": "draft-2025-02-01",
+      "title": "We Spent £1 BILLION In This PREMIER LEAGUE AUCTION!!!",
+      "youtubeId": "1VYqplyNHxc",
+      "releaseDate": "2025-02-01",
+      "type": "draft"
     },
     {
       "id": "squadguesser-2025-01-28",
