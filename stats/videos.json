@@ -1,6 +1,18 @@
 {
-  "current_progress": "This Viewers *NEW* FOOTBALL QUIZ Was EXCEPTIONAL!!!",  
+  "current_progress": "This Worlds Hardest FOOTBALL QUIZ Made The Boys Really Think...",  
   "videos": [
+    {
+      "id": "jeopardy-2026-05-05",
+      "title": "The Most CHAOTIC Football Jeopardy Match EVER...",
+      "youtubeId": "_80OYgvj200",
+      "releaseDate": "2026-05-05",
+      "type": "jeopardy",
+      "scores": {
+        "aaron": 2900,
+        "calum": 4800,
+        "heggie": 4600
+      }
+    },
     {
       "id": "tenable-2026-05-04",
       "title": "FOOTBALL TENABLES VS @LukePingu",
@@ -5967,6 +5979,10 @@
       "youtubeId": "SKHATK7IRa8",
       "releaseDate": "2025-04-30",
       "type": "questionofsport",
+      "scores": {
+        "heggie-calum": 24,
+        "jacob-aaron": 20
+      },
       "moments": [
         {
           "id": "jacob-italian-then",
@@ -5984,11 +6000,35 @@
       ]
     },
     {
+      "id": "traitors-tenable-2025-04-29",
+      "title": "This FOOTBALL TENABLE Traitor Quiz Was INTENSE...",
+      "youtubeId": "SVWPTOh9_TI",
+      "releaseDate": "2025-04-29",
+      "type": "traitors-tenable",
+      "results": {
+        "jacob": [
+          { "role": "traitor", "win": false }
+        ],
+        "aaron": [
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
       "id": "whq-2025-04-28",
       "title": "We Finally Decided To Show Up In This WORLDS HARDEST FOOTBALL QUIZ...",
       "youtubeId": "qyio_fJ6av4",
       "releaseDate": "2025-04-28",
       "type": "whq",
+      "scores": {
+        "jacob-calum-heggie-aaron": {
+          "score": 39,
+          "max": 62
+        }
+      },
       "moments": [
         {
           "id": "jacob-best-thing-youve-done",
@@ -6011,6 +6051,11 @@
       "youtubeId": "IWYo_nmsiwU",
       "releaseDate": "2025-04-27",
       "type": "jeopardy",
+      "scores": {
+        "aaron": 3600,
+        "calum": 6200,
+        "jacob": 4800
+      },
       "moments": [
         {
           "id": "aaron-tiote",
@@ -6041,6 +6086,63 @@
       ]
     },
     {
+      "id": "misc-2025-04-26",
+      "title": "This Viewer Mixed It Up For This FOOTBALL QUIZ...",
+      "youtubeId": "4USm2p4fcBE",
+      "releaseDate": "2025-04-26",
+      "type": "misc",
+      "scores": {
+        "aaron-calum-heggie": {
+          "score": 80,
+          "max": 113
+        }
+      }
+    },
+    {
+      "id": "careerpath-2025-04-25",
+      "title": "This PREMIER LEAGUE Career Path Quiz Had A MAJOR TWIST...",
+      "youtubeId": "fZH10AORDJE",
+      "releaseDate": "2025-04-25",
+      "type": "careerpath",
+      "scores": {
+        "aaron-calum-heggie": {
+          "score": 22,
+          "max": 30
+        }
+      }
+    },
+    {
+      "id": "whq-2025-04-24",
+      "title": "This Was Our Most CHAOTIC Football Quiz Yet...",
+      "youtubeId": "hC-orFIXzc0",
+      "releaseDate": "2025-04-24",
+      "type": "whq",
+      "scores": {
+        "jacob-calum-heggie-aaron": {
+          "score": 25,
+          "max": 36
+        }
+      }
+    },
+    {
+      "id": "traitors-tenable-2025-04-23",
+      "title": "Football Tenable... TRAITORS EDITION!!!",
+      "youtubeId": "nlFbQnMq74s",
+      "releaseDate": "2025-04-23",
+      "type": "traitors-tenable",
+      "results": {
+        "jacob": [
+          { "role": "faithful", "win": true }
+        ],
+        "aaron": [
+          { "role": "faithful", "win": true }
+        ],
+        "calum": [
+          { "role": "traitor", "win": false }
+        ]
+      }
+    },
+    {
       "id": "draft-2025-04-22",
       "title": "This Football Facts Draft Was Our BEST ONE YET!!!",
       "youtubeId": "osCsCU2sa7w",
@@ -6063,11 +6165,41 @@
       ]
     },
     {
+      "id": "house-of-games-2025-04-21",
+      "title": "House Of Games FOOTBALL EDITION Returns...",
+      "youtubeId": "LxeA7jRqPwg",
+      "releaseDate": "2025-04-21",
+      "type": "house-of-games",
+      "scores": {
+        "aaron": 16,
+        "calum": 17,
+        "heggie": 27
+      }
+    },
+    {
+      "id": "careerpath-2025-04-20",
+      "title": "This PREMIER LEAGUE Career Path Quiz Was The PERFECT STANDARD...",
+      "youtubeId": "K0KrNH4DVcc",
+      "releaseDate": "2025-04-20",
+      "type": "careerpath",
+      "scores": {
+        "jacob-calum-heggie-aaron": {
+          "score": 12.5,
+          "max": 18
+        }
+      }
+    },
+    {
       "id": "misc-2025-04-19",
       "title": "This Head To Head FOOTBALL QUIZ Was Incredible!!!",
       "youtubeId": "ROFr2uvN0j4",
       "releaseDate": "2025-04-19",
       "type": "misc",
+      "scores": {
+        "aaron": 12,
+        "heggie": 35,
+        "jacob": 27
+      },
       "moments": [
         {
           "id": "aaron-sunshine",
@@ -6089,7 +6221,145 @@
       "title": "Taskmaster… FOOTBALL EDITION!!!",
       "youtubeId": "jUdGLR_aWvk",
       "releaseDate": "2025-04-18",
-      "type": "taskmaster"
+      "type": "taskmaster",
+      "scores": {
+        "calum": 8,
+        "jacob": 7,
+        "aaron": 7
+      }
+    },
+    {
+      "id": "tension-2025-04-17",
+      "title": "This Tension Episode Caused One Of The Boys MAJOR ISSUES...",
+      "youtubeId": "iwvR2ehT6EI",
+      "releaseDate": "2025-04-17",
+      "type": "tension",
+      "scores": {
+        "calum": 56,
+        "jacob": 78,
+        "aaron": 48,
+        "heggie": 19
+      }
+    },
+    {
+      "id": "misc-2025-04-16",
+      "title": "The Ultimate ARSENAL FC STAGES FOOTBALL QUIZ...",
+      "youtubeId": "CqC5DJEvwvc",
+      "releaseDate": "2025-04-16",
+      "type": "misc",
+      "scores": {
+        "jacob-calum-heggie-aaron": {
+          "score": 48,
+          "max": 76
+        }
+      }
+    },
+    {
+      "id": "misc-2025-04-15",
+      "title": "This Viewers FOOTBALL QUIZ Really Put Our Knowledge To The Test...",
+      "youtubeId": "wpQZVG5QG-o",
+      "releaseDate": "2025-04-15",
+      "type": "misc",
+      "scores": {
+        "jacob-calum-heggie-aaron": {
+          "score": 18,
+          "max": 77
+        }
+      }
+    },
+    {
+      "id": "imposter-2025-04-14",
+      "title": "The Boys COOKED As Football IMPOSTER Returns…",
+      "youtubeId": "84XosWEwjg0",
+      "releaseDate": "2025-04-14",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false }
+        ]
+      }
+    },
+    {
+      "id": "tenable-2025-04-13",
+      "title": "This FOOTBALL TENABLE Quiz Was OUTSTANDING...",
+      "youtubeId": "HIVHzu5ucBs",
+      "releaseDate": "2025-04-13",
+      "type": "tenable",
+      "scores": {
+        "jacob-calum-heggie-aaron": {
+          "score": 34,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "careerpath-2025-04-12",
+      "title": "Aaron's CAREER PATH ROULETTE Football Quiz...",
+      "youtubeId": "omfcguHGUt4",
+      "releaseDate": "2025-04-12",
+      "type": "careerpath",
+      "scores": {
+        "jacob-calum-heggie": {
+          "score": 14,
+          "max": 32
+        }
+      }
+    },
+    {
+      "id": "draft-2025-04-11",
+      "title": "The Ultimate PREMIER LEAGUE Football Draft Challenge...",
+      "youtubeId": "WzCFPAcJ-aY",
+      "releaseDate": "2025-04-11",
+      "type": "draft"
+    },
+    {
+      "id": "whq-2025-04-10",
+      "title": "The *OFFICIAL* Worlds Hardest FOOTBALL QUIZ!!!",
+      "youtubeId": "cqr5cc8ZhoM",
+      "releaseDate": "2025-04-10",
+      "type": "whq",
+      "scores": {
+        "jacob-calum-aaron": {
+          "score": 24,
+          "max": 44
+        }
+      }
+    },
+    {
+      "id": "misc-2025-04-09",
+      "title": "This 2 VS 2 FOOTBALL QUIZ Was An UNBELIEVABLE Match!!!",
+      "youtubeId": "tMfaKkr_AKE",
+      "releaseDate": "2025-04-09",
+      "type": "misc",
+      "scores": {
+        "jacob-calum": 40,
+        "aaron-heggie": 38
+      }
     },
     {
       "id": "misc-2025-04-08",
@@ -6097,6 +6367,12 @@
       "youtubeId": "k5y9L_XoBz4",
       "releaseDate": "2025-04-08",
       "type": "misc",
+      "scores": {
+        "jacob-calum-heggie-aaron": {
+          "score": 48,
+          "max": 86
+        }
+      },
       "moments": [
         {
           "id": "heggie-what-did-you-say",
@@ -6114,11 +6390,82 @@
       ]
     },
     {
+      "id": "jeopardy-2025-04-07",
+      "title": "The Goat Hosts This CHAOTIC Football Jeopardy Quiz...",
+      "youtubeId": "Zq7d9HdkJZQ",
+      "releaseDate": "2025-04-07",
+      "type": "jeopardy",
+      "scores": {
+        "jacob": 5000,
+        "calum": 3700,
+        "heggie": 4800
+      }
+    },
+    {
+      "id": "tenable-2025-04-06",
+      "title": "We Decided To COOK In These FOOTBALL TENABLES...",
+      "youtubeId": "fVTxs4sECV8",
+      "releaseDate": "2025-04-06",
+      "type": "tenable",
+      "scores": {
+        "jacob-calum-heggie-aaron": {
+          "score": 37,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "draft-2025-04-05",
+      "title": "The Ultimate MANCHESTER UNITED DRAFT CHALLENGE...",
+      "youtubeId": "odaWumz-a2Y",
+      "releaseDate": "2025-04-05",
+      "type": "draft"
+    },
+    {
+      "id": "whq-2025-04-04",
+      "title": "THE WORLDS HARDEST FOOTBALL AND FIFA QUIZ... Featuring @CapgunTom",
+      "youtubeId": "7b4u7NciaQo",
+      "releaseDate": "2025-04-04",
+      "type": "whq",
+      "scores": {
+        "jacob-calum-aaron-tom": {
+          "score": 45,
+          "max": 65
+        }
+      }
+    },
+    {
       "id": "guess-who-2025-04-03",
       "title": "This Viewers GUESS WHO Football Quiz Was One Of The Best Yet...",
       "youtubeId": "w6yu1PVfqbg",
       "releaseDate": "2025-04-03",
-      "type": "guess-who"
+      "type": "guess-who",
+      "scores": {
+        "jacob-calum-heggie-aaron": {
+          "score": 47,
+          "max": 82
+        }
+      }
+    },
+    {
+      "id": "1-percent-club-2025-04-02",
+      "title": "This Viewers FOOTBALL 1% CLUB QUIZ Was A Great Challenge...",
+      "youtubeId": "OylLtAdch1k",
+      "releaseDate": "2025-04-02",
+      "type": "1-percent-club"
+    },
+    {
+      "id": "whq-2025-04-01",
+      "title": "This Worlds Hardest FOOTBALL QUIZ Made The Boys Really Think...",
+      "youtubeId": "SAFRkKIRl8Y",
+      "releaseDate": "2025-04-01",
+      "type": "whq",
+      "scores": {
+        "jacob-calum-heggie": {
+          "score": 15,
+          "max": 40
+        }
+      }
     },
     {
       "id": "jeopardy-2025-03-22",
