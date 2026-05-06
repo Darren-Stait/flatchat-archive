@@ -686,34 +686,34 @@ let playersLoaded = false;
 function getCategories(){
   if(difficulty === "easy"){
     return {
-      teammate:{min:1,max:2},
-      honour:{min:2,max:3},
-      club:{min:3,max:5},
-      position:{min:5,max:7,singleUse:true},
-      nationality:{min:5,max:7,singleUse:true},
-      age:{min:5,max:7,singleUse:true}
+      teammate:{min:2,max:3},
+      honour:{min:3,max:4},
+      club:{min:5,max:7},
+      position:{min:5,max:7},
+      nationality:{min:7,max:11,singleUse:true},
+      age:{min:6,max:9,singleUse:true}
     };
   }
 
   if(difficulty === "medium"){
     return {
       teammate:{min:1,max:2},
-      honour:{min:3,max:5},
-      club:{min:4,max:6},
-      position:{min:6,max:9,singleUse:true},
+      honour:{min:2,max:3},
+      club:{min:3,max:4},
+      position:{min:4,max:6},
       nationality:{min:6,max:9,singleUse:true},
-      age:{min:6,max:9,singleUse:true}
+      age:{min:5,max:8,singleUse:true}
     };
   }
 
   if(difficulty === "hard"){
     return {
-      teammate:{min:2,max:4},
-      honour:{min:4,max:6},
-      club:{min:5,max:8},
-      position:{min:7,max:10,singleUse:true},
-      nationality:{min:7,max:10,singleUse:true},
-      age:{min:7,max:10,singleUse:true}
+      teammate:{min:1,max:2},
+      honour:{min:2,max:3},
+      club:{min:3,max:4},
+      position:{min:4,max:6},
+      nationality:{min:6,max:9,singleUse:true},
+      age:{min:5,max:8,singleUse:true}
     };
   }
 }
