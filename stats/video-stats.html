@@ -550,6 +550,59 @@ h1 {
   max-width: 100%;            /* keep column within grid cell */
 }
 
+.date-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: end;
+}
+
+.date-filter-row label {
+  display: block;
+  font-size: 0.75rem;
+  margin-bottom: 6px;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.date-filter-row input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d6dde2;
+  font-family: inherit;
+}
+
+.date-filter-row button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #25b6c4;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.secondary-btn {
+  background: #7d8b92;
+}
+
+.guest-toggle-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #e8eef1;
+  color: #25b6c4;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.guest-toggle-btn:hover {
+  background: #dce6ea;
+}
+
 @media (max-width: 768px) {
 
   main {
@@ -681,6 +734,28 @@ h1 {
   </p>
 </div>
 
+<div class="dashboard-card" id="dateFilters">
+  <div class="date-filter-row">
+    <div>
+      <label>From</label>
+      <input type="date" id="startDate">
+    </div>
+
+    <div>
+      <label>To</label>
+      <input type="date" id="endDate">
+    </div>
+
+    <button onclick="applyDateFilter()">
+      Apply Filter
+    </button>
+
+    <button onclick="clearDateFilter()" class="secondary-btn">
+      Reset
+    </button>
+  </div>
+</div>
+
 <div class="main-dashboard">
 
   <div id="overall-leaderboard" class="dashboard-card">
@@ -769,15 +844,62 @@ const playerFullNames = {
   "eric": "Big Massive Eric"
 };
 
+const corePlayers = ["aaron", "heggie", "jacob", "calum"];
+
 let allVideos = [];
+let filteredVideos = [];
+let currentType = null;
 
 fetch('./videos.json')
   .then(res => res.json())
   .then(data => {
+
     allVideos = data.videos;
+    filteredVideos = [...allVideos];
+
     buildTypeButtons();
     buildOverallLeaderboard();
+
   });
+
+
+function applyDateFilter() {
+
+  const start = document.getElementById("startDate").value;
+  const end = document.getElementById("endDate").value;
+
+  filteredVideos = allVideos.filter(video => {
+
+    const date = video.releaseDate;
+
+    if (start && date < start) return false;
+    if (end && date > end) return false;
+
+    return true;
+  });
+
+  refreshDashboard();
+}
+
+function clearDateFilter() {
+
+  document.getElementById("startDate").value = "";
+  document.getElementById("endDate").value = "";
+
+  filteredVideos = [...allVideos];
+
+  refreshDashboard();
+}
+
+function refreshDashboard() {
+
+  buildTypeButtons();
+  buildOverallLeaderboard();
+
+  if (currentType) {
+    showStats(currentType);
+  }
+}
 
 function buildTypeButtons() {
 
@@ -787,7 +909,7 @@ function buildTypeButtons() {
   // Count videos per format
   const formatCounts = {};
 
-  allVideos.forEach(video => {
+  filteredVideos.forEach(video => {
     if (video.type === "misc") return; // still hide misc button
     if (video.type === "stream") return;
     if (video.type === "draft") return;
@@ -836,6 +958,8 @@ function formatType(type) {
 
 function showStats(type) {
 
+  currentType = type;
+
   document.getElementById("overall-leaderboard").classList.add("hidden");
   document.getElementById("type-selection").classList.add("hidden");
   document.getElementById("type-stats").classList.remove("hidden");
@@ -843,7 +967,7 @@ function showStats(type) {
   document.getElementById("typeTitle").textContent =
     formatType(type) + " Stats";
 
-  const typeVideos = allVideos.filter(v => v.type === type);
+  const typeVideos = filteredVideos.filter(v => v.type === type);
 
   const mode = formatModes[type] || "score";
 
@@ -1401,22 +1525,36 @@ function buildOverview(videos, type) {
 }
 
 function goBack() {
+
+  currentType = null;
+
   document.getElementById("type-selection").classList.remove("hidden");
   document.getElementById("overall-leaderboard").classList.remove("hidden");
   document.getElementById("type-stats").classList.add("hidden");
 }
+
 function buildOverallLeaderboard() {
   let medalTable = {};
+  let appearances = {};
 
-  allVideos.forEach(video => {
+  filteredVideos.forEach(video => {
 
   if (!video.scores) return;  // 🔥 prevent crash
 
   if (formatModes[video.type] === "team") return;
 
-  const entries = Object.entries(video.scores)
-    .sort((a,b) => b[1] - a[1]);
+  const isReverse = reverseScoreFormats[video.type];
 
+const entries = Object.entries(video.scores)
+  .sort((a,b) => {
+
+    const scoreA = typeof a[1] === "number" ? a[1] : a[1].score;
+    const scoreB = typeof b[1] === "number" ? b[1] : b[1].score;
+
+    return isReverse
+      ? scoreA - scoreB
+      : scoreB - scoreA;
+  });
 
 entries.forEach((entry, index) => {
 
@@ -1429,9 +1567,21 @@ entries.forEach((entry, index) => {
 
   members.forEach(player => {
 
-    if (!medalTable[player]) {
-      medalTable[player] = { gold: 0, silver: 0, bronze: 0, spoon: 0, points: 0 };
-    }
+  if (!medalTable[player]) {
+    medalTable[player] = {
+      gold: 0,
+      silver: 0,
+      bronze: 0,
+      spoon: 0,
+      points: 0
+    };
+  }
+
+  if (!appearances[player]) {
+    appearances[player] = 0;
+  }
+
+  appearances[player]++;
 
     if(index === 0) {
       medalTable[player].gold++;
@@ -1458,50 +1608,91 @@ entries.forEach((entry, index) => {
   const sorted = Object.entries(medalTable)
     .sort((a,b) => b[1].points - a[1].points);
 
+  const mainPlayers = sorted.filter(entry =>
+    corePlayers.includes(entry[0])
+  );
+
+  const guestPlayers = sorted.filter(entry =>
+    !corePlayers.includes(entry[0])
+  );
+
   const container = document.getElementById("leaderboardContent");
 
-  container.innerHTML = sorted.map(entry => {
+function renderLeaderboardRows(players) {
+
+  return players.map(entry => {
 
     const p = entry[1];
 
-return `
-  <div class="leaderboard-row">
+    return `
+      <div class="leaderboard-row">
 
-    <div class="leaderboard-left">
-      ${renderLeaderboardAvatars(entry[0])}
-      <div class="leaderboard-name">
-        ${formatCompetitorName(entry[0])}
-      </div>
-    </div>
+        <div class="leaderboard-left">
+          ${renderLeaderboardAvatars(entry[0])}
 
-    <div class="leaderboard-right">
-      <div class="leaderboard-medals">
-        <span>
-          <small>🥇</small>
-          <strong>${p.gold}</strong>
-        </span>
-        <span>
-          <small>🥈</small>
-          <strong>${p.silver}</strong>
-        </span>
-        <span>
-          <small>🥉</small>
-          <strong>${p.bronze}</strong>
-        </span>
-        <span class="spoon">
-          <small>🥄</small>
-          <strong>${p.spoon}</strong>
-        </span>
-      </div>
-      <div class="leaderboard-points">
-        ${p.points} pts
-      </div>
-    </div>
+          <div class="leaderboard-name">
+            ${formatCompetitorName(entry[0])}
+          </div>
 
-  </div>
-`;
+          <div class="leaderboard-roundwins-label">
+            ${appearances[entry[0]]} appearances
+          </div>
+        </div>
+
+        <div class="leaderboard-right">
+          <div class="leaderboard-medals">
+            <span>
+              <small>🥇</small>
+              <strong>${p.gold}</strong>
+            </span>
+            <span>
+              <small>🥈</small>
+              <strong>${p.silver}</strong>
+            </span>
+            <span>
+              <small>🥉</small>
+              <strong>${p.bronze}</strong>
+            </span>
+            <span class="spoon">
+              <small>🥄</small>
+              <strong>${p.spoon}</strong>
+            </span>
+          </div>
+
+          <div class="leaderboard-points">
+            ${p.points} pts
+          </div>
+        </div>
+
+      </div>
+    `;
   }).join("");
+}
 
+container.innerHTML = `
+  ${renderLeaderboardRows(mainPlayers)}
+
+  <div id="guestLeaderboard" class="hidden">
+    ${renderLeaderboardRows(guestPlayers)}
+  </div>
+
+  <button class="guest-toggle-btn" onclick="toggleGuests()">
+    View Guests
+  </button>
+`;
+
+}
+
+function toggleGuests() {
+
+  const guests = document.getElementById("guestLeaderboard");
+  const button = document.querySelector(".guest-toggle-btn");
+
+  guests.classList.toggle("hidden");
+
+  button.textContent = guests.classList.contains("hidden")
+    ? "View Guests"
+    : "Hide Guests";
 }
 
 function buildTeamScoreStats(videos) {
