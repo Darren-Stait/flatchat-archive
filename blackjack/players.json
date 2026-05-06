@@ -14,7 +14,7 @@
     { "name": "Olympic Games", "years": "2008" }
   ],
   "difficulty": "easy",
-  "image": "https://..."
+  "image": "./images/messi.png"
 },
 {
   "name": "Cristiano Ronaldo",
