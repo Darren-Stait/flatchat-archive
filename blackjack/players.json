@@ -31,7 +31,7 @@
     { "name": "Saudi Pro League Golden Boot", "years": "2024, 2025" }
   ],
   "difficulty": "easy",
-  "image": "https://..."
+  "image": "./images/ronaldo.png"
 },
 {
   "name": "Neymar",
@@ -48,7 +48,7 @@
     { "name": "Olympic Gold Medal", "years": "2016" }
   ],
   "difficulty": "easy",
-  "image": "https://..."
+  "image": "./images/neymar.png"
 },
 {
   "name": "Kylian Mbappé",
@@ -65,7 +65,7 @@
     { "name": "French Player of the Year", "years": "2018–2023" }
   ],
   "difficulty": "easy",
-  "image": "https://..."
+  "image": "./images/mbappe.png"
 },
 {
   "name": "Erling Haaland",
@@ -82,7 +82,7 @@
     { "name": "Bundesliga Player of the Season", "years": "2021" }
   ],
   "difficulty": "easy",
-  "image": "https://..."
+  "image": "./images/haaland.png"
 },
 {
   "name": "Kevin De Bruyne",
@@ -99,7 +99,7 @@
     { "name": "Bundesliga Player of the Year", "years": "2015" }
   ],
   "difficulty": "easy",
-  "image": "https://..."
+  "image": "./images/debruyne.png"
 },
 {
   "name": "Mohamed Salah",
@@ -116,7 +116,7 @@
     { "name": "African Footballer of the Year", "years": "2017, 2018" }
   ],
   "difficulty": "easy",
-  "image": "https://..."
+  "image": "./images/salah.png"
 },
 {
   "name": "Robert Lewandowski",
@@ -133,7 +133,7 @@
     { "name": "European Golden Shoe", "years": "2021, 2022" }
   ],
   "difficulty": "easy",
-  "image": "https://..."
+  "image": "./images/lewandowski.png"
 },
 {
   "name": "Pascal Groß",
@@ -146,7 +146,7 @@
     { "name": "2. Bundesliga", "years": "2009–10" }
   ],
   "difficulty": "medium",
-  "image": "https://..."
+  "image": "./images/gross.png"
 },
 {
   "name": "Dwight McNeil",
@@ -157,7 +157,7 @@
   "teammates": ["James Tarkowski", "Ashley Westwood", "Jordan Pickford", "Charlie Taylor", "Chris Wood", "Nick Pope", "Ben Mee", "Vitaliy Mykolenko", "Jay Rodríguez", "Jack Cork" ],
   "honours": [],
   "difficulty": "medium",
-  "image": "https://..."
+  "image": "./images/mcneil.png"
 },
 {
   "name": "Jarrod Bowen",
@@ -170,7 +170,7 @@
     { "name": "UEFA Europa Conference League", "years": "2022–23" }
   ],
   "difficulty": "medium",
-  "image": "https://..."
+  "image": "./images/bowen.png"
 },
 {
   "name": "James Ward-Prowse",
@@ -181,7 +181,7 @@
   "teammates": [ "Nathan Redmond", "Oriol Romeu", "Ryan Bertrand", "Shane Long", "Jan Bednarek", "Jack Stephens", "Stuart Armstrong", "Ché Adams", "Steven Davis", "Maya Yoshida" ],
   "honours": [],
   "difficulty": "medium",
-  "image": "https://..."
+  "image": "./images/ward-prowse.png"
 },
 {
   "name": "Joelinton",
@@ -192,7 +192,7 @@
   "teammates": [ "Miguel Almirón", "Fabian Schar", "Jacob Murphy", "Sean Longstaff", "Bruno Guimarães", "Dan Burn", "Joe Willock", "Kieran Trippier", "Martin Dubravka", "Anthony Gordon" ],
   "honours": [],
   "difficulty": "medium",
-  "image": "https://..."
+  "image": "./images/joelinton.png"
 },
 {
   "name": "John McGinn",
@@ -207,7 +207,7 @@
     { "name": "EFL Championship Play-offs", "years": "2018–19" }
   ],
   "difficulty": "medium",
-  "image": "https://..."
+  "image": "./images/mcginn.png"
 },
 {
   "name": "Hakan Çalhanoğlu",
@@ -222,7 +222,7 @@
     { "name": "Supercoppa Italiana", "years": "2021, 2022, 2023" }
   ],
   "difficulty": "medium",
-  "image": "https://..."
+  "image": "./images/calhanoglu.png"
 },
 {
   "name": "Jesús Navas",
@@ -238,7 +238,7 @@
     { "name": "Premier League", "years": "2013–14" }
   ],
   "difficulty": "medium",
-  "image": "https://..."
+  "image": "./images/navas.png"
 },
 {
   "name": "Dušan Tadić",
@@ -253,7 +253,7 @@
     { "name": "Johan Cruyff Shield", "years": "2019" }
   ],
   "difficulty": "hard",
-  "image": "https://..."
+  "image": "./images/tadic.png"
 },
 {
   "name": "Joselu",
@@ -268,7 +268,7 @@
     { "name": "UEFA Nations League", "years": "2022–23" }
   ],
   "difficulty": "hard",
-  "image": "https://..."
+  "image": "./images/joselu.png"
 },
 {
   "name": "Dani Parejo",
@@ -282,7 +282,7 @@
     { "name": "Copa del Rey", "years": "2018-19" }
   ],
   "difficulty": "hard",
-  "image": "https://..."
+  "image": "./images/parejo.png"
 },
 {
   "name": "Guido Rodríguez",
@@ -297,7 +297,7 @@
     { "name": "Copa del Rey", "years": "2021-22" }
   ],
   "difficulty": "hard",
-  "image": "https://..."
+  "image": "./images/rodriguez.png"
 },
 {
   "name": "Leandro Paredes",
@@ -312,7 +312,7 @@
     { "name": "Ligue 1", "years": "2018-19, 2019–20, 2021–22, 2022–23" }
   ],
   "difficulty": "hard",
-  "image": "https://..."
+  "image": "./images/paredes.png"
 },
 {
   "name": "Nicolás Tagliafico",
@@ -328,7 +328,7 @@
     { "name": "KNVB Cup", "years": "2018–19, 2020–21" }
   ],
   "difficulty": "hard",
-  "image": "https://..."
+  "image": "./images/tagliafico.png"
 },
 {
   "name": "Nahitan Nández",
@@ -342,7 +342,7 @@
     { "name": "Argentine Primera División", "years": "2017–18" }
   ],
   "difficulty": "hard",
-  "image": "https://..."
+  "image": "./images/nandez.png"
 },
 {
   "name": "Teun Koopmeiners",
@@ -355,6 +355,6 @@
     { "name": "UEFA Europa League", "years": "2023–24" }
   ],
   "difficulty": "hard",
-  "image": "https://..."
+  "image": "./images/koopmeiners.png"
 }
 ]
