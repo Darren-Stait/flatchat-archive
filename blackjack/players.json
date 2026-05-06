@@ -3,220 +3,358 @@
   "name": "Lionel Messi",
   "dob": "1987-06-24",
   "nationality": "Argentina",
+  "positions": ["Forward"],
+  "clubs": ["Barcelona", "Paris Saint-Germain", "Inter Miami"],
+  "teammates": ["Sergio Busquets", "Gerard Piqué", "Andrés Iniesta", "Jordi Alba", "Javier Mascherano", "Xavi", "Víctor Valdés", "Dani Alves", "Luis Suárez", "Ivan Rakitic" ],
+  "honours": [
+    { "name": "Champions League", "years": "2006, 2009, 2011, 2015" },
+    { "name": "Ballon d'Or", "years": "2009, 2010, 2011, 2012, 2015, 2019, 2021, 2023" },
+    { "name": "World Cup Golden Ball", "years": "2014, 2022" },
+    { "name": "Copa America", "years": "2021, 2024" },
+    { "name": "Olympic Games", "years": "2008" }
+  ],
   "difficulty": "easy",
-  "teammates": ["Xavi", "Iniesta", "Neymar"],
-  "leagues": ["La Liga", "Ligue 1", "MLS"],
-  "honours": ["Ballon d'Or", "Champions League", "World Cup"],
-  "clubs": ["Barcelona", "PSG", "Inter Miami"],
-  "positions": ["Forward"]
+  "image": "https://..."
 },
 {
   "name": "Cristiano Ronaldo",
   "dob": "1985-02-05",
   "nationality": "Portugal",
+  "positions": ["Forward"],
+  "clubs": ["Sporting CP", "Manchester United", "Real Madrid", "Juventus", "Al Nassr"],
+  "teammates": ["Pepe", "Karim Benzema", "Sergio Ramos", "Marcelo", "Raphaël Varane", "Iker Casillas", "Luka Modrić", "Rio Ferdinand", "John O'Shea", "Xabi Alonso" ],
+  "honours": [
+    { "name": "Champions League", "years": "2008, 2014, 2016, 2017, 2018" },
+    { "name": "Ballon d'Or", "years": "2008, 2013, 2014, 2016, 2017" },
+    { "name": "Puskas Award", "years": "2009" },
+    { "name": "European Championship", "years": "2016" },
+    { "name": "Saudi Pro League Golden Boot", "years": "2024, 2025" }
+  ],
   "difficulty": "easy",
-  "teammates": ["Benzema", "Modric", "Rooney"],
-  "leagues": ["Premier League", "La Liga", "Serie A", "Saudi Pro League"],
-  "honours": ["Ballon d'Or", "Champions League", "Euros"],
-  "clubs": ["Man United", "Real Madrid", "Juventus", "Al Nassr"],
-  "positions": ["Forward"]
+  "image": "https://..."
 },
 {
   "name": "Neymar",
   "dob": "1992-02-05",
   "nationality": "Brazil",
+  "positions": ["Attacking Midfielder", "Forward"],
+  "clubs": ["Santos", "Barcelona", "Paris Saint-Germain", "Al Hilal"],
+  "teammates": ["Lionel Messi", "Marquinhos", "Dani Alves", "Durval", "Sergio Busquets", "Rafael Cabral", "Arouca", "Gerard Piqué", "Javier Mascherano", "Thiago Silva" ],
+  "honours": [
+    { "name": "Champions League", "years": "2015" },
+    { "name": "La Liga", "years": "2015, 2016" },
+    { "name": "Ligue 1", "years": "2018–2023" },
+    { "name": "Copa Libertadores", "years": "2011" },
+    { "name": "Olympic Gold Medal", "years": "2016" }
+  ],
   "difficulty": "easy",
-  "teammates": ["Messi", "Mbappe", "Suarez"],
-  "leagues": ["La Liga", "Ligue 1", "Saudi Pro League"],
-  "honours": ["Champions League", "Olympic Gold"],
-  "clubs": ["Barcelona", "PSG", "Al Hilal"],
-  "positions": ["Forward"]
+  "image": "https://..."
 },
 {
-  "name": "Kylian Mbappe",
+  "name": "Kylian Mbappé",
   "dob": "1998-12-20",
   "nationality": "France",
+  "positions": ["Forward"],
+  "clubs": ["Monaco", "Paris Saint-Germain", "Real Madrid"],
+  "teammates": ["Marquinhos", "Presnel Kimpembe", "Marco Verratti", "Ángel Di María", "Neymar", "Danilo Pereira", "Julian Draxler", "Aurélien Tchouaméni", "Thilo Kehrer", "Achraf Hakimi" ],
+  "honours": [
+    { "name": "World Cup", "years": "2018" },
+    { "name": "Ligue 1", "years": "2017–2023" },
+    { "name": "Nations League", "years": "2021" },
+    { "name": "Golden Boot (World Cup)", "years": "2022" },
+    { "name": "French Player of the Year", "years": "2018–2023" }
+  ],
   "difficulty": "easy",
-  "teammates": ["Neymar", "Messi", "Griezmann"],
-  "leagues": ["Ligue 1"],
-  "honours": ["World Cup"],
-  "clubs": ["PSG"],
-  "positions": ["Forward"]
-},
-{
-  "name": "Kevin De Bruyne",
-  "dob": "1991-06-28",
-  "nationality": "Belgium",
-  "difficulty": "easy",
-  "teammates": ["Haaland", "Sterling", "Aguero"],
-  "leagues": ["Premier League", "Bundesliga"],
-  "honours": ["Champions League", "Premier League"],
-  "clubs": ["Man City", "Wolfsburg", "Chelsea"],
-  "positions": ["Midfielder"]
+  "image": "https://..."
 },
 {
   "name": "Erling Haaland",
   "dob": "2000-07-21",
   "nationality": "Norway",
+  "positions": ["Forward"],
+  "clubs": ["Bryne", "Molde", "Red Bull Salzburg", "Borussia Dortmund", "Manchester City"],
+  "teammates": ["Manuel Akanji", "Bernardo Silva", "Phil Foden", "Rúben Dias", "Rodri", "Ederson", "Jérémy Doku", "Nathan Aké", "Josko Gvardiol", "Kevin De Bruyne" ],
+  "honours": [
+    { "name": "Champions League", "years": "2023" },
+    { "name": "Premier League", "years": "2023, 2024" },
+    { "name": "FA Cup", "years": "2023" },
+    { "name": "Golden Boot (Premier League)", "years": "2023, 2024" },
+    { "name": "Bundesliga Player of the Season", "years": "2021" }
+  ],
   "difficulty": "easy",
-  "teammates": ["De Bruyne", "Bellingham", "Sancho"],
-  "leagues": ["Premier League", "Bundesliga"],
-  "honours": ["Champions League"],
-  "clubs": ["Man City", "Dortmund"],
-  "positions": ["Forward"]
+  "image": "https://..."
 },
 {
-  "name": "Luka Modric",
-  "dob": "1985-09-09",
-  "nationality": "Croatia",
-  "difficulty": "medium",
-  "teammates": ["Ronaldo", "Benzema", "Kroos"],
-  "leagues": ["La Liga", "Premier League"],
-  "honours": ["Ballon d'Or", "Champions League"],
-  "clubs": ["Real Madrid", "Tottenham"],
-  "positions": ["Midfielder"]
+  "name": "Kevin De Bruyne",
+  "dob": "1991-06-28",
+  "nationality": "Belgium",
+  "positions": ["Midfielder"],
+  "clubs": [ "Genk", "Chelsea", "Werder Bremen", "VFL Wolfsburg", "Manchester City", "Napoli" ],
+  "teammates": ["Ederson", "Bernardo Silva", "Raheem Sterling", "Kyle Walker", "İlkay Gündoğan", "Fernandinho", "John Stones", "Rodri", "Phil Foden", "Nicolás Otamendi" ],
+  "honours": [
+    { "name": "Champions League", "years": "2023" },
+    { "name": "Premier League", "years": "2018, 2019, 2021, 2022, 2023" },
+    { "name": "FA Cup", "years": "2019, 2023" },
+    { "name": "Premier League Player of the Season", "years": "2020, 2022" },
+    { "name": "Bundesliga Player of the Year", "years": "2015" }
+  ],
+  "difficulty": "easy",
+  "image": "https://..."
 },
 {
-  "name": "Toni Kroos",
-  "dob": "1990-01-04",
+  "name": "Mohamed Salah",
+  "dob": "1992-06-15",
+  "nationality": "Egypt",
+  "positions": ["Right winger"],
+  "clubs": [ "Al-Mokawloon", "Basel", "Chelsea", "Fiorentina", "Roma", "Liverpool" ],
+  "teammates": ["Andrew Robertson", "Virgil van Dijk", "Trent Alexander-Arnold", "Alisson", "Roberto Firmino", "Jordan Henderson", "Sadio Mané", "James Milner", "Joe Gomez", "Fabinho" ],
+  "honours": [
+    { "name": "Champions League", "years": "2019" },
+    { "name": "Premier League", "years": "2020" },
+    { "name": "FA Cup", "years": "2022" },
+    { "name": "Golden Boot (Premier League)", "years": "2018, 2019, 2022" },
+    { "name": "African Footballer of the Year", "years": "2017, 2018" }
+  ],
+  "difficulty": "easy",
+  "image": "https://..."
+},
+{
+  "name": "Robert Lewandowski",
+  "dob": "1988-07-21",
+  "nationality": "Poland",
+  "positions": ["Striker"],
+  "clubs": [ "Znicz Pruszków", "Lech Poznań", "Borussia Dortmund", "Bayern Munich", "FC Barcelona" ],
+  "teammates": ["Thomas Müller", "Manuel Neuer", "Joshua Kimmich", "Mats Hummels", "David Alaba", "Lukasz Piszczek", "Kingsley Coman", "Jakub Błaszczykowski", "Jérôme Boateng", "Thiago Alcántara" ],
+  "honours": [
+    { "name": "Champions League", "years": "2020" },
+    { "name": "Bundesliga", "years": "2011–2022" },
+    { "name": "La Liga", "years": "2023" },
+    { "name": "FIFA Best Player", "years": "2020, 2021" },
+    { "name": "European Golden Shoe", "years": "2021, 2022" }
+  ],
+  "difficulty": "easy",
+  "image": "https://..."
+},
+{
+  "name": "Pascal Groß",
+  "dob": "1991-06-15",
   "nationality": "Germany",
+  "positions": ["Midfielder"],
+  "clubs": [ "TSG Hoffenheim", "Karlsruher SC", "FC Ingolstadt", "Brighton & Hove Albion", "Borussia Dortmund" ],
+  "teammates": ["Lewis Dunk", "Solly March", "Marvin Matip", "Joël Veltman", "Roger Bernardo", "Danny Welbeck", "Adam Webster", "Ramazan Özcan", "Alfredo Morales", "Moritz Hartmann" ],
+  "honours": [
+    { "name": "2. Bundesliga", "years": "2009–10" }
+  ],
   "difficulty": "medium",
-  "teammates": ["Modric", "Ronaldo", "Muller"],
-  "leagues": ["La Liga", "Bundesliga"],
-  "honours": ["World Cup", "Champions League"],
-  "clubs": ["Real Madrid", "Bayern Munich"],
-  "positions": ["Midfielder"]
+  "image": "https://..."
 },
 {
-  "name": "Thomas Muller",
-  "dob": "1989-09-13",
-  "nationality": "Germany",
+  "name": "Dwight McNeil",
+  "dob": "1999-11-22",
+  "nationality": "England",
+  "positions": ["Winger"],
+  "clubs": [ "Burnley", "Everton" ],
+  "teammates": ["James Tarkowski", "Ashley Westwood", "Jordan Pickford", "Charlie Taylor", "Chris Wood", "Nick Pope", "Ben Mee", "Vitaliy Mykolenko", "Jay Rodríguez", "Jack Cork" ],
+  "honours": [],
   "difficulty": "medium",
-  "teammates": ["Neuer", "Kroos", "Lewandowski"],
-  "leagues": ["Bundesliga"],
-  "honours": ["World Cup", "Champions League"],
-  "clubs": ["Bayern Munich"],
-  "positions": ["Forward"]
+  "image": "https://..."
 },
 {
-  "name": "Manuel Neuer",
-  "dob": "1986-03-27",
-  "nationality": "Germany",
+  "name": "Jarrod Bowen",
+  "dob": "1996-12-20",
+  "nationality": "England",
+  "positions": ["Right winger", "Forward"],
+  "clubs": [ "Hereford United", "Hull City", "West Ham United" ],
+  "teammates": [ "Tomáš Souček", "Michail Antonio", "Vladimír Coufal", "Pablo Fornals", "Declan Rice", "Lukasz Fabianski", "Aaron Cresswell", "Lucas Paquetá", "Saïd Benrahma", "Alphonse Areola" ],
+  "honours": [
+    { "name": "UEFA Europa Conference League", "years": "2022–23" }
+  ],
   "difficulty": "medium",
-  "teammates": ["Muller", "Boateng", "Lahm"],
-  "leagues": ["Bundesliga"],
-  "honours": ["World Cup", "Champions League"],
-  "clubs": ["Bayern Munich", "Schalke"],
-  "positions": ["Goalkeeper"]
+  "image": "https://..."
 },
 {
-  "name": "Xavi",
-  "dob": "1980-01-25",
+  "name": "James Ward-Prowse",
+  "dob": "1994-11-01",
+  "nationality": "England",
+  "positions": ["Central midfielder"],
+  "clubs": [ "Southampton", "West Ham United", "Nottingham Forest", "Burnley" ],
+  "teammates": [ "Nathan Redmond", "Oriol Romeu", "Ryan Bertrand", "Shane Long", "Jan Bednarek", "Jack Stephens", "Stuart Armstrong", "Ché Adams", "Steven Davis", "Maya Yoshida" ],
+  "honours": [],
+  "difficulty": "medium",
+  "image": "https://..."
+},
+{
+  "name": "Joelinton",
+  "dob": "1996-08-14",
+  "nationality": "Brazil",
+  "positions": ["Midfielder", "Winger"],
+  "clubs": [ "Sport Recife", "TSG Hoffenheim", "Rapid Wien", "Newcastle United" ],
+  "teammates": [ "Miguel Almirón", "Fabian Schar", "Jacob Murphy", "Sean Longstaff", "Bruno Guimarães", "Dan Burn", "Joe Willock", "Kieran Trippier", "Martin Dubravka", "Anthony Gordon" ],
+  "honours": [],
+  "difficulty": "medium",
+  "image": "https://..."
+},
+{
+  "name": "John McGinn",
+  "dob": "1994-10-18",
+  "nationality": "Scotland",
+  "positions": ["Midfielder"],
+  "clubs": [ "St Mirren", "Hibernian", "Aston Villa" ],
+  "teammates": [ "Ezri Konsa", "Ollie Watkins", "Emiliano Martínez", "Matty Cash", "Douglas Luiz", "Tyrone Mings", "Lucas Digne", "Darren McGregor", "Lewis Stevenson", "Jacob Ramsey" ],
+  "honours": [
+    { "name": "Scottish Cup", "years": "2015–16" },
+    { "name": "Scottish League Cup", "years": "2012-13" },
+    { "name": "EFL Championship Play-offs", "years": "2018–19" }
+  ],
+  "difficulty": "medium",
+  "image": "https://..."
+},
+{
+  "name": "Hakan Çalhanoğlu",
+  "dob": "1994-02-08",
+  "nationality": "Turkey",
+  "positions": ["Midfielder"],
+  "clubs": [ "Karlsruher SC", "Hamburger SV", "Bayer Leverkusen", "AC Milan", "Inter Milan" ],
+  "teammates": [ "Nicolò Barella", "Lautaro Martínez", "Alessandro Bastoni", "Federico Dimarco", "Denzel Dumfries", "Gianluigi Donnarumma", "Franck Kessié", "Matteo Darmian", "Alessio Romagnoli", "Henrikh Mkhitaryan" ],
+  "honours": [
+    { "name": "Serie A", "years": "2023–24, 2025-26" },
+    { "name": "Coppa Italia", "years": "2021–22, 2022–23" },
+    { "name": "Supercoppa Italiana", "years": "2021, 2022, 2023" }
+  ],
+  "difficulty": "medium",
+  "image": "https://..."
+},
+{
+  "name": "Jesús Navas",
+  "dob": "1985-11-21",
   "nationality": "Spain",
+  "positions": ["Right Back", "Right Winger"],
+  "clubs": [ "Sevilla", "Manchester City" ],
+  "teammates": [ "Andrés Palop", "Frédéric Kanouté", "Ivan Rakitic", "Fernando", "Renato", "Luís Fabiano", "Julien Escudé", "Álvaro Negredo", "Fernando Navarro", "Adriano" ],
+  "honours": [
+    { "name": "FIFA World Cup", "years": "2010" },
+    { "name": "UEFA European Championship", "years": "2012, 2024" },
+    { "name": "UEFA Europa League", "years": "2005–06, 2006–07, 2013–14, 2019–20, 2022–23" },
+    { "name": "Premier League", "years": "2013–14" }
+  ],
   "difficulty": "medium",
-  "teammates": ["Iniesta", "Messi", "Busquets"],
-  "leagues": ["La Liga"],
-  "honours": ["World Cup", "Champions League"],
-  "clubs": ["Barcelona"],
-  "positions": ["Midfielder"]
+  "image": "https://..."
 },
 {
-  "name": "Andres Iniesta",
-  "dob": "1984-05-11",
-  "nationality": "Spain",
-  "difficulty": "medium",
-  "teammates": ["Xavi", "Messi", "Villa"],
-  "leagues": ["La Liga", "J League"],
-  "honours": ["World Cup", "Champions League"],
-  "clubs": ["Barcelona", "Vissel Kobe"],
-  "positions": ["Midfielder"]
-},
-{
-  "name": "Zlatan Ibrahimovic",
-  "dob": "1981-10-03",
-  "nationality": "Sweden",
-  "difficulty": "medium",
-  "teammates": ["Messi", "Pogba", "Thiago Silva"],
-  "leagues": ["Serie A", "Ligue 1", "La Liga", "MLS"],
-  "honours": ["League Titles"],
-  "clubs": ["Milan", "PSG", "Barcelona", "LA Galaxy"],
-  "positions": ["Forward"]
-},
-{
-  "name": "Paul Pogba",
-  "dob": "1993-03-15",
-  "nationality": "France",
-  "difficulty": "medium",
-  "teammates": ["Ronaldo", "Mbappe", "Kante"],
-  "leagues": ["Premier League", "Serie A"],
-  "honours": ["World Cup"],
-  "clubs": ["Man United", "Juventus"],
-  "positions": ["Midfielder"]
-},
-{
-  "name": "N'Golo Kante",
-  "dob": "1991-03-29",
-  "nationality": "France",
-  "difficulty": "medium",
-  "teammates": ["Pogba", "Hazard", "Mahrez"],
-  "leagues": ["Premier League", "Saudi Pro League"],
-  "honours": ["World Cup", "Champions League"],
-  "clubs": ["Chelsea", "Leicester", "Al Ittihad"],
-  "positions": ["Midfielder"]
-},
-{
-  "name": "Riyad Mahrez",
-  "dob": "1991-02-21",
-  "nationality": "Algeria",
+  "name": "Dušan Tadić",
+  "dob": "1988-11-20",
+  "nationality": "Serbia",
+  "positions": ["Attacking Midfielder", "Forward"],
+  "clubs": [ "Vojvodina", "Groningen", "Twente", "Southampton", "Ajax", "Fenerbahçe", "Al Wahda" ],
+  "teammates": [ "Daley Blind", "Nicolás Tagliafico", "Edson Álvarez", "Davy Klaassen", "André Onana", "Noussair Mazraoui", "Ryan Bertrand", "Steven Davis", "David Neres", "Jurriën Timber" ],
+  "honours": [
+    { "name": "Eredivisie", "years": "2018–19, 2020–21, 2021–22" },
+    { "name": "KNVB Cup", "years": "2018–19, 2020–21" },
+    { "name": "Johan Cruyff Shield", "years": "2019" }
+  ],
   "difficulty": "hard",
-  "teammates": ["De Bruyne", "Vardy", "Sterling"],
-  "leagues": ["Premier League"],
-  "honours": ["Premier League", "Champions League"],
-  "clubs": ["Man City", "Leicester"],
-  "positions": ["Winger"]
+  "image": "https://..."
 },
 {
-  "name": "Jamie Vardy",
-  "dob": "1987-01-11",
-  "nationality": "England",
-  "difficulty": "medium",
-  "teammates": ["Mahrez", "Kante"],
-  "leagues": ["Premier League"],
-  "honours": ["Premier League"],
-  "clubs": ["Leicester"],
-  "positions": ["Forward"]
+  "name": "Joselu",
+  "dob": "1990-03-27",
+  "nationality": "Spain",
+  "positions": ["Striker"],
+  "clubs": [ "Celta", "Real Madrid", "TSG Hoffenheim", "Eintracht Frankfurt", "Hannover 96", "Stoke City", "Deportivo La Coruña", "Newcastle United", "Alavés", "Espanyol", "Al-Gharafa" ],
+  "teammates": [ "Fernando Pacheco", "Nacho Fernández", "Daniel Carvajal", "Luis Rioja", "Víctor Laguardia", "Rubén Duarte", "Florian Lejeune", "Juanfran Moreno", "Tomás Pina", "Martín Aguirregabiria" ],
+  "honours": [ 
+    { "name": "UEFA Champions League", "years": "2023–24" },
+    { "name": "UEFA European Championship", "years": "2024" },
+    { "name": "UEFA Nations League", "years": "2022–23" }
+  ],
+  "difficulty": "hard",
+  "image": "https://..."
 },
 {
-  "name": "Harry Kane",
-  "dob": "1993-07-28",
-  "nationality": "England",
-  "difficulty": "easy",
-  "teammates": ["Son", "Alli"],
-  "leagues": ["Premier League", "Bundesliga"],
-  "honours": [],
-  "clubs": ["Tottenham", "Bayern Munich"],
-  "positions": ["Forward"]
+  "name": "Dani Parejo",
+  "dob": "1989-04-16",
+  "nationality": "Spain",
+  "positions": ["Central Midfielder"],
+  "clubs": [ "Real Madrid", "Queens Park Rangers", "Getafe", "Valencia", "Villarreal" ],
+  "teammates": [ "José Gayà", "Rodrigo", "Alfonso Pedraza", "Paco Alcácer", "Francis Coquelin", "Gerard Moreno", "Raúl Albiol", "Yéremy Pino", "Sofiane Feghouli", "Diego Alves" ],
+  "honours": [
+    { "name": "UEFA Europa League", "years": "2020–21" },
+    { "name": "Copa del Rey", "years": "2018-19" }
+  ],
+  "difficulty": "hard",
+  "image": "https://..."
 },
 {
-  "name": "Son Heung-min",
-  "dob": "1992-07-08",
-  "nationality": "South Korea",
-  "difficulty": "easy",
-  "teammates": ["Kane", "Eriksen"],
-  "leagues": ["Premier League"],
-  "honours": [],
-  "clubs": ["Tottenham"],
-  "positions": ["Forward"]
+  "name": "Guido Rodríguez",
+  "dob": "1994-04-12",
+  "nationality": "Argentina",
+  "positions": ["Defensive Midfielder"],
+  "clubs": [ "River Plate", "Defensa y Justicia", "Tijuana", "América", "Real Betis", "West Ham United", "Valencia" ],
+  "teammates": [ "Borja Iglesias", "Sergio Canales", "William Carvalho", "Germán Pezzella", "Paul Aguilar", "Nabil Fekir", "Emanuel Aguilera", "Bruno Valdez", "Agustín Marchesín", "Aitor Ruibal" ],
+  "honours": [
+    { "name": "FIFA World Cup", "years": "2022" },
+    { "name": "Copa América", "years": "2021, 2024" },
+    { "name": "Copa del Rey", "years": "2021-22" }
+  ],
+  "difficulty": "hard",
+  "image": "https://..."
 },
 {
-  "name": "Jude Bellingham",
-  "dob": "2003-06-29",
-  "nationality": "England",
-  "difficulty": "easy",
-  "teammates": ["Haaland", "Vinicius"],
-  "leagues": ["Bundesliga", "La Liga"],
-  "honours": ["Champions League"],
-  "clubs": ["Dortmund", "Real Madrid"],
-  "positions": ["Midfielder"]
+  "name": "Leandro Paredes",
+  "dob": "1994-06-29",
+  "nationality": "Argentina",
+  "positions": ["Defensive Midfielder"],
+  "clubs": [ "Boca Juniors", "Chievo", "Roma", "Empoli", "Zenit Saint Petersburg", "Paris Saint-Germain", "Juventus" ],
+  "teammates": [ "Ángel Di María", "Kylian Mbappé", "Stephan El Shaarawy", "Marquinhos", "Presnel Kimpembe", "Paulo Dybala", "Lionel Messi", "Gianluca Mancini", "Marco Verratti", "Thilo Kehrer" ],
+  "honours": [
+    { "name": "FIFA World Cup", "years": "2022" },
+    { "name": "Copa América", "years": "2021, 2024" },
+    { "name": "Ligue 1", "years": "2018-19, 2019–20, 2021–22, 2022–23" }
+  ],
+  "difficulty": "hard",
+  "image": "https://..."
+},
+{
+  "name": "Nicolás Tagliafico",
+  "dob": "1992-08-31",
+  "nationality": "Argentina",
+  "positions": ["Left-back"],
+  "clubs": [ "Banfield", "Real Murcia", "Independiente", "Ajax", "Lyon" ],
+  "teammates": [ "Dušan Tadić", "André Onana", "Daley Blind", "Corentin Tolisso", "David Neres", "Gustavo Toledo", "Noussair Mazraoui", "Martín Benítez", "Rayan Cherki", "Lisandro Martínez" ],
+  "honours": [
+    { "name": "FIFA World Cup", "years": "2022" },
+    { "name": "Copa América", "years": "2021, 2024" },
+    { "name": "Eredivisie", "years": "2018–19, 2020–21, 2021–22" },
+    { "name": "KNVB Cup", "years": "2018–19, 2020–21" }
+  ],
+  "difficulty": "hard",
+  "image": "https://..."
+},
+{
+  "name": "Nahitan Nández",
+  "dob": "1995-12-28",
+  "nationality": "Uruguay",
+  "positions": ["Midfielder", "Right-back", "Winger"],
+  "clubs": [ "Peñarol", "Boca Juniors", "Cagliari", "Al-Qadsiah" ],
+  "teammates": [ "Gabriele Zappa", "João Pedro", "Gastón Guruceaga", "Leonardo Pavoletti", "Alessandro Deiola", "Diego Godín", "Charalampos Lykogiannis", "Gastón Pereiro", "Nacho Fernández", "Koen Casteels"],
+  "honours": [
+    { "name": "Supercopa Argentina", "years": "2018" },
+    { "name": "Argentine Primera División", "years": "2017–18" }
+  ],
+  "difficulty": "hard",
+  "image": "https://..."
+},
+{
+  "name": "Teun Koopmeiners",
+  "dob": "1998-02-28",
+  "nationality": "Netherlands",
+  "positions": ["Midfielder"],
+  "clubs": [ "AZ", "Atalanta", "Juventus" ],
+  "teammates": [ "Marco Bizot", "Fredrik Midtsjø", "Calvin Stengs", "Owen Wijndal", "Jonas Svensson", "Marten de Roon", "Pantelis Hatzidiakos", "Myron Boadu", "Mario Pašalić", "Berat Djimsiti"],
+  "honours": [
+    { "name": "UEFA Europa League", "years": "2023–24" }
+  ],
+  "difficulty": "hard",
+  "image": "https://..."
 }
 ]
