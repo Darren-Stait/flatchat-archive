@@ -8675,7 +8675,7 @@
       "scores": {
         "jacob": 3,
         "calum": 1,
-        "aarom": 1
+        "aaron": 1
       },
       "moments": [
         {
@@ -9256,11 +9256,104 @@
       "type": "millionpounddrop"
     },
     {
+      "id": "codenames-2024-08-31",
+      "title": "UNBELIEVABLE PERFORMANCES As Football CODENAMES Returns!!!",
+      "youtubeId": "FawAD6mT7HE",
+      "releaseDate": "2024-08-31",
+      "type": "codenames",
+      "results": [
+        { "winner": "calum-heggie", "loser": "aaron-jacob" },
+        { "winner": "calum-heggie", "loser": "aaron-jacob" },
+        { "winner": "calum-heggie", "loser": "aaron-jacob" }
+      ]
+    },
+    {
+      "id": "weakestlink-2024-08-30",
+      "title": "Our MOST CHAOTIC FOOTBALL QUIZ YET!!! The Football WEAKEST LINK!!!",
+      "youtubeId": "ECYfBaM4y2c",
+      "releaseDate": "2024-08-30",
+      "type": "weakestlink"
+    },
+    {
+      "id": "millionaire-2024-08-27",
+      "title": "SHOCKING PERFORMANCE in Who Wants To Be A FOOTBALL MILLIONAIRE QUIZ!!!",
+      "youtubeId": "5nIzsUIfpeQ",
+      "releaseDate": "2024-08-27",
+      "type": "millionaire"
+    },
+    {
+      "id": "tenable-2024-08-26",
+      "title": "One Of The GREATEST PERFORMANCES EVER In These FOOTBALL TENABLES!!!",
+      "youtubeId": "76MZf--44vc",
+      "releaseDate": "2024-08-26",
+      "type": "tenable",
+      "scores": {
+        "jacob-calum-heggie-aaron": {
+          "score": 36,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "careerpath-2024-08-24",
+      "title": "The *ULTIMATE* Football CAREER PATH Quiz!!! Test YOUR Ball Knowledge HERE!!",
+      "youtubeId": "gJcYjQ2_3KM",
+      "releaseDate": "2024-08-24",
+      "type": "careerpath",
+      "scores": {
+        "jacob-calum-aaron": {
+          "score": 11,
+          "max": 15
+        }
+      }
+    },
+    {
+      "id": "whq-2024-08-23",
+      "title": "The *OFFICIAL* HARDEST FOOTBALL QUIZ Ever Created!!!",
+      "youtubeId": "Nlz-71OQwjY",
+      "releaseDate": "2024-08-23",
+      "type": "whq",
+      "scores": {
+        "heggie-aaron": {
+          "score": 18,
+          "max": 31
+        }
+      }
+    },
+    {
+      "id": "tenable-2024-08-21",
+      "title": "FOOTBALL TENABLES... VIEWERS VS THE FLAT CHAT EDITION!!!",
+      "youtubeId": "hWFk9RBcuZc",
+      "releaseDate": "2024-08-21",
+      "type": "tenable",
+      "scores": {
+        "heggie-aaron-calum": {
+          "score": 36,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "catchphrase-2024-08-20",
+      "title": "FOOTBALL CATCHPHRASE… QUICKFIRE EDITION!!!",
+      "youtubeId": "HBywuu90blY",
+      "releaseDate": "2024-08-20",
+      "type": "catchphrase",
+      "scores": {
+        "heggie": 2,
+        "calum": 5
+      }
+    },
+    {
       "id": "pointless-2024-08-19",
       "title": "The GREATEST FOOTBALL POINTLESS Game Of All Time!!!",
       "youtubeId": "JrYLcbFQBAc",
       "releaseDate": "2024-08-19",
       "type": "pointless",
+      "scores": {
+        "aaron": 271,
+        "calum": 225
+      },
       "moments": [
         {
           "id": "jacob-kidding-me-on",
@@ -9278,11 +9371,44 @@
       ]
     },
     {
+      "id": "millionpounddrop-2024-08-17",
+      "title": "Football MILLION POUND Drop QUIZ!!! GENERATIONAL Performance From THE GOAT???",
+      "youtubeId": "o_povA7rSdM",
+      "releaseDate": "2024-08-17",
+      "type": "millionpounddrop"
+    },
+    {
+      "id": "misc-2024-08-16",
+      "title": "Our PREMIER LEAGUE 24/25 PREDICTIONS!!!",
+      "youtubeId": "I7LNH_NVUzM",
+      "releaseDate": "2024-08-16",
+      "type": "misc"
+    },
+    {
+      "id": "tenable-2024-08-14",
+      "title": "Some Old-School FOOTBALL TENABLES!!! Can You Score 40/40???",
+      "youtubeId": "cYSFbxE9pEE",
+      "releaseDate": "2024-08-14",
+      "type": "tenable",
+      "scores": {
+        "heggie-aaron-calum": {
+          "score": 36,
+          "max": 40
+        }
+      }
+    },
+    {
       "id": "whq-2024-08-13",
       "title": "The WORLDS HARDEST FOOTBALL QUIZ!! You Have To Be A FOOTBALLING GENIUS To Pass This!",
       "youtubeId": "nuDJF3kupOE",
       "releaseDate": "2024-08-13",
-      "type": "whq"
+      "type": "whq",
+      "scores": {
+        "aaron-calum-jacob": {
+          "score": 23,
+          "max": 31
+        }
+      }
     },
     {
       "id": "1-percent-club-2024-08-12",
@@ -9307,11 +9433,35 @@
       ]
     },
     {
+      "id": "catchphrase-2024-08-10",
+      "title": "The CRAZIEST FOOTBALL CATCHPHRASE Match Of All Time!!!",
+      "youtubeId": "S9q2eOhHS4E",
+      "releaseDate": "2024-08-10",
+      "type": "catchphrase",
+      "scores": {
+        "aaron": 2,
+        "calum": 3
+      }
+    },
+    {
+      "id": "millionaire-2024-08-09",
+      "title": "Who Wants To Be A FOOTBALL MILLIONAIRE QUIZ!!!",
+      "youtubeId": "WoBo5wB66x0",
+      "releaseDate": "2024-08-09",
+      "type": "millionaire"
+    },
+    {
       "id": "tenable-2024-08-07",
       "title": "TOM GARRATT Returns To Complete More FOOTBALL TENABLES!!! @TomGarrattVlogs",
       "youtubeId": "r-sPJ0IcywA",
       "releaseDate": "2024-08-07",
       "type": "tenable",
+      "scores": {
+        "aaron-calum-jacob-heggie-tom": {
+          "score": 29,
+          "max": 40
+        }
+      },
       "moments": [
         {
           "id": "calum-hes-british",
@@ -9327,6 +9477,33 @@
           ]
         }
       ]
+    },
+    {
+      "id": "millionpounddrop-2024-08-05",
+      "title": "The Football MILLION POUND DROP Returns!!!",
+      "youtubeId": "rldewSDzIPA",
+      "releaseDate": "2024-08-05",
+      "type": "millionpounddrop"
+    },
+    {
+      "id": "whq-2024-07-31",
+      "title": "Can You Complete THE WORLDS HARDEST FOOTBALL QUIZ???",
+      "youtubeId": "8Pcnf0Lrl_0",
+      "releaseDate": "2024-07-31",
+      "type": "whq",
+      "scores": {
+        "aaron-calum-heggie": {
+          "score": 21,
+          "max": 31
+        }
+      }
+    },
+    {
+      "id": "1-percent-club-2024-07-30",
+      "title": "Only A FOOTBALL GENIUS Will Be Able To Complete This FOOTBALL 1% CLUB QUIZ!!!",
+      "youtubeId": "euzGuio8e2Q",
+      "releaseDate": "2024-07-30",
+      "type": "1-percent-club"
     },
     {
       "id": "millionpounddrop-2024-06-30",
