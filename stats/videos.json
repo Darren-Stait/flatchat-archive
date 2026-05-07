@@ -3935,12 +3935,6 @@
       "youtubeId": "NLsIV74gDZU",
       "releaseDate": "2025-09-13",
       "type": "face-blindness",
-      "scores": {
-        "aaron-jacob-calum-heggie": {
-          "score": 17,
-          "max": 70
-        }
-      },
       "moments": [
         {
           "id": "aaron-lift-title",
