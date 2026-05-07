@@ -1,5 +1,5 @@
 {
-  "current_progress": "This *FOOTBALL POINTLESS* Answer Had The Boys In ABSOLUTE STITCHES!!!",  
+  "current_progress": "TOP TIER KNOWLEDGE In This FOOTBALL MILLION POUND DROP Quiz!!!",  
   "videos": [
     {
       "id": "tension-2026-05-06",
@@ -8577,11 +8577,106 @@
       ]
     },
     {
+      "id": "whq-2024-10-31",
+      "title": "This WORLDS HARDEST FOOTBALL QUIZ Was One Of Our TRICKIEST EVER!!!",
+      "youtubeId": "4f4xDb-752A",
+      "releaseDate": "2024-10-31",
+      "type": "whq",
+      "scores": {
+        "calum-aaron-heggie": {
+          "score": 21,
+          "max": 35
+        }
+      }
+    },
+    {
+      "id": "tenable-2024-10-30",
+      "title": "We Brought Back GENERAL KNOWLEDGE TENABLES And The Categories Were TOP TIER!!!",
+      "youtubeId": "D-5YFTt6RKA",
+      "releaseDate": "2024-10-30",
+      "type": "tenable",
+      "scores": {
+        "calum-aaron-heggie-jacob": {
+          "score": 35,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "millionaire-2024-10-29",
+      "title": "We Finally Show Some UNBELIEVABLE FOOTY KNOWLEDGE In This WHO WANTS TO BE A MILLIONAIRE Episode!!!",
+      "youtubeId": "cMjopcvM_Pg",
+      "releaseDate": "2024-10-29",
+      "type": "millionaire"
+    },
+    {
+      "id": "killer-tic-tac-toe-2024-10-28",
+      "title": "This FOOTBALL KILLER TIC-TAC-TOE Episode Produced Some *HORRIFYING* ANSWERS!!!",
+      "youtubeId": "RILhp5_ZQKU",
+      "releaseDate": "2024-10-28",
+      "type": "killer-tic-tac-toe",
+      "results": [
+        { "winner": "calum", "loser": "jacob" },
+        { "winner": "heggie", "loser": "aaron" },
+        { "winner": "heggie", "loser": "calum" },
+        { "winner": "jacob", "loser": "aaron" }
+      ]
+    },
+    {
+      "id": "draft-2024-10-27",
+      "title": "UNBELIEVABLE SHOUTS In This PREMIER LEAGUE *BIG 6* DRAFT CHALLENGE!!!",
+      "youtubeId": "NlTIwtzd8yo",
+      "releaseDate": "2024-10-27",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2024-10-26",
+      "title": "A *MYSTERY GUEST HOSTS* As We Take On Our Own FOOTBALL TENABLE TOURNAMENT…",
+      "youtubeId": "QNSkBZVqRxc",
+      "releaseDate": "2024-10-26",
+      "type": "tenable",
+      "scores": {
+        "calum-aaron-heggie-jacob": {
+          "score": 30,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "codenames-2024-10-25",
+      "title": "Some Of The FOOTBALL CODENAMES Clues In This Video Are UTTERLY SHAMBOLIC!!!",
+      "youtubeId": "RpSCiJi157A",
+      "releaseDate": "2024-10-25",
+      "type": "codenames",
+      "results": [
+        { "winner": "aaron-heggie", "loser": "calum-jacob" },
+        { "winner": "aaron-heggie", "loser": "calum-jacob" },
+        { "winner": "calum-jacob", "loser": "aaron-heggie" }
+      ]
+    },
+    {
+      "id": "pointless-2024-10-24",
+      "title": "Aaron Hosts *FOOTBALL POINTLESS* And It Was PURE CHAOS!!!",
+      "youtubeId": "b3gJVQtSsLE",
+      "releaseDate": "2024-10-24",
+      "type": "pointless",
+      "scores": {
+        "jacob": 344,
+        "calum": 303,
+        "heggie": 312
+      }
+    },
+    {
       "id": "catchphrase-2024-10-23",
       "title": "We Brought Back FOOTBALL CATCHPHRASE But Made It IMPOSSIBLE!!!",
       "youtubeId": "GJvaGgd85LM",
       "releaseDate": "2024-10-23",
       "type": "catchphrase",
+      "scores": {
+        "jacob": 3,
+        "calum": 1,
+        "aarom": 1
+      },
       "moments": [
         {
           "id": "aaron-not-dybala",
@@ -8604,6 +8699,12 @@
       "youtubeId": "dqECWQ4Zpn4",
       "releaseDate": "2024-10-22",
       "type": "careerpath",
+      "scores": {
+        "aaron-heggie-jacob": {
+          "score": 7.5,
+          "max": 8
+        }
+      },
       "moments": [
         {
           "id": "calum-need-more-rounds",
@@ -8626,6 +8727,12 @@
       "youtubeId": "zQ3v7gAPY8c",
       "releaseDate": "2024-10-21",
       "type": "tenable",
+      "scores": {
+        "calum-aaron-heggie-jacob": {
+          "score": 34,
+          "max": 40
+        }
+      },
       "moments": [
         {
           "id": "aaron-best-hairline",
@@ -8656,11 +8763,102 @@
       ]
     },
     {
-      "id": "ufqshowdown-2024-10-12",
+      "id": "ultimate-football-showdown-2024-10-19",
+      "title": "This ULTIMATE FOOTBALL SHOWDOWN QUIZ Went Down To The WIRE...",
+      "youtubeId": "VJpMZzCenP4",
+      "releaseDate": "2024-10-19",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "heggie": 29,
+        "calum": 28
+      }
+    },
+    {
+      "id": "killer-tic-tac-toe-2024-10-18",
+      "title": "INSANE KNOWLEDGE & LUCK Needed To Avoid These FOOTBALL TIC-TAC-TOE KILLERS...",
+      "youtubeId": "QK4fPEtXaMw",
+      "releaseDate": "2024-10-18",
+      "type": "killer-tic-tac-toe",
+      "results": [
+        { "winner": "jacob", "loser": "aaron" },
+        { "winner": "calum", "loser": "heggie" },
+        { "winner": "heggie", "loser": "jacob" },
+        { "winner": "calum", "loser": "aaron" }
+      ]
+    },
+    {
+      "id": "imposter-2024-10-17",
+      "title": "We Produced Some Of Our BEST EVER FOOTBALL IMPOSTOR Rounds In This Video...",
+      "youtubeId": "gkZUtmL-X3g",
+      "releaseDate": "2024-10-17",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "calum": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "heggie": [
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "whq-2024-10-16",
+      "title": "This WORLDS HARDEST FOOTBALL QUIZ Question Made One Of The Boys RAGE!!!",
+      "youtubeId": "c7lFR9ZvOnU",
+      "releaseDate": "2024-10-16",
+      "type": "whq",
+      "scores": {
+        "calum-aaron-jacob": {
+          "score": 21,
+          "max": 35
+        }
+      }
+    },
+    {
+      "id": "tenable-2024-10-14",
+      "title": "These FOOTBALL TENABLES Were An ABSOLUTE SHAMBLES...",
+      "youtubeId": "7QRsXnYu7yE",
+      "releaseDate": "2024-10-14",
+      "type": "tenable",
+      "scores": {
+        "calum-aaron-jacob-heggie": {
+          "score": 20,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "ultimate-football-showdown-2024-10-12",
       "title": "THE GOAT Takes On JACOB In The Very First ULTIMATE FOOTBALL QUIZ SHOWDOWN!!!",
       "youtubeId": "iTmvhgnQ1fM",
       "releaseDate": "2024-10-12",
-      "type": "ufqshowdown",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "jacob": 26,
+        "aaron": 28
+      },
       "moments": [
         {
           "id": "aaron-bukayo-sagna",
@@ -8678,11 +8876,24 @@
       ]
     },
     {
+      "id": "draft-2024-10-11",
+      "title": "The *MOST DIFFICULT* Draft Challenge We Have Ever Completed… THE PREMIER LEAGUE NATIONS DRAFT!!!",
+      "youtubeId": "9wLOGQYdY34",
+      "releaseDate": "2024-10-11",
+      "type": "draft"
+    },
+    {
       "id": "careerpath-2024-10-10",
       "title": "Aaron's IMPOSSIBLE CAREER PATH BONANZA! Insane BALL KNOWLEDGE Needed!!!",
       "youtubeId": "kKugIDT6670",
       "releaseDate": "2024-10-10",
       "type": "careerpath",
+      "scores": {
+        "calum-jacob-heggie": {
+          "score": 6.5,
+          "max": 12
+        }
+      },
       "moments": [
         {
           "id": "aaron-bebe",
@@ -8700,11 +8911,299 @@
       ]
     },
     {
+      "id": "1-percent-club-2024-10-08",
+      "title": "Total *HEADS GONE* From AARON In This FOOTBALL 1% CLUB QUIZ!!!",
+      "youtubeId": "lwnnxwgqRVQ",
+      "releaseDate": "2024-10-08",
+      "type": "1-percent-club"
+    },
+    {
+      "id": "rondo-2024-10-07",
+      "title": "This FOOTBALL RONDO MATCH Was The *BEST* We Have EVER SEEN!!!",
+      "youtubeId": "-n0pe6c8WeU",
+      "releaseDate": "2024-10-07",
+      "type": "rondo",
+      "scores": {
+        "calum": 21,
+        "aaron": 22
+      }
+    },
+    {
+      "id": "pointless-2024-10-05",
+      "title": "The *MOST POINTS EVER SCORED* In The HISTORY OF FOOTBALL POINTLESS!!!",
+      "youtubeId": "GJpFMRYIXGY",
+      "releaseDate": "2024-10-05",
+      "type": "pointless",
+      "scores": {
+        "calum": 291,
+        "aaron": 371,
+        "jacob": 499
+      }
+    },
+    {
+      "id": "careerpath-2024-10-04",
+      "title": "We *INCREASED THE DIFFICULTY* For This CAREER PATH FOOTBALL QUIZ!!!",
+      "youtubeId": "pI4CYBZ_O_E",
+      "releaseDate": "2024-10-04",
+      "type": "careerpath",
+      "scores": {
+        "aaron-jacob-heggie": {
+          "score": 12,
+          "max": 12
+        }
+      }
+    },
+    {
+      "id": "1-percent-club-2024-10-03",
+      "title": "Can We FINALLY Win A FOOTBALL 1% CLUB Quiz???",
+      "youtubeId": "rzo7ctA6doo",
+      "releaseDate": "2024-10-03",
+      "type": "1-percent-club"
+    },
+    {
+      "id": "misc-2024-10-01",
+      "title": "We Played The *BRAND NEW RUSH GAME MODE* On FC25 And It Was UTTER CHAOS!!!",
+      "youtubeId": "sE_RvASNBJE",
+      "releaseDate": "2024-10-01",
+      "type": "misc"
+    },
+    {
+      "id": "tenable-2024-09-30",
+      "title": "LUKE PINGU Returns To Take On The FOOTBALL TENABLE TOURNAMENT Again... @LukePingu",
+      "youtubeId": "M8TQIGTBmaQ",
+      "releaseDate": "2024-09-30",
+      "type": "tenable",
+      "scores": {
+        "luke": {
+          "score": 35,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "whq-2024-09-28",
+      "title": "The GOAT RETURNS For The World's Hardest Football Quiz!!",
+      "youtubeId": "zKrJWvLwDFw",
+      "releaseDate": "2024-09-28",
+      "type": "whq",
+      "scores": {
+        "aaron-jacob-heggie": {
+          "score": 19,
+          "max": 35
+        }
+      }
+    },
+    {
+      "id": "millionaire-2024-09-27",
+      "title": "This *BRAND NEW* Who Wants To Be A Millionaire Lifeline CHANGED EVERYTHING….",
+      "youtubeId": "XGhPGO053zc",
+      "releaseDate": "2024-09-27",
+      "type": "millionaire"
+    },
+    {
+      "id": "tenable-2024-09-26",
+      "title": "Can The Boys RESTORE THEIR PRIDE In This FOOTBALL TENABLE EPISODE…",
+      "youtubeId": "u0nCxHJ-hJo",
+      "releaseDate": "2024-09-26",
+      "type": "tenable",
+      "scores": {
+        "jacob-heggie-calum": {
+          "score": 37,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "pointless-2024-09-24",
+      "title": "Unbelievable Performances In This FOOTBALL POINTLESS QUIZ!!!",
+      "youtubeId": "4dZx1EtKrtg",
+      "releaseDate": "2024-09-24",
+      "type": "pointless",
+      "scores": {
+        "calum": 198,
+        "heggie": 211
+      }
+    },
+    {
+      "id": "careerpath-2024-09-23",
+      "title": "You Will Need INCREDIBLE FOOTBALL KNOWLEDGE To Pass This FOOTBALL CAREER PATH QUIZ!!!",
+      "youtubeId": "qzqwVzqZiPo",
+      "releaseDate": "2024-09-23",
+      "type": "careerpath",
+      "scores": {
+        "jacob-heggie": {
+          "score": 13,
+          "max": 14
+        }
+      }
+    },
+    {
+      "id": "1-percent-club-2024-09-21",
+      "title": "FOOTBALL 1% CLUB….IMPOSSIBLE EDITION!!!!",
+      "youtubeId": "NtnRvydruEQ",
+      "releaseDate": "2024-09-21",
+      "type": "1-percent-club"
+    },
+    {
+      "id": "tenable-2024-09-20",
+      "title": "This Football Tenable Performance Was…INTERESTING!!!",
+      "youtubeId": "ZGVGKtKjY7c",
+      "releaseDate": "2024-09-20",
+      "type": "tenable",
+      "scores": {
+        "jacob-heggie-calum": {
+          "score": 27,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "rondo-2024-09-19",
+      "title": "This *NEW* FOOTBALL RONDO Rule Made The Boys PANIC!!!!",
+      "youtubeId": "Dv7NttLB2e8",
+      "releaseDate": "2024-09-19",
+      "type": "rondo",
+      "scores": {
+        "jacob": 21,
+        "calum": 17
+      }
+    },
+    {
+      "id": "tenable-2024-09-17",
+      "title": "The SMARTEST FOOTBALL FAN IN THE WORLD Takes On Our Football TENABLE TOURNAMENT!!!",
+      "youtubeId": "CjKX9qIyNfo",
+      "releaseDate": "2024-09-17",
+      "type": "tenable",
+      "scores": {
+        "eric": {
+          "score": 37,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "pointless-2024-09-16",
+      "title": "This Was The CLOSEST FOOTBALL POINTLESS Game We Have Ever Had…",
+      "youtubeId": "7dZVciOXmuk",
+      "releaseDate": "2024-09-16",
+      "type": "pointless",
+      "scores": {
+        "jacob": 213,
+        "heggie": 187
+      }
+    },
+    {
+      "id": "whq-2024-09-14",
+      "title": "This Football Quiz Made The Boys LOSE THEIR MINDS!!!",
+      "youtubeId": "-kbznC9ZLEc",
+      "releaseDate": "2024-09-14",
+      "type": "whq",
+      "scores": {
+        "jacob-calum": {
+          "score": 24,
+          "max": 35
+        }
+      }
+    },
+    {
+      "id": "tenable-2024-09-13",
+      "title": "INSANE PERFORMANCES In Our FOOTBALL TENABLE TOURNAMENT #5 Ft Ollie Thomas!!!",
+      "youtubeId": "f5vvXQetLgE",
+      "releaseDate": "2024-09-13",
+      "type": "tenable",
+      "scores": {
+        "ollie": {
+          "score": 37,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "millionaire-2024-09-11",
+      "title": "The *MOST DIFFICULT* Football WHO WANTS TO BE A MILLIONAIRE QUIZ YET….",
+      "youtubeId": "rhHKjxOEBXQ",
+      "releaseDate": "2024-09-11",
+      "type": "millionaire"
+    },
+    {
+      "id": "imposter-2024-09-10",
+      "title": "We ABSOLUTELY COOKED Playing FOOTBALL IMPOSTER!!!",
+      "youtubeId": "3ArBARCdAck",
+      "releaseDate": "2024-09-10",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false }
+
+        ],
+        "calum": [
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true }
+        ],
+        "jacob": [
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "1-percent-club-2024-09-09",
+      "title": "INSANE FOOTBALL KNOWLEDGE Needed To Pass This FOOTBALL 1% CLUB QUIZ…",
+      "youtubeId": "XrzWVIPjqsc",
+      "releaseDate": "2024-09-09",
+      "type": "1-percent-club"
+    },
+    {
+      "id": "wavelength-2024-09-07",
+      "title": "The Greatest FOOTBALL WAVELENGTH Performance Of All Time!!!",
+      "youtubeId": "zakeCLLFxuE",
+      "releaseDate": "2024-09-07",
+      "type": "wavelength",
+      "scores": {
+        "jacob-heggie": 17,
+        "aaron-calum": 11
+      }
+    },
+    {
+      "id": "rondo-2024-09-06",
+      "title": "The CRAZIEST FOOTBALL RONDO Quiz Of All Time!!!",
+      "youtubeId": "U-I-KZgyG_g",
+      "releaseDate": "2024-09-06",
+      "type": "rondo",
+      "scores": {
+        "jacob": 22,
+        "aaron": 21,
+        "heggie": 23
+      }
+    },
+    {
       "id": "pointless-2024-09-04",
       "title": "UNBELIEVABLE KNOWLEDGE In This FOOTBALL POINTLESS QUIZ!!!",
       "youtubeId": "IryV95i2nks",
       "releaseDate": "2024-09-04",
       "type": "pointless",
+      "scores": {
+        "jacob": 249,
+        "aaron": 393,
+        "calum": 308
+      },
       "moments": [
         {
           "id": "aaron-top-poch",
@@ -8727,6 +9226,12 @@
       "youtubeId": "tFa4YshVj0k",
       "releaseDate": "2024-09-03",
       "type": "tenable",
+      "scores": {
+        "jacob-calum-heggie-aaron": {
+          "score": 30,
+          "max": 40
+        }
+      },
       "moments": [
         {
           "id": "aaron-washington-dc",
@@ -8742,6 +9247,13 @@
           ]
         }
       ]
+    },
+    {
+      "id": "millionpounddrop-2024-09-02",
+      "title": "TOP TIER KNOWLEDGE In This FOOTBALL MILLION POUND DROP Quiz!!!",
+      "youtubeId": "Wc3QIoB_43Q",
+      "releaseDate": "2024-09-02",
+      "type": "millionpounddrop"
     },
     {
       "id": "pointless-2024-08-19",
