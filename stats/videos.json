@@ -1,5 +1,5 @@
 {
-  "current_progress": "We Spent £1 BILLION In This PREMIER LEAGUE AUCTION!!!",  
+  "current_progress": "This *FOOTBALL POINTLESS* Answer Had The Boys In ABSOLUTE STITCHES!!!",  
   "videos": [
     {
       "id": "tension-2026-05-06",
@@ -8125,6 +8125,95 @@
       ]
     },
     {
+      "id": "draft-2024-11-30",
+      "title": "We Spun A Wheel For This *FOOTBALL CLUBS DRAFT CHALLENGE* And It Was EXTREMELY DIFFICULT!!!",
+      "youtubeId": "YZ23YVDJkKQ",
+      "releaseDate": "2024-11-30",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2024-11-29",
+      "title": "One Of The Boys ABSOLUTELY COOKS In These SPORTS THEMED TENABLES!!!",
+      "youtubeId": "akzMKvRAER0",
+      "releaseDate": "2024-11-29",
+      "type": "tenable",
+      "scores": {
+        "calum-heggie-aaron-jacob": {
+          "score": 30,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "ultimate-football-showdown-2024-11-28",
+      "title": "THE ULTIMATE FOOTBALL SHOWDOWN QUIZ FINALE - Heggie Vs Aaron!!!",
+      "youtubeId": "IkbbgD7ewDU",
+      "releaseDate": "2024-11-28",
+      "type": "ultimate-football-showdown",
+       "scores": {
+        "aaron": 17,
+        "heggie": 25
+      }
+    },
+    {
+      "id": "jeopardy-2024-11-27",
+      "title": "We Turned JEOPARDY Into A *FOOTBALL QUIZ*, And It Was UNBELIEVABLE!!!",
+      "youtubeId": "gmhcxPuwqzE",
+      "releaseDate": "2024-11-27",
+      "type": "jeopardy",
+       "scores": {
+        "aaron": 35,
+        "calum": 35,
+        "jacob": 38
+      }
+    },
+    {
+      "id": "squadguesser-2024-11-26",
+      "title": "We Used A Wheel To Guess The *FOOTBALL TEAM* By Their NATIONS AND CLUBS...",
+      "youtubeId": "8Z80bLvIjWA",
+      "releaseDate": "2024-11-26",
+      "type": "squadguesser",
+      "scores": {
+        "calum-aaron-jacob": {
+          "score": 54,
+          "max": 88
+        }
+      }
+    },
+    {
+      "id": "draft-2024-11-25",
+      "title": "This *FOOTBALL FACTS DRAFT* Made The Boys Create WILD TEAMS!!!",
+      "youtubeId": "Kk2UzJgFCyE",
+      "releaseDate": "2024-11-25",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2024-11-24",
+      "title": "These FOOTBALL TENABLES Were VERY TRICKY...",
+      "youtubeId": "LUrOVkr2NBI",
+      "releaseDate": "2024-11-24",
+      "type": "tenable",
+      "scores": {
+        "calum-heggie-aaron-jacob": {
+          "score": 25,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "killer-tic-tac-toe-2024-11-23",
+      "title": "This Episode Of *REVERSE FOOTBALL KILLER TIC-TAC-TOE* Made The Boys LOSE THEIR MINDS!!!",
+      "youtubeId": "wmtL4l4eY5A",
+      "releaseDate": "2024-11-23",
+      "type": "killer-tic-tac-toe",
+       "results": [
+        { "winner": "jacob", "loser": "calum" },
+        { "draw": ["aaron", "calum"] },
+        { "winner": "heggie", "loser": "aaron" },
+        { "winner": "heggie", "loser": "jacob" }
+      ]
+    },
+    {
       "id": "millionaire-2024-11-22",
       "title": "Aaron Hosts THE MOST CHAOTIC *Who Wants To Be A Millionaire* Football Quiz EVER!!!",
       "youtubeId": "Qd2_dUm-aCk",
@@ -8147,11 +8236,28 @@
       ]
     },
     {
+      "id": "ultimate-football-showdown-2024-11-21",
+      "title": "THE ULTIMATE FOOTBALL SHOWDOWN QUIZ #5 - Aaron Vs Calum!!!",
+      "youtubeId": "2yTXBwjLTiw",
+      "releaseDate": "2024-11-21",
+      "type": "ultimate-football-showdown",
+       "scores": {
+        "aaron": 22,
+        "calum": 31
+      }
+    },
+    {
       "id": "careerpath-2024-11-20",
       "title": "Aaron's Ultimate *CHAMPIONS LEAGUE CAREER PATH BONANZA*",
       "youtubeId": "-W_0iQdlZYQ",
       "releaseDate": "2024-11-20",
-      "type": "careerpath"
+      "type": "careerpath",
+      "scores": {
+        "calum-heggie-jacob": {
+          "score": 13,
+          "max": 20
+        }
+      }
     },
     {
       "id": "pointless-2024-11-19",
@@ -8159,6 +8265,11 @@
       "youtubeId": "YGrqGlTO3vE",
       "releaseDate": "2024-11-19",
       "type": "pointless",
+      "scores": {
+        "aaron": 373,
+        "jacob": 143,
+        "heggie": 369
+      },
       "moments": [
         {
           "id": "aaron-glen-johnson",
@@ -8176,11 +8287,37 @@
       ]
     },
     {
+      "id": "draft-2024-11-18",
+      "title": "We Spun A Wheel For This CLUBS DRAFT CHALLENGE, And It Was *CHAOTIC*…",
+      "youtubeId": "u0IN0ahafgg",
+      "releaseDate": "2024-11-18",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2024-11-17",
+      "title": "This *FOOTBALL TENABLE* Video Produced Some AMAZING & TRAGIC Answers...",
+      "youtubeId": "iAEdTFDwZYw",
+      "releaseDate": "2024-11-17",
+      "type": "tenable",
+      "scores": {
+        "calum-heggie-jacob-aaron": {
+          "score": 37,
+          "max": 40
+        }
+      }
+    },
+    {
       "id": "killer-tic-tac-toe-2024-11-16",
       "title": "This Is The GREATEST *FOOTBALL KILLER TIC-TAC-TOE* Video OF ALL TIME!!!",
       "youtubeId": "QclLtMY-sgU",
       "releaseDate": "2024-11-16",
       "type": "killer-tic-tac-toe",
+      "results": [
+        { "winner": "calum", "loser": "jacob" },
+        { "winner": "jacob", "loser": "aaron" },
+        { "winner": "calum", "loser": "heggie" },
+        { "winner": "aaron", "loser": "heggie" }
+      ],
       "moments": [
         {
           "id": "edit-out",
@@ -8199,11 +8336,57 @@
       ]
     },
     {
+      "id": "1-percent-club-2024-11-15",
+      "title": "The Knowledge Shown In This FOOTBALL 1% CLUB QUIZ Was EXCEPTIONAL!!!",
+      "youtubeId": "6ETx24TmyuM",
+      "releaseDate": "2024-11-15",
+      "type": "1-percent-club"
+    },
+    {
+      "id": "whq-2024-11-14",
+      "title": "Heggie Hosts His Toughest *WORLDS HARDEST FOOTBALL QUIZ* EVER!!!",
+      "youtubeId": "BlQtYITsH0s",
+      "releaseDate": "2024-11-14",
+      "type": "whq",
+      "scores": {
+        "calum-jacob-aaron": {
+          "score": 27,
+          "max": 35
+        }
+      }
+    },
+    {
+      "id": "tenable-2024-11-13",
+      "title": "Aaron Produces One Of His GREATEST FOOTBALL TENABLE PERFORMANCES In This Video!!!!",
+      "youtubeId": "yReZ3Nuh6bI",
+      "releaseDate": "2024-11-13",
+      "type": "tenable",
+      "scores": {
+        "calum-jacob-aaron-heggie": {
+          "score": 36,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "millionaire-2024-11-12",
+      "title": "Can You Pass This WHO WANTS TO BE A MILLIONAIRE Football Quiz???",
+      "youtubeId": "6EIvtusuE8s",
+      "releaseDate": "2024-11-12",
+      "type": "millionaire"
+    },
+    {
       "id": "squadguesser-2024-11-11",
       "title": "Guess The *FOOTBALL TEAM* By The NATIONS AND CLUBS Challenge!!!",
       "youtubeId": "FTW--kQ5q9U",
       "releaseDate": "2024-11-11",
       "type": "squadguesser",
+      "scores": {
+        "calum-jacob-aaron": {
+          "score": 58,
+          "max": 99
+        }
+      },
       "moments": [
         {
           "id": "calum-brazil",
@@ -8221,11 +8404,30 @@
       ]
     },
     {
+      "id": "tenable-2024-11-10",
+      "title": "GENERAL KNOWLEDGE TENABLES... But We Made Them *DIFFICULT*",
+      "youtubeId": "y83YOCWRK9w",
+      "releaseDate": "2024-11-10",
+      "type": "tenable",
+      "scores": {
+        "calum-jacob-aaron-heggie": {
+          "score": 30,
+          "max": 40
+        }
+      }
+    },
+    {
       "id": "killer-tic-tac-toe-2024-11-09",
       "title": "Can Aaron FINALLY WIN In This KILLER TIC-TAC-TOE Episode???",
       "youtubeId": "_C0j0MAGd_o",
       "releaseDate": "2024-11-09",
       "type": "killer-tic-tac-toe",
+      "results": [
+        { "winner": "heggie", "loser": "jacob" },
+        { "winner": "jacob", "loser": "aaron" },
+        { "draw": ["aaron", "calum"] },
+        { "winner": "heggie", "loser": "calum" }
+      ],
       "moments": [
         {
           "id": "heggie-thats-the-killer",
@@ -8243,11 +8445,59 @@
       ]
     },
     {
+      "id": "ultimate-football-showdown-2024-11-08",
+      "title": "THE ULTIMATE FOOTBALL SHOWDOWN QUIZ #4 - Heggie Vs Jacob!!!",
+      "youtubeId": "5viVsrkpIx0",
+      "releaseDate": "2024-11-08",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "jacob": 21,
+        "heggie": 19
+      }
+    },
+    {
+      "id": "misc-2024-11-07",
+      "title": "PREMIER LEAGUE ERA'S Football Quiz!!!",
+      "youtubeId": "ubT2VqLPqXI",
+      "releaseDate": "2024-11-07",
+      "type": "misc"
+    },
+    {
+      "id": "careerpath-2024-11-06",
+      "title": "The Ultimate PREMIER LEAGUE CAREER PATH Football Quiz!!!",
+      "youtubeId": "d70VuK6O8N8",
+      "releaseDate": "2024-11-06",
+      "type": "careerpath",
+      "scores": {
+        "calum-jacob": {
+          "score": 11,
+          "max": 15
+        }
+      }
+    },
+    {
+      "id": "ultimate-football-showdown-2024-11-05",
+      "title": "THE ULTIMATE FOOTBALL SHOWDOWN QUIZ #3 - Jacob Vs Calum!!!",
+      "youtubeId": "6fQhVM_0Gao",
+      "releaseDate": "2024-11-05",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "jacob": 12,
+        "calum": 31
+      }
+    },
+    {
       "id": "tenable-2024-11-04",
       "title": "These FOOTBALL TENABLES Got AARON SWEATING....",
       "youtubeId": "oTTOm_jicOw",
       "releaseDate": "2024-11-04",
       "type": "tenable",
+      "scores": {
+        "calum-jacob-aaron-heggie": {
+          "score": 37,
+          "max": 40
+        }
+      },
       "moments": [
         {
           "id": "calum-ronald-weasley",
@@ -8265,11 +8515,24 @@
       ]
     },
     {
+      "id": "draft-2024-11-03",
+      "title": "We Spun A Wheel In This FOOTBALL NATIONS DRAFT, And It Was *CHAOTIC*",
+      "youtubeId": "S7hOCZdJCrw",
+      "releaseDate": "2024-11-03",
+      "type": "draft"
+    },
+    {
       "id": "killer-tic-tac-toe-2024-11-02",
       "title": "One Of The Boys REFUSES TO TALK After LOSING In This FOOTBALL *KILLER* TIC-TAC-TOE Episode!!!",
       "youtubeId": "s86JoRyv8Ss",
       "releaseDate": "2024-11-02",
       "type": "killer-tic-tac-toe",
+      "results": [
+        { "winner": "calum", "loser": "aaron" },
+        { "winner": "jacob", "loser": "aaron" },
+        { "draw": ["jacob", "heggie"] },
+        { "winner": "calum", "loser": "heggie" }
+      ],
       "moments": [
         {
           "id": "aaron-fizzing",
@@ -8292,6 +8555,11 @@
       "youtubeId": "ijeKLtofRvo",
       "releaseDate": "2024-11-01",
       "type": "pointless",
+      "scores": {
+        "jacob": 324,
+        "calum": 304,
+        "aaron": 361
+      },
       "moments": [
         {
           "id": "aaron-doonpace",
