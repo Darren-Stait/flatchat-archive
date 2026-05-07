@@ -7259,11 +7259,44 @@
       "type": "draft"
     },
     {
+      "id": "misc-2025-01-31",
+      "title": "The Best Of TheFlatChat - JANUARY 2025 EDITION!!!",
+      "youtubeId": "CwqpTld-S6I",
+      "releaseDate": "2025-01-31",
+      "type": "misc"
+    },
+    {
+      "id": "whq-2025-01-30",
+      "title": "We Attempted Another *WORLDS HARDEST FOOTBALL QUIZ* Made By A VIEWER!!!",
+      "youtubeId": "MjW-s1VDZGs",
+      "releaseDate": "2025-01-30",
+      "type": "whq",
+      "scores": {
+        "calum-heggie-jacob-aaron": {
+          "score": 14,
+          "max": 47
+        }
+      }
+    },
+    {
+      "id": "misc-2025-01-29",
+      "title": "CATCHPHRASE - FOOTBALL CAREER PATH QUIZ EDITION!!!",
+      "youtubeId": "h1vgE4QNDR8",
+      "releaseDate": "2025-01-29",
+      "type": "misc"
+    },
+    {
       "id": "squadguesser-2025-01-28",
       "title": "These New *FOOTBALL SQUADGUESSER* Rules Made It Much More DIFFICULT...",
       "youtubeId": "3SM5WG7hiYM",
       "releaseDate": "2025-01-28",
       "type": "squadguesser",
+      "scores": {
+        "calum-aaron-jacob": {
+          "score": 39,
+          "max": 77
+        }
+      },
       "moments": [
         {
           "id": "aaron-veltman",
@@ -7294,11 +7327,66 @@
       ]
     },
     {
+      "id": "draft-2025-01-27",
+      "title": "The Ultimate *FOOTBALL DARTS* Draft TOURNAMENT!!!",
+      "youtubeId": "oYEK6x20ayA",
+      "releaseDate": "2025-01-27",
+      "type": "draft"
+    },
+    {
+      "id": "jeopardy-2025-01-26",
+      "title": "This *FOOTBALL JEOPARDY QUIZ* Was... Interesting!!!",
+      "youtubeId": "Pu8jdsgVX-k",
+      "releaseDate": "2025-01-26",
+      "type": "jeopardy",
+      "scores": {
+        "calum": 3500,
+        "jacob": 3200,
+        "heggie": 4100
+      }
+    },
+    {
+      "id": "tension-2025-01-25",
+      "title": "This *FOOTBALL TENSION QUIZ* Produced INSANE Knowledge!!!",
+      "youtubeId": "pu1_xA4b-Js",
+      "releaseDate": "2025-01-25",
+      "type": "tension",
+      "scores": {
+        "aaron": 17,
+        "jacob": 34,
+        "heggie": 30
+      }
+    },
+    {
+      "id": "1-percent-club-2025-01-24",
+      "title": "We Brought Back The *FOOTBALL 1% CLUB QUIZ* And The Boys Produced EXCEPTIONAL Answers!",
+      "youtubeId": "OHp4xUGIu-g",
+      "releaseDate": "2025-01-24",
+      "type": "1-percent-club"
+    },
+    {
+      "id": "wheeloffortune-2025-01-23",
+      "title": "WHEEL OF FORTUNE... Football Quiz Edition!!!",
+      "youtubeId": "fhQhBYGO2dA",
+      "releaseDate": "2025-01-23",
+      "type": "wheeloffortune",
+      "scores": {
+        "aaron": 217,
+        "jacob": 4466,
+        "calum": 3968
+      }
+    },
+    {
       "id": "pressure-2025-01-22",
       "title": "This FOOTBALL PRESSURE QUIZ Produces Our Most CONTROVERSIAL Call Yet...",
       "youtubeId": "VJ_pCLbUa_E",
       "releaseDate": "2025-01-22",
       "type": "pressure",
+      "scores": {
+        "heggie": 8,
+        "jacob": 9,
+        "calum": -13
+      },
       "moments": [
         {
           "id": "aaron-answer-france",
@@ -7316,11 +7404,93 @@
       ]
     },
     {
+      "id": "pointless-2025-01-21",
+      "title": "This SPECIAL POINTLESS FOOTBALL QUIZ Produced An OUTSTANDING Performance...",
+      "youtubeId": "OhpRvX_rE7c",
+      "releaseDate": "2025-01-21",
+      "type": "pointless",
+      "scores": {
+        "aaron": 294,
+        "jacob": 334,
+        "calum": 386
+      }
+    },
+    {
+      "id": "jeopardy-2025-01-20",
+      "title": "This Football Jeopardy Quiz Got HEATED!!!",
+      "youtubeId": "i9-pokAGgRo",
+      "releaseDate": "2025-01-20",
+      "type": "jeopardy",
+      "scores": {
+        "aaron": 5200,
+        "heggie": 5500,
+        "calum": 4100
+      }
+    },
+    {
+      "id": "tenable-2025-01-19",
+      "title": "Football Tenables... But We Are In TEAMS!!!",
+      "youtubeId": "DtlLI1-aB3c",
+      "releaseDate": "2025-01-19",
+      "type": "tenable"
+    },
+    {
+      "id": "careerpath-2025-01-18",
+      "title": "This *CAREER PATH FOOTBALL QUIZ* Is Our Toughest EVER!!!",
+      "youtubeId": "EDvqY0qxLvA",
+      "releaseDate": "2025-01-18",
+      "type": "careerpath",
+      "scores": {
+        "heggie-jacob-aaron": {
+          "score": 16,
+          "max": 30
+        }
+      }
+    },
+    {
+      "id": "draft-2025-01-17",
+      "title": "We Brought Back The *FOOTBALL FACTS DRAFT* And The Teams Were INCREDIBLE!!!",
+      "youtubeId": "zyFQjvqC9rA",
+      "releaseDate": "2025-01-17",
+      "type": "draft"
+    },
+    {
+      "id": "ultimate-football-showdown-2025-01-16",
+      "title": "THE ULTIMATE FOOTBALL SHOWDOWN QUIZ - Aaron Vs Calum Vs Heggie!!!",
+      "youtubeId": "XK-8_q5hSWA",
+      "releaseDate": "2025-01-16",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "aaron": 8,
+        "calum": 22,
+        "heggie": 21
+      }
+    },
+    {
+      "id": "tenable-2025-01-15",
+      "title": "These Are The WORLDS HARDEST Football Tenable Questions!!!",
+      "youtubeId": "7zx3MciKLNI",
+      "releaseDate": "2025-01-15",
+      "type": "tenable",
+      "scores": {
+        "calum-heggie-jacob-aaron": {
+          "score": 25,
+          "max": 40
+        }
+      }
+    },
+    {
       "id": "misc-2025-01-14",
       "title": "This *PRIZE TOWER* Football Quiz Gives YOU The Chance To Win Prizes…",
       "youtubeId": "si8sw_4ytAI",
       "releaseDate": "2025-01-14",
       "type": "misc",
+      "scores": {
+        "calum-jacob-aaron": {
+          "score": 77,
+          "max": 80
+        }
+      },
       "moments": [
         {
           "id": "aaron-amwhati",
@@ -7338,11 +7508,81 @@
       ]
     },
     {
+      "id": "millionaire-2025-01-13",
+      "title": "Who Wants To Be A Millionaire... GENERAL KNOWLEDGE EDITION!!!",
+      "youtubeId": "Fonh93h72DQ",
+      "releaseDate": "2025-01-13",
+      "type": "millionaire"
+    },
+    {
+      "id": "catchphrase-2025-01-12",
+      "title": "This *FOOTBALL CATCHPHRASE* Episode Went Down To The WIRE...",
+      "youtubeId": "ffTg077jqMc",
+      "releaseDate": "2025-01-12",
+      "type": "catchphrase",
+      "scores": {
+        "aaron": 2,
+        "jacob": 3,
+        "heggie": 2
+      }
+    },
+    {
+      "id": "pressure-2025-01-11",
+      "title": "We Brought Back This *PRESSURE FOOTBALL QUIZ* And The Boys COOKED!!!",
+      "youtubeId": "beHUQJVXd5g",
+      "releaseDate": "2025-01-11",
+      "type": "pressure",
+      "scores": {
+        "aaron": 8,
+        "jacob": 15,
+        "calum": 7
+      }
+    },
+    {
+      "id": "whq-2025-01-10",
+      "title": "A Viewer Sent Us *THE WORLDS HARDEST FOOTBALL QUIZ* And This Is What Happened...",
+      "youtubeId": "n3VznV0UFrA",
+      "releaseDate": "2025-01-10",
+      "type": "whq",
+      "scores": {
+        "heggie-calum-jacob-aaron": {
+          "score": 24,
+          "max": 47
+        }
+      }
+    },
+    {
+      "id": "draft-2025-01-09",
+      "title": "This *Darts X Premier League* Football Draft Was PURE CHAOS!!!",
+      "youtubeId": "qL5PL2mJCCI",
+      "releaseDate": "2025-01-09",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2025-01-08",
+      "title": "These *FOOTBALL TENABLES* Will Get You SERIOUSLY THINKING....",
+      "youtubeId": "_eqWOs_O8Ws",
+      "releaseDate": "2025-01-08",
+      "type": "tenable",
+      "scores": {
+        "calum-heggie-jacob-aaron": {
+          "score": 29,
+          "max": 40
+        }
+      }
+    },
+    {
       "id": "careerpath-2025-01-07",
       "title": "Aaron LOSSES HIS HEAD In This CAREER PATH FOOTBALL QUIZ!!!",
       "youtubeId": "6sLCDNIvcC0",
       "releaseDate": "2025-01-07",
       "type": "careerpath",
+      "scores": {
+        "calum-heggie-aaron": {
+          "score": 21,
+          "max": 30
+        }
+      },
       "moments": [
         {
           "id": "aaron-zidane-maybe",
@@ -7358,6 +7598,26 @@
           ]
         }
       ]
+    },
+    {
+      "id": "squadguesser-2025-01-06",
+      "title": "Aaron Hosts Another Episode Of *SQUADGUESSER*... And It Was PHENOMENAL!!!",
+      "youtubeId": "4X5HtBR0Ci8",
+      "releaseDate": "2025-01-06",
+      "type": "squadguesser",
+      "scores": {
+        "calum-heggie-jacob-aaron": {
+          "score": 55,
+          "max": 80
+        }
+      }
+    },
+    {
+      "id": "misc-2025-01-05",
+      "title": "We Answer Questions Given To Us By Viewers!!! TheFlatChat Q&A!!!",
+      "youtubeId": "-eQy93rzBYY",
+      "releaseDate": "2025-01-05",
+      "type": "misc"
     },
     {
       "id": "guess-who-2025-01-04",
@@ -7382,11 +7642,56 @@
       ]
     },
     {
+      "id": "pressure-2025-01-03",
+      "title": "We Created A BRAND NEW FOOTBALL QUIZ... *PRESSURE*",
+      "youtubeId": "sUc3ySOI9oE",
+      "releaseDate": "2025-01-03",
+      "type": "pressure",
+      "scores": {
+        "aaron": 4,
+        "jacob": 12,
+        "heggie": 6
+      }
+    },
+    {
+      "id": "draft-2025-01-02",
+      "title": "We Spun A Wheel For These *FOOTBALL NATIONS DRAFTS* And The Teams Became WILD!!!",
+      "youtubeId": "i734KbNxdYw",
+      "releaseDate": "2025-01-02",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2025-01-01",
+      "title": "We Ramped The Difficulty Up For These FOOTBALL TENABLES... Except Aaron!!!",
+      "youtubeId": "jeOcQ8Tznqc",
+      "releaseDate": "2025-01-01",
+      "type": "tenable",
+      "scores": {
+        "calum-heggie-jacob-aaron": {
+          "score": 35,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "misc-2024-12-31",
+      "title": "The *BEST* Moments From The Flat Chat in 2024!!!",
+      "youtubeId": "QP20aX5gf04",
+      "releaseDate": "2024-12-31",
+      "type": "misc"
+    },
+    {
       "id": "bigfatquiz-2024-12-30",
       "title": "THE BIG FAT FOOTBALL QUIZ OF THE YEAR... 2024 EDITION!!!!",
       "youtubeId": "YQbAy14ZSpA",
       "releaseDate": "2024-12-30",
       "type": "bigfatquiz",
+      "scores": {
+        "aaron": 12,
+        "jacob": 27,
+        "heggie": 32,
+        "calum": 23
+      },
       "moments": [
         {
           "id": "aaron-hes-50",
@@ -7417,11 +7722,54 @@
       ]
     },
     {
+      "id": "pointless-2024-12-29",
+      "title": "FOOTBALL POINTLESS RETURNS... And One Of The Boys REALLY STRUGGLES!!!",
+      "youtubeId": "W0kn6nOPg-4",
+      "releaseDate": "2024-12-29",
+      "type": "pointless",
+      "scores": {
+        "aaron": 335,
+        "heggie": 259,
+        "calum": 527
+      }
+    },
+    {
+      "id": "jeopardy-2024-12-28",
+      "title": "FOOTBALL JEOPARDY RETURNS... And One Of The Boys RUNS RIOT!!!",
+      "youtubeId": "ezS9_zDYncI",
+      "releaseDate": "2024-12-28",
+      "type": "jeopardy",
+      "scores": {
+        "aaron": 2800,
+        "heggie": 3800,
+        "jacob": 7100
+      }
+    },
+    {
+      "id": "draft-2024-12-27",
+      "title": "We Spun A Wheel In This *FOOTBALL DRAFT CHALLENGE* And It Was Our BEST EVER!!!",
+      "youtubeId": "xCrEtUhXyl8",
+      "releaseDate": "2024-12-27",
+      "type": "draft"
+    },
+    {
+      "id": "misc-2024-12-25",
+      "title": "THEFLATCHAT'S SECRET SANTA... 2024 EDITION!!!",
+      "youtubeId": "eSQico_iXvE",
+      "releaseDate": "2024-12-25",
+      "type": "misc"
+    },
+    {
       "id": "bigfatquiz-2024-12-24",
       "title": "THE BIG FAT QUIZ OF THE YEAR... 2024 EDITION!!!",
       "youtubeId": "7IbakLo2TpI",
       "releaseDate": "2024-12-24",
       "type": "bigfatquiz",
+      "scores": {
+        "aaron": 25,
+        "heggie": 22,
+        "jacob": 22
+      },
       "moments": [
         {
           "id": "aaron-3-foot-8",
@@ -7437,6 +7785,18 @@
           ]
         }
       ]
+    },
+    {
+      "id": "catchphrase-2024-12-23",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #23 - Football Catchphrase!!!",
+      "youtubeId": "MJTHOAV6YKg",
+      "releaseDate": "2024-12-23",
+      "type": "catchphrase",
+      "scores": {
+        "aaron": 2,
+        "calum": 4,
+        "jacob": 1
+      }
     },
     {
       "id": "millionpounddrop-2024-12-22",
@@ -7461,11 +7821,67 @@
       ]
     },
     {
+      "id": "pictionary-2024-12-21",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #21 - Football Pictionary!!!",
+      "youtubeId": "OMhR3AUSBtk",
+      "releaseDate": "2024-12-21",
+      "type": "pictionary",
+      "scores": {
+        "aaron-heggie": 18,
+        "calum-jacob": 23
+      }
+    },
+    {
+      "id": "jeopardy-2024-12-20",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #20 - Football Jeopardy!!!",
+      "youtubeId": "u4Qk8OOfVBk",
+      "releaseDate": "2024-12-20",
+      "type": "jeopardy"
+    },
+    {
+      "id": "priceisright-2024-12-19",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #19 - The Price Is Right!!!",
+      "youtubeId": "TQQbR9wIVnc",
+      "releaseDate": "2024-12-19",
+      "type": "priceisright",
+      "scores": {
+        "heggie": 20,
+        "calum": 7,
+        "jacob": 9
+      }
+    },
+    {
+      "id": "tenable-2024-12-18",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #18 - Tenable... Sports Edition!!!",
+      "youtubeId": "F7S4TfCCoMA",
+      "releaseDate": "2024-12-18",
+      "type": "tenable",
+      "scores": {
+        "calum-heggie-jacob-aaron": {
+          "score": 35,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "millionaire-2024-12-17",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #17 - Who Wants To Be A Football Millionaire!!!",
+      "youtubeId": "dG730xkt1fk",
+      "releaseDate": "2024-12-17",
+      "type": "millionaire"
+    },
+    {
       "id": "squadguesser-2024-12-16",
       "title": "FOOTBALL QUIZ ADVENT CALENDAR #16 - Football SquadGuesser!!!",
       "youtubeId": "EjsCI8r4TZ4",
       "releaseDate": "2024-12-16",
       "type": "squadguesser",
+      "scores": {
+        "calum-heggie-jacob": {
+          "score": 62,
+          "max": 80
+        }
+      },
       "moments": [
         {
           "id": "aaron-11-german",
@@ -7483,11 +7899,88 @@
       ]
     },
     {
+      "id": "codenames-2024-12-15",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #15 - Football Codenames!!!",
+      "youtubeId": "bOrXNiHZ63A",
+      "releaseDate": "2024-12-15",
+      "type": "codenames",
+      "results": [
+        { "winner": "jacob-calum", "loser": "aaron-heggie" },
+        { "winner": "jacob-calum", "loser": "aaron-heggie" }
+      ]
+    },
+    {
+      "id": "rondo-2024-12-14",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #14 - Football Rondo... Old Firm Edition!!!",
+      "youtubeId": "CfxwXrqp2dQ",
+      "releaseDate": "2024-12-14",
+      "type": "rondo",
+      "scores": {
+        "aaron": 21,
+        "jacob": 18
+      }
+    },
+    {
+      "id": "misc-2024-12-13",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #13 - The Ultimate Football Darts Championship!!!",
+      "youtubeId": "74PMywm03dQ",
+      "releaseDate": "2024-12-13",
+      "type": "misc"
+    },
+    {
+      "id": "ultimate-football-showdown-2024-12-12",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #12 - The Ultimate Football Showdown!!!",
+      "youtubeId": "uLcLlhSJGxE",
+      "releaseDate": "2024-12-12",
+      "type": "ultimate-football-showdown",
+      "scores": {
+        "aaron": 14,
+        "jacob": 26
+      }
+    },
+    {
+      "id": "pointless-2024-12-11",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #11 - Football Pointless!!!",
+      "youtubeId": "2Agi6-TiziE",
+      "releaseDate": "2024-12-11",
+      "type": "pointless",
+      "scores": {
+        "aaron": 387,
+        "jacob": 329
+      }
+    },
+    {
+      "id": "draft-2024-12-10",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #10 - Draft Challenge With Wheel...",
+      "youtubeId": "lBgeMSRQGME",
+      "releaseDate": "2024-12-10",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2024-12-09",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #9 - General Knowledge Tenables...",
+      "youtubeId": "pqjnyKcejqs",
+      "releaseDate": "2024-12-09",
+      "type": "tenable",
+      "scores": {
+        "aaron-heggie-jacob": {
+          "score": 27,
+          "max": 40
+        }
+      }
+    },
+    {
       "id": "killer-tic-tac-toe-2024-12-08",
       "title": "FOOTBALL QUIZ ADVENT CALENDAR #8 - Killer Tic-Tac-Toe!!!",
       "youtubeId": "8Caj-VitXZQ",
       "releaseDate": "2024-12-08",
       "type": "killer-tic-tac-toe",
+      "results": [
+        { "winner": "jacob", "loser": "aaron" },
+        { "winner": "calum", "loser": "aaron" },
+        { "winner": "jacob", "loser": "heggie" },
+        { "winner": "calum", "loser": "heggie" }
+      ],
       "moments": [
         {
           "id": "aaron-anelka",
@@ -7503,6 +7996,63 @@
           ]
         }
       ]
+    },
+    {
+      "id": "imposter-2024-12-07",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #7 - Football Impostor...",
+      "youtubeId": "Rc-jtQvqIjE",
+      "releaseDate": "2024-12-07",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true }
+        ],
+        "calum": [
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "whq-2024-12-06",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #6 - Worlds Hardest Football Quiz!!!",
+      "youtubeId": "-7QfEW4Zkqc",
+      "releaseDate": "2024-12-06",
+      "type": "whq",
+      "scores": {
+        "calum-heggie-jacob": {
+          "score": 26,
+          "max": 35
+        }
+      }
+    },
+    {
+      "id": "wavelength-2024-12-05",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #5 - Wavelength!!!",
+      "youtubeId": "L67-8RiDKKY",
+      "releaseDate": "2024-12-05",
+      "type": "wavelength"
     },
     {
       "id": "whodareswins-2024-12-04",
@@ -7527,11 +8077,37 @@
       ]
     },
     {
+      "id": "careerpath-2024-12-03",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #3 - Career Path Challenge!",
+      "youtubeId": "CKKGiPhtTfg",
+      "releaseDate": "2024-12-03",
+      "type": "careerpath",
+      "scores": {
+        "calum-aaron-jacob": {
+          "score": 7.5,
+          "max": 13
+        }
+      }
+    },
+    {
+      "id": "1-percent-club-2024-12-02",
+      "title": "FOOTBALL QUIZ ADVENT CALENDAR #2 - Football 1% Club",
+      "youtubeId": "Bc_7jsHyyRA",
+      "releaseDate": "2024-12-02",
+      "type": "1-percent-club"
+    },
+    {
       "id": "tenable-2024-12-01",
       "title": "FOOTBALL QUIZ ADVENT CALENDAR #1 - Football Tenables",
       "youtubeId": "fPh4TCgUeZk",
       "releaseDate": "2024-12-01",
       "type": "tenable",
+      "scores": {
+        "calum-heggie-aaron-jacob": {
+          "score": 29,
+          "max": 40
+        }
+      },
       "moments": [
         {
           "id": "heggie-patter",
