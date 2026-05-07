@@ -687,11 +687,11 @@ function getCategories(){
   if(difficulty === "easy"){
     return {
       teammate:{min:2,max:3},
-      honour:{min:3,max:4},
-      club:{min:5,max:7},
+      honour:{min:2,max:3},
+      club:{min:4,max:6},
       position:{min:5,max:7},
-      nationality:{min:7,max:11,singleUse:true},
-      age:{min:6,max:9,singleUse:true}
+      nationality:{min:5,max:7,singleUse:true},
+      age:{min:5,max:7,singleUse:true}
     };
   }
 
@@ -701,8 +701,8 @@ function getCategories(){
       honour:{min:2,max:3},
       club:{min:3,max:4},
       position:{min:4,max:6},
-      nationality:{min:6,max:9,singleUse:true},
-      age:{min:5,max:8,singleUse:true}
+      nationality:{min:4,max:6,singleUse:true},
+      age:{min:4,max:6,singleUse:true}
     };
   }
 
@@ -712,8 +712,8 @@ function getCategories(){
       honour:{min:2,max:3},
       club:{min:3,max:4},
       position:{min:4,max:6},
-      nationality:{min:6,max:9,singleUse:true},
-      age:{min:5,max:8,singleUse:true}
+      nationality:{min:4,max:6,singleUse:true},
+      age:{min:4,max:6,singleUse:true}
     };
   }
 }
@@ -922,12 +922,20 @@ function goToMenu(){
   document.querySelector(".buttons-label").style.display = "none";
 }
 
+function normalize(str){
+  return str
+    .toLowerCase()
+    .normalize("NFD")                  // split accents
+    .replace(/[\u0300-\u036f]/g, "")  // remove accents
+    .replace(/[^a-z0-9]/g, "");       // remove spaces/special chars
+}
+
 function initAutocomplete() {
   const input = document.getElementById("guessInput");
   const suggestions = document.getElementById("suggestions");
 
   input.addEventListener("input", () => {
-    let value = input.value.toLowerCase().trim();
+    let value = normalize(input.value);
 
     if (!value) {
       suggestions.style.display = "none";
@@ -935,7 +943,7 @@ function initAutocomplete() {
     }
 
     let matches = searchPool
-      .filter(name => name.toLowerCase().includes(value))
+      .filter(name => normalize(name).includes(value))
       .slice(0, 8);
 
     suggestions.innerHTML = "";
@@ -1314,9 +1322,11 @@ function hit(cat){
     return;
   }
 
-  usage[cat]++;
+  let r = range(cat);
 
-  let val = Math.floor(Math.random() * (range(cat).max - range(cat).min + 1)) + range(cat).min;
+  let val = Math.floor(Math.random() * (r.max - r.min + 1)) + r.min;
+
+  usage[cat]++;
 
   addCard(val, c, cat);
 
