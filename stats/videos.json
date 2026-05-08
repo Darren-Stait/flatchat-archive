@@ -1,5 +1,5 @@
 {
-  "current_progress": "THE HARDEST FOOTBALL QUIZ OF ALL TIME RETURNS!!!",  
+  "current_progress": "THE HARDEST FOOTBALL QUIZ OF ALL TIME RETURNS!!!",
   "videos": [
     {
       "id": "tension-2026-05-06",
@@ -32,7 +32,7 @@
       "releaseDate": "2026-05-04",
       "type": "tenable",
       "scores": {
-        "aaron-calum-jacob-heggie-luke": {
+        "aaron-calum-heggie-jacob-luke": {
           "score": 45,
           "max": 50
         }
@@ -71,7 +71,7 @@
       "releaseDate": "2026-04-30",
       "type": "wavelength",
       "scores": {
-        "jacob-aaron": 19,
+        "aaron-jacob": 19,
         "calum-heggie": 14
       }
     },
@@ -107,32 +107,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          }
         ],
         "jacob": [
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -143,7 +203,7 @@
       "releaseDate": "2026-04-26",
       "type": "tenable",
       "scores": {
-        "aaron-calum-jacob-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 35,
           "max": 40
         }
@@ -271,36 +331,108 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          }
         ]
       }
     },
@@ -325,16 +457,28 @@
       "type": "traitors",
       "results": {
         "aaron": [
-          { "role": "traitor", "win": false }
+          {
+            "role": "traitor",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "traitor", "win": false }
+          {
+            "role": "traitor",
+            "win": false
+          }
         ],
         "andy": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -346,40 +490,124 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -391,7 +619,7 @@
       "type": "jeopardy",
       "scores": {
         "andy-jacob": 7100,
-        "heggie-calum": 8000
+        "calum-heggie": 8000
       }
     },
     {
@@ -414,12 +642,32 @@
       "releaseDate": "2026-04-10",
       "type": "tic-tac-toe",
       "results": [
-        { "winner": "aaron", "loser": "andy" },
-        { "winner": "jacob", "loser": "andy" },
-        { "draw": ["heggie", "jacob"] },
-        { "winner": "heggie", "loser": "aaron" },
-        { "winner": "heggie", "loser": "andy" },
-        { "winner": "aaron", "loser": "jacob" }
+        {
+          "winner": "aaron",
+          "loser": "andy"
+        },
+        {
+          "winner": "jacob",
+          "loser": "andy"
+        },
+        {
+          "draw": [
+            "heggie",
+            "jacob"
+          ]
+        },
+        {
+          "winner": "heggie",
+          "loser": "aaron"
+        },
+        {
+          "winner": "heggie",
+          "loser": "andy"
+        },
+        {
+          "winner": "aaron",
+          "loser": "jacob"
+        }
       ]
     },
     {
@@ -429,9 +677,18 @@
       "releaseDate": "2026-04-09",
       "type": "codenames",
       "results": [
-        { "winner": "heggie-jacob", "loser": "calum-aaron" },
-        { "winner": "calum-aaron", "loser": "heggie-jacob" },
-        { "winner": "heggie-jacob", "loser": "calum-aaron" }
+        {
+          "winner": "heggie-jacob",
+          "loser": "aaron-calum"
+        },
+        {
+          "winner": "aaron-calum",
+          "loser": "heggie-jacob"
+        },
+        {
+          "winner": "heggie-jacob",
+          "loser": "aaron-calum"
+        }
       ]
     },
     {
@@ -453,7 +710,7 @@
       "releaseDate": "2026-04-06",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie-andy": {
+        "aaron-andy-calum-heggie-jacob": {
           "score": 41,
           "max": 50
         }
@@ -467,32 +724,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "jacob": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false }
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          }
         ]
       }
     },
@@ -524,13 +841,22 @@
       "type": "traitors",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "heggie": [
-          { "role": "traitor", "win": true }
+          {
+            "role": "traitor",
+            "win": true
+          }
         ]
       }
     },
@@ -553,7 +879,7 @@
       "releaseDate": "2026-03-31",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie-luke": {
+        "aaron-calum-heggie-jacob-luke": {
           "score": 49,
           "max": 50
         }
@@ -567,32 +893,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -631,8 +1017,8 @@
       "releaseDate": "2026-03-28",
       "type": "questionofsport",
       "scores": {
-        "jacob-aaron": 26,
-        "heggie-calum": 20
+        "aaron-jacob": 26,
+        "calum-heggie": 20
       },
       "moments": [
         {
@@ -657,9 +1043,18 @@
       "releaseDate": "2026-03-27",
       "type": "codenames",
       "results": [
-        { "winner": "heggie-calum", "loser": "jacob-aaron" },
-        { "winner": "heggie-calum", "loser": "jacob-aaron" },
-        { "winner": "jacob-aaron", "loser": "heggie-calum" }
+        {
+          "winner": "calum-heggie",
+          "loser": "aaron-jacob"
+        },
+        {
+          "winner": "calum-heggie",
+          "loser": "aaron-jacob"
+        },
+        {
+          "winner": "aaron-jacob",
+          "loser": "calum-heggie"
+        }
       ]
     },
     {
@@ -726,7 +1121,7 @@
       "releaseDate": "2026-03-22",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 39,
           "max": 50
         }
@@ -756,7 +1151,7 @@
           ],
           "categories": [
             "general-funnies"
-          ] 
+          ]
         }
       ]
     },
@@ -774,7 +1169,7 @@
       "releaseDate": "2026-03-20",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 36,
           "max": 40
         }
@@ -873,8 +1268,8 @@
       "releaseDate": "2026-03-12",
       "type": "misc",
       "scores": {
-        "jacob-heggie": 38,
-        "calum-aaron": 37
+        "heggie-jacob": 38,
+        "aaron-calum": 37
       }
     },
     {
@@ -909,7 +1304,7 @@
       "releaseDate": "2026-03-09",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 30,
           "max": 40
         }
@@ -923,32 +1318,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -1218,39 +1673,114 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          }
         ],
         "andy": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -1289,10 +1819,26 @@
       "releaseDate": "2026-02-16",
       "type": "tic-tac-toe",
       "results": [
-        { "draw": ["andy", "jacob"] },
-        { "draw": ["andy", "aaron"] },
-        { "winner": "andy", "loser": "calum" },
-        { "winner": "heggie", "loser": "andy" }
+        {
+          "draw": [
+            "andy",
+            "jacob"
+          ]
+        },
+        {
+          "draw": [
+            "andy",
+            "aaron"
+          ]
+        },
+        {
+          "winner": "andy",
+          "loser": "calum"
+        },
+        {
+          "winner": "heggie",
+          "loser": "andy"
+        }
       ]
     },
     {
@@ -1314,7 +1860,8 @@
           "timestamp": 1968,
           "endTime": 2016,
           "people": [
-            "calum", "heggie"
+            "calum",
+            "heggie"
           ],
           "categories": [
             "even-listening"
@@ -1342,7 +1889,7 @@
       "releaseDate": "2026-02-13",
       "type": "tenable",
       "scores": {
-        "aaron-calum-jacob-heggie-andy": {
+        "aaron-andy-calum-heggie-jacob": {
           "score": 35,
           "max": 40
         }
@@ -1355,9 +1902,18 @@
       "releaseDate": "2026-02-12",
       "type": "codenames",
       "results": [
-        { "winner": "calum-jacob", "loser": "heggie-aaron" },
-        { "winner": "heggie-aaron", "loser": "calum-jacob" },
-        { "winner": "heggie-aaron", "loser": "calum-jacob" }
+        {
+          "winner": "calum-jacob",
+          "loser": "aaron-heggie"
+        },
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        },
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        }
       ]
     },
     {
@@ -1386,7 +1942,7 @@
       "releaseDate": "2026-02-09",
       "type": "careerpath",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 64,
           "max": 87
         }
@@ -1446,7 +2002,7 @@
       "releaseDate": "2026-02-05",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 35,
           "max": 40
         }
@@ -1475,32 +2031,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": false },
-          { "role": "imposter", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -1562,13 +2178,22 @@
       "type": "traitors",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "traitor", "win": false }
+          {
+            "role": "traitor",
+            "win": false
+          }
         ]
       }
     },
@@ -1694,13 +2319,22 @@
       "type": "traitors",
       "results": {
         "aaron": [
-          { "role": "traitor", "win": false }
+          {
+            "role": "traitor",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -1718,8 +2352,8 @@
       "releaseDate": "2026-01-24",
       "type": "misc",
       "scores": {
-        "heggie-calum": 43,
-        "jacob-aaron": 27
+        "calum-heggie": 43,
+        "aaron-jacob": 27
       }
     },
     {
@@ -1755,8 +2389,8 @@
       "releaseDate": "2026-01-21",
       "type": "misc",
       "scores": {
-        "heggie-aaron": 57,
-        "jacob-calum": 61
+        "aaron-heggie": 57,
+        "calum-jacob": 61
       }
     },
     {
@@ -1785,8 +2419,8 @@
       "releaseDate": "2026-01-18",
       "type": "questionofsport",
       "scores": {
-        "heggie-calum": 25,
-        "jacob-aaron": 19
+        "calum-heggie": 25,
+        "aaron-jacob": 19
       },
       "moments": [
         {
@@ -1850,8 +2484,8 @@
       "releaseDate": "2026-01-15",
       "type": "passport",
       "scores": {
-        "heggie-aaron": 76.5,
-        "jacob-calum": 84
+        "aaron-heggie": 76.5,
+        "calum-jacob": 84
       }
     },
     {
@@ -1861,8 +2495,8 @@
       "releaseDate": "2026-01-15",
       "type": "passport",
       "scores": {
-        "heggie-aaron": 103,
-        "jacob-calum": 140
+        "aaron-heggie": 103,
+        "calum-jacob": 140
       }
     },
     {
@@ -1906,7 +2540,7 @@
           "score": 17,
           "max": 20
         },
-        "heggie-calum": {
+        "calum-heggie": {
           "score": 15,
           "max": 20
         }
@@ -1933,28 +2567,76 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false }
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          }
         ]
       }
     },
@@ -1965,10 +2647,25 @@
       "releaseDate": "2026-01-07",
       "type": "killer-tic-tac-toe",
       "results": [
-        { "draw": ["luke", "jacob", "heggie"] },
-        { "winner": "luke", "loser": "aaron-heggie" },
-        { "winner": "luke", "loser": "aaron-jacob" },
-        { "winner": "luke", "loser": "aaron-heggie" }
+        {
+          "draw": [
+            "luke",
+            "jacob",
+            "heggie"
+          ]
+        },
+        {
+          "winner": "luke",
+          "loser": "aaron-heggie"
+        },
+        {
+          "winner": "luke",
+          "loser": "aaron-jacob"
+        },
+        {
+          "winner": "luke",
+          "loser": "aaron-heggie"
+        }
       ]
     },
     {
@@ -2096,7 +2793,7 @@
       "releaseDate": "2025-12-28",
       "type": "whq",
       "scores": {
-        "aaron-jacob-calum": {
+        "aaron-calum-jacob": {
           "score": 24,
           "max": 47
         }
@@ -2109,7 +2806,7 @@
       "releaseDate": "2025-12-27",
       "type": "careerpath",
       "scores": {
-        "aaron-jacob-heggie": {
+        "aaron-heggie-jacob": {
           "score": 29,
           "max": 45
         }
@@ -2141,7 +2838,7 @@
       "releaseDate": "2025-12-24",
       "type": "misc",
       "scores": {
-        "aaron-jacob-heggie-calum": {
+        "aaron-calum-heggie-jacob": {
           "score": 34,
           "max": 120
         }
@@ -2187,8 +2884,8 @@
       "releaseDate": "2025-12-21",
       "type": "misc",
       "scores": {
-        "jacob-heggie": 52,
-        "calum-aaron": 51
+        "heggie-jacob": 52,
+        "aaron-calum": 51
       },
       "moments": [
         {
@@ -2226,8 +2923,8 @@
       "releaseDate": "2025-12-20",
       "type": "honours",
       "scores": {
-        "jacob-calum": 14,
-        "heggie-aaron": 17
+        "calum-jacob": 14,
+        "aaron-heggie": 17
       },
       "moments": [
         {
@@ -2265,7 +2962,7 @@
       "releaseDate": "2025-12-18",
       "type": "misc",
       "scores": {
-        "aaron-jacob-heggie-calum": {
+        "aaron-calum-heggie-jacob": {
           "score": 33,
           "max": 98
         }
@@ -2340,7 +3037,7 @@
       "releaseDate": "2025-12-14",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie-luke": {
+        "aaron-calum-heggie-jacob-luke": {
           "score": 44,
           "max": 50
         }
@@ -2353,7 +3050,7 @@
       "releaseDate": "2025-12-13",
       "type": "whq",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 19,
           "max": 54
         }
@@ -2374,13 +3071,22 @@
       "type": "traitors",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "traitor", "win": false }
+          {
+            "role": "traitor",
+            "win": false
+          }
         ]
       }
     },
@@ -2469,7 +3175,7 @@
       "releaseDate": "2025-12-03",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-heggie": {
+        "aaron-heggie-jacob": {
           "score": 54,
           "max": 60
         }
@@ -2861,7 +3567,7 @@
       "releaseDate": "2025-11-10",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie-luke": {
+        "aaron-calum-heggie-jacob-luke": {
           "score": 47,
           "max": 50
         }
@@ -2874,7 +3580,7 @@
       "releaseDate": "2025-11-09",
       "type": "whq",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 32,
           "max": 105
         }
@@ -2908,7 +3614,7 @@
         }
       ]
     },
-        {
+    {
       "id": "draft-2025-11-07",
       "title": "This Football Darts Draft Was EXTREMELY CHAOTIC…",
       "youtubeId": "jBTRUPMFh78",
@@ -2998,13 +3704,22 @@
       "type": "traitors",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "heggie": [
-          { "role": "traitor", "win": true }
+          {
+            "role": "traitor",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ]
       },
       "moments": [
@@ -3180,13 +3895,22 @@
       "type": "traitors",
       "results": {
         "aaron": [
-          { "role": "traitor", "win": true }
+          {
+            "role": "traitor",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ]
       }
     },
@@ -3244,7 +3968,7 @@
       "releaseDate": "2025-10-23",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 70,
           "max": 80
         }
@@ -3258,32 +3982,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": false }
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -3294,7 +4078,7 @@
       "releaseDate": "2025-10-21",
       "type": "misc",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 52,
           "max": 100
         }
@@ -3323,7 +4107,7 @@
       "type": "questionofsport",
       "scores": {
         "aaron-jacob": 23,
-        "heggie-calum": 21
+        "calum-heggie": 21
       },
       "moments": [
         {
@@ -3361,7 +4145,7 @@
       "releaseDate": "2025-10-19",
       "type": "whq",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 21,
           "max": 60
         }
@@ -3399,7 +4183,7 @@
       "releaseDate": "2025-10-16",
       "type": "squadguesser",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 17,
           "max": 24
         }
@@ -3413,13 +4197,22 @@
       "type": "traitors",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "traitor", "win": true }
+          {
+            "role": "traitor",
+            "win": true
+          }
         ]
       }
     },
@@ -3606,7 +4399,7 @@
       "releaseDate": "2025-10-06",
       "type": "ultimate-football-showdown",
       "scores": {
-        "heggie-jacob-aaron": 33,
+        "aaron-heggie-jacob": 33,
         "genf": 39
       }
     },
@@ -3643,7 +4436,7 @@
       "releaseDate": "2025-10-04",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 33,
           "max": 40
         }
@@ -3664,13 +4457,22 @@
       "type": "traitors",
       "results": {
         "jacob": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "traitor", "win": true }
+          {
+            "role": "traitor",
+            "win": true
+          }
         ]
       }
     },
@@ -3681,7 +4483,7 @@
       "releaseDate": "2025-10-01",
       "type": "careerpath",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 18,
           "max": 30
         }
@@ -3734,7 +4536,7 @@
       "type": "honours",
       "scores": {
         "aaron-heggie": 20,
-        "jacob-calum": 23
+        "calum-jacob": 23
       },
       "moments": [
         {
@@ -3759,7 +4561,7 @@
       "releaseDate": "2025-09-27",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 32,
           "max": 40
         }
@@ -3774,7 +4576,7 @@
       "scores": {
         "aaron": 4500,
         "jacob": 3900,
-        "heggie": 4800 
+        "heggie": 4800
       }
     },
     {
@@ -3791,7 +4593,7 @@
       "releaseDate": "2025-09-24",
       "type": "ultimate-football-showdown",
       "scores": {
-        "heggie-jacob-calum": 18,
+        "calum-heggie-jacob": 18,
         "scaife": 18
       }
     },
@@ -3835,7 +4637,7 @@
       "releaseDate": "2025-09-20",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum": {
+        "aaron-calum-jacob": {
           "score": 32,
           "max": 40
         }
@@ -3860,7 +4662,7 @@
       "releaseDate": "2025-09-18",
       "type": "careerpath",
       "scores": {
-        "heggie-jacob-calum": {
+        "calum-heggie-jacob": {
           "score": 25,
           "max": 30
         }
@@ -3874,13 +4676,22 @@
       "type": "traitors",
       "results": {
         "jacob": [
-          { "role": "traitor", "win": false }
+          {
+            "role": "traitor",
+            "win": false
+          }
         ],
         "aaron": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -3891,9 +4702,18 @@
       "releaseDate": "2025-09-16",
       "type": "codenames",
       "results": [
-        { "winner": "calum-jacob", "loser": "heggie-aaron" },
-        { "winner": "heggie-aaron", "loser": "calum-jacob" },
-        { "winner": "heggie-aaron", "loser": "calum-jacob" }
+        {
+          "winner": "calum-jacob",
+          "loser": "aaron-heggie"
+        },
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        },
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        }
       ]
     },
     {
@@ -3903,9 +4723,9 @@
       "releaseDate": "2025-09-15",
       "type": "misc",
       "scores": {
-        "heggie-calum": 36,
+        "calum-heggie": 36,
         "aaron-jacob": 39
-      }, 
+      },
       "moments": [
         {
           "id": "heggie-pukki",
@@ -3997,7 +4817,7 @@
       "releaseDate": "2025-09-11",
       "type": "whq",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 20,
           "max": 60
         }
@@ -4044,7 +4864,7 @@
       "releaseDate": "2025-09-08",
       "type": "ultimate-football-showdown",
       "scores": {
-        "calum-jacob-aaron": 31,
+        "aaron-calum-jacob": 31,
         "ollie": 27
       }
     },
@@ -4068,7 +4888,7 @@
       "releaseDate": "2025-09-06",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 33,
           "max": 40
         }
@@ -4136,7 +4956,7 @@
       "releaseDate": "2025-09-01",
       "type": "ultimate-football-showdown",
       "scores": {
-        "calum-jacob-heggie": 28,
+        "calum-heggie-jacob": 28,
         "caulfield": 8
       }
     },
@@ -4147,7 +4967,7 @@
       "releaseDate": "2025-08-31",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 35,
           "max": 40
         }
@@ -4192,7 +5012,7 @@
       "releaseDate": "2025-08-27",
       "type": "careerpath",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 21,
           "max": 32
         }
@@ -4212,7 +5032,7 @@
       "releaseDate": "2025-08-25",
       "type": "ultimate-football-showdown",
       "scores": {
-        "calum-aaron-heggie": 31,
+        "aaron-calum-heggie": 31,
         "eric": 51
       }
     },
@@ -4223,7 +5043,7 @@
       "releaseDate": "2025-08-24",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 35,
           "max": 40
         }
@@ -4265,13 +5085,7 @@
       "title": "This Football Passport Quiz Caused A Major HEAD LOSS...",
       "youtubeId": "HZdyXFIx7JI",
       "releaseDate": "2025-08-20",
-      "type": "passport",
-      "scores": {
-        "aaron-jacob-calum": {
-          "score": 24,
-          "max": 45
-        }
-      }
+      "type": "passport"
     },
     {
       "id": "careerpath-2025-08-19",
@@ -4311,7 +5125,7 @@
       "releaseDate": "2025-08-16",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 26,
           "max": 40
         }
@@ -4383,7 +5197,7 @@
       "releaseDate": "2025-08-11",
       "type": "ultimate-football-showdown",
       "scores": {
-        "aaron-jacob-calum": 28,
+        "aaron-calum-jacob": 28,
         "luke": 36
       }
     },
@@ -4394,7 +5208,7 @@
       "releaseDate": "2025-08-10",
       "type": "tenable",
       "scores": {
-        "aaron-jacob-calum-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 37,
           "max": 40
         }
@@ -4451,12 +5265,6 @@
       "youtubeId": "XVdAD7mUPUs",
       "releaseDate": "2025-08-04",
       "type": "passport",
-      "scores": {
-        "aaron-jacob-calum-heggie": {
-          "score": 152,
-          "max": 240
-        }
-      },
       "moments": [
         {
           "id": "aaron-fabinho",
@@ -4506,7 +5314,7 @@
       "releaseDate": "2025-08-03",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 39,
           "max": 50
         }
@@ -4585,9 +5393,18 @@
       "releaseDate": "2025-07-29",
       "type": "connect4",
       "results": [
-        { "winner": "calum", "loser": "aaron" },
-        { "winner": "calum", "loser": "aaron" },
-        { "winner": "calum", "loser": "aaron" }
+        {
+          "winner": "calum",
+          "loser": "aaron"
+        },
+        {
+          "winner": "calum",
+          "loser": "aaron"
+        },
+        {
+          "winner": "calum",
+          "loser": "aaron"
+        }
       ]
     },
     {
@@ -4690,7 +5507,7 @@
       "releaseDate": "2025-07-21",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 32,
           "max": 40
         }
@@ -4750,7 +5567,7 @@
       "releaseDate": "2025-07-17",
       "type": "logic",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 25,
           "max": 25
         }
@@ -4800,7 +5617,7 @@
       "releaseDate": "2025-07-13",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 31,
           "max": 40
         }
@@ -4841,13 +5658,22 @@
       "type": "traitors",
       "results": {
         "jacob": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "aaron": [
-          { "role": "traitor", "win": true }
+          {
+            "role": "traitor",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ]
       }
     },
@@ -4918,9 +5744,18 @@
       "releaseDate": "2025-07-05",
       "type": "codenames",
       "results": [
-        { "winner": "calum-jacob", "loser": "heggie-aaron" },
-        { "winner": "heggie-aaron", "loser": "calum-jacob" },
-        { "winner": "calum-jacob", "loser": "heggie-aaron" }
+        {
+          "winner": "calum-jacob",
+          "loser": "aaron-heggie"
+        },
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        },
+        {
+          "winner": "calum-jacob",
+          "loser": "aaron-heggie"
+        }
       ]
     },
     {
@@ -4942,7 +5777,7 @@
       "releaseDate": "2025-07-03",
       "type": "misc",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 104,
           "max": 140
         }
@@ -4962,7 +5797,7 @@
       "releaseDate": "2025-07-01",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 32,
           "max": 40
         }
@@ -4975,7 +5810,7 @@
       "releaseDate": "2025-06-30",
       "type": "careerpath",
       "scores": {
-        "jacob-heggie-aaron": {
+        "aaron-heggie-jacob": {
           "score": 25,
           "max": 30
         }
@@ -5029,7 +5864,7 @@
       "releaseDate": "2025-06-26",
       "type": "whq",
       "scores": {
-        "jacob-calum-aaron": {
+        "aaron-calum-jacob": {
           "score": 26,
           "max": 55
         }
@@ -5042,9 +5877,18 @@
       "releaseDate": "2025-06-25",
       "type": "codenames",
       "results": [
-        { "winner": "calum-jacob", "loser": "aaron-heggie" },
-        { "winner": "aaron-heggie", "loser": "calum-jacob" },
-        { "winner": "aaron-heggie", "loser": "calum-jacob" }
+        {
+          "winner": "calum-jacob",
+          "loser": "aaron-heggie"
+        },
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        },
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        }
       ]
     },
     {
@@ -5054,7 +5898,7 @@
       "releaseDate": "2025-06-24",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 37,
           "max": 40
         }
@@ -5101,7 +5945,7 @@
       "releaseDate": "2025-06-21",
       "type": "careerpath",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 16,
           "max": 30
         }
@@ -5216,7 +6060,7 @@
       "releaseDate": "2025-06-13",
       "type": "misc",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 42,
           "max": 60
         }
@@ -5257,7 +6101,7 @@
       "releaseDate": "2025-06-11",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 38,
           "max": 40
         }
@@ -5349,7 +6193,7 @@
       "releaseDate": "2025-06-06",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 36,
           "max": 40
         }
@@ -5407,7 +6251,7 @@
       "releaseDate": "2025-06-02",
       "type": "careerpath",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 25,
           "max": 30
         }
@@ -5435,7 +6279,7 @@
       "releaseDate": "2025-06-01",
       "type": "ultimate-football-showdown",
       "scores": {
-        "aaron-jacob-calum": 23,
+        "aaron-calum-jacob": 23,
         "luke": 14
       }
     },
@@ -5446,7 +6290,7 @@
       "releaseDate": "2025-05-31",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 25,
           "max": 72
         }
@@ -5474,7 +6318,7 @@
       "releaseDate": "2025-05-30",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 35,
           "max": 40
         }
@@ -5508,11 +6352,11 @@
       }
     },
     {
-      "id": "ufqshowdown-2025-05-28",
+      "id": "ultimate-football-showdown-2025-05-28",
       "title": "This ULTIMATE FOOTBALL SHOWDOWN Quiz Was Our BEST EVER...",
       "youtubeId": "tCS64K4lIMY",
       "releaseDate": "2025-05-28",
-      "type": "ufqshowdown",
+      "type": "ultimate-football-showdown",
       "scores": {
         "calum": 18,
         "jacob": 19,
@@ -5568,13 +6412,22 @@
       "type": "traitors",
       "results": {
         "heggie": [
-          { "role": "traitor", "win": true }
+          {
+            "role": "traitor",
+            "win": true
+          }
         ],
         "aaron": [
-          { "role": "traitor", "win": true }
+          {
+            "role": "traitor",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "traitor", "win": true }
+          {
+            "role": "traitor",
+            "win": true
+          }
         ]
       }
     },
@@ -5604,7 +6457,7 @@
       "releaseDate": "2025-05-23",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 34,
           "max": 40
         }
@@ -5674,7 +6527,7 @@
       "type": "wavelength",
       "scores": {
         "heggie-jacob": 32,
-        "aaron-calum": 18      
+        "aaron-calum": 18
       }
     },
     {
@@ -5683,7 +6536,7 @@
       "youtubeId": "2iUqLe9qbsM",
       "releaseDate": "2025-05-19",
       "type": "draft"
-    },  
+    },
     {
       "id": "logic-2025-05-18",
       "title": "We Made Our Own FOOTBALL LOGIC PUZZLE And The Boys COOKED...",
@@ -5726,8 +6579,14 @@
       "releaseDate": "2025-05-17",
       "type": "codenames",
       "results": [
-        { "winner": "aaron-heggie", "loser": "calum-jacob" },
-        { "winner": "aaron-heggie", "loser": "calum-jacob" }
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        },
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        }
       ]
     },
     {
@@ -5737,7 +6596,7 @@
       "releaseDate": "2025-05-16",
       "type": "careerpath",
       "scores": {
-        "calum-aaron": {
+        "aaron-calum": {
           "score": 22,
           "max": 26
         }
@@ -5750,7 +6609,7 @@
       "releaseDate": "2025-05-15",
       "type": "tenable",
       "scores": {
-        "calum-aaron-heggie": {
+        "aaron-calum-heggie": {
           "score": 39,
           "max": 40
         }
@@ -5763,7 +6622,7 @@
       "releaseDate": "2025-05-14",
       "type": "misc",
       "scores": {
-        "calum-aaron-heggie": {
+        "aaron-calum-heggie": {
           "score": 23,
           "max": 41
         }
@@ -5822,7 +6681,7 @@
       "releaseDate": "2025-05-10",
       "type": "tenable",
       "scores": {
-        "calum-heggie-aaron": {
+        "aaron-calum-heggie": {
           "score": 37,
           "max": 50
         }
@@ -5835,7 +6694,7 @@
       "releaseDate": "2025-05-09",
       "type": "squadguesser",
       "scores": {
-        "calum-heggie-aaron": {
+        "aaron-calum-heggie": {
           "score": 20,
           "max": 24
         }
@@ -5863,7 +6722,7 @@
       "releaseDate": "2025-05-08",
       "type": "whq",
       "scores": {
-        "calum-heggie-aaron": {
+        "aaron-calum-heggie": {
           "score": 28,
           "max": 50
         }
@@ -5876,7 +6735,7 @@
       "releaseDate": "2025-05-07",
       "type": "careerpath",
       "scores": {
-        "calum-aaron": {
+        "aaron-calum": {
           "score": 19,
           "max": 28
         }
@@ -5973,7 +6832,7 @@
       "releaseDate": "2025-05-01",
       "type": "misc",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 23,
           "max": 66
         }
@@ -6001,8 +6860,8 @@
       "releaseDate": "2025-04-30",
       "type": "questionofsport",
       "scores": {
-        "heggie-calum": 24,
-        "jacob-aaron": 20
+        "calum-heggie": 24,
+        "aaron-jacob": 20
       },
       "moments": [
         {
@@ -6028,13 +6887,22 @@
       "type": "traitors-tenable",
       "results": {
         "jacob": [
-          { "role": "traitor", "win": false }
+          {
+            "role": "traitor",
+            "win": false
+          }
         ],
         "aaron": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -6045,7 +6913,7 @@
       "releaseDate": "2025-04-28",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 39,
           "max": 62
         }
@@ -6139,7 +7007,7 @@
       "releaseDate": "2025-04-24",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 25,
           "max": 36
         }
@@ -6153,13 +7021,22 @@
       "type": "traitors-tenable",
       "results": {
         "jacob": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "aaron": [
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "traitor", "win": false }
+          {
+            "role": "traitor",
+            "win": false
+          }
         ]
       }
     },
@@ -6204,7 +7081,7 @@
       "releaseDate": "2025-04-20",
       "type": "careerpath",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 12.5,
           "max": 18
         }
@@ -6269,7 +7146,7 @@
       "releaseDate": "2025-04-16",
       "type": "misc",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 48,
           "max": 76
         }
@@ -6282,7 +7159,7 @@
       "releaseDate": "2025-04-15",
       "type": "misc",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 18,
           "max": 77
         }
@@ -6296,32 +7173,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false }
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ]
       }
     },
@@ -6332,7 +7269,7 @@
       "releaseDate": "2025-04-13",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 34,
           "max": 40
         }
@@ -6345,7 +7282,7 @@
       "releaseDate": "2025-04-12",
       "type": "careerpath",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 14,
           "max": 32
         }
@@ -6365,7 +7302,7 @@
       "releaseDate": "2025-04-10",
       "type": "whq",
       "scores": {
-        "jacob-calum-aaron": {
+        "aaron-calum-jacob": {
           "score": 24,
           "max": 44
         }
@@ -6378,7 +7315,7 @@
       "releaseDate": "2025-04-09",
       "type": "misc",
       "scores": {
-        "jacob-calum": 40,
+        "calum-jacob": 40,
         "aaron-heggie": 38
       }
     },
@@ -6389,7 +7326,7 @@
       "releaseDate": "2025-04-08",
       "type": "misc",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 48,
           "max": 86
         }
@@ -6429,7 +7366,7 @@
       "releaseDate": "2025-04-06",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 37,
           "max": 40
         }
@@ -6449,7 +7386,7 @@
       "releaseDate": "2025-04-04",
       "type": "whq",
       "scores": {
-        "jacob-calum-aaron-tom": {
+        "jacob-calum-aaron-capgun": {
           "score": 45,
           "max": 65
         }
@@ -6462,7 +7399,7 @@
       "releaseDate": "2025-04-03",
       "type": "guess-who",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 47,
           "max": 82
         }
@@ -6482,7 +7419,7 @@
       "releaseDate": "2025-04-01",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 15,
           "max": 40
         }
@@ -6495,7 +7432,7 @@
       "releaseDate": "2025-03-31",
       "type": "careerpath",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 7,
           "max": 15
         }
@@ -6554,7 +7491,7 @@
       "releaseDate": "2025-03-25",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 30,
           "max": 64
         }
@@ -6574,7 +7511,7 @@
       "releaseDate": "2025-03-23",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 36,
           "max": 50
         }
@@ -6627,7 +7564,7 @@
       "releaseDate": "2025-03-21",
       "type": "careerpath",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 25,
           "max": 30
         }
@@ -6659,7 +7596,7 @@
       "releaseDate": "2025-03-18",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 16,
           "max": 47
         }
@@ -6699,7 +7636,7 @@
       "releaseDate": "2025-03-16",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 37,
           "max": 40
         }
@@ -6713,13 +7650,22 @@
       "type": "tenable",
       "results": {
         "jacob": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "aaron": [
-          { "role": "traitor", "win": true }
+          {
+            "role": "traitor",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          }
         ]
       }
     },
@@ -6741,7 +7687,7 @@
       "releaseDate": "2025-03-13",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 18,
           "max": 47
         }
@@ -6765,7 +7711,7 @@
       "releaseDate": "2025-03-11",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 39,
           "max": 40
         }
@@ -6778,7 +7724,7 @@
       "releaseDate": "2025-03-10",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 31,
           "max": 59
         }
@@ -6813,7 +7759,7 @@
       "releaseDate": "2025-03-07",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 16,
           "max": 63
         }
@@ -6826,7 +7772,7 @@
       "releaseDate": "2025-03-06",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 47,
           "max": 50
         }
@@ -6839,7 +7785,7 @@
       "releaseDate": "2025-03-05",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 26,
           "max": 40
         }
@@ -6852,7 +7798,7 @@
       "releaseDate": "2025-03-04",
       "type": "careerpath",
       "scores": {
-        "jacob-calum": {
+        "calum-jacob": {
           "score": 39,
           "max": 83
         }
@@ -6883,7 +7829,7 @@
       "releaseDate": "2025-03-01",
       "type": "whq",
       "scores": {
-        "jacob-heggie": {
+        "heggie-jacob": {
           "score": 27,
           "max": 48
         }
@@ -6896,7 +7842,7 @@
       "releaseDate": "2025-02-28",
       "type": "tenable",
       "scores": {
-        "jacob-calum": {
+        "calum-jacob": {
           "score": 46,
           "max": 50
         }
@@ -6920,7 +7866,7 @@
       "releaseDate": "2025-02-26",
       "type": "whq",
       "scores": {
-        "jacob-calum": {
+        "calum-jacob": {
           "score": 18,
           "max": 49
         }
@@ -6951,7 +7897,7 @@
       "releaseDate": "2025-02-23",
       "type": "misc",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 28,
           "max": 60
         }
@@ -6975,7 +7921,7 @@
       "releaseDate": "2025-02-21",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 18,
           "max": 39
         }
@@ -7010,7 +7956,7 @@
       "releaseDate": "2025-02-19",
       "type": "careerpath",
       "scores": {
-        "jacob-heggie": {
+        "heggie-jacob": {
           "score": 35,
           "max": 69
         }
@@ -7023,7 +7969,7 @@
       "releaseDate": "2025-02-18",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 47,
           "max": 50
         }
@@ -7050,7 +7996,7 @@
       "releaseDate": "2025-02-15",
       "type": "whq",
       "scores": {
-        "jacob-calum-heggie": {
+        "calum-heggie-jacob": {
           "score": 27,
           "max": 52
         }
@@ -7077,7 +8023,7 @@
       "releaseDate": "2025-02-12",
       "type": "guess-who",
       "scores": {
-        "jacob-heggie": {
+        "heggie-jacob": {
           "score": 21,
           "max": 30
         }
@@ -7114,7 +8060,7 @@
       "releaseDate": "2025-02-09",
       "type": "careerpath",
       "scores": {
-        "calum-aaron-jacob": {
+        "aaron-calum-jacob": {
           "score": 30,
           "max": 66
         }
@@ -7165,7 +8111,7 @@
       "releaseDate": "2025-02-06",
       "type": "tenable",
       "scores": {
-        "calum-aaron-jacob-luke": {
+        "aaron-calum-jacob-luke": {
           "score": 33,
           "max": 40
         }
@@ -7205,7 +8151,7 @@
       "releaseDate": "2025-02-04",
       "type": "whq",
       "scores": {
-        "calum-aaron-jacob-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 6,
           "max": 46
         }
@@ -7266,7 +8212,7 @@
       "releaseDate": "2025-01-30",
       "type": "whq",
       "scores": {
-        "calum-heggie-jacob-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 14,
           "max": 47
         }
@@ -7286,7 +8232,7 @@
       "releaseDate": "2025-01-28",
       "type": "squadguesser",
       "scores": {
-        "calum-aaron-jacob": {
+        "aaron-calum-jacob": {
           "score": 39,
           "max": 77
         }
@@ -7435,7 +8381,7 @@
       "releaseDate": "2025-01-18",
       "type": "careerpath",
       "scores": {
-        "heggie-jacob-aaron": {
+        "aaron-heggie-jacob": {
           "score": 16,
           "max": 30
         }
@@ -7467,7 +8413,7 @@
       "releaseDate": "2025-01-15",
       "type": "tenable",
       "scores": {
-        "calum-heggie-jacob-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 25,
           "max": 40
         }
@@ -7480,7 +8426,7 @@
       "releaseDate": "2025-01-14",
       "type": "misc",
       "scores": {
-        "calum-jacob-aaron": {
+        "aaron-calum-jacob": {
           "score": 77,
           "max": 80
         }
@@ -7539,7 +8485,7 @@
       "releaseDate": "2025-01-10",
       "type": "whq",
       "scores": {
-        "heggie-calum-jacob-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 24,
           "max": 47
         }
@@ -7559,7 +8505,7 @@
       "releaseDate": "2025-01-08",
       "type": "tenable",
       "scores": {
-        "calum-heggie-jacob-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 29,
           "max": 40
         }
@@ -7572,7 +8518,7 @@
       "releaseDate": "2025-01-07",
       "type": "careerpath",
       "scores": {
-        "calum-heggie-aaron": {
+        "aaron-calum-heggie": {
           "score": 21,
           "max": 30
         }
@@ -7600,7 +8546,7 @@
       "releaseDate": "2025-01-06",
       "type": "squadguesser",
       "scores": {
-        "calum-heggie-jacob-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 55,
           "max": 80
         }
@@ -7661,7 +8607,7 @@
       "releaseDate": "2025-01-01",
       "type": "tenable",
       "scores": {
-        "calum-heggie-jacob-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 35,
           "max": 40
         }
@@ -7851,7 +8797,7 @@
       "releaseDate": "2024-12-18",
       "type": "tenable",
       "scores": {
-        "calum-heggie-jacob-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 35,
           "max": 40
         }
@@ -7899,8 +8845,14 @@
       "releaseDate": "2024-12-15",
       "type": "codenames",
       "results": [
-        { "winner": "jacob-calum", "loser": "aaron-heggie" },
-        { "winner": "jacob-calum", "loser": "aaron-heggie" }
+        {
+          "winner": "calum-jacob",
+          "loser": "aaron-heggie"
+        },
+        {
+          "winner": "calum-jacob",
+          "loser": "aaron-heggie"
+        }
       ]
     },
     {
@@ -7970,10 +8922,22 @@
       "releaseDate": "2024-12-08",
       "type": "killer-tic-tac-toe",
       "results": [
-        { "winner": "jacob", "loser": "aaron" },
-        { "winner": "calum", "loser": "aaron" },
-        { "winner": "jacob", "loser": "heggie" },
-        { "winner": "calum", "loser": "heggie" }
+        {
+          "winner": "jacob",
+          "loser": "aaron"
+        },
+        {
+          "winner": "calum",
+          "loser": "aaron"
+        },
+        {
+          "winner": "jacob",
+          "loser": "heggie"
+        },
+        {
+          "winner": "calum",
+          "loser": "heggie"
+        }
       ],
       "moments": [
         {
@@ -7999,32 +8963,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false }
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -8077,7 +9101,7 @@
       "releaseDate": "2024-12-03",
       "type": "careerpath",
       "scores": {
-        "calum-aaron-jacob": {
+        "aaron-calum-jacob": {
           "score": 7.5,
           "max": 13
         }
@@ -8097,7 +9121,7 @@
       "releaseDate": "2024-12-01",
       "type": "tenable",
       "scores": {
-        "calum-heggie-aaron-jacob": {
+        "aaron-calum-heggie-jacob": {
           "score": 29,
           "max": 40
         }
@@ -8132,7 +9156,7 @@
       "releaseDate": "2024-11-29",
       "type": "tenable",
       "scores": {
-        "calum-heggie-aaron-jacob": {
+        "aaron-calum-heggie-jacob": {
           "score": 30,
           "max": 40
         }
@@ -8144,7 +9168,7 @@
       "youtubeId": "IkbbgD7ewDU",
       "releaseDate": "2024-11-28",
       "type": "ultimate-football-showdown",
-       "scores": {
+      "scores": {
         "aaron": 17,
         "heggie": 25
       }
@@ -8155,7 +9179,7 @@
       "youtubeId": "gmhcxPuwqzE",
       "releaseDate": "2024-11-27",
       "type": "jeopardy",
-       "scores": {
+      "scores": {
         "aaron": 35,
         "calum": 35,
         "jacob": 38
@@ -8168,7 +9192,7 @@
       "releaseDate": "2024-11-26",
       "type": "squadguesser",
       "scores": {
-        "calum-aaron-jacob": {
+        "aaron-calum-jacob": {
           "score": 54,
           "max": 88
         }
@@ -8188,7 +9212,7 @@
       "releaseDate": "2024-11-24",
       "type": "tenable",
       "scores": {
-        "calum-heggie-aaron-jacob": {
+        "aaron-calum-heggie-jacob": {
           "score": 25,
           "max": 40
         }
@@ -8200,11 +9224,25 @@
       "youtubeId": "wmtL4l4eY5A",
       "releaseDate": "2024-11-23",
       "type": "killer-tic-tac-toe",
-       "results": [
-        { "winner": "jacob", "loser": "calum" },
-        { "draw": ["aaron", "calum"] },
-        { "winner": "heggie", "loser": "aaron" },
-        { "winner": "heggie", "loser": "jacob" }
+      "results": [
+        {
+          "winner": "jacob",
+          "loser": "calum"
+        },
+        {
+          "draw": [
+            "aaron",
+            "calum"
+          ]
+        },
+        {
+          "winner": "heggie",
+          "loser": "aaron"
+        },
+        {
+          "winner": "heggie",
+          "loser": "jacob"
+        }
       ]
     },
     {
@@ -8235,7 +9273,7 @@
       "youtubeId": "2yTXBwjLTiw",
       "releaseDate": "2024-11-21",
       "type": "ultimate-football-showdown",
-       "scores": {
+      "scores": {
         "aaron": 22,
         "calum": 31
       }
@@ -8294,7 +9332,7 @@
       "releaseDate": "2024-11-17",
       "type": "tenable",
       "scores": {
-        "calum-heggie-jacob-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 37,
           "max": 40
         }
@@ -8307,10 +9345,22 @@
       "releaseDate": "2024-11-16",
       "type": "killer-tic-tac-toe",
       "results": [
-        { "winner": "calum", "loser": "jacob" },
-        { "winner": "jacob", "loser": "aaron" },
-        { "winner": "calum", "loser": "heggie" },
-        { "winner": "aaron", "loser": "heggie" }
+        {
+          "winner": "calum",
+          "loser": "jacob"
+        },
+        {
+          "winner": "jacob",
+          "loser": "aaron"
+        },
+        {
+          "winner": "calum",
+          "loser": "heggie"
+        },
+        {
+          "winner": "aaron",
+          "loser": "heggie"
+        }
       ],
       "moments": [
         {
@@ -8343,7 +9393,7 @@
       "releaseDate": "2024-11-14",
       "type": "whq",
       "scores": {
-        "calum-jacob-aaron": {
+        "aaron-calum-jacob": {
           "score": 27,
           "max": 35
         }
@@ -8356,7 +9406,7 @@
       "releaseDate": "2024-11-13",
       "type": "tenable",
       "scores": {
-        "calum-jacob-aaron-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 36,
           "max": 40
         }
@@ -8376,7 +9426,7 @@
       "releaseDate": "2024-11-11",
       "type": "squadguesser",
       "scores": {
-        "calum-jacob-aaron": {
+        "aaron-calum-jacob": {
           "score": 58,
           "max": 99
         }
@@ -8404,7 +9454,7 @@
       "releaseDate": "2024-11-10",
       "type": "tenable",
       "scores": {
-        "calum-jacob-aaron-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 30,
           "max": 40
         }
@@ -8417,10 +9467,24 @@
       "releaseDate": "2024-11-09",
       "type": "killer-tic-tac-toe",
       "results": [
-        { "winner": "heggie", "loser": "jacob" },
-        { "winner": "jacob", "loser": "aaron" },
-        { "draw": ["aaron", "calum"] },
-        { "winner": "heggie", "loser": "calum" }
+        {
+          "winner": "heggie",
+          "loser": "jacob"
+        },
+        {
+          "winner": "jacob",
+          "loser": "aaron"
+        },
+        {
+          "draw": [
+            "aaron",
+            "calum"
+          ]
+        },
+        {
+          "winner": "heggie",
+          "loser": "calum"
+        }
       ],
       "moments": [
         {
@@ -8487,7 +9551,7 @@
       "releaseDate": "2024-11-04",
       "type": "tenable",
       "scores": {
-        "calum-jacob-aaron-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 37,
           "max": 40
         }
@@ -8522,10 +9586,24 @@
       "releaseDate": "2024-11-02",
       "type": "killer-tic-tac-toe",
       "results": [
-        { "winner": "calum", "loser": "aaron" },
-        { "winner": "jacob", "loser": "aaron" },
-        { "draw": ["jacob", "heggie"] },
-        { "winner": "calum", "loser": "heggie" }
+        {
+          "winner": "calum",
+          "loser": "aaron"
+        },
+        {
+          "winner": "jacob",
+          "loser": "aaron"
+        },
+        {
+          "draw": [
+            "jacob",
+            "heggie"
+          ]
+        },
+        {
+          "winner": "calum",
+          "loser": "heggie"
+        }
       ],
       "moments": [
         {
@@ -8577,7 +9655,7 @@
       "releaseDate": "2024-10-31",
       "type": "whq",
       "scores": {
-        "calum-aaron-heggie": {
+        "aaron-calum-heggie": {
           "score": 21,
           "max": 35
         }
@@ -8590,7 +9668,7 @@
       "releaseDate": "2024-10-30",
       "type": "tenable",
       "scores": {
-        "calum-aaron-heggie-jacob": {
+        "aaron-calum-heggie-jacob": {
           "score": 35,
           "max": 40
         }
@@ -8610,10 +9688,22 @@
       "releaseDate": "2024-10-28",
       "type": "killer-tic-tac-toe",
       "results": [
-        { "winner": "calum", "loser": "jacob" },
-        { "winner": "heggie", "loser": "aaron" },
-        { "winner": "heggie", "loser": "calum" },
-        { "winner": "jacob", "loser": "aaron" }
+        {
+          "winner": "calum",
+          "loser": "jacob"
+        },
+        {
+          "winner": "heggie",
+          "loser": "aaron"
+        },
+        {
+          "winner": "heggie",
+          "loser": "calum"
+        },
+        {
+          "winner": "jacob",
+          "loser": "aaron"
+        }
       ]
     },
     {
@@ -8630,7 +9720,7 @@
       "releaseDate": "2024-10-26",
       "type": "tenable",
       "scores": {
-        "calum-aaron-heggie-jacob": {
+        "aaron-calum-heggie-jacob": {
           "score": 30,
           "max": 40
         }
@@ -8643,9 +9733,18 @@
       "releaseDate": "2024-10-25",
       "type": "codenames",
       "results": [
-        { "winner": "aaron-heggie", "loser": "calum-jacob" },
-        { "winner": "aaron-heggie", "loser": "calum-jacob" },
-        { "winner": "calum-jacob", "loser": "aaron-heggie" }
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        },
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        },
+        {
+          "winner": "calum-jacob",
+          "loser": "aaron-heggie"
+        }
       ]
     },
     {
@@ -8722,7 +9821,7 @@
       "releaseDate": "2024-10-21",
       "type": "tenable",
       "scores": {
-        "calum-aaron-heggie-jacob": {
+        "aaron-calum-heggie-jacob": {
           "score": 34,
           "max": 40
         }
@@ -8774,10 +9873,22 @@
       "releaseDate": "2024-10-18",
       "type": "killer-tic-tac-toe",
       "results": [
-        { "winner": "jacob", "loser": "aaron" },
-        { "winner": "calum", "loser": "heggie" },
-        { "winner": "heggie", "loser": "jacob" },
-        { "winner": "calum", "loser": "aaron" }
+        {
+          "winner": "jacob",
+          "loser": "aaron"
+        },
+        {
+          "winner": "calum",
+          "loser": "heggie"
+        },
+        {
+          "winner": "heggie",
+          "loser": "jacob"
+        },
+        {
+          "winner": "calum",
+          "loser": "aaron"
+        }
       ]
     },
     {
@@ -8788,32 +9899,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "heggie": [
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true }
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          }
         ]
       }
     },
@@ -8824,7 +9995,7 @@
       "releaseDate": "2024-10-16",
       "type": "whq",
       "scores": {
-        "calum-aaron-jacob": {
+        "aaron-calum-jacob": {
           "score": 21,
           "max": 35
         }
@@ -8837,7 +10008,7 @@
       "releaseDate": "2024-10-14",
       "type": "tenable",
       "scores": {
-        "calum-aaron-jacob-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 20,
           "max": 40
         }
@@ -8883,7 +10054,7 @@
       "releaseDate": "2024-10-10",
       "type": "careerpath",
       "scores": {
-        "calum-jacob-heggie": {
+        "calum-heggie-jacob": {
           "score": 6.5,
           "max": 12
         }
@@ -8941,7 +10112,7 @@
       "releaseDate": "2024-10-04",
       "type": "careerpath",
       "scores": {
-        "aaron-jacob-heggie": {
+        "aaron-heggie-jacob": {
           "score": 12,
           "max": 12
         }
@@ -8981,7 +10152,7 @@
       "releaseDate": "2024-09-28",
       "type": "whq",
       "scores": {
-        "aaron-jacob-heggie": {
+        "aaron-heggie-jacob": {
           "score": 19,
           "max": 35
         }
@@ -9001,7 +10172,7 @@
       "releaseDate": "2024-09-26",
       "type": "tenable",
       "scores": {
-        "jacob-heggie-calum": {
+        "calum-heggie-jacob": {
           "score": 37,
           "max": 40
         }
@@ -9025,7 +10196,7 @@
       "releaseDate": "2024-09-23",
       "type": "careerpath",
       "scores": {
-        "jacob-heggie": {
+        "heggie-jacob": {
           "score": 13,
           "max": 14
         }
@@ -9045,7 +10216,7 @@
       "releaseDate": "2024-09-20",
       "type": "tenable",
       "scores": {
-        "jacob-heggie-calum": {
+        "calum-heggie-jacob": {
           "score": 27,
           "max": 40
         }
@@ -9093,7 +10264,7 @@
       "releaseDate": "2024-09-14",
       "type": "whq",
       "scores": {
-        "jacob-calum": {
+        "calum-jacob": {
           "score": 24,
           "max": 35
         }
@@ -9127,33 +10298,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false }
-
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true }
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -9171,7 +10401,7 @@
       "releaseDate": "2024-09-07",
       "type": "wavelength",
       "scores": {
-        "jacob-heggie": 17,
+        "heggie-jacob": 17,
         "aaron-calum": 11
       }
     },
@@ -9221,7 +10451,7 @@
       "releaseDate": "2024-09-03",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 30,
           "max": 40
         }
@@ -9256,9 +10486,18 @@
       "releaseDate": "2024-08-31",
       "type": "codenames",
       "results": [
-        { "winner": "calum-heggie", "loser": "aaron-jacob" },
-        { "winner": "calum-heggie", "loser": "aaron-jacob" },
-        { "winner": "calum-heggie", "loser": "aaron-jacob" }
+        {
+          "winner": "calum-heggie",
+          "loser": "aaron-jacob"
+        },
+        {
+          "winner": "calum-heggie",
+          "loser": "aaron-jacob"
+        },
+        {
+          "winner": "calum-heggie",
+          "loser": "aaron-jacob"
+        }
       ]
     },
     {
@@ -9282,7 +10521,7 @@
       "releaseDate": "2024-08-26",
       "type": "tenable",
       "scores": {
-        "jacob-calum-heggie-aaron": {
+        "aaron-calum-heggie-jacob": {
           "score": 36,
           "max": 40
         }
@@ -9295,7 +10534,7 @@
       "releaseDate": "2024-08-24",
       "type": "careerpath",
       "scores": {
-        "jacob-calum-aaron": {
+        "aaron-calum-jacob": {
           "score": 11,
           "max": 15
         }
@@ -9308,7 +10547,7 @@
       "releaseDate": "2024-08-23",
       "type": "whq",
       "scores": {
-        "heggie-aaron": {
+        "aaron-heggie": {
           "score": 18,
           "max": 31
         }
@@ -9321,7 +10560,7 @@
       "releaseDate": "2024-08-21",
       "type": "tenable",
       "scores": {
-        "heggie-aaron-calum": {
+        "aaron-calum-heggie": {
           "score": 36,
           "max": 40
         }
@@ -9385,7 +10624,7 @@
       "releaseDate": "2024-08-14",
       "type": "tenable",
       "scores": {
-        "heggie-aaron-calum": {
+        "aaron-calum-heggie": {
           "score": 36,
           "max": 40
         }
@@ -9509,7 +10748,7 @@
         "aaron": 13,
         "calum": 12,
         "heggie": 10,
-        "jacob": 15 
+        "jacob": 15
       }
     },
     {
@@ -9528,7 +10767,7 @@
       "scores": {
         "aaron": 0,
         "calum": 4,
-        "jacob": 3 
+        "jacob": 3
       }
     },
     {
@@ -9545,10 +10784,22 @@
       "releaseDate": "2024-07-23",
       "type": "tic-tac-toe",
       "results": [
-        { "winner": "heggie", "loser": "jacob" },
-        { "winner": "heggie", "loser": "aaron" },
-        { "winner": "aaron", "loser": "jacob" },
-        { "winner": "aaron", "loser": "heggie" }
+        {
+          "winner": "heggie",
+          "loser": "jacob"
+        },
+        {
+          "winner": "heggie",
+          "loser": "aaron"
+        },
+        {
+          "winner": "aaron",
+          "loser": "jacob"
+        },
+        {
+          "winner": "aaron",
+          "loser": "heggie"
+        }
       ]
     },
     {
@@ -9634,8 +10885,8 @@
       "releaseDate": "2024-07-12",
       "type": "pictionary",
       "scores": {
-        "jacob-heggie": 10,
-        "calum-aaron": 4
+        "heggie-jacob": 10,
+        "aaron-calum": 4
       }
     },
     {
@@ -9645,9 +10896,18 @@
       "releaseDate": "2024-07-11",
       "type": "codenames",
       "results": [
-        { "winner": "aaron-heggie", "loser": "jacob-calum" },
-        { "winner": "jacob-calum", "loser": "aaron-heggie" },
-        { "winner": "jacob-calum", "loser": "aaron-heggie" }
+        {
+          "winner": "aaron-heggie",
+          "loser": "calum-jacob"
+        },
+        {
+          "winner": "calum-jacob",
+          "loser": "aaron-heggie"
+        },
+        {
+          "winner": "calum-jacob",
+          "loser": "aaron-heggie"
+        }
       ]
     },
     {
@@ -9700,7 +10960,7 @@
       "releaseDate": "2024-07-03",
       "type": "whq",
       "scores": {
-        "calum-aaron": {
+        "aaron-calum": {
           "score": 22.5,
           "max": 30
         }
@@ -9743,36 +11003,108 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true }
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true }
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "imposter", "win": true }
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          }
         ]
       }
     },
@@ -9835,25 +11167,60 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": true }
-
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "jacob": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          }
         ]
       }
     },
@@ -9864,9 +11231,18 @@
       "releaseDate": "2024-06-21",
       "type": "codenames",
       "results": [
-        { "winner": "calum-heggie", "loser": "aaron-jacob" },
-        { "winner": "calum-heggie", "loser": "aaron-jacob" },
-        { "winner": "aaron-jacob", "loser": "calum-heggie" }
+        {
+          "winner": "calum-heggie",
+          "loser": "aaron-jacob"
+        },
+        {
+          "winner": "calum-heggie",
+          "loser": "aaron-jacob"
+        },
+        {
+          "winner": "aaron-jacob",
+          "loser": "calum-heggie"
+        }
       ],
       "moments": [
         {
@@ -9949,7 +11325,7 @@
       "releaseDate": "2024-06-06",
       "type": "tenable",
       "scores": {
-        "calum-aaron-jacob-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 39,
           "max": 40
         }
@@ -9962,7 +11338,7 @@
       "releaseDate": "2024-06-04",
       "type": "whq",
       "scores": {
-        "calum-aaron-jacob": {
+        "aaron-calum-jacob": {
           "score": 21.5,
           "max": 31
         }
@@ -9983,32 +11359,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "imposter", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          }
         ]
       }
     },
@@ -10019,7 +11455,7 @@
       "releaseDate": "2024-05-28",
       "type": "tenable",
       "scores": {
-        "calum-aaron-jacob-heggie-luke": {
+        "aaron-calum-heggie-jacob-luke": {
           "score": 31,
           "max": 40
         }
@@ -10039,7 +11475,7 @@
       "releaseDate": "2024-05-23",
       "type": "tenable",
       "scores": {
-        "calum-aaron-jacob-heggie": {
+        "aaron-calum-heggie-jacob": {
           "score": 28,
           "max": 40
         }
@@ -10073,32 +11509,92 @@
       "type": "imposter",
       "results": {
         "aaron": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "calum": [
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ],
         "jacob": [
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "imposter", "win": true }
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          }
         ],
         "heggie": [
-          { "role": "imposter", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": false },
-          { "role": "faithful", "win": true },
-          { "role": "faithful", "win": false }
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
         ]
       }
     },
@@ -10127,7 +11623,7 @@
       "releaseDate": "2024-05-09",
       "type": "tenable",
       "scores": {
-        "calum-aaron-heggie": {
+        "aaron-calum-heggie": {
           "score": 57,
           "max": 60
         }
@@ -10162,7 +11658,7 @@
       "releaseDate": "2024-05-02",
       "type": "tenable",
       "scores": {
-        "calum-aaron-heggie": {
+        "aaron-calum-heggie": {
           "score": 35,
           "max": 40
         }
@@ -10175,9 +11671,76 @@
       "releaseDate": "2024-04-30",
       "type": "whq",
       "scores": {
-        "calum-aaron": {
+        "aaron-calum": {
           "score": 18,
           "max": 31
+        }
+      }
+    },
+    {
+      "id": "rondo-2024-04-27",
+      "title": "THE CLOSEST FOOTBALL RONDO QUIZ OF ALL TIME!!!",
+      "youtubeId": "fqjc4IHWkrs",
+      "releaseDate": "2024-04-27",
+      "type": "rondo",
+      "scores": {
+        "aaron": 22,
+        "jacob": 19,
+        "calum": 21
+      }
+    },
+    {
+      "id": "tenable-2024-04-25",
+      "title": "2 VS 2 FOOTBALL TENABLE CHALLENGE!!!",
+      "youtubeId": "GSLkLqtCoYE",
+      "releaseDate": "2024-04-25",
+      "type": "tenable"
+    },
+    {
+      "id": "misc-2024-04-23",
+      "title": "THE ULTIMATE FOOTBALL TRANSFER QUIZ #2",
+      "youtubeId": "WerwFLNOQKI",
+      "releaseDate": "2024-04-23",
+      "type": "misc",
+      "scores": {
+        "heggie": 19,
+        "jacob": 17,
+        "calum": 20,
+        "aaron": 9
+      }
+    },
+    {
+      "id": "careerpath-2024-04-20",
+      "title": "UNBELIEVABLE HEAD-LOSS!!! 2VS2 CAREER PATH BATTLE!!!",
+      "youtubeId": "J0hTDIy9-LM",
+      "releaseDate": "2024-04-20",
+      "type": "careerpath",
+      "moments": [
+        {
+          "id": "not-badstuber",
+          "title": "Not Badstuber",
+          "description": "Aaron and Jacob get Badstubered all over again.",
+          "timestamp": 1913,
+          "endTime": 2121,
+          "people": [
+            "jacob"
+          ],
+          "categories": [
+            "general-funnies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenable-2024-04-18",
+      "title": "THE GREATEST TENABLE VIDEO EVER MADE!!! AARON’S TENABLE BONANZA!!",
+      "youtubeId": "XruMbFQjxfg",
+      "releaseDate": "2024-04-18",
+      "type": "tenable",
+      "scores": {
+        "calum-heggie-jacob": {
+          "score": 26,
+          "max": 40
         }
       }
     },
@@ -10205,11 +11768,242 @@
       ]
     },
     {
+      "id": "draft-2024-04-13",
+      "title": "COMBINED XI DRAFT - TITLE CHALLENGERS EDITION!!!",
+      "youtubeId": "A_5W6uYXjkk",
+      "releaseDate": "2024-04-13",
+      "type": "draft"
+    },
+    {
+      "id": "imposter-2024-04-11",
+      "title": "PURE CHAOS!!! FOOTBALL AMONG US PART 2!",
+      "youtubeId": "xvKdQCpdHD4",
+      "releaseDate": "2024-04-11",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
+        ],
+        "calum": [
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
+        ],
+        "jacob": [
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
+        ],
+        "heggie": [
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "tenable-2024-04-09",
+      "title": "CLASSIC FOOTBALL TENABLES ARE BACK!!!",
+      "youtubeId": "E7twvPYMSN4",
+      "releaseDate": "2024-04-09",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 32,
+          "max": 40
+        }
+      }
+    },
+    {
       "id": "misc-2024-04-06",
       "title": "THE ULTIMATE FOOTBALL TRANSFER QUIZ!!!",
       "youtubeId": "a3WJPjdefH0",
       "releaseDate": "2024-04-06",
+      "type": "misc",
+      "scores": {
+        "heggie": 18,
+        "jacob": 18,
+        "calum": 20,
+        "aaron": 13
+      }
+    },
+    {
+      "id": "misc-2024-04-04",
+      "title": "RANGERS VS CELTIC…OLD FIRM FACE OFF!",
+      "youtubeId": "WoEbevW5wpM",
+      "releaseDate": "2024-04-04",
       "type": "misc"
+    },
+    {
+      "id": "misc-2024-04-02",
+      "title": "THE FOOTBALL DARTS WORLD CHAMPIONSHIP…THE REMATCH!!!",
+      "youtubeId": "YqBwv2v_3fc",
+      "releaseDate": "2024-04-02",
+      "type": "misc"
+    },
+    {
+      "id": "imposter-2024-03-30",
+      "title": "WE PLAYED THE CRAZIEST FOOTBALL AMONG US OF ALL TIME!!!",
+      "youtubeId": "64WHuQ0o2_4",
+      "releaseDate": "2024-03-30",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
+        ],
+        "calum": [
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "imposter",
+            "win": true
+          }
+        ],
+        "jacob": [
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
+        ],
+        "heggie": [
+          {
+            "role": "imposter",
+            "win": false
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": true
+          },
+          {
+            "role": "faithful",
+            "win": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "tenable-2024-03-28",
+      "title": "CLASSIC FOOTBALL TENABLES WITH @LukePingu!!!",
+      "youtubeId": "4_62lWRxc-w",
+      "releaseDate": "2024-03-28",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-luke": {
+          "score": 28,
+          "max": 40
+        }
+      }
     },
     {
       "id": "rondo-2024-03-26",
@@ -10217,6 +12011,11 @@
       "youtubeId": "8jSUsUYsb-o",
       "releaseDate": "2024-03-26",
       "type": "rondo",
+      "scores": {
+        "heggie": 25,
+        "jacob": 26,
+        "calum": 24
+      },
       "moments": [
         {
           "id": "aaron-belgian-manager",
@@ -10234,11 +12033,56 @@
       ]
     },
     {
+      "id": "tenable-2024-03-22",
+      "title": "TENABLE…GENERAL KNOWLEDGE EDITION FT SOME OF OUR STUPIDEST CATEGORIES YET!!!",
+      "youtubeId": "Aiis3S-acIA",
+      "releaseDate": "2024-03-22",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 34,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "misc-2024-03-20",
+      "title": "RANKING RANDOM ITEMS….BLINDLY!!!",
+      "youtubeId": "pAJKt-vttj0",
+      "releaseDate": "2024-03-20",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2024-03-18",
+      "title": "BREAKING THE STUPIDEST GUINNESS WORLD RECORDS!!!",
+      "youtubeId": "DoUABrmLYsY",
+      "releaseDate": "2024-03-18",
+      "type": "misc"
+    },
+    {
       "id": "killer-tic-tac-toe-2024-03-15",
       "title": "KILLER FOOTY TIC-TAC-TOE….WITH FORFEITS!!!",
       "youtubeId": "Z-w4-u96UU0",
       "releaseDate": "2024-03-15",
       "type": "killer-tic-tac-toe",
+      "results": [
+        {
+          "winner": "heggie",
+          "loser": "aaron"
+        },
+        {
+          "winner": "calum",
+          "loser": "jacob"
+        },
+        {
+          "winner": "aaron",
+          "loser": "jacob"
+        },
+        {
+          "winner": "heggie",
+          "loser": "calum"
+        }
+      ],
       "moments": [
         {
           "id": "aaron-gangnam-style",
@@ -10297,6 +12141,118 @@
       ]
     },
     {
+      "id": "misc-2024-03-13",
+      "title": "THE ULTIMATE LOGO QUIZ!!! ONLY A GENIUS CAN GET 20/20…",
+      "youtubeId": "Ull01BTJ9E0",
+      "releaseDate": "2024-03-13",
+      "type": "misc",
+      "scores": {
+        "heggie": 18,
+        "jacob": 16,
+        "aaron": 20
+      }
+    },
+    {
+      "id": "misc-2024-03-11",
+      "title": "THE ULTIMATE AARON QUIZ!! WHO KNOWS THE GOAT BEST???",
+      "youtubeId": "8ctryl--wxE",
+      "releaseDate": "2024-03-11",
+      "type": "misc",
+      "scores": {
+        "heggie": 22,
+        "jacob": 13
+      }
+    },
+    {
+      "id": "tenable-2024-03-08",
+      "title": "EVEN MORE GENERAL KNOWLEDGE TENABLES!!!",
+      "youtubeId": "UCAzmT2C28w",
+      "releaseDate": "2024-03-08",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 26,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "killer-tic-tac-toe-2024-03-06",
+      "title": "FOOTY TIC-TAC-TOE TOURNAMENT….KILLER EDITION!!!!",
+      "youtubeId": "hpImfAZtPIc",
+      "releaseDate": "2024-03-06",
+      "type": "killer-tic-tac-toe",
+      "results": [
+        {
+          "winner": "aaron",
+          "loser": "calum"
+        },
+        {
+          "winner": "aaron",
+          "loser": "jacob"
+        },
+        {
+          "winner": "jacob",
+          "loser": "calum"
+        },
+        {
+          "winner": "aaron",
+          "loser": "jacob"
+        }
+      ]
+    },
+    {
+      "id": "misc-2024-03-04",
+      "title": "THE ULTIMATE FOOTBALL BADGE QUIZ!!!",
+      "youtubeId": "HBGTG_47120",
+      "releaseDate": "2024-03-04",
+      "type": "misc",
+      "scores": {
+        "heggie": 17,
+        "jacob": 13,
+        "aaron": 12
+      }
+    },
+    {
+      "id": "tenable-2024-03-01",
+      "title": "TENABLES…GENERAL KNOWLEDGE EDITION!!!",
+      "youtubeId": "Dil-ualVT_k",
+      "releaseDate": "2024-03-01",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 36,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "misc-2024-02-28",
+      "title": "2 TRUTHS VS 1 LIE - FOOTBALL EDITION!!!",
+      "youtubeId": "p8jzPDqIPEo",
+      "releaseDate": "2024-02-28",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2024-02-26",
+      "title": "FOOTBALL QUIZ - GUESS THE TWEET CHALLENGE!!!",
+      "youtubeId": "yNuo81dsdBQ",
+      "releaseDate": "2024-02-26",
+      "type": "misc",
+      "scores": {
+        "calum": 5,
+        "jacob": 15,
+        "aaron": 8
+      }
+    },
+    {
+      "id": "tenable-2024-02-23",
+      "title": "FOOTBALL TENABLE - VS EDITION!!!",
+      "youtubeId": "we-vmYtYtBs",
+      "releaseDate": "2024-02-23",
+      "type": "tenable"
+    },
+    {
       "id": "guess-who-2024-02-21",
       "title": "FOOTBALL GUESS WHO - HAIRLINE EDITION!!!",
       "youtubeId": "XurHlU4Lsj8",
@@ -10317,6 +12273,96 @@
           ]
         }
       ]
+    },
+    {
+      "id": "connect4-2024-02-19",
+      "title": "FOOTBALL CONNECT 4 WORLD CHAMPIONSHIP!!!",
+      "youtubeId": "U_p2u_t3xGA",
+      "releaseDate": "2024-02-19",
+      "type": "connect4",
+      "results": [
+        {
+          "winner": "jacob",
+          "loser": "aaron"
+        },
+        {
+          "winner": "heggie",
+          "loser": "aaron"
+        },
+        {
+          "draw": [
+            "heggie",
+            "jacob"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guess-who-2024-02-16",
+      "title": "EXTREMELY DIFFICULT FOOTBALL GUESS WHO!!!",
+      "youtubeId": "HmWRBEBKRUw",
+      "releaseDate": "2024-02-16",
+      "type": "guess-who"
+    },
+    {
+      "id": "draft-2024-02-14",
+      "title": "2 VS 2 ULTIMATE ELIMINATOR FOOTBALL DRAFT!!!",
+      "youtubeId": "qQ_VdwhHRno",
+      "releaseDate": "2024-02-14",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2024-02-12",
+      "title": "Timed Football Tenables…DARTS EDITION 2.0!!!",
+      "youtubeId": "sikiV0n00Zc",
+      "releaseDate": "2024-02-12",
+      "type": "tenable"
+    },
+    {
+      "id": "millionaire-2024-02-09",
+      "title": "FOOTBALL WHO WANTS TO BE A MILLIONAIRE!!!",
+      "youtubeId": "UrLvb2cb3WM",
+      "releaseDate": "2024-02-09",
+      "type": "millionaire"
+    },
+    {
+      "id": "careerpath-2024-02-07",
+      "title": "FOOTBALL CAREER PATH QUIZ!!!",
+      "youtubeId": "1n3SCHTmTGs",
+      "releaseDate": "2024-02-07",
+      "type": "careerpath"
+    },
+    {
+      "id": "misc-2024-02-05",
+      "title": "ULTIMATE FOOTBALL TRUE OR FALSE QUIZ!!!",
+      "youtubeId": "M8iRg1KQf8c",
+      "releaseDate": "2024-02-05",
+      "type": "misc",
+      "scores": {
+        "heggie": 30,
+        "jacob": 26,
+        "aaron": 21
+      }
+    },
+    {
+      "id": "misc-2024-02-02",
+      "title": "Football BULLSEYE Re-Upload (FlatChat Flashback)",
+      "youtubeId": "OeIyQd451rM",
+      "releaseDate": "2024-02-02",
+      "type": "misc"
+    },
+    {
+      "id": "tenable-2024-01-31",
+      "title": "Classic FOOTBALL TENABLES with @GeorgeScaifeLFC",
+      "youtubeId": "3VZrqICHZq8",
+      "releaseDate": "2024-01-31",
+      "type": "tenable",
+      "scores": {
+        "calum-jacob-heggie-aaron-scaife": {
+          "score": 38,
+          "max": 50
+        }
+      }
     },
     {
       "id": "misc-2024-01-29",
@@ -10341,11 +12387,58 @@
       ]
     },
     {
+      "id": "tenable-2024-01-26",
+      "title": "FOOTBALL TIMED TENABLES…DARTS EDITION!!!",
+      "youtubeId": "uvCVxvs8eV8",
+      "releaseDate": "2024-01-26",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 48,
+          "max": 50
+        }
+      }
+    },
+    {
+      "id": "misc-2024-01-24",
+      "title": "Answering Football’s IMPOSSIBLE QUESTIONS FT The Ultimate Animal XI!!!",
+      "youtubeId": "NXaQGfJB0_k",
+      "releaseDate": "2024-01-24",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2024-01-22",
+      "title": "THE ULTIMATE FOOTBALL TRANSFER QUIZ!!!",
+      "youtubeId": "OuZ4U2V9Gs0",
+      "releaseDate": "2024-01-22",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2024-01-17",
+      "title": "THE FOOTBALL DARTS WORLD CHAMPIONSHIP!!!",
+      "youtubeId": "xPDWaj49FGs",
+      "releaseDate": "2024-01-17",
+      "type": "misc"
+    },
+    {
+      "id": "guess-who-2024-01-15",
+      "title": "Guess Who FOOTBALLER EDITION…..RETURNS!!!",
+      "youtubeId": "yQeZaaOM9Zw",
+      "releaseDate": "2024-01-15",
+      "type": "guess-who"
+    },
+    {
       "id": "tenable-2024-01-12",
       "title": "The Stupidest Football Tenable Video YOU WILL EVER WATCH…",
       "youtubeId": "CQudqcFGxaU",
       "releaseDate": "2024-01-12",
       "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 40,
+          "max": 40
+        }
+      },
       "moments": [
         {
           "id": "aaron-tenable-category",
@@ -10363,6 +12456,80 @@
       ]
     },
     {
+      "id": "guess-who-2024-01-10",
+      "title": "Guess Who FOOTBALLER EDITION!!!",
+      "youtubeId": "aOAd7qZxVmE",
+      "releaseDate": "2024-01-10",
+      "type": "guess-who"
+    },
+    {
+      "id": "whq-2024-01-08",
+      "title": "The World’s HARDEST FOOTBALL QUIZ RETURNS!!! - FOOTBALL ONLY CONNECT #2",
+      "youtubeId": "YQbJuuuUvnA",
+      "releaseDate": "2024-01-08",
+      "type": "whq",
+      "scores": {
+        "aaron-calum-jacob": {
+          "score": 21,
+          "max": 31
+        }
+      }
+    },
+    {
+      "id": "sporcle-2024-01-05",
+      "title": "Guessing Every PFA TOTY Player Since 2000!!!Sporcle Football Quiz #4",
+      "youtubeId": "Q3vy6MqK4Q8",
+      "releaseDate": "2024-01-05",
+      "type": "sporcle",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 243,
+          "max": 264
+        }
+      }
+    },
+    {
+      "id": "draft-2024-01-03",
+      "title": "Premier League TEAM OF THE SEASON SO FAR Draft!!!",
+      "youtubeId": "fRBBfjqqKiY",
+      "releaseDate": "2024-01-03",
+      "type": "draft"
+    },
+    {
+      "id": "bigfatquiz-2024-01-01",
+      "title": "The BIG FAT FOOTBALL QUIZ - 2023 Edition!!!",
+      "youtubeId": "kQ_84zh6hc4",
+      "releaseDate": "2024-01-01",
+      "type": "bigfatquiz",
+      "scores": {
+        "heggie": 26,
+        "calum": 26,
+        "jacob": 28,
+        "aaron": 13
+      }
+    },
+    {
+      "id": "misc-2023-12-29",
+      "title": "The BEST & The WORST of TheFlatChat - 2023 COMPILATION!!!",
+      "youtubeId": "WzkQrVGxc74",
+      "releaseDate": "2023-12-29",
+      "type": "misc"
+    },
+    {
+      "id": "draft-2023-12-27",
+      "title": "The Worldwide DRAFT CHALLENGE!!! 11 Different Nations Needed EACH!!!",
+      "youtubeId": "yuug9aSqhuM",
+      "releaseDate": "2023-12-27",
+      "type": "draft"
+    },
+    {
+      "id": "misc-2023-12-25",
+      "title": "THE FLAT CHAT SECRET SANTA!!! MERRY XMAS EVERYONE ❤️",
+      "youtubeId": "YVEIQskPDK4",
+      "releaseDate": "2023-12-25",
+      "type": "misc"
+    },
+    {
       "id": "tenable-2023-12-22",
       "title": "2 VS 2 FOOTBALL TENABLE CHALLENGE!!!",
       "youtubeId": "a7dadUOukfE",
@@ -10370,11 +12537,23 @@
       "type": "tenable"
     },
     {
+      "id": "draft-2023-12-20",
+      "title": "INTERNATIONAL FOOTBALL DRAFT!!! The Flat Chat Go WORLDWIDE 🌎",
+      "youtubeId": "0VjA09bBUsk",
+      "releaseDate": "2023-12-20",
+      "type": "draft"
+    },
+    {
       "id": "higher-or-lower-2023-12-18",
       "title": "HIGHER OR LOWER - Football Edition!!! SPICY FORFEITS INSIDE 🌶️",
       "youtubeId": "gF6LSiy-3JM",
       "releaseDate": "2023-12-18",
       "type": "higher-or-lower",
+      "scores": {
+        "heggie": 28,
+        "jacob": 30,
+        "aaron": 25
+      },
       "moments": [
         {
           "id": "aaron-heart",
@@ -10392,11 +12571,97 @@
       ]
     },
     {
+      "id": "misc-2023-12-15",
+      "title": "COUNTDOWN - FOOTBALL EDITION!!!",
+      "youtubeId": "JBiyJnbhnAE",
+      "releaseDate": "2023-12-15",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2023-12-13",
+      "title": "Creating The PERFECT ATTACKER! Ft Cr7, Messi & Mahrez!!!",
+      "youtubeId": "KZSw3MBZnSc",
+      "releaseDate": "2023-12-13",
+      "type": "misc"
+    },
+    {
+      "id": "sporcle-2023-12-11",
+      "title": "Guessing THE BEST FOOTBALLERS From A DECADE AGO! Sporcle Football Quiz #3",
+      "youtubeId": "Ggk066EoJrU",
+      "releaseDate": "2023-12-11",
+      "type": "sporcle",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 94,
+          "max": 100
+        }
+      }
+    },
+    {
+      "id": "draft-2023-12-08",
+      "title": "ULTIMATE FOOTBALL COMBINED XI CHALLENGE!! Ft -@GeorgeScaifeLFC",
+      "youtubeId": "ZvAo5MgXJqI",
+      "releaseDate": "2023-12-08",
+      "type": "draft"
+    },
+    {
+      "id": "misc-2023-12-06",
+      "title": "Scotland Fans PREDICTING EURO 2024!!! (Group Stage & Full Knockout Stage)",
+      "youtubeId": "Kaj16AThw14",
+      "releaseDate": "2023-12-06",
+      "type": "misc"
+    },
+    {
+      "id": "sporcle-2023-12-04",
+      "title": "IMPOSSIBLE Premier League Top Scorers QUIZ!! Sporcle Football Quiz #2",
+      "youtubeId": "JDtOfWye8Rg",
+      "releaseDate": "2023-12-04",
+      "type": "sporcle",
+      "scores": {
+        "aaron-calum-heggie": {
+          "score": 132,
+          "max": 208
+        }
+      }
+    },
+    {
+      "id": "misc-2023-12-01",
+      "title": "Answering Football’s BIGGEST DEBATES! | The Flat Chat Podcast #23 - Football Court!",
+      "youtubeId": "vg0s_mSSp1I",
+      "releaseDate": "2023-12-01",
+      "type": "misc"
+    },
+    {
+      "id": "tenable-2023-11-29",
+      "title": "FOOTBALL TENABLE… 3 Minute CHALLENGE!!! ft @LukePingu",
+      "youtubeId": "Znq2aQB4zPE",
+      "releaseDate": "2023-11-29",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-jacob-luke": {
+          "score": 36,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "careerpath-2023-11-27",
+      "title": "The ULTIMATE Football Career Path QUIZ - HARD EDITION!!!",
+      "youtubeId": "LZcGidioqZI",
+      "releaseDate": "2023-11-27",
+      "type": "careerpath"
+    },
+    {
       "id": "misc-2023-11-24",
       "title": "The Ultimate PREMIER LEAGUE QUIZ!!! This Is PURE BARCLAYS!!!",
       "youtubeId": "wsj92b9ngYM",
       "releaseDate": "2023-11-24",
       "type": "misc",
+      "scores": {
+        "heggie": 31,
+        "calum": 37,
+        "aaron": 34
+      },
       "moments": [
         {
           "id": "aaron-mr-beans",
@@ -10414,11 +12679,95 @@
       ]
     },
     {
+      "id": "draft-2023-11-20",
+      "title": "The HARDEST Draft Possible Causes DISASTERCLASSES!!! - The Flat Chat Letters Draft II",
+      "youtubeId": "YtwHRF9yE0o",
+      "releaseDate": "2023-11-20",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2023-11-15",
+      "title": "FOOTBALL TENABLES Vs @LukePingu - The Rematch…",
+      "youtubeId": "D0tplzFcr_s",
+      "releaseDate": "2023-11-15",
+      "type": "tenable"
+    },
+    {
+      "id": "whq-2023-11-13",
+      "title": "The HARDEST FOOTBALL QUIZ ever made!!! OnlyConnect - FOOTBALL EDITION!!!",
+      "youtubeId": "NFW6_i8MZE0",
+      "releaseDate": "2023-11-13",
+      "type": "whq",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 9,
+          "max": 15
+        }
+      }
+    },
+    {
+      "id": "tenable-2023-11-10",
+      "title": "The MOST CHAOTIC Football Tenables SO FAR…",
+      "youtubeId": "fjLujIK_wcY",
+      "releaseDate": "2023-11-10",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 29,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "careerpath-2023-11-06",
+      "title": "The HARDEST Career Paths Yet! Ultimate FOOTBALL IQ Test!!!",
+      "youtubeId": "8AulOO0jluw",
+      "releaseDate": "2023-11-06",
+      "type": "careerpath",
+      "scores": {
+        "aaron-calum-jacob": {
+          "score": 7,
+          "max": 9
+        }
+      }
+    },
+    {
+      "id": "sporcle-2023-11-03",
+      "title": "GUESS the Premier League WINNERS Football Quiz!!!",
+      "youtubeId": "TEec5D905kg",
+      "releaseDate": "2023-11-03",
+      "type": "sporcle",
+      "scores": {
+        "aaron-heggie-jacob": {
+          "score": 215,
+          "max": 220
+        }
+      }
+    },
+    {
+      "id": "tenable-2023-10-30",
+      "title": "Football TENABLES!!! Aaron DISASTERCLASS Strikes AGAIN….",
+      "youtubeId": "HD5IvfdSYxs",
+      "releaseDate": "2023-10-30",
+      "type": "tenable",
+      "scores": {
+        "aaron-heggie-jacob": {
+          "score": 21,
+          "max": 30
+        }
+      }
+    },
+    {
       "id": "misc-2023-10-27",
       "title": "Our WORST Forfeit Yet!!! Race Against Time FOOTBALL QUIZ!",
       "youtubeId": "EIFsMknQE0k",
       "releaseDate": "2023-10-27",
       "type": "misc",
+      "scores": {
+        "heggie": 3,
+        "jacob": 17,
+        "aaron": 8
+      },
       "moments": [
         {
           "id": "aaron-swallow",
@@ -10436,11 +12785,67 @@
       ]
     },
     {
+      "id": "misc-2023-10-23",
+      "title": "Our WORST Forfeit Yet!!! Race Against Time FOOTBALL QUIZ!",
+      "youtubeId": "ZOYzm9rA5VE",
+      "releaseDate": "2023-10-23",
+      "type": "misc",
+      "scores": {
+        "heggie": 9000,
+        "jacob": 12500,
+        "calum": 8999
+      }
+    },
+    {
+      "id": "draft-2023-10-20",
+      "title": "Can You Build A Better Team Using SCOTLAND Players? The Scotland National Team Draft!!!",
+      "youtubeId": "jcPYtPMjiA8",
+      "releaseDate": "2023-10-20",
+      "type": "draft"
+    },
+    {
+      "id": "tenable-2023-10-16",
+      "title": "Football TENABLE Against The Clock!! Can You Complete A Tenable Board In 2 Minutes???",
+      "youtubeId": "jeGY7h5-mok",
+      "releaseDate": "2023-10-16",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 31,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "wheeloffortune-2023-10-13",
+      "title": "The Most FORFEITS EVER In A Flat Chat Video! Wheel Of Fortune - FOOTBALL EDITION!!!",
+      "youtubeId": "1TZYXcTI71Y",
+      "releaseDate": "2023-10-13",
+      "type": "wheeloffortune",
+      "scores": {
+        "heggie": 2300,
+        "aaron": 10500,
+        "calum": 7150
+      }
+    },
+    {
+      "id": "tenable-2023-10-09",
+      "title": "Football TENABLES With A TWIST! Elastic Band Forfeit Is BACK!",
+      "youtubeId": "D2pfvxUWpow",
+      "releaseDate": "2023-10-09",
+      "type": "tenable"
+    },
+    {
       "id": "misc-2023-10-06",
       "title": "These Missing XI Football Quizzes Are INSANE! Nobody Can Complete ALL 6!!!",
       "youtubeId": "CrCLeAzhyMo",
       "releaseDate": "2023-10-06",
       "type": "misc",
+      "scores": {
+        "heggie": 20,
+        "jacob": 20,
+        "calum": 4
+      },
       "moments": [
         {
           "id": "calum-pick-players-you-know",
@@ -10458,11 +12863,66 @@
       ]
     },
     {
+      "id": "tenable-2023-10-02",
+      "title": "99.2% Of People WILL FAIL To Complete All 4 Boards! FOOTBALL TENABLES CHALLENGE!!!",
+      "youtubeId": "kH6XvLzDzJM",
+      "releaseDate": "2023-10-02",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-jacob": {
+          "score": 34,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "priceisright-2023-09-29",
+      "title": "THE PRICE IS RIGHT - FOOTBALL EDITION!! FT FORFEITS!!!",
+      "youtubeId": "1e5f3yoEnDY",
+      "releaseDate": "2023-09-29",
+      "type": "priceisright",
+      "scores": {
+        "aaron": 2,
+        "jacob": 13,
+        "calum": 15
+      }
+    },
+    {
+      "id": "draft-2023-09-25",
+      "title": "INSANE Pack Pull! First Ever 4 Player EAFC 24 DRAFT CHALLENGE!!!",
+      "youtubeId": "gJs0NrSX7YU",
+      "releaseDate": "2023-09-25",
+      "type": "draft"
+    },
+    {
+      "id": "catchphrase-2023-09-22",
+      "title": "FOOTBALL CATCHPHRASE!!! A FLAT CHAT FIRST THAT WILL SEND THE CROWD WILD…",
+      "youtubeId": "vVK9YtPdtc8",
+      "releaseDate": "2023-09-22",
+      "type": "catchphrase",
+      "scores": {
+        "aaron": 6,
+        "jacob": 1,
+        "heggie": 3
+      }
+    },
+    {
       "id": "careerpath-2023-09-18",
       "title": "ONLY A FOOTBALL GENIUS CAN COMPLETE ALL 20! FOOTBALL CAREER PATH QUIZ!!!",
       "youtubeId": "lPVdCih0GD4",
       "releaseDate": "2023-09-18",
-      "type": "careerpath"
+      "type": "careerpath",
+      "scores": {
+        "aaron-jacob": 7,
+        "calum-heggie": 9
+      }
+    },
+    {
+      "id": "misc-2023-09-15",
+      "title": "WHO DARES WINS FOOTBALL EDITION!!!",
+      "youtubeId": "p7mSc7SRDD4",
+      "releaseDate": "2023-09-15",
+      "type": "misc"
     },
     {
       "id": "misc-2023-09-13",
@@ -10487,26 +12947,70 @@
       ]
     },
     {
-      "id": "jeopardy-2023-09-08",
-      "title": "FOOTBALL JEOPARDY WITH FORFEITS!!!",
-      "youtubeId": "mg3u3u9HQ_k",
-      "releaseDate": "2023-09-08",
-      "type": "jeopardy",
-      "moments": [
+      "id": "connect4-2023-09-11",
+      "title": "FOOTBALL CONNECT 4 CHALLENGE!!! JACOB VS AARON FOR THE FLAT CHAT CROWN",
+      "youtubeId": "ht-FwiaPtWQ",
+      "releaseDate": "2023-09-11",
+      "type": "connect4",
+      "results": [
         {
-          "id": "red-arse",
-          "title": "What a red arse",
-          "description": "After this OG Football Jeopardy video, Jacob reigns supreme and gets to red arse the other lads, CHAOS ensues.",
-          "timestamp": 2267,
-          "endTime": 2332,
-          "people": [
-            "aaron",
-            "heggie",
-            "calum"
-          ],
-          "categories": [
-            "funky-forfeits"
+          "winner": "jacob",
+          "loser": "aaron"
+        },
+        {
+          "winner": "jacob",
+          "loser": "aaron"
+        },
+        {
+          "winner": "aaron",
+          "loser": "jacob"
+        }
+      ]
+    },
+    {
+      "id": "tenable-2023-09-08",
+      "title": "FOOTBALL TENABLE VS @lewisbowdengolf - CAN LEWIS RETAIN HIS TENABLE CROWN???",
+      "youtubeId": "g2kuSi-mSzY",
+      "releaseDate": "2023-09-08",
+      "type": "tenable",
+      "scores": {
+        "aaron-heggie-jacob-calum-lewis": {
+          "score": 37,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "draft-2023-09-06",
+      "title": "FOOTBALL NATIONS DRAFT GETS HEATED! PREMIER LEAGUE & OLD FIRM REVIEW | The Flat Chat Podcast #12",
+      "youtubeId": "46S-1tni_0I",
+      "releaseDate": "2023-09-06",
+      "type": "draft"
+    },
+    {
+      "id": "tic-tac-toe-2023-09-03",
+      "title": "FOOTY TIC-TAC-TOE VS @LukePingu - CAN LUKE GET REVENGE???",
+      "youtubeId": "47zTDzpIMwQ",
+      "releaseDate": "2023-09-03",
+      "type": "tic-tac-toe",
+      "results": [
+        {
+          "draw": [
+            "luke",
+            "heggie"
           ]
+        },
+        {
+          "winner": "luke",
+          "loser": "aaron"
+        },
+        {
+          "winner": "luke",
+          "loser": "jacob"
+        },
+        {
+          "winner": "luke",
+          "loser": "calum"
         }
       ]
     },
@@ -10531,6 +13035,100 @@
           ]
         }
       ]
+    },
+    {
+      "id": "tenable-2023-08-28",
+      "title": "THE FASTEST FOOTBALL TENABLES IN THE WORLD!!! THE FLAT CHAT VS THE CLOCK!!!",
+      "youtubeId": "3EfGrYW0Zac",
+      "releaseDate": "2023-08-28",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie": {
+          "score": 43,
+          "max": 60
+        }
+      }
+    },
+    {
+      "id": "misc-2023-08-25",
+      "title": "EXTREME FOOTBALL SNAKES & LADDERS ft FORFEITS!!!",
+      "youtubeId": "56n2K3SwLbo",
+      "releaseDate": "2023-08-25",
+      "type": "misc"
+    },
+    {
+      "id": "jeopardy-2023-08-18",
+      "title": "FOOTBALL JEOPARDY WITH FORFEITS!!!",
+      "youtubeId": "mg3u3u9HQ_k",
+      "releaseDate": "2023-09-18",
+      "type": "jeopardy",
+      "scores": {
+        "jacob": 7600,
+        "heggie": 7400
+      },
+      "moments": [
+        {
+          "id": "red-arse",
+          "title": "What a red arse",
+          "description": "After this OG Football Jeopardy video, Jacob reigns supreme and gets to red arse the other lads, CHAOS ensues.",
+          "timestamp": 2267,
+          "endTime": 2332,
+          "people": [
+            "aaron",
+            "heggie",
+            "calum"
+          ],
+          "categories": [
+            "funky-forfeits"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenable-2023-08-14",
+      "title": "FOOTBALL TENABLE VS @LukePingu - WHEN TENABLE UNIVERSES COLLIDE!!!",
+      "youtubeId": "4QlY0x1H_dE",
+      "releaseDate": "2023-08-14",
+      "type": "tenable",
+      "scores": {
+        "aaron-calum-heggie-jacob-luke": {
+          "score": 36,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "tenable-2023-08-11",
+      "title": "FOOTBALL TENABLE VS @CapgunTom - DO FIFA YOUTUBERS HAVE BALL KNOWLEDGE???",
+      "youtubeId": "78syKXmiUOE",
+      "releaseDate": "2023-08-11",
+      "type": "tenable",
+      "scores": {
+        "aaron-heggie-calum-jacob-capgun": {
+          "score": 30,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "tenable-2023-08-07",
+      "title": "FOOTBALL TENABLE VS @TomGarrattVlogs - HAS AARON BEEN REPLACED???",
+      "youtubeId": "JGUe8a_movY",
+      "releaseDate": "2023-08-07",
+      "type": "tenable",
+      "scores": {
+        "heggie-calum-jacob-tom": {
+          "score": 37,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "draft-2023-08-04",
+      "title": "PREMIER LEAGUE DRAFT CHALLENGE!!! UNBELIEVABLE PICKS INSIDE!!!",
+      "youtubeId": "ATsZcDRQoO0",
+      "releaseDate": "2023-08-04",
+      "type": "draft"
     },
     {
       "id": "misc-2023-07-25",
@@ -10560,6 +13158,11 @@
       "youtubeId": "VqmpoKyOxNk",
       "releaseDate": "2023-07-10",
       "type": "taskmaster",
+      "scores": {
+        "aaron": 8,
+        "heggie": 9,
+        "calum": 10
+      },
       "moments": [
         {
           "id": "aaron-unbelievable",
@@ -10595,6 +13198,23 @@
           "categories": [
             "general-funnies"
           ]
+        }
+      ]
+    },
+    {
+      "id": "codenames-2023-06-30",
+      "title": "THE FLAT CHAT’S FOOTBALL CODENAMES!",
+      "youtubeId": "T4gQtHeXjEc",
+      "releaseDate": "2023-06-30",
+      "type": "codenames",
+      "results": [
+        {
+          "winner": "heggie-jacob",
+          "loser": "aaron-calum"
+        },
+        {
+          "winner": "heggie-jacob",
+          "loser": "aaron-calum"
         }
       ]
     },
@@ -10640,6 +13260,12 @@
       "youtubeId": "6SbU134Dkik",
       "releaseDate": "2023-05-31",
       "type": "bigfatquiz",
+      "scores": {
+        "jacob": 22,
+        "heggie": 16,
+        "aaron": 17,
+        "calum": 18
+      },
       "moments": [
         {
           "id": "heggie-bark",
@@ -10657,6 +13283,13 @@
       ]
     },
     {
+      "id": "millionaire-2023-05-24",
+      "title": "£1 MILLION WHO WANTS TO BE A MILLIONAIRE (FOOTBALL EDITION) Ft FORFEITS!!!",
+      "youtubeId": "garT9TiZpuM",
+      "releaseDate": "2023-05-24",
+      "type": "millionaire"
+    },
+    {
       "id": "tenable-2023-05-15",
       "title": "FOOTBALL TENABLE QUIZ WITH FORFEITS!",
       "youtubeId": "S9pE1V55XPg",
@@ -10664,11 +13297,64 @@
       "type": "tenable"
     },
     {
+      "id": "draft-2023-05-12",
+      "title": "THE FLAT CHAT'S DARTS DRAFT!",
+      "youtubeId": "-ghRFhFkTkU",
+      "releaseDate": "2023-05-12",
+      "type": "draft"
+    },
+    {
+      "id": "draft-2023-05-06",
+      "title": "UEFA CHAMPIONS LEAGUE SEMI-FINAL DRAFT!",
+      "youtubeId": "HHhsAn5CCIk",
+      "releaseDate": "2023-05-06",
+      "type": "draft"
+    },
+    {
+      "id": "draft-2023-04-20",
+      "title": "AARON DISASTERCLASS?! | Letters Draft",
+      "youtubeId": "S_blDKYuYDU",
+      "releaseDate": "2023-04-20",
+      "type": "draft"
+    },
+    {
+      "id": "draft-2023-04-12",
+      "title": "NO TOP 6 SIDES IN THE WHOLE DRAFT?! | The Flat Chat's Premier League Draft",
+      "youtubeId": "kjyj9xKjyzk",
+      "releaseDate": "2023-04-12",
+      "type": "draft"
+    },
+    {
+      "id": "draft-2023-03-28",
+      "title": "MESSI, MODRIC AND... DAVID MARSHALL?! | The Flat Chat's International Draft",
+      "youtubeId": "CsAZ7m1AAmc",
+      "releaseDate": "2023-03-28",
+      "type": "draft"
+    },
+    {
       "id": "tic-tac-toe-2023-03-07",
       "title": "FOOTBALL TIC-TAC-TOE CHALLENGES WITH FORFEITS!!!",
       "youtubeId": "1ltaj6lwLAs",
       "releaseDate": "2023-03-07",
       "type": "tic-tac-toe",
+      "results": [
+        {
+          "winner": "calum",
+          "loser": "jacob"
+        },
+        {
+          "winner": "heggie",
+          "loser": "aaron"
+        },
+        {
+          "winner": "jacob",
+          "loser": "aaron"
+        },
+        {
+          "winner": "heggie",
+          "loser": "calum"
+        }
+      ],
       "moments": [
         {
           "id": "double-kill",
@@ -10724,6 +13410,13 @@
           ]
         }
       ]
+    },
+    {
+      "id": "draft-2022-11-16",
+      "title": "WORLD CUP LEGENDS DRAFT CHALLENGE ft Cruyff, Dani Alves and Iniesta",
+      "youtubeId": "kenBixkKWI8",
+      "releaseDate": "2022-11-16",
+      "type": "draft"
     },
     {
       "id": "tiktok-2023-04-16",

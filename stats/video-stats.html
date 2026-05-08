@@ -281,9 +281,6 @@ h1 {
   font-size: 16px;
   line-height: 1;
 }
-.leaderboard-medals span.spoon small {
-  transform: translateY(2px);
-}
 .leaderboard-medals span strong {
   display: block;
   font-size: 1rem;
@@ -298,6 +295,12 @@ h1 {
   font-weight: 800;
   font-size: 1.2rem;
   color: #25b6c4;
+}
+
+.leaderboard-points small {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 600;
 }
 
 .leaderboard-row.first {
@@ -760,6 +763,9 @@ h1 {
 
   <div id="overall-leaderboard" class="dashboard-card">
     <h2>Overall Medal Table</h2>
+    <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">
+      Points per head-to-head video:<br>1st place - 3 pts<br>2nd place - 2 pts<br>3rd place - 1 pt
+    </p>
     <div id="leaderboardContent"></div>
   </div>
 
@@ -804,6 +810,10 @@ const formatDisplayNames = {
   "millionpounddrop": "Million Pound Drop",
   "extremetension": "Extreme Tension",
   "whodareswins": "Who Dares Wins",
+  "connect4": "Connect Four",
+  "weakestlink": "The Weakest Link",
+  "wheeloffortune": "Wheel of Fortune",
+  "priceisright": "The Price is Right",
   "squadup": "Squad Up"
 };
 
@@ -815,7 +825,11 @@ const formatModes = {
   "codenames": "h2h",
   "tenable": "team",
   "careerpath": "team",
-  "whq": "team"
+  "whq": "team",
+  "guess-who": "team",
+  "squadguesser": "team",
+  "sporcle": "team",
+  "logic": "team"
 };
 
 const reverseScoreFormats = {
@@ -841,7 +855,10 @@ const playerFullNames = {
   "ollie": "Ollie Thomas",
   "caulfield": "Jack Caulfield",
   "bigjohn": "Big John",
-  "eric": "Big Massive Eric"
+  "eric": "Big Massive Eric",
+  "lewis": "Lewis Bowden",
+  "capgun": "Capgun Tom",
+  "tom": "Tom Garratt"
 };
 
 const corePlayers = ["aaron", "heggie", "jacob", "calum"];
@@ -1019,7 +1036,24 @@ const sorted = Object.entries(video.scores)
       : scoreB - scoreA;  // normal highest first
   });
 
+let prevScore;
+let currentRank = 0;
+const lastScore = sorted.length
+  ? (typeof sorted[sorted.length - 1][1] === "number"
+      ? sorted[sorted.length - 1][1]
+      : sorted[sorted.length - 1][1].score)
+  : null;
+
     sorted.forEach(([competitor, score], index) => {
+      const currentScore = typeof score === "number" ? score : score.score;
+      if (index === 0) {
+        currentRank = 1;
+      } else if (currentScore === prevScore) {
+        // keep the same rank for tied scores
+      } else {
+        currentRank = index + 1;
+      }
+      prevScore = currentScore;
 
       const players = competitor.includes("-")
         ? competitor.split("-")
@@ -1040,7 +1074,7 @@ const sorted = Object.entries(video.scores)
 
         if (!medalTable[player]) {
           medalTable[player] = {
-            gold: 0, silver: 0, bronze: 0, spoon: 0, points: 0
+            gold: 0, silver: 0, bronze: 0, points: 0
           };
         }
 
@@ -1050,27 +1084,24 @@ const sorted = Object.entries(video.scores)
           score,
           youtubeId: video.youtubeId,
           date: video.releaseDate,
-          place: index + 1
+          place: currentRank
         });
         individualStats[player].high =
           Math.max(individualStats[player].high, score);
         individualStats[player].low =
           Math.min(individualStats[player].low, score);
 
-        if (index === 0) {
+        if (currentRank === 1) {
           medalTable[player].gold++;
           medalTable[player].points += 3;
         }
-        else if (index === 1) {
+        else if (currentRank === 2) {
           medalTable[player].silver++;
           medalTable[player].points += 2;
         }
-        else if (index === 2) {
+        else if (currentRank === 3) {
           medalTable[player].bronze++;
           medalTable[player].points += 1;
-        }
-        else if (index === sorted.length - 1) {
-          medalTable[player].spoon++;
         }
 
       });
@@ -1122,9 +1153,8 @@ const sorted = Object.entries(video.scores)
               <span><small>🥇</small><strong>${p.gold}</strong></span>
               <span><small>🥈</small><strong>${p.silver}</strong></span>
               <span><small>🥉</small><strong>${p.bronze}</strong></span>
-              <span class="spoon"><small>🪵</small><strong>${p.spoon}</strong></span>
             </div>
-            <div class="leaderboard-points">${p.points} pts</div>
+            <div class="leaderboard-points">${p.points} pts<br><small>${(p.points / individualStats[player].apps).toFixed(2)} pts/app</small></div>
           </div>
         </div>
       `).join("")}
@@ -1233,7 +1263,7 @@ function buildRoleStats(videos, type) {
 
         stats[player].apps++;
 
-        if (r.role === "imposter") {
+        if (r.role === "imposter" || r.role === "traitor") {
           r.win ? stats[player].impWin++ : stats[player].impLoss++;
         }
 
@@ -1260,6 +1290,7 @@ function buildRoleStats(videos, type) {
       .map(([player, s]) => ({
         player,
         totalWins: s.impWin + s.faithWin,
+        winRate: ((s.impWin + s.faithWin) / Math.max(s.apps, 1)) * 100,
         ...s
       }))
       .sort((a,b)=>b.totalWins-a.totalWins);
@@ -1283,7 +1314,7 @@ function buildRoleStats(videos, type) {
               </span>
             </div>
             <div class="leaderboard-points">
-              Round Wins
+              ${p.totalWins} Wins<br><small>${p.winRate.toFixed(1)}% Round Win</small>
             </div>
           </div>
         </div>
@@ -1556,9 +1587,25 @@ const entries = Object.entries(video.scores)
       : scoreB - scoreA;
   });
 
-entries.forEach((entry, index) => {
+let prevScore;
+let currentRank = 0;
+const lastScore = entries.length
+  ? (typeof entries[entries.length - 1][1] === "number"
+      ? entries[entries.length - 1][1]
+      : entries[entries.length - 1][1].score)
+  : null;
 
+entries.forEach((entry, index) => {
   const competitor = entry[0];
+  const score = typeof entry[1] === "number" ? entry[1] : entry[1].score;
+  if (index === 0) {
+    currentRank = 1;
+  } else if (score === prevScore) {
+    // keep the same rank for tied scores
+  } else {
+    currentRank = index + 1;
+  }
+  prevScore = score;
 
   // Split teams into individuals
   const members = competitor.includes("-")
@@ -1572,7 +1619,6 @@ entries.forEach((entry, index) => {
       gold: 0,
       silver: 0,
       bronze: 0,
-      spoon: 0,
       points: 0
     };
   }
@@ -1583,20 +1629,17 @@ entries.forEach((entry, index) => {
 
   appearances[player]++;
 
-    if(index === 0) {
+    if(currentRank === 1) {
       medalTable[player].gold++;
       medalTable[player].points += 3;
     }
-    else if(index === 1) {
+    else if(currentRank === 2) {
       medalTable[player].silver++;
       medalTable[player].points += 2;
     }
-    else if(index === 2) {
+    else if(currentRank === 3) {
       medalTable[player].bronze++;
       medalTable[player].points += 1;
-    }
-    else if(index === entries.length - 1) {
-      medalTable[player].spoon++;
     }
 
   });
@@ -1653,14 +1696,10 @@ function renderLeaderboardRows(players) {
               <small>🥉</small>
               <strong>${p.bronze}</strong>
             </span>
-            <span class="spoon">
-              <small>🥄</small>
-              <strong>${p.spoon}</strong>
-            </span>
           </div>
 
           <div class="leaderboard-points">
-            ${p.points} pts
+            ${p.points} pts<br><small>${(p.points / appearances[entry[0]]).toFixed(2)} pts/app</small>
           </div>
         </div>
 
