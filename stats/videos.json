@@ -1,5 +1,5 @@
 {
-  "current_progress": "THE MILLION POUND DROP - FOOTBALL EDITION!!!",  
+  "current_progress": "THE HARDEST FOOTBALL QUIZ OF ALL TIME RETURNS!!!",  
   "videos": [
     {
       "id": "tension-2026-05-06",
@@ -9736,6 +9736,54 @@
       ]
     },
     {
+      "id": "imposter-2024-06-28",
+      "title": "DISGUSTING IMPOSTER CAFE.... WITH FORFEITS!!!",
+      "youtubeId": "VX8Gf4PoeKM",
+      "releaseDate": "2024-06-28",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "calum": [
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true }
+        ],
+        "jacob": [
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true }
+        ],
+        "heggie": [
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "imposter", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "misc-2024-06-26",
+      "title": "SCOTLAND FAN At The EUROS in GERMANY Vlog!!!",
+      "youtubeId": "PoiYbxgfJCE",
+      "releaseDate": "2024-06-26",
+      "type": "misc"
+    },
+    {
       "id": "1-percent-club-2024-06-25",
       "title": "THE FOOTBALL 1% CLUB!!! CAN YOU FINISH THIS FOOTBALL QUIZ???",
       "youtubeId": "7no5Md-e9uI",
@@ -9758,11 +9806,11 @@
       ]
     },
     {
-      "id": "stream-2024-06-24",
+      "id": "misc-2024-06-24",
       "title": "HUNGARIAN HEARTBREAK!!! Scotland Fans Live Reaction To Scotland 0-1 Hungary At Euro 2024!",
       "youtubeId": "LL4237AXZC8",
       "releaseDate": "2024-06-24",
-      "type": "stream",
+      "type": "misc",
       "moments": [
         {
           "id": "aaron-table-thuds",
@@ -9780,11 +9828,46 @@
       ]
     },
     {
+      "id": "imposter-2024-06-22",
+      "title": "We Got PRANKED Playing FOOTBALL IMPOSTER!!!",
+      "youtubeId": "CfoLYCgBh3U",
+      "releaseDate": "2024-06-22",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": true }
+
+        ],
+        "calum": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ],
+        "jacob": [
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": false }
+        ]
+      }
+    },
+    {
       "id": "codenames-2024-06-21",
       "title": "FOOTBALL CODENAMES May Be THE BEST Football Game EVER!!!",
       "youtubeId": "LXkSdAuGWpY",
       "releaseDate": "2024-06-21",
       "type": "codenames",
+      "results": [
+        { "winner": "calum-heggie", "loser": "aaron-jacob" },
+        { "winner": "calum-heggie", "loser": "aaron-jacob" },
+        { "winner": "aaron-jacob", "loser": "calum-heggie" }
+      ],
       "moments": [
         {
           "id": "calum-adidas",
@@ -9802,11 +9885,301 @@
       ]
     },
     {
+      "id": "misc-2024-06-20",
+      "title": "We CAN Get Through!!! SCOTLAND FANS Live Reaction To Scotland 1-1 Switzerland At Euro 2024",
+      "youtubeId": "4CRj7uQMXPc",
+      "releaseDate": "2024-06-20",
+      "type": "misc"
+    },
+    {
+      "id": "tenable-2024-06-18",
+      "title": "An EMBARRASSING Performance In This 2 VS 2 Football TENABLE BATTLE!!!",
+      "youtubeId": "m64USg7qcoU",
+      "releaseDate": "2024-06-18",
+      "type": "tenable"
+    },
+    {
+      "id": "wavelength-2024-06-16",
+      "title": "The CRAZIEST Game Of WAVELENGTH Ever!!!",
+      "youtubeId": "XfVb_AVYsQo",
+      "releaseDate": "2024-06-16",
+      "type": "wavelength",
+      "scores": {
+        "aaron-jacob": 10,
+        "calum-heggie": 9
+      }
+    },
+    {
+      "id": "misc-2024-06-15",
+      "title": "MASSACRE IN MUNICH! Scotland Fans Live Reaction To Germany 5-1 Scotland!!!",
+      "youtubeId": "N3NbNO_Kwvg",
+      "releaseDate": "2024-06-15",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2024-06-13",
+      "title": "We Played Football Against THE SIDEMEN at ELLAND ROAD!",
+      "youtubeId": "I6TzVBm4DyY",
+      "releaseDate": "2024-06-13",
+      "type": "misc"
+    },
+    {
+      "id": "misc-2024-06-11",
+      "title": "OUR FINAL EURO 2024 PREDICTIONS!!!",
+      "youtubeId": "qdkHA6XQJBY",
+      "releaseDate": "2024-06-11",
+      "type": "misc"
+    },
+    {
+      "id": "pointless-2024-06-08",
+      "title": "The MOST UNBELIEVABLE Answers Ever In This FOOTBALL POINTLESS…",
+      "youtubeId": "r6fe_Xo_t98",
+      "releaseDate": "2024-06-08",
+      "type": "pointless",
+      "scores": {
+        "aaron": 418,
+        "jacob": 269,
+        "heggie": 177
+      }
+    },
+    {
+      "id": "tenable-2024-06-06",
+      "title": "Our BEST EVER Football Tenable Performance…",
+      "youtubeId": "MpNJARjbF8s",
+      "releaseDate": "2024-06-06",
+      "type": "tenable",
+      "scores": {
+        "calum-aaron-jacob-heggie": {
+          "score": 39,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "whq-2024-06-04",
+      "title": "The HARDEST Football Quiz EVER MADE…..",
+      "youtubeId": "K_cQIC9Hs0c",
+      "releaseDate": "2024-06-04",
+      "type": "whq",
+      "scores": {
+        "calum-aaron-jacob": {
+          "score": 21.5,
+          "max": 31
+        }
+      }
+    },
+    {
+      "id": "wavelength-2024-06-01",
+      "title": "Is This The GREATEST FOOTBALL GAME Ever Made???",
+      "youtubeId": "me94tSTl_8s",
+      "releaseDate": "2024-06-01",
+      "type": "wavelength"
+    },
+    {
+      "id": "imposter-2024-05-30",
+      "title": "The GREATEST Football Imposter Win OF ALL TIME?!?",
+      "youtubeId": "Pk0QTNeMeuw",
+      "releaseDate": "2024-05-30",
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "imposter", "win": false }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ],
+        "heggie": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": true }
+        ]
+      }
+    },
+    {
+      "id": "tenable-2024-05-28",
+      "title": "THE BEST CATEGORY EVER?? - FOOTBALL TENABLE VS @LukePingu!!!",
+      "youtubeId": "M-OajOfCNNc",
+      "releaseDate": "2024-05-28",
+      "type": "tenable",
+      "scores": {
+        "calum-aaron-jacob-heggie-luke": {
+          "score": 31,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "careerpath-2024-05-25",
+      "title": "2 VS 2 Career Path BATTLE And ????? Loses His HEAD!!!",
+      "youtubeId": "r-2jElUkMPE",
+      "releaseDate": "2024-05-25",
+      "type": "careerpath"
+    },
+    {
+      "id": "tenable-2024-05-23",
+      "title": "1000 IQ GENERAL KNOWLEDGE TENABLES!!!",
+      "youtubeId": "XLqxn19KL4g",
+      "releaseDate": "2024-05-23",
+      "type": "tenable",
+      "scores": {
+        "calum-aaron-jacob-heggie": {
+          "score": 28,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "bigfatquiz-2024-05-21",
+      "title": "THE BIG FAT QUIZ OF THE SEASON - PREMIER LEAGUE 2023/2024 EDITION!!!",
+      "youtubeId": "yHdDUl0VNR0",
+      "releaseDate": "2024-05-21",
+      "type": "bigfatquiz",
+      "scores": {
+        "aaron": 13,
+        "calum": 18,
+        "heggie": 17,
+        "jacob": 22
+      }
+    },
+    {
+      "id": "draft-2024-05-18",
+      "title": "We Spent 1 BILLION POUNDS Each On THE BEST PREMIER LEAGUE PLAYERS….",
+      "youtubeId": "885bAY49d5U",
+      "releaseDate": "2024-05-18",
+      "type": "draft"
+    },
+    {
       "id": "imposter-2024-05-16",
       "title": "FOOTBALL AMONG US RETURNS!!!",
       "youtubeId": "tDUwiVhz1Io",
       "releaseDate": "2024-05-16",
-      "type": "imposter"
+      "type": "imposter",
+      "results": {
+        "aaron": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false }
+        ],
+        "calum": [
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false }
+        ],
+        "jacob": [
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "imposter", "win": true }
+        ],
+        "heggie": [
+          { "role": "imposter", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": false },
+          { "role": "faithful", "win": true },
+          { "role": "faithful", "win": false }
+        ]
+      }
+    },
+    {
+      "id": "guess-who-2024-05-14",
+      "title": "FOOTBALL GUESS WHO - SUBJECTIVE EDITION!!!",
+      "youtubeId": "A8cIqZjGXBU",
+      "releaseDate": "2024-05-14",
+      "type": "guess-who"
+    },
+    {
+      "id": "pointless-2024-05-11",
+      "title": "FOOTBALL POINTLESS QUIZ!!! CAN YOU GET THE MOST OBSCURE ANSWERS???",
+      "youtubeId": "dj-mUORgK7k",
+      "releaseDate": "2024-05-11",
+      "type": "pointless",
+      "scores": {
+        "aaron": 402,
+        "calum": 174
+      }
+    },
+    {
+      "id": "tenable-2024-05-09",
+      "title": "THE MOST CORRECT ANSWERS EVER??? - FOOTBALL TENABLE!!!",
+      "youtubeId": "aVj-Xcv_mU4",
+      "releaseDate": "2024-05-09",
+      "type": "tenable",
+      "scores": {
+        "calum-aaron-heggie": {
+          "score": 57,
+          "max": 60
+        }
+      }
+    },
+    {
+      "id": "catchphrase-2024-05-07",
+      "title": "CATCHPHRASE - FOOTBALL QUIZ EDITION!!!",
+      "youtubeId": "Uit4W9pJJbw",
+      "releaseDate": "2024-05-07",
+      "type": "catchphrase",
+      "scores": {
+        "aaron": 3,
+        "heggie": 7
+      }
+    },
+    {
+      "id": "misc-2024-05-04",
+      "title": "*NEW GAME* SQUAD BATTLES FOOTBALL QUIZ!!!",
+      "youtubeId": "EyGvjgk1GvY",
+      "releaseDate": "2024-05-04",
+      "type": "misc",
+      "scores": {
+        "aaron": 40,
+        "heggie": 53
+      }
+    },
+    {
+      "id": "tenable-2024-05-02",
+      "title": "IMPOSSIBLE TENABLE CHALLENGE - GENERAL KNOWLEDGE EDITION!!!",
+      "youtubeId": "uIkuHCkeotw",
+      "releaseDate": "2024-05-02",
+      "type": "tenable",
+      "scores": {
+        "calum-aaron-heggie": {
+          "score": 35,
+          "max": 40
+        }
+      }
+    },
+    {
+      "id": "whq-2024-04-30",
+      "title": "THE HARDEST FOOTBALL QUIZ OF ALL TIME RETURNS!!!",
+      "youtubeId": "IEMZoEMhRLc",
+      "releaseDate": "2024-04-30",
+      "type": "whq",
+      "scores": {
+        "calum-aaron": {
+          "score": 18,
+          "max": 31
+        }
+      }
     },
     {
       "id": "millionaire-2024-04-16",
