@@ -171,6 +171,110 @@
       }
     }
 
+/* Fullscreen image popup */
+.fullscreen-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.popup-content {
+  position: relative;
+  max-width: 1200px;
+  max-height: 95vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content img {
+  width: 100%;
+  max-height: 95vh;
+  object-fit: contain;
+
+  border: 8px solid #fff;
+  border-radius: 18px;
+
+  box-shadow:
+    0 0 0 4px #25b6c4,
+    0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* Caption */
+.popup-caption {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+
+  padding: 14px 28px;
+  border-radius: 999px;
+
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  border: 3px solid #25b6c4;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+
+  z-index: 10002;
+  text-align: center;
+}
+
+/* Close button */
+.popup-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+
+  font-size: 34px;
+  cursor: pointer;
+
+  z-index: 10003;
+
+  transition: all 0.2s ease;
+}
+
+.popup-close:hover {
+  background: #25b6c4;
+  transform: scale(1.08);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .popup-caption {
+    font-size: 1.2rem;
+    padding: 10px 18px;
+    width: 85%;
+  }
+
+  .popup-content img {
+    border-width: 5px;
+  }
+
+}
+
 .modal {
   position: fixed;
   inset: 0;
@@ -230,6 +334,22 @@
   </style>
 </head>
 <body>
+
+<!-- Fullscreen Popup -->
+<div id="welcomePopup" class="fullscreen-popup">
+  <div class="popup-content">
+
+    <button class="popup-close" id="closePopup">×</button>
+
+    <div class="popup-caption">
+      Flatchat Pub Quiz 8 Winners
+    </div>
+
+    <img src="./icons/pub-quiz-winners.png" alt="Flatchat Pub Quiz 8 Winners">
+
+  </div>
+</div>
+
   <div data-include="includes/header.html"></div>
 
   <header style="text-align: center;">
@@ -386,6 +506,26 @@ document.addEventListener("click", function(e) {
 
 });
 
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const popup = document.getElementById("welcomePopup");
+  const closeBtn = document.getElementById("closePopup");
+
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+
+  // Optional: close when clicking outside image
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.style.display = "none";
+    }
+  });
+
+});
 </script>
 
 </body>
